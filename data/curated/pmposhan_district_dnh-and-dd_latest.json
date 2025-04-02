@@ -1,0 +1,47 @@
+[
+  {
+    "district": "DADRA & NAGAR HAVELI",
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "state_code": "07",
+    "fin_year": "2025-2026",
+    "schools_reported": 134,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
+    "schools_covered": 261,
+    "children_enrolled": 54375,
+    "children_fed": 14082,
+    "utilization_pct": 75.8,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0
+  },
+  {
+    "district": "DAMAN",
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "state_code": "07",
+    "fin_year": "2025-2026",
+    "schools_reported": 1,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
+    "schools_covered": 30,
+    "children_enrolled": 16850,
+    "children_fed": 159,
+    "utilization_pct": 79.5,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0
+  },
+  {
+    "district": "DIU",
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "state_code": "07",
+    "fin_year": "2025-2026",
+    "schools_reported": 0,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
+    "schools_covered": 13,
+    "children_enrolled": 3742,
+    "children_fed": 0,
+    "utilization_pct": 0.0,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0
+  }
+]

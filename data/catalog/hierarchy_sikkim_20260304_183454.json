@@ -1,0 +1,1049 @@
+{
+  "state_id": "28",
+  "state_name": "SIKKIM",
+  "state_url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=28",
+  "financial_year_default": "2025-2026",
+  "districts": [
+    {
+      "district_code": "2802",
+      "district_name": "Gangtok District",
+      "blocks": [
+        {
+          "block_code": "2802001",
+          "block_name": "GANGTOK",
+          "panchayats": [
+            {
+              "panchayat_code": "2802001034",
+              "panchayat_name": "BHUSHUK NAITAM"
+            },
+            {
+              "panchayat_code": "2802001013",
+              "panchayat_name": "GNATHANG"
+            },
+            {
+              "panchayat_code": "2802001035",
+              "panchayat_name": "KOPIBARI SYARI"
+            },
+            {
+              "panchayat_code": "2802001026",
+              "panchayat_name": "NANDOK SARMSA"
+            },
+            {
+              "panchayat_code": "2802001027",
+              "panchayat_name": "RONGEY TATHANGCHEN"
+            }
+          ]
+        },
+        {
+          "block_code": "2802007",
+          "block_name": "KHAMDONG",
+          "panchayats": [
+            {
+              "panchayat_code": "2802007040",
+              "panchayat_name": "CHISOPANI"
+            },
+            {
+              "panchayat_code": "2802007038",
+              "panchayat_name": "DUNG DUNG THASA"
+            },
+            {
+              "panchayat_code": "2802007037",
+              "panchayat_name": "KHAMDONG"
+            },
+            {
+              "panchayat_code": "2802007039",
+              "panchayat_name": "SIMIK LINGZEY"
+            },
+            {
+              "panchayat_code": "2802007036",
+              "panchayat_name": "Sirwani Chisopani"
+            }
+          ]
+        },
+        {
+          "block_code": "2802010",
+          "block_name": "Martam",
+          "panchayats": [
+            {
+              "panchayat_code": "2802007035",
+              "panchayat_name": "BENG-PHEGYONG"
+            },
+            {
+              "panchayat_code": "2802007034",
+              "panchayat_name": "MARTAM NAZITAM"
+            },
+            {
+              "panchayat_code": "2802001033",
+              "panchayat_name": "NAMLI"
+            },
+            {
+              "panchayat_code": "2802001032",
+              "panchayat_name": "SAMLIK MARCHAK"
+            }
+          ]
+        },
+        {
+          "block_code": "2802008",
+          "block_name": "RAKDONG TINTEK",
+          "panchayats": [
+            {
+              "panchayat_code": "2802008043",
+              "panchayat_name": "PATUK SINGBEL"
+            },
+            {
+              "panchayat_code": "2802008042",
+              "panchayat_name": "RAKDONG TINTEK"
+            },
+            {
+              "panchayat_code": "2802008041",
+              "panchayat_name": "SAMDONG KAMBAL"
+            },
+            {
+              "panchayat_code": "2802008040",
+              "panchayat_name": "TUMIN"
+            }
+          ]
+        },
+        {
+          "block_code": "2802006",
+          "block_name": "RANKA",
+          "panchayats": [
+            {
+              "panchayat_code": "2802006028",
+              "panchayat_name": "LUING PERBING"
+            },
+            {
+              "panchayat_code": "2802006029",
+              "panchayat_name": "RANKA"
+            },
+            {
+              "panchayat_code": "2802006031",
+              "panchayat_name": "RAWTEY RUMTEK"
+            },
+            {
+              "panchayat_code": "2802006030",
+              "panchayat_name": "REY MENDU"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "district_code": "2804",
+      "district_name": "Gyalshing District",
+      "blocks": [
+        {
+          "block_code": "2804008",
+          "block_name": "Chongrang",
+          "panchayats": [
+            {
+              "panchayat_code": "2804003005",
+              "panchayat_name": "ARITHANG CHONGRANG"
+            },
+            {
+              "panchayat_code": "2804003002",
+              "panchayat_name": "DHUPIDARA NARKHOLA"
+            },
+            {
+              "panchayat_code": "2804003006",
+              "panchayat_name": "GERETHANG"
+            },
+            {
+              "panchayat_code": "2804003001",
+              "panchayat_name": "KARCHI MANGAM"
+            },
+            {
+              "panchayat_code": "2804003003",
+              "panchayat_name": "KONGRI LABDANG"
+            },
+            {
+              "panchayat_code": "2804003004",
+              "panchayat_name": "TASHIDING"
+            }
+          ]
+        },
+        {
+          "block_code": "2804004",
+          "block_name": "DENTAM",
+          "panchayats": [
+            {
+              "panchayat_code": "2804004026",
+              "panchayat_name": "BEGHA"
+            },
+            {
+              "panchayat_code": "2804004017",
+              "panchayat_name": "BONGTEN SAPONG"
+            },
+            {
+              "panchayat_code": "2804004022",
+              "panchayat_name": "HEE"
+            },
+            {
+              "panchayat_code": "2804004018",
+              "panchayat_name": "KARMATAR GYATEN"
+            },
+            {
+              "panchayat_code": "2804004019",
+              "panchayat_name": "MANEYBUNG"
+            },
+            {
+              "panchayat_code": "2804004020",
+              "panchayat_name": "MANGMOO DENTAM"
+            },
+            {
+              "panchayat_code": "2804004021",
+              "panchayat_name": "SANGKHU RADUKHANDU"
+            },
+            {
+              "panchayat_code": "2804001016",
+              "panchayat_name": "SARDUNG LUNGZIK"
+            },
+            {
+              "panchayat_code": "2804004025",
+              "panchayat_name": "SOPAKHA"
+            }
+          ]
+        },
+        {
+          "block_code": "2804001",
+          "block_name": "GYALSHING",
+          "panchayats": [
+            {
+              "panchayat_code": "2804001010",
+              "panchayat_name": "DARAP SINGPHENG"
+            },
+            {
+              "panchayat_code": "2804001013",
+              "panchayat_name": "GYALSHING OMCHUNG"
+            },
+            {
+              "panchayat_code": "2804001015",
+              "panchayat_name": "LINGCHOM TIKJEK"
+            },
+            {
+              "panchayat_code": "2804001018",
+              "panchayat_name": "NAMBU SINDRABONG"
+            },
+            {
+              "panchayat_code": "2804001011",
+              "panchayat_name": "SINGYANG CHUMBUNG"
+            },
+            {
+              "panchayat_code": "2804001017",
+              "panchayat_name": "TIKJUK KYONGSA"
+            },
+            {
+              "panchayat_code": "2804001012",
+              "panchayat_name": "YANGTEN"
+            },
+            {
+              "panchayat_code": "2804001014",
+              "panchayat_name": "YANGTHANG"
+            }
+          ]
+        },
+        {
+          "block_code": "2804007",
+          "block_name": "Hee Martam",
+          "panchayats": [
+            {
+              "panchayat_code": "2804005025",
+              "panchayat_name": "BERFOK CHANDABUNG"
+            },
+            {
+              "panchayat_code": "2804004024",
+              "panchayat_name": "Bermiok Berthang"
+            },
+            {
+              "panchayat_code": "2804004023",
+              "panchayat_name": "Martam"
+            },
+            {
+              "panchayat_code": "2804007001",
+              "panchayat_name": "Pecherek Hee Patal"
+            },
+            {
+              "panchayat_code": "2804007002",
+              "panchayat_name": "YANGSUM"
+            }
+          ]
+        },
+        {
+          "block_code": "2804003",
+          "block_name": "YUKSOM",
+          "panchayats": [
+            {
+              "panchayat_code": "2804003008",
+              "panchayat_name": "KHECHUPERI"
+            },
+            {
+              "panchayat_code": "2804003009",
+              "panchayat_name": "MELI"
+            },
+            {
+              "panchayat_code": "2804003010",
+              "panchayat_name": "Rimbi-Timbrong"
+            },
+            {
+              "panchayat_code": "2804003011",
+              "panchayat_name": "THINGLING"
+            },
+            {
+              "panchayat_code": "2804003007",
+              "panchayat_name": "YUKSOM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "district_code": "2801",
+      "district_name": "Mangan District",
+      "blocks": [
+        {
+          "block_code": "2801001",
+          "block_name": "CHUNGTHANG",
+          "panchayats": [
+            {
+              "panchayat_code": "2801001020",
+              "panchayat_name": "LACHEN DZUMSA"
+            },
+            {
+              "panchayat_code": "2801001021",
+              "panchayat_name": "LACHUNG DZUMSA"
+            },
+            {
+              "panchayat_code": "2801001012",
+              "panchayat_name": "SHIP GYER"
+            },
+            {
+              "panchayat_code": "2801001011",
+              "panchayat_name": "TSHUNGTHANG"
+            }
+          ]
+        },
+        {
+          "block_code": "2801004",
+          "block_name": "DZONGU",
+          "panchayats": [
+            {
+              "panchayat_code": "2801004017",
+              "panchayat_name": "BARFOK LINGDONG"
+            },
+            {
+              "panchayat_code": "2801004018",
+              "panchayat_name": "HEE GYATHANG"
+            },
+            {
+              "panchayat_code": "2801004013",
+              "panchayat_name": "LINGTHEM LINGDEM"
+            },
+            {
+              "panchayat_code": "2801004019",
+              "panchayat_name": "LUM-GOR -SANGTOK"
+            },
+            {
+              "panchayat_code": "2801004014",
+              "panchayat_name": "POSINGDANG SAFO"
+            },
+            {
+              "panchayat_code": "2801004016",
+              "panchayat_name": "SAKYONG PENTONG"
+            },
+            {
+              "panchayat_code": "2801004015",
+              "panchayat_name": "TINGVONG"
+            }
+          ]
+        },
+        {
+          "block_code": "2801003",
+          "block_name": "KABI TINGDA",
+          "panchayats": [
+            {
+              "panchayat_code": "2801003001",
+              "panchayat_name": "KABI RONGPA"
+            },
+            {
+              "panchayat_code": "2802001036",
+              "panchayat_name": "KYONGNOSLA"
+            },
+            {
+              "panchayat_code": "2801003024",
+              "panchayat_name": "LINGCHOM TINGDA"
+            },
+            {
+              "panchayat_code": "2801003022",
+              "panchayat_name": "LINGDOK NAMPONG"
+            },
+            {
+              "panchayat_code": "2801003003",
+              "panchayat_name": "MEN RONGONG"
+            },
+            {
+              "panchayat_code": "2801003023",
+              "panchayat_name": "NAVAY SHOTAK"
+            },
+            {
+              "panchayat_code": "2801003002",
+              "panchayat_name": "PHENSANG"
+            },
+            {
+              "panchayat_code": "2801003004",
+              "panchayat_name": "RONGONG TUMLONG"
+            }
+          ]
+        },
+        {
+          "block_code": "2801002",
+          "block_name": "MANGAN",
+          "panchayats": [
+            {
+              "panchayat_code": "2801002007",
+              "panchayat_name": "MANGSHILA TIBUK"
+            },
+            {
+              "panchayat_code": "2801002006",
+              "panchayat_name": "NAMOK SHEYAM"
+            },
+            {
+              "panchayat_code": "2801002005",
+              "panchayat_name": "RAMTHANG TANGYEK"
+            },
+            {
+              "panchayat_code": "2801002008",
+              "panchayat_name": "RINGMIM NAMPATAM"
+            },
+            {
+              "panchayat_code": "2801002009",
+              "panchayat_name": "SENTAM"
+            },
+            {
+              "panchayat_code": "2801002011",
+              "panchayat_name": "TINGCHIM CHADEY"
+            },
+            {
+              "panchayat_code": "2801002010",
+              "panchayat_name": "TUNGNAGA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "district_code": "2803",
+      "district_name": "Namchi District",
+      "blocks": [
+        {
+          "block_code": "2803008",
+          "block_name": "Jorethang",
+          "panchayats": [
+            {
+              "panchayat_code": "2803001032",
+              "panchayat_name": "DENCHUNG"
+            },
+            {
+              "panchayat_code": "2803008001",
+              "panchayat_name": "POKLOK"
+            },
+            {
+              "panchayat_code": "2803001030",
+              "panchayat_name": "SALGHARI"
+            },
+            {
+              "panchayat_code": "2803001033",
+              "panchayat_name": "TINIK CHISOPANI"
+            }
+          ]
+        },
+        {
+          "block_code": "2803005",
+          "block_name": "MELLI",
+          "panchayats": [
+            {
+              "panchayat_code": "2803005024",
+              "panchayat_name": "LUNGCHOK KAMAREY"
+            },
+            {
+              "panchayat_code": "2803005022",
+              "panchayat_name": "MELLIDARA PAIYONG"
+            },
+            {
+              "panchayat_code": "2803005021",
+              "panchayat_name": "SADAM RABITAR"
+            },
+            {
+              "panchayat_code": "2803005026",
+              "panchayat_name": "SUKRABAREY SUNTOLEY"
+            },
+            {
+              "panchayat_code": "2803005025",
+              "panchayat_name": "SUMBUK KARTIKEY"
+            },
+            {
+              "panchayat_code": "2803005023",
+              "panchayat_name": "TURUK RAMABUNG"
+            }
+          ]
+        },
+        {
+          "block_code": "2803001",
+          "block_name": "NAMCHI",
+          "panchayats": [
+            {
+              "panchayat_code": "2803001031",
+              "panchayat_name": "ASSANGTHANG"
+            },
+            {
+              "panchayat_code": "2803001040",
+              "panchayat_name": "BOOMTAR SALLEYBONG"
+            },
+            {
+              "panchayat_code": "2803001036",
+              "panchayat_name": "DAMTHANG"
+            },
+            {
+              "panchayat_code": "2803001041",
+              "panchayat_name": "KAMRANG"
+            },
+            {
+              "panchayat_code": "2803001037",
+              "panchayat_name": "Kitam Manpur"
+            },
+            {
+              "panchayat_code": "2803001034",
+              "panchayat_name": "MAMLEY"
+            },
+            {
+              "panchayat_code": "2803001039",
+              "panchayat_name": "Maniram Phalidara"
+            },
+            {
+              "panchayat_code": "2803001038",
+              "panchayat_name": "MIKHOLA SINGITHANG"
+            },
+            {
+              "panchayat_code": "2803001026",
+              "panchayat_name": "RONG BUL"
+            },
+            {
+              "panchayat_code": "2803001029",
+              "panchayat_name": "SOROK SHYAMPANI"
+            },
+            {
+              "panchayat_code": "2803001035",
+              "panchayat_name": "TINGRITHANG"
+            }
+          ]
+        },
+        {
+          "block_code": "2803007",
+          "block_name": "Namthang",
+          "panchayats": [
+            {
+              "panchayat_code": "2803004015",
+              "panchayat_name": "CHUBA PHONG"
+            },
+            {
+              "panchayat_code": "2803007001",
+              "panchayat_name": "KAREK KABREY"
+            },
+            {
+              "panchayat_code": "2803001017",
+              "panchayat_name": "KATENG PAMPHOK"
+            },
+            {
+              "panchayat_code": "2803007002",
+              "panchayat_name": "NAGI RUCHUNG"
+            },
+            {
+              "panchayat_code": "2803001016",
+              "panchayat_name": "Namthang Maneydara"
+            },
+            {
+              "panchayat_code": "2803004014",
+              "panchayat_name": "Perbing Dovan"
+            },
+            {
+              "panchayat_code": "2803004013",
+              "panchayat_name": "RAMENG NIZRAMENG"
+            },
+            {
+              "panchayat_code": "2803001020",
+              "panchayat_name": "RATEYPANI"
+            },
+            {
+              "panchayat_code": "2803001019",
+              "panchayat_name": "TANJI BIKMAT"
+            },
+            {
+              "panchayat_code": "2803001018",
+              "panchayat_name": "TURUNG MAMRING"
+            }
+          ]
+        },
+        {
+          "block_code": "2803002",
+          "block_name": "RAVONG",
+          "panchayats": [
+            {
+              "panchayat_code": "2803002043",
+              "panchayat_name": "BARFUNG ZARUNG"
+            },
+            {
+              "panchayat_code": "2803002045",
+              "panchayat_name": "BORONG PHAMTHANG"
+            },
+            {
+              "panchayat_code": "2803002042",
+              "panchayat_name": "KEWZING BAKHIM"
+            },
+            {
+              "panchayat_code": "2803002041",
+              "panchayat_name": "LEKSHIP"
+            },
+            {
+              "panchayat_code": "2803002047",
+              "panchayat_name": "RABONG KHOP"
+            },
+            {
+              "panchayat_code": "2803002044",
+              "panchayat_name": "RALONG NAMLUNG"
+            },
+            {
+              "panchayat_code": "2803002007",
+              "panchayat_name": "RANKAY SANGMOO"
+            },
+            {
+              "panchayat_code": "2803002046",
+              "panchayat_name": "RAVONG BARFUNG"
+            },
+            {
+              "panchayat_code": "2803002039",
+              "panchayat_name": "TINIKTAM RAYONG"
+            }
+          ]
+        },
+        {
+          "block_code": "2803004",
+          "block_name": "TEMI TARKU",
+          "panchayats": [
+            {
+              "panchayat_code": "2803004012",
+              "panchayat_name": "BARNYAK TOKAL"
+            },
+            {
+              "panchayat_code": "2803004008",
+              "panchayat_name": "BEN NAMPRIK"
+            },
+            {
+              "panchayat_code": "2803004011",
+              "panchayat_name": "NAMPHING"
+            },
+            {
+              "panchayat_code": "2803004010",
+              "panchayat_name": "TARKU"
+            },
+            {
+              "panchayat_code": "2803004009",
+              "panchayat_name": "TEMI"
+            }
+          ]
+        },
+        {
+          "block_code": "2803006",
+          "block_name": "WAK",
+          "panchayats": [
+            {
+              "panchayat_code": "2803006040",
+              "panchayat_name": "LAMTING TINGMO"
+            },
+            {
+              "panchayat_code": "2803006038",
+              "panchayat_name": "SANGANATH"
+            },
+            {
+              "panchayat_code": "2803006037",
+              "panchayat_name": "WAK OMCHU"
+            }
+          ]
+        },
+        {
+          "block_code": "2803003",
+          "block_name": "YANGANG",
+          "panchayats": [
+            {
+              "panchayat_code": "2803003007",
+              "panchayat_name": "Kolthang Todey"
+            },
+            {
+              "panchayat_code": "2803003001",
+              "panchayat_name": "LINGI"
+            },
+            {
+              "panchayat_code": "2803003008",
+              "panchayat_name": "Lingmoo Payong"
+            },
+            {
+              "panchayat_code": "2803003004",
+              "panchayat_name": "NIYA MANGZING"
+            },
+            {
+              "panchayat_code": "2803003005",
+              "panchayat_name": "SRIPATAM GAGYONG"
+            },
+            {
+              "panchayat_code": "2803003006",
+              "panchayat_name": "YANGANG RANGANG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "district_code": "2806",
+      "district_name": "PAKYONG",
+      "blocks": [
+        {
+          "block_code": "2802003",
+          "block_name": "DUGA",
+          "panchayats": [
+            {
+              "panchayat_code": "2802003005",
+              "panchayat_name": "Budang Kamerey"
+            },
+            {
+              "panchayat_code": "2802003003",
+              "panchayat_name": "Central Pendam"
+            },
+            {
+              "panchayat_code": "2802003002",
+              "panchayat_name": "West Pendam"
+            }
+          ]
+        },
+        {
+          "block_code": "2806001",
+          "block_name": "NAMCHEYBONG",
+          "panchayats": [
+            {
+              "panchayat_code": "2802002024",
+              "panchayat_name": "AHO YANGTAM"
+            },
+            {
+              "panchayat_code": "2802001025",
+              "panchayat_name": "ASSAM LINGZEY"
+            },
+            {
+              "panchayat_code": "2802002023",
+              "panchayat_name": "KARTOK NAMCHEYBONG"
+            },
+            {
+              "panchayat_code": "2802003001",
+              "panchayat_name": "Sumin Lingzey"
+            }
+          ]
+        },
+        {
+          "block_code": "2802002",
+          "block_name": "PAKYONG",
+          "panchayats": [
+            {
+              "panchayat_code": "2802002021",
+              "panchayat_name": "AMBA"
+            },
+            {
+              "panchayat_code": "2802004020",
+              "panchayat_name": "BERING TAREY THANG"
+            },
+            {
+              "panchayat_code": "2802002005",
+              "panchayat_name": "Chalamthang Pacheykhani"
+            },
+            {
+              "panchayat_code": "2802003004",
+              "panchayat_name": "East Pendam"
+            },
+            {
+              "panchayat_code": "2802002022",
+              "panchayat_name": "PACHEY SAMSING"
+            },
+            {
+              "panchayat_code": "2802002025",
+              "panchayat_name": "PAKYONG"
+            },
+            {
+              "panchayat_code": "2802004006",
+              "panchayat_name": "TAZA"
+            }
+          ]
+        },
+        {
+          "block_code": "2802009",
+          "block_name": "Parkha",
+          "panchayats": [
+            {
+              "panchayat_code": "2802002017",
+              "panchayat_name": "LATUK"
+            },
+            {
+              "panchayat_code": "2802002019",
+              "panchayat_name": "RIWA MACHONG"
+            },
+            {
+              "panchayat_code": "2802002018",
+              "panchayat_name": "THEKABONG PARKHA"
+            }
+          ]
+        },
+        {
+          "block_code": "2802005",
+          "block_name": "REGU",
+          "panchayats": [
+            {
+              "panchayat_code": "2802005016",
+              "panchayat_name": "Chujachen"
+            },
+            {
+              "panchayat_code": "2802005010",
+              "panchayat_name": "Dolepchen"
+            },
+            {
+              "panchayat_code": "2802005014",
+              "panchayat_name": "Lingtam Phadamchen"
+            },
+            {
+              "panchayat_code": "2802005012",
+              "panchayat_name": "Premlakha Subaneydara"
+            },
+            {
+              "panchayat_code": "2802005011",
+              "panchayat_name": "Regoh"
+            },
+            {
+              "panchayat_code": "2802005015",
+              "panchayat_name": "Rolep Lamaten"
+            },
+            {
+              "panchayat_code": "2802005017",
+              "panchayat_name": "Rongli Changeylakha"
+            }
+          ]
+        },
+        {
+          "block_code": "2802004",
+          "block_name": "RHENOCK",
+          "panchayats": [
+            {
+              "panchayat_code": "2802005008",
+              "panchayat_name": "Aritar"
+            },
+            {
+              "panchayat_code": "2802004007",
+              "panchayat_name": "RHENOCK"
+            },
+            {
+              "panchayat_code": "2802004009",
+              "panchayat_name": "SUDUNGLAKHA"
+            },
+            {
+              "panchayat_code": "2802004021",
+              "panchayat_name": "TARPIN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "district_code": "2805",
+      "district_name": "SORENG",
+      "blocks": [
+        {
+          "block_code": "2805001",
+          "block_name": "BAIGUNEY",
+          "panchayats": [
+            {
+              "panchayat_code": "2804002051",
+              "panchayat_name": "GELLING BAIGUNEY"
+            },
+            {
+              "panchayat_code": "2804002032",
+              "panchayat_name": "MABONG SEGENG"
+            },
+            {
+              "panchayat_code": "2804002050",
+              "panchayat_name": "SAMSING PIPALAY"
+            },
+            {
+              "panchayat_code": "2804002039",
+              "panchayat_name": "ZOOM"
+            }
+          ]
+        },
+        {
+          "block_code": "2804009",
+          "block_name": "Chumbong",
+          "panchayats": [
+            {
+              "panchayat_code": "2804002036",
+              "panchayat_name": "CHAKUNG"
+            },
+            {
+              "panchayat_code": "2804002034",
+              "panchayat_name": "CHOTA SAMDONG SUNTOLEY"
+            },
+            {
+              "panchayat_code": "2804002038",
+              "panchayat_name": "CHUMBUNG"
+            },
+            {
+              "panchayat_code": "2804002037",
+              "panchayat_name": "MANDOGAON BERBOTEY"
+            }
+          ]
+        },
+        {
+          "block_code": "2804006",
+          "block_name": "DARAMDIN",
+          "panchayats": [
+            {
+              "panchayat_code": "2804002046",
+              "panchayat_name": "BURIAKHOP"
+            },
+            {
+              "panchayat_code": "2804002045",
+              "panchayat_name": "DODAK"
+            },
+            {
+              "panchayat_code": "2804006050",
+              "panchayat_name": "LONGCHOK SALYANGDANG"
+            },
+            {
+              "panchayat_code": "2804006049",
+              "panchayat_name": "LOWER FAMBONG"
+            },
+            {
+              "panchayat_code": "2804006052",
+              "panchayat_name": "OKHREY"
+            },
+            {
+              "panchayat_code": "2804006053",
+              "panchayat_name": "RIBDI BHARENG"
+            },
+            {
+              "panchayat_code": "2804006047",
+              "panchayat_name": "RUMBUK"
+            },
+            {
+              "panchayat_code": "2804006054",
+              "panchayat_name": "SAPREYNAGI"
+            },
+            {
+              "panchayat_code": "2804006051",
+              "panchayat_name": "SIKTAM TIKPUR"
+            },
+            {
+              "panchayat_code": "2804006048",
+              "panchayat_name": "UPPER FAMBONG"
+            }
+          ]
+        },
+        {
+          "block_code": "2804005",
+          "block_name": "KALUK",
+          "panchayats": [
+            {
+              "panchayat_code": "2804005031",
+              "panchayat_name": "BARA SAMDONG BOOM RESHI"
+            },
+            {
+              "panchayat_code": "2804005029",
+              "panchayat_name": "DEYTHANG"
+            },
+            {
+              "panchayat_code": "2804005028",
+              "panchayat_name": "SAMDONG SRIBADAM"
+            },
+            {
+              "panchayat_code": "2804005026",
+              "panchayat_name": "SANGADORJI"
+            },
+            {
+              "panchayat_code": "2804005027",
+              "panchayat_name": "TADONG RINCHENPONG"
+            }
+          ]
+        },
+        {
+          "block_code": "2804010",
+          "block_name": "Mangalbarey",
+          "panchayats": [
+            {
+              "panchayat_code": "2804002033",
+              "panchayat_name": "KHANISERBONG SUNTOLEY"
+            },
+            {
+              "panchayat_code": "2804010001",
+              "panchayat_name": "PARENGAON"
+            },
+            {
+              "panchayat_code": "2804002031",
+              "panchayat_name": "SULDUNG KAMLING"
+            },
+            {
+              "panchayat_code": "2804005030",
+              "panchayat_name": "TAKOTHANG"
+            }
+          ]
+        },
+        {
+          "block_code": "2804002",
+          "block_name": "SORENG",
+          "panchayats": [
+            {
+              "panchayat_code": "2804002049",
+              "panchayat_name": "BUDHANG"
+            },
+            {
+              "panchayat_code": "2804002047",
+              "panchayat_name": "Karthok Bojek"
+            },
+            {
+              "panchayat_code": "2804002043",
+              "panchayat_name": "LOWER TIMBURBONG"
+            },
+            {
+              "panchayat_code": "2804002040",
+              "panchayat_name": "MALBASEY"
+            },
+            {
+              "panchayat_code": "2804002048",
+              "panchayat_name": "MANGSARI MANGARZUMG"
+            },
+            {
+              "panchayat_code": "2804002042",
+              "panchayat_name": "SINGLING"
+            },
+            {
+              "panchayat_code": "2804002041",
+              "panchayat_name": "SORENG"
+            },
+            {
+              "panchayat_code": "2804002044",
+              "panchayat_name": "THARPU"
+            },
+            {
+              "panchayat_code": "2804002052",
+              "panchayat_name": "UPPER TIMBURBONG"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "districts": 6,
+    "blocks": 34,
+    "panchayats": 199
+  }
+}

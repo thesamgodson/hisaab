@@ -1,0 +1,40 @@
+[
+  {
+    "district": "KARGIL",
+    "state": "LADAKH",
+    "state_code": "",
+    "fin_year": "2024-2025",
+    "ration_cards_total": 17436,
+    "ration_cards_active": 17436,
+    "allocation_mt": 0.0,
+    "offtake_mt": 0.0,
+    "offtake_pct": 0.0,
+    "beneficiaries_total": 73603,
+    "aay_ration_cards": 4151,
+    "aay_beneficiaries": 15804,
+    "phh_ration_cards": 13285,
+    "phh_beneficiaries": 57799,
+    "date_of_data": "05 Mar 2026",
+    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
+    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+  },
+  {
+    "district": "LEH LADAKH",
+    "state": "LADAKH",
+    "state_code": "",
+    "fin_year": "2024-2025",
+    "ration_cards_total": 11490,
+    "ration_cards_active": 11490,
+    "allocation_mt": 0.0,
+    "offtake_mt": 0.0,
+    "offtake_pct": 0.0,
+    "beneficiaries_total": 40694,
+    "aay_ration_cards": 1296,
+    "aay_beneficiaries": 3490,
+    "phh_ration_cards": 10194,
+    "phh_beneficiaries": 37204,
+    "date_of_data": "05 Mar 2026",
+    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
+    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+  }
+]

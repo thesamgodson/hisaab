@@ -1,0 +1,119 @@
+{
+  "state_id": "19",
+  "state_name": "LAKSHADWEEP",
+  "state_url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=19",
+  "financial_year_default": "2025-2026",
+  "districts": [
+    {
+      "district_code": "1901",
+      "district_name": "LAKSHADWEEP DISTRICT",
+      "blocks": [
+        {
+          "block_code": "1901005",
+          "block_name": "AGATTI",
+          "panchayats": [
+            {
+              "panchayat_code": "1901005001",
+              "panchayat_name": "AGATTI"
+            }
+          ]
+        },
+        {
+          "block_code": "1901006",
+          "block_name": "AMINI",
+          "panchayats": [
+            {
+              "panchayat_code": "1901006001",
+              "panchayat_name": "AMINI"
+            }
+          ]
+        },
+        {
+          "block_code": "1901002",
+          "block_name": "ANDROTT",
+          "panchayats": [
+            {
+              "panchayat_code": "1901002001",
+              "panchayat_name": "ANDROTT"
+            }
+          ]
+        },
+        {
+          "block_code": "1901010",
+          "block_name": "BITRA",
+          "panchayats": [
+            {
+              "panchayat_code": "1901010001",
+              "panchayat_name": "BITRA"
+            }
+          ]
+        },
+        {
+          "block_code": "1901009",
+          "block_name": "CHETLAT",
+          "panchayats": [
+            {
+              "panchayat_code": "1901009001",
+              "panchayat_name": "CHETLAT"
+            }
+          ]
+        },
+        {
+          "block_code": "1901007",
+          "block_name": "KADMAT",
+          "panchayats": [
+            {
+              "panchayat_code": "1901007001",
+              "panchayat_name": "KADMAT"
+            }
+          ]
+        },
+        {
+          "block_code": "1901003",
+          "block_name": "KALPENI",
+          "panchayats": [
+            {
+              "panchayat_code": "1901003001",
+              "panchayat_name": "KALPENI"
+            }
+          ]
+        },
+        {
+          "block_code": "1901004",
+          "block_name": "KAVARATTI",
+          "panchayats": [
+            {
+              "panchayat_code": "1901004001",
+              "panchayat_name": "KAVARATTI"
+            }
+          ]
+        },
+        {
+          "block_code": "1901008",
+          "block_name": "KILTAN",
+          "panchayats": [
+            {
+              "panchayat_code": "1901008001",
+              "panchayat_name": "KILTAN"
+            }
+          ]
+        },
+        {
+          "block_code": "1901001",
+          "block_name": "MINICOY",
+          "panchayats": [
+            {
+              "panchayat_code": "1901001001",
+              "panchayat_name": "MINICOY"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "districts": 1,
+    "blocks": 10,
+    "panchayats": 10
+  }
+}

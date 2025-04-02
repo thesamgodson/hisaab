@@ -1,0 +1,182 @@
+[
+  {
+    "state_name": "ANDAMAN AND NICOBAR",
+    "state_id": "01",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=01"
+  },
+  {
+    "state_name": "ANDHRA PRADESH",
+    "state_id": "02",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=02"
+  },
+  {
+    "state_name": "ARUNACHAL PRADESH",
+    "state_id": "03",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=03"
+  },
+  {
+    "state_name": "ASSAM",
+    "state_id": "04",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=04"
+  },
+  {
+    "state_name": "BIHAR",
+    "state_id": "05",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=05"
+  },
+  {
+    "state_name": "CHANDIGARH",
+    "state_id": "06",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=06"
+  },
+  {
+    "state_name": "CHHATTISGARH",
+    "state_id": "33",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=33"
+  },
+  {
+    "state_name": "DADRA & NAGAR HAVELI",
+    "state_id": "07",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=07"
+  },
+  {
+    "state_name": "DAMAN & DIU",
+    "state_id": "08",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=08"
+  },
+  {
+    "state_name": "GOA",
+    "state_id": "10",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=10"
+  },
+  {
+    "state_name": "GUJARAT",
+    "state_id": "11",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=11"
+  },
+  {
+    "state_name": "HARYANA",
+    "state_id": "12",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=12"
+  },
+  {
+    "state_name": "HIMACHAL PRADESH",
+    "state_id": "13",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=13"
+  },
+  {
+    "state_name": "JAMMU AND KASHMIR",
+    "state_id": "14",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=14"
+  },
+  {
+    "state_name": "JHARKHAND",
+    "state_id": "34",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=34"
+  },
+  {
+    "state_name": "KARNATAKA",
+    "state_id": "15",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=15"
+  },
+  {
+    "state_name": "KERALA",
+    "state_id": "16",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=16"
+  },
+  {
+    "state_name": "LAKSHADWEEP",
+    "state_id": "19",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=19"
+  },
+  {
+    "state_name": "MADHYA PRADESH",
+    "state_id": "17",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=17"
+  },
+  {
+    "state_name": "MAHARASHTRA",
+    "state_id": "18",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=18"
+  },
+  {
+    "state_name": "MANIPUR",
+    "state_id": "20",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=20"
+  },
+  {
+    "state_name": "MEGHALAYA",
+    "state_id": "21",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=21"
+  },
+  {
+    "state_name": "MIZORAM",
+    "state_id": "22",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=22"
+  },
+  {
+    "state_name": "NAGALAND",
+    "state_id": "23",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=23"
+  },
+  {
+    "state_name": "ORISSA",
+    "state_id": "24",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=24"
+  },
+  {
+    "state_name": "PONDICHERRY",
+    "state_id": "25",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=25"
+  },
+  {
+    "state_name": "PUNJAB",
+    "state_id": "26",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=26"
+  },
+  {
+    "state_name": "RAJASTHAN",
+    "state_id": "27",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=27"
+  },
+  {
+    "state_name": "SIKKIM",
+    "state_id": "28",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=28"
+  },
+  {
+    "state_name": "TAMIL NADU",
+    "state_id": "29",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=29"
+  },
+  {
+    "state_name": "TRIPURA",
+    "state_id": "30",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=30"
+  },
+  {
+    "state_name": "UTTAR PRADESH",
+    "state_id": "31",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=31"
+  },
+  {
+    "state_name": "UTTRANCHAL",
+    "state_id": "35",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=35"
+  },
+  {
+    "state_name": "WEST BENGAL",
+    "state_id": "32",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=32"
+  },
+  {
+    "state_name": "TELANGANA",
+    "state_id": "36",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=36"
+  },
+  {
+    "state_name": "LADAKH",
+    "state_id": "37",
+    "url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=37"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "state": "GUJARAT",
+    "state_code": "",
+    "fin_year": "cumulative",
+    "roads_completed": 4413,
+    "length_completed_km": 11397.17,
+    "habitations_connected": 48,
+    "expenditure_programme_cr": 2993.99,
+    "expenditure_admin_cr": 0.0,
+    "source_url": "https://pmgsy.dord.gov.in/MvcReportViewer.aspx?_r=%2fPMGSYCitizen%2fDistrictBriefDetailsNew&Level=2&STATE=12&DISTRICT=0&PMGSY=0&BLOCK=0&ROADSTATUS=0&SCHEME=0&CYEAR=2025",
+    "scraped_at": "2026-03-06T06:41:38.694961+00:00"
+  }
+]

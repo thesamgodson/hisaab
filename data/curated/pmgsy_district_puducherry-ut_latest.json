@@ -1,0 +1,34 @@
+[
+  {
+    "district": "Karaikal",
+    "state": "PUDUCHERRY",
+    "state_code": "",
+    "fin_year": "cumulative",
+    "scheme": "All",
+    "roads_sanctioned": 54,
+    "roads_completed": 20,
+    "length_sanctioned_km": 141.94,
+    "length_completed_km": 48.04,
+    "habitations_covered": 0,
+    "value_of_projects_cr": 87.82,
+    "expenditure_cr": 29.74,
+    "source_url": "https://pmgsy.dord.gov.in/MvcReportViewer.aspx?_r=%2fPMGSYCitizen%2fDistrictBriefDetailsNew&Level=2&STATE=27&DISTRICT=0&PMGSY=0&BLOCK=0&ROADSTATUS=0&SCHEME=0&CYEAR=2025",
+    "scraped_at": "2026-03-06T06:46:10.741064+00:00"
+  },
+  {
+    "district": "Mahe",
+    "state": "PUDUCHERRY",
+    "state_code": "",
+    "fin_year": "cumulative",
+    "scheme": "All",
+    "roads_sanctioned": 18,
+    "roads_completed": 10,
+    "length_sanctioned_km": 32.2,
+    "length_completed_km": 14.33,
+    "habitations_covered": 0,
+    "value_of_projects_cr": 19.08,
+    "expenditure_cr": 9.14,
+    "source_url": "https://pmgsy.dord.gov.in/MvcReportViewer.aspx?_r=%2fPMGSYCitizen%2fDistrictBriefDetailsNew&Level=2&STATE=27&DISTRICT=0&PMGSY=0&BLOCK=0&ROADSTATUS=0&SCHEME=0&CYEAR=2025",
+    "scraped_at": "2026-03-06T06:46:10.741064+00:00"
+  }
+]

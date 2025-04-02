@@ -1,0 +1,47 @@
+[
+  {
+    "district": "NICOBARS",
+    "state": "ANDAMAN AND NICOBAR",
+    "state_code": "01",
+    "total_fto_generated": 17,
+    "first_signatory_signed": 17,
+    "first_signatory_pending": 0,
+    "second_signatory_signed": 17,
+    "second_signatory_pending": 0,
+    "fto_sent_to_bank": 17,
+    "source_url": "https://mnregaweb4.nic.in/netnrega/FTO/FTOReport.aspx?page=s&mode=B&flg=W&state_name=ANDAMAN AND NICOBAR&state_code=01&fin_year=2024-2025&dstyp=B&source=national&Digest=Wr+3hOO5p+1njdpAQI8tmA",
+    "scraped_at": "2026-03-04T20:32:09.254262+00:00",
+    "fto_processed_by_bank": 482,
+    "transactions_processed": 17
+  },
+  {
+    "district": "NORTH AND MIDDLE ANDAMAN",
+    "state": "ANDAMAN AND NICOBAR",
+    "state_code": "01",
+    "total_fto_generated": 613,
+    "first_signatory_signed": 613,
+    "first_signatory_pending": 0,
+    "second_signatory_signed": 613,
+    "second_signatory_pending": 0,
+    "fto_sent_to_bank": 613,
+    "source_url": "https://mnregaweb4.nic.in/netnrega/FTO/FTOReport.aspx?page=s&mode=B&flg=W&state_name=ANDAMAN AND NICOBAR&state_code=01&fin_year=2024-2025&dstyp=B&source=national&Digest=Wr+3hOO5p+1njdpAQI8tmA",
+    "scraped_at": "2026-03-04T20:32:09.254289+00:00",
+    "fto_processed_by_bank": 6805,
+    "transactions_processed": 613
+  },
+  {
+    "district": "SOUTH ANDAMAN",
+    "state": "ANDAMAN AND NICOBAR",
+    "state_code": "01",
+    "total_fto_generated": 222,
+    "first_signatory_signed": 222,
+    "first_signatory_pending": 0,
+    "second_signatory_signed": 222,
+    "second_signatory_pending": 0,
+    "fto_sent_to_bank": 222,
+    "source_url": "https://mnregaweb4.nic.in/netnrega/FTO/FTOReport.aspx?page=s&mode=B&flg=W&state_name=ANDAMAN AND NICOBAR&state_code=01&fin_year=2024-2025&dstyp=B&source=national&Digest=Wr+3hOO5p+1njdpAQI8tmA",
+    "scraped_at": "2026-03-04T20:32:09.254306+00:00",
+    "fto_processed_by_bank": 4616,
+    "transactions_processed": 222
+  }
+]

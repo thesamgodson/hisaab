@@ -1,0 +1,14 @@
+[
+  {
+    "state": "West Bengal",
+    "state_code": "",
+    "fin_year": "cumulative",
+    "roads_completed": 6939,
+    "length_completed_km": 33961.24,
+    "habitations_connected": 35,
+    "expenditure_programme_cr": 14639.66,
+    "expenditure_admin_cr": 0.0,
+    "source_url": "https://pmgsy.dord.gov.in/MvcReportViewer.aspx?_r=%2fPMGSYCitizen%2fDistrictBriefDetailsNew&Level=2&STATE=35&DISTRICT=0&PMGSY=0&BLOCK=0&ROADSTATUS=0&SCHEME=0&CYEAR=2025",
+    "scraped_at": "2026-03-06T06:48:17.269834+00:00"
+  }
+]

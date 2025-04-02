@@ -1,0 +1,12 @@
+{
+  "state_id": "06",
+  "state_name": "CHANDIGARH",
+  "state_url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=06",
+  "financial_year_default": "2025-2026",
+  "districts": [],
+  "counts": {
+    "districts": 0,
+    "blocks": 0,
+    "panchayats": 0
+  }
+}

@@ -1,0 +1,861 @@
+{
+  "state_id": "10",
+  "state_name": "GOA",
+  "state_url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=10",
+  "financial_year_default": "2025-2026",
+  "districts": [
+    {
+      "district_code": "1001",
+      "district_name": "NORTH GOA",
+      "blocks": [
+        {
+          "block_code": "1001002",
+          "block_name": "BARDEZ",
+          "panchayats": [
+            {
+              "panchayat_code": "1001002003",
+              "panchayat_name": "ALDONA"
+            },
+            {
+              "panchayat_code": "1001002007",
+              "panchayat_name": "ANJUNA"
+            },
+            {
+              "panchayat_code": "1001002009",
+              "panchayat_name": "ARPORA-NAGOA"
+            },
+            {
+              "panchayat_code": "1001002010",
+              "panchayat_name": "ASSAGAO"
+            },
+            {
+              "panchayat_code": "1001002011",
+              "panchayat_name": "ASSANORA"
+            },
+            {
+              "panchayat_code": "1001002014",
+              "panchayat_name": "BASTORA"
+            },
+            {
+              "panchayat_code": "1001002021",
+              "panchayat_name": "CALANGUTE"
+            },
+            {
+              "panchayat_code": "1001002022",
+              "panchayat_name": "CAMURLI"
+            },
+            {
+              "panchayat_code": "1001002023",
+              "panchayat_name": "CANDOLIM"
+            },
+            {
+              "panchayat_code": "1001002030",
+              "panchayat_name": "COLVALE"
+            },
+            {
+              "panchayat_code": "1001002043",
+              "panchayat_name": "GUIRIM"
+            },
+            {
+              "panchayat_code": "1001002058",
+              "panchayat_name": "MOIRA"
+            },
+            {
+              "panchayat_code": "1001002062",
+              "panchayat_name": "NACHINOLA"
+            },
+            {
+              "panchayat_code": "1001002063",
+              "panchayat_name": "NADORA"
+            },
+            {
+              "panchayat_code": "1001002068",
+              "panchayat_name": "NERUL"
+            },
+            {
+              "panchayat_code": "1001002070",
+              "panchayat_name": "OXEL"
+            },
+            {
+              "panchayat_code": "1001002076",
+              "panchayat_name": "PARRA"
+            },
+            {
+              "panchayat_code": "1001002077",
+              "panchayat_name": "PENHA-DE-FRANCE"
+            },
+            {
+              "panchayat_code": "1001002078",
+              "panchayat_name": "PILERNE"
+            },
+            {
+              "panchayat_code": "1001002080",
+              "panchayat_name": "PIRNA"
+            },
+            {
+              "panchayat_code": "1001002082",
+              "panchayat_name": "POMBURPA-OLAULIM"
+            },
+            {
+              "panchayat_code": "1001002087",
+              "panchayat_name": "REIS-MAGOS"
+            },
+            {
+              "panchayat_code": "1001002088",
+              "panchayat_name": "REVORA"
+            },
+            {
+              "panchayat_code": "1001002090",
+              "panchayat_name": "SALIGAO"
+            },
+            {
+              "panchayat_code": "1001002091",
+              "panchayat_name": "SALVADOR-DO-MUNDO"
+            },
+            {
+              "panchayat_code": "1001002092",
+              "panchayat_name": "SANGOLDA"
+            },
+            {
+              "panchayat_code": "1001002100",
+              "panchayat_name": "SIOLIM-MARNA"
+            },
+            {
+              "panchayat_code": "1001002101",
+              "panchayat_name": "SIOLIM-SODIEM"
+            },
+            {
+              "panchayat_code": "1001002104",
+              "panchayat_name": "SIRSAIM"
+            },
+            {
+              "panchayat_code": "1001002108",
+              "panchayat_name": "SUCORRO"
+            },
+            {
+              "panchayat_code": "1001002113",
+              "panchayat_name": "THIVIM"
+            },
+            {
+              "panchayat_code": "1001002117",
+              "panchayat_name": "UCASSAIM-PALEM"
+            },
+            {
+              "panchayat_code": "1001002123",
+              "panchayat_name": "VERLA-CANCA"
+            }
+          ]
+        },
+        {
+          "block_code": "1001004",
+          "block_name": "BICHOLIM",
+          "panchayats": [
+            {
+              "panchayat_code": "1001004001",
+              "panchayat_name": "ADVALPAL"
+            },
+            {
+              "panchayat_code": "1001004006",
+              "panchayat_name": "AMONA"
+            },
+            {
+              "panchayat_code": "1001004034",
+              "panchayat_name": "CUDNEM"
+            },
+            {
+              "panchayat_code": "1001004121",
+              "panchayat_name": "Harvalem"
+            },
+            {
+              "panchayat_code": "1001004047",
+              "panchayat_name": "KARAPUR-SARVAN"
+            },
+            {
+              "panchayat_code": "1001004050",
+              "panchayat_name": "LATAMBARCEM"
+            },
+            {
+              "panchayat_code": "1001004055",
+              "panchayat_name": "MAYEM"
+            },
+            {
+              "panchayat_code": "1001004056",
+              "panchayat_name": "MENCUREM"
+            },
+            {
+              "panchayat_code": "1001004061",
+              "panchayat_name": "MULGAO"
+            },
+            {
+              "panchayat_code": "1001004065",
+              "panchayat_name": "NAROA"
+            },
+            {
+              "panchayat_code": "1001004067",
+              "panchayat_name": "NAVELIM"
+            },
+            {
+              "panchayat_code": "1001004053",
+              "panchayat_name": "ONA MAULINGUEM"
+            },
+            {
+              "panchayat_code": "1001004072",
+              "panchayat_name": "PALE-COTOMBI"
+            },
+            {
+              "panchayat_code": "1001004079",
+              "panchayat_name": "PILIGAO"
+            },
+            {
+              "panchayat_code": "1001004089",
+              "panchayat_name": "SALEM"
+            },
+            {
+              "panchayat_code": "1001004103",
+              "panchayat_name": "SIRIGAO"
+            },
+            {
+              "panchayat_code": "1001004109",
+              "panchayat_name": "SURLA"
+            },
+            {
+              "panchayat_code": "1001004120",
+              "panchayat_name": "VELGUEM"
+            }
+          ]
+        },
+        {
+          "block_code": "1001003",
+          "block_name": "PERNEM",
+          "panchayats": [
+            {
+              "panchayat_code": "1001003002",
+              "panchayat_name": "AGARWADA-CHOPDEM"
+            },
+            {
+              "panchayat_code": "1001003004",
+              "panchayat_name": "ALORNA"
+            },
+            {
+              "panchayat_code": "1001003008",
+              "panchayat_name": "ARAMBOL"
+            },
+            {
+              "panchayat_code": "1001003025",
+              "panchayat_name": "CASNEM-AMBEREM-POROSCODEM"
+            },
+            {
+              "panchayat_code": "1001003026",
+              "panchayat_name": "CHANDEL - HASSAPUR"
+            },
+            {
+              "panchayat_code": "1001003031",
+              "panchayat_name": "CORGAO"
+            },
+            {
+              "panchayat_code": "1001003039",
+              "panchayat_name": "DHARGAL"
+            },
+            {
+              "panchayat_code": "1001003046",
+              "panchayat_name": "IBRAMPUR-HANKHANE"
+            },
+            {
+              "panchayat_code": "1001003048",
+              "panchayat_name": "KASSARVARNEM"
+            },
+            {
+              "panchayat_code": "1001003051",
+              "panchayat_name": "MANDREM"
+            },
+            {
+              "panchayat_code": "1001003059",
+              "panchayat_name": "MORJIM"
+            },
+            {
+              "panchayat_code": "1001003071",
+              "panchayat_name": "OZORIM"
+            },
+            {
+              "panchayat_code": "1001003073",
+              "panchayat_name": "PALIEM"
+            },
+            {
+              "panchayat_code": "1001003075",
+              "panchayat_name": "PARCEM"
+            },
+            {
+              "panchayat_code": "1001003086",
+              "panchayat_name": "QUERIM-TIRACOL"
+            },
+            {
+              "panchayat_code": "1001003112",
+              "panchayat_name": "TAMBOXEM-MOPA-UGUEM"
+            },
+            {
+              "panchayat_code": "1001003115",
+              "panchayat_name": "TORXEM"
+            },
+            {
+              "panchayat_code": "1001003116",
+              "panchayat_name": "TUEM"
+            },
+            {
+              "panchayat_code": "1001003124",
+              "panchayat_name": "VIRNODA"
+            },
+            {
+              "panchayat_code": "1001003119",
+              "panchayat_name": "WARKHAND-NAGZOR"
+            }
+          ]
+        },
+        {
+          "block_code": "1001005",
+          "block_name": "SATARI",
+          "panchayats": [
+            {
+              "panchayat_code": "1001005018",
+              "panchayat_name": "BIRONDEM"
+            },
+            {
+              "panchayat_code": "1001005033",
+              "panchayat_name": "COTOREM"
+            },
+            {
+              "panchayat_code": "1001005040",
+              "panchayat_name": "DONGURLI-THANE"
+            },
+            {
+              "panchayat_code": "1001005044",
+              "panchayat_name": "GULELI"
+            },
+            {
+              "panchayat_code": "1001005045",
+              "panchayat_name": "HONDA"
+            },
+            {
+              "panchayat_code": "1001005054",
+              "panchayat_name": "MAUXI"
+            },
+            {
+              "panchayat_code": "1001005060",
+              "panchayat_name": "MORLEM"
+            },
+            {
+              "panchayat_code": "1001005064",
+              "panchayat_name": "NAGARGAO"
+            },
+            {
+              "panchayat_code": "1001005081",
+              "panchayat_name": "PISSURLEM"
+            },
+            {
+              "panchayat_code": "1001005083",
+              "panchayat_name": "PORIEM"
+            },
+            {
+              "panchayat_code": "1001005049",
+              "panchayat_name": "QUERIM SATARI"
+            },
+            {
+              "panchayat_code": "1001005094",
+              "panchayat_name": "SANVORDEM"
+            }
+          ]
+        },
+        {
+          "block_code": "1001001",
+          "block_name": "TISWADI",
+          "panchayats": [
+            {
+              "panchayat_code": "1001001012",
+              "panchayat_name": "AZOSSIM-MANDUR"
+            },
+            {
+              "panchayat_code": "1001001015",
+              "panchayat_name": "BATIM"
+            },
+            {
+              "panchayat_code": "1001001024",
+              "panchayat_name": "CARAMBOLIM"
+            },
+            {
+              "panchayat_code": "1001001028",
+              "panchayat_name": "CHIMBEL"
+            },
+            {
+              "panchayat_code": "1001001029",
+              "panchayat_name": "CHODEN-MADEL"
+            },
+            {
+              "panchayat_code": "1001001032",
+              "panchayat_name": "CORLIM"
+            },
+            {
+              "panchayat_code": "1001001035",
+              "panchayat_name": "CUMBHARJUA"
+            },
+            {
+              "panchayat_code": "1001001037",
+              "panchayat_name": "CURCA-BAMBOLIM-TALAULIM"
+            },
+            {
+              "panchayat_code": "1001001042",
+              "panchayat_name": "GOLTIM-NAVELIM"
+            },
+            {
+              "panchayat_code": "1001001057",
+              "panchayat_name": "MERCES"
+            },
+            {
+              "panchayat_code": "1001001069",
+              "panchayat_name": "NEURA"
+            },
+            {
+              "panchayat_code": "1001001095",
+              "panchayat_name": "SAO-LOURENCE(AGASSAIM)"
+            },
+            {
+              "panchayat_code": "1001001096",
+              "panchayat_name": "SAO-MATIAS"
+            },
+            {
+              "panchayat_code": "1001001098",
+              "panchayat_name": "SE-OLD-GOA"
+            },
+            {
+              "panchayat_code": "1001001102",
+              "panchayat_name": "SIRIDAO-PALEM"
+            },
+            {
+              "panchayat_code": "1001001105",
+              "panchayat_name": "ST. ANDRE"
+            },
+            {
+              "panchayat_code": "1001001106",
+              "panchayat_name": "ST. CRUZ"
+            },
+            {
+              "panchayat_code": "1001001107",
+              "panchayat_name": "ST.ESTEVAM"
+            },
+            {
+              "panchayat_code": "1001001111",
+              "panchayat_name": "TALIGAO"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "district_code": "1002",
+      "district_name": "SOUTH GOA",
+      "blocks": [
+        {
+          "block_code": "1002004",
+          "block_name": "CANACONA",
+          "panchayats": [
+            {
+              "panchayat_code": "1002004001",
+              "panchayat_name": "AGONDA"
+            },
+            {
+              "panchayat_code": "1002004021",
+              "panchayat_name": "COLA"
+            },
+            {
+              "panchayat_code": "1002004025",
+              "panchayat_name": "COTIGAO"
+            },
+            {
+              "panchayat_code": "1002004033",
+              "panchayat_name": "GAONDONGRIM"
+            },
+            {
+              "panchayat_code": "1002004037",
+              "panchayat_name": "LOLIEM-POLEM"
+            },
+            {
+              "panchayat_code": "1002004051",
+              "panchayat_name": "POINGUINIM"
+            },
+            {
+              "panchayat_code": "1002004061",
+              "panchayat_name": "SHRISTHAL"
+            }
+          ]
+        },
+        {
+          "block_code": "1002007",
+          "block_name": "Dharbandora",
+          "panchayats": [
+            {
+              "panchayat_code": "1002002022",
+              "panchayat_name": "COLEM"
+            },
+            {
+              "panchayat_code": "1002002030",
+              "panchayat_name": "DHARBANDORA"
+            },
+            {
+              "panchayat_code": "1002002036",
+              "panchayat_name": "KIRALAPAL-DABAL"
+            },
+            {
+              "panchayat_code": "1002002042",
+              "panchayat_name": "MOLEM"
+            },
+            {
+              "panchayat_code": "1002002057",
+              "panchayat_name": "SANCORDEM"
+            }
+          ]
+        },
+        {
+          "block_code": "1002006",
+          "block_name": "MORMUGAO",
+          "panchayats": [
+            {
+              "panchayat_code": "1002006013",
+              "panchayat_name": "CANSAULIM"
+            },
+            {
+              "panchayat_code": "1002006018",
+              "panchayat_name": "CHICALIM"
+            },
+            {
+              "panchayat_code": "1002006019",
+              "panchayat_name": "CHICOLNA"
+            },
+            {
+              "panchayat_code": "1002006024",
+              "panchayat_name": "CORTALIM"
+            },
+            {
+              "panchayat_code": "1002006040",
+              "panchayat_name": "MAJORDA"
+            },
+            {
+              "panchayat_code": "1002006044",
+              "panchayat_name": "NAGOA"
+            },
+            {
+              "panchayat_code": "1002006069",
+              "panchayat_name": "Quelossim"
+            },
+            {
+              "panchayat_code": "1002006056",
+              "panchayat_name": "SANCOALE"
+            },
+            {
+              "panchayat_code": "1002006067",
+              "panchayat_name": "VELSAO-PALE"
+            },
+            {
+              "panchayat_code": "1002006068",
+              "panchayat_name": "VERNA"
+            }
+          ]
+        },
+        {
+          "block_code": "1001006",
+          "block_name": "PONDA",
+          "panchayats": [
+            {
+              "panchayat_code": "1001006013",
+              "panchayat_name": "BANDORA"
+            },
+            {
+              "panchayat_code": "1001006016",
+              "panchayat_name": "BETORA-NIRANCAL"
+            },
+            {
+              "panchayat_code": "1001006017",
+              "panchayat_name": "BETQUI-CANDOLA"
+            },
+            {
+              "panchayat_code": "1001006019",
+              "panchayat_name": "BHOMA-ADCOLNA"
+            },
+            {
+              "panchayat_code": "1001006020",
+              "panchayat_name": "BORIM"
+            },
+            {
+              "panchayat_code": "1001006036",
+              "panchayat_name": "CUNDAIM"
+            },
+            {
+              "panchayat_code": "1001006038",
+              "panchayat_name": "CURTI-KHANDEPAR"
+            },
+            {
+              "panchayat_code": "1001006041",
+              "panchayat_name": "DURBHAT"
+            },
+            {
+              "panchayat_code": "1001006052",
+              "panchayat_name": "MARCAIM"
+            },
+            {
+              "panchayat_code": "1001006074",
+              "panchayat_name": "PANCHAWADI"
+            },
+            {
+              "panchayat_code": "1001006084",
+              "panchayat_name": "QUELA"
+            },
+            {
+              "panchayat_code": "1001006085",
+              "panchayat_name": "QUERIM"
+            },
+            {
+              "panchayat_code": "1001006099",
+              "panchayat_name": "SHIRODA"
+            },
+            {
+              "panchayat_code": "1001006114",
+              "panchayat_name": "TIVREM-ORGAO"
+            },
+            {
+              "panchayat_code": "1001006118",
+              "panchayat_name": "USGAO-GANJEM"
+            },
+            {
+              "panchayat_code": "1001006121",
+              "panchayat_name": "VELING-PRIOL"
+            },
+            {
+              "panchayat_code": "1001006122",
+              "panchayat_name": "VEREM-VAGHURME"
+            },
+            {
+              "panchayat_code": "1001006125",
+              "panchayat_name": "VOLVOI"
+            },
+            {
+              "panchayat_code": "1001006110",
+              "panchayat_name": "WADI -TALAULIM"
+            }
+          ]
+        },
+        {
+          "block_code": "1002003",
+          "block_name": "QUEPEM",
+          "panchayats": [
+            {
+              "panchayat_code": "1002003002",
+              "panchayat_name": "AMBAULIM"
+            },
+            {
+              "panchayat_code": "1002003005",
+              "panchayat_name": "ASSOLDA"
+            },
+            {
+              "panchayat_code": "1002003007",
+              "panchayat_name": "BALLI-ADNEM"
+            },
+            {
+              "panchayat_code": "1002003009",
+              "panchayat_name": "BARCEM"
+            },
+            {
+              "panchayat_code": "1002003016",
+              "panchayat_name": "CAVOREM-PIRLA"
+            },
+            {
+              "panchayat_code": "1002003026",
+              "panchayat_name": "COTOMBI-AVEDEM"
+            },
+            {
+              "panchayat_code": "1002003032",
+              "panchayat_name": "FATORPA-QUITOL"
+            },
+            {
+              "panchayat_code": "1002003041",
+              "panchayat_name": "MOLCORNEM"
+            },
+            {
+              "panchayat_code": "1002003043",
+              "panchayat_name": "MORPIRLA"
+            },
+            {
+              "panchayat_code": "1002003045",
+              "panchayat_name": "NAQUERIM-BETUL"
+            },
+            {
+              "panchayat_code": "1002003069",
+              "panchayat_name": "XELDEM"
+            }
+          ]
+        },
+        {
+          "block_code": "1002005",
+          "block_name": "SALCETE",
+          "panchayats": [
+            {
+              "panchayat_code": "1002005003",
+              "panchayat_name": "AMBELIM"
+            },
+            {
+              "panchayat_code": "1002005004",
+              "panchayat_name": "AQUEM-BAIXO"
+            },
+            {
+              "panchayat_code": "1002005006",
+              "panchayat_name": "ASSOLNA"
+            },
+            {
+              "panchayat_code": "1002005008",
+              "panchayat_name": "BANAULIM"
+            },
+            {
+              "panchayat_code": "1002005011",
+              "panchayat_name": "BETALBATIM"
+            },
+            {
+              "panchayat_code": "1002005012",
+              "panchayat_name": "CAMURLIM"
+            },
+            {
+              "panchayat_code": "1002005014",
+              "panchayat_name": "CARMONA"
+            },
+            {
+              "panchayat_code": "1002005015",
+              "panchayat_name": "CAVELOSSIM"
+            },
+            {
+              "panchayat_code": "1002005017",
+              "panchayat_name": "Chandor Cavorim"
+            },
+            {
+              "panchayat_code": "1002005020",
+              "panchayat_name": "CHINCHINIM"
+            },
+            {
+              "panchayat_code": "1002005023",
+              "panchayat_name": "COLVA"
+            },
+            {
+              "panchayat_code": "1002005028",
+              "panchayat_name": "CURTORIM"
+            },
+            {
+              "panchayat_code": "1002005029",
+              "panchayat_name": "DAVORLIM"
+            },
+            {
+              "panchayat_code": "1002005031",
+              "panchayat_name": "DRAMAPUR-SIRLIM"
+            },
+            {
+              "panchayat_code": "1002005034",
+              "panchayat_name": "GUIRDOLIM"
+            },
+            {
+              "panchayat_code": "1002005038",
+              "panchayat_name": "LOUTULIM"
+            },
+            {
+              "panchayat_code": "1002005039",
+              "panchayat_name": "MACASANA"
+            },
+            {
+              "panchayat_code": "1002005046",
+              "panchayat_name": "NAVELIM"
+            },
+            {
+              "panchayat_code": "1002005048",
+              "panchayat_name": "NUVEM"
+            },
+            {
+              "panchayat_code": "1002005049",
+              "panchayat_name": "ORLIM"
+            },
+            {
+              "panchayat_code": "1002005050",
+              "panchayat_name": "PARODA"
+            },
+            {
+              "panchayat_code": "1002005052",
+              "panchayat_name": "RACHOL"
+            },
+            {
+              "panchayat_code": "1002005053",
+              "panchayat_name": "RAIA"
+            },
+            {
+              "panchayat_code": "1002005055",
+              "panchayat_name": "RUMDAMOL-DAVORLIM"
+            },
+            {
+              "panchayat_code": "1002005059",
+              "panchayat_name": "SARZORA"
+            },
+            {
+              "panchayat_code": "1002005060",
+              "panchayat_name": "SERAULIM"
+            },
+            {
+              "panchayat_code": "1002005062",
+              "panchayat_name": "ST.JUSE-DE-AREAL"
+            },
+            {
+              "panchayat_code": "1002005063",
+              "panchayat_name": "TALAULIM"
+            },
+            {
+              "panchayat_code": "1002005065",
+              "panchayat_name": "VARCA"
+            },
+            {
+              "panchayat_code": "1002005066",
+              "panchayat_name": "VELIM"
+            }
+          ]
+        },
+        {
+          "block_code": "1002002",
+          "block_name": "SANGUEM",
+          "panchayats": [
+            {
+              "panchayat_code": "1002002010",
+              "panchayat_name": "BATI"
+            },
+            {
+              "panchayat_code": "1002002027",
+              "panchayat_name": "CURDI"
+            },
+            {
+              "panchayat_code": "1002002035",
+              "panchayat_name": "KALAY"
+            },
+            {
+              "panchayat_code": "1002002047",
+              "panchayat_name": "NETURLIM"
+            },
+            {
+              "panchayat_code": "1002002054",
+              "panchayat_name": "RIVONA"
+            },
+            {
+              "panchayat_code": "1002002058",
+              "panchayat_name": "SANVORDEM"
+            },
+            {
+              "panchayat_code": "1002002064",
+              "panchayat_name": "UGUEM"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "districts": 2,
+    "blocks": 12,
+    "panchayats": 191
+  }
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "district": "LAKSHADWEEP DISTRICT",
+    "state": "LAKSHADWEEP",
+    "state_code": "19",
+    "cases_reported": 0,
+    "amount_reported": 0.0,
+    "cases_decided": 0,
+    "amount_decided": 0.0,
+    "cases_pending_recovery": 0,
+    "amount_to_recover": 0.0,
+    "cases_recovered": 0,
+    "amount_recovered": 0.0,
+    "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=LAKSHADWEEP&state_code=19&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=svjaBhEkJO4vtMPxy1cRYg",
+    "scraped_at": "2026-03-04T20:41:52.573934+00:00",
+    "amount_unrecovered": 0.0,
+    "recovery_rate_pct": 0.0
+  }
+]

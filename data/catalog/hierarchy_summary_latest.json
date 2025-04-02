@@ -1,0 +1,14 @@
+[
+  {
+    "state": "ANDAMAN AND NICOBAR",
+    "districts": 3,
+    "blocks": 9,
+    "panchayats": 77
+  },
+  {
+    "state": "ANDHRA PRADESH",
+    "districts": 26,
+    "blocks": 661,
+    "panchayats": 13396
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "state": "PUDUCHERRY",
+    "state_code": "",
+    "fin_year": "cumulative",
+    "roads_completed": 30,
+    "length_completed_km": 62.37,
+    "habitations_connected": 0,
+    "expenditure_programme_cr": 38.87,
+    "expenditure_admin_cr": 0.0,
+    "source_url": "https://pmgsy.dord.gov.in/MvcReportViewer.aspx?_r=%2fPMGSYCitizen%2fDistrictBriefDetailsNew&Level=2&STATE=27&DISTRICT=0&PMGSY=0&BLOCK=0&ROADSTATUS=0&SCHEME=0&CYEAR=2025",
+    "scraped_at": "2026-03-06T06:46:10.741663+00:00"
+  }
+]

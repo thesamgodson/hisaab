@@ -1,0 +1,62 @@
+[
+  {
+    "district": "KARAIKAL",
+    "state": "PUDUCHERRY",
+    "state_code": "25",
+    "fin_year": "2025-2026",
+    "schools_reported": 0,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
+    "schools_covered": 104,
+    "children_enrolled": 13270,
+    "children_fed": 0,
+    "utilization_pct": 0.0,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0
+  },
+  {
+    "district": "MAHE",
+    "state": "PUDUCHERRY",
+    "state_code": "25",
+    "fin_year": "2025-2026",
+    "schools_reported": 0,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
+    "schools_covered": 15,
+    "children_enrolled": 2277,
+    "children_fed": 0,
+    "utilization_pct": 0.0,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0
+  },
+  {
+    "district": "PONDICHERRY",
+    "state": "PUDUCHERRY",
+    "state_code": "25",
+    "fin_year": "2025-2026",
+    "schools_reported": 0,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
+    "schools_covered": 284,
+    "children_enrolled": 35552,
+    "children_fed": 0,
+    "utilization_pct": 0.0,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0
+  },
+  {
+    "district": "YANAM",
+    "state": "PUDUCHERRY",
+    "state_code": "25",
+    "fin_year": "2025-2026",
+    "schools_reported": 0,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
+    "schools_covered": 24,
+    "children_enrolled": 2362,
+    "children_fed": 0,
+    "utilization_pct": 0.0,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0
+  }
+]

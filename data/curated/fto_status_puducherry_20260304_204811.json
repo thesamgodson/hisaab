@@ -1,0 +1,32 @@
+[
+  {
+    "district": "KARAIKAL",
+    "state": "PUDUCHERRY",
+    "state_code": "25",
+    "total_fto_generated": 1185,
+    "first_signatory_signed": 1185,
+    "first_signatory_pending": 0,
+    "second_signatory_signed": 1185,
+    "second_signatory_pending": 0,
+    "fto_sent_to_bank": 1185,
+    "source_url": "https://mnregaweb4.nic.in/netnrega/FTO/FTOReport.aspx?page=s&mode=B&flg=W&state_name=PUDUCHERRY&state_code=25&fin_year=2024-2025&dstyp=B&source=national&Digest=2otuFzzoVwatFzpVSZbpXg",
+    "scraped_at": "2026-03-04T20:48:39.327043+00:00",
+    "fto_processed_by_bank": 137138,
+    "transactions_processed": 1185
+  },
+  {
+    "district": "PONDICHERRY",
+    "state": "PUDUCHERRY",
+    "state_code": "25",
+    "total_fto_generated": 803,
+    "first_signatory_signed": 803,
+    "first_signatory_pending": 0,
+    "second_signatory_signed": 803,
+    "second_signatory_pending": 0,
+    "fto_sent_to_bank": 803,
+    "source_url": "https://mnregaweb4.nic.in/netnrega/FTO/FTOReport.aspx?page=s&mode=B&flg=W&state_name=PUDUCHERRY&state_code=25&fin_year=2024-2025&dstyp=B&source=national&Digest=2otuFzzoVwatFzpVSZbpXg",
+    "scraped_at": "2026-03-04T20:48:39.327070+00:00",
+    "fto_processed_by_bank": 158891,
+    "transactions_processed": 803
+  }
+]

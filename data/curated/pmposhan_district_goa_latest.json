@@ -1,0 +1,32 @@
+[
+  {
+    "district": "NORTH GOA",
+    "state": "GOA",
+    "state_code": "10",
+    "fin_year": "2025-2026",
+    "schools_reported": 234,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
+    "schools_covered": 565,
+    "children_enrolled": 76699,
+    "children_fed": 22873,
+    "utilization_pct": 89.6,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0
+  },
+  {
+    "district": "SOUTH GOA",
+    "state": "GOA",
+    "state_code": "10",
+    "fin_year": "2025-2026",
+    "schools_reported": 232,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
+    "schools_covered": 651,
+    "children_enrolled": 83295,
+    "children_fed": 22187,
+    "utilization_pct": 82.16,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0
+  }
+]

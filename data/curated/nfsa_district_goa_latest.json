@@ -1,0 +1,40 @@
+[
+  {
+    "district": "NORTH GOA",
+    "state": "GOA",
+    "state_code": "",
+    "fin_year": "2024-2025",
+    "ration_cards_total": 57280,
+    "ration_cards_active": 57280,
+    "allocation_mt": 0.0,
+    "offtake_mt": 0.0,
+    "offtake_pct": 0.0,
+    "beneficiaries_total": 203365,
+    "aay_ration_cards": 7618,
+    "aay_beneficiaries": 23809,
+    "phh_ration_cards": 49662,
+    "phh_beneficiaries": 179556,
+    "date_of_data": "05 Mar 2026",
+    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
+    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+  },
+  {
+    "district": "SOUTH GOA",
+    "state": "GOA",
+    "state_code": "",
+    "fin_year": "2024-2025",
+    "ration_cards_total": 63896,
+    "ration_cards_active": 63896,
+    "allocation_mt": 0.0,
+    "offtake_mt": 0.0,
+    "offtake_pct": 0.0,
+    "beneficiaries_total": 235852,
+    "aay_ration_cards": 2540,
+    "aay_beneficiaries": 7236,
+    "phh_ration_cards": 61356,
+    "phh_beneficiaries": 228616,
+    "date_of_data": "05 Mar 2026",
+    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
+    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+  }
+]

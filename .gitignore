@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Data (regenerable)
+data/raw/
+data/hisaab.db
+data/logs/
+data/metadata/
+data/briefs/
+
+# IDE
+.vscode/
+.idea/
+
+# Claude
+.claude/
+
+# Browser / Playwright
+.playwright-mcp/
+.session/

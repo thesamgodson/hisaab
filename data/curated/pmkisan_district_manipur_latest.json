@@ -1,0 +1,15 @@
+[
+  {
+    "district": "ALL",
+    "state": "MANIPUR",
+    "state_code": "14",
+    "fin_year": "2025-26",
+    "beneficiaries_paid": 17467,
+    "installment": "",
+    "source_url": "pmkisan.gov.in",
+    "scraped_at": "2026-03-06T05:33:32.521793+00:00",
+    "beneficiaries_registered": 62897,
+    "amount_paid_lakhs": 0,
+    "beneficiaries_rejected": 0
+  }
+]

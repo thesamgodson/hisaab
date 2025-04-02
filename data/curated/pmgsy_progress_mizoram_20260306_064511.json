@@ -1,0 +1,14 @@
+[
+  {
+    "state": "Mizoram",
+    "state_code": "",
+    "fin_year": "cumulative",
+    "roads_completed": 339,
+    "length_completed_km": 4229.67,
+    "habitations_connected": 0,
+    "expenditure_programme_cr": 2429.11,
+    "expenditure_admin_cr": 0.0,
+    "source_url": "https://pmgsy.dord.gov.in/MvcReportViewer.aspx?_r=%2fPMGSYCitizen%2fDistrictBriefDetailsNew&Level=2&STATE=24&DISTRICT=0&PMGSY=0&BLOCK=0&ROADSTATUS=0&SCHEME=0&CYEAR=2025",
+    "scraped_at": "2026-03-06T06:45:28.970190+00:00"
+  }
+]

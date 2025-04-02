@@ -1,0 +1,21 @@
+[
+  {
+    "district": "LAKSHADWEEP DISTRICT",
+    "state": "LAKSHADWEEP",
+    "state_code": "",
+    "fin_year": "2024-2025",
+    "ration_cards_total": 4629,
+    "ration_cards_active": 4629,
+    "allocation_mt": 0.0,
+    "offtake_mt": 0.0,
+    "offtake_pct": 0.0,
+    "beneficiaries_total": 20213,
+    "aay_ration_cards": 1114,
+    "aay_beneficiaries": 4052,
+    "phh_ration_cards": 3515,
+    "phh_beneficiaries": 16161,
+    "date_of_data": "26 Jun 2025",
+    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
+    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+  }
+]

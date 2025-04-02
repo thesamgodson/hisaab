@@ -1,0 +1,50 @@
+[
+  {
+    "district": "Nicobar",
+    "state": "Andaman And Nicobar (UT)",
+    "state_code": "",
+    "fin_year": "cumulative",
+    "scheme": "All",
+    "roads_sanctioned": 51,
+    "roads_completed": 43,
+    "length_sanctioned_km": 88.13,
+    "length_completed_km": 57.06,
+    "habitations_covered": 0,
+    "value_of_projects_cr": 55.3,
+    "expenditure_cr": 21.07,
+    "source_url": "https://pmgsy.dord.gov.in/MvcReportViewer.aspx?_r=%2fPMGSYCitizen%2fDistrictBriefDetailsNew&Level=2&STATE=1&DISTRICT=0&PMGSY=0&BLOCK=0&ROADSTATUS=0&SCHEME=0&CYEAR=2025",
+    "scraped_at": "2026-03-06T06:38:10.864227+00:00"
+  },
+  {
+    "district": "North and Middle Andaman",
+    "state": "Andaman And Nicobar (UT)",
+    "state_code": "",
+    "fin_year": "cumulative",
+    "scheme": "All",
+    "roads_sanctioned": 57,
+    "roads_completed": 36,
+    "length_sanctioned_km": 200.17,
+    "length_completed_km": 70.76,
+    "habitations_covered": 0,
+    "value_of_projects_cr": 158.4,
+    "expenditure_cr": 26.5,
+    "source_url": "https://pmgsy.dord.gov.in/MvcReportViewer.aspx?_r=%2fPMGSYCitizen%2fDistrictBriefDetailsNew&Level=2&STATE=1&DISTRICT=0&PMGSY=0&BLOCK=0&ROADSTATUS=0&SCHEME=0&CYEAR=2025",
+    "scraped_at": "2026-03-06T06:38:10.864227+00:00"
+  },
+  {
+    "district": "South Andaman",
+    "state": "Andaman And Nicobar (UT)",
+    "state_code": "",
+    "fin_year": "cumulative",
+    "scheme": "All",
+    "roads_sanctioned": 25,
+    "roads_completed": 11,
+    "length_sanctioned_km": 85.76,
+    "length_completed_km": 15.75,
+    "habitations_covered": 0,
+    "value_of_projects_cr": 88.39,
+    "expenditure_cr": 5.77,
+    "source_url": "https://pmgsy.dord.gov.in/MvcReportViewer.aspx?_r=%2fPMGSYCitizen%2fDistrictBriefDetailsNew&Level=2&STATE=1&DISTRICT=0&PMGSY=0&BLOCK=0&ROADSTATUS=0&SCHEME=0&CYEAR=2025",
+    "scraped_at": "2026-03-06T06:38:10.864227+00:00"
+  }
+]

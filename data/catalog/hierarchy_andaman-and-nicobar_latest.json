@@ -1,0 +1,393 @@
+{
+  "state_id": "01",
+  "state_name": "ANDAMAN AND NICOBAR",
+  "state_url": "https://mnregaweb4.nic.in/NregaArch/SocialAudit/SA_LoginReport.aspx?id=01",
+  "financial_year_default": "2025-2026",
+  "districts": [
+    {
+      "district_code": "0102",
+      "district_name": "NICOBARS",
+      "blocks": [
+        {
+          "block_code": "0102003",
+          "block_name": "Campbell Bay",
+          "panchayats": [
+            {
+              "panchayat_code": "0102003002",
+              "panchayat_name": "CAMPBELL BAY"
+            },
+            {
+              "panchayat_code": "0102003001",
+              "panchayat_name": "GOVINDNAGAR"
+            },
+            {
+              "panchayat_code": "0102003004",
+              "panchayat_name": "Great & Little Nicobar"
+            },
+            {
+              "panchayat_code": "0102003003",
+              "panchayat_name": "LAXMI NAGAR"
+            }
+          ]
+        },
+        {
+          "block_code": "0102001",
+          "block_name": "Nancowry",
+          "panchayats": [
+            {
+              "panchayat_code": "0102001005",
+              "panchayat_name": "CHOWRA TC"
+            },
+            {
+              "panchayat_code": "0102001001",
+              "panchayat_name": "KAMORTA TC"
+            },
+            {
+              "panchayat_code": "0102001003",
+              "panchayat_name": "KATCHAL TC"
+            },
+            {
+              "panchayat_code": "0102001002",
+              "panchayat_name": "NANCOWRY TC"
+            },
+            {
+              "panchayat_code": "0102001004",
+              "panchayat_name": "TERESSA TC"
+            }
+          ]
+        },
+        {
+          "block_code": "0102002",
+          "block_name": "Nicobar",
+          "panchayats": [
+            {
+              "panchayat_code": "0102002001",
+              "panchayat_name": "TRIBAL COUNCIL"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "district_code": "0103",
+      "district_name": "NORTH AND MIDDLE ANDAMAN",
+      "blocks": [
+        {
+          "block_code": "0103002",
+          "block_name": "Diglipur",
+          "panchayats": [
+            {
+              "panchayat_code": "0103002007",
+              "panchayat_name": "Diglipur"
+            },
+            {
+              "panchayat_code": "0103002015",
+              "panchayat_name": "Gandhinagar"
+            },
+            {
+              "panchayat_code": "0103002002",
+              "panchayat_name": "Kalighat"
+            },
+            {
+              "panchayat_code": "0103002012",
+              "panchayat_name": "Keralapuram"
+            },
+            {
+              "panchayat_code": "0103002004",
+              "panchayat_name": "Kishori Nagar"
+            },
+            {
+              "panchayat_code": "0103002009",
+              "panchayat_name": "Laxmipur"
+            },
+            {
+              "panchayat_code": "0103002008",
+              "panchayat_name": "Madhupur"
+            },
+            {
+              "panchayat_code": "0103002003",
+              "panchayat_name": "Nabagram"
+            },
+            {
+              "panchayat_code": "0103002014",
+              "panchayat_name": "Paschimsagar"
+            },
+            {
+              "panchayat_code": "0103002010",
+              "panchayat_name": "Radha Nagar"
+            },
+            {
+              "panchayat_code": "0103002011",
+              "panchayat_name": "Rama Krishnagram"
+            },
+            {
+              "panchayat_code": "0103002001",
+              "panchayat_name": "Ramnagar"
+            },
+            {
+              "panchayat_code": "0103002013",
+              "panchayat_name": "Shibpur"
+            },
+            {
+              "panchayat_code": "0103002005",
+              "panchayat_name": "Sitanagar"
+            },
+            {
+              "panchayat_code": "0103002006",
+              "panchayat_name": "Subashgram"
+            }
+          ]
+        },
+        {
+          "block_code": "0103001",
+          "block_name": "Mayabunder",
+          "panchayats": [
+            {
+              "panchayat_code": "0103001006",
+              "panchayat_name": "Basantipur"
+            },
+            {
+              "panchayat_code": "0103001005",
+              "panchayat_name": "Chainpur"
+            },
+            {
+              "panchayat_code": "0103001007",
+              "panchayat_name": "Harinagar"
+            },
+            {
+              "panchayat_code": "0103001001",
+              "panchayat_name": "Mayabunder"
+            },
+            {
+              "panchayat_code": "0103001004",
+              "panchayat_name": "Pahalgaon"
+            },
+            {
+              "panchayat_code": "0103001002",
+              "panchayat_name": "Pokadera"
+            },
+            {
+              "panchayat_code": "0103001003",
+              "panchayat_name": "Rampur"
+            },
+            {
+              "panchayat_code": "0103001008",
+              "panchayat_name": "Swadesh Nagar"
+            }
+          ]
+        },
+        {
+          "block_code": "0103003",
+          "block_name": "Rangat",
+          "panchayats": [
+            {
+              "panchayat_code": "0103003007",
+              "panchayat_name": "Bakultala"
+            },
+            {
+              "panchayat_code": "0103003012",
+              "panchayat_name": "Dasarathpur"
+            },
+            {
+              "panchayat_code": "0103003004",
+              "panchayat_name": "Kadamtala"
+            },
+            {
+              "panchayat_code": "0103003005",
+              "panchayat_name": "Kaushalya Nagar"
+            },
+            {
+              "panchayat_code": "0103003009",
+              "panchayat_name": "Long Island"
+            },
+            {
+              "panchayat_code": "0103003002",
+              "panchayat_name": "Nilambur"
+            },
+            {
+              "panchayat_code": "0103003013",
+              "panchayat_name": "Nimbutala"
+            },
+            {
+              "panchayat_code": "0103003010",
+              "panchayat_name": "Parnasala"
+            },
+            {
+              "panchayat_code": "0103003011",
+              "panchayat_name": "Rangat"
+            },
+            {
+              "panchayat_code": "0103003008",
+              "panchayat_name": "Sabari"
+            },
+            {
+              "panchayat_code": "0103003014",
+              "panchayat_name": "Shivapuram"
+            },
+            {
+              "panchayat_code": "0103003001",
+              "panchayat_name": "Sundergarh"
+            },
+            {
+              "panchayat_code": "0103003006",
+              "panchayat_name": "Urmilapur"
+            },
+            {
+              "panchayat_code": "0103003003",
+              "panchayat_name": "Uttara"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "district_code": "0101",
+      "district_name": "SOUTH ANDAMAN",
+      "blocks": [
+        {
+          "block_code": "0101002",
+          "block_name": "Ferrargunj",
+          "panchayats": [
+            {
+              "panchayat_code": "0101002007",
+              "panchayat_name": "BAMBOOFLAT"
+            },
+            {
+              "panchayat_code": "0101002019",
+              "panchayat_name": "BAMBOOFLAT-II"
+            },
+            {
+              "panchayat_code": "0101002002",
+              "panchayat_name": "BINDRABAN"
+            },
+            {
+              "panchayat_code": "0101002013",
+              "panchayat_name": "CHOULDARI"
+            },
+            {
+              "panchayat_code": "0101002017",
+              "panchayat_name": "COLLINPUR"
+            },
+            {
+              "panchayat_code": "0101002001",
+              "panchayat_name": "FERRARAGUNJ"
+            },
+            {
+              "panchayat_code": "0101002014",
+              "panchayat_name": "GUPTAPARA"
+            },
+            {
+              "panchayat_code": "0101002008",
+              "panchayat_name": "HOPE TOWN"
+            },
+            {
+              "panchayat_code": "0101002015",
+              "panchayat_name": "HUMFRYGUNJ"
+            },
+            {
+              "panchayat_code": "0101002018",
+              "panchayat_name": "KANYAPURAM"
+            },
+            {
+              "panchayat_code": "0101002004",
+              "panchayat_name": "MANNARGHAT"
+            },
+            {
+              "panchayat_code": "0101002011",
+              "panchayat_name": "MITHAKHARI"
+            },
+            {
+              "panchayat_code": "0101002010",
+              "panchayat_name": "NAMUNAGHAR"
+            },
+            {
+              "panchayat_code": "0101002005",
+              "panchayat_name": "SHOAL BAY"
+            },
+            {
+              "panchayat_code": "0101002009",
+              "panchayat_name": "SHORE POINT"
+            },
+            {
+              "panchayat_code": "0101002006",
+              "panchayat_name": "STEWARTGUNJ"
+            },
+            {
+              "panchayat_code": "0101002012",
+              "panchayat_name": "TUSHNABAD"
+            },
+            {
+              "panchayat_code": "0101002016",
+              "panchayat_name": "WANDOOR"
+            },
+            {
+              "panchayat_code": "0101002003",
+              "panchayat_name": "WIMBERLYGUNJ"
+            }
+          ]
+        },
+        {
+          "block_code": "0101003",
+          "block_name": "Little Andaman",
+          "panchayats": [
+            {
+              "panchayat_code": "0101003001",
+              "panchayat_name": "HUT BAY"
+            },
+            {
+              "panchayat_code": "0101003003",
+              "panchayat_name": "NETAJI NAGAR"
+            },
+            {
+              "panchayat_code": "0101003004",
+              "panchayat_name": "R.K.PUR"
+            },
+            {
+              "panchayat_code": "0101003005",
+              "panchayat_name": "RABINDRA NAGAR"
+            },
+            {
+              "panchayat_code": "0101003002",
+              "panchayat_name": "V.K PUR"
+            }
+          ]
+        },
+        {
+          "block_code": "0101001",
+          "block_name": "Prothrapur",
+          "panchayats": [
+            {
+              "panchayat_code": "0101001005",
+              "panchayat_name": "BEODNABAD"
+            },
+            {
+              "panchayat_code": "0101001011",
+              "panchayat_name": "CALICUT"
+            },
+            {
+              "panchayat_code": "0101001002",
+              "panchayat_name": "GOVINDNAGAR"
+            },
+            {
+              "panchayat_code": "0101001003",
+              "panchayat_name": "NEIL KENDRA"
+            },
+            {
+              "panchayat_code": "0101001009",
+              "panchayat_name": "SHYAM NAGAR"
+            },
+            {
+              "panchayat_code": "0101001008",
+              "panchayat_name": "SIPPIGHAT"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "districts": 3,
+    "blocks": 9,
+    "panchayats": 77
+  }
+}
