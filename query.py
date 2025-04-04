@@ -335,14 +335,36 @@ def district_overview(
 # List available districts
 # ---------------------------------------------------------------------------
 def list_districts(state: str = "TAMIL NADU", fin_year: str = "2024-2025") -> list[str]:
+    """List districts with data across any of the 8 scheme tables."""
     conn = _conn()
-    rows = conn.execute(
-        """SELECT DISTINCT district FROM misappropriation
-        WHERE UPPER(state) = UPPER(?) AND fin_year = ? ORDER BY district""",
-        (state, fin_year),
-    ).fetchall()
+    tables_with_fy = [
+        "misappropriation", "financial_statement", "fto_status",
+        "pmayg_district", "pmkisan_district", "jjm_district",
+        "pmposhan_district", "nsap_district", "nfsa_district",
+    ]
+    tables_without_fy = ["pmgsy_district"]
+
+    districts: set[str] = set()
+    for table in tables_with_fy:
+        try:
+            rows = conn.execute(
+                f"SELECT DISTINCT district FROM {table} WHERE UPPER(state) = UPPER(?) AND fin_year = ?",
+                (state, fin_year),
+            ).fetchall()
+            districts.update(r["district"] for r in rows)
+        except Exception:
+            pass
+    for table in tables_without_fy:
+        try:
+            rows = conn.execute(
+                f"SELECT DISTINCT district FROM {table} WHERE UPPER(state) = UPPER(?)",
+                (state,),
+            ).fetchall()
+            districts.update(r["district"] for r in rows)
+        except Exception:
+            pass
     conn.close()
-    return [r["district"] for r in rows]
+    return sorted(districts)
 
 
 # ---------------------------------------------------------------------------
@@ -457,6 +479,627 @@ def pmgsy_worst_completion(
         data.append(r)
 
     return {"answer": "\n".join(lines), "data": data}
+
+
+# ---------------------------------------------------------------------------
+# PMAY-G queries (rural housing)
+# ---------------------------------------------------------------------------
+def pmayg_by_district(
+    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+) -> dict[str, Any]:
+    conn = _conn()
+    row = conn.execute(
+        """SELECT * FROM pmayg_district
+        WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?""",
+        (district, state, fin_year),
+    ).fetchone()
+    conn.close()
+
+    if not row:
+        return {"answer": f"No PMAY-G data for {district}, {state} ({fin_year}).", "data": None}
+
+    r = dict(row)
+    occupied_pct = (r["houses_occupied"] / r["houses_completed"] * 100) if r["houses_completed"] > 0 else 0
+    return {
+        "answer": (
+            f"{r['district']}, {r['state']} — PMAY-G Rural Housing (FY {fin_year}):\n"
+            f"  Houses sanctioned: {r['houses_sanctioned']:,} | completed: {r['houses_completed']:,} ({r['completion_pct']:.0f}%)\n"
+            f"  Houses occupied: {r['houses_occupied']:,} ({occupied_pct:.0f}% of completed)\n"
+            f"  Funds released: {_fmt_rs(r['funds_released_lakhs'], 'lakhs')} | utilized: {_fmt_rs(r['funds_utilized_lakhs'], 'lakhs')}"
+        ),
+        "data": r,
+        "source_url": r.get("source_url"),
+    }
+
+
+def pmayg_state_summary(
+    state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+) -> dict[str, Any]:
+    conn = _conn()
+    row = conn.execute(
+        """SELECT COUNT(DISTINCT district) as districts,
+                  SUM(houses_sanctioned) as sanctioned, SUM(houses_completed) as completed,
+                  SUM(houses_occupied) as occupied,
+                  SUM(funds_released_lakhs) as released, SUM(funds_utilized_lakhs) as utilized
+           FROM pmayg_district WHERE UPPER(state) = UPPER(?) AND fin_year = ?""",
+        (state, fin_year),
+    ).fetchone()
+    conn.close()
+
+    if not row or row["districts"] == 0:
+        return {"answer": f"No PMAY-G data for {state} ({fin_year}).", "data": None}
+
+    r = dict(row)
+    completion_pct = (r["completed"] / r["sanctioned"] * 100) if r["sanctioned"] > 0 else 0
+    return {
+        "answer": (
+            f"{state} PMAY-G summary (FY {fin_year}):\n"
+            f"  Districts: {r['districts']}\n"
+            f"  Houses sanctioned: {r['sanctioned']:,} | completed: {r['completed']:,} ({completion_pct:.0f}%)\n"
+            f"  Occupied: {r['occupied']:,}\n"
+            f"  Funds released: {_fmt_rs(r['released'], 'lakhs')} | utilized: {_fmt_rs(r['utilized'], 'lakhs')}"
+        ),
+        "data": r,
+    }
+
+
+def pmayg_worst_completion(
+    state: str = "TAMIL NADU", fin_year: str = "2024-2025", limit: int = 5,
+) -> dict[str, Any]:
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT district, houses_sanctioned, houses_completed, houses_occupied,
+                  completion_pct, source_url
+           FROM pmayg_district
+           WHERE UPPER(state) = UPPER(?) AND fin_year = ? AND houses_sanctioned > 0
+           ORDER BY completion_pct ASC LIMIT ?""",
+        (state, fin_year, limit),
+    ).fetchall()
+    conn.close()
+
+    if not rows:
+        return {"answer": f"No PMAY-G data for {state} ({fin_year}).", "data": None}
+
+    lines = [f"Worst {limit} districts by housing completion ({state}, PMAY-G, FY {fin_year}):"]
+    data = []
+    for i, row in enumerate(rows, 1):
+        r = dict(row)
+        lines.append(
+            f"  {i}. {r['district']}: {r['completion_pct']:.0f}% "
+            f"({r['houses_completed']:,}/{r['houses_sanctioned']:,} houses)"
+        )
+        data.append(r)
+    return {"answer": "\n".join(lines), "data": data}
+
+
+# ---------------------------------------------------------------------------
+# PM Kisan queries (farmer payments)
+# ---------------------------------------------------------------------------
+def pmkisan_by_district(
+    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+) -> dict[str, Any]:
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT * FROM pmkisan_district
+        WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?
+        ORDER BY installment""",
+        (district, state, fin_year),
+    ).fetchall()
+    conn.close()
+
+    if not rows:
+        return {"answer": f"No PM Kisan data for {district}, {state} ({fin_year}).", "data": None}
+
+    data = [dict(r) for r in rows]
+    total_paid = sum(r["beneficiaries_paid"] for r in data)
+    total_amount = sum(r["amount_paid_lakhs"] for r in data)
+    max_registered = max(r["beneficiaries_registered"] for r in data)
+    coverage_pct = (total_paid / max_registered * 100) if max_registered > 0 else 0
+
+    return {
+        "answer": (
+            f"{district}, {state} — PM Kisan (FY {fin_year}):\n"
+            f"  Beneficiaries registered: {max_registered:,}\n"
+            f"  Total paid: {total_paid:,} ({coverage_pct:.0f}% coverage)\n"
+            f"  Amount disbursed: {_fmt_rs(total_amount, 'lakhs')}\n"
+            f"  Installments: {len(data)}"
+        ),
+        "data": data,
+        "source_url": data[0].get("source_url"),
+    }
+
+
+def pmkisan_state_summary(
+    state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+) -> dict[str, Any]:
+    conn = _conn()
+    row = conn.execute(
+        """SELECT COUNT(DISTINCT district) as districts,
+                  SUM(beneficiaries_paid) as total_paid,
+                  SUM(amount_paid_lakhs) as total_amount,
+                  MAX(beneficiaries_registered) as max_registered
+           FROM pmkisan_district WHERE UPPER(state) = UPPER(?) AND fin_year = ?""",
+        (state, fin_year),
+    ).fetchone()
+    conn.close()
+
+    if not row or row["districts"] == 0:
+        return {"answer": f"No PM Kisan data for {state} ({fin_year}).", "data": None}
+
+    r = dict(row)
+    return {
+        "answer": (
+            f"{state} PM Kisan summary (FY {fin_year}):\n"
+            f"  Districts: {r['districts']}\n"
+            f"  Total beneficiaries paid: {r['total_paid']:,}\n"
+            f"  Total disbursed: {_fmt_rs(r['total_amount'], 'lakhs')}"
+        ),
+        "data": r,
+    }
+
+
+def pmkisan_worst_coverage(
+    state: str = "TAMIL NADU", fin_year: str = "2024-2025", limit: int = 5,
+) -> dict[str, Any]:
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT district,
+                  MAX(beneficiaries_registered) as registered,
+                  SUM(beneficiaries_paid) as paid,
+                  SUM(amount_paid_lakhs) as amount,
+                  CASE WHEN MAX(beneficiaries_registered) > 0
+                       THEN (SUM(beneficiaries_paid) * 100.0 / MAX(beneficiaries_registered))
+                       ELSE 0 END as coverage_pct
+           FROM pmkisan_district
+           WHERE UPPER(state) = UPPER(?) AND fin_year = ?
+                 AND UPPER(district) != 'ALL' AND beneficiaries_registered > 0
+           GROUP BY district
+           ORDER BY coverage_pct ASC LIMIT ?""",
+        (state, fin_year, limit),
+    ).fetchall()
+    conn.close()
+
+    if not rows:
+        return {"answer": f"No PM Kisan data for {state} ({fin_year}).", "data": None}
+
+    lines = [f"Worst {limit} districts by PM Kisan coverage ({state}, FY {fin_year}):"]
+    data = []
+    for i, row in enumerate(rows, 1):
+        r = dict(row)
+        lines.append(
+            f"  {i}. {r['district']}: {r['coverage_pct']:.0f}% "
+            f"({r['paid']:,}/{r['registered']:,} beneficiaries)"
+        )
+        data.append(r)
+    return {"answer": "\n".join(lines), "data": data}
+
+
+# ---------------------------------------------------------------------------
+# JJM queries (Jal Jeevan Mission — rural water)
+# ---------------------------------------------------------------------------
+def jjm_by_district(
+    district: str, state: str = "TAMIL NADU", fin_year: str = "cumulative",
+) -> dict[str, Any]:
+    conn = _conn()
+    row = conn.execute(
+        """SELECT * FROM jjm_district
+        WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?""",
+        (district, state, fin_year),
+    ).fetchone()
+    conn.close()
+
+    if not row:
+        return {"answer": f"No JJM data for {district}, {state} ({fin_year}).", "data": None}
+
+    r = dict(row)
+    util_pct = (r["funds_utilized_lakhs"] / r["funds_released_lakhs"] * 100) if r["funds_released_lakhs"] > 0 else 0
+    return {
+        "answer": (
+            f"{r['district']}, {r['state']} — Jal Jeevan Mission ({fin_year}):\n"
+            f"  Households: {r['total_households']:,} total | {r['households_with_tap']:,} with tap ({r['coverage_pct']:.0f}%)\n"
+            f"  Funds released: {_fmt_rs(r['funds_released_lakhs'], 'lakhs')} | utilized: {_fmt_rs(r['funds_utilized_lakhs'], 'lakhs')} ({util_pct:.0f}%)"
+        ),
+        "data": r,
+        "source_url": r.get("source_url"),
+    }
+
+
+def jjm_state_summary(
+    state: str = "TAMIL NADU", fin_year: str = "cumulative",
+) -> dict[str, Any]:
+    conn = _conn()
+    row = conn.execute(
+        """SELECT COUNT(DISTINCT district) as districts,
+                  SUM(total_households) as total_hh, SUM(households_with_tap) as tapped,
+                  AVG(coverage_pct) as avg_coverage,
+                  SUM(funds_released_lakhs) as released, SUM(funds_utilized_lakhs) as utilized
+           FROM jjm_district WHERE UPPER(state) = UPPER(?) AND fin_year = ?""",
+        (state, fin_year),
+    ).fetchone()
+    conn.close()
+
+    if not row or row["districts"] == 0:
+        return {"answer": f"No JJM data for {state} ({fin_year}).", "data": None}
+
+    r = dict(row)
+    overall_coverage = (r["tapped"] / r["total_hh"] * 100) if r["total_hh"] > 0 else 0
+    return {
+        "answer": (
+            f"{state} JJM summary ({fin_year}):\n"
+            f"  Districts: {r['districts']}\n"
+            f"  Households: {r['total_hh']:,} total | {r['tapped']:,} with tap ({overall_coverage:.0f}%)\n"
+            f"  Funds released: {_fmt_rs(r['released'], 'lakhs')} | utilized: {_fmt_rs(r['utilized'], 'lakhs')}"
+        ),
+        "data": r,
+    }
+
+
+def jjm_worst_coverage(
+    state: str = "TAMIL NADU", fin_year: str = "cumulative", limit: int = 5,
+) -> dict[str, Any]:
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT district, total_households, households_with_tap, coverage_pct, source_url
+           FROM jjm_district
+           WHERE UPPER(state) = UPPER(?) AND fin_year = ? AND total_households > 0
+           ORDER BY coverage_pct ASC LIMIT ?""",
+        (state, fin_year, limit),
+    ).fetchall()
+    conn.close()
+
+    if not rows:
+        return {"answer": f"No JJM data for {state} ({fin_year}).", "data": None}
+
+    lines = [f"Worst {limit} districts by tap water coverage ({state}, JJM):"]
+    data = []
+    for i, row in enumerate(rows, 1):
+        r = dict(row)
+        lines.append(
+            f"  {i}. {r['district']}: {r['coverage_pct']:.0f}% "
+            f"({r['households_with_tap']:,}/{r['total_households']:,} households)"
+        )
+        data.append(r)
+    return {"answer": "\n".join(lines), "data": data}
+
+
+# ---------------------------------------------------------------------------
+# PM POSHAN queries (school nutrition)
+# ---------------------------------------------------------------------------
+def pmposhan_by_district(
+    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+) -> dict[str, Any]:
+    conn = _conn()
+    row = conn.execute(
+        """SELECT * FROM pmposhan_district
+        WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?""",
+        (district, state, fin_year),
+    ).fetchone()
+    conn.close()
+
+    if not row:
+        return {"answer": f"No PM POSHAN data for {district}, {state} ({fin_year}).", "data": None}
+
+    r = dict(row)
+    feeding_pct = (r["children_fed"] / r["children_enrolled"] * 100) if r["children_enrolled"] > 0 else 0
+    return {
+        "answer": (
+            f"{r['district']}, {r['state']} — PM POSHAN (FY {fin_year}):\n"
+            f"  Schools covered: {r['schools_covered']:,}\n"
+            f"  Children enrolled: {r['children_enrolled']:,} | fed: {r['children_fed']:,} ({feeding_pct:.0f}%)\n"
+            f"  Funds released: {_fmt_rs(r['funds_released_lakhs'], 'lakhs')} | utilized: {_fmt_rs(r['funds_utilized_lakhs'], 'lakhs')} ({r['utilization_pct']:.0f}%)"
+        ),
+        "data": r,
+        "source_url": r.get("source_url"),
+    }
+
+
+def pmposhan_state_summary(
+    state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+) -> dict[str, Any]:
+    conn = _conn()
+    row = conn.execute(
+        """SELECT COUNT(DISTINCT district) as districts,
+                  SUM(schools_covered) as schools, SUM(children_enrolled) as enrolled,
+                  SUM(children_fed) as fed,
+                  SUM(funds_released_lakhs) as released, SUM(funds_utilized_lakhs) as utilized,
+                  AVG(utilization_pct) as avg_util
+           FROM pmposhan_district WHERE UPPER(state) = UPPER(?) AND fin_year = ?""",
+        (state, fin_year),
+    ).fetchone()
+    conn.close()
+
+    if not row or row["districts"] == 0:
+        return {"answer": f"No PM POSHAN data for {state} ({fin_year}).", "data": None}
+
+    r = dict(row)
+    feeding_pct = (r["fed"] / r["enrolled"] * 100) if r["enrolled"] > 0 else 0
+    return {
+        "answer": (
+            f"{state} PM POSHAN summary (FY {fin_year}):\n"
+            f"  Districts: {r['districts']} | Schools: {r['schools']:,}\n"
+            f"  Children enrolled: {r['enrolled']:,} | fed: {r['fed']:,} ({feeding_pct:.0f}%)\n"
+            f"  Funds released: {_fmt_rs(r['released'], 'lakhs')} | utilized: {_fmt_rs(r['utilized'], 'lakhs')}"
+        ),
+        "data": r,
+    }
+
+
+def pmposhan_worst_feeding(
+    state: str = "TAMIL NADU", fin_year: str = "2024-2025", limit: int = 5,
+) -> dict[str, Any]:
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT district, children_enrolled, children_fed,
+                  CASE WHEN children_enrolled > 0
+                       THEN (children_fed * 100.0 / children_enrolled)
+                       ELSE 0 END as feeding_pct,
+                  source_url
+           FROM pmposhan_district
+           WHERE UPPER(state) = UPPER(?) AND fin_year = ? AND children_enrolled > 0
+           ORDER BY feeding_pct ASC LIMIT ?""",
+        (state, fin_year, limit),
+    ).fetchall()
+    conn.close()
+
+    if not rows:
+        return {"answer": f"No PM POSHAN data for {state} ({fin_year}).", "data": None}
+
+    lines = [f"Worst {limit} districts by meal coverage ({state}, PM POSHAN, FY {fin_year}):"]
+    data = []
+    for i, row in enumerate(rows, 1):
+        r = dict(row)
+        lines.append(
+            f"  {i}. {r['district']}: {r['feeding_pct']:.0f}% "
+            f"({r['children_fed']:,}/{r['children_enrolled']:,} children)"
+        )
+        data.append(r)
+    return {"answer": "\n".join(lines), "data": data}
+
+
+# ---------------------------------------------------------------------------
+# NSAP queries (pensions)
+# ---------------------------------------------------------------------------
+def nsap_by_district(
+    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+) -> dict[str, Any]:
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT * FROM nsap_district
+        WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?
+        ORDER BY scheme_type""",
+        (district, state, fin_year),
+    ).fetchall()
+    conn.close()
+
+    if not rows:
+        return {"answer": f"No NSAP data for {district}, {state} ({fin_year}).", "data": None}
+
+    data = [dict(r) for r in rows]
+    total_paid = sum(r["beneficiaries_paid"] for r in data)
+    total_eligible = sum(r["beneficiaries_eligible"] for r in data)
+    total_amount = sum(r["amount_paid_lakhs"] for r in data)
+
+    lines = [f"{district}, {state} — NSAP Pensions (FY {fin_year}):"]
+    lines.append(f"  Total beneficiaries paid: {total_paid:,}")
+    if total_eligible > 0:
+        lines.append(f"  Eligible: {total_eligible:,} ({total_paid / total_eligible * 100:.0f}% coverage)")
+    lines.append(f"  Amount paid: {_fmt_rs(total_amount, 'lakhs')}")
+    for r in data:
+        if r["scheme_type"]:
+            lines.append(f"    {r['scheme_type']}: {r['beneficiaries_paid']:,} paid")
+
+    return {
+        "answer": "\n".join(lines),
+        "data": data,
+        "source_url": data[0].get("source_url"),
+    }
+
+
+def nsap_state_summary(
+    state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+) -> dict[str, Any]:
+    conn = _conn()
+    row = conn.execute(
+        """SELECT COUNT(DISTINCT district) as districts,
+                  SUM(beneficiaries_paid) as total_paid,
+                  SUM(beneficiaries_eligible) as total_eligible,
+                  SUM(amount_paid_lakhs) as total_amount
+           FROM nsap_district WHERE UPPER(state) = UPPER(?) AND fin_year = ?""",
+        (state, fin_year),
+    ).fetchone()
+    conn.close()
+
+    if not row or row["districts"] == 0:
+        return {"answer": f"No NSAP data for {state} ({fin_year}).", "data": None}
+
+    r = dict(row)
+    coverage = (r["total_paid"] / r["total_eligible"] * 100) if r["total_eligible"] > 0 else 0
+    return {
+        "answer": (
+            f"{state} NSAP summary (FY {fin_year}):\n"
+            f"  Districts: {r['districts']}\n"
+            f"  Beneficiaries paid: {r['total_paid']:,}"
+            + (f" ({coverage:.0f}% of {r['total_eligible']:,} eligible)" if r["total_eligible"] > 0 else "")
+            + f"\n  Amount paid: {_fmt_rs(r['total_amount'], 'lakhs')}"
+        ),
+        "data": r,
+    }
+
+
+def nsap_worst_coverage(
+    state: str = "TAMIL NADU", fin_year: str = "2024-2025", limit: int = 5,
+) -> dict[str, Any]:
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT district,
+                  SUM(beneficiaries_eligible) as eligible,
+                  SUM(beneficiaries_paid) as paid,
+                  CASE WHEN SUM(beneficiaries_eligible) > 0
+                       THEN (SUM(beneficiaries_paid) * 100.0 / SUM(beneficiaries_eligible))
+                       ELSE 0 END as coverage_pct
+           FROM nsap_district
+           WHERE UPPER(state) = UPPER(?) AND fin_year = ? AND beneficiaries_eligible > 0
+           GROUP BY district
+           ORDER BY coverage_pct ASC LIMIT ?""",
+        (state, fin_year, limit),
+    ).fetchall()
+    conn.close()
+
+    if not rows:
+        return {"answer": f"No NSAP data for {state} ({fin_year}).", "data": None}
+
+    lines = [f"Worst {limit} districts by pension coverage ({state}, NSAP, FY {fin_year}):"]
+    data = []
+    for i, row in enumerate(rows, 1):
+        r = dict(row)
+        lines.append(
+            f"  {i}. {r['district']}: {r['coverage_pct']:.0f}% "
+            f"({r['paid']:,}/{r['eligible']:,} pensioners)"
+        )
+        data.append(r)
+    return {"answer": "\n".join(lines), "data": data}
+
+
+# ---------------------------------------------------------------------------
+# NFSA queries (PDS / ration system)
+# ---------------------------------------------------------------------------
+def nfsa_by_district(
+    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+) -> dict[str, Any]:
+    conn = _conn()
+    row = conn.execute(
+        """SELECT * FROM nfsa_district
+        WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?""",
+        (district, state, fin_year),
+    ).fetchone()
+    conn.close()
+
+    if not row:
+        return {"answer": f"No NFSA data for {district}, {state} ({fin_year}).", "data": None}
+
+    r = dict(row)
+    active_pct = (r["ration_cards_active"] / r["ration_cards_total"] * 100) if r["ration_cards_total"] > 0 else 0
+    return {
+        "answer": (
+            f"{r['district']}, {r['state']} — PDS/NFSA (FY {fin_year}):\n"
+            f"  Ration cards: {r['ration_cards_active']:,} active / {r['ration_cards_total']:,} total ({active_pct:.0f}%)\n"
+            f"  Allocation: {r['allocation_mt']:,.1f} MT | Offtake: {r['offtake_mt']:,.1f} MT ({r['offtake_pct']:.0f}%)\n"
+            f"  Beneficiaries: {r['beneficiaries_total']:,}"
+        ),
+        "data": r,
+        "source_url": r.get("source_url"),
+    }
+
+
+def nfsa_state_summary(
+    state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+) -> dict[str, Any]:
+    conn = _conn()
+    row = conn.execute(
+        """SELECT COUNT(DISTINCT district) as districts,
+                  SUM(ration_cards_total) as total_cards, SUM(ration_cards_active) as active_cards,
+                  SUM(allocation_mt) as allocation, SUM(offtake_mt) as offtake,
+                  SUM(beneficiaries_total) as beneficiaries
+           FROM nfsa_district WHERE UPPER(state) = UPPER(?) AND fin_year = ?""",
+        (state, fin_year),
+    ).fetchone()
+    conn.close()
+
+    if not row or row["districts"] == 0:
+        return {"answer": f"No NFSA data for {state} ({fin_year}).", "data": None}
+
+    r = dict(row)
+    offtake_pct = (r["offtake"] / r["allocation"] * 100) if r["allocation"] > 0 else 0
+    return {
+        "answer": (
+            f"{state} PDS/NFSA summary (FY {fin_year}):\n"
+            f"  Districts: {r['districts']}\n"
+            f"  Ration cards: {r['active_cards']:,} active / {r['total_cards']:,} total\n"
+            f"  Allocation: {r['allocation']:,.1f} MT | Offtake: {r['offtake']:,.1f} MT ({offtake_pct:.0f}%)\n"
+            f"  Total beneficiaries: {r['beneficiaries']:,}"
+        ),
+        "data": r,
+    }
+
+
+def nfsa_worst_coverage(
+    state: str = "TAMIL NADU", fin_year: str = "2024-2025", limit: int = 5,
+) -> dict[str, Any]:
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT district, ration_cards_total, ration_cards_active,
+                  offtake_pct, source_url
+           FROM nfsa_district
+           WHERE UPPER(state) = UPPER(?) AND fin_year = ? AND ration_cards_total > 0
+           ORDER BY offtake_pct ASC LIMIT ?""",
+        (state, fin_year, limit),
+    ).fetchall()
+    conn.close()
+
+    if not rows:
+        return {"answer": f"No NFSA data for {state} ({fin_year}).", "data": None}
+
+    lines = [f"Worst {limit} districts by ration offtake ({state}, NFSA, FY {fin_year}):"]
+    data = []
+    for i, row in enumerate(rows, 1):
+        r = dict(row)
+        lines.append(
+            f"  {i}. {r['district']}: {r['offtake_pct']:.0f}% offtake "
+            f"({r['ration_cards_active']:,}/{r['ration_cards_total']:,} active cards)"
+        )
+        data.append(r)
+    return {"answer": "\n".join(lines), "data": data}
+
+
+# ---------------------------------------------------------------------------
+# Data quality warnings
+# ---------------------------------------------------------------------------
+def data_quality_warnings() -> dict[str, list[str]]:
+    """Return known data quality issues per scheme.
+
+    Updated 2026-03: Investigated scraper sources and government portals.
+    Financial data for PMAY-G, JJM, and PM POSHAN is NOT publicly accessible
+    via API — portals require login or use Power BI embeds.
+    """
+    return {
+        "PM Kisan": [
+            "28 of 36 states have only state-level aggregate records (district='ALL'), not district-level data.",
+            "No allocation data — PM Kisan is a direct benefit transfer with no state-level allocation.",
+        ],
+        "NSAP": [
+            "amount_paid_lakhs, beneficiaries_eligible, and pension_per_month are all zeros — data.gov.in API only has beneficiary counts.",
+            "Only beneficiaries_paid has meaningful data. Coverage percentages cannot be computed.",
+            "API scraper (scrape_nsap_api.py) fetches IGNOAPS/IGNWPS/IGNDPS from data.gov.in automatically.",
+            "State-level funds released data exists on data.gov.in (dataset ebb775b3) but no district breakdown.",
+        ],
+        "PDS/NFSA": [
+            "allocation_mt and offtake_mt are ALL zeros — nfsa.gov.in dashboard data is stale (Jul 2021).",
+            "Ration card counts (total, active, AAY, PHH) and beneficiary counts are populated.",
+            "data.gov.in has state-level allocation/offtake only (dataset 84bb8521), no district breakdown.",
+            "Do not compare NFSA MT columns with other schemes' rupee columns.",
+        ],
+        "PM POSHAN": [
+            "funds_released_lakhs and funds_utilized_lakhs are ALL zeros — portal does not expose financial data.",
+            "Rely on children_fed vs children_enrolled for meaningful delivery metrics.",
+            "Excluded from scheme_finance VIEW to prevent misleading zero aggregations.",
+        ],
+        "PMAY-G": [
+            "funds_released_lakhs and funds_utilized_lakhs are ALL zeros — financial report is behind login/Power BI.",
+            "PhysicalProgressRpt.aspx only has housing counts; FinancialProgressRpt.aspx returns 404.",
+            "Excluded from scheme_finance VIEW. Use houses_sanctioned/completed for delivery metrics.",
+        ],
+        "JJM": [
+            "funds_released_lakhs and funds_utilized_lakhs are ALL zeros — ejalshakti.gov.in API has no financial endpoint.",
+            "Tested Param values 1-34 and alternate endpoints (JJMFinancialView, etc.) — all return 401 or same schema.",
+            "Excluded from scheme_finance VIEW. Use coverage_pct for delivery metrics.",
+        ],
+        "MGNREGA": [
+            "Financial amounts are in lakhs (amounts_in_lakhs=1 in financial_statement).",
+        ],
+        "PMGSY": [
+            "Amounts are in crores. Converted to lakhs (*100) in VIEWs.",
+        ],
+    }
 
 
 # ---------------------------------------------------------------------------

@@ -1,12 +1,15 @@
+# Database (generated — rebuild with: python3 run_all.py --load-only)
+hisaab.db
+data/hisaab.db
+
 # Python
 .venv/
 __pycache__/
-*.pyc
+*.py[cod]
 *.egg-info/
 
 # Data (regenerable)
 data/raw/
-data/hisaab.db
 data/logs/
 data/metadata/
 data/briefs/
@@ -21,3 +24,11 @@ data/briefs/
 # Browser / Playwright
 .playwright-mcp/
 .session/
+
+# OS
+.DS_Store
+
+# Ruff / linters
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/

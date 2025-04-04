@@ -55,10 +55,15 @@ def _pct(value: float) -> str:
 # Fuzzy district matching
 # ---------------------------------------------------------------------------
 def _all_districts(conn: sqlite3.Connection) -> list[dict[str, str]]:
-    """Return all (district, state) pairs from all tables."""
+    """Return all (district, state) pairs from all scheme tables."""
     seen: set[tuple[str, str]] = set()
     result: list[dict[str, str]] = []
-    for table in ("misappropriation", "financial_statement", "pmgsy_district"):
+    tables = (
+        "misappropriation", "financial_statement", "pmgsy_district",
+        "pmayg_district", "pmkisan_district", "jjm_district",
+        "pmposhan_district", "nsap_district", "nfsa_district",
+    )
+    for table in tables:
         try:
             rows = conn.execute(
                 f"SELECT DISTINCT district, state FROM {table} ORDER BY state, district"
@@ -267,6 +272,130 @@ def brief(district_query: str) -> str:
         lines.append("  No data available.")
     lines.append("")
 
+    # --- PMAY-G (Rural Housing) ---
+    pmayg = conn.execute(
+        "SELECT * FROM pmayg_district WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?) AND fin_year=?",
+        (district, state, FIN_YEAR),
+    ).fetchone()
+
+    lines.append("RURAL HOUSING (PMAY-G)")
+    if pmayg:
+        h = dict(pmayg)
+        occupied_pct = (h["houses_occupied"] / h["houses_completed"] * 100) if h["houses_completed"] > 0 else 0
+        lines.append(f"  Houses sanctioned: {h['houses_sanctioned']:,} | completed: {h['houses_completed']:,} ({h['completion_pct']:.0f}%)")
+        lines.append(f"  Houses occupied: {h['houses_occupied']:,} ({occupied_pct:.0f}% of completed)")
+        lines.append(f"  Funds released: {_fmt_inr(h['funds_released_lakhs'], 'lakhs')} | utilized: {_fmt_inr(h['funds_utilized_lakhs'], 'lakhs')}")
+        if h.get("source_url"):
+            lines.append(f"  Source: {h['source_url']}")
+    else:
+        lines.append("  No data available.")
+    lines.append("")
+
+    # --- PM Kisan ---
+    pmkisan = conn.execute(
+        "SELECT * FROM pmkisan_district WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?) AND fin_year=?",
+        (district, state, FIN_YEAR),
+    ).fetchall()
+
+    lines.append("FARMER PAYMENTS (PM KISAN)")
+    if pmkisan:
+        pk = [dict(r) for r in pmkisan]
+        total_paid = sum(r["beneficiaries_paid"] for r in pk)
+        total_amount = sum(r["amount_paid_lakhs"] for r in pk)
+        max_reg = max(r["beneficiaries_registered"] for r in pk)
+        cov_pct = (total_paid / max_reg * 100) if max_reg > 0 else 0
+        is_all = any(r["district"].upper() == "ALL" for r in pk)
+        lines.append(f"  Beneficiaries registered: {max_reg:,} | paid: {total_paid:,} ({cov_pct:.0f}% coverage)")
+        lines.append(f"  Amount disbursed: {_fmt_inr(total_amount, 'lakhs')}")
+        if is_all:
+            lines.append("  NOTE: This is state-level aggregate data (district='ALL'), not district-specific.")
+        if pk[0].get("source_url"):
+            lines.append(f"  Source: {pk[0]['source_url']}")
+    else:
+        lines.append("  No data available.")
+    lines.append("")
+
+    # --- JJM (Water) ---
+    jjm = conn.execute(
+        "SELECT * FROM jjm_district WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?)",
+        (district, state),
+    ).fetchone()
+
+    lines.append("RURAL WATER (JJM)")
+    if jjm:
+        j = dict(jjm)
+        util_pct = (j["funds_utilized_lakhs"] / j["funds_released_lakhs"] * 100) if j["funds_released_lakhs"] > 0 else 0
+        lines.append(f"  Households: {j['total_households']:,} total | {j['households_with_tap']:,} with tap ({j['coverage_pct']:.0f}%)")
+        lines.append(f"  Funds released: {_fmt_inr(j['funds_released_lakhs'], 'lakhs')} | utilized: {_fmt_inr(j['funds_utilized_lakhs'], 'lakhs')} ({util_pct:.0f}%)")
+        if j.get("source_url"):
+            lines.append(f"  Source: {j['source_url']}")
+    else:
+        lines.append("  No data available.")
+    lines.append("")
+
+    # --- PM POSHAN (School Nutrition) ---
+    poshan = conn.execute(
+        "SELECT * FROM pmposhan_district WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?) AND fin_year=?",
+        (district, state, FIN_YEAR),
+    ).fetchone()
+
+    lines.append("SCHOOL NUTRITION (PM POSHAN)")
+    if poshan:
+        p = dict(poshan)
+        feeding_pct = (p["children_fed"] / p["children_enrolled"] * 100) if p["children_enrolled"] > 0 else 0
+        lines.append(f"  Schools covered: {p['schools_covered']:,}")
+        lines.append(f"  Children enrolled: {p['children_enrolled']:,} | fed: {p['children_fed']:,} ({feeding_pct:.0f}%)")
+        lines.append(f"  Funds released: {_fmt_inr(p['funds_released_lakhs'], 'lakhs')} | utilized: {_fmt_inr(p['funds_utilized_lakhs'], 'lakhs')}")
+        if p.get("source_url"):
+            lines.append(f"  Source: {p['source_url']}")
+    else:
+        lines.append("  No data available.")
+    lines.append("")
+
+    # --- NSAP (Pensions) ---
+    nsap = conn.execute(
+        "SELECT * FROM nsap_district WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?) AND fin_year=?",
+        (district, state, FIN_YEAR),
+    ).fetchall()
+
+    lines.append("PENSIONS (NSAP)")
+    if nsap:
+        ns = [dict(r) for r in nsap]
+        total_paid = sum(r["beneficiaries_paid"] for r in ns)
+        total_eligible = sum(r["beneficiaries_eligible"] for r in ns)
+        total_amount = sum(r["amount_paid_lakhs"] for r in ns)
+        lines.append(f"  Beneficiaries paid: {total_paid:,}")
+        if total_eligible > 0:
+            lines.append(f"  Eligible: {total_eligible:,} ({total_paid / total_eligible * 100:.0f}% coverage)")
+        lines.append(f"  Amount paid: {_fmt_inr(total_amount, 'lakhs')}")
+        for r in ns:
+            if r["scheme_type"]:
+                lines.append(f"    {r['scheme_type']}: {r['beneficiaries_paid']:,} paid")
+        if ns[0].get("source_url"):
+            lines.append(f"  Source: {ns[0]['source_url']}")
+    else:
+        lines.append("  No data available.")
+    lines.append("")
+
+    # --- NFSA (Ration System) ---
+    nfsa = conn.execute(
+        "SELECT * FROM nfsa_district WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?) AND fin_year=?",
+        (district, state, FIN_YEAR),
+    ).fetchone()
+
+    lines.append("RATION SYSTEM (PDS/NFSA)")
+    if nfsa:
+        nf = dict(nfsa)
+        active_pct = (nf["ration_cards_active"] / nf["ration_cards_total"] * 100) if nf["ration_cards_total"] > 0 else 0
+        lines.append(f"  Ration cards: {nf['ration_cards_active']:,} active / {nf['ration_cards_total']:,} total ({active_pct:.0f}%)")
+        lines.append(f"  Allocation: {nf['allocation_mt']:,.1f} MT | Offtake: {nf['offtake_mt']:,.1f} MT ({nf['offtake_pct']:.0f}%)")
+        lines.append(f"  Beneficiaries: {nf['beneficiaries_total']:,}")
+        if nf.get("source_url"):
+            lines.append(f"  Source: {nf['source_url']}")
+    else:
+        lines.append("  No data available.")
+    lines.append("")
+
     # --- RED FLAGS (automated anomaly detection) ---
     flags = _detect_flags(conn, district, state, verbose=True)
 
@@ -436,6 +565,123 @@ def state_brief(state_name: str) -> str:
         lines.append(f"  {pm['districts']} districts | {pm['sanctioned']:,} roads sanctioned | {pm['completed']:,} completed ({_pct(completion_pct)})")
         lines.append(f"  Length: {pm['len_s']:,.1f} km sanctioned | {pm['len_c']:,.1f} km completed")
         lines.append(f"  Total expenditure: {_fmt_inr(pm['exp'] * 10000000)}")
+    else:
+        lines.append("  No data available.")
+    lines.append("")
+
+    # --- PMAY-G ---
+    pmayg = conn.execute(
+        """SELECT COUNT(DISTINCT district) as districts,
+                  SUM(houses_sanctioned) as sanctioned, SUM(houses_completed) as completed,
+                  SUM(houses_occupied) as occupied,
+                  SUM(funds_released_lakhs) as released, SUM(funds_utilized_lakhs) as utilized
+           FROM pmayg_district WHERE UPPER(state)=UPPER(?) AND fin_year=?""",
+        (state, FIN_YEAR),
+    ).fetchone()
+
+    lines.append("RURAL HOUSING (PMAY-G)")
+    if pmayg and pmayg["districts"] and pmayg["districts"] > 0:
+        h = dict(pmayg)
+        comp_pct = (h["completed"] / h["sanctioned"] * 100) if h["sanctioned"] > 0 else 0
+        lines.append(f"  {h['districts']} districts | {h['sanctioned']:,} houses sanctioned | {h['completed']:,} completed ({_pct(comp_pct)})")
+        lines.append(f"  Occupied: {h['occupied']:,}")
+        lines.append(f"  Funds released: {_fmt_inr(h['released'], 'lakhs')} | utilized: {_fmt_inr(h['utilized'], 'lakhs')}")
+    else:
+        lines.append("  No data available.")
+    lines.append("")
+
+    # --- PM Kisan ---
+    pmkisan = conn.execute(
+        """SELECT COUNT(DISTINCT district) as districts,
+                  SUM(beneficiaries_paid) as paid, SUM(amount_paid_lakhs) as amount
+           FROM pmkisan_district WHERE UPPER(state)=UPPER(?) AND fin_year=?""",
+        (state, FIN_YEAR),
+    ).fetchone()
+
+    lines.append("FARMER PAYMENTS (PM KISAN)")
+    if pmkisan and pmkisan["districts"] and pmkisan["districts"] > 0:
+        pk = dict(pmkisan)
+        lines.append(f"  {pk['districts']} districts | {pk['paid']:,} beneficiaries paid")
+        lines.append(f"  Amount disbursed: {_fmt_inr(pk['amount'], 'lakhs')}")
+    else:
+        lines.append("  No data available.")
+    lines.append("")
+
+    # --- JJM ---
+    jjm = conn.execute(
+        """SELECT COUNT(DISTINCT district) as districts,
+                  SUM(total_households) as total_hh, SUM(households_with_tap) as tapped,
+                  SUM(funds_released_lakhs) as released, SUM(funds_utilized_lakhs) as utilized
+           FROM jjm_district WHERE UPPER(state)=UPPER(?)""",
+        (state,),
+    ).fetchone()
+
+    lines.append("RURAL WATER (JJM)")
+    if jjm and jjm["districts"] and jjm["districts"] > 0:
+        j = dict(jjm)
+        cov_pct = (j["tapped"] / j["total_hh"] * 100) if j["total_hh"] > 0 else 0
+        lines.append(f"  {j['districts']} districts | {j['total_hh']:,} households | {j['tapped']:,} with tap ({_pct(cov_pct)})")
+        lines.append(f"  Funds released: {_fmt_inr(j['released'], 'lakhs')} | utilized: {_fmt_inr(j['utilized'], 'lakhs')}")
+    else:
+        lines.append("  No data available.")
+    lines.append("")
+
+    # --- PM POSHAN ---
+    poshan = conn.execute(
+        """SELECT COUNT(DISTINCT district) as districts,
+                  SUM(schools_covered) as schools, SUM(children_enrolled) as enrolled,
+                  SUM(children_fed) as fed
+           FROM pmposhan_district WHERE UPPER(state)=UPPER(?) AND fin_year=?""",
+        (state, FIN_YEAR),
+    ).fetchone()
+
+    lines.append("SCHOOL NUTRITION (PM POSHAN)")
+    if poshan and poshan["districts"] and poshan["districts"] > 0:
+        p = dict(poshan)
+        feeding_pct = (p["fed"] / p["enrolled"] * 100) if p["enrolled"] > 0 else 0
+        lines.append(f"  {p['districts']} districts | {p['schools']:,} schools")
+        lines.append(f"  Children enrolled: {p['enrolled']:,} | fed: {p['fed']:,} ({_pct(feeding_pct)})")
+    else:
+        lines.append("  No data available.")
+    lines.append("")
+
+    # --- NSAP ---
+    nsap = conn.execute(
+        """SELECT COUNT(DISTINCT district) as districts,
+                  SUM(beneficiaries_paid) as paid, SUM(beneficiaries_eligible) as eligible,
+                  SUM(amount_paid_lakhs) as amount
+           FROM nsap_district WHERE UPPER(state)=UPPER(?) AND fin_year=?""",
+        (state, FIN_YEAR),
+    ).fetchone()
+
+    lines.append("PENSIONS (NSAP)")
+    if nsap and nsap["districts"] and nsap["districts"] > 0:
+        n = dict(nsap)
+        lines.append(f"  {n['districts']} districts | {n['paid']:,} beneficiaries paid")
+        if n["eligible"] > 0:
+            lines.append(f"  Eligible: {n['eligible']:,} ({n['paid'] / n['eligible'] * 100:.0f}% coverage)")
+        lines.append(f"  Amount paid: {_fmt_inr(n['amount'], 'lakhs')}")
+    else:
+        lines.append("  No data available.")
+    lines.append("")
+
+    # --- NFSA ---
+    nfsa = conn.execute(
+        """SELECT COUNT(DISTINCT district) as districts,
+                  SUM(ration_cards_total) as total_cards, SUM(ration_cards_active) as active_cards,
+                  SUM(allocation_mt) as allocation, SUM(offtake_mt) as offtake,
+                  SUM(beneficiaries_total) as beneficiaries
+           FROM nfsa_district WHERE UPPER(state)=UPPER(?) AND fin_year=?""",
+        (state, FIN_YEAR),
+    ).fetchone()
+
+    lines.append("RATION SYSTEM (PDS/NFSA)")
+    if nfsa and nfsa["districts"] and nfsa["districts"] > 0:
+        nf = dict(nfsa)
+        offtake_pct = (nf["offtake"] / nf["allocation"] * 100) if nf["allocation"] > 0 else 0
+        lines.append(f"  {nf['districts']} districts | {nf['active_cards']:,} active / {nf['total_cards']:,} total ration cards")
+        lines.append(f"  Allocation: {nf['allocation']:,.1f} MT | Offtake: {nf['offtake']:,.1f} MT ({_pct(offtake_pct)})")
+        lines.append(f"  Beneficiaries: {nf['beneficiaries']:,}")
     else:
         lines.append("  No data available.")
     lines.append("")
@@ -618,6 +864,195 @@ def _detect_flags(conn: sqlite3.Connection, district: str, state: str, verbose: 
             else:
                 flags.append("High MGNREGA spend, low PMGSY roads")
 
+    # --- PMAY-G red flags ---
+    pmayg = conn.execute(
+        "SELECT * FROM pmayg_district WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?) AND fin_year=?",
+        (district, state, FIN_YEAR),
+    ).fetchone()
+
+    if pmayg:
+        h = dict(pmayg)
+        if h["houses_sanctioned"] > 0 and h["completion_pct"] < 40:
+            if verbose:
+                flags.append(
+                    f"PMAY-G low completion: only {_pct(h['completion_pct'])} of sanctioned houses completed "
+                    f"({h['houses_completed']:,}/{h['houses_sanctioned']:,})"
+                )
+            else:
+                flags.append(f"PMAY-G housing {_pct(h['completion_pct'])} complete")
+        if h["houses_completed"] > 0:
+            occ_pct = h["houses_occupied"] / h["houses_completed"] * 100
+            if occ_pct < 50:
+                if verbose:
+                    flags.append(
+                        f"PMAY-G low occupancy: only {_pct(occ_pct)} of completed houses occupied "
+                        f"({h['houses_occupied']:,}/{h['houses_completed']:,})"
+                    )
+                else:
+                    flags.append(f"PMAY-G occupancy {_pct(occ_pct)}")
+
+    # --- PM Kisan red flags ---
+    pmkisan_rows = conn.execute(
+        "SELECT * FROM pmkisan_district WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?) AND fin_year=?",
+        (district, state, FIN_YEAR),
+    ).fetchall()
+
+    if pmkisan_rows:
+        pk = [dict(r) for r in pmkisan_rows]
+        max_reg = max(r["beneficiaries_registered"] for r in pk)
+        total_paid = sum(r["beneficiaries_paid"] for r in pk)
+        is_all = any(r["district"].upper() == "ALL" for r in pk)
+        if is_all:
+            if verbose:
+                flags.append("PM Kisan: only state-level aggregate data (district='ALL'), not district-specific")
+            else:
+                flags.append("PM Kisan: state-level only")
+        elif max_reg > 0 and (total_paid / max_reg * 100) < 50:
+            cov = total_paid / max_reg * 100
+            if verbose:
+                flags.append(f"PM Kisan low coverage: only {_pct(cov)} of registered beneficiaries paid")
+            else:
+                flags.append(f"PM Kisan coverage {_pct(cov)}")
+
+    # --- JJM red flags ---
+    jjm = conn.execute(
+        "SELECT * FROM jjm_district WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?)",
+        (district, state),
+    ).fetchone()
+
+    if jjm:
+        j = dict(jjm)
+        if j["total_households"] > 0 and j["coverage_pct"] < 30:
+            if verbose:
+                flags.append(
+                    f"JJM low coverage: only {_pct(j['coverage_pct'])} of households have tap water "
+                    f"({j['households_with_tap']:,}/{j['total_households']:,})"
+                )
+            else:
+                flags.append(f"JJM tap coverage {_pct(j['coverage_pct'])}")
+        if j["funds_released_lakhs"] > 0:
+            util = j["funds_utilized_lakhs"] / j["funds_released_lakhs"] * 100
+            if util < 40:
+                if verbose:
+                    flags.append(f"JJM low fund utilization: only {_pct(util)} of released funds utilized")
+                else:
+                    flags.append(f"JJM utilization {_pct(util)}")
+
+    # --- PM POSHAN red flags ---
+    poshan = conn.execute(
+        "SELECT * FROM pmposhan_district WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?) AND fin_year=?",
+        (district, state, FIN_YEAR),
+    ).fetchone()
+
+    if poshan:
+        p = dict(poshan)
+        if p["children_enrolled"] > 0:
+            feeding_pct = p["children_fed"] / p["children_enrolled"] * 100
+            if feeding_pct < 30:
+                if verbose:
+                    flags.append(
+                        f"PM POSHAN low feeding: only {_pct(feeding_pct)} of enrolled children fed "
+                        f"({p['children_fed']:,}/{p['children_enrolled']:,})"
+                    )
+                else:
+                    flags.append(f"PM POSHAN feeding {_pct(feeding_pct)}")
+
+    # --- NSAP red flags ---
+    nsap_rows = conn.execute(
+        "SELECT * FROM nsap_district WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?) AND fin_year=?",
+        (district, state, FIN_YEAR),
+    ).fetchall()
+
+    if nsap_rows:
+        ns = [dict(r) for r in nsap_rows]
+        total_paid = sum(r["beneficiaries_paid"] for r in ns)
+        total_eligible = sum(r["beneficiaries_eligible"] for r in ns)
+        if total_paid == 0 and total_eligible == 0:
+            if verbose:
+                flags.append("NSAP: both beneficiaries_paid and beneficiaries_eligible are zero (data quality issue)")
+            else:
+                flags.append("NSAP: no beneficiary data")
+
+    # --- NFSA red flags ---
+    nfsa = conn.execute(
+        "SELECT * FROM nfsa_district WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?) AND fin_year=?",
+        (district, state, FIN_YEAR),
+    ).fetchone()
+
+    if nfsa:
+        nf = dict(nfsa)
+        if nf["allocation_mt"] > 0 and nf["offtake_pct"] < 50:
+            if verbose:
+                flags.append(
+                    f"NFSA low offtake: only {_pct(nf['offtake_pct'])} of allocated grain distributed "
+                    f"({nf['offtake_mt']:,.1f}/{nf['allocation_mt']:,.1f} MT)"
+                )
+            else:
+                flags.append(f"NFSA offtake {_pct(nf['offtake_pct'])}")
+        if nf["ration_cards_total"] > 0:
+            active_pct = nf["ration_cards_active"] / nf["ration_cards_total"] * 100
+            if active_pct < 60:
+                if verbose:
+                    flags.append(
+                        f"NFSA low active cards: only {_pct(active_pct)} of ration cards active "
+                        f"({nf['ration_cards_active']:,}/{nf['ration_cards_total']:,})"
+                    )
+                else:
+                    flags.append(f"NFSA active cards {_pct(active_pct)}")
+
+    # --- Cross-scheme: MGNREGA + PMAY-G ---
+    if fin and pmayg:
+        f_dict = dict(fin)
+        h_dict = dict(pmayg)
+        if (f_dict["utilization_pct"] > 80
+                and h_dict["houses_sanctioned"] > 0
+                and h_dict["completion_pct"] < 40):
+            if verbose:
+                flags.append(
+                    f"Cross-scheme: high MGNREGA spend ({_pct(f_dict['utilization_pct'])}) "
+                    f"but low housing completion ({_pct(h_dict['completion_pct'])})"
+                )
+            else:
+                flags.append("High MGNREGA, low PMAY-G")
+
+    # --- Cross-scheme: JJM + PM POSHAN (infrastructure gap) ---
+    if jjm and poshan:
+        j_dict = dict(jjm)
+        p_dict = dict(poshan)
+        low_water = j_dict["total_households"] > 0 and j_dict["coverage_pct"] < 40
+        low_meals = p_dict["children_enrolled"] > 0 and (p_dict["children_fed"] / p_dict["children_enrolled"] * 100) < 40
+        if low_water and low_meals:
+            if verbose:
+                flags.append(
+                    f"Infrastructure gap: both water ({_pct(j_dict['coverage_pct'])}) and "
+                    f"school meals (<40% coverage) are low — possible systemic delivery failure"
+                )
+            else:
+                flags.append("Low water + low meals")
+
+    # --- Cross-scheme: 3+ schemes showing low delivery ---
+    low_delivery_count = 0
+    if pmgsy_rows and total_sanctioned > 0 and total_completed / total_sanctioned < 0.5:
+        low_delivery_count += 1
+    if pmayg and dict(pmayg)["houses_sanctioned"] > 0 and dict(pmayg)["completion_pct"] < 50:
+        low_delivery_count += 1
+    if jjm and dict(jjm)["total_households"] > 0 and dict(jjm)["coverage_pct"] < 50:
+        low_delivery_count += 1
+    if poshan and dict(poshan)["children_enrolled"] > 0 and dict(poshan)["children_fed"] / dict(poshan)["children_enrolled"] < 0.5:
+        low_delivery_count += 1
+    if nfsa and dict(nfsa)["offtake_pct"] < 50:
+        low_delivery_count += 1
+    if fin and dict(fin)["utilization_pct"] < 50:
+        low_delivery_count += 1
+
+    if low_delivery_count >= 3:
+        if verbose:
+            flags.append(
+                f"Multi-scheme underperformance: {low_delivery_count} schemes showing <50% delivery in this district"
+            )
+        else:
+            flags.append(f"{low_delivery_count} schemes <50% delivery")
+
     return flags
 
 
@@ -625,21 +1060,36 @@ def scan_red_flags(limit: int = 25, state_filter: str | None = None) -> str:
     """Scan all districts and rank by number of red flags. Story finder for journalists."""
     conn = _conn()
 
-    # Gather districts from all tables for comprehensive scanning
+    # Gather districts from all scheme tables for comprehensive scanning
     all_districts: set[tuple[str, str]] = set()
-    for table, has_fy in [("misappropriation", True), ("pmgsy_district", False)]:
+    tables_with_fy = [
+        "misappropriation", "financial_statement", "fto_status",
+        "pmayg_district", "pmkisan_district", "pmposhan_district",
+        "nsap_district", "nfsa_district",
+    ]
+    tables_without_fy = ["pmgsy_district", "jjm_district"]
+    for table in tables_with_fy:
         try:
-            if has_fy:
-                where = "WHERE fin_year=?"
-                params: list[Any] = [FIN_YEAR]
-            else:
-                where = "WHERE 1=1"
-                params = []
+            where = "WHERE fin_year=?"
+            params: list[Any] = [FIN_YEAR]
             if state_filter:
                 where += " AND UPPER(state)=UPPER(?)"
                 params.append(state_filter)
             for r in conn.execute(
                 f"SELECT DISTINCT district, state FROM {table} {where}", params
+            ).fetchall():
+                all_districts.add((r["district"], r["state"]))
+        except Exception:
+            pass
+    for table in tables_without_fy:
+        try:
+            where = "WHERE 1=1"
+            params_nfy: list[Any] = []
+            if state_filter:
+                where += " AND UPPER(state)=UPPER(?)"
+                params_nfy.append(state_filter)
+            for r in conn.execute(
+                f"SELECT DISTINCT district, state FROM {table} {where}", params_nfy
             ).fetchall():
                 all_districts.add((r["district"], r["state"]))
         except Exception:

@@ -38,54 +38,11 @@ SAMPLE_DISTRICTS = [
 
 @pytest.fixture
 def in_memory_db():
-    """Create an in-memory SQLite DB with PMGSY tables."""
+    """Create an in-memory SQLite DB with full schema (all 8 scheme tables)."""
+    from db import init_db
     conn = sqlite3.connect(":memory:")
     conn.row_factory = sqlite3.Row
-    conn.execute("""CREATE TABLE IF NOT EXISTS pmgsy_district (
-        district TEXT, state TEXT, state_code TEXT, fin_year TEXT,
-        scheme TEXT, roads_sanctioned INTEGER, roads_completed INTEGER,
-        length_sanctioned_km REAL, length_completed_km REAL,
-        habitations_covered INTEGER, value_of_projects_cr REAL,
-        expenditure_cr REAL, source_url TEXT, scraped_at TEXT,
-        UNIQUE(district, state, fin_year, scheme)
-    )""")
-    conn.execute("""CREATE TABLE IF NOT EXISTS pmgsy_progress (
-        state TEXT, state_code TEXT, fin_year TEXT,
-        roads_completed INTEGER, length_completed_km REAL,
-        habitations_connected INTEGER, expenditure_programme_cr REAL,
-        expenditure_admin_cr REAL, source_url TEXT, scraped_at TEXT,
-        UNIQUE(state, fin_year)
-    )""")
-    conn.execute("""CREATE TABLE IF NOT EXISTS misappropriation (
-        district TEXT, state TEXT, state_code TEXT, fin_year TEXT,
-        cases_reported INTEGER, amount_reported REAL,
-        amount_recovered REAL, amount_to_recover REAL,
-        source_url TEXT, scraped_at TEXT,
-        UNIQUE(district, state, fin_year)
-    )""")
-    conn.execute("""CREATE TABLE IF NOT EXISTS financial_statement (
-        district TEXT, state TEXT, state_code TEXT, fin_year TEXT,
-        total_availability REAL, cumulative_expenditure REAL,
-        utilization_pct REAL, exp_unskilled_wage REAL,
-        source_url TEXT, scraped_at TEXT,
-        UNIQUE(district, state, fin_year)
-    )""")
-    conn.execute("""CREATE TABLE IF NOT EXISTS issues_reported (
-        district TEXT, state TEXT, state_code TEXT, fin_year TEXT,
-        total_gps INTEGER, gps_audited INTEGER, total_issues INTEGER,
-        misappropriation_issues INTEGER, financial_deviation_issues INTEGER,
-        process_violation_issues INTEGER, grievances_issues INTEGER,
-        source_url TEXT, scraped_at TEXT,
-        UNIQUE(district, state, fin_year)
-    )""")
-    conn.execute("""CREATE TABLE IF NOT EXISTS fto_status (
-        district TEXT, state TEXT, state_code TEXT, fin_year TEXT,
-        total_fto_generated INTEGER, first_signatory_pending INTEGER,
-        second_signatory_pending INTEGER, fto_sent_to_bank INTEGER,
-        fto_processed_by_bank INTEGER,
-        source_url TEXT, scraped_at TEXT,
-        UNIQUE(district, state, fin_year)
-    )""")
+    init_db(conn)
     return conn
 
 

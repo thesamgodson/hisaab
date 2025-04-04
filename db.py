@@ -312,32 +312,152 @@ CREATE TABLE IF NOT EXISTS nfsa_district (
 CREATE INDEX IF NOT EXISTS idx_nfsa_district ON nfsa_district(state, district);
 
 -- =====================================================================
--- Unified money_flow VIEW — cross-scheme normalized data
+-- VIEW 1: scheme_finance — Financial flow (rupees in lakhs only)
 -- =====================================================================
--- Each row = one scheme + district + year, with amounts normalized to lakhs.
--- Query: "Across all schemes, how much money went to this district?"
+-- Only schemes with REAL financial data scraped from portals.
+-- Excluded: NFSA (metric tons, not rupees), NSAP (all zeros),
+--           PMAY-G (financial report behind login/Power BI),
+--           JJM (no financial API endpoint),
+--           PM POSHAN (funds columns all zeros from portal).
+
+DROP VIEW IF EXISTS scheme_finance;
+CREATE VIEW scheme_finance AS
+SELECT
+    'MGNREGA' as scheme, state, district, fin_year,
+    total_availability as allocated_lakhs,
+    total_availability as released_lakhs,
+    cumulative_expenditure as expended_lakhs,
+    utilization_pct, source_url
+FROM financial_statement
+UNION ALL
+SELECT
+    'PMGSY' as scheme, state, district, fin_year,
+    value_of_projects_cr * 100 as allocated_lakhs,
+    value_of_projects_cr * 100 as released_lakhs,
+    expenditure_cr * 100 as expended_lakhs,
+    CASE WHEN value_of_projects_cr > 0
+         THEN (expenditure_cr / value_of_projects_cr * 100)
+         ELSE 0 END as utilization_pct,
+    source_url
+FROM pmgsy_district
+UNION ALL
+SELECT
+    'PM Kisan' as scheme, state, district, fin_year,
+    NULL as allocated_lakhs,
+    amount_paid_lakhs as released_lakhs,
+    amount_paid_lakhs as expended_lakhs,
+    CASE WHEN beneficiaries_registered > 0
+         THEN (beneficiaries_paid * 100.0 / beneficiaries_registered)
+         ELSE 0 END as utilization_pct,
+    source_url
+FROM pmkisan_district;
+
+-- =====================================================================
+-- VIEW 2: scheme_delivery — Service delivery / beneficiary coverage
+-- =====================================================================
+-- All schemes with units tracking. Each row has a units_label for semantic clarity.
+
+DROP VIEW IF EXISTS scheme_delivery;
+CREATE VIEW scheme_delivery AS
+SELECT
+    'MGNREGA' as scheme, state, district, fin_year,
+    NULL as units_target, NULL as units_completed,
+    NULL as units_label,
+    utilization_pct as delivery_pct, source_url
+FROM financial_statement
+UNION ALL
+SELECT
+    'PMGSY' as scheme, state, district, fin_year,
+    roads_sanctioned as units_target,
+    roads_completed as units_completed,
+    'roads' as units_label,
+    CASE WHEN roads_sanctioned > 0
+         THEN (roads_completed * 100.0 / roads_sanctioned)
+         ELSE 0 END as delivery_pct,
+    source_url
+FROM pmgsy_district
+UNION ALL
+SELECT
+    'PMAY-G' as scheme, state, district, fin_year,
+    houses_sanctioned as units_target,
+    houses_completed as units_completed,
+    'houses' as units_label,
+    completion_pct as delivery_pct, source_url
+FROM pmayg_district
+UNION ALL
+SELECT
+    'PM Kisan' as scheme, state, district, fin_year,
+    beneficiaries_registered as units_target,
+    beneficiaries_paid as units_completed,
+    'beneficiaries' as units_label,
+    CASE WHEN beneficiaries_registered > 0
+         THEN (beneficiaries_paid * 100.0 / beneficiaries_registered)
+         ELSE 0 END as delivery_pct,
+    source_url
+FROM pmkisan_district
+UNION ALL
+SELECT
+    'JJM' as scheme, state, district, fin_year,
+    total_households as units_target,
+    households_with_tap as units_completed,
+    'tap connections' as units_label,
+    coverage_pct as delivery_pct, source_url
+FROM jjm_district
+UNION ALL
+SELECT
+    'PM POSHAN' as scheme, state, district, fin_year,
+    children_enrolled as units_target,
+    children_fed as units_completed,
+    'children fed' as units_label,
+    CASE WHEN children_enrolled > 0
+         THEN (children_fed * 100.0 / children_enrolled)
+         ELSE 0 END as delivery_pct,
+    source_url
+FROM pmposhan_district
+UNION ALL
+SELECT
+    'NSAP' as scheme, state, district, fin_year,
+    beneficiaries_eligible as units_target,
+    beneficiaries_paid as units_completed,
+    'pensioners' as units_label,
+    CASE WHEN beneficiaries_eligible > 0
+         THEN (beneficiaries_paid * 100.0 / beneficiaries_eligible)
+         ELSE 0 END as delivery_pct,
+    source_url
+FROM nsap_district
+UNION ALL
+SELECT
+    'PDS/NFSA' as scheme, state, district, fin_year,
+    ration_cards_total as units_target,
+    ration_cards_active as units_completed,
+    'ration cards' as units_label,
+    offtake_pct as delivery_pct, source_url
+FROM nfsa_district;
+
+-- =====================================================================
+-- VIEW 3: money_flow — Backward-compatible combined view
+-- =====================================================================
+-- Keeps money_flow working for existing code. Adds units_label for clarity.
+-- WARNING: Financial columns are HOLLOW (all zeros) for these schemes:
+--   PMAY-G, JJM, PM POSHAN — portals don't expose financial data publicly.
+--   NSAP — data.gov.in source has all zeros for amount/eligible/pension.
+--   NFSA — allocated/expended are metric tons, not lakhs.
+-- Use scheme_finance VIEW for clean financial comparisons (MGNREGA, PMGSY, PM Kisan only).
 
 DROP VIEW IF EXISTS money_flow;
 CREATE VIEW money_flow AS
--- MGNREGA financial statement
 SELECT
-    'MGNREGA' as scheme,
-    state, district, fin_year,
+    'MGNREGA' as scheme, state, district, fin_year,
     total_availability as allocated_lakhs,
     total_availability as released_lakhs,
     cumulative_expenditure as expended_lakhs,
     utilization_pct,
-    NULL as units_target,
-    NULL as units_completed,
-    NULL as units_label,
-    source_url
+    NULL as units_target, NULL as units_completed,
+    NULL as units_label, source_url
 FROM financial_statement
-
 UNION ALL
--- PMGSY rural roads (amounts in crores → lakhs)
 SELECT
-    'PMGSY' as scheme,
-    state, district, fin_year,
+    'PMGSY' as scheme, state, district, fin_year,
     value_of_projects_cr * 100 as allocated_lakhs,
     value_of_projects_cr * 100 as released_lakhs,
     expenditure_cr * 100 as expended_lakhs,
@@ -346,15 +466,11 @@ SELECT
          ELSE 0 END as utilization_pct,
     roads_sanctioned as units_target,
     roads_completed as units_completed,
-    'roads' as units_label,
-    source_url
+    'roads' as units_label, source_url
 FROM pmgsy_district
-
 UNION ALL
--- PMAY-G rural housing
 SELECT
-    'PMAY-G' as scheme,
-    state, district, fin_year,
+    'PMAY-G' as scheme, state, district, fin_year,
     funds_released_lakhs as allocated_lakhs,
     funds_released_lakhs as released_lakhs,
     funds_utilized_lakhs as expended_lakhs,
@@ -363,15 +479,11 @@ SELECT
          ELSE 0 END as utilization_pct,
     houses_sanctioned as units_target,
     houses_completed as units_completed,
-    'houses' as units_label,
-    source_url
+    'houses' as units_label, source_url
 FROM pmayg_district
-
 UNION ALL
--- PM Kisan farmer payments
 SELECT
-    'PM Kisan' as scheme,
-    state, district, fin_year,
+    'PM Kisan' as scheme, state, district, fin_year,
     NULL as allocated_lakhs,
     amount_paid_lakhs as released_lakhs,
     amount_paid_lakhs as expended_lakhs,
@@ -380,15 +492,11 @@ SELECT
          ELSE 0 END as utilization_pct,
     beneficiaries_registered as units_target,
     beneficiaries_paid as units_completed,
-    'beneficiaries' as units_label,
-    source_url
+    'beneficiaries' as units_label, source_url
 FROM pmkisan_district
-
 UNION ALL
--- Jal Jeevan Mission
 SELECT
-    'JJM' as scheme,
-    state, district, fin_year,
+    'JJM' as scheme, state, district, fin_year,
     funds_released_lakhs as allocated_lakhs,
     funds_released_lakhs as released_lakhs,
     funds_utilized_lakhs as expended_lakhs,
@@ -397,30 +505,22 @@ SELECT
          ELSE 0 END as utilization_pct,
     total_households as units_target,
     households_with_tap as units_completed,
-    'tap connections' as units_label,
-    source_url
+    'tap connections' as units_label, source_url
 FROM jjm_district
-
 UNION ALL
--- PM POSHAN
 SELECT
-    'PM POSHAN' as scheme,
-    state, district, fin_year,
+    'PM POSHAN' as scheme, state, district, fin_year,
     funds_released_lakhs as allocated_lakhs,
     funds_released_lakhs as released_lakhs,
     funds_utilized_lakhs as expended_lakhs,
     utilization_pct,
     children_enrolled as units_target,
     children_fed as units_completed,
-    'children fed' as units_label,
-    source_url
+    'children fed' as units_label, source_url
 FROM pmposhan_district
-
 UNION ALL
--- NSAP pensions
 SELECT
-    'NSAP' as scheme,
-    state, district, fin_year,
+    'NSAP' as scheme, state, district, fin_year,
     NULL as allocated_lakhs,
     amount_paid_lakhs as released_lakhs,
     amount_paid_lakhs as expended_lakhs,
@@ -429,23 +529,18 @@ SELECT
          ELSE 0 END as utilization_pct,
     beneficiaries_eligible as units_target,
     beneficiaries_paid as units_completed,
-    'pensioners' as units_label,
-    source_url
+    'pensioners' as units_label, source_url
 FROM nsap_district
-
 UNION ALL
--- PDS / NFSA
 SELECT
-    'PDS/NFSA' as scheme,
-    state, district, fin_year,
+    'PDS/NFSA' as scheme, state, district, fin_year,
     allocation_mt as allocated_lakhs,
     allocation_mt as released_lakhs,
     offtake_mt as expended_lakhs,
     offtake_pct as utilization_pct,
     ration_cards_total as units_target,
     ration_cards_active as units_completed,
-    'ration cards' as units_label,
-    source_url
+    'ration cards' as units_label, source_url
 FROM nfsa_district;
 """
 
