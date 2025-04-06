@@ -11,10 +11,10 @@ import pytest
 
 from db import init_db
 
-
 # ---------------------------------------------------------------------------
 # Fixtures
 # ---------------------------------------------------------------------------
+
 
 class NoCloseConn:
     """Wraps a connection but ignores close() calls."""
@@ -82,24 +82,35 @@ def _seed_multi_scheme(conn: sqlite3.Connection) -> None:
 # Schema tests
 # ---------------------------------------------------------------------------
 
+
 class TestSchema:
     def test_all_tables_created(self, db):
-        tables = {r[0] for r in db.execute(
-            "SELECT name FROM sqlite_master WHERE type='table' AND name != 'sqlite_sequence'"
-        ).fetchall()}
+        tables = {
+            r[0]
+            for r in db.execute(
+                "SELECT name FROM sqlite_master WHERE type='table' AND name != 'sqlite_sequence'"
+            ).fetchall()
+        }
         expected = {
-            "scrape_runs", "misappropriation", "fto_status", "fto_pendency",
-            "issues_reported", "financial_statement",
-            "pmgsy_progress", "pmgsy_district",
-            "pmayg_district", "pmkisan_district", "jjm_district",
-            "pmposhan_district", "nsap_district", "nfsa_district",
+            "scrape_runs",
+            "misappropriation",
+            "fto_status",
+            "fto_pendency",
+            "issues_reported",
+            "financial_statement",
+            "pmgsy_progress",
+            "pmgsy_district",
+            "pmayg_district",
+            "pmkisan_district",
+            "jjm_district",
+            "pmposhan_district",
+            "nsap_district",
+            "nfsa_district",
         }
         assert expected.issubset(tables)
 
     def test_money_flow_view_exists(self, db):
-        views = [r[0] for r in db.execute(
-            "SELECT name FROM sqlite_master WHERE type='view'"
-        ).fetchall()]
+        views = [r[0] for r in db.execute("SELECT name FROM sqlite_master WHERE type='view'").fetchall()]
         assert "money_flow" in views
 
     def test_money_flow_columns(self, db):
@@ -120,16 +131,26 @@ class TestSchema:
 # Loader tests for new scheme tables
 # ---------------------------------------------------------------------------
 
+
 class TestNewLoaders:
     def test_load_pmayg(self, db):
         from db import load_pmayg_district
-        records = [{
-            "district": "PATNA", "state": "Bihar", "state_code": "05",
-            "houses_sanctioned": 2000, "houses_completed": 1500,
-            "houses_occupied": 1200, "funds_released_lakhs": 5000,
-            "funds_utilized_lakhs": 3500, "completion_pct": 75.0,
-            "source_url": "test", "scraped_at": "2026-01-01",
-        }]
+
+        records = [
+            {
+                "district": "PATNA",
+                "state": "Bihar",
+                "state_code": "05",
+                "houses_sanctioned": 2000,
+                "houses_completed": 1500,
+                "houses_occupied": 1200,
+                "funds_released_lakhs": 5000,
+                "funds_utilized_lakhs": 3500,
+                "completion_pct": 75.0,
+                "source_url": "test",
+                "scraped_at": "2026-01-01",
+            }
+        ]
         count = load_pmayg_district(db, records, "2024-2025")
         db.commit()
         assert count == 1
@@ -139,12 +160,21 @@ class TestNewLoaders:
 
     def test_load_pmkisan(self, db):
         from db import load_pmkisan_district
-        records = [{
-            "district": "PATNA", "state": "Bihar", "state_code": "05",
-            "beneficiaries_registered": 50000, "beneficiaries_paid": 45000,
-            "amount_paid_lakhs": 900, "beneficiaries_rejected": 1000,
-            "installment": "17th", "source_url": "test", "scraped_at": "2026-01-01",
-        }]
+
+        records = [
+            {
+                "district": "PATNA",
+                "state": "Bihar",
+                "state_code": "05",
+                "beneficiaries_registered": 50000,
+                "beneficiaries_paid": 45000,
+                "amount_paid_lakhs": 900,
+                "beneficiaries_rejected": 1000,
+                "installment": "17th",
+                "source_url": "test",
+                "scraped_at": "2026-01-01",
+            }
+        ]
         count = load_pmkisan_district(db, records, "2024-2025")
         db.commit()
         assert count == 1
@@ -153,13 +183,22 @@ class TestNewLoaders:
 
     def test_load_jjm(self, db):
         from db import load_jjm_district
-        records = [{
-            "district": "PATNA", "state": "Bihar", "state_code": "05",
-            "total_households": 10000, "households_with_tap": 7000,
-            "tap_connections_provided": 7000, "coverage_pct": 70.0,
-            "funds_released_lakhs": 3000, "funds_utilized_lakhs": 2100,
-            "source_url": "test", "scraped_at": "2026-01-01",
-        }]
+
+        records = [
+            {
+                "district": "PATNA",
+                "state": "Bihar",
+                "state_code": "05",
+                "total_households": 10000,
+                "households_with_tap": 7000,
+                "tap_connections_provided": 7000,
+                "coverage_pct": 70.0,
+                "funds_released_lakhs": 3000,
+                "funds_utilized_lakhs": 2100,
+                "source_url": "test",
+                "scraped_at": "2026-01-01",
+            }
+        ]
         count = load_jjm_district(db, records, "2024-2025")
         db.commit()
         assert count == 1
@@ -168,13 +207,22 @@ class TestNewLoaders:
 
     def test_load_pmposhan(self, db):
         from db import load_pmposhan_district
-        records = [{
-            "district": "PATNA", "state": "Bihar", "state_code": "05",
-            "schools_covered": 500, "children_enrolled": 25000,
-            "children_fed": 22000, "funds_released_lakhs": 1200,
-            "funds_utilized_lakhs": 1000, "utilization_pct": 83.3,
-            "source_url": "test", "scraped_at": "2026-01-01",
-        }]
+
+        records = [
+            {
+                "district": "PATNA",
+                "state": "Bihar",
+                "state_code": "05",
+                "schools_covered": 500,
+                "children_enrolled": 25000,
+                "children_fed": 22000,
+                "funds_released_lakhs": 1200,
+                "funds_utilized_lakhs": 1000,
+                "utilization_pct": 83.3,
+                "source_url": "test",
+                "scraped_at": "2026-01-01",
+            }
+        ]
         count = load_pmposhan_district(db, records, "2024-2025")
         db.commit()
         assert count == 1
@@ -183,12 +231,21 @@ class TestNewLoaders:
 
     def test_load_nsap(self, db):
         from db import load_nsap_district
-        records = [{
-            "district": "PATNA", "state": "Bihar", "state_code": "05",
-            "scheme_type": "IGNOAPS", "beneficiaries_eligible": 8000,
-            "beneficiaries_paid": 7500, "amount_paid_lakhs": 450,
-            "pension_per_month": 500, "source_url": "test", "scraped_at": "2026-01-01",
-        }]
+
+        records = [
+            {
+                "district": "PATNA",
+                "state": "Bihar",
+                "state_code": "05",
+                "scheme_type": "IGNOAPS",
+                "beneficiaries_eligible": 8000,
+                "beneficiaries_paid": 7500,
+                "amount_paid_lakhs": 450,
+                "pension_per_month": 500,
+                "source_url": "test",
+                "scraped_at": "2026-01-01",
+            }
+        ]
         count = load_nsap_district(db, records, "2024-2025")
         db.commit()
         assert count == 1
@@ -197,12 +254,22 @@ class TestNewLoaders:
 
     def test_load_nfsa(self, db):
         from db import load_nfsa_district
-        records = [{
-            "district": "PATNA", "state": "Bihar", "state_code": "05",
-            "ration_cards_total": 100000, "ration_cards_active": 85000,
-            "allocation_mt": 5000, "offtake_mt": 4200, "offtake_pct": 84.0,
-            "beneficiaries_total": 300000, "source_url": "test", "scraped_at": "2026-01-01",
-        }]
+
+        records = [
+            {
+                "district": "PATNA",
+                "state": "Bihar",
+                "state_code": "05",
+                "ration_cards_total": 100000,
+                "ration_cards_active": 85000,
+                "allocation_mt": 5000,
+                "offtake_mt": 4200,
+                "offtake_pct": 84.0,
+                "beneficiaries_total": 300000,
+                "source_url": "test",
+                "scraped_at": "2026-01-01",
+            }
+        ]
         count = load_nfsa_district(db, records, "2024-2025")
         db.commit()
         assert count == 1
@@ -211,13 +278,21 @@ class TestNewLoaders:
 
     def test_upsert_replaces_pmayg(self, db):
         from db import load_pmayg_district
-        rec = [{
-            "district": "X", "state": "S",
-            "houses_sanctioned": 100, "houses_completed": 50,
-            "houses_occupied": 40, "funds_released_lakhs": 500,
-            "funds_utilized_lakhs": 300, "completion_pct": 50.0,
-            "source_url": "", "scraped_at": "2026-01-01",
-        }]
+
+        rec = [
+            {
+                "district": "X",
+                "state": "S",
+                "houses_sanctioned": 100,
+                "houses_completed": 50,
+                "houses_occupied": 40,
+                "funds_released_lakhs": 500,
+                "funds_utilized_lakhs": 300,
+                "completion_pct": 50.0,
+                "source_url": "",
+                "scraped_at": "2026-01-01",
+            }
+        ]
         load_pmayg_district(db, rec, "2024-2025")
         db.commit()
         rec[0]["houses_completed"] = 99
@@ -232,6 +307,7 @@ class TestNewLoaders:
 # money_flow VIEW tests
 # ---------------------------------------------------------------------------
 
+
 class TestMoneyFlowView:
     def test_cross_scheme_data_appears(self, db):
         _seed_multi_scheme(db)
@@ -245,9 +321,7 @@ class TestMoneyFlowView:
     def test_amounts_normalized_to_lakhs(self, db):
         _seed_multi_scheme(db)
         # PMGSY: expenditure_cr=8, so expended_lakhs should be 800
-        row = db.execute(
-            "SELECT expended_lakhs FROM money_flow WHERE scheme='PMGSY'"
-        ).fetchone()
+        row = db.execute("SELECT expended_lakhs FROM money_flow WHERE scheme='PMGSY'").fetchone()
         assert row["expended_lakhs"] == 800.0
 
     def test_units_populated(self, db):
@@ -261,9 +335,7 @@ class TestMoneyFlowView:
 
     def test_mgnrega_no_units(self, db):
         _seed_multi_scheme(db)
-        row = db.execute(
-            "SELECT units_label FROM money_flow WHERE scheme='MGNREGA'"
-        ).fetchone()
+        row = db.execute("SELECT units_label FROM money_flow WHERE scheme='MGNREGA'").fetchone()
         assert row["units_label"] is None
 
 
@@ -271,10 +343,12 @@ class TestMoneyFlowView:
 # Cross-scheme query tests
 # ---------------------------------------------------------------------------
 
+
 class TestCrossSchemeQueries:
     @staticmethod
     def _patch(db, monkeypatch):
         import query
+
         monkeypatch.setattr(query, "_conn", lambda: NoCloseConn(db))
 
     def test_money_flow_by_district(self, db, monkeypatch):

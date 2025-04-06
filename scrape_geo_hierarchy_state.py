@@ -5,7 +5,6 @@ from __future__ import annotations
 import argparse
 import json
 from datetime import UTC, datetime
-from pathlib import Path
 
 from scrape_geo_hierarchy import OUT_DIR, Scraper
 

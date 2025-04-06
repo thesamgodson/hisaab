@@ -34,7 +34,6 @@ import json
 import sys
 import time
 from pathlib import Path
-from typing import Any
 
 ROOT_DIR = Path(__file__).resolve().parent
 CURATED_DIR = ROOT_DIR / "data" / "curated"
@@ -72,6 +71,7 @@ def scrape_jjm(states: list[str] | None = None) -> dict[str, int]:
     """Run JJM scraper — pure requests, all India in one call."""
     try:
         from scrape_jjm import scrape
+
         return scrape(states)
     except Exception as exc:
         print(f"  JJM scrape failed: {exc}")
@@ -83,7 +83,9 @@ def scrape_pmayg(states: list[dict[str, str]], fin_year: str) -> dict[str, int]:
     results: dict[str, int] = {}
     try:
         import asyncio
-        from scrape_pmayg import scrape_state, STATE_CODES
+
+        from scrape_pmayg import STATE_CODES, scrape_state
+
         for state in states:
             name = state["state_name"].upper()
             if name not in STATE_CODES:
@@ -104,7 +106,8 @@ def scrape_mgnrega(states: list[dict[str, str]], fin_year: str, reports: list[st
     """Run MGNREGA scraper."""
     results: dict[str, int] = {}
     try:
-        from scrape_reports import run_for_state, slugify
+        from scrape_reports import run_for_state
+
         for state in states:
             name = state["state_name"]
             code = state["state_code"]
@@ -130,6 +133,7 @@ def scrape_pmgsy(states: list[dict[str, str]]) -> dict[str, int]:
     results: dict[str, int] = {}
     try:
         from scrape_pmgsy import load_catalog, run_for_state
+
         catalog = load_catalog()
         for state in states:
             name = state["state_name"].upper()
@@ -183,8 +187,8 @@ def import_csvs(scheme: str) -> int:
 
 
 def load_curated_into_db(fin_year: str) -> dict[str, int]:
-    """Load all curated JSON files into SQLite."""
-    from db import get_connection, init_db, LOADERS, CURATED_DIR
+    """Load all curated JSON files into SQLite, then run imputations."""
+    from db import CURATED_DIR, LOADERS, get_connection, impute_nsap_financials, init_db
     from normalize_states import normalize_records
 
     conn = get_connection()
@@ -206,6 +210,11 @@ def load_curated_into_db(fin_year: str) -> dict[str, int]:
                 print(f"  Error loading {path.name}: {exc}")
         if total > 0:
             results[loader_name] = total
+
+    # Post-load imputations
+    nsap_imputed = impute_nsap_financials(conn)
+    if nsap_imputed > 0:
+        print(f"\n  NSAP imputation: {nsap_imputed} rows updated with estimated pension amounts")
 
     conn.close()
     return results
@@ -405,15 +414,21 @@ Examples:
 
     # Run scrapers
     for scheme in schemes:
-        print(f"\n{'─'*60}")
+        print(f"\n{'─' * 60}")
         print(f"  {scheme.upper()}")
-        print(f"{'─'*60}")
+        print(f"{'─' * 60}")
 
         if scheme == "jjm":
             scrape_jjm(state_names_for_filter)
 
         elif scheme == "mgnrega":
-            mgnrega_reports = ["misappropriation", "fto_status", "fto_pendency", "issues_reported", "financial_statement"]
+            mgnrega_reports = [
+                "misappropriation",
+                "fto_status",
+                "fto_pendency",
+                "issues_reported",
+                "financial_statement",
+            ]
             scrape_mgnrega(states, args.fin_year, mgnrega_reports)
 
         elif scheme == "pmgsy":
@@ -428,13 +443,13 @@ Examples:
                 print(f"  Imported {count} records from CSVs")
             else:
                 print(f"  No CSV files found in data/raw/{scheme}/")
-                print(f"  Place CSV files there and re-run, or use:")
+                print("  Place CSV files there and re-run, or use:")
                 print(f"  python scrape_{scheme}.py --csv <file> --state <STATE>")
 
     # Load all into DB
-    print(f"\n{'─'*60}")
+    print(f"\n{'─' * 60}")
     print("  Loading into database...")
-    print(f"{'─'*60}")
+    print(f"{'─' * 60}")
     results = load_curated_into_db(args.fin_year)
     for name, count in sorted(results.items()):
         if count > 0:

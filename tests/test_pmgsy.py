@@ -6,7 +6,6 @@ and journalist brief generation.
 
 from __future__ import annotations
 
-import json
 import sqlite3
 import textwrap
 
@@ -40,6 +39,7 @@ SAMPLE_DISTRICTS = [
 def in_memory_db():
     """Create an in-memory SQLite DB with full schema (all 8 scheme tables)."""
     from db import init_db
+
     conn = sqlite3.connect(":memory:")
     conn.row_factory = sqlite3.Row
     init_db(conn)
@@ -50,13 +50,12 @@ def in_memory_db():
 # CSV Parsing tests
 # ---------------------------------------------------------------------------
 
+
 class TestParseDistrictCSV:
     def test_basic_parsing(self):
         from scrape_pmgsy import parse_district_csv
 
-        records = parse_district_csv(
-            SAMPLE_CSV, SAMPLE_DISTRICTS, "TestState", "http://example.com"
-        )
+        records = parse_district_csv(SAMPLE_CSV, SAMPLE_DISTRICTS, "TestState", "http://example.com")
         assert len(records) == 3
         names = [r["district"] for r in records]
         assert names == ["Alpha", "Beta", "Gamma"]
@@ -64,9 +63,7 @@ class TestParseDistrictCSV:
     def test_aggregation_across_years(self):
         from scrape_pmgsy import parse_district_csv
 
-        records = parse_district_csv(
-            SAMPLE_CSV, SAMPLE_DISTRICTS, "TestState", "http://example.com"
-        )
+        records = parse_district_csv(SAMPLE_CSV, SAMPLE_DISTRICTS, "TestState", "http://example.com")
         alpha = next(r for r in records if r["district"] == "Alpha")
         # 2020-2021: sanctioned=10, completed=8 | 2021-2022: sanctioned=12, completed=10
         assert alpha["roads_sanctioned"] == 22
@@ -75,9 +72,7 @@ class TestParseDistrictCSV:
     def test_state_and_metadata(self):
         from scrape_pmgsy import parse_district_csv
 
-        records = parse_district_csv(
-            SAMPLE_CSV, SAMPLE_DISTRICTS, "TestState", "http://example.com"
-        )
+        records = parse_district_csv(SAMPLE_CSV, SAMPLE_DISTRICTS, "TestState", "http://example.com")
         for r in records:
             assert r["state"] == "TestState"
             assert r["source_url"] == "http://example.com"
@@ -107,9 +102,7 @@ class TestParseDistrictCSV:
             2020-2021,10,50,5,100,8,40,4,80,0,0,0,0,0,0,0,0
             2020-2021,20,100,10,200,18,90,9,180,0,0,0,0,0,0,0,0
         """)
-        records = parse_district_csv(
-            csv_2_rows, SAMPLE_DISTRICTS, "TestState", "http://example.com"
-        )
+        records = parse_district_csv(csv_2_rows, SAMPLE_DISTRICTS, "TestState", "http://example.com")
         # With 3 districts but only 2 rows per year, parsing depends on most-common-size logic.
         # Most common size is 2, not 3, so 2 is accepted → 2 districts mapped.
         assert len(records) == 2
@@ -137,20 +130,24 @@ class TestExtractStateTotals:
 class TestParseAmount:
     def test_basic(self):
         from scrape_pmgsy import parse_amount
+
         assert parse_amount("1,234.56") == 1234.56
 
     def test_empty(self):
         from scrape_pmgsy import parse_amount
+
         assert parse_amount("") == 0.0
 
     def test_quoted(self):
         from scrape_pmgsy import parse_amount
+
         assert parse_amount('"27,132.852"') == 27132.852
 
 
 # ---------------------------------------------------------------------------
 # Query tests
 # ---------------------------------------------------------------------------
+
 
 class TestPmgsyQueries:
     def _load_sample_data(self, conn):
@@ -186,15 +183,20 @@ class TestPmgsyQueries:
 
         class NoCloseConn:
             """Wraps a connection but ignores close() calls."""
+
             def __init__(self, real_conn):
                 self._conn = real_conn
+
             def execute(self, *a, **kw):
                 return self._conn.execute(*a, **kw)
+
             def close(self):
                 pass  # Don't actually close
+
             @property
             def row_factory(self):
                 return self._conn.row_factory
+
             @row_factory.setter
             def row_factory(self, val):
                 self._conn.row_factory = val
@@ -241,23 +243,28 @@ class TestPmgsyQueries:
 # CLI intent detection tests
 # ---------------------------------------------------------------------------
 
+
 class TestCLIIntentDetection:
     def test_roads_intent(self):
         from cli import detect_intent
+
         assert detect_intent("roads patna") == "roads"
         assert detect_intent("pmgsy bihar") == "roads"
 
     def test_worst_intent_priority(self):
         from cli import detect_intent
+
         assert detect_intent("worst roads") == "worst"
         assert detect_intent("top corruption") == "worst"
 
     def test_misappropriation_intent(self):
         from cli import detect_intent
+
         assert detect_intent("corruption villupuram") == "misappropriation"
 
     def test_overview_fallback(self):
         from cli import detect_intent
+
         assert detect_intent("cuddalore") == "overview"
 
 
@@ -271,16 +278,20 @@ class TestCLIStateResolution:
 
         # cli._resolve_state imports db.get_connection internally
         import db as db_mod
+
         monkeypatch.setattr(db_mod, "get_connection", lambda: in_memory_db)
 
         from cli import _resolve_state
+
         assert _resolve_state("roads bihar") == "Bihar"
 
     def test_resolve_unknown_state(self, in_memory_db, monkeypatch):
         import db as db_mod
+
         monkeypatch.setattr(db_mod, "get_connection", lambda: in_memory_db)
 
         from cli import _resolve_state
+
         assert _resolve_state("roads somewhere") is None
 
 
@@ -288,18 +299,26 @@ class TestCLIStateResolution:
 # DB loading tests
 # ---------------------------------------------------------------------------
 
+
 class TestDBLoading:
     def test_load_pmgsy_district(self, in_memory_db):
         from db import load_pmgsy_district
 
         records = [
             {
-                "district": "Alpha", "state": "TestState", "state_code": "",
-                "fin_year": "cumulative", "scheme": "All",
-                "roads_sanctioned": 100, "roads_completed": 80,
-                "length_sanctioned_km": 200, "length_completed_km": 160,
-                "habitations_covered": 50, "value_of_projects_cr": 300,
-                "expenditure_cr": 250, "source_url": "http://test",
+                "district": "Alpha",
+                "state": "TestState",
+                "state_code": "",
+                "fin_year": "cumulative",
+                "scheme": "All",
+                "roads_sanctioned": 100,
+                "roads_completed": 80,
+                "length_sanctioned_km": 200,
+                "length_completed_km": 160,
+                "habitations_covered": 50,
+                "value_of_projects_cr": 300,
+                "expenditure_cr": 250,
+                "source_url": "http://test",
                 "scraped_at": "2026-01-01",
             }
         ]
@@ -315,12 +334,19 @@ class TestDBLoading:
 
         records = [
             {
-                "district": "Alpha", "state": "TestState", "state_code": "",
-                "fin_year": "cumulative", "scheme": "All",
-                "roads_sanctioned": 100, "roads_completed": 80,
-                "length_sanctioned_km": 200, "length_completed_km": 160,
-                "habitations_covered": 50, "value_of_projects_cr": 300,
-                "expenditure_cr": 250, "source_url": "http://test",
+                "district": "Alpha",
+                "state": "TestState",
+                "state_code": "",
+                "fin_year": "cumulative",
+                "scheme": "All",
+                "roads_sanctioned": 100,
+                "roads_completed": 80,
+                "length_sanctioned_km": 200,
+                "length_completed_km": 160,
+                "habitations_covered": 50,
+                "value_of_projects_cr": 300,
+                "expenditure_cr": 250,
+                "source_url": "http://test",
                 "scraped_at": "2026-01-01",
             }
         ]
@@ -338,6 +364,7 @@ class TestDBLoading:
 # ---------------------------------------------------------------------------
 # Journalist brief red flags tests
 # ---------------------------------------------------------------------------
+
 
 class TestRedFlags:
     def test_pmgsy_low_completion_flag(self, in_memory_db):

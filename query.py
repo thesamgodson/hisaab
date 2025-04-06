@@ -11,10 +11,9 @@ Each function returns a dict with 'answer' (human-readable), 'data' (raw), and '
 from __future__ import annotations
 
 import sqlite3
-from pathlib import Path
 from typing import Any
 
-DB_PATH = Path(__file__).resolve().parent / "data" / "hisaab.db"
+from db import DB_PATH
 
 
 def _conn() -> sqlite3.Connection:
@@ -73,9 +72,7 @@ def misappropriation_by_district(
     }
 
 
-def misappropriation_state_summary(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025"
-) -> dict[str, Any]:
+def misappropriation_state_summary(state: str = "TAMIL NADU", fin_year: str = "2024-2025") -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
         """SELECT COUNT(*) as districts,
@@ -127,7 +124,9 @@ def worst_misappropriation_districts(
     data = []
     for i, row in enumerate(rows, 1):
         r = dict(row)
-        lines.append(f"  {i}. {r['district']}: {_fmt_rs(r['amount_reported'])} ({r['cases_reported']:,} cases, {r['recovery_rate_pct']:.0f}% recovered)")
+        lines.append(
+            f"  {i}. {r['district']}: {_fmt_rs(r['amount_reported'])} ({r['cases_reported']:,} cases, {r['recovery_rate_pct']:.0f}% recovered)"
+        )
         data.append(r)
 
     return {"answer": "\n".join(lines), "data": data, "source_url": data[0]["source_url"]}
@@ -165,9 +164,7 @@ def fund_utilization_by_district(
     }
 
 
-def fund_utilization_state_summary(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025"
-) -> dict[str, Any]:
+def fund_utilization_state_summary(state: str = "TAMIL NADU", fin_year: str = "2024-2025") -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
         """SELECT COUNT(*) as districts,
@@ -201,9 +198,7 @@ def fund_utilization_state_summary(
 # ---------------------------------------------------------------------------
 # Social audit queries
 # ---------------------------------------------------------------------------
-def social_audit_by_district(
-    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025"
-) -> dict[str, Any]:
+def social_audit_by_district(district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025") -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
         """SELECT * FROM issues_reported
@@ -235,9 +230,7 @@ def social_audit_by_district(
 # ---------------------------------------------------------------------------
 # FTO queries
 # ---------------------------------------------------------------------------
-def fto_status_by_district(
-    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025"
-) -> dict[str, Any]:
+def fto_status_by_district(district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025") -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
         """SELECT * FROM fto_status
@@ -264,9 +257,7 @@ def fto_status_by_district(
     }
 
 
-def fto_pendency_summary(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025"
-) -> dict[str, Any]:
+def fto_pendency_summary(state: str = "TAMIL NADU", fin_year: str = "2024-2025") -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
         """SELECT * FROM fto_pendency
@@ -296,9 +287,7 @@ def fto_pendency_summary(
 # ---------------------------------------------------------------------------
 # District overview (combines all reports)
 # ---------------------------------------------------------------------------
-def district_overview(
-    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025"
-) -> dict[str, Any]:
+def district_overview(district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025") -> dict[str, Any]:
     parts = []
     sources = []
 
@@ -326,7 +315,7 @@ def district_overview(
         return {"answer": f"No data found for {district}, {state} ({fin_year}).", "data": None}
 
     return {
-        "answer": f"\n\n".join(parts),
+        "answer": "\n\n".join(parts),
         "source_urls": [s for s in sources if s],
     }
 
@@ -338,9 +327,15 @@ def list_districts(state: str = "TAMIL NADU", fin_year: str = "2024-2025") -> li
     """List districts with data across any of the 8 scheme tables."""
     conn = _conn()
     tables_with_fy = [
-        "misappropriation", "financial_statement", "fto_status",
-        "pmayg_district", "pmkisan_district", "jjm_district",
-        "pmposhan_district", "nsap_district", "nfsa_district",
+        "misappropriation",
+        "financial_statement",
+        "fto_status",
+        "pmayg_district",
+        "pmkisan_district",
+        "jjm_district",
+        "pmposhan_district",
+        "nsap_district",
+        "nfsa_district",
     ]
     tables_without_fy = ["pmgsy_district"]
 
@@ -371,7 +366,8 @@ def list_districts(state: str = "TAMIL NADU", fin_year: str = "2024-2025") -> li
 # PMGSY queries
 # ---------------------------------------------------------------------------
 def pmgsy_district_summary(
-    district: str, state: str = "TAMIL NADU",
+    district: str,
+    state: str = "TAMIL NADU",
 ) -> dict[str, Any]:
     conn = _conn()
     rows = conn.execute(
@@ -443,7 +439,8 @@ def pmgsy_state_summary(
 
 
 def pmgsy_worst_completion(
-    state: str = "TAMIL NADU", limit: int = 5,
+    state: str = "TAMIL NADU",
+    limit: int = 5,
 ) -> dict[str, Any]:
     conn = _conn()
     rows = conn.execute(
@@ -485,7 +482,9 @@ def pmgsy_worst_completion(
 # PMAY-G queries (rural housing)
 # ---------------------------------------------------------------------------
 def pmayg_by_district(
-    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+    district: str,
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
 ) -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
@@ -513,7 +512,8 @@ def pmayg_by_district(
 
 
 def pmayg_state_summary(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
 ) -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
@@ -544,7 +544,9 @@ def pmayg_state_summary(
 
 
 def pmayg_worst_completion(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025", limit: int = 5,
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
+    limit: int = 5,
 ) -> dict[str, Any]:
     conn = _conn()
     rows = conn.execute(
@@ -576,7 +578,9 @@ def pmayg_worst_completion(
 # PM Kisan queries (farmer payments)
 # ---------------------------------------------------------------------------
 def pmkisan_by_district(
-    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+    district: str,
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
 ) -> dict[str, Any]:
     conn = _conn()
     rows = conn.execute(
@@ -610,7 +614,8 @@ def pmkisan_by_district(
 
 
 def pmkisan_state_summary(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
 ) -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
@@ -639,7 +644,9 @@ def pmkisan_state_summary(
 
 
 def pmkisan_worst_coverage(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025", limit: int = 5,
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
+    limit: int = 5,
 ) -> dict[str, Any]:
     conn = _conn()
     rows = conn.execute(
@@ -667,8 +674,7 @@ def pmkisan_worst_coverage(
     for i, row in enumerate(rows, 1):
         r = dict(row)
         lines.append(
-            f"  {i}. {r['district']}: {r['coverage_pct']:.0f}% "
-            f"({r['paid']:,}/{r['registered']:,} beneficiaries)"
+            f"  {i}. {r['district']}: {r['coverage_pct']:.0f}% ({r['paid']:,}/{r['registered']:,} beneficiaries)"
         )
         data.append(r)
     return {"answer": "\n".join(lines), "data": data}
@@ -678,7 +684,9 @@ def pmkisan_worst_coverage(
 # JJM queries (Jal Jeevan Mission — rural water)
 # ---------------------------------------------------------------------------
 def jjm_by_district(
-    district: str, state: str = "TAMIL NADU", fin_year: str = "cumulative",
+    district: str,
+    state: str = "TAMIL NADU",
+    fin_year: str = "cumulative",
 ) -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
@@ -705,7 +713,8 @@ def jjm_by_district(
 
 
 def jjm_state_summary(
-    state: str = "TAMIL NADU", fin_year: str = "cumulative",
+    state: str = "TAMIL NADU",
+    fin_year: str = "cumulative",
 ) -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
@@ -735,7 +744,9 @@ def jjm_state_summary(
 
 
 def jjm_worst_coverage(
-    state: str = "TAMIL NADU", fin_year: str = "cumulative", limit: int = 5,
+    state: str = "TAMIL NADU",
+    fin_year: str = "cumulative",
+    limit: int = 5,
 ) -> dict[str, Any]:
     conn = _conn()
     rows = conn.execute(
@@ -766,7 +777,9 @@ def jjm_worst_coverage(
 # PM POSHAN queries (school nutrition)
 # ---------------------------------------------------------------------------
 def pmposhan_by_district(
-    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+    district: str,
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
 ) -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
@@ -794,7 +807,8 @@ def pmposhan_by_district(
 
 
 def pmposhan_state_summary(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
 ) -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
@@ -825,7 +839,9 @@ def pmposhan_state_summary(
 
 
 def pmposhan_worst_feeding(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025", limit: int = 5,
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
+    limit: int = 5,
 ) -> dict[str, Any]:
     conn = _conn()
     rows = conn.execute(
@@ -860,7 +876,9 @@ def pmposhan_worst_feeding(
 # NSAP queries (pensions)
 # ---------------------------------------------------------------------------
 def nsap_by_district(
-    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+    district: str,
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
 ) -> dict[str, Any]:
     conn = _conn()
     rows = conn.execute(
@@ -896,7 +914,8 @@ def nsap_by_district(
 
 
 def nsap_state_summary(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
 ) -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
@@ -927,7 +946,9 @@ def nsap_state_summary(
 
 
 def nsap_worst_coverage(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025", limit: int = 5,
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
+    limit: int = 5,
 ) -> dict[str, Any]:
     conn = _conn()
     rows = conn.execute(
@@ -952,10 +973,7 @@ def nsap_worst_coverage(
     data = []
     for i, row in enumerate(rows, 1):
         r = dict(row)
-        lines.append(
-            f"  {i}. {r['district']}: {r['coverage_pct']:.0f}% "
-            f"({r['paid']:,}/{r['eligible']:,} pensioners)"
-        )
+        lines.append(f"  {i}. {r['district']}: {r['coverage_pct']:.0f}% ({r['paid']:,}/{r['eligible']:,} pensioners)")
         data.append(r)
     return {"answer": "\n".join(lines), "data": data}
 
@@ -964,7 +982,9 @@ def nsap_worst_coverage(
 # NFSA queries (PDS / ration system)
 # ---------------------------------------------------------------------------
 def nfsa_by_district(
-    district: str, state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+    district: str,
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
 ) -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
@@ -992,7 +1012,8 @@ def nfsa_by_district(
 
 
 def nfsa_state_summary(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025",
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
 ) -> dict[str, Any]:
     conn = _conn()
     row = conn.execute(
@@ -1023,7 +1044,9 @@ def nfsa_state_summary(
 
 
 def nfsa_worst_coverage(
-    state: str = "TAMIL NADU", fin_year: str = "2024-2025", limit: int = 5,
+    state: str = "TAMIL NADU",
+    fin_year: str = "2024-2025",
+    limit: int = 5,
 ) -> dict[str, Any]:
     conn = _conn()
     rows = conn.execute(
@@ -1067,10 +1090,10 @@ def data_quality_warnings() -> dict[str, list[str]]:
             "No allocation data — PM Kisan is a direct benefit transfer with no state-level allocation.",
         ],
         "NSAP": [
-            "amount_paid_lakhs, beneficiaries_eligible, and pension_per_month are all zeros — data.gov.in API only has beneficiary counts.",
-            "Only beneficiaries_paid has meaningful data. Coverage percentages cannot be computed.",
+            "amount_paid_lakhs is IMPUTED: beneficiaries_paid × GoI central pension rate × 12 months.",
+            "Central rates: IGNOAPS Rs 200/mo, IGNWPS Rs 300/mo, IGNDPS Rs 300/mo (central share only, states may top up).",
+            "beneficiaries_eligible is still zero — data.gov.in API does not provide eligibility counts.",
             "API scraper (scrape_nsap_api.py) fetches IGNOAPS/IGNWPS/IGNDPS from data.gov.in automatically.",
-            "State-level funds released data exists on data.gov.in (dataset ebb775b3) but no district breakdown.",
         ],
         "PDS/NFSA": [
             "allocation_mt and offtake_mt are ALL zeros — nfsa.gov.in dashboard data is stale (Jul 2021).",
@@ -1106,7 +1129,8 @@ def data_quality_warnings() -> dict[str, list[str]]:
 # Cross-scheme queries (money_flow VIEW)
 # ---------------------------------------------------------------------------
 def money_flow_by_district(
-    district: str, state: str | None = None,
+    district: str,
+    state: str | None = None,
 ) -> dict[str, Any]:
     """Total money flow across all schemes for a district."""
     conn = _conn()

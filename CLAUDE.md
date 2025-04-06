@@ -35,7 +35,7 @@ python3 journalist_brief.py "CUDDALORE"       # Generate brief
 | PMAY-G | pmayg_district | report.pmayg.dord.gov.in | Hollow (zeros) |
 | JJM | jjm_district | ejalshakti.gov.in | Hollow (zeros) |
 | PM POSHAN | pmposhan_district | pmposhan-ams.education.gov.in | Hollow (zeros) — children_fed works |
-| NSAP | nsap_district | nsap.nic.in / data.gov.in | Hollow (zeros) — beneficiaries_paid works |
+| NSAP | nsap_district | nsap.nic.in / data.gov.in | Imputed (beneficiaries × GoI pension rate × 12) |
 | PDS/NFSA | nfsa_district | nfsa.gov.in | Hollow (zeros) — ration card counts work |
 
 ## 3 Unified VIEWs
@@ -57,8 +57,8 @@ python3 journalist_brief.py "CUDDALORE"       # Generate brief
 
 ## Data Quality Context
 
-- 3/8 schemes have real financial data (MGNREGA, PMGSY, PM Kisan)
-- 5/8 have hollow financial columns (zeros) — delivery metrics may still work
+- 4/8 schemes have financial data (MGNREGA, PMGSY, PM Kisan = real; NSAP = imputed from GoI pension rates)
+- 4/8 have hollow financial columns (PMAY-G, JJM, PM POSHAN, NFSA) — delivery metrics still work
 - PM Kisan: 28/36 states have district='ALL' (state-level only)
 - `query.py:data_quality_warnings()` returns per-scheme caveats
 

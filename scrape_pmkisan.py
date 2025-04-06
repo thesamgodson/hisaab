@@ -91,7 +91,9 @@ def parse_csv(
         if not district or district in ("TOTAL", "GRAND TOTAL", "ALL"):
             continue
 
-        state = state_override or (row[state_col].strip().upper() if state_col is not None and state_col < len(row) else "")
+        state = state_override or (
+            row[state_col].strip().upper() if state_col is not None and state_col < len(row) else ""
+        )
 
         record = {
             "district": district,

@@ -112,11 +112,7 @@ def fetch_districts(state_id: str) -> list[dict[str, str]]:
     resp.raise_for_status()
     items = resp.json()
     # Filter out "All Districts" (Value=0) and return sorted
-    districts = [
-        {"name": d["Text"], "id": d["Value"]}
-        for d in items
-        if d["Value"] != "0"
-    ]
+    districts = [{"name": d["Text"], "id": d["Value"]} for d in items if d["Value"] != "0"]
     return sorted(districts, key=lambda d: d["name"])
 
 
@@ -153,18 +149,20 @@ def extract_state_totals(
         reader = csv.reader(io.StringIO(line))
         for row in reader:
             if len(row) >= 17:
-                return [{
-                    "state": state_name,
-                    "state_code": "",
-                    "fin_year": "cumulative",
-                    "roads_completed": round(parse_amount(row[13])),
-                    "length_completed_km": round(parse_amount(row[14]), 2),
-                    "habitations_connected": round(parse_amount(row[15])),
-                    "expenditure_programme_cr": round(parse_amount(row[16]), 2),
-                    "expenditure_admin_cr": 0.0,
-                    "source_url": source_url,
-                    "scraped_at": utc_iso(),
-                }]
+                return [
+                    {
+                        "state": state_name,
+                        "state_code": "",
+                        "fin_year": "cumulative",
+                        "roads_completed": round(parse_amount(row[13])),
+                        "length_completed_km": round(parse_amount(row[14]), 2),
+                        "habitations_connected": round(parse_amount(row[15])),
+                        "expenditure_programme_cr": round(parse_amount(row[16]), 2),
+                        "expenditure_admin_cr": 0.0,
+                        "source_url": source_url,
+                        "scraped_at": utc_iso(),
+                    }
+                ]
     return []
 
 
@@ -208,12 +206,9 @@ def parse_district_csv(
             "expenditure_cr": 0.0,
         }
 
-    for sec_idx, (scheme_name, header_line_idx) in enumerate(scheme_sections):
+    for sec_idx, (_scheme_name, header_line_idx) in enumerate(scheme_sections):
         # Determine end of this section
-        if sec_idx + 1 < len(scheme_sections):
-            end_idx = scheme_sections[sec_idx + 1][1]
-        else:
-            end_idx = len(lines)
+        end_idx = scheme_sections[sec_idx + 1][1] if sec_idx + 1 < len(scheme_sections) else len(lines)
 
         # Parse data rows (lines after header that start with a year like 2000-2001)
         data_rows: list[list[str]] = []
@@ -240,13 +235,14 @@ def parse_district_csv(
 
         # Determine acceptable group sizes
         from collections import Counter
+
         size_counts = Counter(len(rows) for rows in year_groups.values())
         most_common_size = size_counts.most_common(1)[0][0] if size_counts else 0
         acceptable_sizes = {n_districts}
         if most_common_size > 0:
             acceptable_sizes.add(most_common_size)
 
-        for year, rows in year_groups.items():
+        for _year, rows in year_groups.items():
             n_rows = len(rows)
             if n_rows not in acceptable_sizes:
                 continue
@@ -278,22 +274,24 @@ def parse_district_csv(
         # Only include districts that have non-zero data
         if totals["roads_sanctioned"] == 0 and totals["expenditure_cr"] == 0:
             continue
-        records.append({
-            "district": d["name"],
-            "state": state_name,
-            "state_code": "",
-            "fin_year": "cumulative",
-            "scheme": "All",
-            "roads_sanctioned": round(totals["roads_sanctioned"]),
-            "roads_completed": round(totals["roads_completed"]),
-            "length_sanctioned_km": round(totals["length_sanctioned_km"], 2),
-            "length_completed_km": round(totals["length_completed_km"], 2),
-            "habitations_covered": round(totals["lsbs_completed"]),
-            "value_of_projects_cr": round(totals["value_of_projects_cr"], 2),
-            "expenditure_cr": round(totals["expenditure_cr"], 2),
-            "source_url": source_url,
-            "scraped_at": scraped_at,
-        })
+        records.append(
+            {
+                "district": d["name"],
+                "state": state_name,
+                "state_code": "",
+                "fin_year": "cumulative",
+                "scheme": "All",
+                "roads_sanctioned": round(totals["roads_sanctioned"]),
+                "roads_completed": round(totals["roads_completed"]),
+                "length_sanctioned_km": round(totals["length_sanctioned_km"], 2),
+                "length_completed_km": round(totals["length_completed_km"], 2),
+                "habitations_covered": round(totals["lsbs_completed"]),
+                "value_of_projects_cr": round(totals["value_of_projects_cr"], 2),
+                "expenditure_cr": round(totals["expenditure_cr"], 2),
+                "source_url": source_url,
+                "scraped_at": scraped_at,
+            }
+        )
 
     return records
 
@@ -345,7 +343,7 @@ def scrape_district_brief(
     state_slug = slugify(state_name)
     ssrs_url = district_brief_ssrs_url(state_id)
 
-    print(f"\n  Fetching District Brief (SSRS CSV export)...")
+    print("\n  Fetching District Brief (SSRS CSV export)...")
     print(f"    URL: {ssrs_url}")
 
     page.goto(ssrs_url, timeout=60000)
@@ -393,9 +391,11 @@ def scrape_district_brief(
     progress = extract_state_totals(csv_text, state_name, ssrs_url)
     if progress:
         progress_paths = save_report("pmgsy_progress", state_slug, run_id, csv_text, progress, ssrs_url)
-        print(f"    State progress: {progress[0]['roads_completed']} roads, "
-              f"{progress[0]['length_completed_km']} km, "
-              f"{progress[0]['expenditure_programme_cr']} Cr")
+        print(
+            f"    State progress: {progress[0]['roads_completed']} roads, "
+            f"{progress[0]['length_completed_km']} km, "
+            f"{progress[0]['expenditure_programme_cr']} Cr"
+        )
         print(f"    Saved: {progress_paths['latest']}")
 
     return {
@@ -446,23 +446,25 @@ def run_for_state(
     count = result.get("record_count", 0)
     print(f"  pmgsy_district: {status} ({count} records)")
 
-    append_run_log({
-        "run_id": run_id,
-        "state": state_name,
-        "pmgsy_state_id": pmgsy_state_id,
-        "result": result,
-        "timestamp": utc_iso(),
-    })
+    append_run_log(
+        {
+            "run_id": run_id,
+            "state": state_name,
+            "pmgsy_state_id": pmgsy_state_id,
+            "result": result,
+            "timestamp": utc_iso(),
+        }
+    )
 
     return 0 if status == "success" else 1
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
-        description="Scrape PMGSY rural road data (Playwright headless + CSV export)"
-    )
+    parser = argparse.ArgumentParser(description="Scrape PMGSY rural road data (Playwright headless + CSV export)")
     parser.add_argument(
-        "--states", type=str, default="",
+        "--states",
+        type=str,
+        default="",
         help="Comma-separated state names (e.g. 'BIHAR,RAJASTHAN')",
     )
     parser.add_argument("--delay-sec", type=float, default=3.0)
@@ -477,10 +479,7 @@ def main() -> int:
         print("No PMGSY catalog found. Run scrape_pmgsy_catalog.py first.")
         return 1
 
-    if args.states:
-        state_names = [s.strip().upper() for s in args.states.split(",")]
-    else:
-        state_names = list(catalog.keys())
+    state_names = [s.strip().upper() for s in args.states.split(",")] if args.states else list(catalog.keys())
 
     failed_count = 0
     for i, name in enumerate(state_names, 1):

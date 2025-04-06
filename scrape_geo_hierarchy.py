@@ -105,7 +105,9 @@ class Scraper:
             states.append(StateRef(state_name=state_name, state_id=state_id, url=urljoin(BASE, h)))
         return states
 
-    def _base_payload(self, soup: BeautifulSoup, fin_year: str, district: str, block: str, panchayat: str) -> dict[str, str]:
+    def _base_payload(
+        self, soup: BeautifulSoup, fin_year: str, district: str, block: str, panchayat: str
+    ) -> dict[str, str]:
         payload = self._hidden_fields(soup)
         payload.update(
             {
@@ -203,7 +205,9 @@ def main() -> int:
             all_out.append(info)
             c = info["counts"]
             summary.append({"state": st.state_name, **c})
-            print(f"[{i:02d}/{len(states)}] {st.state_name}: districts={c['districts']} blocks={c['blocks']} panchayats={c['panchayats']}")
+            print(
+                f"[{i:02d}/{len(states)}] {st.state_name}: districts={c['districts']} blocks={c['blocks']} panchayats={c['panchayats']}"
+            )
         except Exception as exc:
             print(f"[{i:02d}/{len(states)}] {st.state_name}: ERROR {exc}")
             summary.append({"state": st.state_name, "error": str(exc)})

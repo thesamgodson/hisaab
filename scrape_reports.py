@@ -24,7 +24,7 @@ import json
 import re
 import sys
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -154,9 +154,7 @@ def open_mis_session(page: Any, fin_year: str, state_name: str) -> dict[str, str
     report_urls: dict[str, str] = {}
 
     for name, pattern in REPORT_PATTERNS.items():
-        for m in re.finditer(
-            rf'href="(https://mnregaweb4\.nic\.in[^"]*{pattern}[^"]*)"', content
-        ):
+        for m in re.finditer(rf'href="(https://mnregaweb4\.nic\.in[^"]*{pattern}[^"]*)"', content):
             url = htmllib.unescape(m.group(1))
             if name not in report_urls:
                 report_urls[name] = url
@@ -252,9 +250,7 @@ def parse_misappropriation(html: str, state_name: str, state_code: str, source_u
             "scraped_at": utc_iso(),
         }
 
-        record["amount_unrecovered"] = round(
-            record["amount_to_recover"] - record["amount_recovered"], 2
-        )
+        record["amount_unrecovered"] = round(record["amount_to_recover"] - record["amount_recovered"], 2)
         record["recovery_rate_pct"] = round(
             (record["amount_recovered"] / record["amount_to_recover"] * 100)
             if record["amount_to_recover"] > 0
@@ -330,14 +326,11 @@ def parse_fto_pendency(html: str, state_name: str, state_code: str, source_url: 
     rows = best_table.find_all("tr")
     records: list[dict[str, Any]] = []
 
-    # Extract header labels for day ranges
-    # Typical: 1-7 Days, 8-15 Days, 16-30 Days, > 30 Days (repeated for different account types)
-    day_ranges = []
+    # Find header row with day range labels to locate start of data rows
     for row in rows[:4]:
         cells = row.find_all(["th", "td"])
         texts = [c.get_text(strip=True) for c in cells]
         if any("Days" in t for t in texts):
-            day_ranges = texts
             break
 
     for row in rows:
@@ -567,13 +560,15 @@ def run_for_state(
             report_urls = open_mis_session(page, fin_year, state_name)
         except Exception as exc:
             print(f"Failed to open MIS session: {exc}")
-            append_run_log({
-                "run_id": run_id,
-                "state": state_name,
-                "status": "failed_session",
-                "error": str(exc),
-                "timestamp": utc_iso(),
-            })
+            append_run_log(
+                {
+                    "run_id": run_id,
+                    "state": state_name,
+                    "status": "failed_session",
+                    "error": str(exc),
+                    "timestamp": utc_iso(),
+                }
+            )
             browser.close()
             return 2
 
@@ -604,7 +599,7 @@ def run_for_state(
                 # Expand DataTables pagination to show all rows
                 if report_name in DATATABLES_REPORTS:
                     try:
-                        expanded = page.evaluate('''() => {
+                        expanded = page.evaluate("""() => {
                             const selects = document.querySelectorAll('select');
                             for (const s of selects) {
                                 const opts = Array.from(s.options).map(o => o.value);
@@ -615,7 +610,7 @@ def run_for_state(
                                 }
                             }
                             return false;
-                        }''')
+                        }""")
                         if expanded:
                             page.wait_for_timeout(3000)
                     except Exception:
@@ -629,7 +624,7 @@ def run_for_state(
 
             tampered = "url tampered" in html.lower()
             if tampered:
-                print(f"    URL Tampered response — Digest token may have expired")
+                print("    URL Tampered response — Digest token may have expired")
                 results[report_name] = {"status": "tampered"}
                 continue
 
@@ -656,23 +651,23 @@ def run_for_state(
         count = result.get("record_count", 0)
         print(f"  {name}: {status} ({count} records)")
 
-    append_run_log({
-        "run_id": run_id,
-        "state": state_name,
-        "state_code": state_code,
-        "fin_year": fin_year,
-        "results": results,
-        "timestamp": utc_iso(),
-    })
+    append_run_log(
+        {
+            "run_id": run_id,
+            "state": state_name,
+            "state_code": state_code,
+            "fin_year": fin_year,
+            "results": results,
+            "timestamp": utc_iso(),
+        }
+    )
 
     failed = sum(1 for r in results.values() if r.get("status") not in ("success",))
     return 0 if failed == 0 else 1
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
-        description="Scrape MGNREGA reports via MIS portal (Playwright headless)"
-    )
+    parser = argparse.ArgumentParser(description="Scrape MGNREGA reports via MIS portal (Playwright headless)")
     parser.add_argument("--state-name", default="TAMIL NADU")
     parser.add_argument("--state-code", default="29")
     parser.add_argument("--fin-year", default="2024-2025")

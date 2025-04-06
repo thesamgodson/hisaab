@@ -146,7 +146,7 @@ def main() -> int:
             files_modified += 1
             print(f"  {path.name}: {changed}/{processed} records migrated")
 
-    print(f"\nSummary:")
+    print("\nSummary:")
     print(f"  Files scanned:  {len(files)}")
     print(f"  Files modified: {files_modified}")
     print(f"  Records total:  {total_processed}")

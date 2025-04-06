@@ -19,7 +19,6 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
-import os
 import sys
 from dataclasses import dataclass
 from datetime import UTC, datetime
@@ -195,7 +194,7 @@ async def scrape_state(config: PmaygConfig) -> list[dict[str, Any]]:
                     "state": config.state_name,
                     "state_code": config.state_code,
                     "fin_year": config.fin_year,
-                    "houses_sanctioned": _parse_int(texts[2]),   # Target fixed by States
+                    "houses_sanctioned": _parse_int(texts[2]),  # Target fixed by States
                     "registered": _parse_int(texts[3]),
                     "geo_tagged": _parse_int(texts[4]),
                     "sanctions_from_geo": _parse_int(texts[5]),
@@ -215,9 +214,7 @@ async def scrape_state(config: PmaygConfig) -> list[dict[str, Any]]:
 
                 # Calculate completion % from target
                 if record["houses_sanctioned"] > 0:
-                    record["completion_pct"] = round(
-                        record["houses_completed"] / record["houses_sanctioned"] * 100, 1
-                    )
+                    record["completion_pct"] = round(record["houses_completed"] / record["houses_sanctioned"] * 100, 1)
 
                 records.append(record)
 

@@ -73,9 +73,8 @@ def parse_records(
         if not state_name or not district_name:
             continue
 
-        if states_filter:
-            if state_name.upper() not in [s.upper() for s in states_filter]:
-                continue
+        if states_filter and state_name.upper() not in [s.upper() for s in states_filter]:
+            continue
 
         total_hh = _parse_int(d.get("Total", "0"))
         hh_with_tap = _parse_int(d.get("Value", "0"))

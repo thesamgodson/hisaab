@@ -129,10 +129,12 @@ def parse_state_table(soup: BeautifulSoup) -> list[dict[str, str]]:
         state_name = link.get_text(strip=True)
         postback_target = extract_postback_target(link["href"])
         if state_name and postback_target:
-            states.append({
-                "name": state_name,
-                "postback_target": postback_target,
-            })
+            states.append(
+                {
+                    "name": state_name,
+                    "postback_target": postback_target,
+                }
+            )
 
     return states
 
@@ -309,7 +311,7 @@ def scrape_all(
         # Re-extract hidden fields from current page state
         hidden_fields = extract_form_fields(soup)
         if not hidden_fields.get("__VIEWSTATE"):
-            print(f"  WARNING: Missing __VIEWSTATE, re-fetching main page...")
+            print("  WARNING: Missing __VIEWSTATE, re-fetching main page...")
             soup = fetch_page(session, BASE_URL)
             hidden_fields = extract_form_fields(soup)
 
@@ -318,7 +320,9 @@ def scrape_all(
         for attempt in range(max_retries):
             try:
                 district_soup = fetch_district_page(
-                    session, hidden_fields, postback_target,
+                    session,
+                    hidden_fields,
+                    postback_target,
                 )
                 break
             except requests.RequestException as e:
@@ -336,7 +340,10 @@ def scrape_all(
             continue
 
         records = parse_district_table(
-            district_soup, state_name, state_code, scraped_at,
+            district_soup,
+            state_name,
+            state_code,
+            scraped_at,
         )
         print(f"  Found {len(records)} districts")
         all_records.extend(records)

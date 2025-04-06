@@ -20,7 +20,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-DB_PATH = Path(__file__).resolve().parent / "data" / "hisaab.db"
+from db import DB_PATH
+
 BRIEFS_DIR = Path(__file__).resolve().parent / "data" / "briefs"
 FIN_YEAR = "2024-2025"
 
@@ -59,15 +60,19 @@ def _all_districts(conn: sqlite3.Connection) -> list[dict[str, str]]:
     seen: set[tuple[str, str]] = set()
     result: list[dict[str, str]] = []
     tables = (
-        "misappropriation", "financial_statement", "pmgsy_district",
-        "pmayg_district", "pmkisan_district", "jjm_district",
-        "pmposhan_district", "nsap_district", "nfsa_district",
+        "misappropriation",
+        "financial_statement",
+        "pmgsy_district",
+        "pmayg_district",
+        "pmkisan_district",
+        "jjm_district",
+        "pmposhan_district",
+        "nsap_district",
+        "nfsa_district",
     )
     for table in tables:
         try:
-            rows = conn.execute(
-                f"SELECT DISTINCT district, state FROM {table} ORDER BY state, district"
-            ).fetchall()
+            rows = conn.execute(f"SELECT DISTINCT district, state FROM {table} ORDER BY state, district").fetchall()
             for r in rows:
                 key = (r["district"].upper(), r["state"].upper())
                 if key not in seen:
@@ -213,7 +218,9 @@ def brief(district_query: str) -> str:
             lines.append(f"  {ft['first_signatory_pending']:,} pending 1st signatory approval")
             lines.append(f"  {ft['second_signatory_pending']:,} pending 2nd signatory approval")
             lines.append(f"  {total_pending:,} total FTOs pending")
-        lines.append(f"  {ft['fto_sent_to_bank']:,} sent to bank, {ft['fto_processed_by_bank']:,} transactions processed")
+        lines.append(
+            f"  {ft['fto_sent_to_bank']:,} sent to bank, {ft['fto_processed_by_bank']:,} transactions processed"
+        )
         lines.append(f"  Source: {ft['source_url']}")
     else:
         lines.append("  No data available.")
@@ -237,8 +244,12 @@ def brief(district_query: str) -> str:
             "Grievances": a["grievances_issues"],
         }
         top_category = max(categories, key=lambda k: categories[k])
-        lines.append(f"  {a['total_issues']:,} issues reported across {a['gps_audited']}/{a['total_gps']} GPs audited ({_pct(coverage)})")
-        lines.append(f"  Misappropriation: {a['misappropriation_issues']:,} | Deviation: {a['financial_deviation_issues']:,} | Process violations: {a['process_violation_issues']:,} | Grievances: {a['grievances_issues']:,}")
+        lines.append(
+            f"  {a['total_issues']:,} issues reported across {a['gps_audited']}/{a['total_gps']} GPs audited ({_pct(coverage)})"
+        )
+        lines.append(
+            f"  Misappropriation: {a['misappropriation_issues']:,} | Deviation: {a['financial_deviation_issues']:,} | Process violations: {a['process_violation_issues']:,} | Grievances: {a['grievances_issues']:,}"
+        )
         lines.append(f"  Top issue category: {top_category} ({categories[top_category]:,} cases)")
         lines.append(f"  Source: {a['source_url']}")
     else:
@@ -262,7 +273,9 @@ def brief(district_query: str) -> str:
         completion_rate = (total_completed / total_sanctioned * 100) if total_sanctioned > 0 else 0
         cost_per_km = (total_exp / total_len_c) if total_len_c > 0 else 0
 
-        lines.append(f"  Roads sanctioned: {total_sanctioned:,} | completed: {total_completed:,} ({_pct(completion_rate)})")
+        lines.append(
+            f"  Roads sanctioned: {total_sanctioned:,} | completed: {total_completed:,} ({_pct(completion_rate)})"
+        )
         lines.append(f"  Length sanctioned: {total_len_s:,.1f} km | completed: {total_len_c:,.1f} km")
         lines.append(f"  Total expenditure: {_fmt_inr(total_exp * 10000000)}")
         if total_len_c > 0:
@@ -282,9 +295,13 @@ def brief(district_query: str) -> str:
     if pmayg:
         h = dict(pmayg)
         occupied_pct = (h["houses_occupied"] / h["houses_completed"] * 100) if h["houses_completed"] > 0 else 0
-        lines.append(f"  Houses sanctioned: {h['houses_sanctioned']:,} | completed: {h['houses_completed']:,} ({h['completion_pct']:.0f}%)")
+        lines.append(
+            f"  Houses sanctioned: {h['houses_sanctioned']:,} | completed: {h['houses_completed']:,} ({h['completion_pct']:.0f}%)"
+        )
         lines.append(f"  Houses occupied: {h['houses_occupied']:,} ({occupied_pct:.0f}% of completed)")
-        lines.append(f"  Funds released: {_fmt_inr(h['funds_released_lakhs'], 'lakhs')} | utilized: {_fmt_inr(h['funds_utilized_lakhs'], 'lakhs')}")
+        lines.append(
+            f"  Funds released: {_fmt_inr(h['funds_released_lakhs'], 'lakhs')} | utilized: {_fmt_inr(h['funds_utilized_lakhs'], 'lakhs')}"
+        )
         if h.get("source_url"):
             lines.append(f"  Source: {h['source_url']}")
     else:
@@ -325,8 +342,12 @@ def brief(district_query: str) -> str:
     if jjm:
         j = dict(jjm)
         util_pct = (j["funds_utilized_lakhs"] / j["funds_released_lakhs"] * 100) if j["funds_released_lakhs"] > 0 else 0
-        lines.append(f"  Households: {j['total_households']:,} total | {j['households_with_tap']:,} with tap ({j['coverage_pct']:.0f}%)")
-        lines.append(f"  Funds released: {_fmt_inr(j['funds_released_lakhs'], 'lakhs')} | utilized: {_fmt_inr(j['funds_utilized_lakhs'], 'lakhs')} ({util_pct:.0f}%)")
+        lines.append(
+            f"  Households: {j['total_households']:,} total | {j['households_with_tap']:,} with tap ({j['coverage_pct']:.0f}%)"
+        )
+        lines.append(
+            f"  Funds released: {_fmt_inr(j['funds_released_lakhs'], 'lakhs')} | utilized: {_fmt_inr(j['funds_utilized_lakhs'], 'lakhs')} ({util_pct:.0f}%)"
+        )
         if j.get("source_url"):
             lines.append(f"  Source: {j['source_url']}")
     else:
@@ -344,8 +365,12 @@ def brief(district_query: str) -> str:
         p = dict(poshan)
         feeding_pct = (p["children_fed"] / p["children_enrolled"] * 100) if p["children_enrolled"] > 0 else 0
         lines.append(f"  Schools covered: {p['schools_covered']:,}")
-        lines.append(f"  Children enrolled: {p['children_enrolled']:,} | fed: {p['children_fed']:,} ({feeding_pct:.0f}%)")
-        lines.append(f"  Funds released: {_fmt_inr(p['funds_released_lakhs'], 'lakhs')} | utilized: {_fmt_inr(p['funds_utilized_lakhs'], 'lakhs')}")
+        lines.append(
+            f"  Children enrolled: {p['children_enrolled']:,} | fed: {p['children_fed']:,} ({feeding_pct:.0f}%)"
+        )
+        lines.append(
+            f"  Funds released: {_fmt_inr(p['funds_released_lakhs'], 'lakhs')} | utilized: {_fmt_inr(p['funds_utilized_lakhs'], 'lakhs')}"
+        )
         if p.get("source_url"):
             lines.append(f"  Source: {p['source_url']}")
     else:
@@ -387,8 +412,12 @@ def brief(district_query: str) -> str:
     if nfsa:
         nf = dict(nfsa)
         active_pct = (nf["ration_cards_active"] / nf["ration_cards_total"] * 100) if nf["ration_cards_total"] > 0 else 0
-        lines.append(f"  Ration cards: {nf['ration_cards_active']:,} active / {nf['ration_cards_total']:,} total ({active_pct:.0f}%)")
-        lines.append(f"  Allocation: {nf['allocation_mt']:,.1f} MT | Offtake: {nf['offtake_mt']:,.1f} MT ({nf['offtake_pct']:.0f}%)")
+        lines.append(
+            f"  Ration cards: {nf['ration_cards_active']:,} active / {nf['ration_cards_total']:,} total ({active_pct:.0f}%)"
+        )
+        lines.append(
+            f"  Allocation: {nf['allocation_mt']:,.1f} MT | Offtake: {nf['offtake_mt']:,.1f} MT ({nf['offtake_pct']:.0f}%)"
+        )
         lines.append(f"  Beneficiaries: {nf['beneficiaries_total']:,}")
         if nf.get("source_url"):
             lines.append(f"  Source: {nf['source_url']}")
@@ -410,7 +439,9 @@ def brief(district_query: str) -> str:
     state_rank, state_total = _state_rank_unrecovered(conn, district, state)
     national_rank, national_total = _national_rank_unrecovered(conn, district, state)
     if state_rank > 0:
-        lines.append(f"  {district} ranks #{state_rank} out of {state_total} {state} districts for unrecovered misappropriation.")
+        lines.append(
+            f"  {district} ranks #{state_rank} out of {state_total} {state} districts for unrecovered misappropriation."
+        )
     if national_rank > 0:
         lines.append(f"  Nationally, it ranks #{national_rank} out of {national_total} districts.")
 
@@ -485,7 +516,9 @@ def state_brief(state_name: str) -> str:
             state_national_rank = i
             break
     if state_national_rank > 0:
-        lines.append(f"  State ranks #{state_national_rank} out of {total_states} states nationally for unrecovered amount")
+        lines.append(
+            f"  State ranks #{state_national_rank} out of {total_states} states nationally for unrecovered amount"
+        )
     lines.append("")
 
     # --- FUND UTILIZATION ---
@@ -543,7 +576,9 @@ def state_brief(state_name: str) -> str:
         a = dict(aud)
         coverage = (a["audited"] / a["gps"] * 100) if a["gps"] > 0 else 0
         lines.append(f"  {a['issues']:,} issues across {a['audited']:,}/{a['gps']:,} GPs ({_pct(coverage)} coverage)")
-        lines.append(f"  Misappropriation: {a['mis']:,} | Deviation: {a['dev']:,} | Process violations: {a['pv']:,} | Grievances: {a['gr']:,}")
+        lines.append(
+            f"  Misappropriation: {a['mis']:,} | Deviation: {a['dev']:,} | Process violations: {a['pv']:,} | Grievances: {a['gr']:,}"
+        )
     else:
         lines.append("  No data available.")
     lines.append("")
@@ -562,7 +597,9 @@ def state_brief(state_name: str) -> str:
     if pmgsy and pmgsy["districts"] and pmgsy["districts"] > 0:
         pm = dict(pmgsy)
         completion_pct = (pm["completed"] / pm["sanctioned"] * 100) if pm["sanctioned"] > 0 else 0
-        lines.append(f"  {pm['districts']} districts | {pm['sanctioned']:,} roads sanctioned | {pm['completed']:,} completed ({_pct(completion_pct)})")
+        lines.append(
+            f"  {pm['districts']} districts | {pm['sanctioned']:,} roads sanctioned | {pm['completed']:,} completed ({_pct(completion_pct)})"
+        )
         lines.append(f"  Length: {pm['len_s']:,.1f} km sanctioned | {pm['len_c']:,.1f} km completed")
         lines.append(f"  Total expenditure: {_fmt_inr(pm['exp'] * 10000000)}")
     else:
@@ -583,9 +620,13 @@ def state_brief(state_name: str) -> str:
     if pmayg and pmayg["districts"] and pmayg["districts"] > 0:
         h = dict(pmayg)
         comp_pct = (h["completed"] / h["sanctioned"] * 100) if h["sanctioned"] > 0 else 0
-        lines.append(f"  {h['districts']} districts | {h['sanctioned']:,} houses sanctioned | {h['completed']:,} completed ({_pct(comp_pct)})")
+        lines.append(
+            f"  {h['districts']} districts | {h['sanctioned']:,} houses sanctioned | {h['completed']:,} completed ({_pct(comp_pct)})"
+        )
         lines.append(f"  Occupied: {h['occupied']:,}")
-        lines.append(f"  Funds released: {_fmt_inr(h['released'], 'lakhs')} | utilized: {_fmt_inr(h['utilized'], 'lakhs')}")
+        lines.append(
+            f"  Funds released: {_fmt_inr(h['released'], 'lakhs')} | utilized: {_fmt_inr(h['utilized'], 'lakhs')}"
+        )
     else:
         lines.append("  No data available.")
     lines.append("")
@@ -620,8 +661,12 @@ def state_brief(state_name: str) -> str:
     if jjm and jjm["districts"] and jjm["districts"] > 0:
         j = dict(jjm)
         cov_pct = (j["tapped"] / j["total_hh"] * 100) if j["total_hh"] > 0 else 0
-        lines.append(f"  {j['districts']} districts | {j['total_hh']:,} households | {j['tapped']:,} with tap ({_pct(cov_pct)})")
-        lines.append(f"  Funds released: {_fmt_inr(j['released'], 'lakhs')} | utilized: {_fmt_inr(j['utilized'], 'lakhs')}")
+        lines.append(
+            f"  {j['districts']} districts | {j['total_hh']:,} households | {j['tapped']:,} with tap ({_pct(cov_pct)})"
+        )
+        lines.append(
+            f"  Funds released: {_fmt_inr(j['released'], 'lakhs')} | utilized: {_fmt_inr(j['utilized'], 'lakhs')}"
+        )
     else:
         lines.append("  No data available.")
     lines.append("")
@@ -679,8 +724,12 @@ def state_brief(state_name: str) -> str:
     if nfsa and nfsa["districts"] and nfsa["districts"] > 0:
         nf = dict(nfsa)
         offtake_pct = (nf["offtake"] / nf["allocation"] * 100) if nf["allocation"] > 0 else 0
-        lines.append(f"  {nf['districts']} districts | {nf['active_cards']:,} active / {nf['total_cards']:,} total ration cards")
-        lines.append(f"  Allocation: {nf['allocation']:,.1f} MT | Offtake: {nf['offtake']:,.1f} MT ({_pct(offtake_pct)})")
+        lines.append(
+            f"  {nf['districts']} districts | {nf['active_cards']:,} active / {nf['total_cards']:,} total ration cards"
+        )
+        lines.append(
+            f"  Allocation: {nf['allocation']:,.1f} MT | Offtake: {nf['offtake']:,.1f} MT ({_pct(offtake_pct)})"
+        )
         lines.append(f"  Beneficiaries: {nf['beneficiaries']:,}")
     else:
         lines.append("  No data available.")
@@ -761,12 +810,16 @@ def _detect_flags(conn: sqlite3.Connection, district: str, state: str, verbose: 
         f = dict(fin)
         if f["utilization_pct"] > 105:
             if verbose:
-                flags.append(f"Over-expenditure: {_pct(f['utilization_pct'])} utilization — spending exceeds allocation by {_fmt_inr(f['cumulative_expenditure'] - f['total_availability'], 'lakhs')}")
+                flags.append(
+                    f"Over-expenditure: {_pct(f['utilization_pct'])} utilization — spending exceeds allocation by {_fmt_inr(f['cumulative_expenditure'] - f['total_availability'], 'lakhs')}"
+                )
             else:
                 flags.append(f"Over-expenditure: {_pct(f['utilization_pct'])}")
         if f["total_availability"] > 0 and f["utilization_pct"] < 50:
             if verbose:
-                flags.append(f"Severe under-utilization: only {_pct(f['utilization_pct'])} of {_fmt_inr(f['total_availability'], 'lakhs')} allocated funds spent")
+                flags.append(
+                    f"Severe under-utilization: only {_pct(f['utilization_pct'])} of {_fmt_inr(f['total_availability'], 'lakhs')} allocated funds spent"
+                )
             else:
                 flags.append(f"Under-utilized: {_pct(f['utilization_pct'])}")
 
@@ -782,7 +835,9 @@ def _detect_flags(conn: sqlite3.Connection, district: str, state: str, verbose: 
             pv_share = a["process_violation_issues"] / a["total_issues"] * 100
             if pv_share > 80:
                 if verbose:
-                    flags.append(f"Process violations dominate: {_pct(pv_share)} of all audit issues ({a['process_violation_issues']:,} cases)")
+                    flags.append(
+                        f"Process violations dominate: {_pct(pv_share)} of all audit issues ({a['process_violation_issues']:,} cases)"
+                    )
                 else:
                     flags.append("Process violations >80%")
 
@@ -852,10 +907,12 @@ def _detect_flags(conn: sqlite3.Connection, district: str, state: str, verbose: 
     if fin and pmgsy_rows:
         f_dict = dict(fin)
         # High MGNREGA expenditure + low PMGSY completion = possible red flag
-        if (f_dict.get("cumulative_expenditure", 0) > 0
-                and total_sanctioned > 0
-                and total_completed / total_sanctioned < 0.5
-                and f_dict["utilization_pct"] > 80):
+        if (
+            f_dict.get("cumulative_expenditure", 0) > 0
+            and total_sanctioned > 0
+            and total_completed / total_sanctioned < 0.5
+            and f_dict["utilization_pct"] > 80
+        ):
             if verbose:
                 flags.append(
                     f"Cross-scheme anomaly: MGNREGA utilization is high ({_pct(f_dict['utilization_pct'])}) "
@@ -1004,9 +1061,7 @@ def _detect_flags(conn: sqlite3.Connection, district: str, state: str, verbose: 
     if fin and pmayg:
         f_dict = dict(fin)
         h_dict = dict(pmayg)
-        if (f_dict["utilization_pct"] > 80
-                and h_dict["houses_sanctioned"] > 0
-                and h_dict["completion_pct"] < 40):
+        if f_dict["utilization_pct"] > 80 and h_dict["houses_sanctioned"] > 0 and h_dict["completion_pct"] < 40:
             if verbose:
                 flags.append(
                     f"Cross-scheme: high MGNREGA spend ({_pct(f_dict['utilization_pct'])}) "
@@ -1020,7 +1075,9 @@ def _detect_flags(conn: sqlite3.Connection, district: str, state: str, verbose: 
         j_dict = dict(jjm)
         p_dict = dict(poshan)
         low_water = j_dict["total_households"] > 0 and j_dict["coverage_pct"] < 40
-        low_meals = p_dict["children_enrolled"] > 0 and (p_dict["children_fed"] / p_dict["children_enrolled"] * 100) < 40
+        low_meals = (
+            p_dict["children_enrolled"] > 0 and (p_dict["children_fed"] / p_dict["children_enrolled"] * 100) < 40
+        )
         if low_water and low_meals:
             if verbose:
                 flags.append(
@@ -1038,7 +1095,11 @@ def _detect_flags(conn: sqlite3.Connection, district: str, state: str, verbose: 
         low_delivery_count += 1
     if jjm and dict(jjm)["total_households"] > 0 and dict(jjm)["coverage_pct"] < 50:
         low_delivery_count += 1
-    if poshan and dict(poshan)["children_enrolled"] > 0 and dict(poshan)["children_fed"] / dict(poshan)["children_enrolled"] < 0.5:
+    if (
+        poshan
+        and dict(poshan)["children_enrolled"] > 0
+        and dict(poshan)["children_fed"] / dict(poshan)["children_enrolled"] < 0.5
+    ):
         low_delivery_count += 1
     if nfsa and dict(nfsa)["offtake_pct"] < 50:
         low_delivery_count += 1
@@ -1063,9 +1124,14 @@ def scan_red_flags(limit: int = 25, state_filter: str | None = None) -> str:
     # Gather districts from all scheme tables for comprehensive scanning
     all_districts: set[tuple[str, str]] = set()
     tables_with_fy = [
-        "misappropriation", "financial_statement", "fto_status",
-        "pmayg_district", "pmkisan_district", "pmposhan_district",
-        "nsap_district", "nfsa_district",
+        "misappropriation",
+        "financial_statement",
+        "fto_status",
+        "pmayg_district",
+        "pmkisan_district",
+        "pmposhan_district",
+        "nsap_district",
+        "nfsa_district",
     ]
     tables_without_fy = ["pmgsy_district", "jjm_district"]
     for table in tables_with_fy:
@@ -1075,9 +1141,7 @@ def scan_red_flags(limit: int = 25, state_filter: str | None = None) -> str:
             if state_filter:
                 where += " AND UPPER(state)=UPPER(?)"
                 params.append(state_filter)
-            for r in conn.execute(
-                f"SELECT DISTINCT district, state FROM {table} {where}", params
-            ).fetchall():
+            for r in conn.execute(f"SELECT DISTINCT district, state FROM {table} {where}", params).fetchall():
                 all_districts.add((r["district"], r["state"]))
         except Exception:
             pass
@@ -1088,9 +1152,7 @@ def scan_red_flags(limit: int = 25, state_filter: str | None = None) -> str:
             if state_filter:
                 where += " AND UPPER(state)=UPPER(?)"
                 params_nfy.append(state_filter)
-            for r in conn.execute(
-                f"SELECT DISTINCT district, state FROM {table} {where}", params_nfy
-            ).fetchall():
+            for r in conn.execute(f"SELECT DISTINCT district, state FROM {table} {where}", params_nfy).fetchall():
                 all_districts.add((r["district"], r["state"]))
         except Exception:
             pass

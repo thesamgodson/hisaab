@@ -27,7 +27,6 @@ from query import (
     pmgsy_district_summary,
     pmgsy_state_summary,
     pmgsy_worst_completion,
-    schemes_in_district,
     social_audit_by_district,
     worst_misappropriation_districts,
 )
@@ -94,6 +93,7 @@ def resolve_district(text: str) -> str | None:
 def _all_known_districts() -> list[str]:
     """Get all district names from all tables in the DB."""
     from db import get_connection
+
     conn = get_connection()
     names: set[str] = set()
     for table in ("misappropriation", "financial_statement", "pmgsy_district"):
@@ -110,6 +110,7 @@ def _state_for_district(district: str | None) -> str | None:
     if not district:
         return None
     from db import get_connection
+
     conn = get_connection()
     for table in ("pmgsy_district", "misappropriation", "financial_statement"):
         try:
@@ -127,6 +128,7 @@ def _state_for_district(district: str | None) -> str | None:
 def _resolve_state(text: str) -> str | None:
     """Try to find a state name in the input text."""
     from db import get_connection
+
     conn = get_connection()
     states: set[str] = set()
     for table in ("pmgsy_district", "pmgsy_progress", "misappropriation", "financial_statement"):
@@ -155,6 +157,7 @@ def _resolve_state(text: str) -> str | None:
 def _any_pmgsy_state() -> str | None:
     """Return any state that has PMGSY data loaded."""
     from db import get_connection
+
     conn = get_connection()
     try:
         row = conn.execute("SELECT DISTINCT state FROM pmgsy_district LIMIT 1").fetchone()
@@ -263,7 +266,7 @@ def interactive_mode() -> None:
     while True:
         try:
             text = input("hisaab> ").strip()
-        except (EOFError, KeyboardInterrupt):
+        except EOFError, KeyboardInterrupt:
             print("\nBye.")
             break
 

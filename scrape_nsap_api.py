@@ -142,19 +142,21 @@ def transform_records(
         if not _district or _district in ("TOTAL", "GRAND TOTAL"):
             continue
 
-        curated.append({
-            "district": _district,
-            "state": _state,
-            "state_code": r.get("lgd_state_code", ""),
-            "fin_year": fin_year,
-            "scheme_type": _scheme,
-            "beneficiaries_eligible": 0,  # Not available in API
-            "beneficiaries_paid": int(r.get("total_beneficiaries", 0)),
-            "amount_paid_lakhs": 0,  # Not available in API
-            "pension_per_month": 0,  # Not available in API
-            "source_url": f"api.data.gov.in/resource/nsap",
-            "scraped_at": scraped_at,
-        })
+        curated.append(
+            {
+                "district": _district,
+                "state": _state,
+                "state_code": r.get("lgd_state_code", ""),
+                "fin_year": fin_year,
+                "scheme_type": _scheme,
+                "beneficiaries_eligible": 0,  # Not available in API
+                "beneficiaries_paid": int(r.get("total_beneficiaries", 0)),
+                "amount_paid_lakhs": 0,  # Not available in API
+                "pension_per_month": 0,  # Not available in API
+                "source_url": "api.data.gov.in/resource/nsap",
+                "scraped_at": scraped_at,
+            }
+        )
 
     return curated
 

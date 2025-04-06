@@ -44,6 +44,7 @@ def db():
 @pytest.fixture
 def patch_conn(db, monkeypatch):
     import query
+
     monkeypatch.setattr(query, "_conn", lambda: NoCloseConn(db))
     return db
 
@@ -51,6 +52,7 @@ def patch_conn(db, monkeypatch):
 # ---------------------------------------------------------------------------
 # PMAY-G
 # ---------------------------------------------------------------------------
+
 
 class TestPMAYGQueries:
     @staticmethod
@@ -74,6 +76,7 @@ class TestPMAYGQueries:
     def test_by_district(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.pmayg_by_district("PATNA", "BIHAR")
         assert result["data"] is not None
         assert result["data"]["houses_sanctioned"] == 2000
@@ -81,12 +84,14 @@ class TestPMAYGQueries:
 
     def test_by_district_no_data(self, patch_conn):
         import query
+
         result = query.pmayg_by_district("NONEXISTENT", "BIHAR")
         assert result["data"] is None
 
     def test_state_summary(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.pmayg_state_summary("BIHAR")
         assert result["data"]["districts"] == 2
         assert result["data"]["sanctioned"] == 3000
@@ -94,6 +99,7 @@ class TestPMAYGQueries:
     def test_worst_completion(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.pmayg_worst_completion("BIHAR", limit=2)
         assert len(result["data"]) == 2
         assert result["data"][0]["district"] == "GAYA"  # lowest completion
@@ -102,6 +108,7 @@ class TestPMAYGQueries:
 # ---------------------------------------------------------------------------
 # PM Kisan
 # ---------------------------------------------------------------------------
+
 
 class TestPMKisanQueries:
     @staticmethod
@@ -127,6 +134,7 @@ class TestPMKisanQueries:
     def test_by_district(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.pmkisan_by_district("PATNA", "BIHAR")
         assert result["data"] is not None
         assert "45,000" in result["answer"] or "45000" in result["answer"].replace(",", "")
@@ -134,12 +142,14 @@ class TestPMKisanQueries:
     def test_state_summary(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.pmkisan_state_summary("BIHAR")
         assert result["data"]["districts"] == 2
 
     def test_worst_coverage_excludes_all(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.pmkisan_worst_coverage("BIHAR", limit=5)
         # "ALL" district should be excluded
         districts = [r["district"] for r in result["data"]]
@@ -149,6 +159,7 @@ class TestPMKisanQueries:
 # ---------------------------------------------------------------------------
 # JJM
 # ---------------------------------------------------------------------------
+
 
 class TestJJMQueries:
     @staticmethod
@@ -166,6 +177,7 @@ class TestJJMQueries:
     def test_by_district(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.jjm_by_district("PATNA", "BIHAR")
         assert result["data"]["coverage_pct"] == 70.0
         assert "70%" in result["answer"]
@@ -173,6 +185,7 @@ class TestJJMQueries:
     def test_state_summary(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.jjm_state_summary("BIHAR")
         assert result["data"]["districts"] == 1
         assert result["data"]["tapped"] == 7000
@@ -180,6 +193,7 @@ class TestJJMQueries:
     def test_worst_coverage(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.jjm_worst_coverage("BIHAR")
         assert len(result["data"]) == 1
 
@@ -187,6 +201,7 @@ class TestJJMQueries:
 # ---------------------------------------------------------------------------
 # PM POSHAN
 # ---------------------------------------------------------------------------
+
 
 class TestPMPOSHANQueries:
     @staticmethod
@@ -204,6 +219,7 @@ class TestPMPOSHANQueries:
     def test_by_district(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.pmposhan_by_district("PATNA", "BIHAR")
         assert result["data"]["children_fed"] == 22000
         assert "88%" in result["answer"]  # 22000/25000
@@ -211,12 +227,14 @@ class TestPMPOSHANQueries:
     def test_state_summary(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.pmposhan_state_summary("BIHAR")
         assert result["data"]["fed"] == 22000
 
     def test_worst_feeding(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.pmposhan_worst_feeding("BIHAR")
         assert len(result["data"]) == 1
 
@@ -224,6 +242,7 @@ class TestPMPOSHANQueries:
 # ---------------------------------------------------------------------------
 # NSAP
 # ---------------------------------------------------------------------------
+
 
 class TestNSAPQueries:
     @staticmethod
@@ -247,6 +266,7 @@ class TestNSAPQueries:
     def test_by_district(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.nsap_by_district("PATNA", "BIHAR")
         assert len(result["data"]) == 2
         assert "9,300" in result["answer"] or "9300" in result["answer"].replace(",", "")
@@ -254,12 +274,14 @@ class TestNSAPQueries:
     def test_state_summary(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.nsap_state_summary("BIHAR")
         assert result["data"]["total_paid"] == 9300
 
     def test_worst_coverage(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.nsap_worst_coverage("BIHAR")
         assert len(result["data"]) == 1
 
@@ -267,6 +289,7 @@ class TestNSAPQueries:
 # ---------------------------------------------------------------------------
 # NFSA
 # ---------------------------------------------------------------------------
+
 
 class TestNFSAQueries:
     @staticmethod
@@ -284,6 +307,7 @@ class TestNFSAQueries:
     def test_by_district(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.nfsa_by_district("PATNA", "BIHAR")
         assert result["data"]["offtake_pct"] == 84.0
         assert "84%" in result["answer"]
@@ -291,12 +315,14 @@ class TestNFSAQueries:
     def test_state_summary(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.nfsa_state_summary("BIHAR")
         assert result["data"]["total_cards"] == 100000
 
     def test_worst_coverage(self, patch_conn):
         self._seed(patch_conn)
         import query
+
         result = query.nfsa_worst_coverage("BIHAR")
         assert len(result["data"]) == 1
 
@@ -305,9 +331,11 @@ class TestNFSAQueries:
 # Data quality warnings
 # ---------------------------------------------------------------------------
 
+
 class TestDataQualityWarnings:
     def test_returns_all_schemes(self):
         import query
+
         warnings = query.data_quality_warnings()
         assert "PM Kisan" in warnings
         assert "NSAP" in warnings
@@ -316,6 +344,7 @@ class TestDataQualityWarnings:
 
     def test_warnings_are_non_empty(self):
         import query
+
         warnings = query.data_quality_warnings()
         for scheme, issues in warnings.items():
             assert len(issues) > 0, f"{scheme} has no warnings"
@@ -324,6 +353,7 @@ class TestDataQualityWarnings:
 # ---------------------------------------------------------------------------
 # list_districts across all tables
 # ---------------------------------------------------------------------------
+
 
 class TestListDistricts:
     def test_includes_new_scheme_districts(self, patch_conn):
@@ -337,6 +367,7 @@ class TestListDistricts:
         )
         patch_conn.commit()
         import query
+
         districts = query.list_districts("TESTSTATE", "2024-2025")
         assert "UNIQUE_JJM" in districts
 
@@ -344,6 +375,7 @@ class TestListDistricts:
 # ---------------------------------------------------------------------------
 # New VIEWs
 # ---------------------------------------------------------------------------
+
 
 class TestNewViews:
     @staticmethod

@@ -70,8 +70,8 @@ def main() -> int:
     ]
     for i, r in enumerate(top, start=1):
         lines.append(
-            f"| {i} | {r.get('state','')} | {r.get('district','')} | "
-            f"{fmt_inr(float(r.get('amount_unrecovered',0)))} | {r.get('recovery_rate_pct',0)}% |"
+            f"| {i} | {r.get('state', '')} | {r.get('district', '')} | "
+            f"{fmt_inr(float(r.get('amount_unrecovered', 0)))} | {r.get('recovery_rate_pct', 0)}% |"
         )
 
     lines += [

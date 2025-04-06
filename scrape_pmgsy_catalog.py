@@ -26,13 +26,15 @@ OUT_DIR = Path("data/catalog")
 STATES_FILE = Path(__file__).resolve().parent / "states.json"
 
 session = requests.Session()
-session.headers.update({
-    "User-Agent": "Mozilla/5.0 (compatible; Hisaab/0.2)",
-    "Accept": "application/json, text/javascript, */*; q=0.01",
-    "X-Requested-With": "XMLHttpRequest",
-    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-    "Referer": f"{BASE_URL}/",
-})
+session.headers.update(
+    {
+        "User-Agent": "Mozilla/5.0 (compatible; Hisaab/0.2)",
+        "Accept": "application/json, text/javascript, */*; q=0.01",
+        "X-Requested-With": "XMLHttpRequest",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "Referer": f"{BASE_URL}/",
+    }
+)
 
 
 def fetch_pmgsy_states() -> list[dict]:
@@ -109,12 +111,14 @@ def main() -> int:
         print(f"{len(districts)} districts")
 
         for d in districts:
-            catalog.append({
-                "pmgsy_state_id": state_id,
-                "state_name": state_name,
-                "pmgsy_district_id": d["pmgsy_district_id"],
-                "district_name": d["district_name"],
-            })
+            catalog.append(
+                {
+                    "pmgsy_state_id": state_id,
+                    "state_name": state_name,
+                    "pmgsy_district_id": d["pmgsy_district_id"],
+                    "district_name": d["district_name"],
+                }
+            )
 
         if i < len(pmgsy_states):
             time.sleep(0.5)
@@ -132,7 +136,7 @@ def main() -> int:
     for path in (versioned_path, latest_path):
         path.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print(f"\nPMGSY catalog scraped")
+    print("\nPMGSY catalog scraped")
     print(f"  States:    {len(pmgsy_states)}")
     print(f"  Districts: {len(catalog)}")
     print(f"  Saved:     {latest_path}")
