@@ -21,52 +21,51 @@ Read: [`MANIFESTO.md`](MANIFESTO.md) | Claims policy: [`DATA_CLAIMS.md`](DATA_CL
 | NSAP | Pensions: beneficiaries paid (IGNOAPS, IGNWPS, IGNDPS) | nsap.nic.in / data.gov.in |
 | PDS/NFSA | Ration distribution: card counts, allocation | nfsa.gov.in |
 
-## Setup
+## Quick Start
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+# 1. Backend
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
+python3 run_all.py --load-only          # Build DB from curated data
+uvicorn api.main:app --reload           # API at localhost:8000
+
+# 2. Frontend
+cd web && npm install && npm run dev    # UI at localhost:3000
+
+# 3. Verify
+python3 -m pytest tests/ -v            # 91 tests
+curl localhost:8000/api/v1/schemes      # API health check
 ```
 
 ## Usage
 
 ```bash
-# Build database from curated data (no scraping needed)
-python3 run_all.py --load-only
-
-# Check what's loaded
-python3 run_all.py --summary
-python3 run_all.py --freshness
-
-# Query via CLI
+# CLI queries
 python3 cli.py “misappropriation villupuram”
 python3 cli.py “worst roads bihar”
-python3 cli.py “funds cuddalore”
 
-# Generate journalist brief
+# Journalist briefs
 python3 journalist_brief.py “CUDDALORE”
 python3 journalist_brief.py --state “TAMIL NADU”
 
-# Run tests
-python3 -m pytest tests/ -v
+# Data audit
+python3 data_audit.py                   # Per-column completeness
+python3 data_audit.py --json            # Machine-readable
 ```
 
 ## Architecture
 
 ```
-scrape_*.py          → data/curated/*_latest.json    (scrapers → normalized JSON)
-run_all.py --load-only → data/hisaab.db              (JSON → SQLite)
-query.py             → 18 query functions             (SQL → structured answers)
-cli.py               → natural language interface     (keyword routing)
-journalist_brief.py  → per-district/state briefs      (red flags + citations)
+scrape_*.py     → data/curated/*.json   (scrapers → normalized JSON)
+run_all.py      → data/hisaab.db        (JSON → SQLite + NSAP imputation)
+db/             → schema, loaders, VIEWs (scheme_finance, scheme_delivery, money_flow)
+queries/        → 33 query functions     (SQL → structured answers)
+briefs/         → journalist briefs      (red flags + citations)
+api/            → FastAPI REST API       (13 endpoints at /api/v1/*)
+web/            → Next.js 15 frontend    (citizen interface at localhost:3000)
+cli.py          → keyword-based CLI      (natural language routing)
 ```
-
-### Unified VIEWs
-
-- **`scheme_finance`** — allocated/released/expended across all schemes
-- **`scheme_delivery`** — targets/completed/delivery_pct across all schemes
-- **`money_flow`** — normalized cross-scheme union for comparative queries
 
 ## Scraping (optional)
 
@@ -84,7 +83,7 @@ python3 run_all.py --schemes mgnrega --states “TAMIL NADU,BIHAR”
 
 ## Data Quality
 
-3/8 schemes have full financial data (MGNREGA, PMGSY, PM Kisan). 5/8 have hollow financial columns but working delivery metrics. See `CLAUDE.md` for details.
+4/8 schemes have financial data (MGNREGA, PMGSY, PM Kisan = real; NSAP = imputed from GoI pension rates). 4/8 have hollow financial columns but working delivery metrics. See `CLAUDE.md` for details.
 
 ## License
 

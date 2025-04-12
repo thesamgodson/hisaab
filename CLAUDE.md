@@ -8,21 +8,23 @@ Public accountability infrastructure for India. 8 government welfare schemes, sc
 
 ## Stack
 
-- **Python 3.14+**, SQLite, no ORM
+- **Backend**: Python 3.14+, SQLite, FastAPI
+- **Frontend**: Next.js 15, React 19, Tailwind CSS, TypeScript
 - **Scrapers**: requests + Playwright (MGNREGA/PMGSY/PMAY-G need browser)
-- **Data flow**: scrape → `data/curated/*.json` → `run_all.py --load-only` → `data/hisaab.db`
+- **Data flow**: scrape → `data/curated/*.json` → `run_all.py --load-only` → `data/hisaab.db` → FastAPI → Next.js
 
 ## Quick Start
 
 ```bash
+# Backend
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python3 run_all.py --load-only          # Build DB from curated JSON
-python3 run_all.py --summary            # Check DB contents
-python3 run_all.py --freshness          # Per-scheme freshness
 python3 -m pytest tests/ -v             # Run tests
-python3 cli.py "misappropriation villupuram"  # CLI query
-python3 journalist_brief.py "CUDDALORE"       # Generate brief
+uvicorn api.main:app --reload           # Start API at localhost:8000
+
+# Frontend
+cd web && npm install && npm run dev    # Start at localhost:3000
 ```
 
 ## 8 Schemes
@@ -44,16 +46,32 @@ python3 journalist_brief.py "CUDDALORE"       # Generate brief
 - **`scheme_delivery`** — units target/completed/delivery_pct per scheme×state×district
 - **`money_flow`** — normalized union across ALL schemes for cross-scheme queries
 
-## Key Files
+## Key Modules
 
-| File | Purpose | Lines |
-|------|---------|-------|
-| `db.py` | Schema, 13 loaders, 3 VIEWs | ~960 |
-| `query.py` | 18 query functions + data_quality_warnings() | ~1230 |
-| `journalist_brief.py` | Per-district/state briefs with red flags | ~1195 |
-| `run_all.py` | Orchestrator: scrape + load | ~448 |
-| `cli.py` | Natural language CLI (keyword routing) | ~303 |
-| `normalize_states.py` | State name normalization | ~117 |
+| Module | Purpose |
+|--------|---------|
+| `db/` | Schema, 13 loaders, 3 VIEWs, NSAP imputation |
+| `queries/` | 33 query functions + data_quality_warnings() |
+| `briefs/` | Per-district/state briefs with red flags |
+| `api/` | FastAPI REST API (13 endpoints) |
+| `web/` | Next.js 15 frontend (citizen interface) |
+| `run_all.py` | Orchestrator: scrape + load |
+| `cli.py` | Natural language CLI (keyword routing) |
+| `data_audit.py` | Per-column completeness report |
+
+## API Endpoints
+
+```
+GET  /api/v1/schemes              — list 8 schemes + warnings
+GET  /api/v1/scheme/{name}        — state-level summary
+GET  /api/v1/scheme/{name}/worst  — worst districts
+GET  /api/v1/district/{name}      — full district overview
+GET  /api/v1/brief/{district}     — journalist brief
+GET  /api/v1/freshness            — per-scheme scrape dates
+GET  /api/v1/data-quality         — quality warnings
+GET  /api/v1/red-flags            — worst districts
+POST /api/v1/query                — natural language query
+```
 
 ## Data Quality Context
 
@@ -80,4 +98,4 @@ python3 -m pytest tests/ -v
 - State names UPPER CASE, district names UPPER CASE
 - `scraped_at` timestamp on every record
 - `fin_year` format: `"2024-2025"`
-- DB path: `data/hisaab.db` (defined in `db.py:DB_PATH`, also independently in query.py and journalist_brief.py)
+- DB path: `data/hisaab.db` (single source of truth in `db/connection.py:DB_PATH`)
