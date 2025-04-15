@@ -137,7 +137,7 @@ def nsap_by_district(
     lines.append(f"  Total beneficiaries paid: {total_paid:,}")
     if total_eligible > 0:
         lines.append(f"  Eligible: {total_eligible:,} ({total_paid / total_eligible * 100:.0f}% coverage)")
-    lines.append(f"  Amount paid: {_fmt_rs(total_amount, 'lakhs')}")
+    lines.append(f"  Est. central pension (imputed): {_fmt_rs(total_amount, 'lakhs')}")
     for r in data:
         if r["scheme_type"]:
             lines.append(f"    {r['scheme_type']}: {r['beneficiaries_paid']:,} paid")
@@ -175,7 +175,7 @@ def nsap_state_summary(
             f"  Districts: {r['districts']}\n"
             f"  Beneficiaries paid: {r['total_paid']:,}"
             + (f" ({coverage:.0f}% of {r['total_eligible']:,} eligible)" if r["total_eligible"] > 0 else "")
-            + f"\n  Amount paid: {_fmt_rs(r['total_amount'], 'lakhs')}"
+            + f"\n  Est. central pension (imputed): {_fmt_rs(r['total_amount'], 'lakhs')}"
         ),
         "data": r,
     }

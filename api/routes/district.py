@@ -109,7 +109,7 @@ def list_all_districts(
     return {"districts": districts, "count": len(districts)}
 
 
-def _resolve_state(district: str) -> str:
+def _resolve_state(district: str) -> str | None:
     """Look up the state for a district from loaded data."""
     import sqlite3
 
@@ -128,4 +128,4 @@ def _resolve_state(district: str) -> str:
         except Exception:
             pass
     conn.close()
-    return "TAMIL NADU"
+    return None
