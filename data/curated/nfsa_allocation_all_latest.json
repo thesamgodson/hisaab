@@ -1,0 +1,2621 @@
+[
+  {
+    "state": "ANDAMAN AND NICOBAR ISLAND",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 3.802,
+    "offtake_mt": 1.202,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDAMAN AND NICOBAR ISLAND",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 4.321,
+    "offtake_mt": 1.701,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDAMAN AND NICOBAR ISLAND",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 0.519,
+    "offtake_mt": 0.499,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDAMAN AND NICOBAR ISLAND",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 3.841,
+    "offtake_mt": 2.144,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDAMAN AND NICOBAR ISLAND",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 4.3740000000000006,
+    "offtake_mt": 2.489,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDAMAN AND NICOBAR ISLAND",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 0.533,
+    "offtake_mt": 0.345,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDAMAN AND NICOBAR ISLAND",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 3.841,
+    "offtake_mt": 3.656,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDAMAN AND NICOBAR ISLAND",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 4.3740000000000006,
+    "offtake_mt": 4.11,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDAMAN AND NICOBAR ISLAND",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 0.533,
+    "offtake_mt": 0.454,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDAMAN AND NICOBAR ISLAND",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 0.96,
+    "offtake_mt": 0.32,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDAMAN AND NICOBAR ISLAND",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 1.093,
+    "offtake_mt": 0.364,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDAMAN AND NICOBAR ISLAND",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 0.133,
+    "offtake_mt": 0.044,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDAMAN AND NICOBAR ISLANDS",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 25.18,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDHRA PRADESH",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 1849.776,
+    "offtake_mt": 1849.776,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDHRA PRADESH",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 1849.776,
+    "offtake_mt": 2141.845,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDHRA PRADESH",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 1849.776,
+    "offtake_mt": 1750.856,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDHRA PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 462.444,
+    "offtake_mt": 463.158,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDHRA PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 22.07,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ANDHRA PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 0.0,
+    "offtake_mt": 0.153,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ARUNACHAL PRADESH",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 56.13,
+    "offtake_mt": 57.772,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ARUNACHAL PRADESH",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 56.23,
+    "offtake_mt": 55.465,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ARUNACHAL PRADESH",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 57.335,
+    "offtake_mt": 52.473,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ARUNACHAL PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 14.334,
+    "offtake_mt": 15.801,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ARUNACHAL PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 31.66,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ASSAM",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 1625.752,
+    "offtake_mt": 1632.792,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ASSAM",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 1624.944,
+    "offtake_mt": 1484.489,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ASSAM",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 1628.0,
+    "offtake_mt": 1549.194,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ASSAM",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 407.234,
+    "offtake_mt": 440.686,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ASSAM",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 63.38,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "BIHAR",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 3296.316,
+    "offtake_mt": 3239.571,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "BIHAR",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 5493.86,
+    "offtake_mt": 5404.326999999999,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "BIHAR",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 2197.544,
+    "offtake_mt": 2164.756,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "BIHAR",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 3314.598,
+    "offtake_mt": 3099.194,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "BIHAR",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 5524.33,
+    "offtake_mt": 5183.856,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "BIHAR",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 2209.732,
+    "offtake_mt": 2084.662,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "BIHAR",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 3316.26,
+    "offtake_mt": 2901.578,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "BIHAR",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 5527.1,
+    "offtake_mt": 4890.761,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "BIHAR",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 2210.84,
+    "offtake_mt": 1989.183,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "BIHAR",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 921.183,
+    "offtake_mt": 919.877,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "BIHAR",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 1381.775,
+    "offtake_mt": 1454.3809999999999,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "BIHAR",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 460.592,
+    "offtake_mt": 534.504,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "CHHATISGARH",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 1384.056,
+    "offtake_mt": 1374.945,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "CHHATISGARH",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 1384.056,
+    "offtake_mt": 1375.292,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "CHHATISGARH",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 1384.056,
+    "offtake_mt": 1376.739,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "CHHATISGARH",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 346.014,
+    "offtake_mt": 345.647,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 12.284,
+    "offtake_mt": 12.078,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 15.788,
+    "offtake_mt": 15.303999999999998,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 3.504,
+    "offtake_mt": 3.226,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 13.718,
+    "offtake_mt": 12.477,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 15.892,
+    "offtake_mt": 14.573,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 2.174,
+    "offtake_mt": 2.096,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 13.973,
+    "offtake_mt": 13.154,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 15.421000000000001,
+    "offtake_mt": 14.421,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 1.448,
+    "offtake_mt": 1.267,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 3.44,
+    "offtake_mt": 3.368,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 3.796,
+    "offtake_mt": 3.709,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 0.356,
+    "offtake_mt": 0.341,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DELHI",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 92.908,
+    "offtake_mt": 90.549,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DELHI",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 450.873,
+    "offtake_mt": 436.49,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DELHI",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 357.965,
+    "offtake_mt": 345.941,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DELHI",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 92.85,
+    "offtake_mt": 92.267,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DELHI",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 450.68999999999994,
+    "offtake_mt": 449.472,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DELHI",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 357.84,
+    "offtake_mt": 357.205,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DELHI",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 92.21,
+    "offtake_mt": 83.082,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DELHI",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 448.68199999999996,
+    "offtake_mt": 402.235,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DELHI",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 356.472,
+    "offtake_mt": 319.153,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DELHI",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 30.324,
+    "offtake_mt": 24.295,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DELHI",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 112.16799999999999,
+    "offtake_mt": 120.34400000000001,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "DELHI",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 81.844,
+    "offtake_mt": 96.049,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GOA",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 34.398,
+    "offtake_mt": 34.398,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GOA",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 33.526,
+    "offtake_mt": 32.461,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GOA",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 34.398,
+    "offtake_mt": 33.008,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GOA",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 8.599,
+    "offtake_mt": 8.542,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GOA",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 24.65,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GUJARAT",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 713.837,
+    "offtake_mt": 553.812,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GUJARAT",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 2379.462,
+    "offtake_mt": 1924.6150000000002,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GUJARAT",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 1665.625,
+    "offtake_mt": 1370.803,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GUJARAT",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 653.518,
+    "offtake_mt": 604.041,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GUJARAT",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 2178.395,
+    "offtake_mt": 2011.1390000000001,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GUJARAT",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 1524.877,
+    "offtake_mt": 1407.098,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GUJARAT",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 688.342,
+    "offtake_mt": 620.934,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GUJARAT",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 2175.742,
+    "offtake_mt": 2014.5149999999999,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GUJARAT",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 1487.4,
+    "offtake_mt": 1393.581,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GUJARAT",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 227.618,
+    "offtake_mt": 198.392,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GUJARAT",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 547.208,
+    "offtake_mt": 503.376,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "GUJARAT",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 319.59,
+    "offtake_mt": 304.984,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HARYANA",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 795.0,
+    "offtake_mt": 598.623,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HARYANA",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 795.0,
+    "offtake_mt": 619.657,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HARYANA",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 795.0,
+    "offtake_mt": 640.43,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HARYANA",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 198.75,
+    "offtake_mt": 194.98,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HIMACHAL PRADESH",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 83.482,
+    "offtake_mt": 84.171,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HIMACHAL PRADESH",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 202.289,
+    "offtake_mt": 203.967,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HIMACHAL PRADESH",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 118.807,
+    "offtake_mt": 119.796,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HIMACHAL PRADESH",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 83.482,
+    "offtake_mt": 83.482,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HIMACHAL PRADESH",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 202.289,
+    "offtake_mt": 202.289,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HIMACHAL PRADESH",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 118.807,
+    "offtake_mt": 118.807,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HIMACHAL PRADESH",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 83.482,
+    "offtake_mt": 82.291,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HIMACHAL PRADESH",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 202.289,
+    "offtake_mt": 200.852,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HIMACHAL PRADESH",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 118.807,
+    "offtake_mt": 118.561,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HIMACHAL PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 20.871,
+    "offtake_mt": 20.326,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HIMACHAL PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 301.67,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "HIMACHAL PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 29.702,
+    "offtake_mt": 29.902,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JAMMU AND KASHMIR",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 335.167,
+    "offtake_mt": 351.614,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JAMMU AND KASHMIR",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 475.75199999999995,
+    "offtake_mt": 487.84,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JAMMU AND KASHMIR",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 140.585,
+    "offtake_mt": 136.226,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JAMMU AND KASHMIR",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 332.159,
+    "offtake_mt": 319.838,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JAMMU AND KASHMIR",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 468.435,
+    "offtake_mt": 450.47900000000004,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JAMMU AND KASHMIR",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 136.276,
+    "offtake_mt": 130.641,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JAMMU AND KASHMIR",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 332.843,
+    "offtake_mt": 293.914,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JAMMU AND KASHMIR",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 468.797,
+    "offtake_mt": 406.538,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JAMMU AND KASHMIR",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 135.954,
+    "offtake_mt": 112.624,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JAMMU AND KASHMIR",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 83.211,
+    "offtake_mt": 69.399,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JAMMU AND KASHMIR",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 265.86,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JAMMU AND KASHMIR",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 33.988,
+    "offtake_mt": 26.454,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JHARKHAND",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 1542.583,
+    "offtake_mt": 1498.12,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JHARKHAND",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 1739.5140000000001,
+    "offtake_mt": 1678.8259999999998,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JHARKHAND",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 196.931,
+    "offtake_mt": 180.706,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JHARKHAND",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 1542.583,
+    "offtake_mt": 1565.607,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JHARKHAND",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 1739.5140000000001,
+    "offtake_mt": 1760.584,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JHARKHAND",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 196.931,
+    "offtake_mt": 194.977,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JHARKHAND",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 1034.94,
+    "offtake_mt": 924.819,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JHARKHAND",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 1724.9,
+    "offtake_mt": 1501.656,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JHARKHAND",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 689.96,
+    "offtake_mt": 576.837,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JHARKHAND",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 288.729,
+    "offtake_mt": 219.661,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JHARKHAND",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 432.65599999999995,
+    "offtake_mt": 377.683,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "JHARKHAND",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 143.927,
+    "offtake_mt": 158.022,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KARNATAKA",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 2608.836,
+    "offtake_mt": 2631.142,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KARNATAKA",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 2406.302,
+    "offtake_mt": 2370.32,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KARNATAKA",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 2608.801,
+    "offtake_mt": 2370.32,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KARNATAKA",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 202.499,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KARNATAKA",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 2052.719,
+    "offtake_mt": 1839.458,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KARNATAKA",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 2608.82,
+    "offtake_mt": 1839.458,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KARNATAKA",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 556.101,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KARNATAKA",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 448.804,
+    "offtake_mt": 488.577,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KARNATAKA",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 652.209,
+    "offtake_mt": 488.577,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KARNATAKA",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 203.405,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KERALA",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 765.148,
+    "offtake_mt": 758.005,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KERALA",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 934.385,
+    "offtake_mt": 927.971,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KERALA",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 169.237,
+    "offtake_mt": 169.966,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KERALA",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 814.761,
+    "offtake_mt": 814.356,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KERALA",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 996.443,
+    "offtake_mt": 996.31,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KERALA",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 181.682,
+    "offtake_mt": 181.954,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KERALA",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 837.968,
+    "offtake_mt": 799.102,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KERALA",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 1025.519,
+    "offtake_mt": 981.656,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KERALA",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 187.551,
+    "offtake_mt": 182.554,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KERALA",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 209.492,
+    "offtake_mt": 234.045,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KERALA",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 399.53,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "KERALA",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 46.888,
+    "offtake_mt": 48.578,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LADAKH",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 1.108,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LADAKH",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 1.572,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LADAKH",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 0.464,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LADAKH",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 4.42,
+    "offtake_mt": 4.439,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LADAKH",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 9.443999999999999,
+    "offtake_mt": 8.844999999999999,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LADAKH",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 5.024,
+    "offtake_mt": 4.406,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LADAKH",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 4.217,
+    "offtake_mt": 4.062,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LADAKH",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 9.443999999999999,
+    "offtake_mt": 8.924,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LADAKH",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 5.227,
+    "offtake_mt": 4.862,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LADAKH",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 1.054,
+    "offtake_mt": 4.425,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LADAKH",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 6.98,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LADAKH",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 1.307,
+    "offtake_mt": 0.716,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LAKSHADWEEP",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 1.522,
+    "offtake_mt": 1.429,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LAKSHADWEEP",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 1.522,
+    "offtake_mt": 1.269,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LAKSHADWEEP",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 1.522,
+    "offtake_mt": 1.39,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LAKSHADWEEP",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 0.381,
+    "offtake_mt": 0.29,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "LAKSHADWEEP",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 3.1,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MADHYA PRADESH",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 891.12,
+    "offtake_mt": 857.305,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MADHYA PRADESH",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 3564.468,
+    "offtake_mt": 3394.008,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MADHYA PRADESH",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 2673.348,
+    "offtake_mt": 2536.703,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MADHYA PRADESH",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 860.821,
+    "offtake_mt": 754.793,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MADHYA PRADESH",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 3443.277,
+    "offtake_mt": 3184.1820000000002,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MADHYA PRADESH",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 2582.456,
+    "offtake_mt": 2429.389,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MADHYA PRADESH",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 791.46,
+    "offtake_mt": 783.217,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MADHYA PRADESH",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 3165.839,
+    "offtake_mt": 3064.797,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MADHYA PRADESH",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 2374.379,
+    "offtake_mt": 2281.58,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MADHYA PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 290.92,
+    "offtake_mt": 145.687,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MADHYA PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 793.418,
+    "offtake_mt": 603.703,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MADHYA PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 502.498,
+    "offtake_mt": 458.016,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MAHARASHTRA",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 2021.1,
+    "offtake_mt": 1804.786,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MAHARASHTRA",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 4605.192,
+    "offtake_mt": 4029.097,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MAHARASHTRA",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 2584.092,
+    "offtake_mt": 2224.311,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MAHARASHTRA",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 2021.1,
+    "offtake_mt": 1828.511,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MAHARASHTRA",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 4605.191,
+    "offtake_mt": 3988.186,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MAHARASHTRA",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 2584.091,
+    "offtake_mt": 2159.675,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MAHARASHTRA",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 2021.1,
+    "offtake_mt": 1444.956,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MAHARASHTRA",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 4605.192,
+    "offtake_mt": 3515.638,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MAHARASHTRA",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 2584.092,
+    "offtake_mt": 2070.682,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MAHARASHTRA",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 582.46,
+    "offtake_mt": 141.661,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MAHARASHTRA",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 1151.298,
+    "offtake_mt": 700.863,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MAHARASHTRA",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 568.838,
+    "offtake_mt": 559.202,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MANIPUR",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 159.122,
+    "offtake_mt": 155.855,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MANIPUR",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 162.598,
+    "offtake_mt": 158.866,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MANIPUR",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 130.994,
+    "offtake_mt": 121.623,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MANIPUR",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 33.957,
+    "offtake_mt": 31.863,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MEGHALAYA",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 140.733,
+    "offtake_mt": 140.624,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MEGHALAYA",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 140.733,
+    "offtake_mt": 139.155,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MEGHALAYA",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 140.733,
+    "offtake_mt": 137.734,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MEGHALAYA",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 35.183,
+    "offtake_mt": 35.014,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MEGHALAYA",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 35.57,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MIZORAM",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 45.935,
+    "offtake_mt": 47.517,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MIZORAM",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 45.935,
+    "offtake_mt": 44.841,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MIZORAM",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 45.935,
+    "offtake_mt": 45.1,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MIZORAM",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 11.484,
+    "offtake_mt": 11.976,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "MIZORAM",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 17.04,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "NAGALAND",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 91.585,
+    "offtake_mt": 89.774,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "NAGALAND",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 91.585,
+    "offtake_mt": 91.689,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "NAGALAND",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 91.585,
+    "offtake_mt": 88.528,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "NAGALAND",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 22.896,
+    "offtake_mt": 24.027,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "NAGALAND",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 46.47,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ODISHA",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 1918.04,
+    "offtake_mt": 1740.787,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ODISHA",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 2211.582,
+    "offtake_mt": 2047.239,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ODISHA",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 293.542,
+    "offtake_mt": 306.452,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ODISHA",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 1929.645,
+    "offtake_mt": 1806.235,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ODISHA",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 2224.92,
+    "offtake_mt": 2078.528,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ODISHA",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 295.275,
+    "offtake_mt": 272.293,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ODISHA",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 1946.355,
+    "offtake_mt": 1718.705,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ODISHA",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 2244.2309999999998,
+    "offtake_mt": 1991.1979999999999,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ODISHA",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 297.876,
+    "offtake_mt": 272.493,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ODISHA",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 512.564,
+    "offtake_mt": 811.017,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ODISHA",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 562.4259999999999,
+    "offtake_mt": 895.2810000000001,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "ODISHA",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 49.862,
+    "offtake_mt": 84.264,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "PUNJAB",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 870.12,
+    "offtake_mt": 615.081,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "PUNJAB",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 870.12,
+    "offtake_mt": 465.276,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "PUNJAB",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 870.12,
+    "offtake_mt": 879.69,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "PUNJAB",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 217.53,
+    "offtake_mt": 22.892,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "RAJASTHAN",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 2791.572,
+    "offtake_mt": 2843.387,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "RAJASTHAN",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 2788.073,
+    "offtake_mt": 2752.219,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "RAJASTHAN",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 2770.584,
+    "offtake_mt": 2543.827,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "RAJASTHAN",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 692.646,
+    "offtake_mt": 636.718,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "SIKKIM",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 26.375,
+    "offtake_mt": 26.248,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "SIKKIM",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 26.375,
+    "offtake_mt": 25.27,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "SIKKIM",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 26.375,
+    "offtake_mt": 24.21,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "SIKKIM",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 6.594,
+    "offtake_mt": 6.84,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "SIKKIM",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 17.95,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TAMIL NADU",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 2318.653,
+    "offtake_mt": 2562.914,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TAMIL NADU",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 2425.3689999999997,
+    "offtake_mt": 2669.6780000000003,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TAMIL NADU",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 106.716,
+    "offtake_mt": 106.764,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TAMIL NADU",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 2308.708,
+    "offtake_mt": 2150.76,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TAMIL NADU",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 2514.927,
+    "offtake_mt": 2356.9320000000002,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TAMIL NADU",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 206.219,
+    "offtake_mt": 206.172,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TAMIL NADU",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 2303.736,
+    "offtake_mt": 1779.206,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TAMIL NADU",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 2559.707,
+    "offtake_mt": 2005.951,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TAMIL NADU",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 255.971,
+    "offtake_mt": 226.745,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TAMIL NADU",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 588.732,
+    "offtake_mt": 628.482,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TAMIL NADU",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 1104.95,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TAMIL NADU",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 51.194,
+    "offtake_mt": 64.258,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TELANGANA",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 45.28,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TELENGANA",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 1296.051,
+    "offtake_mt": 1342.013,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TELENGANA",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 1296.051,
+    "offtake_mt": 1240.754,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TELENGANA",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 1296.051,
+    "offtake_mt": 1269.421,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TELENGANA",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 324.013,
+    "offtake_mt": 324.013,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TRIPURA",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 165.133,
+    "offtake_mt": 157.748,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TRIPURA",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 163.924,
+    "offtake_mt": 149.097,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TRIPURA",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 163.682,
+    "offtake_mt": 118.005,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TRIPURA",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 40.92,
+    "offtake_mt": 38.104,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "TRIPURA",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 106.65,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTAR PRADESH",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 3780.934,
+    "offtake_mt": 3635.23,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTAR PRADESH",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 9329.515,
+    "offtake_mt": 8959.394,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTAR PRADESH",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 5548.581,
+    "offtake_mt": 5324.164,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTAR PRADESH",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 3755.727,
+    "offtake_mt": 3620.128,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTAR PRADESH",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 9436.967,
+    "offtake_mt": 9003.628,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTAR PRADESH",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 5681.24,
+    "offtake_mt": 5383.5,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTAR PRADESH",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 3961.876,
+    "offtake_mt": 3474.494,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTAR PRADESH",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 9782.054,
+    "offtake_mt": 8528.748,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTAR PRADESH",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 5820.178,
+    "offtake_mt": 5054.254,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTAR PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 1158.863,
+    "offtake_mt": 908.481,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTAR PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 2465.339,
+    "offtake_mt": 2254.55,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTAR PRADESH",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 1306.476,
+    "offtake_mt": 1346.069,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTRAKHAND",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 248.904,
+    "offtake_mt": 250.156,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTRAKHAND",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 401.45799999999997,
+    "offtake_mt": 402.937,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTRAKHAND",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 152.554,
+    "offtake_mt": 152.781,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTRAKHAND",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 248.904,
+    "offtake_mt": 236.96,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTRAKHAND",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 401.45799999999997,
+    "offtake_mt": 415.692,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTRAKHAND",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 152.554,
+    "offtake_mt": 178.732,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTRAKHAND",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 248.904,
+    "offtake_mt": 321.055,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTRAKHAND",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 401.45799999999997,
+    "offtake_mt": 470.62300000000005,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTRAKHAND",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 152.554,
+    "offtake_mt": 149.568,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTRAKHAND",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 62.226,
+    "offtake_mt": 76.15,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTRAKHAND",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 101.53,
+    "offtake_mt": 0.0,
+    "source_url": "api.data.gov.in/resource/be339b96-779f-4e69-88e3-d5dcf1e587fd",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "UTTRAKHAND",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 38.138,
+    "offtake_mt": 44.094,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "WEST BENGAL",
+    "fin_year": "2019-2020",
+    "grain_type": "rice",
+    "allocation_mt": 1607.949,
+    "offtake_mt": 1559.71,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "WEST BENGAL",
+    "fin_year": "2019-2020",
+    "grain_type": "total",
+    "allocation_mt": 3970.62,
+    "offtake_mt": 3919.478,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "WEST BENGAL",
+    "fin_year": "2019-2020",
+    "grain_type": "wheat",
+    "allocation_mt": 2362.671,
+    "offtake_mt": 2359.768,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "WEST BENGAL",
+    "fin_year": "2020-2021",
+    "grain_type": "rice",
+    "allocation_mt": 1607.949,
+    "offtake_mt": 1594.397,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "WEST BENGAL",
+    "fin_year": "2020-2021",
+    "grain_type": "total",
+    "allocation_mt": 3970.62,
+    "offtake_mt": 3940.6549999999997,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "WEST BENGAL",
+    "fin_year": "2020-2021",
+    "grain_type": "wheat",
+    "allocation_mt": 2362.671,
+    "offtake_mt": 2346.258,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "WEST BENGAL",
+    "fin_year": "2021-2022",
+    "grain_type": "rice",
+    "allocation_mt": 1607.949,
+    "offtake_mt": 1548.594,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "WEST BENGAL",
+    "fin_year": "2021-2022",
+    "grain_type": "total",
+    "allocation_mt": 3970.62,
+    "offtake_mt": 3817.031,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "WEST BENGAL",
+    "fin_year": "2021-2022",
+    "grain_type": "wheat",
+    "allocation_mt": 2362.671,
+    "offtake_mt": 2268.437,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "WEST BENGAL",
+    "fin_year": "2022-2023",
+    "grain_type": "rice",
+    "allocation_mt": 466.522,
+    "offtake_mt": 318.665,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "WEST BENGAL",
+    "fin_year": "2022-2023",
+    "grain_type": "total",
+    "allocation_mt": 992.654,
+    "offtake_mt": 910.7919999999999,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  },
+  {
+    "state": "WEST BENGAL",
+    "fin_year": "2022-2023",
+    "grain_type": "wheat",
+    "allocation_mt": 526.132,
+    "offtake_mt": 592.127,
+    "source_url": "api.data.gov.in/resource/84bb8521-e41e-434f-a335-f4558f2ae5d9",
+    "scraped_at": "2026-03-20T19:39:54.310988+00:00"
+  }
+]
