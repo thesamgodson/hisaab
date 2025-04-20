@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import inspect
 from typing import Any
 
 from fastapi import APIRouter, HTTPException, Query
@@ -73,7 +74,11 @@ def scheme_summary(
     fn = SCHEME_STATE_SUMMARIES.get(scheme)
     if not fn:
         raise HTTPException(status_code=404, detail=f"Unknown scheme: {scheme}. Valid: {SCHEME_NAMES}")
-    return fn(state=state, fin_year=fin_year)
+    params = inspect.signature(fn).parameters
+    kwargs: dict[str, str] = {"state": state}
+    if "fin_year" in params:
+        kwargs["fin_year"] = fin_year
+    return fn(**kwargs)
 
 
 @router.get("/scheme/{scheme}/worst")

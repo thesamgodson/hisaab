@@ -73,9 +73,9 @@ def list_districts(state: str = "TAMIL NADU", fin_year: str = "2024-2025") -> li
 def data_quality_warnings() -> dict[str, list[str]]:
     """Return known data quality issues per scheme.
 
-    Updated 2026-03: Investigated scraper sources and government portals.
-    Financial data for PMAY-G, JJM, and PM POSHAN is NOT publicly accessible
-    via API — portals require login or use Power BI embeds.
+    Updated 2026-03-21: Phase 6 added real financial data for 5 previously-hollow schemes
+    via data.gov.in API and MoRD dashboard. State-level financial data now available for
+    PM POSHAN, NSAP, PMAY-G, JJM, and NFSA. District-level financial columns remain zero.
     """
     return {
         "PM Kisan": [
@@ -83,31 +83,32 @@ def data_quality_warnings() -> dict[str, list[str]]:
             "No allocation data — PM Kisan is a direct benefit transfer with no state-level allocation.",
         ],
         "NSAP": [
-            "amount_paid_lakhs is IMPUTED: beneficiaries_paid x GoI central pension rate x 12 months.",
-            "Central rates: IGNOAPS Rs 200/mo, IGNWPS Rs 300/mo, IGNDPS Rs 300/mo (central share only, states may top up).",
+            "STATE-LEVEL: Fund release data from data.gov.in (2019-2024, nsap_finance table). ~22% of state×year rows have zero release.",
+            "DISTRICT-LEVEL: amount_paid_lakhs is IMPUTED: beneficiaries_paid x GoI pension rate x 12.",
+            "Central rates: IGNOAPS Rs 200/mo, IGNWPS Rs 300/mo, IGNDPS Rs 300/mo (central share only).",
             "beneficiaries_eligible is still zero — data.gov.in API does not provide eligibility counts.",
-            "API scraper (scrape_nsap_api.py) fetches IGNOAPS/IGNWPS/IGNDPS from data.gov.in automatically.",
         ],
         "PDS/NFSA": [
-            "allocation_mt and offtake_mt are ALL zeros — nfsa.gov.in dashboard data is stale (Jul 2021).",
-            "Ration card counts (total, active, AAY, PHH) and beneficiary counts are populated.",
-            "data.gov.in has state-level allocation/offtake only (dataset 84bb8521), no district breakdown.",
-            "Do not compare NFSA MT columns with other schemes' rupee columns.",
+            "STATE-LEVEL: Real allocation + offtake in MT from data.gov.in (2019-2025, nfsa_allocation table).",
+            "DISTRICT-LEVEL: allocation_mt and offtake_mt are zeros — no district breakdown from data.gov.in.",
+            "Ration card counts (total, active, AAY, PHH) and beneficiary counts are populated at district level.",
+            "NFSA tracks metric tonnes, not rupees — do not compare with other schemes' lakhs columns.",
         ],
         "PM POSHAN": [
-            "funds_released_lakhs and funds_utilized_lakhs are ALL zeros — portal does not expose financial data.",
-            "Rely on children_fed vs children_enrolled for meaningful delivery metrics.",
-            "Excluded from scheme_finance VIEW to prevent misleading zero aggregations.",
+            "STATE-LEVEL: Real allocation + release + utilization from data.gov.in (2016-2025, pmposhan_finance).",
+            "DISTRICT-LEVEL: funds_released/utilized remain zero — portal does not expose district financial data.",
+            "Delivery metrics (children_fed vs children_enrolled) available at district level.",
         ],
         "PMAY-G": [
-            "funds_released_lakhs and funds_utilized_lakhs are ALL zeros — financial report is behind login/Power BI.",
-            "PhysicalProgressRpt.aspx only has housing counts; FinancialProgressRpt.aspx returns 404.",
-            "Excluded from scheme_finance VIEW. Use houses_sanctioned/completed for delivery metrics.",
+            "STATE-LEVEL: Allocation + release + utilization from data.gov.in (2020-22, pmayg_finance). ~45% of rows have release=0 (allocation present).",
+            "DISTRICT-LEVEL: funds_released/utilized remain zero — FinancialProgressRpt.aspx requires login.",
+            "Delivery metrics (houses_sanctioned/completed) available at district level.",
         ],
         "JJM": [
-            "funds_released_lakhs and funds_utilized_lakhs are ALL zeros — ejalshakti.gov.in API has no financial endpoint.",
-            "Tested Param values 1-34 and alternate endpoints (JJMFinancialView, etc.) — all return 401 or same schema.",
-            "Excluded from scheme_finance VIEW. Use coverage_pct for delivery metrics.",
+            "STATE-LEVEL: Allocation data from data.gov.in (2019-2023, jjm_allocation). Allocation only.",
+            "No release/utilization data available publicly — ejalshakti.gov.in financial page uses JS rendering.",
+            "DISTRICT-LEVEL: funds_released/utilized remain zero — API has no financial endpoint.",
+            "Delivery metrics (coverage_pct, households_with_tap) available at district level.",
         ],
         "MGNREGA": [
             "Financial amounts are in lakhs (amounts_in_lakhs=1 in financial_statement).",

@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Public accountability infrastructure for India. 8 government welfare schemes, scraped from official portals, normalized into SQLite, queryable via CLI, surfaced as journalist briefs with red flags.
+Public accountability infrastructure for India. 11 government welfare schemes, scraped from official portals, normalized into SQLite, queryable via CLI, surfaced as journalist briefs with red flags.
 
 **Manifesto rule:** No public numeric claim without source and date in `DATA_CLAIMS.md`.
 
@@ -10,7 +10,7 @@ Public accountability infrastructure for India. 8 government welfare schemes, sc
 
 - **Backend**: Python 3.14+, SQLite, FastAPI
 - **Frontend**: Next.js 15, React 19, Tailwind CSS, TypeScript
-- **Scrapers**: requests + Playwright (MGNREGA/PMGSY/PMAY-G need browser)
+- **Scrapers**: requests + Playwright (MGNREGA/PMGSY/PMAY-G/NRLM need browser)
 - **Data flow**: scrape → `data/curated/*.json` → `run_all.py --load-only` → `data/hisaab.db` → FastAPI → Next.js
 
 ## Quick Start
@@ -27,18 +27,21 @@ uvicorn api.main:app --reload           # Start API at localhost:8000
 cd web && npm install && npm run dev    # Start at localhost:3000
 ```
 
-## 8 Schemes
+## 11 Schemes
 
 | Scheme | Table(s) | Source | Financial Data? |
 |--------|----------|--------|----------------|
-| MGNREGA | misappropriation, financial_statement, fto_status, fto_pendency, issues_reported | nrega.nic.in | Yes (lakhs) |
-| PMGSY | pmgsy_progress, pmgsy_district | pmgsy.dord.gov.in | Yes (crores→lakhs in VIEWs) |
-| PM Kisan | pmkisan_district | data.gov.in | Yes (amount_paid_lakhs) |
-| PMAY-G | pmayg_district | report.pmayg.dord.gov.in | Hollow (zeros) |
-| JJM | jjm_district | ejalshakti.gov.in | Hollow (zeros) |
-| PM POSHAN | pmposhan_district | pmposhan-ams.education.gov.in | Hollow (zeros) — children_fed works |
-| NSAP | nsap_district | nsap.nic.in / data.gov.in | Imputed (beneficiaries × GoI pension rate × 12) |
-| PDS/NFSA | nfsa_district | nfsa.gov.in | Hollow (zeros) — ration card counts work |
+| MGNREGA | misappropriation, financial_statement, fto_status, fto_pendency, issues_reported | nrega.nic.in | Yes — district-level (lakhs) |
+| PMGSY | pmgsy_progress, pmgsy_district | pmgsy.dord.gov.in | Yes — district-level (crores→lakhs in VIEWs) |
+| PM Kisan | pmkisan_district | data.gov.in | Yes — state-level (amount_paid_lakhs) |
+| PMAY-G | pmayg_district, **pmayg_finance** | report.pmayg.dord.gov.in | Yes — **state-level** alloc/release/utilized (2019-26, 7 years) |
+| JJM | jjm_district, **jjm_allocation** | ejalshakti.gov.in | Yes — **state-level** alloc/release/expend (2019-25, 6 years) |
+| PM POSHAN | pmposhan_district, **pmposhan_finance** | pmposhan-ams.education.gov.in + data.gov.in | Yes — **state-level** alloc/release/utilized (2016-25) |
+| NSAP | nsap_district, **nsap_finance** | data.gov.in | Yes — **state-level real release** (2019-24); district imputed |
+| PDS/NFSA | nfsa_district, **nfsa_allocation** | nfsa.gov.in + data.gov.in | Yes — **state-level** alloc/offtake in MT (2019-25) |
+| SBM-G | sbm_district | sbm.gov.in | No — delivery only (ODF+ villages, star ratings) |
+| DAY-NRLM | nrlm_district | nrlm.gov.in | Partial — RF disbursement (lakhs) at district level |
+| UDISE+ | udise_state | api.udiseplus.gov.in | No — education delivery (schools, enrollment, PTR, infra) |
 
 ## 3 Unified VIEWs
 
@@ -50,8 +53,8 @@ cd web && npm install && npm run dev    # Start at localhost:3000
 
 | Module | Purpose |
 |--------|---------|
-| `db/` | Schema, 13 loaders, 3 VIEWs, NSAP imputation |
-| `queries/` | 33 query functions + data_quality_warnings() |
+| `db/` | Schema, 21 loaders, 3 VIEWs, NSAP imputation |
+| `queries/` | 35 query functions + data_quality_warnings() |
 | `briefs/` | Per-district/state briefs with red flags |
 | `api/` | FastAPI REST API (13 endpoints) |
 | `web/` | Next.js 15 frontend (citizen interface) |
@@ -62,23 +65,31 @@ cd web && npm install && npm run dev    # Start at localhost:3000
 ## API Endpoints
 
 ```
-GET  /api/v1/schemes              — list 8 schemes + warnings
-GET  /api/v1/scheme/{name}        — state-level summary
-GET  /api/v1/scheme/{name}/worst  — worst districts
-GET  /api/v1/district/{name}      — full district overview
-GET  /api/v1/brief/{district}     — journalist brief
-GET  /api/v1/freshness            — per-scheme scrape dates
-GET  /api/v1/data-quality         — quality warnings
-GET  /api/v1/red-flags            — worst districts
-POST /api/v1/query                — natural language query
+GET  /api/v1/schemes                    — list 8 schemes + warnings
+GET  /api/v1/scheme/{scheme}            — state-level summary
+GET  /api/v1/scheme/{scheme}/worst      — worst districts
+GET  /api/v1/districts                  — list all districts with data
+GET  /api/v1/district/{name}            — full district overview
+GET  /api/v1/district/{name}/schemes    — schemes with data for district
+GET  /api/v1/district/{name}/money-flow — cross-scheme money flow
+GET  /api/v1/district/{name}/{scheme}   — per-scheme data for district
+GET  /api/v1/brief/{district}           — journalist brief
+GET  /api/v1/freshness                  — per-scheme scrape dates
+GET  /api/v1/data-quality               — quality warnings
+GET  /api/v1/red-flags                  — worst districts
+POST /api/v1/query                      — natural language query
 ```
 
 ## Data Quality Context
 
-- 4/8 schemes have financial data (MGNREGA, PMGSY, PM Kisan = real; NSAP = imputed from GoI pension rates)
-- 4/8 have hollow financial columns (PMAY-G, JJM, PM POSHAN, NFSA) — delivery metrics still work
+- **8/10 schemes** have financial data:
+  - District-level: MGNREGA, PMGSY (real); NSAP (imputed at district, real at state); DAY-NRLM (RF disbursement)
+  - State-level: PM Kisan, PM POSHAN (2016-25), NSAP (2019-24), PMAY-G (2019-26, 7 years), JJM (2019-25, alloc+release+expend), NFSA (MT, 2019-25)
+  - No financial data: SBM-G (delivery metrics only), PM POSHAN/PMAY-G/JJM/NFSA at district level
+- District-level financial columns remain zero for PM POSHAN, PMAY-G, JJM, NFSA — delivery metrics still work
 - PM Kisan: 28/36 states have district='ALL' (state-level only)
-- `query.py:data_quality_warnings()` returns per-scheme caveats
+- NFSA tracks metric tonnes, not rupees — do not compare with other schemes' lakhs columns
+- `queries/common.py:data_quality_warnings()` returns per-scheme caveats
 
 ## Testing
 
@@ -86,11 +97,13 @@ POST /api/v1/query                — natural language query
 python3 -m pytest tests/ -v
 ```
 
-4 test files:
+6 test files:
 - `test_queries.py` — query function correctness
 - `test_pmgsy.py` — PMGSY-specific queries
 - `test_cross_scheme.py` — cross-scheme VIEW queries
 - `test_loaders.py` — loader ingestion
+- `test_scrapers.py` — pure scraper function unit tests
+- `test_data_integrity.py` — DB invariant checks (skips if no DB)
 
 ## Conventions
 

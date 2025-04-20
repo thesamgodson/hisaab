@@ -106,6 +106,14 @@ class TestSchema:
             "pmposhan_district",
             "nsap_district",
             "nfsa_district",
+            "sbm_district",
+            "nrlm_district",
+            "udise_state",
+            "pmposhan_finance",
+            "nsap_finance",
+            "nfsa_allocation",
+            "jjm_allocation",
+            "pmayg_finance",
         }
         assert expected.issubset(tables)
 
@@ -399,3 +407,110 @@ class TestCrossSchemeQueries:
         result = query.money_flow_by_district("NONEXISTENT")
         assert "No data" in result["answer"]
         assert result["data"] is None
+
+
+# ---------------------------------------------------------------------------
+# scheme_delivery VIEW tests for new schemes
+# ---------------------------------------------------------------------------
+
+_SBM_INSERT = """
+    INSERT INTO sbm_district
+        (district, state, state_code, fin_year, total_villages, odf_plus_villages,
+         odf_plus_pct, one_star_villages, three_star_villages, five_star_villages,
+         model_village_pct, source_url, scraped_at)
+    VALUES ('ALPHA', 'TESTSTATE', 'TS', '2024-2025', 100, 60, 60.0,
+            20, 10, 30, 30.0, 'src', '2026-01-01')
+"""
+
+_NRLM_INSERT = """
+    INSERT INTO nrlm_district
+        (district, state, state_code, fin_year, shgs_total, shgs_new, shgs_revived,
+         shgs_pre_nrlm, members_total, rf_shgs_provided, rf_amount_lakhs,
+         source_url, scraped_at)
+    VALUES ('ALPHA', 'TESTSTATE', 'TS', '2024-2025', 5000, 2000, 1000,
+            2000, 60000, 3000, 150.0, 'src', '2026-01-01')
+"""
+
+_UDISE_INSERT = """
+    INSERT INTO udise_state
+        (state, fin_year, total_schools, schools_govt, total_students, total_teachers,
+         ptr_primary, ger_primary, dropout_primary, schools_electricity_pct,
+         source_url, scraped_at)
+    VALUES ('TESTSTATE', '2024-2025', 85000, 45000, 8500000, 450000,
+            25.3, 98.5, 1.2, 85.3, 'src', '2026-01-01')
+"""
+
+
+class TestSchemeDeliveryNewSchemes:
+    def test_sbm_in_delivery(self, db):
+        db.execute(_SBM_INSERT)
+        db.commit()
+        row = db.execute(
+            "SELECT * FROM scheme_delivery WHERE scheme='SBM-G' AND district='ALPHA'"
+        ).fetchone()
+        assert row is not None
+        assert row["units_label"] == "ODF+ villages"
+        assert row["units_target"] == 100
+        assert row["units_completed"] == 60
+
+    def test_nrlm_in_delivery(self, db):
+        db.execute(_NRLM_INSERT)
+        db.commit()
+        row = db.execute(
+            "SELECT * FROM scheme_delivery WHERE scheme='DAY-NRLM' AND district='ALPHA'"
+        ).fetchone()
+        assert row is not None
+        assert row["units_label"] == "SHGs"
+        assert row["units_completed"] == 5000
+
+    def test_udise_in_delivery(self, db):
+        db.execute(_UDISE_INSERT)
+        db.commit()
+        row = db.execute(
+            "SELECT * FROM scheme_delivery WHERE scheme='UDISE+' AND state='TESTSTATE'"
+        ).fetchone()
+        assert row is not None
+        assert row["units_label"] == "schools"
+        assert row["units_completed"] == 85000
+
+
+# ---------------------------------------------------------------------------
+# money_flow VIEW tests for new schemes
+# ---------------------------------------------------------------------------
+
+
+class TestMoneyFlowNewSchemes:
+    def test_nrlm_in_money_flow(self, db):
+        db.execute(_NRLM_INSERT)
+        db.commit()
+        row = db.execute(
+            "SELECT * FROM money_flow WHERE scheme='DAY-NRLM' AND district='ALPHA'"
+        ).fetchone()
+        assert row is not None
+        assert row["released_lakhs"] == 150.0
+        assert row["units_label"] == "SHGs"
+
+
+# ---------------------------------------------------------------------------
+# scheme_finance VIEW tests for JJM crore-to-lakh conversion
+# ---------------------------------------------------------------------------
+
+
+class TestJJMAllocationFinancialFlow:
+    def test_jjm_crores_to_lakhs(self, db):
+        db.execute(
+            """
+            INSERT INTO jjm_allocation
+                (state, fin_year, allocated_crores, released_crores, expended_crores,
+                 source_url, scraped_at)
+            VALUES ('TESTSTATE', '2024-2025', 32.0, 28.0, 25.0, 'src', '2026-01-01')
+            """
+        )
+        db.commit()
+        row = db.execute(
+            "SELECT * FROM scheme_finance WHERE scheme='JJM' AND state='TESTSTATE'"
+        ).fetchone()
+        assert row is not None
+        assert row["allocated_lakhs"] == 3200.0
+        assert row["released_lakhs"] == 2800.0
+        assert row["expended_lakhs"] == 2500.0

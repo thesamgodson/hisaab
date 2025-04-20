@@ -1,7 +1,7 @@
 """
 Hisaab — Run all scrapers and load data into SQLite.
 
-This is the single entry point for collecting data across all 8 government schemes.
+This is the single entry point for collecting data across all 9 government schemes.
 Run this script to populate your local database with the latest data.
 
 Schemes supported:
@@ -13,6 +13,9 @@ Schemes supported:
   6. PM POSHAN — School nutrition (CSV import)
   7. NSAP — Pensions (CSV import)
   8. PDS/NFSA — Ration system (CSV import)
+  9. SBM-G — Rural sanitation ODF Plus (scrapes sbm.gov.in)
+ 10. DAY-NRLM — Rural livelihoods SHGs (scrapes nrlm.gov.in, needs Playwright)
+ 11. UDISE+ — School education stats (scrapes api.udiseplus.gov.in)
 
 Quick start:
     pip install -r requirements.txt
@@ -41,13 +44,31 @@ RAW_DIR = ROOT_DIR / "data" / "raw"
 STATES_FILE = ROOT_DIR / "states.json"
 
 # All scheme identifiers
-ALL_SCHEMES = ["mgnrega", "pmgsy", "pmayg", "pmkisan", "jjm", "pmposhan", "nsap", "nfsa"]
+ALL_SCHEMES = ["mgnrega", "pmgsy", "pmayg", "pmkisan", "jjm", "pmposhan", "nsap", "nfsa", "sbm", "nrlm", "udise"]
 
 # Schemes that can be scraped live (have web scrapers)
-LIVE_SCRAPERS = {"mgnrega", "pmgsy", "pmayg", "jjm"}
+LIVE_SCRAPERS = {"mgnrega", "pmgsy", "pmayg", "jjm", "sbm", "nrlm", "udise"}
 
 # Schemes that use CSV import only
 CSV_IMPORTERS = {"pmkisan", "pmposhan", "nsap", "nfsa"}
+
+# Finance scrapers: data.gov.in API + dashboard scrapers for state-level financial data
+FINANCE_SCRAPERS = {
+    "pmposhan": "scrape_pmposhan_finance",
+    "nsap": "scrape_nsap_finance",
+    "nfsa": "scrape_nfsa_finance",
+    "jjm": "scrape_jjm_finance",
+    "pmayg": "scrape_pmayg_dashboard",
+}
+
+# Curated output filenames written by each finance scraper's save_curated()
+FINANCE_CURATED_FILES = {
+    "pmposhan": "pmposhan_finance_all_latest.json",
+    "nsap": "nsap_finance_all_latest.json",
+    "nfsa": "nfsa_allocation_all_latest.json",
+    "jjm": "jjm_allocation_all_latest.json",
+    "pmayg": "pmayg_finance_all_latest.json",
+}
 
 
 def load_states() -> list[dict[str, str]]:
@@ -75,6 +96,57 @@ def scrape_jjm(states: list[str] | None = None) -> dict[str, int]:
         return scrape(states)
     except Exception as exc:
         print(f"  JJM scrape failed: {exc}")
+        return {}
+
+
+def scrape_sbm(states: list[str] | None = None) -> dict[str, int]:
+    """Run SBM-G scraper — pure requests, all India in one call."""
+    try:
+        from scrape_sbm import scrape
+
+        return scrape(states)
+    except Exception as exc:
+        print(f"  SBM-G scrape failed: {exc}")
+        return {}
+
+
+def scrape_nrlm(states: list[str] | None = None, include_rf: bool = True) -> dict[str, int]:
+    """Run DAY-NRLM scraper — needs Playwright, all India or filtered states."""
+    try:
+        import asyncio
+
+        from scrape_nrlm import save_curated, scrape_all_states
+
+        records = asyncio.run(
+            scrape_all_states(states_filter=states, include_rf=include_rf)
+        )
+        if records:
+            save_curated(records)
+            by_state: dict[str, int] = {}
+            for r in records:
+                by_state[r["state"]] = by_state.get(r["state"], 0) + 1
+            return by_state
+        return {}
+    except Exception as exc:
+        print(f"  DAY-NRLM scrape failed: {exc}")
+        return {}
+
+
+def scrape_udise() -> dict[str, int]:
+    """Run UDISE+ scraper — pure HTTP, all India."""
+    try:
+        from scrape_udise import save_curated, scrape_all
+
+        records = scrape_all()
+        if records:
+            save_curated(records)
+            by_state: dict[str, int] = {}
+            for r in records:
+                by_state[r["state"]] = by_state.get(r["state"], 0) + 1
+            return by_state
+        return {}
+    except Exception as exc:
+        print(f"  UDISE+ scrape failed: {exc}")
         return {}
 
 
@@ -154,6 +226,23 @@ def scrape_pmgsy(states: list[dict[str, str]]) -> dict[str, int]:
     except ImportError as exc:
         print(f"  PMGSY import failed: {exc}")
     return results
+
+
+def scrape_finance(scheme: str) -> int:
+    """Run state-level finance scraper for a scheme (data.gov.in API or dashboard)."""
+    module_name = FINANCE_SCRAPERS.get(scheme)
+    if not module_name:
+        return 0
+    try:
+        module = __import__(module_name)
+        records = module.scrape_all()
+        if records:
+            module.save_curated(records)
+            return len(records)
+        return 0
+    except Exception as exc:
+        print(f"  {scheme} finance scraper failed: {exc}")
+        return 0
 
 
 def import_csvs(scheme: str) -> int:
@@ -241,11 +330,19 @@ def print_db_summary() -> None:
         ("PMGSY — State Progress", "pmgsy_progress"),
         ("PMGSY — District Detail", "pmgsy_district"),
         ("PMAY-G — District", "pmayg_district"),
+        ("PMAY-G — Finance (state)", "pmayg_finance"),
         ("PM Kisan — District", "pmkisan_district"),
         ("JJM — District", "jjm_district"),
+        ("JJM — Allocation (state)", "jjm_allocation"),
         ("PM POSHAN — District", "pmposhan_district"),
+        ("PM POSHAN — Finance (state)", "pmposhan_finance"),
         ("NSAP — District", "nsap_district"),
+        ("NSAP — Finance (state)", "nsap_finance"),
         ("PDS/NFSA — District", "nfsa_district"),
+        ("PDS/NFSA — Allocation (state)", "nfsa_allocation"),
+        ("SBM-G — District", "sbm_district"),
+        ("DAY-NRLM — District", "nrlm_district"),
+        ("UDISE+ — State", "udise_state"),
     ]
 
     total_records = 0
@@ -278,23 +375,29 @@ def print_db_summary() -> None:
 SCHEME_TABLES = {
     "MGNREGA": ["misappropriation", "financial_statement", "fto_status", "fto_pendency", "issues_reported"],
     "PMGSY": ["pmgsy_progress", "pmgsy_district"],
-    "PMAY-G": ["pmayg_district"],
+    "PMAY-G": ["pmayg_district", "pmayg_finance"],
     "PM Kisan": ["pmkisan_district"],
-    "JJM": ["jjm_district"],
-    "PM POSHAN": ["pmposhan_district"],
-    "NSAP": ["nsap_district"],
-    "PDS/NFSA": ["nfsa_district"],
+    "JJM": ["jjm_district", "jjm_allocation"],
+    "PM POSHAN": ["pmposhan_district", "pmposhan_finance"],
+    "NSAP": ["nsap_district", "nsap_finance"],
+    "PDS/NFSA": ["nfsa_district", "nfsa_allocation"],
+    "SBM-G": ["sbm_district"],
+    "DAY-NRLM": ["nrlm_district"],
+    "UDISE+": ["udise_state"],
 }
 
 SCHEME_SOURCES = {
     "MGNREGA": "nrega.nic.in",
     "PMGSY": "pmgsy.dord.gov.in",
-    "PMAY-G": "report.pmayg.dord.gov.in",
+    "PMAY-G": "report.pmayg.dord.gov.in + dashboard.dord.gov.in",
     "PM Kisan": "data.gov.in",
-    "JJM": "ejalshakti.gov.in",
-    "PM POSHAN": "pmposhan-ams.education.gov.in",
-    "NSAP": "nsap.nic.in / data.gov.in",
-    "PDS/NFSA": "nfsa.gov.in",
+    "JJM": "ejalshakti.gov.in + data.gov.in",
+    "PM POSHAN": "pmposhan-ams.education.gov.in + data.gov.in",
+    "NSAP": "data.gov.in",
+    "PDS/NFSA": "nfsa.gov.in + data.gov.in",
+    "SBM-G": "sbm.gov.in",
+    "DAY-NRLM": "nrlm.gov.in",
+    "UDISE+": "api.udiseplus.gov.in",
 }
 
 
@@ -384,6 +487,15 @@ Examples:
                 if count:
                     print(f"  {scheme}: {count} records imported")
 
+        # Run finance scrapers (data.gov.in API, fast)
+        for scheme in FINANCE_SCRAPERS:
+            curated_file = CURATED_DIR / FINANCE_CURATED_FILES[scheme]
+            if not curated_file.exists():
+                print(f"\n  Running {scheme} finance scraper...")
+                count = scrape_finance(scheme)
+                if count:
+                    print(f"  {scheme} finance: {count} records scraped")
+
         results = load_curated_into_db(args.fin_year)
         print("\nLoaded into database:")
         for name, count in sorted(results.items()):
@@ -418,7 +530,20 @@ Examples:
         print(f"  {scheme.upper()}")
         print(f"{'─' * 60}")
 
-        if scheme == "jjm":
+        if scheme == "nrlm":
+            results_nrlm = scrape_nrlm(state_names_for_filter)
+            total_nrlm = sum(results_nrlm.values())
+            print(f"  DAY-NRLM: {total_nrlm} districts across {len(results_nrlm)} states")
+
+        elif scheme == "udise":
+            results_udise = scrape_udise()
+            total_udise = sum(results_udise.values())
+            print(f"  UDISE+: {total_udise} state records across {len(results_udise)} states")
+
+        elif scheme == "sbm":
+            scrape_sbm(state_names_for_filter)
+
+        elif scheme == "jjm":
             scrape_jjm(state_names_for_filter)
 
         elif scheme == "mgnrega":
@@ -445,6 +570,13 @@ Examples:
                 print(f"  No CSV files found in data/raw/{scheme}/")
                 print("  Place CSV files there and re-run, or use:")
                 print(f"  python scrape_{scheme}.py --csv <file> --state <STATE>")
+
+        # Also run finance scraper if available for this scheme
+        if scheme in FINANCE_SCRAPERS:
+            print(f"\n  Running {scheme} finance scraper (data.gov.in)...")
+            fcount = scrape_finance(scheme)
+            if fcount:
+                print(f"  {scheme} finance: {fcount} state-level records")
 
     # Load all into DB
     print(f"\n{'─' * 60}")

@@ -165,7 +165,7 @@ def load_financial_statement(conn: sqlite3.Connection, records: list[dict[str, A
     col_4/5: Release from Centre/State
     col_6: Authorisation of EFMS
     col_7: Misc Receipt
-    col_8: Total Availability = sum of above
+    col_8: (unused — col_9 is Total Availability)
     col_9-13: Expenditure breakdown (Unskilled Wage, Semi-skilled, Material, Tax, Total)
     col_14-16: Admin Exp (Rec, Non-Rec, Total Admin)
     col_17: Cumulative Expenditure
@@ -178,13 +178,14 @@ def load_financial_statement(conn: sqlite3.Connection, records: list[dict[str, A
             conn.execute(
                 """INSERT OR REPLACE INTO financial_statement
                 (district, state, state_code, fin_year,
-                 opening_balance, release_last_fy_received, release_from_state_fund,
+                 opening_balance, release_last_fy_received, release_from_centre,
+                 release_from_state_fund,
                  authorisation_efms, misc_receipt, total_availability,
                  exp_unskilled_wage, exp_semiskilled_wage, exp_material, exp_tax, exp_total,
                  exp_admin_rec, exp_admin_nonrec, exp_admin_total,
                  cumulative_expenditure, utilization_pct, balance,
                  amounts_in_lakhs, source_url, scraped_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                 (
                     r["district"],
                     r["state"],
@@ -192,6 +193,7 @@ def load_financial_statement(conn: sqlite3.Connection, records: list[dict[str, A
                     fin_year,
                     r.get("col_2_num", 0),
                     r.get("col_3_num", 0),
+                    r.get("col_4_num", 0),
                     r.get("col_5_num", 0),
                     r.get("col_6_num", 0),
                     r.get("col_7_num", 0),
@@ -495,6 +497,241 @@ def impute_nsap_financials(conn: sqlite3.Connection) -> int:
     return updated
 
 
+def load_pmposhan_finance(conn: sqlite3.Connection, records: list[dict[str, Any]], fin_year: str) -> int:
+    loaded = 0
+    for r in records:
+        try:
+            conn.execute(
+                """INSERT OR REPLACE INTO pmposhan_finance
+                (state, fin_year, allocated_lakhs, released_lakhs, utilized_lakhs,
+                 source_url, scraped_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    r["state"],
+                    r.get("fin_year", fin_year),
+                    r.get("allocated_lakhs", 0),
+                    r.get("released_lakhs", 0),
+                    r.get("utilized_lakhs", 0),
+                    r.get("source_url", ""),
+                    r.get("scraped_at", ""),
+                ),
+            )
+            loaded += 1
+        except sqlite3.IntegrityError:
+            pass
+    return loaded
+
+
+def load_nsap_finance(conn: sqlite3.Connection, records: list[dict[str, Any]], fin_year: str) -> int:
+    loaded = 0
+    for r in records:
+        try:
+            conn.execute(
+                """INSERT OR REPLACE INTO nsap_finance
+                (state, fin_year, released_lakhs, beneficiaries, source_url, scraped_at)
+                VALUES (?, ?, ?, ?, ?, ?)""",
+                (
+                    r["state"],
+                    r.get("fin_year", fin_year),
+                    r.get("released_lakhs", 0),
+                    r.get("beneficiaries", 0),
+                    r.get("source_url", ""),
+                    r.get("scraped_at", ""),
+                ),
+            )
+            loaded += 1
+        except sqlite3.IntegrityError:
+            pass
+    return loaded
+
+
+def load_nfsa_allocation(conn: sqlite3.Connection, records: list[dict[str, Any]], fin_year: str) -> int:
+    loaded = 0
+    for r in records:
+        try:
+            conn.execute(
+                """INSERT OR REPLACE INTO nfsa_allocation
+                (state, fin_year, grain_type, allocation_mt, offtake_mt,
+                 source_url, scraped_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    r["state"],
+                    r.get("fin_year", fin_year),
+                    r.get("grain_type", "total"),
+                    r.get("allocation_mt", 0),
+                    r.get("offtake_mt", 0),
+                    r.get("source_url", ""),
+                    r.get("scraped_at", ""),
+                ),
+            )
+            loaded += 1
+        except sqlite3.IntegrityError:
+            pass
+    return loaded
+
+
+def load_jjm_allocation(conn: sqlite3.Connection, records: list[dict[str, Any]], fin_year: str) -> int:
+    loaded = 0
+    for r in records:
+        try:
+            conn.execute(
+                """INSERT OR REPLACE INTO jjm_allocation
+                (state, fin_year, allocated_crores, released_crores, expended_crores,
+                 source_url, scraped_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    r["state"],
+                    r.get("fin_year", fin_year),
+                    r.get("allocated_crores", 0),
+                    r.get("released_crores", 0),
+                    r.get("expended_crores", 0),
+                    r.get("source_url", ""),
+                    r.get("scraped_at", ""),
+                ),
+            )
+            loaded += 1
+        except sqlite3.IntegrityError:
+            pass
+    return loaded
+
+
+def load_sbm_district(conn: sqlite3.Connection, records: list[dict[str, Any]], fin_year: str) -> int:
+    loaded = 0
+    for r in records:
+        try:
+            conn.execute(
+                """INSERT OR REPLACE INTO sbm_district
+                (district, state, state_code, fin_year, total_villages,
+                 odf_plus_villages, odf_plus_pct, one_star_villages,
+                 three_star_villages, five_star_villages, model_village_pct,
+                 source_url, scraped_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    r["district"],
+                    r["state"],
+                    r.get("state_code", ""),
+                    r.get("fin_year", fin_year),
+                    r.get("total_villages", 0),
+                    r.get("odf_plus_villages", 0),
+                    r.get("odf_plus_pct", 0),
+                    r.get("one_star_villages", 0),
+                    r.get("three_star_villages", 0),
+                    r.get("five_star_villages", 0),
+                    r.get("model_village_pct", 0),
+                    r.get("source_url", ""),
+                    r.get("scraped_at", ""),
+                ),
+            )
+            loaded += 1
+        except sqlite3.IntegrityError:
+            pass
+    return loaded
+
+
+def load_pmayg_finance(conn: sqlite3.Connection, records: list[dict[str, Any]], fin_year: str) -> int:
+    loaded = 0
+    for r in records:
+        try:
+            conn.execute(
+                """INSERT OR REPLACE INTO pmayg_finance
+                (state, fin_year, allocated_lakhs, released_lakhs, utilized_lakhs,
+                 source_url, scraped_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    r["state"],
+                    r.get("fin_year", fin_year),
+                    r.get("allocated_lakhs", 0),
+                    r.get("released_lakhs", 0),
+                    r.get("utilized_lakhs", 0),
+                    r.get("source_url", ""),
+                    r.get("scraped_at", ""),
+                ),
+            )
+            loaded += 1
+        except sqlite3.IntegrityError:
+            pass
+    return loaded
+
+
+def load_nrlm_district(conn: sqlite3.Connection, records: list[dict[str, Any]], fin_year: str) -> int:
+    """Load DAY-NRLM SHG formation and revolving fund records."""
+    loaded = 0
+    for r in records:
+        try:
+            conn.execute(
+                """INSERT OR REPLACE INTO nrlm_district
+                (district, state, state_code, fin_year,
+                 shgs_total, shgs_new, shgs_revived, shgs_pre_nrlm,
+                 members_total, rf_shgs_provided, rf_amount_lakhs,
+                 source_url, scraped_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    r["district"],
+                    r["state"],
+                    r.get("state_code", ""),
+                    r.get("fin_year", fin_year),
+                    r.get("shgs_total", 0),
+                    r.get("shgs_new", 0),
+                    r.get("shgs_revived", 0),
+                    r.get("shgs_pre_nrlm", 0),
+                    r.get("members_total", 0),
+                    r.get("rf_shgs_provided", 0),
+                    r.get("rf_amount_lakhs", 0.0),
+                    r.get("source_url", ""),
+                    r.get("scraped_at", ""),
+                ),
+            )
+            loaded += 1
+        except sqlite3.IntegrityError:
+            pass
+    return loaded
+
+
+def load_udise_state(conn: sqlite3.Connection, records: list[dict[str, Any]], fin_year: str) -> int:
+    """Load UDISE+ state-level education statistics."""
+    loaded = 0
+    for r in records:
+        try:
+            conn.execute(
+                """INSERT OR REPLACE INTO udise_state
+                (state, fin_year, total_schools, schools_govt, schools_pvt,
+                 schools_rural, schools_urban, total_students, total_teachers,
+                 ptr_primary, ptr_secondary, ger_primary, ger_secondary,
+                 dropout_primary, dropout_secondary,
+                 schools_electricity_pct, schools_drinkwater_pct,
+                 schools_girls_toilet_pct, schools_library_pct,
+                 source_url, scraped_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    r["state"],
+                    r.get("fin_year", fin_year),
+                    r.get("total_schools", 0),
+                    r.get("schools_govt", 0),
+                    r.get("schools_pvt", 0),
+                    r.get("schools_rural", 0),
+                    r.get("schools_urban", 0),
+                    r.get("total_students", 0),
+                    r.get("total_teachers", 0),
+                    r.get("ptr_primary", 0),
+                    r.get("ptr_secondary", 0),
+                    r.get("ger_primary", 0),
+                    r.get("ger_secondary", 0),
+                    r.get("dropout_primary", 0),
+                    r.get("dropout_secondary", 0),
+                    r.get("schools_electricity_pct", 0),
+                    r.get("schools_drinkwater_pct", 0),
+                    r.get("schools_girls_toilet_pct", 0),
+                    r.get("schools_library_pct", 0),
+                    r.get("source_url", ""),
+                    r.get("scraped_at", ""),
+                ),
+            )
+            loaded += 1
+        except sqlite3.IntegrityError:
+            pass
+    return loaded
+
+
 LOADERS = {
     "misappropriation": load_misappropriation,
     "fto_status": load_fto_status,
@@ -509,6 +746,14 @@ LOADERS = {
     "pmposhan_district": load_pmposhan_district,
     "nsap_district": load_nsap_district,
     "nfsa_district": load_nfsa_district,
+    "pmposhan_finance": load_pmposhan_finance,
+    "nsap_finance": load_nsap_finance,
+    "nfsa_allocation": load_nfsa_allocation,
+    "jjm_allocation": load_jjm_allocation,
+    "pmayg_finance": load_pmayg_finance,
+    "sbm_district": load_sbm_district,
+    "nrlm_district": load_nrlm_district,
+    "udise_state": load_udise_state,
 }
 
 

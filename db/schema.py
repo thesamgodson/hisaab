@@ -9,6 +9,8 @@ Scheme tables (detailed per-scheme data):
 - PM POSHAN: pmposhan_district (school nutrition)
 - NSAP: nsap_district (pensions)
 - PDS/NFSA: nfsa_district (ration system)
+- SBM-G: sbm_district (ODF Plus village sanitation)
+- DAY-NRLM: nrlm_district (SHG formation + revolving fund)
 
 Unified view:
 - money_flow: normalized view across ALL schemes for cross-scheme queries
@@ -123,6 +125,7 @@ CREATE TABLE IF NOT EXISTS financial_statement (
     fin_year TEXT NOT NULL,
     opening_balance REAL NOT NULL DEFAULT 0,
     release_last_fy_received REAL NOT NULL DEFAULT 0,
+    release_from_centre REAL NOT NULL DEFAULT 0,
     release_from_state_fund REAL NOT NULL DEFAULT 0,
     authorisation_efms REAL NOT NULL DEFAULT 0,
     misc_receipt REAL NOT NULL DEFAULT 0,
@@ -185,6 +188,8 @@ CREATE INDEX IF NOT EXISTS idx_financial_statement_state ON financial_statement(
 CREATE INDEX IF NOT EXISTS idx_pmgsy_progress_state ON pmgsy_progress(state);
 CREATE INDEX IF NOT EXISTS idx_pmgsy_district_state ON pmgsy_district(state);
 CREATE INDEX IF NOT EXISTS idx_pmgsy_district_district ON pmgsy_district(district, state);
+CREATE INDEX IF NOT EXISTS idx_fto_pendency_state ON fto_pendency(state, fin_year);
+CREATE INDEX IF NOT EXISTS idx_scrape_runs_lookup ON scrape_runs(state, fin_year, report_name);
 
 -- =====================================================================
 -- New scheme tables (Tier 1)
@@ -303,19 +308,162 @@ CREATE TABLE IF NOT EXISTS nfsa_district (
 CREATE INDEX IF NOT EXISTS idx_nfsa_district ON nfsa_district(state, district);
 
 -- =====================================================================
+-- SBM-G: Swachh Bharat Mission - Gramin (ODF Plus village sanitation)
+-- =====================================================================
+CREATE TABLE IF NOT EXISTS sbm_district (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    district TEXT NOT NULL,
+    state TEXT NOT NULL,
+    state_code TEXT NOT NULL DEFAULT '',
+    fin_year TEXT NOT NULL DEFAULT 'cumulative',
+    total_villages INTEGER NOT NULL DEFAULT 0,
+    odf_plus_villages INTEGER NOT NULL DEFAULT 0,
+    odf_plus_pct REAL NOT NULL DEFAULT 0,
+    one_star_villages INTEGER NOT NULL DEFAULT 0,
+    three_star_villages INTEGER NOT NULL DEFAULT 0,
+    five_star_villages INTEGER NOT NULL DEFAULT 0,
+    model_village_pct REAL NOT NULL DEFAULT 0,
+    source_url TEXT,
+    scraped_at TEXT NOT NULL,
+    UNIQUE(district, state, fin_year)
+);
+CREATE INDEX IF NOT EXISTS idx_sbm_district ON sbm_district(state, district);
+
+-- DAY-NRLM: National Rural Livelihoods Mission (SHG formation + revolving fund)
+CREATE TABLE IF NOT EXISTS nrlm_district (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    district TEXT NOT NULL,
+    state TEXT NOT NULL,
+    state_code TEXT NOT NULL DEFAULT '',
+    fin_year TEXT NOT NULL DEFAULT 'cumulative',
+    shgs_total INTEGER NOT NULL DEFAULT 0,
+    shgs_new INTEGER NOT NULL DEFAULT 0,
+    shgs_revived INTEGER NOT NULL DEFAULT 0,
+    shgs_pre_nrlm INTEGER NOT NULL DEFAULT 0,
+    members_total INTEGER NOT NULL DEFAULT 0,
+    rf_shgs_provided INTEGER NOT NULL DEFAULT 0,
+    rf_amount_lakhs REAL NOT NULL DEFAULT 0,
+    source_url TEXT,
+    scraped_at TEXT NOT NULL,
+    UNIQUE(district, state, fin_year)
+);
+CREATE INDEX IF NOT EXISTS idx_nrlm_district ON nrlm_district(state, district);
+
+-- =====================================================================
+-- UDISE+: Unified District Information System for Education (state-level)
+-- =====================================================================
+CREATE TABLE IF NOT EXISTS udise_state (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    state TEXT NOT NULL,
+    fin_year TEXT NOT NULL,
+    total_schools INTEGER NOT NULL DEFAULT 0,
+    schools_govt INTEGER NOT NULL DEFAULT 0,
+    schools_pvt INTEGER NOT NULL DEFAULT 0,
+    schools_rural INTEGER NOT NULL DEFAULT 0,
+    schools_urban INTEGER NOT NULL DEFAULT 0,
+    total_students INTEGER NOT NULL DEFAULT 0,
+    total_teachers INTEGER NOT NULL DEFAULT 0,
+    ptr_primary REAL NOT NULL DEFAULT 0,
+    ptr_secondary REAL NOT NULL DEFAULT 0,
+    ger_primary REAL NOT NULL DEFAULT 0,
+    ger_secondary REAL NOT NULL DEFAULT 0,
+    dropout_primary REAL NOT NULL DEFAULT 0,
+    dropout_secondary REAL NOT NULL DEFAULT 0,
+    schools_electricity_pct REAL NOT NULL DEFAULT 0,
+    schools_drinkwater_pct REAL NOT NULL DEFAULT 0,
+    schools_girls_toilet_pct REAL NOT NULL DEFAULT 0,
+    schools_library_pct REAL NOT NULL DEFAULT 0,
+    source_url TEXT,
+    scraped_at TEXT NOT NULL,
+    UNIQUE(state, fin_year)
+);
+CREATE INDEX IF NOT EXISTS idx_udise_state ON udise_state(state);
+
+-- =====================================================================
+-- Phase 6: State-level financial tables (from data.gov.in + dashboards)
+-- =====================================================================
+
+-- PM POSHAN state-level financial data (data.gov.in, 2016-2025)
+CREATE TABLE IF NOT EXISTS pmposhan_finance (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    state TEXT NOT NULL,
+    fin_year TEXT NOT NULL,
+    allocated_lakhs REAL NOT NULL DEFAULT 0,
+    released_lakhs REAL NOT NULL DEFAULT 0,
+    utilized_lakhs REAL NOT NULL DEFAULT 0,
+    source_url TEXT,
+    scraped_at TEXT NOT NULL,
+    UNIQUE(state, fin_year)
+);
+CREATE INDEX IF NOT EXISTS idx_pmposhan_finance ON pmposhan_finance(state);
+
+-- NSAP state-level real release data (replaces imputation at state level)
+CREATE TABLE IF NOT EXISTS nsap_finance (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    state TEXT NOT NULL,
+    fin_year TEXT NOT NULL,
+    released_lakhs REAL NOT NULL DEFAULT 0,
+    beneficiaries INTEGER NOT NULL DEFAULT 0,
+    source_url TEXT,
+    scraped_at TEXT NOT NULL,
+    UNIQUE(state, fin_year)
+);
+CREATE INDEX IF NOT EXISTS idx_nsap_finance ON nsap_finance(state);
+
+-- NFSA state-level allocation + offtake in metric tonnes
+CREATE TABLE IF NOT EXISTS nfsa_allocation (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    state TEXT NOT NULL,
+    fin_year TEXT NOT NULL,
+    grain_type TEXT NOT NULL DEFAULT 'total',
+    allocation_mt REAL NOT NULL DEFAULT 0,
+    offtake_mt REAL NOT NULL DEFAULT 0,
+    source_url TEXT,
+    scraped_at TEXT NOT NULL,
+    UNIQUE(state, fin_year, grain_type)
+);
+CREATE INDEX IF NOT EXISTS idx_nfsa_allocation ON nfsa_allocation(state);
+
+-- JJM state-level allocation (data.gov.in, allocation only — no release/utilization)
+CREATE TABLE IF NOT EXISTS jjm_allocation (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    state TEXT NOT NULL,
+    fin_year TEXT NOT NULL,
+    allocated_crores REAL NOT NULL DEFAULT 0,
+    released_crores REAL NOT NULL DEFAULT 0,
+    expended_crores REAL NOT NULL DEFAULT 0,
+    source_url TEXT,
+    scraped_at TEXT NOT NULL,
+    UNIQUE(state, fin_year)
+);
+CREATE INDEX IF NOT EXISTS idx_jjm_allocation ON jjm_allocation(state);
+
+-- PMAY-G state-level financial data (dashboard.dord.gov.in)
+CREATE TABLE IF NOT EXISTS pmayg_finance (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    state TEXT NOT NULL,
+    fin_year TEXT NOT NULL,
+    allocated_lakhs REAL NOT NULL DEFAULT 0,
+    released_lakhs REAL NOT NULL DEFAULT 0,
+    utilized_lakhs REAL NOT NULL DEFAULT 0,
+    source_url TEXT,
+    scraped_at TEXT NOT NULL,
+    UNIQUE(state, fin_year)
+);
+CREATE INDEX IF NOT EXISTS idx_pmayg_finance ON pmayg_finance(state);
+
+-- =====================================================================
 -- VIEW 1: scheme_finance — Financial flow (rupees in lakhs only)
 -- =====================================================================
--- Only schemes with REAL financial data scraped from portals.
--- Excluded: NFSA (metric tons, not rupees), NSAP (all zeros),
---           PMAY-G (financial report behind login/Power BI),
---           JJM (no financial API endpoint),
---           PM POSHAN (funds columns all zeros from portal).
+-- Schemes with financial data: MGNREGA, PMGSY, PM Kisan (district-level),
+-- PM POSHAN, NSAP, PMAY-G, JJM (state-level from data.gov.in/dashboards).
+-- NFSA excluded: metric tons, not rupees.
 
 DROP VIEW IF EXISTS scheme_finance;
 CREATE VIEW scheme_finance AS
 SELECT
     'MGNREGA' as scheme, state, district, fin_year,
-    total_availability as allocated_lakhs,
+    NULL as allocated_lakhs,
     total_availability as released_lakhs,
     cumulative_expenditure as expended_lakhs,
     utilization_pct, source_url
@@ -323,7 +471,7 @@ FROM financial_statement
 UNION ALL
 SELECT
     'PMGSY' as scheme, state, district, fin_year,
-    value_of_projects_cr * 100 as allocated_lakhs,
+    NULL as allocated_lakhs,
     value_of_projects_cr * 100 as released_lakhs,
     expenditure_cr * 100 as expended_lakhs,
     CASE WHEN value_of_projects_cr > 0
@@ -341,7 +489,45 @@ SELECT
          THEN (beneficiaries_paid * 100.0 / beneficiaries_registered)
          ELSE 0 END as utilization_pct,
     source_url
-FROM pmkisan_district;
+FROM pmkisan_district
+UNION ALL
+SELECT
+    'PM POSHAN' as scheme, state, 'ALL' as district, fin_year,
+    allocated_lakhs, released_lakhs, utilized_lakhs as expended_lakhs,
+    CASE WHEN released_lakhs > 0
+         THEN (utilized_lakhs / released_lakhs * 100)
+         ELSE 0 END as utilization_pct,
+    source_url
+FROM pmposhan_finance
+UNION ALL
+SELECT
+    'NSAP' as scheme, state, 'ALL' as district, fin_year,
+    NULL as allocated_lakhs,
+    released_lakhs,
+    released_lakhs as expended_lakhs,
+    NULL as utilization_pct,
+    source_url
+FROM nsap_finance
+UNION ALL
+SELECT
+    'PMAY-G' as scheme, state, 'ALL' as district, fin_year,
+    allocated_lakhs, released_lakhs, utilized_lakhs as expended_lakhs,
+    CASE WHEN released_lakhs > 0
+         THEN (utilized_lakhs / released_lakhs * 100)
+         ELSE 0 END as utilization_pct,
+    source_url
+FROM pmayg_finance
+UNION ALL
+SELECT
+    'JJM' as scheme, state, 'ALL' as district, fin_year,
+    allocated_crores * 100 as allocated_lakhs,
+    CASE WHEN released_crores > 0 THEN released_crores * 100 ELSE NULL END as released_lakhs,
+    CASE WHEN expended_crores > 0 THEN expended_crores * 100 ELSE NULL END as expended_lakhs,
+    CASE WHEN released_crores > 0 AND expended_crores > 0
+         THEN (expended_crores / released_crores * 100)
+         ELSE NULL END as utilization_pct,
+    source_url
+FROM jjm_allocation;
 
 -- =====================================================================
 -- VIEW 2: scheme_delivery — Service delivery / beneficiary coverage
@@ -350,13 +536,6 @@ FROM pmkisan_district;
 
 DROP VIEW IF EXISTS scheme_delivery;
 CREATE VIEW scheme_delivery AS
-SELECT
-    'MGNREGA' as scheme, state, district, fin_year,
-    NULL as units_target, NULL as units_completed,
-    NULL as units_label,
-    utilization_pct as delivery_pct, source_url
-FROM financial_statement
-UNION ALL
 SELECT
     'PMGSY' as scheme, state, district, fin_year,
     roads_sanctioned as units_target,
@@ -423,17 +602,38 @@ SELECT
     ration_cards_active as units_completed,
     'ration cards' as units_label,
     offtake_pct as delivery_pct, source_url
-FROM nfsa_district;
+FROM nfsa_district
+UNION ALL
+SELECT
+    'SBM-G' as scheme, state, district, fin_year,
+    total_villages as units_target,
+    odf_plus_villages as units_completed,
+    'ODF+ villages' as units_label,
+    odf_plus_pct as delivery_pct, source_url
+FROM sbm_district
+UNION ALL
+SELECT
+    'DAY-NRLM' as scheme, state, district, fin_year,
+    NULL as units_target,
+    shgs_total as units_completed,
+    'SHGs' as units_label,
+    NULL as delivery_pct, source_url
+FROM nrlm_district
+UNION ALL
+SELECT
+    'UDISE+' as scheme, state, 'ALL' as district, fin_year,
+    NULL as units_target,
+    total_schools as units_completed,
+    'schools' as units_label,
+    NULL as delivery_pct, source_url
+FROM udise_state;
 
 -- =====================================================================
 -- VIEW 3: money_flow — Backward-compatible combined view
 -- =====================================================================
--- Keeps money_flow working for existing code. Adds units_label for clarity.
--- WARNING: Financial columns are HOLLOW (all zeros) for these schemes:
---   PMAY-G, JJM, PM POSHAN — portals don't expose financial data publicly.
---   NSAP — data.gov.in source has all zeros for amount/eligible/pension.
---   NFSA — allocated/expended are metric tons, not lakhs.
--- Use scheme_finance VIEW for clean financial comparisons (MGNREGA, PMGSY, PM Kisan only).
+-- Includes both district-level data (from _district tables, may be hollow)
+-- and state-level finance data (from _finance/_allocation tables, real data).
+-- NFSA district rows still use MT (not lakhs) — use scheme_finance for clean comparisons.
 
 DROP VIEW IF EXISTS money_flow;
 CREATE VIEW money_flow AS
@@ -474,6 +674,17 @@ SELECT
 FROM pmayg_district
 UNION ALL
 SELECT
+    'PMAY-G' as scheme, state, 'ALL' as district, fin_year,
+    allocated_lakhs, released_lakhs,
+    utilized_lakhs as expended_lakhs,
+    CASE WHEN released_lakhs > 0
+         THEN (utilized_lakhs / released_lakhs * 100)
+         ELSE 0 END as utilization_pct,
+    NULL as units_target, NULL as units_completed,
+    NULL as units_label, source_url
+FROM pmayg_finance
+UNION ALL
+SELECT
     'PM Kisan' as scheme, state, district, fin_year,
     NULL as allocated_lakhs,
     amount_paid_lakhs as released_lakhs,
@@ -500,6 +711,18 @@ SELECT
 FROM jjm_district
 UNION ALL
 SELECT
+    'JJM' as scheme, state, 'ALL' as district, fin_year,
+    allocated_crores * 100 as allocated_lakhs,
+    CASE WHEN released_crores > 0 THEN released_crores * 100 ELSE NULL END as released_lakhs,
+    CASE WHEN expended_crores > 0 THEN expended_crores * 100 ELSE NULL END as expended_lakhs,
+    CASE WHEN released_crores > 0 AND expended_crores > 0
+         THEN (expended_crores / released_crores * 100)
+         ELSE NULL END as utilization_pct,
+    NULL as units_target, NULL as units_completed,
+    NULL as units_label, source_url
+FROM jjm_allocation
+UNION ALL
+SELECT
     'PM POSHAN' as scheme, state, district, fin_year,
     funds_released_lakhs as allocated_lakhs,
     funds_released_lakhs as released_lakhs,
@@ -509,6 +732,17 @@ SELECT
     children_fed as units_completed,
     'children fed' as units_label, source_url
 FROM pmposhan_district
+UNION ALL
+SELECT
+    'PM POSHAN' as scheme, state, 'ALL' as district, fin_year,
+    allocated_lakhs, released_lakhs,
+    utilized_lakhs as expended_lakhs,
+    CASE WHEN released_lakhs > 0
+         THEN (utilized_lakhs / released_lakhs * 100)
+         ELSE 0 END as utilization_pct,
+    NULL as units_target, NULL as units_completed,
+    NULL as units_label, source_url
+FROM pmposhan_finance
 UNION ALL
 SELECT
     'NSAP' as scheme, state, district, fin_year,
@@ -524,6 +758,17 @@ SELECT
 FROM nsap_district
 UNION ALL
 SELECT
+    'NSAP' as scheme, state, 'ALL' as district, fin_year,
+    NULL as allocated_lakhs,
+    released_lakhs,
+    released_lakhs as expended_lakhs,
+    NULL as utilization_pct,
+    NULL as units_target,
+    beneficiaries as units_completed,
+    'pensioners' as units_label, source_url
+FROM nsap_finance
+UNION ALL
+SELECT
     'PDS/NFSA' as scheme, state, district, fin_year,
     allocation_mt as allocated_lakhs,
     allocation_mt as released_lakhs,
@@ -532,5 +777,16 @@ SELECT
     ration_cards_total as units_target,
     ration_cards_active as units_completed,
     'ration cards' as units_label, source_url
-FROM nfsa_district;
+FROM nfsa_district
+UNION ALL
+SELECT
+    'DAY-NRLM' as scheme, state, district, fin_year,
+    NULL as allocated_lakhs,
+    rf_amount_lakhs as released_lakhs,
+    rf_amount_lakhs as expended_lakhs,
+    NULL as utilization_pct,
+    NULL as units_target,
+    shgs_total as units_completed,
+    'SHGs' as units_label, source_url
+FROM nrlm_district;
 """

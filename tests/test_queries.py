@@ -424,7 +424,7 @@ class TestNewViews:
     def test_scheme_delivery_includes_all(self, db):
         self._seed(db)
         schemes = [r["scheme"] for r in db.execute("SELECT DISTINCT scheme FROM scheme_delivery").fetchall()]
-        assert "MGNREGA" in schemes
+        assert "MGNREGA" not in schemes  # removed: no delivery units in schema
         assert "PMAY-G" in schemes
         assert "PDS/NFSA" in schemes
 

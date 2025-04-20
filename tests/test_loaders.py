@@ -17,15 +17,19 @@ from db import (
     load_fto_pendency,
     load_fto_status,
     load_issues_reported,
+    load_jjm_allocation,
     load_jjm_district,
     load_misappropriation,
     load_nfsa_district,
+    load_nrlm_district,
     load_nsap_district,
     load_pmayg_district,
     load_pmgsy_district,
     load_pmgsy_progress,
     load_pmkisan_district,
     load_pmposhan_district,
+    load_sbm_district,
+    load_udise_state,
 )
 
 FIN_YEAR = "2024-2025"
@@ -428,3 +432,199 @@ class TestNFSA:
         assert r["ration_cards_total"] == 100000
         assert r["offtake_pct"] == 84.0
         assert r["beneficiaries_total"] == 300000
+
+
+class TestJJMAllocation:
+    def test_round_trip(self, db):
+        records = [
+            {
+                "state": "BIHAR",
+                "fin_year": "2024-2025",
+                "allocated_crores": 3000.0,
+                "released_crores": 2800.0,
+                "expended_crores": 2500.0,
+                "source_url": "ejalshakti.gov.in",
+                "scraped_at": "2026-01-01T00:00:00",
+            }
+        ]
+        count, rows = _load_and_query(db, load_jjm_allocation, "jjm_allocation", records)
+        assert count == 1
+        r = rows[0]
+        assert r["state"] == "BIHAR"
+        assert r["allocated_crores"] == 3000.0
+        assert r["released_crores"] == 2800.0
+        assert r["expended_crores"] == 2500.0
+
+    def test_upsert(self, db):
+        base = {
+            "state": "BIHAR",
+            "fin_year": "2024-2025",
+            "allocated_crores": 3000.0,
+            "released_crores": 2800.0,
+            "expended_crores": 2500.0,
+            "source_url": "ejalshakti.gov.in",
+            "scraped_at": "2026-01-01T00:00:00",
+        }
+        _load_and_query(db, load_jjm_allocation, "jjm_allocation", [base])
+        updated = {**base, "allocated_crores": 3200.0}
+        count, rows = _load_and_query(db, load_jjm_allocation, "jjm_allocation", [updated])
+        assert count == 1
+        assert len(rows) == 1
+        assert rows[0]["allocated_crores"] == 3200.0
+        assert rows[0]["released_crores"] == 2800.0
+        assert rows[0]["expended_crores"] == 2500.0
+
+
+class TestSBMDistrict:
+    def test_round_trip(self, db):
+        records = [
+            {
+                "district": "PATNA",
+                "state": "BIHAR",
+                "state_code": "05",
+                "total_villages": 460,
+                "odf_plus_villages": 160,
+                "odf_plus_pct": 34.78,
+                "one_star_villages": 60,
+                "three_star_villages": 0,
+                "five_star_villages": 100,
+                "model_village_pct": 21.74,
+                "source_url": "sbm.gov.in",
+                "scraped_at": "2026-01-01T00:00:00",
+            }
+        ]
+        count, rows = _load_and_query(db, load_sbm_district, "sbm_district", records)
+        assert count == 1
+        r = rows[0]
+        assert r["district"] == "PATNA"
+        assert r["total_villages"] == 460
+        assert r["odf_plus_villages"] == 160
+        assert r["odf_plus_pct"] == 34.78
+        assert r["five_star_villages"] == 100
+        assert r["model_village_pct"] == 21.74
+
+    def test_upsert(self, db):
+        base = {
+            "district": "PATNA",
+            "state": "BIHAR",
+            "state_code": "05",
+            "total_villages": 460,
+            "odf_plus_villages": 160,
+            "odf_plus_pct": 34.78,
+            "one_star_villages": 60,
+            "three_star_villages": 0,
+            "five_star_villages": 100,
+            "model_village_pct": 21.74,
+            "source_url": "sbm.gov.in",
+            "scraped_at": "2026-01-01T00:00:00",
+        }
+        _load_and_query(db, load_sbm_district, "sbm_district", [base])
+        updated = {**base, "odf_plus_villages": 200}
+        count, rows = _load_and_query(db, load_sbm_district, "sbm_district", [updated])
+        assert count == 1
+        assert len(rows) == 1
+        assert rows[0]["odf_plus_villages"] == 200
+
+
+class TestNRLMDistrict:
+    def test_round_trip(self, db):
+        records = [
+            {
+                "district": "PATNA",
+                "state": "BIHAR",
+                "state_code": "05",
+                "shgs_total": 12345,
+                "shgs_new": 5000,
+                "shgs_revived": 3000,
+                "shgs_pre_nrlm": 4345,
+                "members_total": 150000,
+                "rf_shgs_provided": 8000,
+                "rf_amount_lakhs": 450.5,
+                "source_url": "nrlm.gov.in",
+                "scraped_at": "2026-01-01T00:00:00",
+            }
+        ]
+        count, rows = _load_and_query(db, load_nrlm_district, "nrlm_district", records)
+        assert count == 1
+        r = rows[0]
+        assert r["district"] == "PATNA"
+        assert r["shgs_total"] == 12345
+        assert r["members_total"] == 150000
+        assert r["rf_shgs_provided"] == 8000
+        assert r["rf_amount_lakhs"] == 450.5
+
+    def test_upsert(self, db):
+        base = {
+            "district": "PATNA",
+            "state": "BIHAR",
+            "state_code": "05",
+            "shgs_total": 12345,
+            "shgs_new": 5000,
+            "shgs_revived": 3000,
+            "shgs_pre_nrlm": 4345,
+            "members_total": 150000,
+            "rf_shgs_provided": 8000,
+            "rf_amount_lakhs": 450.5,
+            "source_url": "nrlm.gov.in",
+            "scraped_at": "2026-01-01T00:00:00",
+        }
+        _load_and_query(db, load_nrlm_district, "nrlm_district", [base])
+        updated = {**base, "rf_amount_lakhs": 500.0}
+        count, rows = _load_and_query(db, load_nrlm_district, "nrlm_district", [updated])
+        assert count == 1
+        assert len(rows) == 1
+        assert rows[0]["rf_amount_lakhs"] == 500.0
+
+
+class TestUDISEState:
+    def test_round_trip(self, db):
+        records = [
+            {
+                "state": "BIHAR",
+                "fin_year": "2024-2025",
+                "total_schools": 85000,
+                "schools_govt": 45000,
+                "total_students": 8500000,
+                "total_teachers": 450000,
+                "ptr_primary": 25.3,
+                "ger_primary": 98.5,
+                "dropout_primary": 1.2,
+                "schools_electricity_pct": 85.3,
+                "source_url": "api.udiseplus.gov.in",
+                "scraped_at": "2026-01-01T00:00:00",
+            }
+        ]
+        count, rows = _load_and_query(db, load_udise_state, "udise_state", records)
+        assert count == 1
+        r = rows[0]
+        assert r["state"] == "BIHAR"
+        assert r["total_schools"] == 85000
+        assert r["schools_govt"] == 45000
+        assert r["total_students"] == 8500000
+        assert r["total_teachers"] == 450000
+        assert r["ptr_primary"] == 25.3
+        assert r["ger_primary"] == 98.5
+        assert r["dropout_primary"] == 1.2
+        assert r["schools_electricity_pct"] == 85.3
+
+    def test_upsert(self, db):
+        base = {
+            "state": "BIHAR",
+            "fin_year": "2024-2025",
+            "total_schools": 85000,
+            "schools_govt": 45000,
+            "total_students": 8500000,
+            "total_teachers": 450000,
+            "ptr_primary": 25.3,
+            "ger_primary": 98.5,
+            "dropout_primary": 1.2,
+            "schools_electricity_pct": 85.3,
+            "source_url": "api.udiseplus.gov.in",
+            "scraped_at": "2026-01-01T00:00:00",
+        }
+        _load_and_query(db, load_udise_state, "udise_state", [base])
+        updated = {**base, "total_students": 8750000}
+        count, rows = _load_and_query(db, load_udise_state, "udise_state", [updated])
+        assert count == 1
+        assert len(rows) == 1
+        assert rows[0]["total_students"] == 8750000
