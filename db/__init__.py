@@ -5,6 +5,7 @@ so that ``from db import X`` continues to work unchanged.
 """
 
 from db.connection import CURATED_DIR, DB_PATH, get_connection, init_db
+from db.snapshots import capture_snapshot, compute_deltas, get_biggest_changes, get_trend
 from db.loaders import (
     LOADERS,
     NSAP_PENSION_RATES,
@@ -35,6 +36,10 @@ from db.loaders import (
 from db.schema import SCHEMA
 
 __all__ = [
+    "capture_snapshot",
+    "compute_deltas",
+    "get_biggest_changes",
+    "get_trend",
     "CURATED_DIR",
     "DB_PATH",
     "LOADERS",

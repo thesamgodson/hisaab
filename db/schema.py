@@ -635,6 +635,24 @@ FROM udise_state;
 -- and state-level finance data (from _finance/_allocation tables, real data).
 -- NFSA district rows still use MT (not lakhs) — use scheme_finance for clean comparisons.
 
+-- =====================================================================
+-- Temporal snapshot table — weekly metric captures for trend analysis
+-- =====================================================================
+CREATE TABLE IF NOT EXISTS metrics_snapshot (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    snapshot_date TEXT NOT NULL,
+    scheme TEXT NOT NULL,
+    state TEXT NOT NULL,
+    district TEXT NOT NULL,
+    fin_year TEXT NOT NULL,
+    metric_name TEXT NOT NULL,
+    metric_value REAL,
+    source_url TEXT,
+    UNIQUE(snapshot_date, scheme, state, district, fin_year, metric_name)
+);
+CREATE INDEX IF NOT EXISTS idx_snapshot_lookup
+    ON metrics_snapshot(scheme, state, district, metric_name);
+
 DROP VIEW IF EXISTS money_flow;
 CREATE VIEW money_flow AS
 SELECT

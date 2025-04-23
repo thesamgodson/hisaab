@@ -43,6 +43,11 @@ from queries.pmgsy import (
     pmgsy_state_summary,
     pmgsy_worst_completion,
 )
+from queries.trends import (
+    district_trend,
+    trending_better,
+    trending_worse,
+)
 from queries.welfare_schemes import (
     nfsa_by_district,
     nfsa_state_summary,
@@ -58,6 +63,9 @@ from queries.welfare_schemes import (
 __all__ = [
     "data_quality_warnings",
     "district_overview",
+    "district_trend",
+    "trending_better",
+    "trending_worse",
     "fto_pendency_summary",
     "fto_status_by_district",
     "fund_utilization_by_district",

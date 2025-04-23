@@ -461,6 +461,7 @@ Examples:
         help=f"Comma-separated schemes to scrape: {','.join(ALL_SCHEMES)} or 'all'",
     )
     parser.add_argument("--load-only", action="store_true", help="Skip scraping, just load existing data into DB")
+    parser.add_argument("--snapshot", action="store_true", help="Capture a metric snapshot after loading (for trend tracking)")
     parser.add_argument("--summary", action="store_true", help="Just print DB summary and exit")
     parser.add_argument("--freshness", action="store_true", help="Show data freshness per scheme and exit")
     args = parser.parse_args()
@@ -502,6 +503,10 @@ Examples:
             print(f"  {name}: {count:,} records")
         print(f"  TOTAL: {sum(results.values()):,}")
         print_db_summary()
+
+        if args.snapshot:
+            _run_snapshot()
+
         return 0
 
     # Parse schemes
@@ -588,7 +593,25 @@ Examples:
             print(f"  {name}: {count:,} records")
 
     print_db_summary()
+
+    if args.snapshot:
+        _run_snapshot()
+
     return 0
+
+
+def _run_snapshot() -> None:
+    """Capture a temporal snapshot of key metrics for trend tracking."""
+    try:
+        from db.snapshots import capture_snapshot
+
+        print(f"\n{'─' * 60}")
+        print("  Capturing metric snapshot...")
+        print(f"{'─' * 60}")
+        inserted = capture_snapshot()
+        print(f"  Snapshot complete: {inserted:,} rows inserted into metrics_snapshot")
+    except Exception as exc:
+        print(f"  Snapshot failed: {exc}")
 
 
 if __name__ == "__main__":
