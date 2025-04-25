@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
+import IndiaMap from "@/components/IndiaMap";
 
 export default function Home() {
   return (
@@ -19,7 +20,11 @@ export default function Home() {
 
       <SearchBar autoFocus />
 
-      <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl w-full">
+      <div className="mt-12 w-full max-w-2xl">
+        <IndiaMap />
+      </div>
+
+      <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl w-full">
         {[
           { name: "MGNREGA", desc: "Employment" },
           { name: "PMGSY", desc: "Rural Roads" },

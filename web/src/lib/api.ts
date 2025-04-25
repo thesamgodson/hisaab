@@ -8,12 +8,16 @@
 import type {
   BriefResponse,
   DataQualityResponse,
+  DistrictScore,
   DistrictsResponse,
   FreshnessResponse,
   QueryResponse,
   RedFlagsResponse,
   SchemeData,
   SchemesResponse,
+  ScoresResponse,
+  StateRankingsResponse,
+  WorstDistrictsResponse,
 } from "./types";
 
 const BACKEND_URL =
@@ -146,4 +150,41 @@ export function fetchMoneyFlow(
   return fetchJson(
     `/api/v1/district/${encodeURIComponent(name)}/money-flow${qs}`,
   );
+}
+
+/** All district composite accountability scores (for map rendering). */
+export function fetchScores(finYear?: string): Promise<ScoresResponse> {
+  const qs = finYear ? `?fin_year=${encodeURIComponent(finYear)}` : "";
+  return fetchJson(`/api/v1/scores${qs}`);
+}
+
+/** State-level accountability rankings. */
+export function fetchStateRankings(finYear?: string): Promise<StateRankingsResponse> {
+  const qs = finYear ? `?fin_year=${encodeURIComponent(finYear)}` : "";
+  return fetchJson(`/api/v1/scores/states${qs}`);
+}
+
+/** Composite score for a single district. */
+export function fetchDistrictScore(
+  district: string,
+  state?: string,
+  finYear?: string,
+): Promise<DistrictScore> {
+  const params = new URLSearchParams();
+  if (state) params.set("state", state);
+  if (finYear) params.set("fin_year", finYear);
+  const qs = params.toString() ? `?${params.toString()}` : "";
+  return fetchJson(`/api/v1/scores/${encodeURIComponent(district)}${qs}`);
+}
+
+/** Bottom N districts by composite score. */
+export function fetchWorstDistricts(
+  n?: number,
+  finYear?: string,
+): Promise<WorstDistrictsResponse> {
+  const params = new URLSearchParams();
+  if (n) params.set("n", String(n));
+  if (finYear) params.set("fin_year", finYear);
+  const qs = params.toString() ? `?${params.toString()}` : "";
+  return fetchJson(`/api/v1/scores/worst${qs}`);
 }
