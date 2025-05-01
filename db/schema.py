@@ -636,6 +636,54 @@ FROM udise_state;
 -- NFSA district rows still use MT (not lakhs) — use scheme_finance for clean comparisons.
 
 -- =====================================================================
+-- Telegram subscriber table — stores chat IDs for alert delivery
+-- =====================================================================
+CREATE TABLE IF NOT EXISTS telegram_subscribers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    chat_id INTEGER UNIQUE NOT NULL,
+    username TEXT,
+    subscribed_states TEXT DEFAULT 'ALL',
+    subscribed_at TEXT NOT NULL DEFAULT (datetime('now')),
+    active INTEGER NOT NULL DEFAULT 1
+);
+CREATE INDEX IF NOT EXISTS idx_telegram_subscribers_active
+    ON telegram_subscribers(active, subscribed_states);
+
+-- =====================================================================
+-- Constituency mapping tables (PIN → District → Constituency → MP)
+-- =====================================================================
+
+CREATE TABLE IF NOT EXISTS pin_district_mapping (
+    pin_code TEXT PRIMARY KEY,
+    district TEXT NOT NULL,
+    state TEXT NOT NULL,
+    office_name TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_pin_district ON pin_district_mapping(district, state);
+
+CREATE TABLE IF NOT EXISTS constituency_district (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    constituency TEXT NOT NULL,
+    state TEXT NOT NULL,
+    district TEXT NOT NULL,
+    constituency_type TEXT NOT NULL DEFAULT 'LOK_SABHA',
+    UNIQUE(constituency, district)
+);
+CREATE INDEX IF NOT EXISTS idx_constituency_district ON constituency_district(constituency);
+CREATE INDEX IF NOT EXISTS idx_constituency_district_district ON constituency_district(district, state);
+
+CREATE TABLE IF NOT EXISTS mp_info (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    constituency TEXT NOT NULL UNIQUE,
+    mp_name TEXT NOT NULL,
+    party TEXT NOT NULL DEFAULT '',
+    state TEXT NOT NULL,
+    elected_year INTEGER NOT NULL DEFAULT 2024,
+    source_url TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_mp_info_constituency ON mp_info(constituency);
+
+-- =====================================================================
 -- Temporal snapshot table — weekly metric captures for trend analysis
 -- =====================================================================
 CREATE TABLE IF NOT EXISTS metrics_snapshot (
