@@ -11,7 +11,7 @@ from __future__ import annotations
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.routes import district, embed, freshness, investigate, nl_query, schemes, scores
+from api.routes import constituency, district, embed, freshness, investigate, nl_query, schemes, scores
 
 app = FastAPI(
     title="Hisaab API",
@@ -33,6 +33,7 @@ app.include_router(nl_query.router, prefix="/api/v1", tags=["query"])
 app.include_router(embed.router, prefix="/api/v1", tags=["embed"])
 app.include_router(scores.router, prefix="/api/v1", tags=["scores"])
 app.include_router(investigate.router, prefix="/api/v1", tags=["investigate"])
+app.include_router(constituency.router, prefix="/api/v1", tags=["constituency"])
 
 
 @app.get("/")
@@ -59,5 +60,10 @@ def root():
             "/api/v1/scores/worst",
             "/api/v1/scores/{district}",
             "/api/v1/investigate",
+            "/api/v1/pin/{pin_code}",
+            "/api/v1/constituency/search",
+            "/api/v1/constituency/{name}",
+            "/api/v1/constituency/{name}/card",
+            "/api/v1/mp/{name}",
         ],
     }
