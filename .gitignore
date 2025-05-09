@@ -37,3 +37,4 @@ data/briefs/
 web/node_modules/
 web/.next/
 web/out/
+*.png
