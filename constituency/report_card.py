@@ -191,8 +191,14 @@ def _aggregate_scheme_performance(
             )
 
             # Composite micro-score: 60% delivery, 40% utilization
-            vals = [v for v in [delivery_pct, utilization_pct] if v is not None]
-            score: float | None = round(sum(vals) / len(vals), 1) if vals else None
+            if delivery_pct is not None and utilization_pct is not None:
+                score: float | None = round(delivery_pct * 0.6 + utilization_pct * 0.4, 1)
+            elif delivery_pct is not None:
+                score = round(delivery_pct, 1)
+            elif utilization_pct is not None:
+                score = round(utilization_pct, 1)
+            else:
+                score = None
 
             grade: str | None = None
             if score is not None:

@@ -63,7 +63,9 @@ def _fetch_delivery_scores(conn: sqlite3.Connection, fin_year: str) -> dict[tupl
         WHERE delivery_pct IS NOT NULL
           AND delivery_pct > 0
           AND district != 'ALL'
+          AND fin_year = ?
         """,
+        (fin_year,),
     ).fetchall()
 
     result: dict[tuple[str, str], dict[str, Any]] = {}
@@ -87,7 +89,9 @@ def _fetch_finance_scores(conn: sqlite3.Connection, fin_year: str) -> dict[tuple
         WHERE utilization_pct IS NOT NULL
           AND utilization_pct > 0
           AND utilization_pct <= 150
+          AND fin_year = ?
         """,
+        (fin_year,),
     ).fetchall()
 
     result: dict[tuple[str, str], dict[str, Any]] = {}

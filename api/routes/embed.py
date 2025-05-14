@@ -111,8 +111,8 @@ def _fetch_district_metrics(
             row = _row("financial_statement")
         if row:
             r = dict(row)
-            utilised = r.get("total_exp_mgnrega_lakhs") or 0
-            released = r.get("total_avail_lakhs") or 0
+            utilised = r.get("cumulative_expenditure") or 0
+            released = r.get("total_availability") or 0
             pct = (utilised / released * 100) if released > 0 else 0
             metrics.append(
                 {
@@ -129,7 +129,7 @@ def _fetch_district_metrics(
             mis_row = _row("misappropriation")
         if mis_row:
             r = dict(mis_row)
-            cases = r.get("misappropriation_cases") or 0
+            cases = r.get("cases_reported") or 0
             if cases > 0:
                 metrics.append(
                     {
@@ -137,7 +137,7 @@ def _fetch_district_metrics(
                         "metric": "Misappropriation cases",
                         "value": str(cases),
                         "indicator": "red" if cases > 5 else "yellow",
-                        "detail": f"₹{r.get('amount_misappropriated_lakhs', 0):.1f}L implicated",
+                        "detail": f"₹{r.get('amount_reported', 0):.1f}L implicated",
                     }
                 )
 
@@ -233,7 +233,7 @@ def _fetch_district_metrics(
             row = _row("nsap_district")
         if row:
             r = dict(row)
-            total_bene = (r.get("ignoaps_beneficiaries") or 0) + (r.get("ignwps_beneficiaries") or 0)
+            total_bene = (r.get("beneficiaries_eligible") or 0)
             if total_bene > 0:
                 metrics.append(
                     {
@@ -252,8 +252,8 @@ def _fetch_district_metrics(
             row = _row("nfsa_district")
         if row:
             r = dict(row)
-            active = r.get("active_ration_cards") or 0
-            total = r.get("total_ration_cards") or 0
+            active = r.get("ration_cards_active") or 0
+            total = r.get("ration_cards_total") or 0
             pct = (active / total * 100) if total > 0 else 0
             if total > 0:
                 metrics.append(
@@ -327,9 +327,12 @@ def _build_html_card(
     theme: str,
     width: int,
 ) -> str:
+    import html as html_mod
+
     t = theme if theme in _THEMES else "light"
     c = _THEMES[t]
-    state_label = state or "India"
+    district = html_mod.escape(district)
+    state_label = html_mod.escape(state or "India")
     scheme_count = len({m["scheme"] for m in metrics})
 
     rows_html = ""
