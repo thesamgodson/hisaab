@@ -24,18 +24,15 @@ import io
 import sqlite3
 from typing import Any
 
-from db import DB_PATH
+from db.connection import DB_PATH, get_connection
 
 
 # ---------------------------------------------------------------------------
 # Internal helpers
 # ---------------------------------------------------------------------------
 
-def _conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(str(DB_PATH))
-    conn.row_factory = sqlite3.Row
-    conn.execute("PRAGMA journal_mode=WAL")
-    return conn
+def _conn():
+    return get_connection(DB_PATH)
 
 
 def _row_to_dict(row: sqlite3.Row | None) -> dict[str, Any] | None:
@@ -242,11 +239,13 @@ def load_mp_data(records: list[dict[str, Any]]) -> int:
     count = 0
     try:
         for rec in records:
+            margin_raw = rec.get("margin_votes")
+            margin_votes = int(margin_raw) if margin_raw is not None else None
             conn.execute(
                 """
                 INSERT OR REPLACE INTO mp_info
-                    (constituency, mp_name, party, state, elected_year, source_url)
-                VALUES (?, ?, ?, ?, ?, ?)
+                    (constituency, mp_name, party, state, elected_year, margin_votes, source_url)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     rec["constituency"].strip().upper(),
@@ -254,6 +253,7 @@ def load_mp_data(records: list[dict[str, Any]]) -> int:
                     rec.get("party", "").strip(),
                     rec["state"].strip().upper(),
                     int(rec.get("elected_year", 2024)),
+                    margin_votes,
                     rec.get("source_url", ""),
                 ),
             )

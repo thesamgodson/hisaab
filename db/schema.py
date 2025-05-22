@@ -679,6 +679,7 @@ CREATE TABLE IF NOT EXISTS mp_info (
     party TEXT NOT NULL DEFAULT '',
     state TEXT NOT NULL,
     elected_year INTEGER NOT NULL DEFAULT 2024,
+    margin_votes INTEGER,
     source_url TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_mp_info_constituency ON mp_info(constituency);
