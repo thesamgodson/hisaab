@@ -11,3 +11,6 @@ openai>=1.0.0
 # Alert delivery — optional, install only if using alerts/
 # python-telegram-bot>=21.0   # Telegram bot (HISAAB_TELEGRAM_TOKEN)
 # resend>=2.0.0               # Email via Resend API (HISAAB_RESEND_KEY)
+
+# PostgreSQL support (optional — install if using HISAAB_DB_URL=postgresql://...)
+# psycopg[binary]>=3.1

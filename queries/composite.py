@@ -13,7 +13,7 @@ from __future__ import annotations
 import sqlite3
 from typing import Any
 
-from db import DB_PATH
+from db.connection import get_connection
 
 # ---------------------------------------------------------------------------
 # Internal helpers
@@ -32,10 +32,8 @@ _FINANCE_WEIGHT = 0.30
 _GOVERNANCE_WEIGHT = 0.10
 
 
-def _conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(str(DB_PATH))
-    conn.row_factory = sqlite3.Row
-    return conn
+def _conn():
+    return get_connection()
 
 
 def _grade(score: float) -> str:

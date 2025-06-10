@@ -16,7 +16,7 @@ import textwrap
 from dataclasses import dataclass, field
 from typing import Any
 
-from db import DB_PATH
+from db.connection import DB_PATH, get_connection
 from constituency.mapper import get_districts_for_constituency, get_mp_info
 from queries.composite import get_district_score
 
@@ -91,11 +91,8 @@ class MPReportCard:
 # Internal helpers
 # ---------------------------------------------------------------------------
 
-def _conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(str(DB_PATH))
-    conn.row_factory = sqlite3.Row
-    conn.execute("PRAGMA journal_mode=WAL")
-    return conn
+def _conn():
+    return get_connection(DB_PATH)
 
 
 def _score_to_status(score: float | None) -> tuple[str, str]:
