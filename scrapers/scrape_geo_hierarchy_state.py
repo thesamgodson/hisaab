@@ -6,7 +6,7 @@ import argparse
 import json
 from datetime import UTC, datetime
 
-from scrape_geo_hierarchy import OUT_DIR, Scraper
+from scrapers.scrape_geo_hierarchy import OUT_DIR, Scraper
 
 
 def main() -> int:

@@ -18,7 +18,7 @@ import json
 import sys
 from pathlib import Path
 
-from normalize_states import normalize_state
+from db.normalize_states import normalize_state
 
 CURATED_DIR = Path(__file__).resolve().parent / "data" / "curated"
 

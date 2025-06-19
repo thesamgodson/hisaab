@@ -91,7 +91,7 @@ def filter_states(
 def scrape_jjm(states: list[str] | None = None) -> dict[str, int]:
     """Run JJM scraper — pure requests, all India in one call."""
     try:
-        from scrape_jjm import scrape
+        from scrapers.scrape_jjm import scrape
 
         return scrape(states)
     except Exception as exc:
@@ -102,7 +102,7 @@ def scrape_jjm(states: list[str] | None = None) -> dict[str, int]:
 def scrape_sbm(states: list[str] | None = None) -> dict[str, int]:
     """Run SBM-G scraper — pure requests, all India in one call."""
     try:
-        from scrape_sbm import scrape
+        from scrapers.scrape_sbm import scrape
 
         return scrape(states)
     except Exception as exc:
@@ -115,7 +115,7 @@ def scrape_nrlm(states: list[str] | None = None, include_rf: bool = True) -> dic
     try:
         import asyncio
 
-        from scrape_nrlm import save_curated, scrape_all_states
+        from scrapers.scrape_nrlm import save_curated, scrape_all_states
 
         records = asyncio.run(
             scrape_all_states(states_filter=states, include_rf=include_rf)
@@ -135,7 +135,7 @@ def scrape_nrlm(states: list[str] | None = None, include_rf: bool = True) -> dic
 def scrape_udise() -> dict[str, int]:
     """Run UDISE+ scraper — pure HTTP, all India."""
     try:
-        from scrape_udise import save_curated, scrape_all
+        from scrapers.scrape_udise import save_curated, scrape_all
 
         records = scrape_all()
         if records:
@@ -156,7 +156,7 @@ def scrape_pmayg(states: list[dict[str, str]], fin_year: str) -> dict[str, int]:
     try:
         import asyncio
 
-        from scrape_pmayg import STATE_CODES, scrape_state
+        from scrapers.scrape_pmayg import STATE_CODES, scrape_state
 
         for state in states:
             name = state["state_name"].upper()
@@ -178,7 +178,7 @@ def scrape_mgnrega(states: list[dict[str, str]], fin_year: str, reports: list[st
     """Run MGNREGA scraper."""
     results: dict[str, int] = {}
     try:
-        from scrape_reports import run_for_state
+        from scrapers.scrape_reports import run_for_state
 
         for state in states:
             name = state["state_name"]
@@ -204,7 +204,7 @@ def scrape_pmgsy(states: list[dict[str, str]]) -> dict[str, int]:
     """Run PMGSY scraper."""
     results: dict[str, int] = {}
     try:
-        from scrape_pmgsy import load_catalog, run_for_state
+        from scrapers.scrape_pmgsy import load_catalog, run_for_state
 
         catalog = load_catalog()
         for state in states:
@@ -278,7 +278,7 @@ def import_csvs(scheme: str) -> int:
 def load_curated_into_db(fin_year: str) -> dict[str, int]:
     """Load all curated JSON files into SQLite, then run imputations."""
     from db import CURATED_DIR, LOADERS, get_connection, impute_nsap_financials, init_db
-    from normalize_states import normalize_records
+    from db.normalize_states import normalize_records
 
     conn = get_connection()
     init_db(conn)

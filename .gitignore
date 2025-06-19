@@ -37,4 +37,11 @@ data/briefs/
 web/node_modules/
 web/.next/
 web/out/
+# Debug screenshots
 *.png
+!web/public/*.png
+
+# Stale root files
+hisaab.db
+tasks.md
+states.json

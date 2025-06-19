@@ -53,7 +53,7 @@ def in_memory_db():
 
 class TestParseDistrictCSV:
     def test_basic_parsing(self):
-        from scrape_pmgsy import parse_district_csv
+        from scrapers.scrape_pmgsy import parse_district_csv
 
         records = parse_district_csv(SAMPLE_CSV, SAMPLE_DISTRICTS, "TestState", "http://example.com")
         assert len(records) == 3
@@ -61,7 +61,7 @@ class TestParseDistrictCSV:
         assert names == ["Alpha", "Beta", "Gamma"]
 
     def test_aggregation_across_years(self):
-        from scrape_pmgsy import parse_district_csv
+        from scrapers.scrape_pmgsy import parse_district_csv
 
         records = parse_district_csv(SAMPLE_CSV, SAMPLE_DISTRICTS, "TestState", "http://example.com")
         alpha = next(r for r in records if r["district"] == "Alpha")
@@ -70,7 +70,7 @@ class TestParseDistrictCSV:
         assert alpha["roads_completed"] == 18
 
     def test_state_and_metadata(self):
-        from scrape_pmgsy import parse_district_csv
+        from scrapers.scrape_pmgsy import parse_district_csv
 
         records = parse_district_csv(SAMPLE_CSV, SAMPLE_DISTRICTS, "TestState", "http://example.com")
         for r in records:
@@ -81,20 +81,20 @@ class TestParseDistrictCSV:
             assert "scraped_at" in r
 
     def test_empty_districts(self):
-        from scrape_pmgsy import parse_district_csv
+        from scrapers.scrape_pmgsy import parse_district_csv
 
         records = parse_district_csv(SAMPLE_CSV, [], "TestState", "http://example.com")
         assert records == []
 
     def test_empty_csv(self):
-        from scrape_pmgsy import parse_district_csv
+        from scrapers.scrape_pmgsy import parse_district_csv
 
         records = parse_district_csv("", SAMPLE_DISTRICTS, "TestState", "http://example.com")
         assert records == []
 
     def test_mismatched_group_size_skipped(self):
         """Year groups with wrong number of rows should be skipped."""
-        from scrape_pmgsy import parse_district_csv
+        from scrapers.scrape_pmgsy import parse_district_csv
 
         # CSV with 2 rows per year but 3 districts — should skip all
         csv_2_rows = textwrap.dedent("""\
@@ -110,7 +110,7 @@ class TestParseDistrictCSV:
 
 class TestExtractStateTotals:
     def test_basic_extraction(self):
-        from scrape_pmgsy import extract_state_totals
+        from scrapers.scrape_pmgsy import extract_state_totals
 
         totals = extract_state_totals(SAMPLE_CSV, "TestState", "http://example.com")
         assert len(totals) == 1
@@ -121,7 +121,7 @@ class TestExtractStateTotals:
         assert t["expenditure_programme_cr"] == 800.0
 
     def test_empty_csv(self):
-        from scrape_pmgsy import extract_state_totals
+        from scrapers.scrape_pmgsy import extract_state_totals
 
         totals = extract_state_totals("", "TestState", "http://example.com")
         assert totals == []
@@ -129,17 +129,17 @@ class TestExtractStateTotals:
 
 class TestParseAmount:
     def test_basic(self):
-        from scrape_pmgsy import parse_amount
+        from scrapers.scrape_pmgsy import parse_amount
 
         assert parse_amount("1,234.56") == 1234.56
 
     def test_empty(self):
-        from scrape_pmgsy import parse_amount
+        from scrapers.scrape_pmgsy import parse_amount
 
         assert parse_amount("") == 0.0
 
     def test_quoted(self):
-        from scrape_pmgsy import parse_amount
+        from scrapers.scrape_pmgsy import parse_amount
 
         assert parse_amount('"27,132.852"') == 27132.852
 

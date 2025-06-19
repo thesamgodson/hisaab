@@ -10,9 +10,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-import scrape_jjm_ejalshakti as jjm
-import scrape_sbm as sbm
-import scrape_udise as udise
+import scrapers.scrape_jjm_ejalshakti as jjm
+import scrapers.scrape_sbm as sbm
+import scrapers.scrape_udise as udise
 
 
 # ---------------------------------------------------------------------------
