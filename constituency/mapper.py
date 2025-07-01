@@ -97,10 +97,16 @@ def get_mp_info(constituency: str) -> dict[str, Any] | None:
     """
     conn = _conn()
     try:
+        # Strip reservation suffixes: "GAYA (SC)" → "GAYA"
+        import re
+        clean_name = re.sub(r"\s*\((?:SC|ST)\)\s*$", "", constituency.strip().upper())
+        # Known spelling mismatches between GeoJSON and MP CSV
+        _PC_ALIASES = {"PATALIPUTRA": "PATLIPUTRA", "PATLIPUTRA": "PATALIPUTRA"}
+        alias = _PC_ALIASES.get(clean_name, clean_name)
         row = conn.execute(
             "SELECT constituency, mp_name, party, state, elected_year, source_url "
-            "FROM mp_info WHERE UPPER(constituency) = UPPER(?)",
-            (constituency,),
+            "FROM mp_info WHERE UPPER(constituency) IN (UPPER(?), UPPER(?), UPPER(?))",
+            (constituency, clean_name, alias),
         ).fetchone()
         return _row_to_dict(row)
     finally:
