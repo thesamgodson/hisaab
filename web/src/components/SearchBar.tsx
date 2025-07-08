@@ -32,7 +32,7 @@ export default function SearchBar({
       .then((r) => r.json() as Promise<DistrictsResponse>)
       .then((data) => setAllDistricts(data.districts))
       .catch(() => {
-        /* backend not running — degrade gracefully */
+        /* backend not running -- degrade gracefully */
       });
   }, []);
 
@@ -98,7 +98,15 @@ export default function SearchBar({
           navigate(query);
         }}
       >
-        <div className="relative">
+        <div className="relative group">
+          {/* Search icon */}
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: "var(--text-muted)" }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <path d="M21 21l-4.35-4.35" />
+            </svg>
+          </div>
+
           <input
             ref={inputRef}
             type="text"
@@ -111,27 +119,54 @@ export default function SearchBar({
             onKeyDown={handleKeyDown}
             autoFocus={autoFocus}
             placeholder="Search any district..."
-            className="w-full px-5 py-4 text-lg rounded-2xl border border-gray-200 bg-white shadow-sm
-                       placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500
-                       focus:border-transparent transition-shadow"
+            className="w-full pl-12 pr-24 py-4 text-base sm:text-lg rounded-2xl transition-all duration-200"
+            style={{
+              background: "var(--surface)",
+              color: "var(--text-primary)",
+              boxShadow: "var(--shadow-md)",
+              border: "1px solid var(--border)",
+            }}
+            onFocusCapture={(e) => {
+              const el = e.currentTarget;
+              el.style.boxShadow = "var(--shadow-lg)";
+              el.style.borderColor = "var(--accent)";
+            }}
+            onBlurCapture={(e) => {
+              const el = e.currentTarget;
+              el.style.boxShadow = "var(--shadow-md)";
+              el.style.borderColor = "var(--border)";
+            }}
             aria-label="Search districts"
             autoComplete="off"
           />
+
           <button
             type="submit"
-            className="absolute right-3 top-1/2 -translate-y-1/2 px-4 py-2 bg-indigo-600 text-white
-                       rounded-xl text-sm font-medium hover:bg-indigo-700 transition-colors
-                       focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 px-5 py-2 text-white text-sm font-semibold rounded-xl transition-all duration-150"
+            style={{ background: "var(--accent-gradient)" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.opacity = "0.9";
+              e.currentTarget.style.transform = "translateY(-50%) scale(1.02)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.opacity = "1";
+              e.currentTarget.style.transform = "translateY(-50%) scale(1)";
+            }}
           >
             Search
           </button>
         </div>
       </form>
 
+      {/* Suggestions dropdown */}
       {showSuggestions && suggestions.length > 0 && (
         <ul
-          className="absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-xl shadow-lg
-                     max-h-64 overflow-y-auto"
+          className="absolute z-20 mt-2 w-full rounded-xl overflow-hidden max-h-72 overflow-y-auto"
+          style={{
+            background: "var(--elevated)",
+            boxShadow: "var(--shadow-xl)",
+            border: "1px solid var(--border)",
+          }}
           role="listbox"
         >
           {suggestions.map((d, i) => (
@@ -139,11 +174,11 @@ export default function SearchBar({
               key={d}
               role="option"
               aria-selected={i === selectedIdx}
-              className={`px-5 py-3 cursor-pointer text-sm ${
-                i === selectedIdx
-                  ? "bg-indigo-50 text-indigo-900"
-                  : "text-gray-700 hover:bg-gray-50"
-              }`}
+              className="px-5 py-3 cursor-pointer text-sm transition-colors duration-100"
+              style={{
+                color: i === selectedIdx ? "var(--accent)" : "var(--text-primary)",
+                background: i === selectedIdx ? "var(--accent-light)" : "transparent",
+              }}
               onMouseDown={() => navigate(d)}
               onMouseEnter={() => setSelectedIdx(i)}
             >
@@ -153,16 +188,31 @@ export default function SearchBar({
         </ul>
       )}
 
+      {/* Example chips */}
       {!query && (
         <div className="mt-4 flex flex-wrap gap-2 justify-center">
-          <span className="text-sm text-gray-400">Try:</span>
+          <span className="text-sm" style={{ color: "var(--text-muted)" }}>Try:</span>
           {EXAMPLES.map((ex) => (
             <button
               key={ex}
               type="button"
               onClick={() => navigate(ex)}
-              className="text-sm px-3 py-1 rounded-lg bg-gray-100 text-gray-600
-                         hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
+              className="text-sm px-3 py-1 rounded-lg transition-all duration-150"
+              style={{
+                background: "var(--surface)",
+                color: "var(--text-secondary)",
+                border: "1px solid var(--border-subtle)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "var(--accent-light)";
+                e.currentTarget.style.color = "var(--accent)";
+                e.currentTarget.style.borderColor = "var(--accent-light)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "var(--surface)";
+                e.currentTarget.style.color = "var(--text-secondary)";
+                e.currentTarget.style.borderColor = "var(--border-subtle)";
+              }}
             >
               {ex}
             </button>

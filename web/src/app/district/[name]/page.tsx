@@ -78,7 +78,6 @@ async function fetchMoneyFlow(district: string): Promise<SchemeData | null> {
 function extractState(overview: SchemeData | null): string | null {
   if (!overview) return null;
   const answer = overview.answer ?? "";
-  // The overview answer contains lines like "VILLUPURAM, TAMIL NADU (FY 2024-2025):"
   const match = answer.match(/,\s*([A-Z\s]+?)\s*\(/);
   return match ? match[1].trim() : null;
 }
@@ -98,22 +97,31 @@ async function DistrictContent({ district }: { district: string }) {
 
   if (!hasAnyData && !overview?.data) {
     return (
-      <div className="text-center py-16">
-        <p className="text-xl text-gray-500">No data found for {district}</p>
-        <p className="text-sm text-gray-400 mt-2">
+      <div className="text-center py-24">
+        <div
+          className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center"
+          style={{ background: "var(--accent-light)" }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--accent)" }} aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
+          </svg>
+        </div>
+        <p className="text-xl font-semibold" style={{ color: "var(--text-primary)" }}>
+          No data found for {district}
+        </p>
+        <p className="text-sm mt-2" style={{ color: "var(--text-muted)" }}>
           Try checking the spelling or searching for another district.
         </p>
       </div>
     );
   }
 
-  // Build scheme cards: pair each SCHEME_KEYS entry with its result
   const schemeCards = SCHEME_KEYS.map((s, i) => ({
     ...s,
     result: schemeResults[i],
   })).filter((s) => s.result?.data !== null && s.result?.data !== undefined);
 
-  // Determine display name mapping for warnings lookup
   const warningNameMap: Record<string, string> = {
     mgnrega: "MGNREGA",
     funds: "MGNREGA",
@@ -130,12 +138,32 @@ async function DistrictContent({ district }: { district: string }) {
   return (
     <>
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">{district}</h1>
-        {state && <p className="text-lg text-gray-500 mt-1">{state}</p>}
+      <div className="mb-8 animate-fade-in-up">
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-2 mb-4 text-sm" style={{ color: "var(--text-muted)" }}>
+          <Link href="/" className="transition-colors duration-150 hover:text-[var(--accent)]">
+            Home
+          </Link>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+          <span style={{ color: "var(--text-secondary)" }}>{district}</span>
+        </div>
+
+        <h1
+          className="text-3xl sm:text-4xl font-bold"
+          style={{ color: "var(--text-primary)" }}
+        >
+          {district}
+        </h1>
+        {state && (
+          <p className="text-lg mt-1" style={{ color: "var(--text-secondary)" }}>
+            {state}
+          </p>
+        )}
         <div className="flex items-center gap-3 mt-4">
           <BriefButton district={district} />
-          <span className="text-xs text-gray-400">
+          <span className="text-xs" style={{ color: "var(--text-muted)" }}>
             {schemeCards.length} of 8 schemes with data
           </span>
         </div>
@@ -143,8 +171,17 @@ async function DistrictContent({ district }: { district: string }) {
 
       {/* Money flow summary */}
       {moneyFlow?.data && (
-        <div className="mb-8 rounded-2xl border border-indigo-100 bg-indigo-50/30 p-5">
-          <h2 className="text-sm font-semibold text-indigo-800 mb-3">
+        <div
+          className="mb-8 rounded-xl p-5 animate-fade-in-up stagger-1"
+          style={{
+            background: "var(--surface-tinted)",
+            border: "1px solid var(--border)",
+          }}
+        >
+          <h2
+            className="text-xs font-semibold uppercase tracking-widest mb-3"
+            style={{ color: "var(--accent)" }}
+          >
             Cross-Scheme Money Flow
           </h2>
           <div className="space-y-1">
@@ -155,7 +192,8 @@ async function DistrictContent({ district }: { district: string }) {
               .map((line, i) => (
                 <p
                   key={i}
-                  className="text-sm text-gray-700 font-mono leading-relaxed"
+                  className="text-sm font-mono leading-relaxed"
+                  style={{ color: "var(--text-secondary)" }}
                 >
                   {line}
                 </p>
@@ -166,20 +204,24 @@ async function DistrictContent({ district }: { district: string }) {
 
       {/* Scheme cards */}
       <div className="grid gap-4 sm:grid-cols-2">
-        {schemeCards.map((s) => {
+        {schemeCards.map((s, i) => {
           const result = s.result!;
           const qualityKey = warningNameMap[s.key] ?? s.name;
           const warnings = quality[qualityKey] ?? [];
 
           return (
-            <SchemeCard
+            <div
               key={s.key}
-              schemeName={qualityKey}
-              answer={result.answer}
-              data={result.data}
-              sourceUrl={result.source_url}
-              warnings={warnings}
-            />
+              className={`animate-fade-in-up stagger-${Math.min(i + 2, 10)}`}
+            >
+              <SchemeCard
+                schemeName={qualityKey}
+                answer={result.answer}
+                data={result.data}
+                sourceUrl={result.source_url}
+                warnings={warnings}
+              />
+            </div>
           );
         })}
       </div>
@@ -189,12 +231,19 @@ async function DistrictContent({ district }: { district: string }) {
 
 function LoadingSkeleton() {
   return (
-    <div className="animate-pulse space-y-6">
-      <div className="h-10 w-64 bg-gray-200 rounded-lg" />
-      <div className="h-6 w-40 bg-gray-100 rounded-lg" />
+    <div className="space-y-6">
+      <div className="space-y-3">
+        <div className="h-4 w-32 rounded-lg shimmer" style={{ background: "var(--border)" }} />
+        <div className="h-10 w-64 rounded-lg shimmer" style={{ background: "var(--border)" }} />
+        <div className="h-5 w-40 rounded-lg shimmer" style={{ background: "var(--border-subtle)" }} />
+      </div>
       <div className="grid gap-4 sm:grid-cols-2">
         {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} className="h-48 bg-gray-100 rounded-2xl" />
+          <div
+            key={i}
+            className="h-48 rounded-xl shimmer"
+            style={{ background: "var(--border-subtle)" }}
+          />
         ))}
       </div>
     </div>
@@ -210,36 +259,28 @@ export default async function DistrictPage({
   const district = decodeURIComponent(name).toUpperCase();
 
   return (
-    <div className="min-h-screen">
-      {/* Navigation bar */}
-      <nav className="border-b border-gray-100 bg-white/80 backdrop-blur-sm sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-4">
-          <Link
-            href="/"
-            className="text-lg font-bold text-gray-900 hover:text-indigo-600 transition-colors shrink-0"
-          >
-            Hisaab
-          </Link>
-          <div className="flex-1 max-w-md">
+    <div className="flex-1">
+      {/* Secondary nav with search */}
+      <div
+        className="border-b"
+        style={{
+          borderColor: "var(--border-subtle)",
+          background: "var(--surface)",
+        }}
+      >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3">
+          <div className="max-w-md">
             <SearchBar />
           </div>
         </div>
-      </nav>
+      </div>
 
       {/* Content */}
-      <main className="max-w-4xl mx-auto px-4 py-8">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
         <Suspense fallback={<LoadingSkeleton />}>
           <DistrictContent district={district} />
         </Suspense>
       </main>
-
-      {/* Footer */}
-      <footer className="border-t border-gray-100 mt-16">
-        <div className="max-w-4xl mx-auto px-4 py-6 text-center text-xs text-gray-400">
-          Data sourced from official government portals. Hisaab is open-source
-          public infrastructure.
-        </div>
-      </footer>
     </div>
   );
 }

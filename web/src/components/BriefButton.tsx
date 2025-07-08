@@ -36,29 +36,49 @@ export default function BriefButton({ district }: BriefButtonProps) {
 
   if (brief) {
     return (
-      <div className="rounded-2xl border border-indigo-100 bg-indigo-50/50 p-5">
+      <div
+        className="rounded-xl p-5"
+        style={{
+          background: "var(--surface-tinted)",
+          border: "1px solid var(--border)",
+        }}
+      >
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-sm font-semibold text-indigo-800">
+          <h3
+            className="text-xs font-semibold uppercase tracking-widest"
+            style={{ color: "var(--accent)" }}
+          >
             Journalist Brief
           </h3>
           <div className="flex gap-2">
             <button
               onClick={handleCopy}
-              className="text-xs px-3 py-1 rounded-lg bg-white text-indigo-600 border border-indigo-200
-                         hover:bg-indigo-50 transition-colors"
+              className="text-xs px-3 py-1 rounded-lg font-medium transition-all duration-150"
+              style={{
+                background: "var(--surface)",
+                color: "var(--accent)",
+                border: "1px solid var(--border)",
+              }}
             >
               Copy
             </button>
             <button
               onClick={() => setBrief(null)}
-              className="text-xs px-3 py-1 rounded-lg bg-white text-gray-500 border border-gray-200
-                         hover:bg-gray-50 transition-colors"
+              className="text-xs px-3 py-1 rounded-lg font-medium transition-all duration-150"
+              style={{
+                background: "var(--surface)",
+                color: "var(--text-muted)",
+                border: "1px solid var(--border)",
+              }}
             >
               Close
             </button>
           </div>
         </div>
-        <pre className="text-sm text-gray-700 whitespace-pre-wrap font-sans leading-relaxed">
+        <pre
+          className="text-sm whitespace-pre-wrap font-sans leading-relaxed"
+          style={{ color: "var(--text-secondary)" }}
+        >
           {brief}
         </pre>
       </div>
@@ -69,9 +89,10 @@ export default function BriefButton({ district }: BriefButtonProps) {
     <button
       onClick={handleGenerate}
       disabled={loading}
-      className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium
-                 rounded-xl hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed
-                 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      className="inline-flex items-center gap-2 px-4 py-2 text-white text-sm font-semibold rounded-xl transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
+      style={{ background: "var(--accent-gradient)" }}
+      onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.9"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
     >
       {loading ? (
         <>
@@ -110,7 +131,9 @@ export default function BriefButton({ district }: BriefButtonProps) {
           Generate Brief
         </>
       )}
-      {error && <span className="text-red-200 text-xs ml-2">{error}</span>}
+      {error && (
+        <span className="text-xs ml-2 opacity-80">{error}</span>
+      )}
     </button>
   );
 }

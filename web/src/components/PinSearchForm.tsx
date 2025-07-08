@@ -1,15 +1,5 @@
 "use client";
 
-/**
- * PIN code search form — client component.
- *
- * Handles:
- *  1. 6-digit PIN input with validation
- *  2. API call to /api/v1/pin/{pin_code}
- *  3. Display of constituency results + links to detail pages
- *  4. Fallback: constituency name search if PIN not found
- */
-
 import { useState, useRef, type FormEvent, type KeyboardEvent } from "react";
 import Link from "next/link";
 import type { PinLookupResponse, ConstituencySearchResponse } from "@/lib/constituency-types";
@@ -74,7 +64,6 @@ export default function PinSearchForm() {
   };
 
   const handlePinKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    // Allow only digits, backspace, delete, arrows, tab
     if (
       !/^\d$/.test(e.key) &&
       !["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab", "Enter"].includes(e.key)
@@ -95,26 +84,29 @@ export default function PinSearchForm() {
   return (
     <div className="w-full">
       {/* Mode toggle */}
-      <div className="flex rounded-xl border border-gray-200 mb-5 overflow-hidden">
+      <div
+        className="flex rounded-xl mb-5 overflow-hidden"
+        style={{ border: "1px solid var(--border)" }}
+      >
         <button
           type="button"
           onClick={() => { setSearchMode(false); reset(); }}
-          className={`flex-1 py-2.5 text-sm font-medium transition-colors ${
-            !searchMode
-              ? "bg-indigo-600 text-white"
-              : "bg-white text-gray-500 hover:text-gray-700"
-          }`}
+          className="flex-1 py-2.5 text-sm font-semibold transition-all duration-150"
+          style={{
+            background: !searchMode ? "var(--accent-gradient)" : "var(--surface)",
+            color: !searchMode ? "white" : "var(--text-muted)",
+          }}
         >
           PIN Code
         </button>
         <button
           type="button"
           onClick={() => { setSearchMode(true); reset(); }}
-          className={`flex-1 py-2.5 text-sm font-medium transition-colors ${
-            searchMode
-              ? "bg-indigo-600 text-white"
-              : "bg-white text-gray-500 hover:text-gray-700"
-          }`}
+          className="flex-1 py-2.5 text-sm font-semibold transition-all duration-150"
+          style={{
+            background: searchMode ? "var(--accent-gradient)" : "var(--surface)",
+            color: searchMode ? "white" : "var(--text-muted)",
+          }}
         >
           Search by Name
         </button>
@@ -135,15 +127,23 @@ export default function PinSearchForm() {
               onKeyDown={handlePinKeyDown}
               placeholder="Enter 6-digit PIN code"
               autoFocus
-              className="w-full text-center text-3xl font-mono tracking-[0.3em] py-5 px-4 rounded-2xl border-2 border-gray-200 focus:border-indigo-500 focus:ring-0 focus:outline-none transition-colors placeholder:text-gray-300 placeholder:tracking-normal placeholder:text-lg"
+              className="w-full text-center text-3xl font-mono tracking-[0.3em] py-5 px-4 rounded-xl transition-all duration-200 placeholder:tracking-normal placeholder:text-lg"
+              style={{
+                background: "var(--surface)",
+                color: "var(--text-primary)",
+                border: "2px solid var(--border)",
+              }}
+              onFocus={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; }}
+              onBlur={(e) => { e.currentTarget.style.borderColor = "var(--border)"; }}
             />
           </div>
           <button
             type="submit"
             disabled={pin.length !== 6 || status === "loading"}
-            className="w-full py-4 rounded-2xl bg-indigo-600 text-white text-base font-semibold hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full py-4 rounded-xl text-white text-base font-semibold transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ background: "var(--accent-gradient)" }}
           >
-            {status === "loading" ? "Looking up…" : "Find My Constituency"}
+            {status === "loading" ? "Looking up..." : "Find My Constituency"}
           </button>
         </form>
       )}
@@ -157,25 +157,39 @@ export default function PinSearchForm() {
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="e.g. Varanasi, Rajnath Singh, Lucknow"
             autoFocus
-            className="w-full py-4 px-5 rounded-2xl border-2 border-gray-200 focus:border-indigo-500 focus:ring-0 focus:outline-none transition-colors text-base placeholder:text-gray-300"
+            className="w-full py-4 px-5 rounded-xl text-base transition-all duration-200"
+            style={{
+              background: "var(--surface)",
+              color: "var(--text-primary)",
+              border: "2px solid var(--border)",
+            }}
+            onFocus={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; }}
+            onBlur={(e) => { e.currentTarget.style.borderColor = "var(--border)"; }}
           />
           <button
             type="submit"
             disabled={!searchQuery.trim() || status === "loading"}
-            className="w-full py-4 rounded-2xl bg-indigo-600 text-white text-base font-semibold hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full py-4 rounded-xl text-white text-base font-semibold transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ background: "var(--accent-gradient)" }}
           >
-            {status === "loading" ? "Searching…" : "Search"}
+            {status === "loading" ? "Searching..." : "Search"}
           </button>
         </form>
       )}
 
       {/* Results */}
       {status === "not_found" && (
-        <div className="mt-6 rounded-xl border border-amber-100 bg-amber-50 p-4 text-center">
-          <p className="text-sm text-amber-800 font-medium mb-1">
+        <div
+          className="mt-6 rounded-xl p-4 text-center"
+          style={{
+            background: "oklch(0.96 0.03 80)",
+            border: "1px solid oklch(0.90 0.06 80)",
+          }}
+        >
+          <p className="text-sm font-medium mb-1" style={{ color: "oklch(0.40 0.12 80)" }}>
             {searchMode ? "No constituencies found." : "PIN code not found."}
           </p>
-          <p className="text-xs text-amber-600">
+          <p className="text-xs" style={{ color: "oklch(0.50 0.08 80)" }}>
             {searchMode
               ? "Try a different spelling or switch to PIN code lookup."
               : "The PIN database is growing. Try searching by constituency name instead."}
@@ -184,17 +198,26 @@ export default function PinSearchForm() {
             <button
               type="button"
               onClick={() => { setSearchMode(true); reset(); }}
-              className="mt-3 text-xs text-indigo-600 underline"
+              className="mt-3 text-xs underline"
+              style={{ color: "var(--accent)" }}
             >
-              Search by constituency name →
+              Search by constituency name
             </button>
           )}
         </div>
       )}
 
       {status === "error" && (
-        <div className="mt-6 rounded-xl border border-red-100 bg-red-50 p-4 text-center">
-          <p className="text-sm text-red-700">Could not reach the server. Please try again.</p>
+        <div
+          className="mt-6 rounded-xl p-4 text-center"
+          style={{
+            background: "oklch(0.96 0.03 25)",
+            border: "1px solid oklch(0.90 0.06 25)",
+          }}
+        >
+          <p className="text-sm" style={{ color: "oklch(0.45 0.16 25)" }}>
+            Could not reach the server. Please try again.
+          </p>
         </div>
       )}
 
@@ -209,10 +232,6 @@ export default function PinSearchForm() {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Sub-components
-// ---------------------------------------------------------------------------
-
 function PinResultCard({
   result,
   onReset,
@@ -222,26 +241,42 @@ function PinResultCard({
 }) {
   return (
     <div className="mt-6 space-y-4">
-      <div className="rounded-2xl border border-gray-100 bg-white shadow-sm p-5">
+      <div
+        className="rounded-xl p-5"
+        style={{
+          background: "var(--surface)",
+          boxShadow: "var(--shadow-md)",
+          border: "1px solid var(--border-subtle)",
+        }}
+      >
         <div className="flex items-start justify-between mb-1">
-          <p className="text-xs text-gray-400 uppercase tracking-wide">PIN {result.pin_code}</p>
+          <p className="text-xs uppercase tracking-widest font-medium" style={{ color: "var(--text-muted)" }}>
+            PIN {result.pin_code}
+          </p>
           <button
             type="button"
             onClick={onReset}
-            className="text-xs text-gray-400 hover:text-gray-600"
+            className="text-xs transition-colors duration-150"
+            style={{ color: "var(--text-muted)" }}
           >
-            ✕ Clear
+            Clear
           </button>
         </div>
-        <p className="text-lg font-bold text-gray-900">{result.district}</p>
-        <p className="text-sm text-gray-500">{result.state}</p>
+        <p className="text-lg font-bold" style={{ color: "var(--text-primary)" }}>
+          {result.district}
+        </p>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          {result.state}
+        </p>
         {result.office_name && (
-          <p className="text-xs text-gray-400 mt-1">{result.office_name}</p>
+          <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+            {result.office_name}
+          </p>
         )}
       </div>
 
       {result.constituencies.length === 0 ? (
-        <p className="text-sm text-gray-400 text-center py-4">
+        <p className="text-sm text-center py-4" style={{ color: "var(--text-muted)" }}>
           No constituency mapping for this district yet.
         </p>
       ) : (
@@ -267,72 +302,69 @@ function SearchResultList({
   return (
     <div className="mt-6 space-y-3">
       <div className="flex items-center justify-between">
-        <p className="text-xs text-gray-400 uppercase tracking-wide">
+        <p className="text-xs uppercase tracking-widest font-medium" style={{ color: "var(--text-muted)" }}>
           {results.count} result{results.count !== 1 ? "s" : ""} for &ldquo;{results.query}&rdquo;
         </p>
         <button
           type="button"
           onClick={onReset}
-          className="text-xs text-gray-400 hover:text-gray-600"
+          className="text-xs transition-colors duration-150"
+          style={{ color: "var(--text-muted)" }}
         >
-          ✕ Clear
+          Clear
         </button>
       </div>
       {results.results.map((r) => (
         <Link
           key={r.constituency}
           href={`/constituency/${encodeURIComponent(r.constituency)}`}
-          className="block rounded-2xl border border-gray-100 bg-white shadow-sm p-4 hover:border-indigo-200 hover:shadow-md transition-all group"
+          className="block rounded-xl p-4 card-hover group transition-colors duration-150"
+          style={{
+            background: "var(--surface)",
+            boxShadow: "var(--shadow-sm)",
+            border: "1px solid var(--border-subtle)",
+          }}
         >
-          <p className="font-semibold text-gray-900 group-hover:text-indigo-700">
+          <p
+            className="font-semibold transition-colors duration-150 group-hover:text-[var(--accent)]"
+            style={{ color: "var(--text-primary)" }}
+          >
             {r.constituency}
           </p>
-          <p className="text-sm text-gray-500 mt-0.5">
+          <p className="text-sm mt-0.5" style={{ color: "var(--text-secondary)" }}>
             {r.mp_name}
             {r.party && (
-              <span className="text-gray-400"> · {r.party}</span>
+              <span style={{ color: "var(--text-muted)" }}> \u00B7 {r.party}</span>
             )}
           </p>
-          <p className="text-xs text-gray-400 mt-0.5">{r.state}</p>
+          <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
+            {r.state}
+          </p>
         </Link>
       ))}
     </div>
   );
 }
 
-function ConstituencyCard({
-  name,
-  mp,
-}: {
-  name: string;
-  mp: PinLookupResponse["constituencies"][number]["mp"];
-}) {
+function ConstituencyCard({ name, mp }: { name: string; mp: PinLookupResponse["constituencies"][number]["mp"] }) {
   return (
-    <Link
-      href={`/constituency/${encodeURIComponent(name)}`}
-      className="block rounded-2xl border border-gray-100 bg-white shadow-sm p-5 hover:border-indigo-200 hover:shadow-md transition-all group"
-    >
+    <Link href={`/constituency/${encodeURIComponent(name)}`} className="block rounded-xl p-5 card-hover group transition-colors duration-150" style={{ background: "var(--surface)", boxShadow: "var(--shadow-sm)", border: "1px solid var(--border-subtle)" }}>
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Lok Sabha Constituency</p>
-          <p className="text-lg font-bold text-gray-900 group-hover:text-indigo-700">
-            {name}
-          </p>
-          {mp && (
+          <p className="text-xs uppercase tracking-widest font-medium mb-1" style={{ color: "var(--text-muted)" }}>Lok Sabha Constituency</p>
+          <p className="text-lg font-bold transition-colors duration-150 group-hover:text-[var(--accent)]" style={{ color: "var(--text-primary)" }}>{name}</p>
+          {mp ? (
             <>
-              <p className="text-sm font-medium text-gray-700 mt-1">{mp.mp_name}</p>
-              <p className="text-xs text-gray-400 mt-0.5">
-                {mp.party} · Elected {mp.elected_year}
-              </p>
+              <p className="text-sm font-medium mt-1" style={{ color: "var(--text-secondary)" }}>{mp.mp_name}</p>
+              <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>{mp.party} {"\u00B7"} Elected {mp.elected_year}</p>
             </>
-          )}
-          {!mp && (
-            <p className="text-xs text-gray-400 mt-1">MP data not yet loaded</p>
+          ) : (
+            <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>MP data not yet loaded</p>
           )}
         </div>
-        <span className="text-indigo-500 text-xl group-hover:translate-x-1 transition-transform">→</span>
+        <span className="text-xl transition-transform duration-200 group-hover:translate-x-1" style={{ color: "var(--accent)" }}>&rarr;</span>
       </div>
-      <p className="text-xs text-indigo-600 mt-3 font-medium">View Report Card →</p>
+      <p className="text-xs mt-3 font-semibold" style={{ color: "var(--accent)" }}>View Report Card &rarr;</p>
     </Link>
   );
 }

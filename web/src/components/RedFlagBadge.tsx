@@ -6,7 +6,13 @@ interface RedFlagBadgeProps {
 
 export default function RedFlagBadge({ label }: RedFlagBadgeProps) {
   return (
-    <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-md bg-red-50 text-red-700 border border-red-200">
+    <span
+      className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold rounded-md"
+      style={{
+        background: "oklch(0.95 0.03 25)",
+        color: "oklch(0.45 0.16 25)",
+      }}
+    >
       <svg
         className="w-3 h-3"
         fill="currentColor"

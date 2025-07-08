@@ -5,6 +5,18 @@ import RedFlagBadge from "./RedFlagBadge";
 import SourceLink from "./SourceLink";
 import { SCHEME_META } from "@/lib/types";
 
+/** Accent colors per scheme for the gradient top border. */
+const SCHEME_ACCENT: Record<string, string> = {
+  MGNREGA: "oklch(0.65 0.16 65)",
+  PMGSY: "oklch(0.55 0.10 250)",
+  "PMAY-G": "oklch(0.60 0.16 45)",
+  "PM Kisan": "oklch(0.60 0.17 145)",
+  JJM: "oklch(0.60 0.14 200)",
+  "PM POSHAN": "oklch(0.60 0.16 15)",
+  NSAP: "oklch(0.55 0.16 300)",
+  "PDS/NFSA": "oklch(0.55 0.14 170)",
+};
+
 interface SchemeCardProps {
   schemeName: string;
   answer: string;
@@ -93,21 +105,30 @@ export default function SchemeCard({
   const lines = formatAnswer(answer);
   const headerLine = lines[0] ?? schemeName;
   const detailLines = lines.slice(1);
+  const accent = SCHEME_ACCENT[schemeName] ?? "var(--accent)";
 
   return (
     <div
-      className={`rounded-2xl border border-gray-100 shadow-sm overflow-hidden ${meta?.bg ?? "bg-gray-50"}`}
+      className="gradient-border-top card-hover rounded-xl overflow-hidden"
+      style={{
+        background: "var(--surface)",
+        boxShadow: "var(--shadow-sm)",
+        ["--card-accent" as string]: `linear-gradient(135deg, ${accent}, ${accent})`,
+      }}
     >
       <div className="px-5 py-4">
         {/* Header */}
         <div className="flex items-start justify-between gap-2 mb-3">
           <div>
             <h3
-              className={`text-base font-semibold ${meta?.color ?? "text-gray-800"}`}
+              className="text-base font-semibold"
+              style={{ color: "var(--text-primary)" }}
             >
               {meta?.shortName ?? schemeName}
             </h3>
-            <p className="text-xs text-gray-500 mt-0.5">{headerLine}</p>
+            <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
+              {headerLine}
+            </p>
           </div>
           <DataQuality quality={quality} detail={warnings.join(" | ")} />
         </div>
@@ -127,22 +148,26 @@ export default function SchemeCard({
             {detailLines.map((line, i) => (
               <p
                 key={i}
-                className="text-sm text-gray-700 font-mono leading-relaxed"
+                className="text-sm font-mono leading-relaxed"
+                style={{ color: "var(--text-secondary)" }}
               >
                 {line}
               </p>
             ))}
           </div>
         ) : (
-          <p className="text-sm text-gray-400 italic">
+          <p className="text-sm italic" style={{ color: "var(--text-muted)" }}>
             No data available for this district.
           </p>
         )}
 
-        {/* Warnings tooltip area */}
+        {/* Warnings */}
         {warnings.length > 0 && (
           <details className="mt-3">
-            <summary className="text-xs text-gray-400 cursor-pointer hover:text-gray-600">
+            <summary
+              className="text-xs cursor-pointer transition-colors duration-150"
+              style={{ color: "var(--text-muted)" }}
+            >
               {warnings.length} data quality{" "}
               {warnings.length === 1 ? "note" : "notes"}
             </summary>
@@ -150,7 +175,12 @@ export default function SchemeCard({
               {warnings.map((w, i) => (
                 <li
                   key={i}
-                  className="text-xs text-gray-500 pl-3 relative before:content-[''] before:absolute before:left-0 before:top-1.5 before:w-1 before:h-1 before:bg-gray-300 before:rounded-full"
+                  className="text-xs pl-3 relative before:content-[''] before:absolute before:left-0 before:top-1.5 before:w-1 before:h-1 before:rounded-full"
+                  style={{
+                    color: "var(--text-muted)",
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    ["--tw-before-bg" as any]: "var(--border)",
+                  }}
                 >
                   {w}
                 </li>
@@ -161,7 +191,7 @@ export default function SchemeCard({
 
         {/* Source link */}
         {sourceUrl && (
-          <div className="mt-3 pt-3 border-t border-gray-200/50">
+          <div className="mt-3 pt-3" style={{ borderTop: "1px solid var(--border-subtle)" }}>
             <SourceLink url={sourceUrl} />
           </div>
         )}

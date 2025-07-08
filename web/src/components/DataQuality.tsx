@@ -1,4 +1,4 @@
-/** Data quality indicator — shows whether financial/delivery data is real, imputed, or hollow. */
+/** Data quality indicator -- shows whether financial/delivery data is real, imputed, or hollow. */
 
 type Quality = "real" | "imputed" | "hollow";
 
@@ -9,11 +9,26 @@ interface DataQualityProps {
 
 const QUALITY_STYLES: Record<
   Quality,
-  { bg: string; text: string; label: string }
+  { bg: string; color: string; dot: string; label: string }
 > = {
-  real: { bg: "bg-green-50", text: "text-green-700", label: "Verified" },
-  imputed: { bg: "bg-yellow-50", text: "text-yellow-700", label: "Imputed" },
-  hollow: { bg: "bg-gray-100", text: "text-gray-500", label: "No Data" },
+  real: {
+    bg: "oklch(0.95 0.03 145)",
+    color: "oklch(0.40 0.12 145)",
+    dot: "oklch(0.55 0.17 145)",
+    label: "Verified",
+  },
+  imputed: {
+    bg: "oklch(0.95 0.03 80)",
+    color: "oklch(0.45 0.12 80)",
+    dot: "oklch(0.60 0.16 80)",
+    label: "Imputed",
+  },
+  hollow: {
+    bg: "var(--border-subtle)",
+    color: "var(--text-muted)",
+    dot: "var(--border)",
+    label: "No Data",
+  },
 };
 
 export default function DataQuality({ quality, detail }: DataQualityProps) {
@@ -21,17 +36,16 @@ export default function DataQuality({ quality, detail }: DataQualityProps) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-md border ${style.bg} ${style.text} border-current/20`}
+      className="inline-flex items-center gap-1.5 px-2 py-0.5 text-xs font-medium rounded-md"
+      style={{
+        background: style.bg,
+        color: style.color,
+      }}
       title={detail}
     >
       <span
-        className={`w-1.5 h-1.5 rounded-full ${
-          quality === "real"
-            ? "bg-green-500"
-            : quality === "imputed"
-              ? "bg-yellow-500"
-              : "bg-gray-400"
-        }`}
+        className="w-1.5 h-1.5 rounded-full"
+        style={{ backgroundColor: style.dot }}
       />
       {style.label}
     </span>

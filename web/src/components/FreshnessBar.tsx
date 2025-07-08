@@ -1,4 +1,4 @@
-/** Shows data freshness — how recently data was scraped and total records. */
+/** Shows data freshness -- how recently data was scraped and total records. */
 
 import type { FreshnessEntry } from "@/lib/types";
 
@@ -16,10 +16,10 @@ function daysSince(dateStr: string | null): number | null {
 }
 
 function freshnessColor(days: number | null): string {
-  if (days === null) return "bg-gray-300";
-  if (days <= 7) return "bg-green-500";
-  if (days <= 30) return "bg-yellow-500";
-  return "bg-red-500";
+  if (days === null) return "oklch(0.80 0 0)";
+  if (days <= 7) return "oklch(0.55 0.17 145)";
+  if (days <= 30) return "oklch(0.60 0.16 80)";
+  return "oklch(0.55 0.18 25)";
 }
 
 export default function FreshnessBar({ entry }: FreshnessBarProps) {
@@ -35,12 +35,15 @@ export default function FreshnessBar({ entry }: FreshnessBarProps) {
           : `${days} days ago`;
 
   return (
-    <div className="flex items-center gap-2 text-xs text-gray-500">
-      <span className={`w-2 h-2 rounded-full ${color}`} />
+    <div className="flex items-center gap-2 text-xs" style={{ color: "var(--text-muted)" }}>
+      <span
+        className="w-2 h-2 rounded-full"
+        style={{ backgroundColor: color }}
+      />
       <span>{label}</span>
-      <span className="text-gray-300">|</span>
+      <span style={{ color: "var(--border)" }}>|</span>
       <span>{entry.records.toLocaleString()} records</span>
-      <span className="text-gray-300">|</span>
+      <span style={{ color: "var(--border)" }}>|</span>
       <span>{entry.source}</span>
     </div>
   );
