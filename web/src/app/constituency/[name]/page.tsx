@@ -145,7 +145,7 @@ export default async function ConstituencyDetailPage({
               </p>
             )}
             <p className="text-sm mt-1" style={{ color: "var(--text-muted)" }}>
-              {report.state} \u00B7 Elected {report.elected_year} \u00B7 Lok Sabha
+              {report.state} · Elected {report.elected_year} · Lok Sabha
             </p>
           </div>
 

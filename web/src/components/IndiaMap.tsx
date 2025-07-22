@@ -457,9 +457,9 @@ export default function IndiaMap() {
             role="img"
             onMouseLeave={handleLeave}
           >
-            {districtPaths.map((dp) => (
+            {districtPaths.map((dp, idx) => (
               <DistrictPath
-                key={dp.key}
+                key={`${dp.key}_${idx}`}
                 d={dp.d}
                 fill={hoveredKey === dp.key ? BAND_FILL[scoreBand(dp.score)] : dp.fill}
                 district={dp.district}

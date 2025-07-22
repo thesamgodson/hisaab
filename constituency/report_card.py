@@ -373,9 +373,9 @@ def _render_portrait_svg(rc: MPReportCard) -> bytes:
 
     # Build scheme rows (2 columns)
     scheme_rows_svg = []
-    col_w = 480
-    row_h = 100
-    start_y = 820
+    col_w = 460
+    row_h = 90
+    start_y = 780
     for idx, sp in enumerate(rc.schemes):
         col = idx % 2
         row = idx // 2
@@ -482,15 +482,15 @@ def _render_landscape_svg(rc: MPReportCard) -> bytes:
     grade_color = _grade_color(rc.composite_grade)
     score_text = f"{rc.composite_score:.0f}" if rc.composite_score is not None else "–"
 
-    # Scheme dots (2 rows of 6)
+    # Scheme dots (3 rows of 4)
     dots_svg = []
-    dot_x_start = 60
-    dot_spacing = 90
+    dot_x_start = 480
+    dot_spacing = 170
     for idx, sp in enumerate(rc.schemes):
-        row = idx // 6
-        col = idx % 6
+        row = idx // 4
+        col = idx % 4
         cx = dot_x_start + col * dot_spacing
-        cy = 440 + row * 60
+        cy = 310 + row * 80
         color = _status_dot_color(sp.status)
         dots_svg.append(
             f'<circle cx="{cx + 12}" cy="{cy}" r="14" fill="{color}"/>'
