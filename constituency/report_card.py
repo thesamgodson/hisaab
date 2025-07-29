@@ -539,8 +539,20 @@ def _render_landscape_svg(rc: MPReportCard) -> bytes:
   <!-- Dots -->
   {dots_block}
 
+  <!-- Legend -->
+  <circle cx="480" cy="{h - 60}" r="8" fill="#16a34a"/>
+  <text x="496" y="{h - 55}" font-size="14" fill="#6b7280" font-family="Inter,sans-serif">75%+ Good</text>
+  <circle cx="610" cy="{h - 60}" r="8" fill="#d97706"/>
+  <text x="626" y="{h - 55}" font-size="14" fill="#6b7280" font-family="Inter,sans-serif">50%+ Fair</text>
+  <circle cx="730" cy="{h - 60}" r="8" fill="#ea580c"/>
+  <text x="746" y="{h - 55}" font-size="14" fill="#6b7280" font-family="Inter,sans-serif">25%+ Poor</text>
+  <circle cx="855" cy="{h - 60}" r="8" fill="#dc2626"/>
+  <text x="871" y="{h - 55}" font-size="14" fill="#6b7280" font-family="Inter,sans-serif">&lt;25%</text>
+  <circle cx="945" cy="{h - 60}" r="8" fill="#d1d5db"/>
+  <text x="961" y="{h - 55}" font-size="14" fill="#6b7280" font-family="Inter,sans-serif">No data</text>
+
   <!-- Footer right -->
-  <text x="460" y="{h - 30}" font-size="16" fill="#9ca3af"
+  <text x="460" y="{h - 20}" font-size="14" fill="#9ca3af"
         font-family="Inter,sans-serif">Data from official government portals</text>
 </svg>"""
 
