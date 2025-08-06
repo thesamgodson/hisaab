@@ -14,9 +14,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hisaab — Where did the money go?",
+  title: {
+    default: "Hisaab — Where did the money go?",
+    template: "%s | Hisaab",
+  },
   description:
-    "Public accountability data for 11 Indian government welfare schemes. Search any district to see MGNREGA, PMGSY, PMAY-G, PM Kisan, JJM, PM POSHAN, NSAP, and PDS/NFSA data.",
+    "Public accountability data for 11 Indian government welfare schemes. Search any district to see MGNREGA, PMGSY, PMAY-G, PM Kisan, JJM, PM POSHAN, NSAP, PDS/NFSA, SBM-G, DAY-NRLM, and UDISE+ data.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 function NavBar() {

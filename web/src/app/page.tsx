@@ -79,7 +79,7 @@ export default function Home() {
 
       {/* Map Section */}
       <section className="px-4 sm:px-6 py-8">
-        <div className="max-w-2xl mx-auto animate-fade-in-up stagger-6">
+        <div className="max-w-4xl mx-auto animate-fade-in-up stagger-6">
           <IndiaMap />
         </div>
       </section>
