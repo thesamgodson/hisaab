@@ -307,6 +307,13 @@ export default function IndiaMap() {
   // ---- Projection ----
 
   const projection = useMemo(() => {
+    // Fixed projection centered on India mainland — avoids fitSize issues
+    // with outlying islands (Andaman, Lakshadweep) shrinking the mainland
+    return geoMercator()
+      .center([82.5, 22.5])
+      .scale(MAP_WIDTH * 1.5)
+      .translate([MAP_WIDTH / 2, MAP_HEIGHT / 2]);
+    /* Original fitSize approach (broken by island territories):
     return geoMercator().fitSize([MAP_WIDTH, MAP_HEIGHT], {
       type: "FeatureCollection",
       features: [
@@ -328,6 +335,7 @@ export default function IndiaMap() {
         },
       ],
     });
+    */
   }, []);
 
   const pathGenerator = useMemo(() => geoPath(projection), [projection]);
