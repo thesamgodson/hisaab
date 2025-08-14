@@ -40,6 +40,24 @@ export interface PinLookupConstituency {
   } | null;
 }
 
+export interface MlaInfo {
+  ac_name: string;
+  ac_no: number | null;
+  state: string;
+  mla_name: string;
+  party: string;
+  elected_year: number;
+  source_url: string | null;
+}
+
+export interface PinLookupAssemblyConstituency {
+  type: "VIDHAN_SABHA";
+  ac_name: string;
+  ac_no: number | null;
+  pc_name: string | null;
+  mla: MlaInfo | null;
+}
+
 export interface PinLookupResponse {
   pin_code: string;
   district: string;
@@ -47,6 +65,8 @@ export interface PinLookupResponse {
   office_name: string | null;
   constituencies: PinLookupConstituency[];
   constituency_count: number;
+  assembly_constituencies: PinLookupAssemblyConstituency[];
+  assembly_constituency_count: number;
 }
 
 export interface ConstituencySearchResult {

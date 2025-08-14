@@ -684,6 +684,33 @@ CREATE TABLE IF NOT EXISTS mp_info (
 );
 CREATE INDEX IF NOT EXISTS idx_mp_info_constituency ON mp_info(constituency);
 
+-- Assembly Constituency → District mapping
+CREATE TABLE IF NOT EXISTS ac_district (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ac_name TEXT NOT NULL,
+    ac_no INTEGER,
+    state TEXT NOT NULL,
+    district TEXT NOT NULL,
+    pc_name TEXT,
+    UNIQUE(ac_name, state, district)
+);
+CREATE INDEX IF NOT EXISTS idx_ac_district ON ac_district(district, state);
+CREATE INDEX IF NOT EXISTS idx_ac_name ON ac_district(ac_name, state);
+
+-- MLA info (similar to mp_info)
+CREATE TABLE IF NOT EXISTS mla_info (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ac_name TEXT NOT NULL,
+    ac_no INTEGER,
+    state TEXT NOT NULL,
+    mla_name TEXT NOT NULL,
+    party TEXT NOT NULL DEFAULT '',
+    elected_year INTEGER NOT NULL DEFAULT 2024,
+    source_url TEXT,
+    UNIQUE(ac_name, state)
+);
+CREATE INDEX IF NOT EXISTS idx_mla_info ON mla_info(ac_name, state);
+
 -- =====================================================================
 -- Temporal snapshot table — weekly metric captures for trend analysis
 -- =====================================================================

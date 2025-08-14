@@ -26,7 +26,7 @@ from typing import Any
 import requests
 
 from constituency.fuzzy_match import build_canonical_districts, match_district, normalize_district
-from constituency.mapper import load_constituency_data, load_mp_data, load_pin_data
+from constituency.mapper import load_ac_data, load_constituency_data, load_mla_data, load_mp_data, load_pin_data
 from db import init_db, get_connection
 from db.normalize_states import normalize_state
 
@@ -39,6 +39,7 @@ _RAW_DIR = _PROJECT_ROOT / "data" / "raw"
 _PIN_PAGES_DIR = _RAW_DIR / "pin_pages"
 _AC_GEOJSON_PATH = _RAW_DIR / "ac.geojson"
 _MP_CSV_PATH = _RAW_DIR / "mp_2024.csv"
+_MLA_CSV_PATH = _RAW_DIR / "mla_sample.csv"
 _REPORT_PATH = _RAW_DIR / "district_match_report.json"
 
 # ---------------------------------------------------------------------------
@@ -330,6 +331,147 @@ def ingest_mps(dry_run: bool = False) -> int:
 
 
 # ---------------------------------------------------------------------------
+# 4. Assembly Constituency ingestion
+# ---------------------------------------------------------------------------
+
+
+def ingest_assembly_constituencies(dry_run: bool = False) -> int:
+    """Parse the existing datameet AC GeoJSON and load AC→district mappings.
+
+    Uses the cached data/raw/ac.geojson (already downloaded by ingest_constituencies).
+    Extracts unique (AC_NAME, AC_NO, ST_NAME, DIST_NAME, PC_NAME) tuples.
+    Returns number of records loaded (or would-be loaded in dry_run mode).
+    """
+    _ensure_dirs()
+
+    if not _AC_GEOJSON_PATH.exists():
+        print(f"  AC GeoJSON not found at {_AC_GEOJSON_PATH}. Run --pc-only first to download it.")
+        return 0
+
+    print("Parsing AC GeoJSON for assembly constituencies...")
+    geojson = json.loads(_AC_GEOJSON_PATH.read_text())
+    features = geojson.get("features", [])
+    print(f"  Features: {len(features)}")
+
+    seen: set[tuple[str, str, str]] = set()
+    records: list[dict[str, Any]] = []
+
+    for feat in features:
+        props = feat.get("properties") or {}
+
+        ac_name = str(props.get("AC_NAME") or props.get("ac_name") or "").strip()
+        ac_no_raw = props.get("AC_NO") or props.get("ac_no")
+        dist_name = str(
+            props.get("DIST_NAME") or props.get("dist_name") or ""
+        ).strip().upper()
+        st_name = str(props.get("ST_NAME") or props.get("st_name") or "").strip()
+        pc_name = str(props.get("PC_NAME") or props.get("pc_name") or "").strip().upper()
+
+        if not ac_name or not dist_name or not st_name:
+            continue
+
+        state_norm = normalize_state(st_name)
+        dist_norm = normalize_district(dist_name)
+        ac_upper = ac_name.upper()
+
+        key = (ac_upper, state_norm, dist_norm)
+        if key in seen:
+            continue
+        seen.add(key)
+
+        try:
+            ac_no = int(ac_no_raw) if ac_no_raw is not None else None
+        except (ValueError, TypeError):
+            ac_no = None
+
+        records.append(
+            {
+                "ac_name": ac_upper,
+                "ac_no": ac_no,
+                "state": state_norm,
+                "district": dist_norm,
+                "pc_name": pc_name or None,
+            }
+        )
+
+    print(f"  AC→district pairs collected: {len(records)}")
+    if dry_run:
+        return len(records)
+
+    loaded = load_ac_data(records)
+    print(f"  AC→district records inserted/replaced: {loaded}")
+    return loaded
+
+
+# ---------------------------------------------------------------------------
+# 5. MLA data ingestion
+# ---------------------------------------------------------------------------
+
+
+def ingest_mlas(dry_run: bool = False) -> int:
+    """Load MLA data from data/raw/mla_sample.csv into mla_info table.
+
+    The CSV must have columns: ac_name, state, mla_name, party, elected_year.
+    Optional columns: ac_no, source_url.
+
+    Returns number of records loaded (or would-be loaded in dry_run mode).
+    """
+    _ensure_dirs()
+
+    if not _MLA_CSV_PATH.exists():
+        print(f"  MLA CSV not found at {_MLA_CSV_PATH}. Skipping MLA ingestion.")
+        print("  Create data/raw/mla_sample.csv with columns: ac_name, state, mla_name, party, elected_year")
+        return 0
+
+    print(f"Parsing MLA CSV from {_MLA_CSV_PATH.name}...")
+    text = _MLA_CSV_PATH.read_text(encoding="utf-8-sig")
+    reader = csv.DictReader(io.StringIO(text))
+
+    records: list[dict[str, Any]] = []
+    for row in reader:
+        ac_name = (row.get("ac_name") or row.get("AC_NAME") or "").strip()
+        state_raw = (row.get("state") or row.get("STATE") or "").strip()
+        mla_name = (row.get("mla_name") or row.get("MLA_NAME") or "").strip()
+        party = (row.get("party") or row.get("PARTY") or "").strip()
+        elected_year_raw = (row.get("elected_year") or row.get("ELECTED_YEAR") or "2024").strip()
+        ac_no_raw = (row.get("ac_no") or row.get("AC_NO") or "").strip()
+        source_url = (row.get("source_url") or row.get("SOURCE_URL") or "").strip()
+
+        if not ac_name or not mla_name or not state_raw:
+            continue
+
+        try:
+            elected_year = int(elected_year_raw)
+        except ValueError:
+            elected_year = 2024
+
+        try:
+            ac_no: int | None = int(ac_no_raw) if ac_no_raw else None
+        except ValueError:
+            ac_no = None
+
+        records.append(
+            {
+                "ac_name": ac_name.upper(),
+                "ac_no": ac_no,
+                "state": normalize_state(state_raw),
+                "mla_name": mla_name,
+                "party": party,
+                "elected_year": elected_year,
+                "source_url": source_url or None,
+            }
+        )
+
+    print(f"  MLA records collected: {len(records)}")
+    if dry_run:
+        return len(records)
+
+    loaded = load_mla_data(records)
+    print(f"  MLA records inserted/replaced: {loaded}")
+    return loaded
+
+
+# ---------------------------------------------------------------------------
 # District match report
 # ---------------------------------------------------------------------------
 
@@ -406,6 +548,16 @@ def main() -> None:
         action="store_true",
         help="Only ingest constituency-district mapping",
     )
+    parser.add_argument(
+        "--ac-only",
+        action="store_true",
+        help="Only ingest Assembly Constituency → district mapping from GeoJSON",
+    )
+    parser.add_argument(
+        "--mla-only",
+        action="store_true",
+        help="Only ingest MLA data from data/raw/mla_sample.csv",
+    )
     args = parser.parse_args()
 
     # Ensure DB schema is initialized
@@ -414,7 +566,8 @@ def main() -> None:
         init_db(conn)
         conn.close()
 
-    run_all = not any([args.pins_only, args.mp_only, args.pc_only])
+    exclusive_flags = [args.pins_only, args.mp_only, args.pc_only, args.ac_only, args.mla_only]
+    run_all = not any(exclusive_flags)
 
     totals: dict[str, int] = {}
 
@@ -423,12 +576,20 @@ def main() -> None:
         totals["pins"] = ingest_pins(dry_run=args.dry_run)
 
     if run_all or args.pc_only:
-        print("\n=== Constituency → District ===")
+        print("\n=== Constituency → District (Lok Sabha) ===")
         totals["constituencies"] = ingest_constituencies(dry_run=args.dry_run)
 
     if run_all or args.mp_only:
         print("\n=== MP Info ===")
         totals["mps"] = ingest_mps(dry_run=args.dry_run)
+
+    if run_all or args.ac_only:
+        print("\n=== Assembly Constituency → District ===")
+        totals["assembly_constituencies"] = ingest_assembly_constituencies(dry_run=args.dry_run)
+
+    if run_all or args.mla_only:
+        print("\n=== MLA Info ===")
+        totals["mlas"] = ingest_mlas(dry_run=args.dry_run)
 
     if not args.dry_run and (run_all or args.pc_only):
         _generate_match_report()

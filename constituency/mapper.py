@@ -270,6 +270,187 @@ def load_mp_data(records: list[dict[str, Any]]) -> int:
     return count
 
 
+def district_to_ac(district: str, state: str) -> list[dict[str, Any]]:
+    """Return Assembly Constituencies covering this district.
+
+    Returns list of {ac_name, ac_no, state, district, pc_name}.
+    """
+    conn = _conn()
+    try:
+        rows = conn.execute(
+            """
+            SELECT ac_name, ac_no, state, district, pc_name
+            FROM ac_district
+            WHERE UPPER(district) = UPPER(?)
+              AND UPPER(state) = UPPER(?)
+            ORDER BY ac_name
+            """,
+            (district, state),
+        ).fetchall()
+        return [dict(r) for r in rows]
+    finally:
+        conn.close()
+
+
+def get_mla_info(ac_name: str, state: str) -> dict[str, Any] | None:
+    """Return MLA info for an assembly constituency.
+
+    Lookup is case-insensitive.  Returns None if not found.
+    """
+    import re
+
+    clean_name = re.sub(r"\s*\((?:SC|ST)\)\s*$", "", ac_name.strip().upper())
+    conn = _conn()
+    try:
+        row = conn.execute(
+            """
+            SELECT ac_name, ac_no, state, mla_name, party, elected_year, source_url
+            FROM mla_info
+            WHERE UPPER(state) = UPPER(?)
+              AND (UPPER(ac_name) = UPPER(?) OR UPPER(ac_name) = UPPER(?))
+            LIMIT 1
+            """,
+            (state, ac_name.strip(), clean_name),
+        ).fetchone()
+        return _row_to_dict(row)
+    finally:
+        conn.close()
+
+
+def pin_to_full_representatives(pin_code: str) -> dict[str, Any] | None:
+    """Full lookup: PIN → district → MP(s) + MLA(s).
+
+    Returns {district, state, mps: [...], mlas: [...]} or None if PIN not found.
+    Each MP entry: {constituency, mp_name, party, elected_year}
+    Each MLA entry: {ac_name, mla_name, party, elected_year}
+    """
+    district_info = pin_to_district(pin_code)
+    if not district_info:
+        return None
+
+    district = district_info["district"]
+    state = district_info["state"]
+
+    constituencies = district_to_constituency(district, state)
+    mps: list[dict[str, Any]] = []
+    for c in constituencies:
+        mp = get_mp_info(c["constituency"])
+        entry: dict[str, Any] = {
+            "type": "LOK_SABHA",
+            "constituency": c["constituency"],
+        }
+        if mp:
+            entry["mp_name"] = mp["mp_name"]
+            entry["party"] = mp["party"]
+            entry["elected_year"] = mp["elected_year"]
+        else:
+            entry["mp_name"] = None
+            entry["party"] = None
+            entry["elected_year"] = None
+        mps.append(entry)
+
+    acs = district_to_ac(district, state)
+    mlas: list[dict[str, Any]] = []
+    for ac in acs:
+        mla = get_mla_info(ac["ac_name"], state)
+        entry = {
+            "type": "VIDHAN_SABHA",
+            "ac_name": ac["ac_name"],
+            "ac_no": ac.get("ac_no"),
+        }
+        if mla:
+            entry["mla_name"] = mla["mla_name"]
+            entry["party"] = mla["party"]
+            entry["elected_year"] = mla["elected_year"]
+        else:
+            entry["mla_name"] = None
+            entry["party"] = None
+            entry["elected_year"] = None
+        mlas.append(entry)
+
+    return {
+        "district": district,
+        "state": state,
+        "office_name": district_info.get("office_name"),
+        "mps": mps,
+        "mlas": mlas,
+    }
+
+
+def load_ac_data(records: list[dict[str, Any]]) -> int:
+    """Bulk-insert AC→district mapping records.
+
+    Each record must have keys: ac_name, state, district.
+    Optional keys: ac_no, pc_name.
+
+    Returns the number of rows inserted/replaced.
+    """
+    if not records:
+        return 0
+
+    conn = _conn()
+    count = 0
+    try:
+        for rec in records:
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO ac_district
+                    (ac_name, ac_no, state, district, pc_name)
+                VALUES (?, ?, ?, ?, ?)
+                """,
+                (
+                    rec["ac_name"].strip().upper(),
+                    rec.get("ac_no"),
+                    rec["state"].strip().upper(),
+                    rec["district"].strip().upper(),
+                    rec.get("pc_name"),
+                ),
+            )
+            count += 1
+        conn.commit()
+    finally:
+        conn.close()
+    return count
+
+
+def load_mla_data(records: list[dict[str, Any]]) -> int:
+    """Bulk-insert MLA info records.
+
+    Each record must have keys: ac_name, state, mla_name.
+    Optional keys: ac_no, party, elected_year, source_url.
+
+    Returns the number of rows inserted/replaced.
+    """
+    if not records:
+        return 0
+
+    conn = _conn()
+    count = 0
+    try:
+        for rec in records:
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO mla_info
+                    (ac_name, ac_no, state, mla_name, party, elected_year, source_url)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    rec["ac_name"].strip().upper(),
+                    rec.get("ac_no"),
+                    rec["state"].strip().upper(),
+                    rec["mla_name"].strip(),
+                    rec.get("party", "").strip(),
+                    int(rec.get("elected_year", 2024)),
+                    rec.get("source_url") or "",
+                ),
+            )
+            count += 1
+        conn.commit()
+    finally:
+        conn.close()
+    return count
+
+
 def load_from_csv(csv_text: str, table: str) -> int:
     """Load records from a CSV string into pin/constituency/mp tables.
 
@@ -284,4 +465,8 @@ def load_from_csv(csv_text: str, table: str) -> int:
         return load_constituency_data(records)
     if table == "mp":
         return load_mp_data(records)
-    raise ValueError(f"Unknown table: {table!r}. Must be 'pin', 'constituency', or 'mp'.")
+    if table == "ac":
+        return load_ac_data(records)
+    if table == "mla":
+        return load_mla_data(records)
+    raise ValueError(f"Unknown table: {table!r}. Must be 'pin', 'constituency', 'mp', 'ac', or 'mla'.")

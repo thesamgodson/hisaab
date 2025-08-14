@@ -8,7 +8,9 @@ from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import Response
 
 from constituency.mapper import (
+    district_to_ac,
     district_to_constituency,
+    get_mla_info,
     get_mp_info,
     pin_to_district,
     search_constituency,
@@ -58,6 +60,20 @@ def pin_lookup(pin_code: str) -> dict[str, Any]:
         mp = get_mp_info(c["constituency"])
         enriched.append({**c, "mp": mp})
 
+    acs = district_to_ac(district, state)
+    assembly_constituencies: list[dict[str, Any]] = []
+    for ac in acs:
+        mla = get_mla_info(ac["ac_name"], state)
+        assembly_constituencies.append(
+            {
+                "type": "VIDHAN_SABHA",
+                "ac_name": ac["ac_name"],
+                "ac_no": ac.get("ac_no"),
+                "pc_name": ac.get("pc_name"),
+                "mla": mla,
+            }
+        )
+
     return {
         "pin_code": pin_code,
         "district": district,
@@ -65,6 +81,8 @@ def pin_lookup(pin_code: str) -> dict[str, Any]:
         "office_name": district_info.get("office_name"),
         "constituencies": enriched,
         "constituency_count": len(enriched),
+        "assembly_constituencies": assembly_constituencies,
+        "assembly_constituency_count": len(assembly_constituencies),
     }
 
 

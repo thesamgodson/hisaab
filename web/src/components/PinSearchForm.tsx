@@ -2,7 +2,11 @@
 
 import { useState, useRef, type FormEvent, type KeyboardEvent } from "react";
 import Link from "next/link";
-import type { PinLookupResponse, ConstituencySearchResponse } from "@/lib/constituency-types";
+import type {
+  PinLookupResponse,
+  PinLookupAssemblyConstituency,
+  ConstituencySearchResponse,
+} from "@/lib/constituency-types";
 
 const API_BASE =
   process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
@@ -288,6 +292,10 @@ function PinResultCard({
           />
         ))
       )}
+
+      {result.assembly_constituencies && result.assembly_constituencies.length > 0 && (
+        <AssemblyConstituencySection acs={result.assembly_constituencies} />
+      )}
     </div>
   );
 }
@@ -366,5 +374,76 @@ function ConstituencyCard({ name, mp }: { name: string; mp: PinLookupResponse["c
       </div>
       <p className="text-xs mt-3 font-semibold" style={{ color: "var(--accent)" }}>View Report Card &rarr;</p>
     </Link>
+  );
+}
+
+function AssemblyConstituencySection({ acs }: { acs: PinLookupAssemblyConstituency[] }) {
+  return (
+    <div className="space-y-3">
+      <p
+        className="text-xs uppercase tracking-widest font-semibold pt-1"
+        style={{ color: "oklch(0.45 0.14 145)" }}
+      >
+        State Assembly ({acs.length} segment{acs.length !== 1 ? "s" : ""})
+      </p>
+      {acs.map((ac) => (
+        <AssemblyConstituencyCard key={ac.ac_name} ac={ac} />
+      ))}
+    </div>
+  );
+}
+
+function AssemblyConstituencyCard({ ac }: { ac: PinLookupAssemblyConstituency }) {
+  return (
+    <div
+      className="rounded-xl p-5"
+      style={{
+        background: "oklch(0.97 0.015 145)",
+        boxShadow: "var(--shadow-sm)",
+        border: "1px solid oklch(0.90 0.04 145)",
+      }}
+    >
+      <div className="flex items-start justify-between">
+        <div>
+          <p
+            className="text-xs uppercase tracking-widest font-medium mb-1"
+            style={{ color: "oklch(0.45 0.14 145)" }}
+          >
+            Vidhan Sabha Constituency{ac.ac_no ? ` #${ac.ac_no}` : ""}
+          </p>
+          <p className="text-lg font-bold" style={{ color: "var(--text-primary)" }}>
+            {ac.ac_name}
+          </p>
+          {ac.mla ? (
+            <>
+              <p className="text-sm font-medium mt-1" style={{ color: "var(--text-secondary)" }}>
+                {ac.mla.mla_name}
+              </p>
+              <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
+                {ac.mla.party} {"\u00B7"} Elected {ac.mla.elected_year}
+              </p>
+            </>
+          ) : (
+            <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+              MLA data not yet loaded
+            </p>
+          )}
+          {ac.pc_name && (
+            <p className="text-xs mt-1" style={{ color: "oklch(0.55 0.08 145)" }}>
+              Lok Sabha: {ac.pc_name}
+            </p>
+          )}
+        </div>
+        <span
+          className="text-xs font-semibold px-2 py-1 rounded-lg"
+          style={{
+            background: "oklch(0.88 0.07 145)",
+            color: "oklch(0.35 0.14 145)",
+          }}
+        >
+          VS
+        </span>
+      </div>
+    </div>
   );
 }
