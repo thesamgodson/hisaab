@@ -40,6 +40,7 @@ _PIN_PAGES_DIR = _RAW_DIR / "pin_pages"
 _AC_GEOJSON_PATH = _RAW_DIR / "ac.geojson"
 _MP_CSV_PATH = _RAW_DIR / "mp_2024.csv"
 _MLA_CSV_PATH = _RAW_DIR / "mla_sample.csv"
+_MLA_CURATED_PATH = _PROJECT_ROOT / "data" / "curated" / "mla_winners_all_latest.json"
 _REPORT_PATH = _RAW_DIR / "district_match_report.json"
 
 # ---------------------------------------------------------------------------
@@ -472,6 +473,57 @@ def ingest_mlas(dry_run: bool = False) -> int:
 
 
 # ---------------------------------------------------------------------------
+# 6. MLA ingestion from scraped curated JSON
+# ---------------------------------------------------------------------------
+
+
+def ingest_mlas_from_curated(dry_run: bool = False) -> int:
+    """Load MLA data from data/curated/mla_winners_all_latest.json.
+
+    This is the preferred source — produced by scrapers/scrape_mla_myneta.py.
+    Falls back to ingest_mlas() (CSV) if the curated JSON does not exist.
+
+    Returns number of records loaded (or would-be loaded in dry_run mode).
+    """
+    if not _MLA_CURATED_PATH.exists():
+        print(f"  Curated MLA JSON not found at {_MLA_CURATED_PATH}")
+        print("  Run: python scrapers/scrape_mla_myneta.py  (then retry)")
+        print("  Falling back to CSV source...")
+        return ingest_mlas(dry_run=dry_run)
+
+    print(f"Loading MLAs from {_MLA_CURATED_PATH.name}...")
+    raw: list[dict[str, Any]] = json.loads(_MLA_CURATED_PATH.read_text(encoding="utf-8"))
+
+    records: list[dict[str, Any]] = []
+    for entry in raw:
+        ac_name = (entry.get("ac_name") or "").strip()
+        state_raw = (entry.get("state") or "").strip()
+        mla_name = (entry.get("mla_name") or "").strip()
+        if not ac_name or not state_raw or not mla_name:
+            continue
+
+        records.append(
+            {
+                "ac_name": ac_name.upper(),
+                "ac_no": entry.get("ac_no"),
+                "state": normalize_state(state_raw),
+                "mla_name": mla_name,
+                "party": (entry.get("party") or "").strip(),
+                "elected_year": int(entry.get("elected_year") or 2024),
+                "source_url": entry.get("source_url") or "",
+            }
+        )
+
+    print(f"  MLA records parsed: {len(records)}")
+    if dry_run:
+        return len(records)
+
+    loaded = load_mla_data(records)
+    print(f"  MLA records inserted/replaced: {loaded}")
+    return loaded
+
+
+# ---------------------------------------------------------------------------
 # District match report
 # ---------------------------------------------------------------------------
 
@@ -556,7 +608,12 @@ def main() -> None:
     parser.add_argument(
         "--mla-only",
         action="store_true",
-        help="Only ingest MLA data from data/raw/mla_sample.csv",
+        help="Only ingest MLA data (curated JSON first, CSV fallback)",
+    )
+    parser.add_argument(
+        "--mla-scrape",
+        action="store_true",
+        help="Scrape MyNeta.info first, then load MLAs into DB",
     )
     args = parser.parse_args()
 
@@ -566,7 +623,10 @@ def main() -> None:
         init_db(conn)
         conn.close()
 
-    exclusive_flags = [args.pins_only, args.mp_only, args.pc_only, args.ac_only, args.mla_only]
+    exclusive_flags = [
+        args.pins_only, args.mp_only, args.pc_only, args.ac_only,
+        args.mla_only, args.mla_scrape,
+    ]
     run_all = not any(exclusive_flags)
 
     totals: dict[str, int] = {}
@@ -587,9 +647,23 @@ def main() -> None:
         print("\n=== Assembly Constituency → District ===")
         totals["assembly_constituencies"] = ingest_assembly_constituencies(dry_run=args.dry_run)
 
-    if run_all or args.mla_only:
+    if args.mla_scrape:
+        print("\n=== Scraping MLA data from MyNeta.info ===")
+        import subprocess
+        import sys
+        scraper = _PROJECT_ROOT / "scrapers" / "scrape_mla_myneta.py"
+        result = subprocess.run(
+            [sys.executable, str(scraper)],
+            check=False,
+        )
+        if result.returncode != 0:
+            print("  WARNING: scraper exited with non-zero status — proceeding with existing data")
+        print("\n=== MLA Info (from scraped JSON) ===")
+        totals["mlas"] = ingest_mlas_from_curated(dry_run=args.dry_run)
+
+    elif run_all or args.mla_only:
         print("\n=== MLA Info ===")
-        totals["mlas"] = ingest_mlas(dry_run=args.dry_run)
+        totals["mlas"] = ingest_mlas_from_curated(dry_run=args.dry_run)
 
     if not args.dry_run and (run_all or args.pc_only):
         _generate_match_report()
