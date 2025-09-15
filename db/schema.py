@@ -543,7 +543,7 @@ SELECT
     'roads' as units_label,
     CASE WHEN roads_sanctioned > 0
          THEN (roads_completed * 100.0 / roads_sanctioned)
-         ELSE 0 END as delivery_pct,
+         ELSE NULL END as delivery_pct,
     source_url
 FROM pmgsy_district
 UNION ALL
@@ -562,7 +562,7 @@ SELECT
     'beneficiaries' as units_label,
     CASE WHEN beneficiaries_registered > 0
          THEN (beneficiaries_paid * 100.0 / beneficiaries_registered)
-         ELSE 0 END as delivery_pct,
+         ELSE NULL END as delivery_pct,
     source_url
 FROM pmkisan_district
 UNION ALL
@@ -581,7 +581,7 @@ SELECT
     'children fed' as units_label,
     CASE WHEN children_enrolled > 0
          THEN (children_fed * 100.0 / children_enrolled)
-         ELSE 0 END as delivery_pct,
+         ELSE NULL END as delivery_pct,
     source_url
 FROM pmposhan_district
 UNION ALL
@@ -592,7 +592,7 @@ SELECT
     'pensioners' as units_label,
     CASE WHEN beneficiaries_eligible > 0
          THEN (beneficiaries_paid * 100.0 / beneficiaries_eligible)
-         ELSE 0 END as delivery_pct,
+         ELSE NULL END as delivery_pct,
     source_url
 FROM nsap_district
 UNION ALL
@@ -601,7 +601,10 @@ SELECT
     ration_cards_total as units_target,
     ration_cards_active as units_completed,
     'ration cards' as units_label,
-    offtake_pct as delivery_pct, source_url
+    CASE WHEN ration_cards_total > 0
+         THEN (ration_cards_active * 100.0 / ration_cards_total)
+         ELSE NULL END as delivery_pct,
+    source_url
 FROM nfsa_district
 UNION ALL
 SELECT
@@ -710,6 +713,36 @@ CREATE TABLE IF NOT EXISTS mla_info (
     UNIQUE(ac_name, state)
 );
 CREATE INDEX IF NOT EXISTS idx_mla_info ON mla_info(ac_name, state);
+
+-- District officials (Collector, DM, SP, CDO, etc.) for citizen action briefs
+CREATE TABLE IF NOT EXISTS district_officials (
+    state           TEXT NOT NULL,
+    district        TEXT NOT NULL,
+    role            TEXT NOT NULL,
+    name            TEXT NOT NULL,
+    phone           TEXT,
+    email           TEXT,
+    office_address  TEXT,
+    source_url      TEXT NOT NULL,
+    scraped_at      TEXT NOT NULL,
+    PRIMARY KEY (state, district, role)
+);
+CREATE INDEX IF NOT EXISTS idx_officials_district ON district_officials(district, state);
+
+-- Grievance channels per scheme — portals, helplines, escalation paths
+CREATE TABLE IF NOT EXISTS grievance_channels (
+    scheme              TEXT NOT NULL,
+    level               TEXT NOT NULL,
+    portal_name         TEXT NOT NULL,
+    portal_url          TEXT NOT NULL,
+    phone               TEXT,
+    description         TEXT,
+    escalation_scheme   TEXT,
+    source_url          TEXT NOT NULL,
+    scraped_at          TEXT NOT NULL,
+    PRIMARY KEY (scheme, level, portal_name)
+);
+CREATE INDEX IF NOT EXISTS idx_grievance_scheme ON grievance_channels(scheme);
 
 -- =====================================================================
 -- Temporal snapshot table — weekly metric captures for trend analysis
@@ -845,7 +878,7 @@ SELECT
     amount_paid_lakhs as expended_lakhs,
     CASE WHEN beneficiaries_eligible > 0
          THEN (beneficiaries_paid * 100.0 / beneficiaries_eligible)
-         ELSE 0 END as utilization_pct,
+         ELSE NULL END as utilization_pct,
     beneficiaries_eligible as units_target,
     beneficiaries_paid as units_completed,
     'pensioners' as units_label, source_url
