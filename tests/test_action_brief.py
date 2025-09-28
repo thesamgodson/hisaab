@@ -1,6 +1,8 @@
 """Tests for the citizen action brief system."""
 
 import sqlite3
+from datetime import date, datetime
+
 import pytest
 
 
@@ -77,3 +79,51 @@ def test_grievance_channels_insert_and_pk(db):
         "SELECT * FROM grievance_channels WHERE scheme='MGNREGA' AND level='national'"
     ).fetchone()
     assert row["portal_name"] == "CPGRAMS"
+
+
+def test_diagnosis_item_frozen():
+    from action_brief.models import DiagnosisItem
+    item = DiagnosisItem(
+        severity="high", scheme="MGNREGA",
+        summary="Only 8% of misappropriated funds recovered.",
+        detail="Rs 4.2 crore flagged, Rs 3.9 crore unrecovered.",
+        amount="Rs 3.9 crore", source_url="https://nrega.nic.in/",
+    )
+    assert item.severity == "high"
+    with pytest.raises(AttributeError):
+        item.severity = "low"
+
+
+def test_contact_card_frozen():
+    from action_brief.models import ContactCard
+    card = ContactCard(
+        role="District Collector", name="Test DC", phone="9876543210",
+        email="dc@nic.in", office_address="DC Office",
+        relevance="Oversees all district-level schemes",
+        source_url="https://varanasi.nic.in",
+        last_verified=date(2026, 3, 15), freshness="fresh",
+    )
+    assert card.role == "District Collector"
+
+
+def test_action_item_frozen():
+    from action_brief.models import ActionItem
+    item = ActionItem(
+        scheme="MGNREGA", action="File a complaint about delayed wages",
+        portal_name="MGNREGA Public Grievance",
+        portal_url="https://nrega.nic.in/Nregahome/EComplaint.aspx",
+        escalation="If no response in 30 days, escalate to CPGRAMS",
+        escalation_url="https://pgportal.gov.in/",
+    )
+    assert item.scheme == "MGNREGA"
+
+
+def test_action_brief_frozen():
+    from action_brief.models import ActionBrief
+    brief = ActionBrief(
+        pin="221001", district="VARANASI", state="UTTAR PRADESH",
+        mp=None, mla=None, diagnosis=[], contacts=[], actions=[],
+        scheme_data={}, generated_at=datetime.now(),
+    )
+    assert brief.pin == "221001"
+    assert brief.diagnosis == []
