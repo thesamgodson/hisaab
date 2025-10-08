@@ -173,3 +173,28 @@ def test_get_grievance_channels_empty(db):
     """Unknown scheme returns an empty list."""
     results = get_grievance_channels(db, ["NONEXISTENT_SCHEME"])
     assert results == []
+
+
+# ---------------------------------------------------------------------------
+# Seed data tests
+# ---------------------------------------------------------------------------
+
+def test_seed_grievance_channels(db):
+    from directory.seed_data import seed_grievance_channels
+    count = seed_grievance_channels(db)
+    assert count > 0
+
+    rows = db.execute("SELECT * FROM grievance_channels").fetchall()
+    for row in rows:
+        assert row["portal_url"], f"Missing portal_url for {row['scheme']} {row['level']}"
+        assert row["source_url"], f"Missing source_url for {row['scheme']} {row['level']}"
+
+    cpgrams = db.execute(
+        "SELECT COUNT(*) as cnt FROM grievance_channels WHERE portal_name='CPGRAMS'"
+    ).fetchone()
+    assert cpgrams["cnt"] >= 1
+
+    rti = db.execute(
+        "SELECT COUNT(*) as cnt FROM grievance_channels WHERE portal_name LIKE '%RTI%'"
+    ).fetchone()
+    assert rti["cnt"] >= 1
