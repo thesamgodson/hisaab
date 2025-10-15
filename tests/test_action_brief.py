@@ -127,3 +127,33 @@ def test_action_brief_frozen():
     )
     assert brief.pin == "221001"
     assert brief.diagnosis == []
+
+
+def test_action_items_for_flagged_schemes(db):
+    from directory.seed_data import seed_grievance_channels
+    seed_grievance_channels(db)
+    from action_brief.actions import build_actions
+    actions = build_actions(db, ["MGNREGA", "PMAY-G"])
+    schemes = {a.scheme for a in actions}
+    assert "MGNREGA" in schemes
+    assert "PMAY-G" in schemes
+    for a in actions:
+        assert a.portal_url.startswith("http")
+        assert a.escalation_url.startswith("http")
+
+
+def test_action_items_empty_when_no_flags(db):
+    from directory.seed_data import seed_grievance_channels
+    seed_grievance_channels(db)
+    from action_brief.actions import build_actions
+    actions = build_actions(db, [])
+    assert actions == []
+
+
+def test_action_items_always_include_cpgrams_escalation(db):
+    from directory.seed_data import seed_grievance_channels
+    seed_grievance_channels(db)
+    from action_brief.actions import build_actions
+    actions = build_actions(db, ["MGNREGA"])
+    for a in actions:
+        assert "CPGRAMS" in a.escalation or "pgportal" in a.escalation_url
