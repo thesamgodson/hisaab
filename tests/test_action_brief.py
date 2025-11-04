@@ -157,3 +157,73 @@ def test_action_items_always_include_cpgrams_escalation(db):
     actions = build_actions(db, ["MGNREGA"])
     for a in actions:
         assert "CPGRAMS" in a.escalation or "pgportal" in a.escalation_url
+
+
+# ---------------------------------------------------------------------------
+# Diagnosis engine tests
+# ---------------------------------------------------------------------------
+
+def test_diagnosis_mgnrega_low_recovery(db):
+    db.execute(
+        """INSERT INTO misappropriation
+           (district, state, state_code, fin_year, cases_reported, amount_reported, amount_recovered,
+            recovery_rate_pct, source_url, scraped_at)
+           VALUES ('VARANASI', 'UTTAR PRADESH', 'UP', '2024-2025', 50, 420, 34,
+                   8.1, 'https://nrega.nic.in/', '2026-03-30T00:00:00')"""
+    )
+    db.commit()
+    from action_brief.diagnosis import build_diagnosis
+    items = build_diagnosis(db, "VARANASI", "UTTAR PRADESH")
+    assert len(items) >= 1
+    mgnrega = [i for i in items if i.scheme == "MGNREGA"]
+    assert len(mgnrega) >= 1
+    assert mgnrega[0].severity == "high"
+    assert "recover" in mgnrega[0].summary.lower()
+    assert mgnrega[0].source_url
+
+
+def test_diagnosis_pmayg_low_completion(db):
+    db.execute(
+        """INSERT INTO pmayg_district
+           (district, state, fin_year, houses_sanctioned, houses_completed,
+            houses_occupied, completion_pct, source_url, scraped_at)
+           VALUES ('VARANASI', 'UTTAR PRADESH', '2024-2025', 1000, 300,
+                   200, 30.0, 'https://pmayg.nic.in/', '2026-03-30T00:00:00')"""
+    )
+    db.commit()
+    from action_brief.diagnosis import build_diagnosis
+    items = build_diagnosis(db, "VARANASI", "UTTAR PRADESH")
+    pmayg = [i for i in items if i.scheme == "PMAY-G"]
+    assert len(pmayg) >= 1
+    assert "house" in pmayg[0].summary.lower() or "built" in pmayg[0].summary.lower()
+
+
+def test_diagnosis_no_flags(db):
+    from action_brief.diagnosis import build_diagnosis
+    items = build_diagnosis(db, "NONEXISTENT", "NOWHERE")
+    assert items == []
+
+
+def test_diagnosis_max_5_items(db):
+    db.execute("""INSERT INTO misappropriation (district, state, state_code, fin_year, cases_reported, amount_reported, amount_recovered, recovery_rate_pct, source_url, scraped_at) VALUES ('BADPLACE', 'BADSTATE', 'BS', '2024-2025', 200, 1000, 0, 0.0, 'https://nrega.nic.in/', '2026-03-30T00:00:00')""")
+    db.execute("""INSERT INTO financial_statement (district, state, state_code, fin_year, total_availability, cumulative_expenditure, utilization_pct, source_url, scraped_at) VALUES ('BADPLACE', 'BADSTATE', 'BS', '2024-2025', 5000, 1000, 20.0, 'https://nrega.nic.in/', '2026-03-30T00:00:00')""")
+    db.execute("""INSERT INTO pmayg_district (district, state, fin_year, houses_sanctioned, houses_completed, houses_occupied, completion_pct, source_url, scraped_at) VALUES ('BADPLACE', 'BADSTATE', '2024-2025', 1000, 100, 30, 10.0, 'https://pmayg.nic.in/', '2026-03-30T00:00:00')""")
+    db.execute("""INSERT INTO jjm_district (district, state, total_households, households_with_tap, coverage_pct, funds_released_lakhs, funds_utilized_lakhs, source_url, scraped_at) VALUES ('BADPLACE', 'BADSTATE', 10000, 1000, 10.0, 500, 50, 'https://ejalshakti.gov.in/', '2026-03-30T00:00:00')""")
+    db.execute("""INSERT INTO pmposhan_district (district, state, fin_year, children_enrolled, children_fed, source_url, scraped_at) VALUES ('BADPLACE', 'BADSTATE', '2024-2025', 10000, 1000, 'https://pmposhan.education.gov.in/', '2026-03-30T00:00:00')""")
+    db.execute("""INSERT INTO nfsa_district (district, state, fin_year, ration_cards_total, ration_cards_active, allocation_mt, offtake_mt, offtake_pct, source_url, scraped_at) VALUES ('BADPLACE', 'BADSTATE', '2024-2025', 10000, 3000, 100.0, 20.0, 20.0, 'https://nfsa.gov.in/', '2026-03-30T00:00:00')""")
+    db.commit()
+    from action_brief.diagnosis import build_diagnosis
+    items = build_diagnosis(db, "BADPLACE", "BADSTATE")
+    assert len(items) <= 5
+
+
+def test_diagnosis_sorted_by_severity(db):
+    db.execute("""INSERT INTO misappropriation (district, state, state_code, fin_year, cases_reported, amount_reported, amount_recovered, recovery_rate_pct, source_url, scraped_at) VALUES ('SORTTEST', 'SORTSTATE', 'SS', '2024-2025', 50, 420, 0, 0.0, 'https://nrega.nic.in/', '2026-03-30T00:00:00')""")
+    db.execute("""INSERT INTO jjm_district (district, state, total_households, households_with_tap, coverage_pct, funds_released_lakhs, funds_utilized_lakhs, source_url, scraped_at) VALUES ('SORTTEST', 'SORTSTATE', 10000, 4000, 40.0, 500, 400, 'https://ejalshakti.gov.in/', '2026-03-30T00:00:00')""")
+    db.commit()
+    from action_brief.diagnosis import build_diagnosis
+    items = build_diagnosis(db, "SORTTEST", "SORTSTATE")
+    if len(items) >= 2:
+        severity_order = {"high": 0, "medium": 1, "low": 2}
+        for i in range(len(items) - 1):
+            assert severity_order[items[i].severity] <= severity_order[items[i + 1].severity]
