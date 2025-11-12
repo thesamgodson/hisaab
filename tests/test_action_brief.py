@@ -227,3 +227,57 @@ def test_diagnosis_sorted_by_severity(db):
         severity_order = {"high": 0, "medium": 1, "low": 2}
         for i in range(len(items) - 1):
             assert severity_order[items[i].severity] <= severity_order[items[i + 1].severity]
+
+
+# ---------------------------------------------------------------------------
+# Contacts builder tests
+# ---------------------------------------------------------------------------
+
+def test_contacts_ordering(db):
+    from datetime import datetime as dt
+    now = dt.now().isoformat()
+    db.execute(
+        """INSERT INTO district_officials VALUES
+           ('UTTAR PRADESH', 'VARANASI', 'District Collector', 'Test DC',
+            '9876543210', NULL, NULL, 'https://varanasi.nic.in', ?)""", (now,))
+    db.execute(
+        """INSERT INTO district_officials VALUES
+           ('UTTAR PRADESH', 'VARANASI', 'MGNREGA Programme Officer', 'Test PO',
+            NULL, NULL, NULL, 'https://varanasi.nic.in', ?)""", (now,))
+    db.commit()
+
+    from action_brief.contacts import build_contacts
+    mp_info = {"mp_name": "Test MP", "party": "INC", "constituency": "VARANASI",
+               "state": "UTTAR PRADESH", "source_url": "https://eci.gov.in"}
+    mla_info = {"mla_name": "Test MLA", "party": "BJP", "ac_name": "VARANASI CANTT",
+                "state": "UTTAR PRADESH", "source_url": "https://myneta.info"}
+    contacts = build_contacts(
+        db, "VARANASI", "UTTAR PRADESH",
+        mp_info=mp_info, mla_info=mla_info, flagged_schemes=["MGNREGA"],
+    )
+    roles = [c.role for c in contacts]
+    assert roles[0] == "Member of Parliament"
+    assert roles[1] == "MLA"
+    assert roles[2] == "District Collector"
+    assert "MGNREGA Programme Officer" in roles
+
+
+def test_contacts_mp_mla_dc_always_shown(db):
+    from datetime import datetime as dt
+    now = dt.now().isoformat()
+    db.execute(
+        """INSERT INTO district_officials VALUES
+           ('UTTAR PRADESH', 'VARANASI', 'District Collector', 'Test DC',
+            '9876543210', NULL, NULL, 'https://varanasi.nic.in', ?)""", (now,))
+    db.commit()
+
+    from action_brief.contacts import build_contacts
+    mp_info = {"mp_name": "Test MP", "party": "INC", "constituency": "VARANASI",
+               "state": "UTTAR PRADESH", "source_url": "https://eci.gov.in"}
+    contacts = build_contacts(
+        db, "VARANASI", "UTTAR PRADESH",
+        mp_info=mp_info, mla_info=None, flagged_schemes=[],
+    )
+    roles = [c.role for c in contacts]
+    assert "Member of Parliament" in roles
+    assert "District Collector" in roles
