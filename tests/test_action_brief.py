@@ -281,3 +281,46 @@ def test_contacts_mp_mla_dc_always_shown(db):
     roles = [c.role for c in contacts]
     assert "Member of Parliament" in roles
     assert "District Collector" in roles
+
+
+# ---------------------------------------------------------------------------
+# Engine orchestrator tests
+# ---------------------------------------------------------------------------
+
+def test_engine_valid_pin(db):
+    """Full pipeline: PIN → ActionBrief."""
+    db.execute(
+        """INSERT INTO pin_district_mapping (pin_code, district, state, office_name)
+           VALUES ('221001', 'VARANASI', 'UTTAR PRADESH', 'Varanasi GPO')"""
+    )
+    db.execute(
+        """INSERT INTO misappropriation
+           (district, state, state_code, fin_year, cases_reported, amount_reported, amount_recovered,
+            recovery_rate_pct, source_url, scraped_at)
+           VALUES ('VARANASI', 'UTTAR PRADESH', 'UP', '2024-2025', 50, 420, 34,
+                   8.1, 'https://nrega.nic.in/', '2026-03-30T00:00:00')"""
+    )
+    db.commit()
+    from directory.seed_data import seed_grievance_channels
+    seed_grievance_channels(db)
+
+    from action_brief.engine import build_action_brief
+    brief = build_action_brief("221001", conn=db)
+    assert brief is not None
+    assert brief.pin == "221001"
+    assert brief.district == "VARANASI"
+    assert brief.state == "UTTAR PRADESH"
+    assert len(brief.diagnosis) >= 1
+    assert brief.generated_at is not None
+
+
+def test_engine_invalid_pin():
+    from action_brief.engine import build_action_brief
+    result = build_action_brief("12345")
+    assert result is None
+
+
+def test_engine_unknown_pin(db):
+    from action_brief.engine import build_action_brief
+    result = build_action_brief("999999", conn=db)
+    assert result is None
