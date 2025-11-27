@@ -284,6 +284,50 @@ def test_contacts_mp_mla_dc_always_shown(db):
 
 
 # ---------------------------------------------------------------------------
+# SVG card generation tests
+# ---------------------------------------------------------------------------
+
+def test_card_portrait_svg():
+    from action_brief.card import generate_action_card
+    from action_brief.models import ActionBrief, DiagnosisItem
+    brief = ActionBrief(
+        pin="221001", district="VARANASI", state="UTTAR PRADESH",
+        mp={"mp_name": "Test MP", "party": "BJP"},
+        mla={"mla_name": "Test MLA", "party": "INC"},
+        diagnosis=[DiagnosisItem(
+            severity="high", scheme="MGNREGA",
+            summary="Rs 3.9 crore MGNREGA funds unrecovered",
+            detail="", amount="Rs 3.9 crore", source_url="https://nrega.nic.in/",
+        )],
+        contacts=[], actions=[], scheme_data={},
+        generated_at=datetime(2026, 3, 30, 14, 30),
+    )
+    svg_bytes = generate_action_card(brief, fmt="portrait")
+    svg_str = svg_bytes.decode("utf-8")
+    assert svg_str.startswith("<?xml")
+    assert "VARANASI" in svg_str
+    assert "UTTAR PRADESH" in svg_str
+    assert "MGNREGA" in svg_str
+    assert "Test MP" in svg_str
+    assert "hisaab" in svg_str.lower()
+
+
+def test_card_landscape_svg():
+    from action_brief.card import generate_action_card
+    from action_brief.models import ActionBrief
+    brief = ActionBrief(
+        pin="221001", district="VARANASI", state="UTTAR PRADESH",
+        mp={"mp_name": "Test MP", "party": "BJP"}, mla=None,
+        diagnosis=[], contacts=[], actions=[], scheme_data={},
+        generated_at=datetime(2026, 3, 30, 14, 30),
+    )
+    svg_bytes = generate_action_card(brief, fmt="landscape")
+    svg_str = svg_bytes.decode("utf-8")
+    assert 'width="1200"' in svg_str
+    assert 'height="630"' in svg_str
+
+
+# ---------------------------------------------------------------------------
 # Engine orchestrator tests
 # ---------------------------------------------------------------------------
 
