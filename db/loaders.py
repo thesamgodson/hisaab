@@ -797,3 +797,51 @@ def load_all_latest(fin_year: str = "2024-2025", state_slug: str = "tamil-nadu")
 
     conn.close()
     return results
+
+
+def load_district_officials(
+    conn: sqlite3.Connection,
+    records: list[dict[str, Any]],
+) -> int:
+    """Load district official records."""
+    loaded = 0
+    for r in records:
+        try:
+            conn.execute(
+                """INSERT OR REPLACE INTO district_officials
+                   (state, district, role, name, phone, email, office_address,
+                    source_url, scraped_at)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                (r.get("state", ""), r.get("district", ""), r.get("role", ""),
+                 r.get("name", ""), r.get("phone"), r.get("email"),
+                 r.get("office_address"), r.get("source_url", ""),
+                 r.get("scraped_at", "")),
+            )
+            loaded += 1
+        except sqlite3.IntegrityError:
+            pass
+    return loaded
+
+
+def load_grievance_channels(
+    conn: sqlite3.Connection,
+    records: list[dict[str, Any]],
+) -> int:
+    """Load grievance channel records."""
+    loaded = 0
+    for r in records:
+        try:
+            conn.execute(
+                """INSERT OR REPLACE INTO grievance_channels
+                   (scheme, level, portal_name, portal_url, phone, description,
+                    escalation_scheme, source_url, scraped_at)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                (r.get("scheme", ""), r.get("level", ""), r.get("portal_name", ""),
+                 r.get("portal_url", ""), r.get("phone"), r.get("description"),
+                 r.get("escalation_scheme"), r.get("source_url", ""),
+                 r.get("scraped_at", "")),
+            )
+            loaded += 1
+        except sqlite3.IntegrityError:
+            pass
+    return loaded

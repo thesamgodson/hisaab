@@ -198,3 +198,33 @@ def test_seed_grievance_channels(db):
         "SELECT COUNT(*) as cnt FROM grievance_channels WHERE portal_name LIKE '%RTI%'"
     ).fetchone()
     assert rti["cnt"] >= 1
+
+
+def test_load_district_officials(db):
+    from db.loaders import load_district_officials
+    records = [{
+        "state": "UTTAR PRADESH", "district": "VARANASI",
+        "role": "District Collector", "name": "Test DC",
+        "phone": "9876543210", "email": "dc@varanasi.nic.in",
+        "office_address": "DC Office",
+        "source_url": "https://varanasi.nic.in",
+        "scraped_at": "2026-03-30T00:00:00",
+    }]
+    count = load_district_officials(db, records)
+    assert count == 1
+    row = db.execute("SELECT * FROM district_officials WHERE district='VARANASI'").fetchone()
+    assert row["name"] == "Test DC"
+
+
+def test_load_grievance_channels(db):
+    from db.loaders import load_grievance_channels
+    records = [{
+        "scheme": "MGNREGA", "level": "national",
+        "portal_name": "Test Portal", "portal_url": "https://example.gov.in",
+        "phone": None, "description": "Test",
+        "escalation_scheme": None,
+        "source_url": "https://example.gov.in",
+        "scraped_at": "2026-03-30T00:00:00",
+    }]
+    count = load_grievance_channels(db, records)
+    assert count == 1
