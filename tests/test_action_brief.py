@@ -9,7 +9,7 @@ import pytest
 @pytest.fixture
 def db():
     """In-memory SQLite database with action brief tables."""
-    conn = sqlite3.connect(":memory:")
+    conn = sqlite3.connect(":memory:", check_same_thread=False)
     conn.row_factory = sqlite3.Row
     from db.schema import SCHEMA
     conn.executescript(SCHEMA)
@@ -368,3 +368,63 @@ def test_engine_unknown_pin(db):
     from action_brief.engine import build_action_brief
     result = build_action_brief("999999", conn=db)
     assert result is None
+
+
+# ---------------------------------------------------------------------------
+# API endpoint tests
+# ---------------------------------------------------------------------------
+
+def test_api_action_valid_pin(db):
+    db.execute("""INSERT INTO pin_district_mapping (pin_code, district, state, office_name) VALUES ('221001', 'VARANASI', 'UTTAR PRADESH', 'Varanasi GPO')""")
+    db.commit()
+    from directory.seed_data import seed_grievance_channels
+    seed_grievance_channels(db)
+
+    from api.routes.action import router, _set_test_conn
+    from fastapi import FastAPI
+    app = FastAPI()
+    app.include_router(router, prefix="/api/v1")
+    _set_test_conn(db)
+    from fastapi.testclient import TestClient
+    client = TestClient(app)
+    resp = client.get("/api/v1/action/221001")
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["pin"] == "221001"
+    assert body["district"] == "VARANASI"
+    assert "diagnosis" in body
+    assert "contacts" in body
+    assert "actions" in body
+    _set_test_conn(None)
+
+
+def test_api_action_invalid_pin():
+    from api.routes.action import router, _set_test_conn
+    from fastapi import FastAPI
+    app = FastAPI()
+    app.include_router(router, prefix="/api/v1")
+    _set_test_conn(None)
+    from fastapi.testclient import TestClient
+    client = TestClient(app)
+    resp = client.get("/api/v1/action/123")
+    assert resp.status_code == 400
+
+
+def test_api_action_card_svg(db):
+    db.execute("""INSERT INTO pin_district_mapping (pin_code, district, state, office_name) VALUES ('221001', 'VARANASI', 'UTTAR PRADESH', 'Varanasi GPO')""")
+    db.commit()
+    from directory.seed_data import seed_grievance_channels
+    seed_grievance_channels(db)
+
+    from api.routes.action import router, _set_test_conn
+    from fastapi import FastAPI
+    app = FastAPI()
+    app.include_router(router, prefix="/api/v1")
+    _set_test_conn(db)
+    from fastapi.testclient import TestClient
+    client = TestClient(app)
+    resp = client.get("/api/v1/action/221001/card?format=portrait")
+    assert resp.status_code == 200
+    assert "svg" in resp.headers["content-type"]
+    assert b"<svg" in resp.content
+    _set_test_conn(None)
