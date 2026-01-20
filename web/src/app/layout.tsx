@@ -53,6 +53,7 @@ function NavBar() {
         <div className="flex items-center gap-1 sm:gap-2">
           {[
             { href: "/", label: "Home" },
+            { href: "/#check", label: "Check Your Area" },
             { href: "/constituency", label: "MP Cards" },
           ].map((link) => (
             <Link

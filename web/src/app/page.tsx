@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
 import IndiaMap from "@/components/IndiaMap";
+import PinInput from "@/components/PinInput";
 
 const SCHEMES = [
   { name: "MGNREGA", desc: "Employment", accent: "oklch(0.65 0.16 65)" },
@@ -119,12 +120,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA: Constituency */}
-      <section className="px-4 sm:px-6 py-12">
+      {/* CTA: Check Your Area */}
+      <section className="px-4 sm:px-6 py-12" id="check">
         <div className="max-w-xl mx-auto animate-fade-in-up">
-          <Link
-            href="/constituency"
-            className="group block rounded-2xl p-6 sm:p-8 text-center card-hover"
+          <div
+            className="rounded-2xl p-6 sm:p-8 text-center"
             style={{
               background: "var(--surface-tinted)",
               boxShadow: "var(--shadow-md)",
@@ -140,22 +140,14 @@ export default function Home() {
               className="text-xl sm:text-2xl font-bold mb-2"
               style={{ color: "var(--text-primary)" }}
             >
-              Your MP&apos;s Report Card
+              Check Your Area
             </h3>
             <p className="text-sm mb-4" style={{ color: "var(--text-secondary)" }}>
-              Enter your 6-digit PIN code to see how your constituency
-              is performing across all 11 welfare schemes.
+              Enter your 6-digit PIN code to see what&apos;s wrong, who&apos;s responsible,
+              and what you can do about it.
             </p>
-            <span
-              className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 group-hover:gap-3"
-              style={{ color: "var(--accent)" }}
-            >
-              Enter PIN Code
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" />
-              </svg>
-            </span>
-          </Link>
+            <PinInput />
+          </div>
         </div>
       </section>
     </main>
