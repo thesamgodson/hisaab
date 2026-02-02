@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { DistrictsResponse } from "@/lib/types";
 
 const EXAMPLES = [
@@ -20,13 +20,11 @@ export default function SearchBar({
 }) {
   const router = useRouter();
   const [query, setQuery] = useState("");
-  const [suggestions, setSuggestions] = useState<string[]>([]);
   const [allDistricts, setAllDistricts] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [selectedIdx, setSelectedIdx] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     fetch("/api/v1/districts")
       .then((r) => r.json() as Promise<DistrictsResponse>)
@@ -36,18 +34,15 @@ export default function SearchBar({
       });
   }, []);
 
-  useEffect(() => {
-    if (query.length < 2) {
-      setSuggestions([]);
-      return;
-    }
-    const upper = query.toUpperCase();
-    const filtered = allDistricts
-      .filter((d) => d.toUpperCase().includes(upper))
-      .slice(0, 8);
-    setSuggestions(filtered);
-    setSelectedIdx(-1);
-  }, [query, allDistricts]);
+  const suggestions = useMemo(
+    () =>
+      query.length < 2
+        ? []
+        : allDistricts
+            .filter((d) => d.toUpperCase().includes(query.toUpperCase()))
+            .slice(0, 8),
+    [query, allDistricts],
+  );
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -114,6 +109,7 @@ export default function SearchBar({
             onChange={(e) => {
               setQuery(e.target.value);
               setShowSuggestions(true);
+              setSelectedIdx(-1);
             }}
             onFocus={() => setShowSuggestions(true)}
             onKeyDown={handleKeyDown}
