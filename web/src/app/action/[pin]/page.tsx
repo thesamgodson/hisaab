@@ -10,17 +10,13 @@ import ActionBriefLoading from "./loading";
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 async function fetchActionBrief(pin: string): Promise<ActionBriefResponse | null> {
-  try {
-    const res = await fetch(
-      `${API}/api/v1/action/${encodeURIComponent(pin)}`,
-      { cache: "no-store" },
-    );
-    if (res.status === 404) return null;
-    if (!res.ok) return null;
-    return (await res.json()) as ActionBriefResponse;
-  } catch {
-    return null;
-  }
+  const res = await fetch(
+    `${API}/api/v1/action/${encodeURIComponent(pin)}`,
+    { cache: "no-store" },
+  );
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`API error: ${res.status}`);
+  return (await res.json()) as ActionBriefResponse;
 }
 
 async function ActionBriefContent({ pin }: { pin: string }) {

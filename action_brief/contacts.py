@@ -70,7 +70,7 @@ def build_contacts(
     for off in officials:
         if off["role"] not in allowed_roles:
             continue
-        scraped_date = datetime.fromisoformat(off["scraped_at"]).date()
+        scraped_date = datetime.fromisoformat(off["scraped_at"]).date() if off.get("scraped_at") else today
         contacts.append(ContactCard(
             role=off["role"],
             name=off["name"],

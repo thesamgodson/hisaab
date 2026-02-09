@@ -18,12 +18,20 @@ export default function ShareButton({ pin, district }: { pin: string; district: 
       const blob = new Blob([svgText], { type: "image/svg+xml" });
       const url = URL.createObjectURL(blob);
 
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        setSharing(false);
+      };
       img.onload = async () => {
         const canvas = document.createElement("canvas");
         canvas.width = 1080;
         canvas.height = 1920;
         const ctx = canvas.getContext("2d");
-        if (!ctx) return;
+        if (!ctx) {
+          URL.revokeObjectURL(url);
+          setSharing(false);
+          return;
+        }
         ctx.drawImage(img, 0, 0, 1080, 1920);
         URL.revokeObjectURL(url);
 
