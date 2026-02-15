@@ -47,20 +47,28 @@ export default function Home() {
 
           {/* Subtitle */}
           <p
-            className="text-base sm:text-lg max-w-lg mx-auto mb-10 animate-fade-in-up stagger-3"
+            className="text-base sm:text-lg max-w-lg mx-auto mb-8 animate-fade-in-up stagger-3"
             style={{ color: "var(--text-secondary)" }}
           >
-            Tracking public money across 11 government welfare schemes.
-            Every district. Verified data. Zero spin.
+            Enter your PIN code to see what&apos;s wrong, who&apos;s responsible,
+            and what you can do about it.
           </p>
 
-          {/* Search */}
-          <div className="animate-fade-in-up stagger-4">
-            <SearchBar autoFocus />
+          {/* PIN Input — primary CTA */}
+          <div className="animate-fade-in-up stagger-4 mb-6">
+            <PinInput />
+          </div>
+
+          {/* District search — secondary */}
+          <div className="animate-fade-in-up stagger-5">
+            <p className="text-xs font-medium mb-2" style={{ color: "var(--text-muted)" }}>
+              or search by district name
+            </p>
+            <SearchBar />
           </div>
 
           {/* Stats bar */}
-          <div className="flex items-center justify-center gap-6 sm:gap-10 mt-10 animate-fade-in-up stagger-5">
+          <div className="flex items-center justify-center gap-6 sm:gap-10 mt-10 animate-fade-in-up stagger-6">
             {STATS.map((stat) => (
               <div key={stat.label} className="text-center">
                 <p
@@ -120,34 +128,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA: Check Your Area */}
-      <section className="px-4 sm:px-6 py-12" id="check">
+      {/* CTA: MP Report Cards */}
+      <section className="px-4 sm:px-6 py-12">
         <div className="max-w-xl mx-auto animate-fade-in-up">
-          <div
-            className="rounded-2xl p-6 sm:p-8 text-center"
+          <Link
+            href="/constituency"
+            className="group block rounded-2xl p-6 sm:p-8 text-center card-hover"
             style={{
               background: "var(--surface-tinted)",
               boxShadow: "var(--shadow-md)",
             }}
           >
-            <p
-              className="text-sm font-semibold uppercase tracking-widest mb-2"
-              style={{ color: "var(--accent)" }}
-            >
-              New
-            </p>
             <h3
               className="text-xl sm:text-2xl font-bold mb-2"
               style={{ color: "var(--text-primary)" }}
             >
-              Check Your Area
+              MP Report Cards
             </h3>
             <p className="text-sm mb-4" style={{ color: "var(--text-secondary)" }}>
-              Enter your 6-digit PIN code to see what&apos;s wrong, who&apos;s responsible,
-              and what you can do about it.
+              See how your MP&apos;s constituency performs across all 11 welfare schemes.
             </p>
-            <PinInput />
-          </div>
+            <span
+              className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 group-hover:gap-3"
+              style={{ color: "var(--accent)" }}
+            >
+              View Report Cards
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </span>
+          </Link>
         </div>
       </section>
     </main>

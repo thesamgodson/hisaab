@@ -16,32 +16,35 @@ export default function PinInput() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center justify-center gap-2">
+    <form onSubmit={handleSubmit} className="flex items-center justify-center gap-3">
       <input
         type="text"
         inputMode="numeric"
         pattern="[0-9]{6}"
         maxLength={6}
-        placeholder="Enter PIN code"
+        autoFocus
+        placeholder="6-digit PIN code"
         value={pin}
         onChange={(e) => setPin(e.target.value.replace(/\D/g, "").slice(0, 6))}
-        className="w-36 px-4 py-2 rounded-lg text-center text-sm font-mono tabular-nums"
+        className="w-44 px-5 py-3 rounded-xl text-center text-lg font-mono tabular-nums tracking-widest"
         style={{
           background: "var(--surface)",
           color: "var(--text-primary)",
-          border: "1px solid var(--border)",
+          border: "2px solid var(--border)",
+          boxShadow: "var(--shadow-sm)",
         }}
       />
       <button
         type="submit"
         disabled={pin.length !== 6}
-        className="px-4 py-2 rounded-lg text-sm font-semibold transition-opacity hover:opacity-80 disabled:opacity-40"
+        className="px-6 py-3 rounded-xl text-sm font-semibold transition-opacity hover:opacity-80 disabled:opacity-40"
         style={{
           background: "var(--accent-gradient, var(--accent))",
           color: "white",
+          boxShadow: "var(--shadow-sm)",
         }}
       >
-        Go
+        Check Your Area
       </button>
     </form>
   );
