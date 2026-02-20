@@ -54,7 +54,7 @@ const BAND_LABEL: Record<ScoreBand, string> = {
   "medium-high": "60-80 Fair",
   medium: "40-60 Weak",
   low: "<40 Poor",
-  none: "No data",
+  none: "N/A",
 };
 
 const HOVER_STROKE = "oklch(0.50 0.20 265)";
@@ -129,7 +129,7 @@ const DistrictPath = memo(function DistrictPath({
       aria-label={
         isDisputed
           ? "Disputed area"
-          : `${district}, ${state}${score != null ? `: score ${score}` : ": no data"}`
+          : `${district}, ${state}${score != null ? `: score ${score}` : ": N/A"}`
       }
     />
   );
@@ -426,7 +426,7 @@ export default function IndiaMap() {
                borderColor: "oklch(0.94 0.005 260)",
                backgroundColor: "oklch(0.99 0.003 260)",
              }}>
-          <MapError message={error || "No data"} onRetry={loadData} />
+          <MapError message={error || "N/A"} onRetry={loadData} />
         </div>
       </div>
     );

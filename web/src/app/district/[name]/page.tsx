@@ -8,16 +8,16 @@ import type { DataQualityResponse, SchemeData } from "@/lib/types";
 const API_BASE = process.env.API_BASE_URL ?? "http://localhost:8000";
 
 const SCHEME_KEYS = [
-  { key: "mgnrega", name: "MGNREGA" },
-  { key: "funds", name: "MGNREGA Funds" },
-  { key: "fto", name: "MGNREGA FTO" },
-  { key: "pmgsy", name: "PMGSY" },
-  { key: "pmayg", name: "PMAY-G" },
-  { key: "pmkisan", name: "PM Kisan" },
-  { key: "jjm", name: "JJM" },
-  { key: "pmposhan", name: "PM POSHAN" },
-  { key: "nsap", name: "NSAP" },
-  { key: "nfsa", name: "PDS/NFSA" },
+  { key: "mgnrega", name: "MGNREGA", rural: true },
+  { key: "funds", name: "MGNREGA Funds", rural: true },
+  { key: "fto", name: "MGNREGA FTO", rural: true },
+  { key: "pmgsy", name: "PMGSY", rural: false },
+  { key: "pmayg", name: "PMAY-G", rural: true },
+  { key: "pmkisan", name: "PM Kisan", rural: true },
+  { key: "jjm", name: "JJM", rural: true },
+  { key: "pmposhan", name: "PM POSHAN", rural: false },
+  { key: "nsap", name: "NSAP", rural: false },
+  { key: "nfsa", name: "PDS/NFSA", rural: false },
 ];
 
 async function fetchSchemeData(
@@ -108,7 +108,7 @@ async function DistrictContent({ district }: { district: string }) {
           </svg>
         </div>
         <p className="text-xl font-semibold" style={{ color: "var(--text-primary)" }}>
-          No data found for {district}
+          Not applicable for {district}
         </p>
         <p className="text-sm mt-2" style={{ color: "var(--text-muted)" }}>
           Try checking the spelling or searching for another district.
@@ -117,10 +117,21 @@ async function DistrictContent({ district }: { district: string }) {
     );
   }
 
-  const schemeCards = SCHEME_KEYS.map((s, i) => ({
+  const allSchemes = SCHEME_KEYS.map((s, i) => ({
     ...s,
     result: schemeResults[i],
-  })).filter((s) => s.result?.data !== null && s.result?.data !== undefined);
+  }));
+  const schemeCards = allSchemes.filter(
+    (s) => s.result?.data !== null && s.result?.data !== undefined,
+  );
+  // Rural schemes with no data → likely an urban district
+  const missingRuralSchemes = allSchemes.filter(
+    (s) =>
+      s.rural &&
+      (s.result?.data === null || s.result?.data === undefined),
+  );
+  const isLikelyUrban =
+    missingRuralSchemes.length >= 3 && schemeCards.length > 0;
 
   const warningNameMap: Record<string, string> = {
     mgnrega: "MGNREGA",
@@ -225,6 +236,48 @@ async function DistrictContent({ district }: { district: string }) {
           );
         })}
       </div>
+
+      {/* Urban district notice for missing rural schemes */}
+      {isLikelyUrban && (
+        <div
+          className="mt-6 rounded-xl p-4 animate-fade-in-up"
+          style={{
+            background: "var(--surface)",
+            border: "1px solid var(--border-subtle)",
+          }}
+        >
+          <p
+            className="text-sm font-medium mb-2"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Urban district — {missingRuralSchemes.length} rural schemes not applicable
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {/* Deduplicate MGNREGA variants */}
+            {[...new Set(missingRuralSchemes.map((s) => {
+              if (s.key === "funds" || s.key === "fto") return "MGNREGA";
+              return s.name;
+            }))].map((name) => (
+              <span
+                key={name}
+                className="text-xs px-2 py-0.5 rounded-full"
+                style={{
+                  background: "var(--surface-tinted)",
+                  color: "var(--text-muted)",
+                }}
+              >
+                {name}
+              </span>
+            ))}
+          </div>
+          <p
+            className="text-xs mt-2"
+            style={{ color: "var(--text-muted)" }}
+          >
+            These schemes target rural areas only (Gramin = rural).
+          </p>
+        </div>
+      )}
     </>
   );
 }

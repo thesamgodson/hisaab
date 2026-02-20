@@ -27,7 +27,7 @@ const QUALITY_STYLES: Record<
     bg: "var(--border-subtle)",
     color: "var(--text-muted)",
     dot: "var(--border)",
-    label: "No Data",
+    label: "N/A",
   },
 };
 

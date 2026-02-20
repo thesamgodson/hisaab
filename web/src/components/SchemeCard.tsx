@@ -157,7 +157,7 @@ export default function SchemeCard({
           </div>
         ) : (
           <p className="text-sm italic" style={{ color: "var(--text-muted)" }}>
-            No data available for this district.
+            Not applicable for this district.
           </p>
         )}
 
