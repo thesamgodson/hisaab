@@ -38,7 +38,7 @@ const STATUS_DOT: Record<string, string> = { green: "oklch(0.55 0.17 145)", yell
 
 function SchemeRow({ sp }: { sp: SchemePerf }) {
   const dot = STATUS_DOT[sp.status] ?? "oklch(0.80 0 0)";
-  const scoreLabel = sp.score != null ? `${sp.score.toFixed(0)}%` : "N/A";
+  const scoreLabel = sp.score != null ? `${sp.score.toFixed(0)}%` : "Not applicable";
   return (
     <div className="flex items-center justify-between py-3 last:border-0" style={{ borderBottom: "1px solid var(--border-subtle)" }}>
       <div className="flex items-center gap-3">

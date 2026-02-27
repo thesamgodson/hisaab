@@ -380,7 +380,7 @@ def _render_portrait_svg(rc: MPReportCard) -> bytes:
         x = 60 + col * (col_w + 60)
         y = start_y + row * row_h
         dot_color = _status_dot_color(sp.status)
-        score_label = f"{sp.score:.0f}%" if sp.score is not None else "N/A"
+        score_label = f"{sp.score:.0f}%" if sp.score is not None else "Not applicable"
         scheme_rows_svg.append(
             f'<circle cx="{x + 16}" cy="{y + 20}" r="10" fill="{dot_color}"/>'
             f'<text x="{x + 36}" y="{y + 26}" font-size="26" fill="#1f2937" font-family="Inter,sans-serif">'
@@ -457,7 +457,7 @@ def _render_portrait_svg(rc: MPReportCard) -> bytes:
   <circle cx="230" cy="730" r="10" fill="#d97706"/><text x="250" y="736" font-size="22" fill="#374151" font-family="Inter,sans-serif">50%+ Fair</text>
   <circle cx="390" cy="730" r="10" fill="#ea580c"/><text x="410" y="736" font-size="22" fill="#374151" font-family="Inter,sans-serif">25%+ Poor</text>
   <circle cx="545" cy="730" r="10" fill="#dc2626"/><text x="565" y="736" font-size="22" fill="#374151" font-family="Inter,sans-serif">Below 25%</text>
-  <circle cx="700" cy="730" r="10" fill="#d1d5db"/><text x="720" y="736" font-size="22" fill="#374151" font-family="Inter,sans-serif">N/A</text>
+  <circle cx="700" cy="730" r="10" fill="#d1d5db"/><text x="720" y="736" font-size="22" fill="#374151" font-family="Inter,sans-serif">Not applicable</text>
 
   <!-- Scheme rows -->
   {schemes_block}
@@ -547,7 +547,7 @@ def _render_landscape_svg(rc: MPReportCard) -> bytes:
   <circle cx="855" cy="{h - 60}" r="8" fill="#dc2626"/>
   <text x="871" y="{h - 55}" font-size="14" fill="#6b7280" font-family="Inter,sans-serif">&lt;25%</text>
   <circle cx="945" cy="{h - 60}" r="8" fill="#d1d5db"/>
-  <text x="961" y="{h - 55}" font-size="14" fill="#6b7280" font-family="Inter,sans-serif">N/A</text>
+  <text x="961" y="{h - 55}" font-size="14" fill="#6b7280" font-family="Inter,sans-serif">Not applicable</text>
 
   <!-- Footer right -->
   <text x="460" y="{h - 20}" font-size="14" fill="#9ca3af"
