@@ -5,7 +5,11 @@ import SchemeCard from "@/components/SchemeCard";
 import SearchBar from "@/components/SearchBar";
 import type { DataQualityResponse, SchemeData } from "@/lib/types";
 
-const API_BASE = process.env.API_BASE_URL ?? "http://localhost:8000";
+function getBaseUrl(): string {
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  return `http://localhost:${process.env.PORT ?? 3000}`;
+}
+const API_BASE = getBaseUrl();
 
 const SCHEME_KEYS = [
   { key: "mgnrega", name: "MGNREGA", rural: true },

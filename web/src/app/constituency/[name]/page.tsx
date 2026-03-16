@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { ConstituencyReport, SchemePerf } from "@/lib/constituency-types";
 
-const API_BASE = process.env.API_BASE_URL ?? "http://localhost:8000";
+function getBaseUrl(): string {
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  return `http://localhost:${process.env.PORT ?? 3000}`;
+}
+const API_BASE = getBaseUrl();
 
 async function fetchReport(name: string, fin_year: string): Promise<ConstituencyReport | null> {
   try {
@@ -36,11 +40,11 @@ const GRADE_COLOR: Record<string, string> = { A: "oklch(0.45 0.15 145)", B: "okl
 const GRADE_BG: Record<string, string> = { A: "oklch(0.95 0.03 145)", B: "oklch(0.95 0.03 240)", C: "oklch(0.95 0.03 80)", D: "oklch(0.95 0.03 45)", F: "oklch(0.95 0.03 25)" };
 const STATUS_DOT: Record<string, string> = { green: "oklch(0.55 0.17 145)", yellow: "oklch(0.65 0.16 80)", orange: "oklch(0.60 0.16 50)", red: "oklch(0.55 0.20 25)", no_data: "oklch(0.80 0 0)" };
 
-function SchemeRow({ sp }: { sp: SchemePerf }) {
+function SchemeRow({ sp, isLast }: { sp: SchemePerf; isLast: boolean }) {
   const dot = STATUS_DOT[sp.status] ?? "oklch(0.80 0 0)";
   const scoreLabel = sp.score != null ? `${sp.score.toFixed(0)}%` : "Not applicable";
   return (
-    <div className="flex items-center justify-between py-3 last:border-0" style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+    <div className="flex items-center justify-between py-3" style={isLast ? undefined : { borderBottom: "1px solid var(--border-subtle)" }}>
       <div className="flex items-center gap-3">
         <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: dot }} />
         <span className="text-sm" style={{ color: "var(--text-primary)" }}>{sp.scheme}</span>
@@ -298,8 +302,8 @@ export default async function ConstituencyDetailPage({
           </p>
         ) : (
           <div>
-            {report.schemes.map((sp) => (
-              <SchemeRow key={sp.scheme} sp={sp} />
+            {report.schemes.map((sp, i) => (
+              <SchemeRow key={sp.scheme} sp={sp} isLast={i === report.schemes.length - 1} />
             ))}
           </div>
         )}
@@ -328,7 +332,7 @@ export default async function ConstituencyDetailPage({
         </h2>
         <div className="flex flex-wrap gap-3">
           <a
-            href={`${process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000"}${cardSvgUrl}`}
+            href={`${cardSvgUrl}`}
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-xl text-white text-sm font-semibold transition-opacity duration-150 hover:opacity-90"
@@ -337,7 +341,7 @@ export default async function ConstituencyDetailPage({
             Download SVG Card
           </a>
           <a
-            href={`${process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000"}/api/v1/constituency/${encodeURIComponent(constituency)}/card?fmt=landscape`}
+            href={`/api/v1/constituency/${encodeURIComponent(constituency)}/card?fmt=landscape`}
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-150"

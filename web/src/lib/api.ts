@@ -1,8 +1,8 @@
 /**
- * API client for the Hisaab FastAPI backend.
+ * API client for Hisaab.
  *
- * In the browser, requests go through Next.js rewrites (/api/v1/...).
- * On the server (RSC), requests go directly to the backend.
+ * All API endpoints are now Next.js Route Handlers (app/api/v1/...).
+ * Browser requests use relative paths; server (RSC) uses VERCEL_URL or localhost.
  */
 
 import type {
@@ -20,13 +20,14 @@ import type {
   WorstDistrictsResponse,
 } from "./types";
 
-const BACKEND_URL =
-  typeof window === "undefined"
-    ? (process.env.API_BASE_URL ?? "http://localhost:8000")
-    : "";
+function getBaseUrl(): string {
+  if (typeof window !== "undefined") return ""; // browser — relative
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  return `http://localhost:${process.env.PORT ?? 3000}`;
+}
 
 function apiUrl(path: string): string {
-  return `${BACKEND_URL}${path}`;
+  return `${getBaseUrl()}${path}`;
 }
 
 async function fetchJson<T>(path: string, init?: RequestInit): Promise<T> {

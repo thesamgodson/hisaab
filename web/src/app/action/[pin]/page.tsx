@@ -7,7 +7,11 @@ import DiagnosisCard from "@/components/DiagnosisCard";
 import type { ActionBriefResponse } from "@/lib/action-types";
 import ActionBriefLoading from "./loading";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+function getBaseUrl(): string {
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  return `http://localhost:${process.env.PORT ?? 3000}`;
+}
+const API = getBaseUrl();
 
 async function fetchActionBrief(pin: string): Promise<ActionBriefResponse | null> {
   const res = await fetch(
