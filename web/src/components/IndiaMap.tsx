@@ -152,20 +152,20 @@ function Tooltip({ tip }: { tip: TooltipData }) {
   const band = scoreBand(tip.score);
   return (
     <div
-      className="pointer-events-none absolute z-20 rounded-lg border border-gray-200
-                 bg-white/90 backdrop-blur-sm px-3 py-2 shadow-lg text-xs leading-snug"
-      style={{ left: tip.x + 14, top: tip.y - 14 }}
+      className="pointer-events-none absolute z-20 rounded-lg border
+                 backdrop-blur-sm px-3 py-2 shadow-lg text-xs leading-snug"
+      style={{ left: tip.x + 14, top: tip.y - 14, borderColor: "var(--border)", background: "var(--surface)" }}
     >
       <p className="font-semibold text-sm" style={{ color: "oklch(0.15 0.01 262)" }}>
         {tip.district}
       </p>
-      <p className="text-gray-500 mt-0.5">{tip.state}</p>
+      <p className="mt-0.5" style={{ color: "var(--text-muted)" }}>{tip.state}</p>
       {tip.score != null ? (
         <p className="mt-1 font-medium" style={{ color: BAND_FILL[band] }}>
           Score {tip.score.toFixed(1)} -- Grade {tip.grade}
         </p>
       ) : (
-        <p className="mt-1 text-gray-400">No score data</p>
+        <p className="mt-1" style={{ color: "var(--text-muted)" }}>No score data</p>
       )}
     </div>
   );
@@ -288,8 +288,8 @@ export default function IndiaMap() {
       if (scoresRes) {
         const map = new Map<string, DistrictScore>();
         for (const s of scoresRes.scores) {
-          // Key: "DISTRICT|STATE" for exact matching
-          map.set(`${s.district}|${s.state}`, s);
+          // Key: uppercase "DISTRICT|STATE" for case-insensitive matching
+          map.set(`${s.district.toUpperCase()}|${s.state.toUpperCase()}`, s);
         }
         setScoreMap(map);
       }
@@ -346,7 +346,7 @@ export default function IndiaMap() {
     if (!districts) return [];
     return districts.map((feat) => {
       const d = pathGenerator(feat.geometry as GeoPermissibleObjects) || "";
-      const key = `${feat.district}|${feat.state}`;
+      const key = `${feat.district.toUpperCase()}|${feat.state.toUpperCase()}`;
       const scoreData = scoreMap.get(key);
       const isDisputed = !feat.district;
       const band = scoreBand(scoreData?.score);
