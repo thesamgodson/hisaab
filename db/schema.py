@@ -664,6 +664,14 @@ CREATE TABLE IF NOT EXISTS pin_district_mapping (
 );
 CREATE INDEX IF NOT EXISTS idx_pin_district ON pin_district_mapping(district, state);
 
+CREATE TABLE IF NOT EXISTS pin_constituency (
+    pin_code TEXT PRIMARY KEY,
+    constituency TEXT NOT NULL,
+    state TEXT NOT NULL,
+    method TEXT NOT NULL DEFAULT 'spatial_join'
+);
+CREATE INDEX IF NOT EXISTS idx_pin_constituency ON pin_constituency(constituency, state);
+
 CREATE TABLE IF NOT EXISTS constituency_district (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     constituency TEXT NOT NULL,

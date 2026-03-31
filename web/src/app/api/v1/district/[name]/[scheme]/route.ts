@@ -190,7 +190,7 @@ export async function GET(
   { params }: { params: Promise<{ name: string; scheme: string }> },
 ) {
   const { name, scheme } = await params;
-  const district = decodeURIComponent(name);
+  const district = decodeURIComponent(name).toUpperCase().trim().replace(/-/g, " ");
   const schemeSlug = decodeURIComponent(scheme).toLowerCase();
   const searchParams = request.nextUrl.searchParams;
   const finYear = searchParams.get("fin_year") ?? "2024-2025";

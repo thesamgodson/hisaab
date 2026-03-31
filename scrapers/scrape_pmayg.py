@@ -34,37 +34,43 @@ LOG_DIR = DATA_DIR / "logs"
 REPORT_URL = "https://report.pmayg.dord.gov.in/netiay/DataAnalytics/PhysicalProgressRpt.aspx"
 
 # State name → PMAY-G state_code mapping (from the dropdown on the portal)
+# State codes scraped from the PMAY-G portal dropdown (2026-03-31)
 STATE_CODES: dict[str, str] = {
-    "ANDHRA PRADESH": "37",
+    "ANDAMAN AND NICOBAR": "01",
+    "ANDHRA PRADESH": "02",
     "ARUNACHAL PRADESH": "03",
     "ASSAM": "04",
     "BIHAR": "05",
     "CHHATTISGARH": "33",
+    "DADRA AND NAGAR HAVELI": "07",
+    "DAMAN AND DIU": "08",
     "GOA": "10",
     "GUJARAT": "11",
     "HARYANA": "12",
     "HIMACHAL PRADESH": "13",
-    "JAMMU AND KASHMIR": "01",
+    "JAMMU AND KASHMIR": "14",
     "JHARKHAND": "34",
     "KARNATAKA": "15",
     "KERALA": "16",
+    "LAKSHADWEEP": "19",
     "MADHYA PRADESH": "17",
     "MAHARASHTRA": "18",
-    "MANIPUR": "19",
-    "MEGHALAYA": "20",
-    "MIZORAM": "21",
-    "NAGALAND": "22",
-    "ODISHA": "23",
-    "PUNJAB": "24",
-    "RAJASTHAN": "25",
-    "SIKKIM": "26",
-    "TAMIL NADU": "27",
+    "MANIPUR": "20",
+    "MEGHALAYA": "21",
+    "MIZORAM": "22",
+    "NAGALAND": "23",
+    "ODISHA": "24",
+    "PUDUCHERRY": "25",
+    "PUNJAB": "26",
+    "RAJASTHAN": "27",
+    "SIKKIM": "28",
+    "TAMIL NADU": "29",
     "TELANGANA": "36",
-    "TRIPURA": "28",
-    "UTTAR PRADESH": "29",
+    "TRIPURA": "30",
+    "UTTAR PRADESH": "31",
     "UTTARAKHAND": "35",
-    "WEST BENGAL": "31",
-    "LADAKH": "02",
+    "WEST BENGAL": "32",
+    "LADAKH": "37",
 }
 
 
@@ -127,16 +133,18 @@ async def scrape_state(config: PmaygConfig) -> list[dict[str, Any]]:
             await page.wait_for_load_state("load", timeout=15000)
             await page.wait_for_timeout(2000)
 
-            # Step 3: Select State (force-enable)
+            # Step 3: Select State (force-enable, triggers postback)
             await page.evaluate(
                 """(code) => {
                     var d = document.getElementById('ctl00_ContentPlaceHolder1_ddlState');
                     d.disabled = false;
                     d.value = code;
+                    __doPostBack('ctl00$ContentPlaceHolder1$ddlState', '');
                 }""",
                 config.state_code,
             )
-            await page.wait_for_timeout(500)
+            await page.wait_for_load_state("load", timeout=15000)
+            await page.wait_for_timeout(2000)
 
             # Step 4: Submit
             await page.evaluate("""() => {

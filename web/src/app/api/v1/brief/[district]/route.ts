@@ -16,7 +16,7 @@ export async function GET(
   { params }: { params: Promise<{ district: string }> },
 ) {
   const { district: rawDistrict } = await params;
-  const district = decodeURIComponent(rawDistrict);
+  const district = decodeURIComponent(rawDistrict).toUpperCase().trim().replace(/-/g, " ");
   const searchParams = request.nextUrl.searchParams;
   const finYear = searchParams.get("fin_year") ?? "2024-2025";
 

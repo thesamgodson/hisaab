@@ -16,6 +16,7 @@ interface MoneyFlowRow {
   units_target: number | null;
   units_completed: number | null;
   units_label: string | null;
+  source_url: string | null;
 }
 
 export async function GET(
@@ -23,7 +24,7 @@ export async function GET(
   { params }: { params: Promise<{ name: string }> },
 ) {
   const { name } = await params;
-  const district = decodeURIComponent(name);
+  const district = decodeURIComponent(name).toUpperCase().trim().replace(/-/g, " ");
   const searchParams = request.nextUrl.searchParams;
 
   let state = searchParams.get("state");
@@ -36,7 +37,7 @@ export async function GET(
   if (state) {
     rows = await query<MoneyFlowRow>(
       `SELECT scheme, fin_year, allocated_lakhs, released_lakhs, expended_lakhs,
-              utilization_pct, units_target, units_completed, units_label
+              utilization_pct, units_target, units_completed, units_label, source_url
        FROM money_flow
        WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)
        ORDER BY scheme, fin_year`,
@@ -45,7 +46,7 @@ export async function GET(
   } else {
     rows = await query<MoneyFlowRow>(
       `SELECT scheme, fin_year, allocated_lakhs, released_lakhs, expended_lakhs,
-              utilization_pct, units_target, units_completed, units_label
+              utilization_pct, units_target, units_completed, units_label, source_url
        FROM money_flow
        WHERE UPPER(district) = UPPER(?)
        ORDER BY scheme, fin_year`,

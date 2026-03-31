@@ -16,7 +16,8 @@ export async function GET(
   { params }: { params: Promise<{ name: string }> },
 ) {
   const { name } = await params;
-  const district = decodeURIComponent(name);
+  // Normalize: hyphens → spaces to match DB convention (TopoJSON uses hyphens)
+  const district = decodeURIComponent(name).toUpperCase().trim().replace(/-/g, " ");
   const searchParams = request.nextUrl.searchParams;
   const finYear = searchParams.get("fin_year") ?? "2024-2025";
 

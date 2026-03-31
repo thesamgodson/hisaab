@@ -6,7 +6,7 @@ export async function GET(
   { params }: { params: Promise<{ name: string }> },
 ) {
   const { name } = await params;
-  const district = decodeURIComponent(name);
+  const district = decodeURIComponent(name).toUpperCase().trim().replace(/-/g, " ");
 
   const rows = await query<{ scheme: string }>(
     `SELECT DISTINCT scheme FROM money_flow WHERE UPPER(district) = UPPER(?) ORDER BY scheme`,

@@ -40,10 +40,12 @@ export async function queryOne<T = Record<string, unknown>>(
 
 /** Resolve state for a district by checking multiple tables. */
 export async function resolveState(district: string): Promise<string | null> {
+  // Normalize: replace hyphens with spaces to match DB convention
+  const normalized = district.toUpperCase().trim().replace(/-/g, " ");
   for (const table of ["pmgsy_district", "misappropriation", "financial_statement"]) {
     const row = await queryOne<{ state: string }>(
       `SELECT state FROM ${table} WHERE UPPER(district) = UPPER(?) LIMIT 1`,
-      [district],
+      [normalized],
     );
     if (row) return row.state;
   }

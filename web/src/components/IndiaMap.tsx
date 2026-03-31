@@ -22,9 +22,14 @@ import {
 } from "react";
 import { geoMercator, geoPath } from "d3-geo";
 import type { GeoPermissibleObjects } from "d3-geo";
-import { fetchScores } from "@/lib/api";
 import { loadDistrictBoundaries, type DistrictFeature } from "@/lib/geodata";
-import type { DistrictScore } from "@/lib/types";
+import type { DistrictScore, ScoreBreakdown, ScoresResponse } from "@/lib/types";
+
+async function fetchScores(): Promise<ScoresResponse> {
+  const res = await fetch("/api/v1/scores");
+  if (!res.ok) throw new Error(`Scores API: ${res.status}`);
+  return res.json() as Promise<ScoresResponse>;
+}
 
 // ---------------------------------------------------------------------------
 // Score band utilities
@@ -80,10 +85,11 @@ interface DistrictPathProps {
   state: string;
   score: number | null;
   grade: string | null;
+  breakdown: ScoreBreakdown | null;
   isDisputed: boolean;
   onHover: (
     e: React.MouseEvent,
-    info: { district: string; state: string; score: number | null; grade: string | null },
+    info: { district: string; state: string; score: number | null; grade: string | null; breakdown: ScoreBreakdown | null },
   ) => void;
   onLeave: () => void;
   onClick: (district: string, state: string) => void;
@@ -96,6 +102,7 @@ const DistrictPath = memo(function DistrictPath({
   state,
   score,
   grade,
+  breakdown,
   isDisputed,
   onHover,
   onLeave,
@@ -104,9 +111,9 @@ const DistrictPath = memo(function DistrictPath({
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
       if (isDisputed) return;
-      onHover(e, { district, state, score, grade });
+      onHover(e, { district, state, score, grade, breakdown });
     },
-    [isDisputed, onHover, district, state, score, grade],
+    [isDisputed, onHover, district, state, score, grade, breakdown],
   );
 
   const handleClick = useCallback(() => {
@@ -146,10 +153,22 @@ interface TooltipData {
   state: string;
   score: number | null;
   grade: string | null;
+  breakdown: ScoreBreakdown | null;
+  finYear: string | null;
+}
+
+function formatFinYear(fy: string): string {
+  // "2024-2025" -> "FY 2024-25"
+  const parts = fy.split("-");
+  if (parts.length === 2 && parts[1].length === 4) {
+    return `FY ${parts[0]}-${parts[1].slice(2)}`;
+  }
+  return `FY ${fy}`;
 }
 
 function Tooltip({ tip }: { tip: TooltipData }) {
   const band = scoreBand(tip.score);
+  const bd = tip.breakdown;
   return (
     <div
       className="pointer-events-none absolute z-20 rounded-lg border
@@ -161,9 +180,29 @@ function Tooltip({ tip }: { tip: TooltipData }) {
       </p>
       <p className="mt-0.5" style={{ color: "var(--text-muted)" }}>{tip.state}</p>
       {tip.score != null ? (
-        <p className="mt-1 font-medium" style={{ color: BAND_FILL[band] }}>
-          Score {tip.score.toFixed(1)} -- Grade {tip.grade}
-        </p>
+        <>
+          <p className="mt-1 font-medium" style={{ color: BAND_FILL[band] }}>
+            Score {tip.score.toFixed(1)} -- Grade {tip.grade}
+          </p>
+          {bd && (
+            <div className="mt-1 space-y-0.5" style={{ color: "oklch(0.40 0.01 262)" }}>
+              {bd.delivery_avg != null && (
+                <p>Delivery: {bd.delivery_avg.toFixed(1)}% (60% weight)</p>
+              )}
+              {bd.finance_avg != null && (
+                <p>Utilization: {bd.finance_avg.toFixed(1)}% (30% weight)</p>
+              )}
+              {bd.governance_score != null && (
+                <p>Governance: {bd.governance_score.toFixed(1)}% (10% weight)</p>
+              )}
+            </div>
+          )}
+          {tip.finYear && (
+            <p className="mt-1" style={{ color: "oklch(0.55 0.01 262)" }}>
+              As of {formatFinYear(tip.finYear)}
+            </p>
+          )}
+        </>
       ) : (
         <p className="mt-1" style={{ color: "var(--text-muted)" }}>No score data</p>
       )}
@@ -178,18 +217,23 @@ function Tooltip({ tip }: { tip: TooltipData }) {
 function Legend() {
   const bands: ScoreBand[] = ["high", "medium-high", "medium", "low", "none"];
   return (
-    <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3 justify-center">
-      {bands.map((band) => (
-        <div key={band} className="flex items-center gap-1.5">
-          <span
-            className="inline-block w-3 h-3 rounded-sm flex-shrink-0"
-            style={{ backgroundColor: BAND_FILL[band] }}
-          />
-          <span className="text-xs" style={{ color: "oklch(0.40 0.01 262)" }}>
-            {BAND_LABEL[band]}
-          </span>
-        </div>
-      ))}
+    <div className="mt-3">
+      <div className="flex flex-wrap gap-x-4 gap-y-1 justify-center">
+        {bands.map((band) => (
+          <div key={band} className="flex items-center gap-1.5">
+            <span
+              className="inline-block w-3 h-3 rounded-sm flex-shrink-0"
+              style={{ backgroundColor: BAND_FILL[band] }}
+            />
+            <span className="text-xs" style={{ color: "oklch(0.40 0.01 262)" }}>
+              {BAND_LABEL[band]}
+            </span>
+          </div>
+        ))}
+      </div>
+      <p className="text-center mt-2 mb-1" style={{ fontSize: "0.65rem", lineHeight: "1.3", color: "oklch(0.55 0.01 262)" }}>
+        Score = 60% delivery + 30% utilization + 10% governance. Source: scheme data from official portals.
+      </p>
     </div>
   );
 }
@@ -267,6 +311,7 @@ export default function IndiaMap() {
 
   const [districts, setDistricts] = useState<DistrictFeature[] | null>(null);
   const [scoreMap, setScoreMap] = useState<Map<string, DistrictScore>>(new Map());
+  const [finYear, setFinYear] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
@@ -292,6 +337,7 @@ export default function IndiaMap() {
           map.set(`${s.district.toUpperCase()}|${s.state.toUpperCase()}`, s);
         }
         setScoreMap(map);
+        setFinYear(scoresRes.fin_year ?? null);
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unknown error loading map");
@@ -358,6 +404,7 @@ export default function IndiaMap() {
         state: feat.state,
         score: scoreData?.score ?? null,
         grade: scoreData?.grade ?? null,
+        breakdown: scoreData?.breakdown ?? null,
         isDisputed,
       };
     });
@@ -368,7 +415,7 @@ export default function IndiaMap() {
   const handleHover = useCallback(
     (
       e: React.MouseEvent,
-      info: { district: string; state: string; score: number | null; grade: string | null },
+      info: { district: string; state: string; score: number | null; grade: string | null; breakdown: ScoreBreakdown | null },
     ) => {
       const rect = containerRef.current?.getBoundingClientRect();
       if (!rect) return;
@@ -377,9 +424,10 @@ export default function IndiaMap() {
         x: e.clientX - rect.left,
         y: e.clientY - rect.top,
         ...info,
+        finYear,
       });
     },
-    [],
+    [finYear],
   );
 
   const handleLeave = useCallback(() => {
@@ -474,6 +522,7 @@ export default function IndiaMap() {
                 state={dp.state}
                 score={dp.score}
                 grade={dp.grade}
+                breakdown={dp.breakdown}
                 isDisputed={dp.isDisputed}
                 onHover={handleHover}
                 onLeave={handleLeave}

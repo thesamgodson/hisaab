@@ -70,16 +70,62 @@ export async function GET(
 
   const { district, state } = mapping;
 
-  const [constituencies, assemblyConstituencies] = await Promise.all([
-    query<ConstituencyDistrict>(
+  // Try precise PIN→constituency mapping first (spatial join table)
+  const pinConstituency = await queryOne<{ constituency: string; state: string }>(
+    `SELECT constituency, state FROM pin_constituency WHERE pin_code = ?`,
+    [pin_code],
+  );
+
+  let constituencies: ConstituencyDistrict[];
+  if (pinConstituency) {
+    // Precise match — try exact name first, then fuzzy (strip SC/ST suffix)
+    constituencies = await query<ConstituencyDistrict>(
+      `SELECT * FROM constituency_district WHERE UPPER(constituency) = UPPER(?) AND UPPER(state) = UPPER(?)`,
+      [pinConstituency.constituency, pinConstituency.state],
+    );
+    if (constituencies.length === 0) {
+      // Try matching without (SC)/(ST) suffix, or match base name
+      constituencies = await query<ConstituencyDistrict>(
+        `SELECT * FROM constituency_district
+         WHERE (UPPER(REPLACE(REPLACE(constituency, ' (SC)', ''), ' (ST)', '')) = UPPER(?)
+            OR UPPER(?) LIKE UPPER(REPLACE(REPLACE(constituency, ' (SC)', ''), ' (ST)', '')))
+           AND UPPER(state) = UPPER(?)`,
+        [pinConstituency.constituency, pinConstituency.constituency, pinConstituency.state],
+      );
+    }
+    // Deduplicate by constituency name
+    const seen = new Set<string>();
+    constituencies = constituencies.filter((c) => {
+      const key = c.constituency.toUpperCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+    if (constituencies.length === 0 && pinConstituency) {
+      // Constituency identified via spatial mapping but not in constituency_district table
+      constituencies = [{
+        constituency: pinConstituency.constituency,
+        district,
+        state: pinConstituency.state || state,
+      } as ConstituencyDistrict];
+    }
+  } else {
+    // Fallback: all constituencies in district
+    constituencies = await query<ConstituencyDistrict>(
       `SELECT * FROM constituency_district WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)`,
       [district, state],
-    ),
-    query<AcDistrict>(
-      `SELECT * FROM ac_district WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)`,
-      [district, state],
-    ),
-  ]);
+    );
+  }
+
+  const assemblyConstituencies = pinConstituency
+    ? await query<AcDistrict>(
+        `SELECT * FROM ac_district WHERE UPPER(pc_name) = UPPER(?) AND UPPER(state) = UPPER(?)`,
+        [pinConstituency.constituency, pinConstituency.state],
+      )
+    : await query<AcDistrict>(
+        `SELECT * FROM ac_district WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)`,
+        [district, state],
+      );
 
   const constituenciesWithMp = await Promise.all(
     constituencies.map(async (c) => {
@@ -130,6 +176,7 @@ export async function GET(
     district: mapping.district,
     state: mapping.state,
     office_name: mapping.office_name,
+    precise: !!pinConstituency,
     constituencies: constituenciesWithMp,
     constituency_count: constituenciesWithMp.length,
     assembly_constituencies: acsWithMla,

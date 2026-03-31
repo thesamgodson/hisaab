@@ -37,6 +37,16 @@ Each claim must include:
 | CLAIM-2026-0007 | 3.18 crore NSAP pension beneficiaries paid, ~Rs 8,649 Cr estimated central pension (imputed) across 36 states in FY 2024-25 | 31837292 | beneficiaries | 2026-03-06 | India | NSAP via data.gov.in API | https://api.data.gov.in/resource/nsap | 2026-03-06T06:07:11Z | requests | data/curated/nsap_district_*_latest.json | scrape_nsap_api.py | medium | active | Financial amounts IMPUTED: beneficiaries × GoI central pension rate × 12. Rates: IGNOAPS Rs 200/mo, IGNWPS Rs 300/mo, IGNDPS Rs 300/mo. These are central share only; actual disbursement may be higher with state top-ups. |
 | CLAIM-2026-0008 | 19.99 crore ration cards recorded under NFSA across 36 states in FY 2024-25 | 199901967 | ration cards | 2026-03-06 | India | NFSA Public Dashboard | https://nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx | 2026-03-06T04:52:37Z | requests | data/curated/nfsa_district_*_latest.json | scrape_geo_hierarchy.py | low | active | Ration card counts only; allocation_mt/offtake_mt are zeros. NFSA dashboard data is stale (Jul 2021 vintage). active = total (no distinction scraped). |
 
+## Derived Data Claims
+
+These claims are computed from underlying scheme data (CLAIM-2026-0001 through 0008). They are not direct government claims.
+
+| claim_id | statement | methodology | sources | as_of_date | confidence | status | notes |
+|---|---|---|---|---|---|---|---|
+| DERIVED-2026-0001 | District accountability scores (0-100) shown on India map | Composite: 60% delivery_pct avg across schemes + 30% utilization_pct avg + 10% MGNREGA recovery_rate_pct. Grades: A=80+, B=60-80, C=40-60, D=20-40, F<20 | scheme_delivery VIEW, scheme_finance VIEW, misappropriation table | 2026-03-31 | medium | active | Derived metric, not a government statistic. Methodology documented in web/src/lib/scores.ts. Districts with no scheme data receive null score. |
+| DERIVED-2026-0002 | PIN code to Lok Sabha constituency mapping (19,169 PINs) | Spatial join: GeoNames India postal code coordinates (lat/lng per PIN) point-in-polygon matched against datameet 2019 Lok Sabha constituency boundary GeoJSON | GeoNames (download.geonames.org/export/zip/IN.zip), datameet maps (github.com/datameet/maps/parliamentary-constituencies) | 2026-03-31 | medium | active | 97.9% of PINs mapped. 417 PINs lack coordinates. 2019 boundaries — some constituencies renamed/delimited in 2024. Constituency names normalized to match mp_info. |
+| DERIVED-2026-0003 | Homepage statistics (scheme count, district count, record count) | Live aggregation from database tables | All scheme tables in hisaab.db | 2026-03-31 | high | active | Computed at request time from live DB. Not hardcoded. |
+
 ## Usage policy
 
 - Update or append claims after every material data refresh.
