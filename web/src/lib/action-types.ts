@@ -5,29 +5,35 @@ export interface DiagnosisItem {
   scheme: string;
   summary: string;
   detail: string;
-  amount: string | null;
-  source_url: string;
+  amount: number | null;
+  source_url: string | null;
 }
 
-export interface ContactCard {
-  role: string;
-  name: string | null;
-  phone: string | null;
-  email: string | null;
-  office_address: string | null;
-  relevance: string;
-  source_url: string;
-  last_verified: string;
-  freshness: "fresh" | "stale" | "expired";
+export interface ActionStep {
+  action: string;
+  url: string | null;
 }
 
 export interface ActionItem {
   scheme: string;
-  action: string;
+  steps: ActionStep[];
+}
+
+export interface GrievanceChannel {
+  scheme: string;
+  level: string;
   portal_name: string;
   portal_url: string;
-  escalation: string;
-  escalation_url: string;
+  phone: string | null;
+  description: string;
+}
+
+export interface SchemeDataEntry {
+  severity: string;
+  summary: string;
+  detail: string;
+  amount: number | null;
+  source_url: string | null;
 }
 
 export interface MPInfo {
@@ -35,6 +41,8 @@ export interface MPInfo {
   party: string;
   constituency: string;
   state: string;
+  elected_year: number;
+  source_url: string;
 }
 
 export interface MLAInfo {
@@ -42,6 +50,7 @@ export interface MLAInfo {
   party: string;
   ac_name: string;
   state: string;
+  source_url: string;
 }
 
 export interface ActionBriefResponse {
@@ -51,8 +60,8 @@ export interface ActionBriefResponse {
   mp: MPInfo | null;
   mla: MLAInfo | null;
   diagnosis: DiagnosisItem[];
-  contacts: ContactCard[];
   actions: ActionItem[];
-  scheme_data: Record<string, unknown>;
+  grievance_channels: GrievanceChannel[];
+  scheme_data: Record<string, SchemeDataEntry>;
   generated_at: string;
 }
