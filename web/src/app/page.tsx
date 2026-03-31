@@ -106,7 +106,7 @@ export default function Home() {
             {SCHEMES.map((s, i) => (
               <div
                 key={s.name}
-                className={`gradient-border-top card-hover rounded-xl px-4 py-4 text-center animate-fade-in-up stagger-${i + 1}`}
+                className={`gradient-border-top rounded-xl px-4 py-4 text-center animate-fade-in-up stagger-${i + 1}`}
                 style={{
                   background: "var(--surface)",
                   boxShadow: "var(--shadow-sm)",

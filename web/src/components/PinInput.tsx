@@ -22,8 +22,8 @@ export default function PinInput() {
         inputMode="numeric"
         pattern="[0-9]{6}"
         maxLength={6}
-        autoFocus
         placeholder="6-digit PIN code"
+        aria-label="Enter your 6-digit PIN code"
         value={pin}
         onChange={(e) => setPin(e.target.value.replace(/\D/g, "").slice(0, 6))}
         className="w-44 px-5 py-3 rounded-xl text-center text-lg font-mono tabular-nums tracking-widest"

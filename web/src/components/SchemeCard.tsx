@@ -42,7 +42,7 @@ function detectRedFlags(
     }
     const cases = d["cases_reported"] as number | undefined;
     if (cases !== undefined && cases > 100) {
-      flags.push(`${cases.toLocaleString()} cases reported`);
+      flags.push(`${cases.toLocaleString("en-IN")} cases reported`);
     }
   }
 

@@ -42,7 +42,7 @@ export default function FreshnessBar({ entry }: FreshnessBarProps) {
       />
       <span>{label}</span>
       <span style={{ color: "var(--border)" }}>|</span>
-      <span>{entry.records.toLocaleString()} records</span>
+      <span>{entry.records.toLocaleString("en-IN")} records</span>
       <span style={{ color: "var(--border)" }}>|</span>
       <span>{entry.source}</span>
     </div>
