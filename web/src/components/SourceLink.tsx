@@ -10,10 +10,11 @@ export default function SourceLink({
   label = "View Source",
 }: SourceLinkProps) {
   if (!url) return null;
+  const href = url.startsWith("http") ? url : `https://${url}`;
 
   return (
     <a
-      href={url}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-1.5 text-xs font-medium transition-opacity duration-150 hover:opacity-70"
