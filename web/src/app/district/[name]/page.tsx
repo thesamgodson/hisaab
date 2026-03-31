@@ -69,10 +69,10 @@ export default async function DistrictPage(props: {
   const schemes = latestPerScheme(rows);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
       {/* Breadcrumb */}
       <nav
-        className="text-sm mb-6"
+        className="text-sm mb-8"
         style={{ color: "var(--text-muted)" }}
         aria-label="Breadcrumb"
       >
@@ -80,33 +80,35 @@ export default async function DistrictPage(props: {
           <li>
             <Link
               href="/"
-              className="hover:underline"
+              className="transition-colors duration-150 hover:underline"
               style={{ color: "var(--accent)" }}
             >
               Home
             </Link>
           </li>
-          <li aria-hidden="true">/</li>
-          <li style={{ color: "var(--text-primary)" }}>{districtName}</li>
+          <li aria-hidden="true" style={{ color: "var(--border)" }}>/</li>
+          <li className="font-medium" style={{ color: "var(--text-primary)" }}>
+            {districtName}
+          </li>
         </ol>
       </nav>
 
       {/* Header */}
-      <header className="mb-8">
+      <header className="mb-10">
         <h1
-          className="text-2xl sm:text-3xl font-bold mb-1"
+          className="text-2xl sm:text-3xl font-bold tracking-tight mb-1"
           style={{ color: "var(--text-primary)" }}
         >
           {districtName}
         </h1>
         <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-          {state}
+          {state} · {schemes.length} scheme{schemes.length !== 1 ? "s" : ""} with data
         </p>
       </header>
 
       {/* Scheme cards */}
       {schemes.length > 0 ? (
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2">
           {schemes.map((s, i) => (
             <div
               key={s.scheme}
@@ -118,10 +120,11 @@ export default async function DistrictPage(props: {
         </div>
       ) : (
         <div
-          className="text-center py-16 rounded-xl"
+          className="text-center py-20 rounded-xl"
           style={{
             background: "var(--surface)",
             border: "1px solid var(--border-subtle)",
+            boxShadow: "var(--shadow-sm)",
           }}
         >
           <p
@@ -137,10 +140,13 @@ export default async function DistrictPage(props: {
       )}
 
       {/* Footer note */}
-      <footer className="mt-10 pt-6" style={{ borderTop: "1px solid var(--border-subtle)" }}>
+      <footer
+        className="mt-12 pt-6"
+        style={{ borderTop: "1px solid var(--border-subtle)" }}
+      >
         <p className="text-xs" style={{ color: "var(--text-muted)" }}>
           Data from official government portals. Financial figures in Indian
-          Rupees (lakhs).
+          Rupees (lakhs). All numbers use the latest available financial year.
         </p>
       </footer>
     </div>

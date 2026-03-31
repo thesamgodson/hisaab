@@ -7,27 +7,33 @@ import SourceLink from "@/components/SourceLink";
 /* ---------- severity styling ---------- */
 
 const SEVERITY_BG: Record<DiagnosisItem["severity"], string> = {
-  high: "oklch(0.95 0.05 25)",
-  medium: "oklch(0.95 0.04 85)",
-  low: "oklch(0.95 0.04 145)",
+  high: "oklch(0.97 0.02 25)",
+  medium: "oklch(0.97 0.02 85)",
+  low: "oklch(0.97 0.02 145)",
 };
 
 const SEVERITY_BORDER: Record<DiagnosisItem["severity"], string> = {
-  high: "oklch(0.75 0.15 25)",
-  medium: "oklch(0.78 0.12 85)",
-  low: "oklch(0.78 0.12 145)",
+  high: "oklch(0.80 0.12 25)",
+  medium: "oklch(0.82 0.10 85)",
+  low: "oklch(0.82 0.10 145)",
 };
 
 const SEVERITY_TEXT: Record<DiagnosisItem["severity"], string> = {
-  high: "oklch(0.45 0.18 25)",
-  medium: "oklch(0.45 0.14 85)",
-  low: "oklch(0.40 0.14 145)",
+  high: "oklch(0.40 0.18 25)",
+  medium: "oklch(0.40 0.14 85)",
+  low: "oklch(0.38 0.14 145)",
 };
 
-const SEVERITY_BADGE_BG: Record<DiagnosisItem["severity"], string> = {
+const SEVERITY_ACCENT: Record<DiagnosisItem["severity"], string> = {
   high: "oklch(0.55 0.20 25)",
   medium: "oklch(0.60 0.16 85)",
   low: "oklch(0.55 0.16 145)",
+};
+
+const SEVERITY_LABEL: Record<DiagnosisItem["severity"], string> = {
+  high: "High severity",
+  medium: "Medium",
+  low: "Low",
 };
 
 /* ---------- page ---------- */
@@ -42,7 +48,7 @@ export default async function ActionPage({ params }: PageProps) {
   /* Validate PIN format */
   if (!/^\d{6}$/.test(pin)) {
     return (
-      <main className="max-w-3xl mx-auto px-4 py-16 text-center">
+      <main className="max-w-3xl mx-auto px-4 py-20 text-center">
         <h1
           className="text-2xl font-bold mb-3"
           style={{ color: "var(--text-primary)" }}
@@ -54,7 +60,7 @@ export default async function ActionPage({ params }: PageProps) {
         </p>
         <Link
           href="/"
-          className="inline-block mt-6 px-5 py-2.5 rounded-xl text-sm font-medium text-white"
+          className="inline-block mt-6 px-5 py-2.5 rounded-xl text-sm font-medium text-white transition-opacity duration-150 hover:opacity-90"
           style={{ background: "var(--accent)" }}
         >
           Go back home
@@ -74,7 +80,7 @@ export default async function ActionPage({ params }: PageProps) {
 
   if (!res.ok) {
     return (
-      <main className="max-w-3xl mx-auto px-4 py-16 text-center">
+      <main className="max-w-3xl mx-auto px-4 py-20 text-center">
         <h1
           className="text-2xl font-bold mb-3"
           style={{ color: "var(--text-primary)" }}
@@ -86,7 +92,7 @@ export default async function ActionPage({ params }: PageProps) {
         </p>
         <Link
           href="/"
-          className="inline-block mt-6 px-5 py-2.5 rounded-xl text-sm font-medium text-white"
+          className="inline-block mt-6 px-5 py-2.5 rounded-xl text-sm font-medium text-white transition-opacity duration-150 hover:opacity-90"
           style={{ background: "var(--accent)" }}
         >
           Go back home
@@ -105,23 +111,45 @@ export default async function ActionPage({ params }: PageProps) {
   const districtSlug = data.district.toLowerCase().replace(/\s+/g, "-");
 
   return (
-    <main className="max-w-3xl mx-auto px-4 py-12">
+    <main className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
       {/* ---- Section 1: Your Area ---- */}
-      <section className="mb-10">
+      <section className="mb-12 animate-fade-in">
+        <nav
+          className="text-sm mb-6"
+          style={{ color: "var(--text-muted)" }}
+          aria-label="Breadcrumb"
+        >
+          <ol className="flex items-center gap-1.5">
+            <li>
+              <Link
+                href="/"
+                className="transition-colors duration-150 hover:underline"
+                style={{ color: "var(--accent)" }}
+              >
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true" style={{ color: "var(--border)" }}>/</li>
+            <li className="font-medium" style={{ color: "var(--text-primary)" }}>
+              PIN {pin}
+            </li>
+          </ol>
+        </nav>
+
         <h1
-          className="text-3xl font-bold mb-2"
+          className="text-2xl sm:text-3xl font-bold tracking-tight mb-3"
           style={{ color: "var(--text-primary)" }}
         >
           {titleCase(data.district)}, {titleCase(data.state)}
         </h1>
 
         <div
-          className="flex flex-wrap gap-x-6 gap-y-1 text-sm mb-2"
+          className="flex flex-wrap gap-x-6 gap-y-1.5 text-sm mb-3"
           style={{ color: "var(--text-secondary)" }}
         >
           {data.mp && (
             <span>
-              <strong>MP:</strong> {data.mp.mp_name}{" "}
+              <span className="font-medium">MP:</span> {data.mp.mp_name}{" "}
               <span style={{ color: "var(--text-muted)" }}>
                 ({data.mp.party})
               </span>
@@ -129,7 +157,7 @@ export default async function ActionPage({ params }: PageProps) {
           )}
           {data.mla && (
             <span>
-              <strong>MLA:</strong> {data.mla.mla_name}{" "}
+              <span className="font-medium">MLA:</span> {data.mla.mla_name}{" "}
               <span style={{ color: "var(--text-muted)" }}>
                 ({data.mla.party}, {data.mla.ac_name})
               </span>
@@ -143,29 +171,32 @@ export default async function ActionPage({ params }: PageProps) {
       </section>
 
       {/* ---- Section 2: Issues Found ---- */}
-      <section className="mb-10">
-        <h2
-          className="text-xl font-semibold mb-4"
-          style={{ color: "var(--text-primary)" }}
-        >
-          Issues Found
-        </h2>
+      <section className="mb-12">
+        <SectionHeader
+          title="Issues Found"
+          count={data.diagnosis.length}
+        />
 
         {data.diagnosis.length === 0 ? (
           <div
-            className="rounded-xl px-5 py-4 text-sm font-medium"
+            className="rounded-xl px-5 py-5 text-sm font-medium"
             style={{
-              background: "oklch(0.95 0.04 145)",
+              background: "oklch(0.97 0.02 145)",
               color: "oklch(0.35 0.14 145)",
-              border: "1px solid oklch(0.85 0.08 145)",
+              border: "1px solid oklch(0.88 0.06 145)",
             }}
           >
-            No major issues flagged for your area. Things look good.
+            No major issues flagged for your area.
           </div>
         ) : (
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             {data.diagnosis.map((item, i) => (
-              <DiagnosisCard key={i} item={item} />
+              <div
+                key={i}
+                className={`animate-fade-in-up stagger-${Math.min(i + 1, 10)}`}
+              >
+                <DiagnosisCard item={item} />
+              </div>
             ))}
           </div>
         )}
@@ -173,50 +204,73 @@ export default async function ActionPage({ params }: PageProps) {
 
       {/* ---- Section 3: What You Can Do ---- */}
       {data.actions.length > 0 && (
-        <section className="mb-10">
-          <h2
-            className="text-xl font-semibold mb-4"
-            style={{ color: "var(--text-primary)" }}
-          >
-            What You Can Do
-          </h2>
+        <section className="mb-12">
+          <SectionHeader title="What You Can Do" />
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             {data.actions.map((action, i) => (
               <div
                 key={i}
-                className="rounded-xl px-5 py-4"
+                className={`rounded-xl px-5 py-5 animate-fade-in-up stagger-${Math.min(i + 1, 10)}`}
                 style={{
-                  background: "var(--surface)",
-                  border: "1px solid var(--border)",
-                  boxShadow: "var(--shadow-xs)",
+                  background: "var(--elevated)",
+                  border: "1px solid var(--border-subtle)",
+                  boxShadow: "var(--shadow-sm)",
                 }}
               >
                 <p
-                  className="text-sm font-bold mb-2"
+                  className="text-sm font-semibold mb-3"
                   style={{ color: "var(--accent)" }}
                 >
                   {action.scheme}
                 </p>
-                <ol className="list-decimal list-inside flex flex-col gap-1.5">
+                <ol className="flex flex-col gap-2">
                   {action.steps.map((step, j) => (
                     <li
                       key={j}
-                      className="text-sm"
+                      className="flex items-start gap-3 text-sm"
                       style={{ color: "var(--text-secondary)" }}
                     >
-                      {step.action}
-                      {step.url && (
-                        <a
-                          href={step.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="ml-2 text-xs font-medium"
-                          style={{ color: "var(--accent)" }}
-                        >
-                          Visit portal &#x2197;
-                        </a>
-                      )}
+                      <span
+                        className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-semibold mt-0.5"
+                        style={{
+                          background: "var(--accent-light)",
+                          color: "var(--accent)",
+                        }}
+                      >
+                        {j + 1}
+                      </span>
+                      <span className="flex-1">
+                        {step.action}
+                        {step.url && (
+                          <a
+                            href={step.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 ml-2 px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-150 hover:opacity-80"
+                            style={{
+                              background: "var(--accent-light)",
+                              color: "var(--accent)",
+                            }}
+                          >
+                            Visit portal
+                            <svg
+                              className="w-3 h-3"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                              />
+                            </svg>
+                          </a>
+                        )}
+                      </span>
                     </li>
                   ))}
                 </ol>
@@ -228,35 +282,54 @@ export default async function ActionPage({ params }: PageProps) {
 
       {/* ---- Section 4: Grievance Portals ---- */}
       {data.grievance_channels && data.grievance_channels.length > 0 && (
-        <section className="mb-10">
-          <h2
-            className="text-xl font-semibold mb-4"
-            style={{ color: "var(--text-primary)" }}
-          >
-            Grievance Portals
-          </h2>
+        <section className="mb-12">
+          <SectionHeader title="Grievance Portals" />
 
-          <div className="flex flex-wrap gap-2">
+          <div className="grid gap-3 sm:grid-cols-2">
             {data.grievance_channels.map((ch, i) => (
               <a
                 key={i}
                 href={ch.portal_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium transition-opacity duration-150 hover:opacity-80"
+                className="flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl text-sm transition-all duration-150 card-hover"
                 style={{
-                  background: "var(--accent-light)",
-                  color: "var(--accent)",
-                  border: "1px solid var(--border)",
+                  background: "var(--elevated)",
+                  border: "1px solid var(--border-subtle)",
+                  boxShadow: "var(--shadow-xs)",
                 }}
               >
-                {ch.portal_name}
-                {ch.phone && (
-                  <span style={{ color: "var(--text-muted)" }}>
-                    {" "}
-                    | {ch.phone}
-                  </span>
-                )}
+                <div className="min-w-0">
+                  <p
+                    className="font-medium truncate"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    {ch.portal_name}
+                  </p>
+                  {ch.phone && (
+                    <p
+                      className="text-xs mt-0.5"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      {ch.phone}
+                    </p>
+                  )}
+                </div>
+                <svg
+                  className="w-4 h-4 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
               </a>
             ))}
           </div>
@@ -265,15 +338,29 @@ export default async function ActionPage({ params }: PageProps) {
 
       {/* ---- Footer ---- */}
       <footer
-        className="border-t pt-6 mt-6 flex flex-col gap-2"
-        style={{ borderColor: "var(--border-subtle)" }}
+        className="pt-8 mt-4 flex flex-col gap-3"
+        style={{ borderTop: "1px solid var(--border-subtle)" }}
       >
         <Link
           href={`/district/${districtSlug}`}
-          className="text-sm font-medium"
+          className="inline-flex items-center gap-1.5 text-sm font-medium transition-opacity duration-150 hover:opacity-80"
           style={{ color: "var(--accent)" }}
         >
-          View full district data for {titleCase(data.district)} &rarr;
+          View full district data for {titleCase(data.district)}
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
         </Link>
         <p className="text-xs" style={{ color: "var(--text-muted)" }}>
           Data from official government portals. Source links provided per
@@ -286,42 +373,83 @@ export default async function ActionPage({ params }: PageProps) {
 
 /* ---------- sub-components ---------- */
 
+function SectionHeader({ title, count }: { title: string; count?: number }) {
+  return (
+    <div className="flex items-center gap-3 mb-5">
+      <h2
+        className="text-lg font-semibold"
+        style={{ color: "var(--text-primary)" }}
+      >
+        {title}
+      </h2>
+      {count != null && count > 0 && (
+        <span
+          className="inline-flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-semibold"
+          style={{
+            background: "var(--accent-light)",
+            color: "var(--accent)",
+          }}
+        >
+          {count}
+        </span>
+      )}
+      <div
+        className="flex-1 h-px"
+        style={{ background: "var(--border-subtle)" }}
+      />
+    </div>
+  );
+}
+
 function DiagnosisCard({ item }: { item: DiagnosisItem }) {
   return (
     <div
-      className="rounded-xl px-5 py-4"
+      className="rounded-xl overflow-hidden"
       style={{
         background: SEVERITY_BG[item.severity],
         border: `1px solid ${SEVERITY_BORDER[item.severity]}`,
       }}
     >
-      <div className="flex items-center justify-between gap-3 mb-1">
+      {/* Severity accent bar */}
+      <div
+        style={{
+          height: "3px",
+          background: SEVERITY_ACCENT[item.severity],
+        }}
+      />
+
+      <div className="px-5 py-4">
+        <div className="flex items-center justify-between gap-3 mb-2">
+          <p
+            className="text-sm font-semibold"
+            style={{ color: SEVERITY_TEXT[item.severity] }}
+          >
+            {item.scheme}
+          </p>
+          <span
+            className="inline-block px-2.5 py-0.5 rounded-md text-[11px] font-semibold uppercase tracking-wide text-white"
+            style={{ background: SEVERITY_ACCENT[item.severity] }}
+          >
+            {SEVERITY_LABEL[item.severity]}
+          </span>
+        </div>
+
         <p
-          className="text-sm font-bold"
-          style={{ color: SEVERITY_TEXT[item.severity] }}
+          className="text-[15px] font-medium mb-1.5 leading-snug"
+          style={{ color: "var(--text-primary)" }}
         >
-          {item.scheme}
+          {item.summary}
         </p>
-        <span
-          className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wide text-white"
-          style={{ background: SEVERITY_BADGE_BG[item.severity] }}
+
+        <p
+          className="text-sm leading-relaxed mb-3"
+          style={{ color: "var(--text-secondary)" }}
         >
-          {item.severity}
-        </span>
+          {item.detail}
+        </p>
+
+        {item.source_url && <SourceLink url={item.source_url} />}
       </div>
-
-      <p
-        className="text-sm font-medium mb-1"
-        style={{ color: "var(--text-primary)" }}
-      >
-        {item.summary}
-      </p>
-
-      <p className="text-xs mb-2" style={{ color: "var(--text-secondary)" }}>
-        {item.detail}
-      </p>
-
-      {item.source_url && <SourceLink url={item.source_url} />}
     </div>
   );
 }

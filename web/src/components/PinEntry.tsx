@@ -26,12 +26,8 @@ export default function PinEntry() {
   };
 
   return (
-    <div className="w-full max-w-sm mx-auto">
-      <label
-        htmlFor="pin-input"
-        className="block text-sm font-medium mb-2 text-center"
-        style={{ color: "var(--text-secondary)" }}
-      >
+    <div className="w-full max-w-xs mx-auto">
+      <label htmlFor="pin-input" className="sr-only">
         Enter your 6-digit PIN code
       </label>
       <input
@@ -46,16 +42,26 @@ export default function PinEntry() {
         onKeyDown={handleKeyDown}
         placeholder="110001"
         autoFocus
-        className="w-full text-center text-3xl font-mono tracking-[0.3em] py-4 px-4 rounded-xl transition-all duration-200 placeholder:text-lg placeholder:tracking-normal"
+        className="w-full text-center text-3xl font-mono tracking-[0.3em] py-4 px-4 rounded-xl transition-all duration-200 placeholder:text-lg placeholder:tracking-normal placeholder:opacity-30"
         style={{
-          background: "var(--surface)",
+          background: "var(--background)",
           color: "var(--text-primary)",
           border: "2px solid var(--border)",
+          boxShadow: "var(--shadow-xs)",
         }}
-        onFocus={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; }}
-        onBlur={(e) => { e.currentTarget.style.borderColor = "var(--border)"; }}
+        onFocus={(e) => {
+          e.currentTarget.style.borderColor = "var(--accent)";
+          e.currentTarget.style.boxShadow = "0 0 0 3px var(--ring-color)";
+        }}
+        onBlur={(e) => {
+          e.currentTarget.style.borderColor = "var(--border)";
+          e.currentTarget.style.boxShadow = "var(--shadow-xs)";
+        }}
       />
-      <p className="text-xs text-center mt-2" style={{ color: "var(--text-muted)" }}>
+      <p
+        className="text-xs text-center mt-3"
+        style={{ color: "var(--text-muted)" }}
+      >
         Auto-navigates when you type 6 digits
       </p>
     </div>

@@ -29,17 +29,17 @@ function fmtNum(n: number): string {
   return n.toLocaleString("en-IN");
 }
 
-/** Determine status color based on best available percentage. */
-function statusColor(row: SchemeData): string {
+/** Status color and label based on best available percentage. */
+function statusInfo(row: SchemeData): { color: string; label: string } {
   const deliveryPct =
     row.units_target && row.units_target > 0 && row.units_completed != null
       ? (row.units_completed / row.units_target) * 100
       : null;
   const pct = deliveryPct ?? row.utilization_pct;
-  if (pct == null) return "#9ca3af"; // gray
-  if (pct >= 75) return "#22c55e"; // green
-  if (pct >= 50) return "#f59e0b"; // amber
-  return "#ef4444"; // red
+  if (pct == null) return { color: "oklch(0.70 0 0)", label: "No data" };
+  if (pct >= 75) return { color: "oklch(0.55 0.18 145)", label: "Good" };
+  if (pct >= 50) return { color: "oklch(0.62 0.16 75)", label: "Fair" };
+  return { color: "oklch(0.55 0.20 25)", label: "Poor" };
 }
 
 export default function SchemeRow({ data }: { data: SchemeData }) {
@@ -47,14 +47,6 @@ export default function SchemeRow({ data }: { data: SchemeData }) {
     (data.allocated_lakhs ?? 0) > 0 ||
     (data.released_lakhs ?? 0) > 0 ||
     (data.expended_lakhs ?? 0) > 0;
-
-  const financeParts: string[] = [];
-  if (data.allocated_lakhs && data.allocated_lakhs > 0)
-    financeParts.push(`Allocated ${fmtAmount(data.allocated_lakhs)}`);
-  if (data.released_lakhs && data.released_lakhs > 0)
-    financeParts.push(`Released ${fmtAmount(data.released_lakhs)}`);
-  if (data.expended_lakhs && data.expended_lakhs > 0)
-    financeParts.push(`Expended ${fmtAmount(data.expended_lakhs)}`);
 
   const hasDelivery =
     data.units_label != null && data.units_completed != null;
@@ -68,70 +60,167 @@ export default function SchemeRow({ data }: { data: SchemeData }) {
     data.utilization_pct != null &&
     (data.utilization_pct > 0 || hasFinance);
 
+  const status = statusInfo(data);
+
   return (
     <div
-      className="rounded-xl p-5 card-hover gradient-border-top"
+      className="rounded-xl p-5 card-hover status-border-left flex flex-col"
       style={{
-        background: "var(--surface)",
+        background: "var(--elevated)",
         border: "1px solid var(--border-subtle)",
+        boxShadow: "var(--shadow-sm)",
+        ["--card-accent" as string]: status.color,
       }}
     >
       {/* Header */}
-      <div className="flex items-center gap-2.5 mb-3">
+      <div className="flex items-start justify-between gap-3 mb-3">
+        <div className="min-w-0">
+          <h3
+            className="text-[15px] font-semibold leading-tight"
+            style={{ color: "var(--text-primary)" }}
+          >
+            {data.scheme}
+          </h3>
+          <span
+            className="text-xs mt-0.5 inline-block"
+            style={{ color: "var(--text-muted)" }}
+          >
+            {data.fin_year}
+          </span>
+        </div>
         <span
-          className="inline-block w-2.5 h-2.5 rounded-full flex-shrink-0"
-          style={{ background: statusColor(data) }}
-          aria-hidden="true"
-        />
-        <h3
-          className="text-base font-semibold leading-tight"
-          style={{ color: "var(--text-primary)" }}
+          className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-semibold flex-shrink-0"
+          style={{
+            background: status.color,
+            color: "white",
+          }}
         >
-          {data.scheme}
-        </h3>
-        <span
-          className="ml-auto text-xs font-medium"
-          style={{ color: "var(--text-muted)" }}
-        >
-          {data.fin_year}
+          {status.label}
         </span>
       </div>
 
-      {/* Finance line */}
-      {financeParts.length > 0 && (
-        <p
-          className="text-sm mb-1.5"
-          style={{ color: "var(--text-secondary)" }}
+      {/* Finance figures — tabular layout */}
+      {hasFinance && (
+        <div
+          className="grid grid-cols-3 gap-3 mb-3 pb-3"
+          style={{ borderBottom: "1px solid var(--border-subtle)" }}
         >
-          {financeParts.join(" \u00B7 ")}
-        </p>
+          {data.allocated_lakhs != null && data.allocated_lakhs > 0 && (
+            <div>
+              <p
+                className="text-[11px] uppercase tracking-wide font-medium mb-0.5"
+                style={{ color: "var(--text-muted)" }}
+              >
+                Allocated
+              </p>
+              <p
+                className="text-sm font-semibold tabular-nums"
+                style={{ color: "var(--text-primary)" }}
+              >
+                {fmtAmount(data.allocated_lakhs)}
+              </p>
+            </div>
+          )}
+          {data.released_lakhs != null && data.released_lakhs > 0 && (
+            <div>
+              <p
+                className="text-[11px] uppercase tracking-wide font-medium mb-0.5"
+                style={{ color: "var(--text-muted)" }}
+              >
+                Released
+              </p>
+              <p
+                className="text-sm font-semibold tabular-nums"
+                style={{ color: "var(--text-primary)" }}
+              >
+                {fmtAmount(data.released_lakhs)}
+              </p>
+            </div>
+          )}
+          {data.expended_lakhs != null && data.expended_lakhs > 0 && (
+            <div>
+              <p
+                className="text-[11px] uppercase tracking-wide font-medium mb-0.5"
+                style={{ color: "var(--text-muted)" }}
+              >
+                Expended
+              </p>
+              <p
+                className="text-sm font-semibold tabular-nums"
+                style={{ color: "var(--text-primary)" }}
+              >
+                {fmtAmount(data.expended_lakhs)}
+              </p>
+            </div>
+          )}
+        </div>
       )}
 
-      {/* Delivery line */}
+      {/* Delivery with progress bar */}
       {hasDelivery && (
-        <p
-          className="text-sm mb-1.5"
-          style={{ color: "var(--text-secondary)" }}
-        >
-          {data.units_label}:{" "}
-          <span className="font-medium" style={{ color: "var(--text-primary)" }}>
-            {fmtNum(data.units_completed!)}
-            {data.units_target && data.units_target > 0
-              ? ` / ${fmtNum(data.units_target)}`
-              : ""}
-          </span>
+        <div className="mb-3">
+          <div className="flex items-baseline justify-between mb-1.5">
+            <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
+              {data.units_label}
+            </p>
+            <p
+              className="text-xs font-medium tabular-nums"
+              style={{ color: "var(--text-primary)" }}
+            >
+              {fmtNum(data.units_completed!)}
+              {data.units_target && data.units_target > 0
+                ? ` / ${fmtNum(data.units_target)}`
+                : ""}
+              {deliveryPct != null && (
+                <span style={{ color: "var(--text-muted)" }}>
+                  {" "}
+                  ({deliveryPct.toFixed(1)}%)
+                </span>
+              )}
+            </p>
+          </div>
           {deliveryPct != null && (
-            <span style={{ color: "var(--text-muted)" }}>
-              {" "}
-              ({deliveryPct.toFixed(1)}%)
-            </span>
+            <div className="progress-track">
+              <div
+                className="progress-fill"
+                style={{
+                  width: `${Math.min(deliveryPct, 100)}%`,
+                  background: status.color,
+                }}
+              />
+            </div>
           )}
-        </p>
+        </div>
       )}
 
       {/* Utilization */}
-      {showUtilization && (
-        <p className="text-xs mb-3" style={{ color: "var(--text-muted)" }}>
+      {showUtilization && !deliveryPct && (
+        <div className="mb-3">
+          <div className="flex items-baseline justify-between mb-1.5">
+            <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
+              Utilization
+            </p>
+            <p
+              className="text-xs font-medium tabular-nums"
+              style={{ color: "var(--text-primary)" }}
+            >
+              {data.utilization_pct!.toFixed(1)}%
+            </p>
+          </div>
+          <div className="progress-track">
+            <div
+              className="progress-fill"
+              style={{
+                width: `${Math.min(data.utilization_pct!, 100)}%`,
+                background: status.color,
+              }}
+            />
+          </div>
+        </div>
+      )}
+
+      {showUtilization && deliveryPct && (
+        <p className="text-xs mb-3 tabular-nums" style={{ color: "var(--text-muted)" }}>
           Utilization: {data.utilization_pct!.toFixed(1)}%
         </p>
       )}
