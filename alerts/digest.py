@@ -8,7 +8,7 @@ via Telegram or email.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -179,7 +179,7 @@ def generate_weekly_digest(
         top_improving=improving,
         new_red_flags=red_flags,
         headline=headline,
-        generated_at=datetime.utcnow(),
+        generated_at=datetime.now(UTC),
         weeks=weeks,
         has_data=has_data,
     )

@@ -7,10 +7,18 @@ No DB mutation.
 
 from __future__ import annotations
 
-import pytest
-from fastapi.testclient import TestClient
+from pathlib import Path
 
-from api.main import app
+import pytest
+
+DB_PATH = Path(__file__).resolve().parent.parent / "data" / "hisaab.db"
+
+if not DB_PATH.exists():
+    pytest.skip(f"Database not found at {DB_PATH}", allow_module_level=True)
+
+from fastapi.testclient import TestClient  # noqa: E402
+
+from api.main import app  # noqa: E402
 
 
 # ---------------------------------------------------------------------------

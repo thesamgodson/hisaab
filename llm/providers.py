@@ -46,18 +46,17 @@ _OPENAI_COMPAT_BASE_URLS: dict[str, str] = {
 
 
 def _generate_gemini(prompt: str, api_key: str, model: str) -> str:
-    """Call Google Gemini. Requires ``google-generativeai>=0.8.0``."""
+    """Call Google Gemini. Requires ``google-genai>=1.0.0``."""
     try:
-        import google.generativeai as genai  # type: ignore[import]
+        from google import genai  # type: ignore[import]
     except ImportError as exc:
         raise ImportError(
-            "google-generativeai is not installed. "
-            "Run: pip install 'google-generativeai>=0.8.0'"
+            "google-genai is not installed. "
+            "Run: pip install 'google-genai>=1.0.0'"
         ) from exc
 
-    genai.configure(api_key=api_key)
-    client = genai.GenerativeModel(model)
-    response = client.generate_content(prompt)
+    client = genai.Client(api_key=api_key)
+    response = client.models.generate_content(model=model, contents=prompt)
     return response.text
 
 

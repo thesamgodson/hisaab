@@ -21,6 +21,9 @@ data/briefs/
 # Claude
 .claude/
 
+# Internal docs
+docs/
+
 # Browser / Playwright
 .playwright-mcp/
 .session/

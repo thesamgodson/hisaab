@@ -5,7 +5,7 @@ playwright>=1.53.0
 fastapi>=0.115.0
 uvicorn>=0.30.0
 # LLM providers — install only the one(s) you need:
-google-generativeai>=0.8.0
+google-genai>=1.0.0
 openai>=1.0.0
 
 # Alert delivery — optional, install only if using alerts/

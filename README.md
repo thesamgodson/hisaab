@@ -1,90 +1,89 @@
-# हिसाब / Hisaab
+# Hisaab
 
-> Public accountability infrastructure for 8 Indian government welfare schemes.
+[![CI](https://github.com/thesamgodson/hisaab/actions/workflows/ci.yml/badge.svg)](https://github.com/thesamgodson/hisaab/actions/workflows/ci.yml)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![Next.js 15](https://img.shields.io/badge/Next.js-15-black.svg)](https://nextjs.org/)
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-green.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![Deploy](https://img.shields.io/badge/Vercel-Live-brightgreen.svg)](https://hisaab-one.vercel.app)
 
-## Manifesto
+**Where did the money go?** Public accountability infrastructure for Indian government welfare schemes.
 
-Any citizen should be able to ask, in their own language, “Where did the money go?” and get a plain-language answer with a verifiable government source.
+Enter your PIN code. See what your MP promised. Check what actually reached your district.
 
-Read: [`MANIFESTO.md`](MANIFESTO.md) | Claims policy: [`DATA_CLAIMS.md`](DATA_CLAIMS.md)
+**Live:** [hisaab-one.vercel.app](https://hisaab-one.vercel.app)
 
-## 8 Schemes
+Read the [Manifesto](MANIFESTO.md) | [Data Claims Policy](DATA_CLAIMS.md)
 
-| Scheme | What it covers | Source portal |
-|--------|---------------|---------------|
-| MGNREGA | Rural employment: fund flow, misappropriation, FTO status, social audit | nrega.nic.in |
-| PMGSY | Rural roads: sanctioned vs completed, expenditure | pmgsy.dord.gov.in |
-| PMAY-G | Rural housing: targets, completion, fund release | report.pmayg.dord.gov.in |
-| PM Kisan | Farmer direct payments | data.gov.in |
-| JJM | Rural water: tap connections target vs completed | ejalshakti.gov.in |
-| PM POSHAN | School nutrition: children fed, meals served | pmposhan-ams.education.gov.in |
-| NSAP | Pensions: beneficiaries paid (IGNOAPS, IGNWPS, IGNDPS) | nsap.nic.in / data.gov.in |
-| PDS/NFSA | Ration distribution: card counts, allocation | nfsa.gov.in |
+---
 
-## Quick Start
+## Schemes Tracked
+
+| Scheme | Coverage | Source |
+|--------|----------|--------|
+| MGNREGA | Rural employment, fund flow, misappropriation, FTO status | nrega.nic.in |
+| PMGSY | Rural roads — sanctioned vs completed, expenditure | pmgsy.dord.gov.in |
+| PMAY-G | Rural housing — targets, completion, fund release | report.pmayg.dord.gov.in |
+| PM Kisan | Farmer direct benefit transfers | data.gov.in |
+| JJM | Rural water — tap connections, coverage | ejalshakti.gov.in |
+| PM POSHAN | School nutrition — children fed, meals served | pmposhan-ams.education.gov.in |
+| NSAP | Pensions — IGNOAPS, IGNWPS, IGNDPS beneficiaries | nsap.nic.in / data.gov.in |
+| PDS/NFSA | Ration distribution — card counts, allocation | nfsa.gov.in |
+| SBM-G | Sanitation — ODF+ villages, star ratings | sbm.gov.in |
+| DAY-NRLM | Rural livelihoods — SHGs, revolving fund | nrlm.gov.in |
+| UDISE+ | Education — schools, enrollment, PTR, infra | udiseplus.gov.in |
+
+## Stack
+
+**Frontend:** Next.js 15 + React 19 + Tailwind CSS + TypeScript, deployed on Vercel
+**Backend:** Python 3.14, SQLite/Turso, FastAPI
+**Data:** Scrapers (requests + Playwright) → curated JSON → SQLite → API
+
+## Local Development
 
 ```bash
-# 1. Backend
+# Backend
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python3 run_all.py --load-only          # Build DB from curated data
-uvicorn api.main:app --reload           # API at localhost:8000
+python3 run_all.py --load-only
+uvicorn api.main:app --reload
 
-# 2. Frontend
-cd web && npm install && npm run dev    # UI at localhost:3000
-
-# 3. Verify
-python3 -m pytest tests/ -v            # 91 tests
-curl localhost:8000/api/v1/schemes      # API health check
+# Frontend
+cd web && npm install && npm run dev
 ```
 
-## Usage
+## API
 
-```bash
-# CLI queries
-python3 cli.py “misappropriation villupuram”
-python3 cli.py “worst roads bihar”
+All endpoints under `/api/v1/`:
 
-# Journalist briefs
-python3 journalist_brief.py “CUDDALORE”
-python3 journalist_brief.py --state “TAMIL NADU”
+| Endpoint | Description |
+|----------|-------------|
+| `GET /schemes` | List all schemes with data quality warnings |
+| `GET /scheme/:scheme` | State-level summary |
+| `GET /scheme/:scheme/worst` | Worst-performing districts |
+| `GET /districts` | All districts with data |
+| `GET /district/:name` | Full district overview |
+| `GET /district/:name/schemes` | Schemes with data for a district |
+| `GET /district/:name/money-flow` | Cross-scheme money flow |
+| `GET /district/:name/:scheme` | Per-scheme district data |
+| `GET /brief/:district` | Journalist brief with red flags |
+| `GET /freshness` | Per-scheme scrape dates |
+| `GET /data-quality` | Quality warnings |
+| `GET /red-flags` | Worst districts by scheme |
+| `POST /query` | Natural language query |
 
-# Data audit
-python3 data_audit.py                   # Per-column completeness
-python3 data_audit.py --json            # Machine-readable
+## Project Structure
+
 ```
-
-## Architecture
-
+web/            Next.js frontend (Vercel deployment root)
+api/            FastAPI REST API
+db/             Schema, loaders, VIEWs
+queries/        SQL query functions
+scrapers/       Scheme-specific scrapers
+briefs/         Journalist brief generator
+data/curated/   Normalized JSON from scrapers
+tests/          pytest suite
 ```
-scrape_*.py     → data/curated/*.json   (scrapers → normalized JSON)
-run_all.py      → data/hisaab.db        (JSON → SQLite + NSAP imputation)
-db/             → schema, loaders, VIEWs (scheme_finance, scheme_delivery, money_flow)
-queries/        → 33 query functions     (SQL → structured answers)
-briefs/         → journalist briefs      (red flags + citations)
-api/            → FastAPI REST API       (13 endpoints at /api/v1/*)
-web/            → Next.js 15 frontend    (citizen interface at localhost:3000)
-cli.py          → keyword-based CLI      (natural language routing)
-```
-
-## Scraping (optional)
-
-Most data is already in `data/curated/`. To refresh:
-
-```bash
-# Scrape specific schemes
-python3 run_all.py --schemes jjm              # JJM (all India, no login)
-python3 run_all.py --schemes mgnrega,pmgsy    # Needs Playwright
-python3 run_all.py --schemes all              # Everything
-
-# Scrape specific states
-python3 run_all.py --schemes mgnrega --states “TAMIL NADU,BIHAR”
-```
-
-## Data Quality
-
-4/8 schemes have financial data (MGNREGA, PMGSY, PM Kisan = real; NSAP = imputed from GoI pension rates). 4/8 have hollow financial columns but working delivery metrics. See `CLAUDE.md` for details.
 
 ## License
 
-GNU Affero General Public License v3.0 — see `LICENSE`.
+[AGPL-3.0](LICENSE)

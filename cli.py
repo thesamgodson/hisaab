@@ -266,7 +266,7 @@ def interactive_mode() -> None:
     while True:
         try:
             text = input("hisaab> ").strip()
-        except EOFError, KeyboardInterrupt:
+        except (EOFError, KeyboardInterrupt):
             print("\nBye.")
             break
 
