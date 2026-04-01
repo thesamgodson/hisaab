@@ -6,16 +6,16 @@
  * env vars are not yet available.
  */
 
-import { createClient, type Client } from "@libsql/client";
+import { createClient, type Client } from "@libsql/client/web";
 
 let _client: Client | null = null;
 
 function getClient(): Client {
   if (!_client) {
-    _client = createClient({
-      url: process.env.TURSO_DATABASE_URL!,
-      authToken: process.env.TURSO_AUTH_TOKEN,
-    });
+    const rawUrl = process.env.TURSO_DATABASE_URL!;
+    // Vercel serverless doesn't support libsql:// — convert to https://
+    const url = rawUrl.replace(/^libsql:\/\//, "https://");
+    _client = createClient({ url, authToken: process.env.TURSO_AUTH_TOKEN });
   }
   return _client;
 }
