@@ -752,6 +752,18 @@ CREATE TABLE IF NOT EXISTS grievance_channels (
 );
 CREATE INDEX IF NOT EXISTS idx_grievance_scheme ON grievance_channels(scheme);
 
+-- District lineage — tracks district splits/reorganizations so the UI
+-- can show "formerly part of <parent>" when a new district was carved out.
+CREATE TABLE IF NOT EXISTS district_lineage (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    new_district TEXT NOT NULL,
+    parent_district TEXT NOT NULL,
+    state TEXT NOT NULL,
+    split_year INTEGER NOT NULL,
+    UNIQUE(new_district, state)
+);
+CREATE INDEX IF NOT EXISTS idx_lineage_lookup ON district_lineage(new_district, state);
+
 -- =====================================================================
 -- Temporal snapshot table — weekly metric captures for trend analysis
 -- =====================================================================

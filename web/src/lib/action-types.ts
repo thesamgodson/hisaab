@@ -53,10 +53,16 @@ export interface MLAInfo {
   source_url: string;
 }
 
+export interface DistrictLineage {
+  parent_district: string;
+  split_year: number;
+}
+
 export interface ActionBriefResponse {
   pin: string;
   district: string;
   state: string;
+  formerly_part_of: DistrictLineage | null;
   mp: MPInfo | null;
   mla: MLAInfo | null;
   diagnosis: DiagnosisItem[];

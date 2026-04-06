@@ -137,11 +137,18 @@ export default async function ActionPage({ params }: PageProps) {
         </nav>
 
         <h1
-          className="text-2xl sm:text-3xl font-bold tracking-tight mb-3"
+          className="text-2xl sm:text-3xl font-bold tracking-tight mb-1"
           style={{ color: "var(--text-primary)" }}
         >
           {titleCase(data.district)}, {titleCase(data.state)}
         </h1>
+
+        {data.formerly_part_of && (
+          <p className="text-sm mb-3" style={{ color: "var(--text-muted)" }}>
+            Formerly part of {titleCase(data.formerly_part_of.parent_district)} district,
+            reorganized {data.formerly_part_of.split_year}
+          </p>
+        )}
 
         <div
           className="flex flex-wrap gap-x-6 gap-y-1.5 text-sm mb-3"

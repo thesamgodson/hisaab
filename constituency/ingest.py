@@ -665,6 +665,14 @@ def main() -> None:
         print("\n=== MLA Info ===")
         totals["mlas"] = ingest_mlas_from_curated(dry_run=args.dry_run)
 
+    if run_all:
+        print("\n=== District Lineage ===")
+        from constituency.seed_data import DISTRICT_LINEAGE, load_district_lineage
+        if args.dry_run:
+            totals["lineage"] = len(DISTRICT_LINEAGE)
+        else:
+            totals["lineage"] = load_district_lineage(DISTRICT_LINEAGE)
+
     if not args.dry_run and (run_all or args.pc_only):
         _generate_match_report()
 

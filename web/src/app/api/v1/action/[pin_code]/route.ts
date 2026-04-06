@@ -351,6 +351,13 @@ export async function GET(
   const { district, state } = mapping;
   const finYear = "2024-2025";
 
+  // Check if this district was carved out of a parent district
+  const lineage = await queryOne<{ parent_district: string; split_year: number }>(
+    `SELECT parent_district, split_year FROM district_lineage
+     WHERE UPPER(new_district) = UPPER(?) AND UPPER(state) = UPPER(?)`,
+    [district, state],
+  );
+
   // Get MP via constituency_district -> mp_info
   const mpRow = await queryOne<MpInfo & { constituency_name: string }>(
     `SELECT m.mp_name, m.party, m.constituency, m.state, m.elected_year, m.source_url
@@ -432,6 +439,9 @@ export async function GET(
     pin: pin_code,
     district: mapping.district,
     state: mapping.state,
+    formerly_part_of: lineage
+      ? { parent_district: lineage.parent_district, split_year: lineage.split_year }
+      : null,
     mp: mpRow
       ? {
           mp_name: mpRow.mp_name,
