@@ -70,6 +70,13 @@ export async function GET(
 
   const { district, state } = mapping;
 
+  // Check if this district was carved out of a parent district
+  const lineage = await queryOne<{ parent_district: string; split_year: number }>(
+    `SELECT parent_district, split_year FROM district_lineage
+     WHERE UPPER(new_district) = UPPER(?) AND UPPER(state) = UPPER(?)`,
+    [district, state],
+  );
+
   // Try precise PIN→constituency mapping first (spatial join table)
   const pinConstituency = await queryOne<{ constituency: string; state: string }>(
     `SELECT constituency, state FROM pin_constituency WHERE pin_code = ?`,
@@ -176,6 +183,9 @@ export async function GET(
     district: mapping.district,
     state: mapping.state,
     office_name: mapping.office_name,
+    formerly_part_of: lineage
+      ? { parent_district: lineage.parent_district, split_year: lineage.split_year }
+      : null,
     precise: !!pinConstituency,
     constituencies: constituenciesWithMp,
     constituency_count: constituenciesWithMp.length,
