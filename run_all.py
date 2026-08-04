@@ -8,11 +8,11 @@ Schemes supported:
   1. MGNREGA — Rural employment (scrapes the mnregaweb2.dord.gov.in citizen portal)
   2. PMGSY — Rural roads (scrapes pmgsy.dord.gov.in)
   3. PMAY-G — Rural housing (scrapes report.pmayg.dord.gov.in, needs Playwright)
-  4. PM Kisan — Farmer payments (CSV import from data.gov.in)
+  4. PM Kisan — Farmer payments (live: homepage + data.gov.in village rollup)
   5. JJM — Rural water (scrapes ejalshakti.gov.in JSON API)
   6. PM POSHAN — School nutrition (CSV import)
   7. NSAP — Pensions (CSV import)
-  8. PDS/NFSA — Ration system (CSV import)
+  8. PDS/NFSA — Ration system (live: nfsa.gov.in dashboard handler)
   9. SBM-G — Rural sanitation ODF Plus (scrapes sbm.gov.in)
  10. DAY-NRLM — Rural livelihoods SHGs (LokOS CDN JSON, plain requests)
  11. UDISE+ — School education stats (scrapes api.udiseplus.gov.in)
@@ -21,7 +21,7 @@ Quick start:
     pip install -r requirements.txt
     python run_all.py --load-only             # Load existing CSV/JSON data into DB
     python run_all.py --schemes jjm           # Scrape JJM (all India, no login)
-    python run_all.py --schemes jjm,pmkisan   # JJM + PM Kisan CSVs
+    python run_all.py --schemes jjm,pmkisan   # JJM + PM Kisan live refresh
     python run_all.py --schemes all           # Everything (MGNREGA/PMGSY need Playwright)
 
 What each mode does:
@@ -53,13 +53,19 @@ LIVE_SCRAPERS = {"mgnrega", "pmgsy", "pmayg", "jjm", "sbm", "nrlm", "udise"}
 # Schemes that use CSV import only
 CSV_IMPORTERS = {"pmkisan", "pmposhan", "nsap", "nfsa"}
 
-# Finance scrapers: data.gov.in API + dashboard scrapers for state-level financial data
+# Finance scrapers for state-level financial data.
+# jjm points at the ejalshakti portal scraper — the data.gov.in one
+# (scrape_jjm_finance) covers fewer years/columns and silently downgraded
+# the curated file when wired here.
+# pmayg is DELIBERATELY absent: the only source for pmayg_finance is the
+# captcha-gated B.3 report and scrape_pmayg_finance solves that captcha by
+# OCR, which the no-captcha-automation decision forbids running. The
+# curated file stays frozen at its 2026-03 scrape (see DATA_CLAIMS.md).
 FINANCE_SCRAPERS = {
     "pmposhan": "scrape_pmposhan_finance",
     "nsap": "scrape_nsap_finance",
     "nfsa": "scrape_nfsa_finance",
-    "jjm": "scrape_jjm_finance",
-    "pmayg": "scrape_pmayg_dashboard",
+    "jjm": "scrape_jjm_ejalshakti",
 }
 
 # Curated output filenames written by each finance scraper's save_curated()
@@ -68,7 +74,6 @@ FINANCE_CURATED_FILES = {
     "nsap": "nsap_finance_all_latest.json",
     "nfsa": "nfsa_allocation_all_latest.json",
     "jjm": "jjm_allocation_all_latest.json",
-    "pmayg": "pmayg_finance_all_latest.json",
 }
 
 
@@ -232,7 +237,10 @@ def scrape_finance(scheme: str) -> int:
         return 0
     try:
         module = importlib.import_module(f"scrapers.{module_name}")
-        records = module.scrape_all()
+        if module_name == "scrape_jjm_ejalshakti":
+            records = module.scrape_all(module.ALL_FIN_YEARS)
+        else:
+            records = module.scrape_all()
         if records:
             module.save_curated(records)
             return len(records)
@@ -408,7 +416,7 @@ SCHEME_SOURCES = {
     "MGNREGA": "mnregaweb2.dord.gov.in (citizen portal)",
     "PMGSY": "pmgsy.dord.gov.in",
     "PMAY-G": "report.pmayg.dord.gov.in + dashboard.dord.gov.in",
-    "PM Kisan": "data.gov.in",
+    "PM Kisan": "pmkisan.gov.in / data.gov.in",
     "JJM": "ejalshakti.gov.in + data.gov.in",
     "PM POSHAN": "pmposhan-ams.education.gov.in + data.gov.in",
     "NSAP": "data.gov.in",
@@ -598,6 +606,29 @@ Examples:
 
         elif scheme == "pmayg":
             scrape_pmayg(states, args.fin_year)
+
+        elif scheme == "nfsa":
+            # Live district ration-card counts from the nfsa.gov.in dashboard
+            # handler (un-gated). CSVs in data/raw/nfsa/ remain a manual path.
+            try:
+                from scrapers.scrape_nfsa import process_live as nfsa_live
+
+                count = nfsa_live()
+                print(f"  NFSA live: {count} district rows")
+            except Exception as exc:
+                print(f"  NFSA live fetch failed (curated files untouched): {exc}")
+
+        elif scheme == "pmkisan":
+            # Homepage state totals + district village rollup (data.gov.in).
+            # The village pull takes ~15-25 min; guards refuse any write that
+            # loses district money rows or coverage.
+            try:
+                from scrapers.scrape_pmkisan import process_live as pmkisan_live
+
+                count = pmkisan_live()
+                print(f"  PM Kisan live: {count} rows")
+            except Exception as exc:
+                print(f"  PM Kisan live fetch failed (curated files untouched): {exc}")
 
         elif scheme in CSV_IMPORTERS:
             count = import_csvs(scheme)

@@ -2,8 +2,8 @@
   {
     "district": "AIZAWL",
     "state": "MIZORAM",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "15",
+    "fin_year": "cumulative",
     "ration_cards_total": 55627,
     "ration_cards_active": 55627,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 48750,
     "phh_beneficiaries": 205279,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "CHAMPHAI",
     "state": "MIZORAM",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "15",
+    "fin_year": "cumulative",
     "ration_cards_total": 12505,
     "ration_cards_active": 12505,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 10550,
     "phh_beneficiaries": 45518,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KOLASIB",
     "state": "MIZORAM",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "15",
+    "fin_year": "cumulative",
     "ration_cards_total": 13595,
     "ration_cards_active": 13595,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 11273,
     "phh_beneficiaries": 46380,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "LAWNGTLAI",
     "state": "MIZORAM",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "15",
+    "fin_year": "cumulative",
     "ration_cards_total": 16324,
     "ration_cards_active": 16324,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 13370,
     "phh_beneficiaries": 55340,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "LUNGLEI",
     "state": "MIZORAM",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "15",
+    "fin_year": "cumulative",
     "ration_cards_total": 26986,
     "ration_cards_active": 26986,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 24107,
     "phh_beneficiaries": 89876,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MAMIT",
     "state": "MIZORAM",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "15",
+    "fin_year": "cumulative",
     "ration_cards_total": 14416,
     "ration_cards_active": 14416,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 12558,
     "phh_beneficiaries": 53561,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SAIHA",
     "state": "MIZORAM",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "15",
+    "fin_year": "cumulative",
     "ration_cards_total": 10450,
     "ration_cards_active": 10450,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 8417,
     "phh_beneficiaries": 34536,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SERCHHIP",
     "state": "MIZORAM",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "15",
+    "fin_year": "cumulative",
     "ration_cards_total": 11390,
     "ration_cards_active": 11390,
     "allocation_mt": 0.0,
@@ -148,7 +148,7 @@
     "phh_ration_cards": 9635,
     "phh_beneficiaries": 42497,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

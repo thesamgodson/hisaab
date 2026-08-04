@@ -2,20 +2,20 @@
   {
     "district": "CHANDIGARH",
     "state": "CHANDIGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
-    "ration_cards_total": 83303,
-    "ration_cards_active": 83303,
+    "state_code": "04",
+    "fin_year": "cumulative",
+    "ration_cards_total": 83446,
+    "ration_cards_active": 83446,
     "allocation_mt": 0.0,
     "offtake_mt": 0.0,
     "offtake_pct": 0.0,
-    "beneficiaries_total": 343747,
-    "aay_ration_cards": 282,
+    "beneficiaries_total": 344352,
+    "aay_ration_cards": 283,
     "aay_beneficiaries": 926,
-    "phh_ration_cards": 83021,
-    "phh_beneficiaries": 342821,
-    "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "phh_ration_cards": 83163,
+    "phh_beneficiaries": 343426,
+    "date_of_data": "17 Mar 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

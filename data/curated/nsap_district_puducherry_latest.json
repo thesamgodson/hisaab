@@ -3,39 +3,39 @@
     "district": "PONDICHERRY",
     "state": "PUDUCHERRY",
     "state_code": "34",
-    "fin_year": "2024-2025",
+    "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
     "beneficiaries_paid": 1314,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
+    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
   },
   {
     "district": "PONDICHERRY",
     "state": "PUDUCHERRY",
     "state_code": "34",
-    "fin_year": "2024-2025",
+    "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
     "beneficiaries_paid": 17713,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
+    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
   },
   {
     "district": "PONDICHERRY",
     "state": "PUDUCHERRY",
     "state_code": "34",
-    "fin_year": "2024-2025",
+    "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
     "beneficiaries_paid": 9959,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
+    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
   }
 ]

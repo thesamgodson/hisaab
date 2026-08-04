@@ -2,8 +2,8 @@
   {
     "district": "ARARIA",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 591902,
     "ration_cards_active": 591902,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 521857,
     "phh_beneficiaries": 2421759,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "ARWAL",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 100757,
     "ration_cards_active": 100757,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 84176,
     "phh_beneficiaries": 422830,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "AURANGABAD",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 327505,
     "ration_cards_active": 327505,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 276145,
     "phh_beneficiaries": 1594270,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BANKA",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 362329,
     "ration_cards_active": 362329,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 330630,
     "phh_beneficiaries": 1619753,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BEGUSARAI",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 560715,
     "ration_cards_active": 560715,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 493163,
     "phh_beneficiaries": 2300015,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BHAGALPUR",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 566770,
     "ration_cards_active": 566770,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 515108,
     "phh_beneficiaries": 2348243,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BHOJPUR",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 417395,
     "ration_cards_active": 417395,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 358962,
     "phh_beneficiaries": 1838978,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BUXAR",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 225810,
     "ration_cards_active": 225810,
     "allocation_mt": 0.0,
@@ -148,14 +148,14 @@
     "phh_ration_cards": 196807,
     "phh_beneficiaries": 1029721,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DARBHANGA",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 817608,
     "ration_cards_active": 817608,
     "allocation_mt": 0.0,
@@ -167,14 +167,14 @@
     "phh_ration_cards": 728317,
     "phh_beneficiaries": 3189292,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GAYA",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 654537,
     "ration_cards_active": 654537,
     "allocation_mt": 0.0,
@@ -186,14 +186,14 @@
     "phh_ration_cards": 573007,
     "phh_beneficiaries": 2969861,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GOPALGANJ",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 367946,
     "ration_cards_active": 367946,
     "allocation_mt": 0.0,
@@ -205,14 +205,14 @@
     "phh_ration_cards": 309010,
     "phh_beneficiaries": 1605171,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JAMUI",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 303629,
     "ration_cards_active": 303629,
     "allocation_mt": 0.0,
@@ -224,14 +224,14 @@
     "phh_ration_cards": 258315,
     "phh_beneficiaries": 1325379,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JEHANABAD",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 163322,
     "ration_cards_active": 163322,
     "allocation_mt": 0.0,
@@ -243,14 +243,14 @@
     "phh_ration_cards": 141509,
     "phh_beneficiaries": 724853,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KAIMUR (BHABUA)",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 184675,
     "ration_cards_active": 184675,
     "allocation_mt": 0.0,
@@ -262,14 +262,14 @@
     "phh_ration_cards": 145475,
     "phh_beneficiaries": 822002,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KATIHAR",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 618378,
     "ration_cards_active": 618378,
     "allocation_mt": 0.0,
@@ -281,14 +281,14 @@
     "phh_ration_cards": 567968,
     "phh_beneficiaries": 2643600,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KHAGARIA",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 336934,
     "ration_cards_active": 336934,
     "allocation_mt": 0.0,
@@ -300,14 +300,14 @@
     "phh_ration_cards": 293598,
     "phh_beneficiaries": 1373790,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KISHANGANJ",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 345678,
     "ration_cards_active": 345678,
     "allocation_mt": 0.0,
@@ -319,14 +319,14 @@
     "phh_ration_cards": 284850,
     "phh_beneficiaries": 1336916,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "LAKHISARAI",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 155743,
     "ration_cards_active": 155743,
     "allocation_mt": 0.0,
@@ -338,14 +338,14 @@
     "phh_ration_cards": 141340,
     "phh_beneficiaries": 752162,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MADHEPURA",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 391565,
     "ration_cards_active": 391565,
     "allocation_mt": 0.0,
@@ -357,14 +357,14 @@
     "phh_ration_cards": 354494,
     "phh_beneficiaries": 1643818,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MADHUBANI",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 820773,
     "ration_cards_active": 820773,
     "allocation_mt": 0.0,
@@ -376,14 +376,14 @@
     "phh_ration_cards": 674502,
     "phh_beneficiaries": 3178647,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MUNGER",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 200553,
     "ration_cards_active": 200553,
     "allocation_mt": 0.0,
@@ -395,14 +395,14 @@
     "phh_ration_cards": 164341,
     "phh_beneficiaries": 812479,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MUZAFFARPUR",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 931337,
     "ration_cards_active": 931337,
     "allocation_mt": 0.0,
@@ -414,14 +414,14 @@
     "phh_ration_cards": 803453,
     "phh_beneficiaries": 3534526,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NALANDA",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 460208,
     "ration_cards_active": 460208,
     "allocation_mt": 0.0,
@@ -433,14 +433,14 @@
     "phh_ration_cards": 388745,
     "phh_beneficiaries": 1874447,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NAWADA",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 338470,
     "ration_cards_active": 338470,
     "allocation_mt": 0.0,
@@ -452,14 +452,14 @@
     "phh_ration_cards": 297613,
     "phh_beneficiaries": 1658585,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PASHCHIM CHAMPARAN",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 705333,
     "ration_cards_active": 705333,
     "allocation_mt": 0.0,
@@ -471,14 +471,14 @@
     "phh_ration_cards": 595707,
     "phh_beneficiaries": 2797509,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PATNA",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 881713,
     "ration_cards_active": 881713,
     "allocation_mt": 0.0,
@@ -490,14 +490,14 @@
     "phh_ration_cards": 779204,
     "phh_beneficiaries": 3675706,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PURBI CHAMPARAN",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 915793,
     "ration_cards_active": 915793,
     "allocation_mt": 0.0,
@@ -509,14 +509,14 @@
     "phh_ration_cards": 785159,
     "phh_beneficiaries": 3883742,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PURNIA",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 623973,
     "ration_cards_active": 623973,
     "allocation_mt": 0.0,
@@ -528,14 +528,14 @@
     "phh_ration_cards": 566403,
     "phh_beneficiaries": 2702763,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "ROHTAS",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 366340,
     "ration_cards_active": 366340,
     "allocation_mt": 0.0,
@@ -547,14 +547,14 @@
     "phh_ration_cards": 317772,
     "phh_beneficiaries": 1765284,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SAHARSA",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 405069,
     "ration_cards_active": 405069,
     "allocation_mt": 0.0,
@@ -566,14 +566,14 @@
     "phh_ration_cards": 368637,
     "phh_beneficiaries": 1637607,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SAMASTIPUR",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 835674,
     "ration_cards_active": 835674,
     "allocation_mt": 0.0,
@@ -585,14 +585,14 @@
     "phh_ration_cards": 733506,
     "phh_beneficiaries": 3532338,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SARAN",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 531265,
     "ration_cards_active": 531265,
     "allocation_mt": 0.0,
@@ -604,14 +604,14 @@
     "phh_ration_cards": 440001,
     "phh_beneficiaries": 2402227,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SHEIKHPURA",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 92451,
     "ration_cards_active": 92451,
     "allocation_mt": 0.0,
@@ -623,14 +623,14 @@
     "phh_ration_cards": 82220,
     "phh_beneficiaries": 434074,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SHEOHAR",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 139541,
     "ration_cards_active": 139541,
     "allocation_mt": 0.0,
@@ -642,14 +642,14 @@
     "phh_ration_cards": 127016,
     "phh_beneficiaries": 530215,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SITAMARHI",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 647145,
     "ration_cards_active": 647145,
     "allocation_mt": 0.0,
@@ -661,14 +661,14 @@
     "phh_ration_cards": 575346,
     "phh_beneficiaries": 2596307,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SIWAN",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 477443,
     "ration_cards_active": 477443,
     "allocation_mt": 0.0,
@@ -680,14 +680,14 @@
     "phh_ration_cards": 427320,
     "phh_beneficiaries": 2308093,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SUPAUL",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 471588,
     "ration_cards_active": 471588,
     "allocation_mt": 0.0,
@@ -699,14 +699,14 @@
     "phh_ration_cards": 421856,
     "phh_beneficiaries": 1855294,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "VAISHALI",
     "state": "BIHAR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "10",
+    "fin_year": "cumulative",
     "ration_cards_total": 569452,
     "ration_cards_active": 569452,
     "allocation_mt": 0.0,
@@ -718,7 +718,7 @@
     "phh_ration_cards": 490430,
     "phh_beneficiaries": 2552602,
     "date_of_data": "10 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

@@ -2,8 +2,8 @@
   {
     "district": "AGAR MALWA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 109481,
     "ration_cards_active": 109481,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 100721,
     "phh_beneficiaries": 432559,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "ALIRAJPUR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 130699,
     "ration_cards_active": 130699,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 121825,
     "phh_beneficiaries": 640127,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "ANUPPUR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 150587,
     "ration_cards_active": 150587,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 136620,
     "phh_beneficiaries": 537676,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "ASHOKNAGAR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 152932,
     "ration_cards_active": 152932,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 133899,
     "phh_beneficiaries": 546296,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BALAGHAT",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 353867,
     "ration_cards_active": 353867,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 285845,
     "phh_beneficiaries": 1172516,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BARWANI",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 269316,
     "ration_cards_active": 269316,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 233603,
     "phh_beneficiaries": 1100360,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BETUL",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 309161,
     "ration_cards_active": 309161,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 278393,
     "phh_beneficiaries": 1168396,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BHIND",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 214785,
     "ration_cards_active": 214785,
     "allocation_mt": 0.0,
@@ -148,14 +148,14 @@
     "phh_ration_cards": 201504,
     "phh_beneficiaries": 945296,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BHOPAL",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 347672,
     "ration_cards_active": 347672,
     "allocation_mt": 0.0,
@@ -167,14 +167,14 @@
     "phh_ration_cards": 316840,
     "phh_beneficiaries": 1337750,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BURHANPUR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 145119,
     "ration_cards_active": 145119,
     "allocation_mt": 0.0,
@@ -186,14 +186,14 @@
     "phh_ration_cards": 136129,
     "phh_beneficiaries": 614488,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "CHHATARPUR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 335548,
     "ration_cards_active": 335548,
     "allocation_mt": 0.0,
@@ -205,14 +205,14 @@
     "phh_ration_cards": 302817,
     "phh_beneficiaries": 1322659,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "CHHINDWARA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 330164,
     "ration_cards_active": 330164,
     "allocation_mt": 0.0,
@@ -224,14 +224,14 @@
     "phh_ration_cards": 294054,
     "phh_beneficiaries": 1232957,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DAMOH",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 294571,
     "ration_cards_active": 294571,
     "allocation_mt": 0.0,
@@ -243,14 +243,14 @@
     "phh_ration_cards": 266060,
     "phh_beneficiaries": 996154,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DATIA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 129426,
     "ration_cards_active": 129426,
     "allocation_mt": 0.0,
@@ -262,14 +262,14 @@
     "phh_ration_cards": 124104,
     "phh_beneficiaries": 542459,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DEWAS",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 254652,
     "ration_cards_active": 254652,
     "allocation_mt": 0.0,
@@ -281,14 +281,14 @@
     "phh_ration_cards": 232668,
     "phh_beneficiaries": 1033311,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DHAR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 372450,
     "ration_cards_active": 372450,
     "allocation_mt": 0.0,
@@ -300,14 +300,14 @@
     "phh_ration_cards": 332769,
     "phh_beneficiaries": 1428634,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DINDORI",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 191206,
     "ration_cards_active": 191206,
     "allocation_mt": 0.0,
@@ -319,14 +319,14 @@
     "phh_ration_cards": 169519,
     "phh_beneficiaries": 602019,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "EAST NIMAR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 249433,
     "ration_cards_active": 249433,
     "allocation_mt": 0.0,
@@ -338,14 +338,14 @@
     "phh_ration_cards": 220757,
     "phh_beneficiaries": 923754,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GUNA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 219674,
     "ration_cards_active": 219674,
     "allocation_mt": 0.0,
@@ -357,14 +357,14 @@
     "phh_ration_cards": 187218,
     "phh_beneficiaries": 834082,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GWALIOR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 283199,
     "ration_cards_active": 283199,
     "allocation_mt": 0.0,
@@ -376,14 +376,14 @@
     "phh_ration_cards": 262112,
     "phh_beneficiaries": 1111511,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "HARDA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 93200,
     "ration_cards_active": 93200,
     "allocation_mt": 0.0,
@@ -395,14 +395,14 @@
     "phh_ration_cards": 87002,
     "phh_beneficiaries": 367362,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "HOSHANGABAD",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 207860,
     "ration_cards_active": 207860,
     "allocation_mt": 0.0,
@@ -414,14 +414,14 @@
     "phh_ration_cards": 191672,
     "phh_beneficiaries": 779300,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "INDORE",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 380858,
     "ration_cards_active": 380858,
     "allocation_mt": 0.0,
@@ -433,14 +433,14 @@
     "phh_ration_cards": 359302,
     "phh_beneficiaries": 1619369,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JABALPUR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 390723,
     "ration_cards_active": 390723,
     "allocation_mt": 0.0,
@@ -452,14 +452,14 @@
     "phh_ration_cards": 347808,
     "phh_beneficiaries": 1315805,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JHABUA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 222985,
     "ration_cards_active": 222985,
     "allocation_mt": 0.0,
@@ -471,14 +471,14 @@
     "phh_ration_cards": 198099,
     "phh_beneficiaries": 956717,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KATNI",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 245241,
     "ration_cards_active": 245241,
     "allocation_mt": 0.0,
@@ -490,14 +490,14 @@
     "phh_ration_cards": 236224,
     "phh_beneficiaries": 921758,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KHARGONE",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 344497,
     "ration_cards_active": 344497,
     "allocation_mt": 0.0,
@@ -509,14 +509,14 @@
     "phh_ration_cards": 307959,
     "phh_beneficiaries": 1388387,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
-    "district": "Maihar",
+    "district": "MAIHAR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 150105,
     "ration_cards_active": 150105,
     "allocation_mt": 0.0,
@@ -528,14 +528,14 @@
     "phh_ration_cards": 126912,
     "phh_beneficiaries": 527535,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MANDLA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 253596,
     "ration_cards_active": 253596,
     "allocation_mt": 0.0,
@@ -547,14 +547,14 @@
     "phh_ration_cards": 195952,
     "phh_beneficiaries": 730109,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MANDSAUR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 249948,
     "ration_cards_active": 249948,
     "allocation_mt": 0.0,
@@ -566,14 +566,14 @@
     "phh_ration_cards": 234127,
     "phh_beneficiaries": 969354,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MAUGANJ",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 121715,
     "ration_cards_active": 121715,
     "allocation_mt": 0.0,
@@ -585,14 +585,14 @@
     "phh_ration_cards": 103957,
     "phh_beneficiaries": 480905,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MORENA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 308837,
     "ration_cards_active": 308837,
     "allocation_mt": 0.0,
@@ -604,14 +604,14 @@
     "phh_ration_cards": 297392,
     "phh_beneficiaries": 1375441,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NARSINGHPUR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 216710,
     "ration_cards_active": 216710,
     "allocation_mt": 0.0,
@@ -623,14 +623,14 @@
     "phh_ration_cards": 195240,
     "phh_beneficiaries": 750866,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NEEMUCH",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 149159,
     "ration_cards_active": 149159,
     "allocation_mt": 0.0,
@@ -642,14 +642,14 @@
     "phh_ration_cards": 139344,
     "phh_beneficiaries": 564352,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NIWARI",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 81959,
     "ration_cards_active": 81959,
     "allocation_mt": 0.0,
@@ -661,14 +661,14 @@
     "phh_ration_cards": 73608,
     "phh_beneficiaries": 319291,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
-    "district": "Pandhurna",
+    "district": "PANDHURNA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 74755,
     "ration_cards_active": 74755,
     "allocation_mt": 0.0,
@@ -680,14 +680,14 @@
     "phh_ration_cards": 66466,
     "phh_beneficiaries": 262795,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PANNA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 204392,
     "ration_cards_active": 204392,
     "allocation_mt": 0.0,
@@ -699,14 +699,14 @@
     "phh_ration_cards": 181013,
     "phh_beneficiaries": 765979,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RAISEN",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 263114,
     "ration_cards_active": 263114,
     "allocation_mt": 0.0,
@@ -718,14 +718,14 @@
     "phh_ration_cards": 237048,
     "phh_beneficiaries": 952051,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RAJGARH",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 291532,
     "ration_cards_active": 291532,
     "allocation_mt": 0.0,
@@ -737,14 +737,14 @@
     "phh_ration_cards": 264436,
     "phh_beneficiaries": 1171318,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RATLAM",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 243654,
     "ration_cards_active": 243654,
     "allocation_mt": 0.0,
@@ -756,14 +756,14 @@
     "phh_ration_cards": 226054,
     "phh_beneficiaries": 945314,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "REWA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 296467,
     "ration_cards_active": 296467,
     "allocation_mt": 0.0,
@@ -775,14 +775,14 @@
     "phh_ration_cards": 251463,
     "phh_beneficiaries": 1095420,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SAGAR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 482179,
     "ration_cards_active": 482179,
     "allocation_mt": 0.0,
@@ -794,14 +794,14 @@
     "phh_ration_cards": 438728,
     "phh_beneficiaries": 1747606,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SATNA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 277109,
     "ration_cards_active": 277109,
     "allocation_mt": 0.0,
@@ -813,14 +813,14 @@
     "phh_ration_cards": 239954,
     "phh_beneficiaries": 986864,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SEHORE",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 228875,
     "ration_cards_active": 228875,
     "allocation_mt": 0.0,
@@ -832,14 +832,14 @@
     "phh_ration_cards": 211930,
     "phh_beneficiaries": 962918,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SEONI",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 283549,
     "ration_cards_active": 283549,
     "allocation_mt": 0.0,
@@ -851,14 +851,14 @@
     "phh_ration_cards": 247896,
     "phh_beneficiaries": 971806,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SHAHDOL",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 228681,
     "ration_cards_active": 228681,
     "allocation_mt": 0.0,
@@ -870,14 +870,14 @@
     "phh_ration_cards": 189197,
     "phh_beneficiaries": 725512,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SHAJAPUR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 153189,
     "ration_cards_active": 153189,
     "allocation_mt": 0.0,
@@ -889,14 +889,14 @@
     "phh_ration_cards": 141451,
     "phh_beneficiaries": 632957,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SHEOPUR",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 124655,
     "ration_cards_active": 124655,
     "allocation_mt": 0.0,
@@ -908,14 +908,14 @@
     "phh_ration_cards": 95138,
     "phh_beneficiaries": 356376,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SHIVPURI",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 305796,
     "ration_cards_active": 305796,
     "allocation_mt": 0.0,
@@ -927,14 +927,14 @@
     "phh_ration_cards": 257748,
     "phh_beneficiaries": 1039819,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SIDHI",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 250402,
     "ration_cards_active": 250402,
     "allocation_mt": 0.0,
@@ -946,14 +946,14 @@
     "phh_ration_cards": 217841,
     "phh_beneficiaries": 937370,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SINGRAULI",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 253157,
     "ration_cards_active": 253157,
     "allocation_mt": 0.0,
@@ -965,14 +965,14 @@
     "phh_ration_cards": 227567,
     "phh_beneficiaries": 995569,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "TIKAMGARH",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 224535,
     "ration_cards_active": 224535,
     "allocation_mt": 0.0,
@@ -984,14 +984,14 @@
     "phh_ration_cards": 201903,
     "phh_beneficiaries": 835864,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "UJJAIN",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 286977,
     "ration_cards_active": 286977,
     "allocation_mt": 0.0,
@@ -1003,14 +1003,14 @@
     "phh_ration_cards": 265282,
     "phh_beneficiaries": 1147719,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "UMARIA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 141436,
     "ration_cards_active": 141436,
     "allocation_mt": 0.0,
@@ -1022,14 +1022,14 @@
     "phh_ration_cards": 112624,
     "phh_beneficiaries": 444338,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "VIDISHA",
     "state": "MADHYA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "23",
+    "fin_year": "cumulative",
     "ration_cards_total": 258590,
     "ration_cards_active": 258590,
     "allocation_mt": 0.0,
@@ -1041,7 +1041,7 @@
     "phh_ration_cards": 237912,
     "phh_beneficiaries": 1042984,
     "date_of_data": "23 Mar 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

@@ -2,8 +2,8 @@
   {
     "district": "BOKARO",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 328434,
     "ration_cards_active": 328434,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 306984,
     "phh_beneficiaries": 1263526,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "CHATRA",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 188577,
     "ration_cards_active": 188577,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 150566,
     "phh_beneficiaries": 734881,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DEOGHAR",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 234396,
     "ration_cards_active": 234396,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 219463,
     "phh_beneficiaries": 1128459,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DHANBAD",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 422900,
     "ration_cards_active": 422900,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 390325,
     "phh_beneficiaries": 1753685,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DUMKA",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 257240,
     "ration_cards_active": 257240,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 210079,
     "phh_beneficiaries": 941959,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "EAST SINGHBUM",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 419320,
     "ration_cards_active": 419320,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 365314,
     "phh_beneficiaries": 1405265,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GARHWA",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 263285,
     "ration_cards_active": 263285,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 233693,
     "phh_beneficiaries": 1069827,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GIRIDIH",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 430121,
     "ration_cards_active": 430121,
     "allocation_mt": 0.0,
@@ -148,14 +148,14 @@
     "phh_ration_cards": 362440,
     "phh_beneficiaries": 1788325,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GODDA",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 237085,
     "ration_cards_active": 237085,
     "allocation_mt": 0.0,
@@ -167,14 +167,14 @@
     "phh_ration_cards": 209525,
     "phh_beneficiaries": 1007893,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GUMLA",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 176067,
     "ration_cards_active": 176067,
     "allocation_mt": 0.0,
@@ -186,14 +186,14 @@
     "phh_ration_cards": 143869,
     "phh_beneficiaries": 676177,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "HAZARIBAGH",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 319141,
     "ration_cards_active": 319141,
     "allocation_mt": 0.0,
@@ -205,14 +205,14 @@
     "phh_ration_cards": 265958,
     "phh_beneficiaries": 1236339,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JAMTARA",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 152403,
     "ration_cards_active": 152403,
     "allocation_mt": 0.0,
@@ -224,14 +224,14 @@
     "phh_ration_cards": 134586,
     "phh_beneficiaries": 640220,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KHUNTI",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 112364,
     "ration_cards_active": 112364,
     "allocation_mt": 0.0,
@@ -243,14 +243,14 @@
     "phh_ration_cards": 80299,
     "phh_beneficiaries": 340775,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KODERMA",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 110329,
     "ration_cards_active": 110329,
     "allocation_mt": 0.0,
@@ -262,14 +262,14 @@
     "phh_ration_cards": 94263,
     "phh_beneficiaries": 466054,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "LATEHAR",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 142311,
     "ration_cards_active": 142311,
     "allocation_mt": 0.0,
@@ -281,14 +281,14 @@
     "phh_ration_cards": 128100,
     "phh_beneficiaries": 619240,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "LOHARDAGA",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 96201,
     "ration_cards_active": 96201,
     "allocation_mt": 0.0,
@@ -300,14 +300,14 @@
     "phh_ration_cards": 82442,
     "phh_beneficiaries": 377567,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PAKUR",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 179156,
     "ration_cards_active": 179156,
     "allocation_mt": 0.0,
@@ -319,14 +319,14 @@
     "phh_ration_cards": 159925,
     "phh_beneficiaries": 726287,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PALAMU",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 408607,
     "ration_cards_active": 408607,
     "allocation_mt": 0.0,
@@ -338,14 +338,14 @@
     "phh_ration_cards": 363788,
     "phh_beneficiaries": 1665789,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RAMGARH",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 128375,
     "ration_cards_active": 128375,
     "allocation_mt": 0.0,
@@ -357,14 +357,14 @@
     "phh_ration_cards": 108994,
     "phh_beneficiaries": 515987,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RANCHI",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 515582,
     "ration_cards_active": 515582,
     "allocation_mt": 0.0,
@@ -376,14 +376,14 @@
     "phh_ration_cards": 413957,
     "phh_beneficiaries": 1614894,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SAHEBGANJ",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 204233,
     "ration_cards_active": 204233,
     "allocation_mt": 0.0,
@@ -395,14 +395,14 @@
     "phh_ration_cards": 164577,
     "phh_beneficiaries": 800817,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SARAIKELA KHARSAWAN",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 223270,
     "ration_cards_active": 223270,
     "allocation_mt": 0.0,
@@ -414,14 +414,14 @@
     "phh_ration_cards": 190865,
     "phh_beneficiaries": 760045,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SIMDEGA",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 120168,
     "ration_cards_active": 120168,
     "allocation_mt": 0.0,
@@ -433,14 +433,14 @@
     "phh_ration_cards": 103421,
     "phh_beneficiaries": 481408,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "WEST SINGHBHUM",
     "state": "JHARKHAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "20",
+    "fin_year": "cumulative",
     "ration_cards_total": 351117,
     "ration_cards_active": 351117,
     "allocation_mt": 0.0,
@@ -452,7 +452,7 @@
     "phh_ration_cards": 256488,
     "phh_beneficiaries": 934581,
     "date_of_data": "30 Jan 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

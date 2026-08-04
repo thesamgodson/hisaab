@@ -2,8 +2,8 @@
   {
     "district": "AHMADABAD",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 210130,
     "ration_cards_active": 210130,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 183433,
     "phh_beneficiaries": 904289,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "AHMEDABAD CITY",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 424155,
     "ration_cards_active": 424155,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 399502,
     "phh_beneficiaries": 1939436,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "AMRELI",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 207224,
     "ration_cards_active": 207224,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 183972,
     "phh_beneficiaries": 854795,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "ANAND",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 280761,
     "ration_cards_active": 280761,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 253012,
     "phh_beneficiaries": 1375336,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "ARVALLI",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 173745,
     "ration_cards_active": 173745,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 150868,
     "phh_beneficiaries": 758113,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BANAS KANTHA",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 458721,
     "ration_cards_active": 458721,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 393066,
     "phh_beneficiaries": 2006030,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BHARUCH",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 182011,
     "ration_cards_active": 182011,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 161423,
     "phh_beneficiaries": 849731,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BHAVNAGAR",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 366175,
     "ration_cards_active": 366175,
     "allocation_mt": 0.0,
@@ -148,14 +148,14 @@
     "phh_ration_cards": 340730,
     "phh_beneficiaries": 1706938,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BOTAD",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 117518,
     "ration_cards_active": 117518,
     "allocation_mt": 0.0,
@@ -167,14 +167,14 @@
     "phh_ration_cards": 110575,
     "phh_beneficiaries": 518201,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "CHHOTAUDEPUR",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 154836,
     "ration_cards_active": 154836,
     "allocation_mt": 0.0,
@@ -186,14 +186,14 @@
     "phh_ration_cards": 137752,
     "phh_beneficiaries": 779985,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DANG",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 48884,
     "ration_cards_active": 48884,
     "allocation_mt": 0.0,
@@ -205,14 +205,14 @@
     "phh_ration_cards": 43921,
     "phh_beneficiaries": 230073,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DEVBHUMI DWARKA",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 118559,
     "ration_cards_active": 118559,
     "allocation_mt": 0.0,
@@ -224,14 +224,14 @@
     "phh_ration_cards": 113176,
     "phh_beneficiaries": 487433,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DOHAD",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 326912,
     "ration_cards_active": 326912,
     "allocation_mt": 0.0,
@@ -243,14 +243,14 @@
     "phh_ration_cards": 255673,
     "phh_beneficiaries": 1442272,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GANDHINAGAR",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 184169,
     "ration_cards_active": 184169,
     "allocation_mt": 0.0,
@@ -262,14 +262,14 @@
     "phh_ration_cards": 172752,
     "phh_beneficiaries": 854457,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GIR SOMNATH",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 188918,
     "ration_cards_active": 188918,
     "allocation_mt": 0.0,
@@ -281,14 +281,14 @@
     "phh_ration_cards": 175826,
     "phh_beneficiaries": 838035,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JAMNAGAR",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 224633,
     "ration_cards_active": 224633,
     "allocation_mt": 0.0,
@@ -300,14 +300,14 @@
     "phh_ration_cards": 211456,
     "phh_beneficiaries": 866056,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JUNAGADH",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 254835,
     "ration_cards_active": 254835,
     "allocation_mt": 0.0,
@@ -319,14 +319,14 @@
     "phh_ration_cards": 238480,
     "phh_beneficiaries": 950791,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KACHCHH",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 283213,
     "ration_cards_active": 283213,
     "allocation_mt": 0.0,
@@ -338,14 +338,14 @@
     "phh_ration_cards": 260240,
     "phh_beneficiaries": 1249297,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KHEDA",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 294352,
     "ration_cards_active": 294352,
     "allocation_mt": 0.0,
@@ -357,14 +357,14 @@
     "phh_ration_cards": 261191,
     "phh_beneficiaries": 1474399,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MAHESANA",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 320678,
     "ration_cards_active": 320678,
     "allocation_mt": 0.0,
@@ -376,14 +376,14 @@
     "phh_ration_cards": 307590,
     "phh_beneficiaries": 1419065,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MAHISAGAR",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 158186,
     "ration_cards_active": 158186,
     "allocation_mt": 0.0,
@@ -395,14 +395,14 @@
     "phh_ration_cards": 139915,
     "phh_beneficiaries": 763723,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MORBI",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 150967,
     "ration_cards_active": 150967,
     "allocation_mt": 0.0,
@@ -414,14 +414,14 @@
     "phh_ration_cards": 144355,
     "phh_beneficiaries": 652782,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NARMADA",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 110515,
     "ration_cards_active": 110515,
     "allocation_mt": 0.0,
@@ -433,14 +433,14 @@
     "phh_ration_cards": 83411,
     "phh_beneficiaries": 410247,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NAVSARI",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 181693,
     "ration_cards_active": 181693,
     "allocation_mt": 0.0,
@@ -452,14 +452,14 @@
     "phh_ration_cards": 135748,
     "phh_beneficiaries": 692426,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PANCH MAHALS",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 255545,
     "ration_cards_active": 255545,
     "allocation_mt": 0.0,
@@ -471,14 +471,14 @@
     "phh_ration_cards": 226922,
     "phh_beneficiaries": 1209344,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PATAN",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 240086,
     "ration_cards_active": 240086,
     "allocation_mt": 0.0,
@@ -490,14 +490,14 @@
     "phh_ration_cards": 219559,
     "phh_beneficiaries": 1075565,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PORBANDAR",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 86259,
     "ration_cards_active": 86259,
     "allocation_mt": 0.0,
@@ -509,14 +509,14 @@
     "phh_ration_cards": 78575,
     "phh_beneficiaries": 326161,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RAJKOT",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 326312,
     "ration_cards_active": 326312,
     "allocation_mt": 0.0,
@@ -528,14 +528,14 @@
     "phh_ration_cards": 304912,
     "phh_beneficiaries": 1250745,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SABAR KANTHA",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 219960,
     "ration_cards_active": 219960,
     "allocation_mt": 0.0,
@@ -547,14 +547,14 @@
     "phh_ration_cards": 193092,
     "phh_beneficiaries": 988863,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SURAT",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 411849,
     "ration_cards_active": 411849,
     "allocation_mt": 0.0,
@@ -566,14 +566,14 @@
     "phh_ration_cards": 379409,
     "phh_beneficiaries": 1803949,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SURENDRANAGAR",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 255559,
     "ration_cards_active": 255559,
     "allocation_mt": 0.0,
@@ -585,14 +585,14 @@
     "phh_ration_cards": 236865,
     "phh_beneficiaries": 1029060,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "TAPI",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 152251,
     "ration_cards_active": 152251,
     "allocation_mt": 0.0,
@@ -604,14 +604,14 @@
     "phh_ration_cards": 120438,
     "phh_beneficiaries": 555093,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "VADODARA",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 257447,
     "ration_cards_active": 257447,
     "allocation_mt": 0.0,
@@ -623,14 +623,14 @@
     "phh_ration_cards": 230803,
     "phh_beneficiaries": 1169995,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "VALSAD",
     "state": "GUJARAT",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "24",
+    "fin_year": "cumulative",
     "ration_cards_total": 241410,
     "ration_cards_active": 241410,
     "allocation_mt": 0.0,
@@ -642,7 +642,7 @@
     "phh_ration_cards": 215119,
     "phh_beneficiaries": 1085496,
     "date_of_data": "21 Jan 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

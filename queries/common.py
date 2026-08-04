@@ -95,7 +95,9 @@ def data_quality_warnings() -> dict[str, list[str]]:
             "Delivery metrics (houses_sanctioned/completed) available at district level.",
         ],
         "PM Kisan": [
-            "28 of 36 states have only state-level aggregate records (district='ALL'), not district-level data.",
+            "DISTRICT-LEVEL: beneficiaries paid per installment, aggregated from the data.gov.in village dataset (CLAIM-2026-0031). Counts only — the dataset publishes no money; district data lags the homepage by one installment.",
+            "STATE-LEVEL: current-period eligible vs transferred from the pmkisan.gov.in homepage (district='ALL' rows, CLAIM-2026-0030) — mid-cycle numbers while an installment is still being paid out.",
+            "amount_paid_lakhs is zero everywhere except 8 states' frozen FY2024-25 district rows (Rajya Sabha resources, last updated 2023) — never rank districts by PM Kisan money.",
             "No allocation data — PM Kisan is a direct benefit transfer with no state-level allocation.",
         ],
         "JJM": [
@@ -117,7 +119,7 @@ def data_quality_warnings() -> dict[str, list[str]]:
         "PDS/NFSA": [
             "STATE-LEVEL: Real allocation + offtake in METRIC TONNES from data.gov.in (2019-2023, nfsa_allocation).",
             "DISTRICT-LEVEL: allocation_mt and offtake_mt are zeros — no district breakdown from data.gov.in.",
-            "Ration card counts equal 'active' by construction in the source (CLAIM-2026-0008) — no active-percentage is published. Underlying dashboard data is 2021-vintage.",
+            "Ration card counts equal 'active' by construction in the source (CLAIM-2026-0029) — no active-percentage is published. Reporting vintage varies by state (per-row date_of_data): half the districts report 2025-26 dates, a long tail still cites 2019-2021.",
             "NFSA tracks metric tonnes, not rupees — never compared with other schemes' lakhs columns.",
         ],
         "SBM-G": [

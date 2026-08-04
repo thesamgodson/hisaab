@@ -2,8 +2,8 @@
   {
     "district": "BALOD",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 158896,
     "ration_cards_active": 158896,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 145633,
     "phh_beneficiaries": 627672,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BALODA BAZAR",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 247495,
     "ration_cards_active": 247495,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 226796,
     "phh_beneficiaries": 919430,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BALRAMPUR",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 149485,
     "ration_cards_active": 149485,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 127253,
     "phh_beneficiaries": 505164,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BASTAR",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 162714,
     "ration_cards_active": 162714,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 128830,
     "phh_beneficiaries": 539007,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BEMETARA",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 203474,
     "ration_cards_active": 203474,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 185752,
     "phh_beneficiaries": 716578,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BIJAPUR",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 44465,
     "ration_cards_active": 44465,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 32504,
     "phh_beneficiaries": 112746,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BILASPUR",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 381515,
     "ration_cards_active": 381515,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 321618,
     "phh_beneficiaries": 1198982,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DANTEWADA",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 54869,
     "ration_cards_active": 54869,
     "allocation_mt": 0.0,
@@ -148,14 +148,14 @@
     "phh_ration_cards": 35675,
     "phh_beneficiaries": 132602,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DHAMTARI",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 173373,
     "ration_cards_active": 173373,
     "allocation_mt": 0.0,
@@ -167,14 +167,14 @@
     "phh_ration_cards": 146062,
     "phh_beneficiaries": 564213,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DURG",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 278446,
     "ration_cards_active": 278446,
     "allocation_mt": 0.0,
@@ -186,14 +186,14 @@
     "phh_ration_cards": 242025,
     "phh_beneficiaries": 967131,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GARIYABAND",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 144030,
     "ration_cards_active": 144030,
     "allocation_mt": 0.0,
@@ -205,14 +205,14 @@
     "phh_ration_cards": 125517,
     "phh_beneficiaries": 444503,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GAURELLA PENDRA MARWAHI",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 89477,
     "ration_cards_active": 89477,
     "allocation_mt": 0.0,
@@ -224,14 +224,14 @@
     "phh_ration_cards": 72456,
     "phh_beneficiaries": 240634,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JANJGIR-CHAMPA",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 226680,
     "ration_cards_active": 226680,
     "allocation_mt": 0.0,
@@ -243,14 +243,14 @@
     "phh_ration_cards": 205728,
     "phh_beneficiaries": 797681,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JASHPUR",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 181861,
     "ration_cards_active": 181861,
     "allocation_mt": 0.0,
@@ -262,14 +262,14 @@
     "phh_ration_cards": 157117,
     "phh_beneficiaries": 629822,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KABIRDHAM",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 198082,
     "ration_cards_active": 198082,
     "allocation_mt": 0.0,
@@ -281,14 +281,14 @@
     "phh_ration_cards": 171296,
     "phh_beneficiaries": 606495,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KANKER",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 144553,
     "ration_cards_active": 144553,
     "allocation_mt": 0.0,
@@ -300,14 +300,14 @@
     "phh_ration_cards": 120021,
     "phh_beneficiaries": 509320,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
-    "district": "Khairagarh Chhuikhadan Gandai",
+    "district": "KHAIRAGARH CHHUIKHADAN GANDAI",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 162746,
     "ration_cards_active": 162746,
     "allocation_mt": 0.0,
@@ -319,14 +319,14 @@
     "phh_ration_cards": 143931,
     "phh_beneficiaries": 527807,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KONDAGAON",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 113984,
     "ration_cards_active": 113984,
     "allocation_mt": 0.0,
@@ -338,14 +338,14 @@
     "phh_ration_cards": 94076,
     "phh_beneficiaries": 401140,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KORBA",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 235066,
     "ration_cards_active": 235066,
     "allocation_mt": 0.0,
@@ -357,14 +357,14 @@
     "phh_ration_cards": 208106,
     "phh_beneficiaries": 799401,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KOREA",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 58660,
     "ration_cards_active": 58660,
     "allocation_mt": 0.0,
@@ -376,14 +376,14 @@
     "phh_ration_cards": 50478,
     "phh_beneficiaries": 189735,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MAHASAMUND",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 251460,
     "ration_cards_active": 251460,
     "allocation_mt": 0.0,
@@ -395,14 +395,14 @@
     "phh_ration_cards": 228180,
     "phh_beneficiaries": 848985,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
-    "district": "Manendragarh Chirmiri Bharatpur Mcb",
+    "district": "MANENDRAGARH CHIRMIRI BHARATPUR MCB",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 67828,
     "ration_cards_active": 67828,
     "allocation_mt": 0.0,
@@ -414,14 +414,14 @@
     "phh_ration_cards": 56544,
     "phh_beneficiaries": 218528,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
-    "district": "Mohla Manpur Ambagarh Chouki",
+    "district": "MOHLA MANPUR AMBAGARH CHOUKI",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 147137,
     "ration_cards_active": 147137,
     "allocation_mt": 0.0,
@@ -433,14 +433,14 @@
     "phh_ration_cards": 127773,
     "phh_beneficiaries": 460543,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MUNGELI",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 176186,
     "ration_cards_active": 176186,
     "allocation_mt": 0.0,
@@ -452,14 +452,14 @@
     "phh_ration_cards": 154325,
     "phh_beneficiaries": 589186,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NARAYANPUR",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 21864,
     "ration_cards_active": 21864,
     "allocation_mt": 0.0,
@@ -471,14 +471,14 @@
     "phh_ration_cards": 13590,
     "phh_beneficiaries": 59489,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RAIGARH",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 226368,
     "ration_cards_active": 226368,
     "allocation_mt": 0.0,
@@ -490,14 +490,14 @@
     "phh_ration_cards": 197366,
     "phh_beneficiaries": 712531,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RAIPUR",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 377699,
     "ration_cards_active": 377699,
     "allocation_mt": 0.0,
@@ -509,14 +509,14 @@
     "phh_ration_cards": 350880,
     "phh_beneficiaries": 1372636,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RAJNANDGAON",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 167261,
     "ration_cards_active": 167261,
     "allocation_mt": 0.0,
@@ -528,14 +528,14 @@
     "phh_ration_cards": 145312,
     "phh_beneficiaries": 616951,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
-    "district": "Sakti",
+    "district": "SAKTI",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 78932,
     "ration_cards_active": 78932,
     "allocation_mt": 0.0,
@@ -547,14 +547,14 @@
     "phh_ration_cards": 67469,
     "phh_beneficiaries": 282988,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
-    "district": "Sarangarh Bilaigarh",
+    "district": "SARANGARH BILAIGARH",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 54539,
     "ration_cards_active": 54539,
     "allocation_mt": 0.0,
@@ -566,14 +566,14 @@
     "phh_ration_cards": 43510,
     "phh_beneficiaries": 191370,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SUKMA",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 48577,
     "ration_cards_active": 48577,
     "allocation_mt": 0.0,
@@ -585,14 +585,14 @@
     "phh_ration_cards": 36457,
     "phh_beneficiaries": 123043,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SURAJPUR",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 171764,
     "ration_cards_active": 171764,
     "allocation_mt": 0.0,
@@ -604,14 +604,14 @@
     "phh_ration_cards": 145440,
     "phh_beneficiaries": 534119,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SURGUJA",
     "state": "CHHATTISGARH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "22",
+    "fin_year": "cumulative",
     "ration_cards_total": 189364,
     "ration_cards_active": 189364,
     "allocation_mt": 0.0,
@@ -623,7 +623,7 @@
     "phh_ration_cards": 162466,
     "phh_beneficiaries": 584887,
     "date_of_data": "17 Jun 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

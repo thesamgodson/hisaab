@@ -2,8 +2,8 @@
   {
     "district": "CENTRAL",
     "state": "DELHI",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "07",
+    "fin_year": "cumulative",
     "ration_cards_total": 133511,
     "ration_cards_active": 133511,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 126484,
     "phh_beneficiaries": 498311,
     "date_of_data": "15 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "EAST",
     "state": "DELHI",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "07",
+    "fin_year": "cumulative",
     "ration_cards_total": 162578,
     "ration_cards_active": 162578,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 157223,
     "phh_beneficiaries": 655056,
     "date_of_data": "15 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NEW DELHI",
     "state": "DELHI",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "07",
+    "fin_year": "cumulative",
     "ration_cards_total": 84258,
     "ration_cards_active": 84258,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 81036,
     "phh_beneficiaries": 327830,
     "date_of_data": "15 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NORTH",
     "state": "DELHI",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "07",
+    "fin_year": "cumulative",
     "ration_cards_total": 160961,
     "ration_cards_active": 160961,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 148916,
     "phh_beneficiaries": 589595,
     "date_of_data": "15 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NORTH EAST",
     "state": "DELHI",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "07",
+    "fin_year": "cumulative",
     "ration_cards_total": 278433,
     "ration_cards_active": 278433,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 269596,
     "phh_beneficiaries": 1142926,
     "date_of_data": "15 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NORTH WEST",
     "state": "DELHI",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "07",
+    "fin_year": "cumulative",
     "ration_cards_total": 311195,
     "ration_cards_active": 311195,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 298590,
     "phh_beneficiaries": 1238777,
     "date_of_data": "15 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SOUTH",
     "state": "DELHI",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "07",
+    "fin_year": "cumulative",
     "ration_cards_total": 219578,
     "ration_cards_active": 219578,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 214849,
     "phh_beneficiaries": 913874,
     "date_of_data": "15 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SOUTH WEST",
     "state": "DELHI",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "07",
+    "fin_year": "cumulative",
     "ration_cards_total": 236139,
     "ration_cards_active": 236139,
     "allocation_mt": 0.0,
@@ -148,14 +148,14 @@
     "phh_ration_cards": 230131,
     "phh_beneficiaries": 931514,
     "date_of_data": "15 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "WEST",
     "state": "DELHI",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "07",
+    "fin_year": "cumulative",
     "ration_cards_total": 191719,
     "ration_cards_active": 191719,
     "allocation_mt": 0.0,
@@ -167,7 +167,7 @@
     "phh_ration_cards": 182839,
     "phh_beneficiaries": 743576,
     "date_of_data": "15 Jul 2021",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

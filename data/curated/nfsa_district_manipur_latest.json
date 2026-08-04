@@ -2,8 +2,8 @@
   {
     "district": "BISHNUPUR",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 55323,
     "ration_cards_active": 55323,
     "allocation_mt": 0.0,
@@ -14,15 +14,15 @@
     "aay_beneficiaries": 26164,
     "phh_ration_cards": 48280,
     "phh_beneficiaries": 193192,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "CHANDEL",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 13106,
     "ration_cards_active": 13106,
     "allocation_mt": 0.0,
@@ -33,15 +33,15 @@
     "aay_beneficiaries": 3504,
     "phh_ration_cards": 11890,
     "phh_beneficiaries": 39983,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "CHURACHANDPUR",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 50313,
     "ration_cards_active": 50313,
     "allocation_mt": 0.0,
@@ -52,15 +52,15 @@
     "aay_beneficiaries": 11843,
     "phh_ration_cards": 45051,
     "phh_beneficiaries": 134644,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "IMPHAL EAST",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 92925,
     "ration_cards_active": 92925,
     "allocation_mt": 0.0,
@@ -71,15 +71,15 @@
     "aay_beneficiaries": 38342,
     "phh_ration_cards": 82318,
     "phh_beneficiaries": 320726,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "IMPHAL WEST",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 121428,
     "ration_cards_active": 121428,
     "allocation_mt": 0.0,
@@ -90,15 +90,15 @@
     "aay_beneficiaries": 21556,
     "phh_ration_cards": 108763,
     "phh_beneficiaries": 399216,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JIRIBAM",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 8830,
     "ration_cards_active": 8830,
     "allocation_mt": 0.0,
@@ -109,15 +109,15 @@
     "aay_beneficiaries": 4321,
     "phh_ration_cards": 7600,
     "phh_beneficiaries": 35219,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KAKCHING",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 35833,
     "ration_cards_active": 35833,
     "allocation_mt": 0.0,
@@ -128,15 +128,15 @@
     "aay_beneficiaries": 9075,
     "phh_ration_cards": 32554,
     "phh_beneficiaries": 130248,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KAMJONG",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 8578,
     "ration_cards_active": 8578,
     "allocation_mt": 0.0,
@@ -147,15 +147,15 @@
     "aay_beneficiaries": 3659,
     "phh_ration_cards": 7440,
     "phh_beneficiaries": 27136,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KANGPOKPI",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 34631,
     "ration_cards_active": 34631,
     "allocation_mt": 0.0,
@@ -166,15 +166,15 @@
     "aay_beneficiaries": 10582,
     "phh_ration_cards": 31510,
     "phh_beneficiaries": 120075,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NONEY",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 9429,
     "ration_cards_active": 9429,
     "allocation_mt": 0.0,
@@ -185,15 +185,15 @@
     "aay_beneficiaries": 2125,
     "phh_ration_cards": 8587,
     "phh_beneficiaries": 31709,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PHERZAWL",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 6863,
     "ration_cards_active": 6863,
     "allocation_mt": 0.0,
@@ -204,15 +204,15 @@
     "aay_beneficiaries": 2465,
     "phh_ration_cards": 6026,
     "phh_beneficiaries": 21912,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SENAPATI",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 30066,
     "ration_cards_active": 30066,
     "allocation_mt": 0.0,
@@ -223,15 +223,15 @@
     "aay_beneficiaries": 12081,
     "phh_ration_cards": 26104,
     "phh_beneficiaries": 86402,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "TAMENGLONG",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 16461,
     "ration_cards_active": 16461,
     "allocation_mt": 0.0,
@@ -242,15 +242,15 @@
     "aay_beneficiaries": 4564,
     "phh_ration_cards": 14507,
     "phh_beneficiaries": 56086,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "TENGNOUPAL",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 11080,
     "ration_cards_active": 11080,
     "allocation_mt": 0.0,
@@ -261,15 +261,15 @@
     "aay_beneficiaries": 2658,
     "phh_ration_cards": 10176,
     "phh_beneficiaries": 36000,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "THOUBAL",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 60015,
     "ration_cards_active": 60015,
     "allocation_mt": 0.0,
@@ -280,15 +280,15 @@
     "aay_beneficiaries": 26571,
     "phh_ration_cards": 52795,
     "phh_beneficiaries": 209436,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "UKHRUL",
     "state": "MANIPUR",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "14",
+    "fin_year": "cumulative",
     "ration_cards_total": 27372,
     "ration_cards_active": 27372,
     "allocation_mt": 0.0,
@@ -299,8 +299,8 @@
     "aay_beneficiaries": 8500,
     "phh_ration_cards": 24765,
     "phh_beneficiaries": 85734,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

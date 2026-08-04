@@ -2,8 +2,8 @@
   {
     "district": "ANUGUL",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 272094,
     "ration_cards_active": 272094,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 242655,
     "phh_beneficiaries": 861534,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BALANGIR",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 421195,
     "ration_cards_active": 421195,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 369036,
     "phh_beneficiaries": 1227722,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BALESHWAR",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 495607,
     "ration_cards_active": 495607,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 413264,
     "phh_beneficiaries": 1573269,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BARGARH",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 352074,
     "ration_cards_active": 352074,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 302102,
     "phh_beneficiaries": 1031887,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BHADRAK",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 319225,
     "ration_cards_active": 319225,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 273516,
     "phh_beneficiaries": 1001824,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BOUDH",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 106574,
     "ration_cards_active": 106574,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 89936,
     "phh_beneficiaries": 309652,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "CUTTACK",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 501440,
     "ration_cards_active": 501440,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 452659,
     "phh_beneficiaries": 1617538,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DEOGARH",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 76697,
     "ration_cards_active": 76697,
     "allocation_mt": 0.0,
@@ -148,14 +148,14 @@
     "phh_ration_cards": 63853,
     "phh_beneficiaries": 223329,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DHENKANAL",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 277329,
     "ration_cards_active": 277329,
     "allocation_mt": 0.0,
@@ -167,14 +167,14 @@
     "phh_ration_cards": 241588,
     "phh_beneficiaries": 834099,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GAJAPATI",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 140010,
     "ration_cards_active": 140010,
     "allocation_mt": 0.0,
@@ -186,14 +186,14 @@
     "phh_ration_cards": 119263,
     "phh_beneficiaries": 430524,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GANJAM",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 734402,
     "ration_cards_active": 734402,
     "allocation_mt": 0.0,
@@ -205,14 +205,14 @@
     "phh_ration_cards": 655790,
     "phh_beneficiaries": 2344010,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JAGATSINGHAPUR",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 233382,
     "ration_cards_active": 233382,
     "allocation_mt": 0.0,
@@ -224,14 +224,14 @@
     "phh_ration_cards": 208578,
     "phh_beneficiaries": 767943,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JAJAPUR",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 393116,
     "ration_cards_active": 393116,
     "allocation_mt": 0.0,
@@ -243,14 +243,14 @@
     "phh_ration_cards": 347776,
     "phh_beneficiaries": 1315415,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JHARSUGUDA",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 112907,
     "ration_cards_active": 112907,
     "allocation_mt": 0.0,
@@ -262,14 +262,14 @@
     "phh_ration_cards": 104448,
     "phh_beneficiaries": 366273,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KALAHANDI",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 396445,
     "ration_cards_active": 396445,
     "allocation_mt": 0.0,
@@ -281,14 +281,14 @@
     "phh_ration_cards": 341137,
     "phh_beneficiaries": 1178814,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KANDHAMAL",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 176585,
     "ration_cards_active": 176585,
     "allocation_mt": 0.0,
@@ -300,14 +300,14 @@
     "phh_ration_cards": 147029,
     "phh_beneficiaries": 553607,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KENDRAPARA",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 299141,
     "ration_cards_active": 299141,
     "allocation_mt": 0.0,
@@ -319,14 +319,14 @@
     "phh_ration_cards": 263984,
     "phh_beneficiaries": 1002136,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KENDUJHAR",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 395635,
     "ration_cards_active": 395635,
     "allocation_mt": 0.0,
@@ -338,14 +338,14 @@
     "phh_ration_cards": 335084,
     "phh_beneficiaries": 1269292,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KHORDHA",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 389002,
     "ration_cards_active": 389002,
     "allocation_mt": 0.0,
@@ -357,14 +357,14 @@
     "phh_ration_cards": 350119,
     "phh_beneficiaries": 1254931,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KORAPUT",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 360094,
     "ration_cards_active": 360094,
     "allocation_mt": 0.0,
@@ -376,14 +376,14 @@
     "phh_ration_cards": 295775,
     "phh_beneficiaries": 1009626,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MALKANGIRI",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 147028,
     "ration_cards_active": 147028,
     "allocation_mt": 0.0,
@@ -395,14 +395,14 @@
     "phh_ration_cards": 122311,
     "phh_beneficiaries": 452257,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MAYURBHANJ",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 603149,
     "ration_cards_active": 603149,
     "allocation_mt": 0.0,
@@ -414,14 +414,14 @@
     "phh_ration_cards": 503225,
     "phh_beneficiaries": 1824867,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NABARANGPUR",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 312719,
     "ration_cards_active": 312719,
     "allocation_mt": 0.0,
@@ -433,14 +433,14 @@
     "phh_ration_cards": 261308,
     "phh_beneficiaries": 948608,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NAYAGARH",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 215414,
     "ration_cards_active": 215414,
     "allocation_mt": 0.0,
@@ -452,14 +452,14 @@
     "phh_ration_cards": 186393,
     "phh_beneficiaries": 638416,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NUAPADA",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 165991,
     "ration_cards_active": 165991,
     "allocation_mt": 0.0,
@@ -471,14 +471,14 @@
     "phh_ration_cards": 139580,
     "phh_beneficiaries": 475732,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PURI",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 348235,
     "ration_cards_active": 348235,
     "allocation_mt": 0.0,
@@ -490,14 +490,14 @@
     "phh_ration_cards": 307462,
     "phh_beneficiaries": 1106262,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RAYAGADA",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 247798,
     "ration_cards_active": 247798,
     "allocation_mt": 0.0,
@@ -509,14 +509,14 @@
     "phh_ration_cards": 202987,
     "phh_beneficiaries": 695416,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SAMBALPUR",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 223637,
     "ration_cards_active": 223637,
     "allocation_mt": 0.0,
@@ -528,14 +528,14 @@
     "phh_ration_cards": 195184,
     "phh_beneficiaries": 679668,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SONEPUR",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 148091,
     "ration_cards_active": 148091,
     "allocation_mt": 0.0,
@@ -547,14 +547,14 @@
     "phh_ration_cards": 122732,
     "phh_beneficiaries": 414461,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SUNDARGARH",
     "state": "ODISHA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "21",
+    "fin_year": "cumulative",
     "ration_cards_total": 424325,
     "ration_cards_active": 424325,
     "allocation_mt": 0.0,
@@ -566,7 +566,7 @@
     "phh_ration_cards": 377722,
     "phh_beneficiaries": 1351363,
     "date_of_data": "29 May 2023",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

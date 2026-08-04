@@ -2,8 +2,8 @@
   {
     "district": "ANANTAPUR",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 1134699,
     "ration_cards_active": 1134699,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 1031133,
     "phh_beneficiaries": 3203930,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "CHITTOOR",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 1006573,
     "ration_cards_active": 1006573,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 920601,
     "phh_beneficiaries": 2856061,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "EAST GODAVARI",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 459325,
     "ration_cards_active": 459325,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 379340,
     "phh_beneficiaries": 1110095,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "GUNTUR",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 412977,
     "ration_cards_active": 412977,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 345608,
     "phh_beneficiaries": 1018879,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KRISHNA",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 357187,
     "ration_cards_active": 357187,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 293211,
     "phh_beneficiaries": 867498,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KURNOOL",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 1106982,
     "ration_cards_active": 1106982,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 1033883,
     "phh_beneficiaries": 3278991,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PRAKASAM",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 699647,
     "ration_cards_active": 699647,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 652442,
     "phh_beneficiaries": 1957574,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SPSR NELLORE",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 387394,
     "ration_cards_active": 387394,
     "allocation_mt": 0.0,
@@ -148,14 +148,14 @@
     "phh_ration_cards": 336096,
     "phh_beneficiaries": 955363,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SRIKAKULAM",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 769338,
     "ration_cards_active": 769338,
     "allocation_mt": 0.0,
@@ -167,14 +167,14 @@
     "phh_ration_cards": 719524,
     "phh_beneficiaries": 2157282,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "VISAKHAPATANAM",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 814655,
     "ration_cards_active": 814655,
     "allocation_mt": 0.0,
@@ -186,14 +186,14 @@
     "phh_ration_cards": 735468,
     "phh_beneficiaries": 2121752,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "VIZIANAGARAM",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 668630,
     "ration_cards_active": 668630,
     "allocation_mt": 0.0,
@@ -205,14 +205,14 @@
     "phh_ration_cards": 587347,
     "phh_beneficiaries": 1729807,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "WEST GODAVARI",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 348277,
     "ration_cards_active": 348277,
     "allocation_mt": 0.0,
@@ -224,14 +224,14 @@
     "phh_ration_cards": 279673,
     "phh_beneficiaries": 822175,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "Y.S.R.",
     "state": "ANDHRA PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "28",
+    "fin_year": "cumulative",
     "ration_cards_total": 758956,
     "ration_cards_active": 758956,
     "allocation_mt": 0.0,
@@ -243,7 +243,7 @@
     "phh_ration_cards": 702314,
     "phh_beneficiaries": 2153483,
     "date_of_data": "24 Jul 2022",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

@@ -30,9 +30,9 @@ from typing import Any
 import requests
 
 try:
-    from scrapers.io_utils import atomic_write_json
+    from scrapers.io_utils import atomic_write_json, datagov_session
 except ImportError:
-    from io_utils import atomic_write_json
+    from io_utils import atomic_write_json, datagov_session
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
@@ -40,6 +40,7 @@ RAW_DIR = DATA_DIR / "raw" / "nsap"
 CURATED_DIR = DATA_DIR / "curated"
 
 # data.gov.in public demo API key
+SESSION = datagov_session()
 API_KEY = "579b464db66ec23bdd000001cdc3b564546246a772a26393094f5645"
 API_BASE = "https://api.data.gov.in/resource"
 
@@ -49,7 +50,7 @@ SCHEMES = {
     "IGNDPS": "e1a7ca20-36b6-46ba-b6ed-6495f11c4242",
 }
 
-DELAY_SECONDS = 0.5
+DELAY_SECONDS = 2.5  # demo API key rate-limits hard; 0.5s drew 429s mid-pagination
 PAGE_SIZE = 500
 
 
@@ -90,12 +91,16 @@ def fetch_scheme_data(
         url = f"{API_BASE}/{uuid}"
 
         try:
-            resp = requests.get(url, params=params, timeout=120)
+            resp = SESSION.get(url, params=params, timeout=120)
             resp.raise_for_status()
             data = resp.json()
         except (requests.RequestException, ValueError) as e:
-            print(f"  ERROR fetching {scheme_code} offset={offset}: {e}")
-            break
+            # A partial page set must never be persisted: a swallowed 429 at
+            # offset=500 once truncated IGNDPS 5720→500 raw records and the
+            # caller wrote the 15%-short result over all 36 state files.
+            raise RuntimeError(
+                f"{scheme_code} pull failed at offset={offset} after session retries: {e}"
+            ) from e
 
         records = data.get("records", [])
         if not records:

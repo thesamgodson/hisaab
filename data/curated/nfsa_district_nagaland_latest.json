@@ -2,8 +2,8 @@
   {
     "district": "DIMAPUR",
     "state": "NAGALAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "13",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -14,15 +14,15 @@
     "aay_beneficiaries": 0,
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KIPHIRE",
     "state": "NAGALAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "13",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -33,15 +33,15 @@
     "aay_beneficiaries": 0,
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KOHIMA",
     "state": "NAGALAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "13",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -52,15 +52,15 @@
     "aay_beneficiaries": 0,
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "LONGLENG",
     "state": "NAGALAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "13",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -71,15 +71,15 @@
     "aay_beneficiaries": 0,
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MOKOKCHUNG",
     "state": "NAGALAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "13",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -90,15 +90,15 @@
     "aay_beneficiaries": 0,
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MON",
     "state": "NAGALAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "13",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -109,15 +109,15 @@
     "aay_beneficiaries": 0,
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
-    "district": "Noklak",
+    "district": "NOKLAK",
     "state": "NAGALAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "13",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -128,15 +128,15 @@
     "aay_beneficiaries": 0,
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PEREN",
     "state": "NAGALAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "13",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -147,15 +147,15 @@
     "aay_beneficiaries": 0,
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PHEK",
     "state": "NAGALAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "13",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -166,15 +166,15 @@
     "aay_beneficiaries": 0,
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "TUENSANG",
     "state": "NAGALAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "13",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -185,15 +185,15 @@
     "aay_beneficiaries": 0,
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "WOKHA",
     "state": "NAGALAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "13",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -204,15 +204,15 @@
     "aay_beneficiaries": 0,
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "ZUNHEBOTO",
     "state": "NAGALAND",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "13",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -223,8 +223,8 @@
     "aay_beneficiaries": 0,
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
-    "date_of_data": "05 Mar 2026",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "date_of_data": "06 May 2026",
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

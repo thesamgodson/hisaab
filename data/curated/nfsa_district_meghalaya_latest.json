@@ -2,8 +2,8 @@
   {
     "district": "EAST GARO HILLS",
     "state": "MEGHALAYA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "17",
+    "fin_year": "cumulative",
     "ration_cards_total": 21286,
     "ration_cards_active": 21286,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 17997,
     "phh_beneficiaries": 94645,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "EAST JAINTIA HILLS",
     "state": "MEGHALAYA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "17",
+    "fin_year": "cumulative",
     "ration_cards_total": 19883,
     "ration_cards_active": 19883,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 17522,
     "phh_beneficiaries": 84833,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "EAST KHASI HILLS",
     "state": "MEGHALAYA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "17",
+    "fin_year": "cumulative",
     "ration_cards_total": 112605,
     "ration_cards_active": 112605,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 89887,
     "phh_beneficiaries": 444641,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "EASTERN WEST KHASI HILLS",
     "state": "MEGHALAYA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "17",
+    "fin_year": "cumulative",
     "ration_cards_total": 14698,
     "ration_cards_active": 14698,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 13184,
     "phh_beneficiaries": 76923,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NORTH GARO HILLS",
     "state": "MEGHALAYA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "17",
+    "fin_year": "cumulative",
     "ration_cards_total": 24372,
     "ration_cards_active": 24372,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 20466,
     "phh_beneficiaries": 108226,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RI BHOI",
     "state": "MEGHALAYA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "17",
+    "fin_year": "cumulative",
     "ration_cards_total": 38012,
     "ration_cards_active": 38012,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 35007,
     "phh_beneficiaries": 184269,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SOUTH GARO HILLS",
     "state": "MEGHALAYA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "17",
+    "fin_year": "cumulative",
     "ration_cards_total": 19234,
     "ration_cards_active": 19234,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 16553,
     "phh_beneficiaries": 92725,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SOUTH WEST GARO HILLS",
     "state": "MEGHALAYA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "17",
+    "fin_year": "cumulative",
     "ration_cards_total": 26533,
     "ration_cards_active": 26533,
     "allocation_mt": 0.0,
@@ -148,14 +148,14 @@
     "phh_ration_cards": 17492,
     "phh_beneficiaries": 92649,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SOUTH WEST KHASI HILLS",
     "state": "MEGHALAYA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "17",
+    "fin_year": "cumulative",
     "ration_cards_total": 14414,
     "ration_cards_active": 14414,
     "allocation_mt": 0.0,
@@ -167,14 +167,14 @@
     "phh_ration_cards": 12748,
     "phh_beneficiaries": 70608,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "WEST GARO HILLS",
     "state": "MEGHALAYA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "17",
+    "fin_year": "cumulative",
     "ration_cards_total": 71306,
     "ration_cards_active": 71306,
     "allocation_mt": 0.0,
@@ -186,14 +186,14 @@
     "phh_ration_cards": 57117,
     "phh_beneficiaries": 300050,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "WEST JAINTIA HILLS",
     "state": "MEGHALAYA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "17",
+    "fin_year": "cumulative",
     "ration_cards_total": 37126,
     "ration_cards_active": 37126,
     "allocation_mt": 0.0,
@@ -205,14 +205,14 @@
     "phh_ration_cards": 32876,
     "phh_beneficiaries": 183341,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "WEST KHASI HILLS",
     "state": "MEGHALAYA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "17",
+    "fin_year": "cumulative",
     "ration_cards_total": 22419,
     "ration_cards_active": 22419,
     "allocation_mt": 0.0,
@@ -224,7 +224,7 @@
     "phh_ration_cards": 20842,
     "phh_beneficiaries": 121302,
     "date_of_data": "29 Apr 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

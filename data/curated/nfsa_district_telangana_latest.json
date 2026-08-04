@@ -2,8 +2,8 @@
   {
     "district": "ADILABAD",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 128635,
     "ration_cards_active": 128635,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 114081,
     "phh_beneficiaries": 427964,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "BHADRADRI KOTHAGUDEM",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 154066,
     "ration_cards_active": 154066,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 132946,
     "phh_beneficiaries": 467831,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "HYDERABAD",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 390310,
     "ration_cards_active": 390310,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 360800,
     "phh_beneficiaries": 1441198,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JAGITIAL",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 200337,
     "ration_cards_active": 200337,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 185808,
     "phh_beneficiaries": 594481,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JANGOAN",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 87902,
     "ration_cards_active": 87902,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 77158,
     "phh_beneficiaries": 278553,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JAYASHANKAR BHUPALAPALLY",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 62928,
     "ration_cards_active": 62928,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 53579,
     "phh_beneficiaries": 186953,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "JOGULAMBA GADWAL",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 92027,
     "ration_cards_active": 92027,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 81801,
     "phh_beneficiaries": 329386,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KAMAREDDY",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 151065,
     "ration_cards_active": 151065,
     "allocation_mt": 0.0,
@@ -148,14 +148,14 @@
     "phh_ration_cards": 133249,
     "phh_beneficiaries": 545766,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KARIMNAGAR",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 150143,
     "ration_cards_active": 150143,
     "allocation_mt": 0.0,
@@ -167,14 +167,14 @@
     "phh_ration_cards": 134451,
     "phh_beneficiaries": 463540,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KHAMMAM",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 232227,
     "ration_cards_active": 232227,
     "allocation_mt": 0.0,
@@ -186,14 +186,14 @@
     "phh_ration_cards": 204994,
     "phh_beneficiaries": 650393,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KUMURAM BHEEM ASIFABAD",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 94812,
     "ration_cards_active": 94812,
     "allocation_mt": 0.0,
@@ -205,14 +205,14 @@
     "phh_ration_cards": 81671,
     "phh_beneficiaries": 306102,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MAHABUBABAD",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 146568,
     "ration_cards_active": 146568,
     "allocation_mt": 0.0,
@@ -224,14 +224,14 @@
     "phh_ration_cards": 129846,
     "phh_beneficiaries": 412653,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MAHABUBNAGAR",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 120456,
     "ration_cards_active": 120456,
     "allocation_mt": 0.0,
@@ -243,14 +243,14 @@
     "phh_ration_cards": 101443,
     "phh_beneficiaries": 420643,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MANCHERIAL",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 105037,
     "ration_cards_active": 105037,
     "allocation_mt": 0.0,
@@ -262,14 +262,14 @@
     "phh_ration_cards": 89672,
     "phh_beneficiaries": 318472,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MEDAK",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 116926,
     "ration_cards_active": 116926,
     "allocation_mt": 0.0,
@@ -281,14 +281,14 @@
     "phh_ration_cards": 103158,
     "phh_beneficiaries": 398367,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MEDCHAL MALKAJGIRI",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 291541,
     "ration_cards_active": 291541,
     "allocation_mt": 0.0,
@@ -300,14 +300,14 @@
     "phh_ration_cards": 274035,
     "phh_beneficiaries": 1042932,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MULUGU",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 51233,
     "ration_cards_active": 51233,
     "allocation_mt": 0.0,
@@ -319,14 +319,14 @@
     "phh_ration_cards": 43075,
     "phh_beneficiaries": 149308,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NAGARKURNOOL",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 116572,
     "ration_cards_active": 116572,
     "allocation_mt": 0.0,
@@ -338,14 +338,14 @@
     "phh_ration_cards": 97957,
     "phh_beneficiaries": 382576,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NALGONDA",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 311667,
     "ration_cards_active": 311667,
     "allocation_mt": 0.0,
@@ -357,14 +357,14 @@
     "phh_ration_cards": 281486,
     "phh_beneficiaries": 914571,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NARAYANPET",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 78824,
     "ration_cards_active": 78824,
     "allocation_mt": 0.0,
@@ -376,14 +376,14 @@
     "phh_ration_cards": 69278,
     "phh_beneficiaries": 317798,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NIRMAL",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 98972,
     "ration_cards_active": 98972,
     "allocation_mt": 0.0,
@@ -395,14 +395,14 @@
     "phh_ration_cards": 86151,
     "phh_beneficiaries": 329610,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NIZAMABAD",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 334946,
     "ration_cards_active": 334946,
     "allocation_mt": 0.0,
@@ -414,14 +414,14 @@
     "phh_ration_cards": 314060,
     "phh_beneficiaries": 1139044,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PEDDAPALLI",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 116690,
     "ration_cards_active": 116690,
     "allocation_mt": 0.0,
@@ -433,14 +433,14 @@
     "phh_ration_cards": 104519,
     "phh_beneficiaries": 355020,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RAJANNA SIRCILLA",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 107821,
     "ration_cards_active": 107821,
     "allocation_mt": 0.0,
@@ -452,14 +452,14 @@
     "phh_ration_cards": 94083,
     "phh_beneficiaries": 310497,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "RANGA REDDY",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 380024,
     "ration_cards_active": 380024,
     "allocation_mt": 0.0,
@@ -471,14 +471,14 @@
     "phh_ration_cards": 346713,
     "phh_beneficiaries": 1276596,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SANGAREDDY",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 318222,
     "ration_cards_active": 318222,
     "allocation_mt": 0.0,
@@ -490,14 +490,14 @@
     "phh_ration_cards": 292165,
     "phh_beneficiaries": 1053994,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SIDDIPET",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 254571,
     "ration_cards_active": 254571,
     "allocation_mt": 0.0,
@@ -509,14 +509,14 @@
     "phh_ration_cards": 236267,
     "phh_beneficiaries": 769691,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SURYAPET",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 144032,
     "ration_cards_active": 144032,
     "allocation_mt": 0.0,
@@ -528,14 +528,14 @@
     "phh_ration_cards": 124284,
     "phh_beneficiaries": 436827,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "VIKARABAD",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 156123,
     "ration_cards_active": 156123,
     "allocation_mt": 0.0,
@@ -547,14 +547,14 @@
     "phh_ration_cards": 129523,
     "phh_beneficiaries": 527410,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "WANAPARTHY",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 86574,
     "ration_cards_active": 86574,
     "allocation_mt": 0.0,
@@ -566,14 +566,14 @@
     "phh_ration_cards": 76159,
     "phh_beneficiaries": 297525,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "WARANGAL",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 119936,
     "ration_cards_active": 119936,
     "allocation_mt": 0.0,
@@ -585,14 +585,14 @@
     "phh_ration_cards": 108624,
     "phh_beneficiaries": 381170,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "WARANGAL RURAL",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 134714,
     "ration_cards_active": 134714,
     "allocation_mt": 0.0,
@@ -604,14 +604,14 @@
     "phh_ration_cards": 120918,
     "phh_beneficiaries": 434519,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "YADADRI BHUVANAGIRI",
     "state": "TELANGANA",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "36",
+    "fin_year": "cumulative",
     "ration_cards_total": 122360,
     "ration_cards_active": 122360,
     "allocation_mt": 0.0,
@@ -623,7 +623,7 @@
     "phh_ration_cards": 108676,
     "phh_beneficiaries": 408334,
     "date_of_data": "08 Jul 2025",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

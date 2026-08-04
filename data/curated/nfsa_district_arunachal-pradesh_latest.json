@@ -2,8 +2,8 @@
   {
     "district": "ANJAW",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 3463,
     "ration_cards_active": 3463,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 2670,
     "phh_beneficiaries": 10488,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "CAPITAL COMPLEX",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 12469,
     "ration_cards_active": 12469,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 11747,
     "phh_beneficiaries": 66527,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "CHANGLANG",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 15473,
     "ration_cards_active": 15473,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 13096,
     "phh_beneficiaries": 68015,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "DIBANG VALLEY",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 1641,
     "ration_cards_active": 1641,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 963,
     "phh_beneficiaries": 4501,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "EAST KAMENG",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 11489,
     "ration_cards_active": 11489,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 8773,
     "phh_beneficiaries": 38806,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "EAST SIANG",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 9807,
     "ration_cards_active": 9807,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 7995,
     "phh_beneficiaries": 42564,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KAMLE",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 0,
     "ration_cards_active": 0,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 0,
     "phh_beneficiaries": 0,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KRA DAADI",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 6052,
     "ration_cards_active": 6052,
     "allocation_mt": 0.0,
@@ -148,14 +148,14 @@
     "phh_ration_cards": 4531,
     "phh_beneficiaries": 23668,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KURUNG KUMEY",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 6479,
     "ration_cards_active": 6479,
     "allocation_mt": 0.0,
@@ -167,14 +167,14 @@
     "phh_ration_cards": 4456,
     "phh_beneficiaries": 20803,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "LOHIT",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 8419,
     "ration_cards_active": 8419,
     "allocation_mt": 0.0,
@@ -186,14 +186,14 @@
     "phh_ration_cards": 6619,
     "phh_beneficiaries": 30081,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "LONGDING",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 6182,
     "ration_cards_active": 6182,
     "allocation_mt": 0.0,
@@ -205,14 +205,14 @@
     "phh_ration_cards": 4338,
     "phh_beneficiaries": 27409,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "LOWER DIBANG VALLEY",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 5034,
     "ration_cards_active": 5034,
     "allocation_mt": 0.0,
@@ -224,14 +224,14 @@
     "phh_ration_cards": 3880,
     "phh_beneficiaries": 20911,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "LOWER SIANG",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 2810,
     "ration_cards_active": 2810,
     "allocation_mt": 0.0,
@@ -243,14 +243,14 @@
     "phh_ration_cards": 2288,
     "phh_beneficiaries": 10029,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "LOWER SUBANSIRI",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 11032,
     "ration_cards_active": 11032,
     "allocation_mt": 0.0,
@@ -262,14 +262,14 @@
     "phh_ration_cards": 8574,
     "phh_beneficiaries": 42218,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "NAMSAI",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 12762,
     "ration_cards_active": 12762,
     "allocation_mt": 0.0,
@@ -281,14 +281,14 @@
     "phh_ration_cards": 11529,
     "phh_beneficiaries": 55934,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "PAPUM PARE",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 7679,
     "ration_cards_active": 7679,
     "allocation_mt": 0.0,
@@ -300,14 +300,14 @@
     "phh_ration_cards": 6417,
     "phh_beneficiaries": 30419,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SIANG",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 4612,
     "ration_cards_active": 4612,
     "allocation_mt": 0.0,
@@ -319,14 +319,14 @@
     "phh_ration_cards": 3445,
     "phh_beneficiaries": 16089,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "TAWANG",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 7566,
     "ration_cards_active": 7566,
     "allocation_mt": 0.0,
@@ -338,14 +338,14 @@
     "phh_ration_cards": 6225,
     "phh_beneficiaries": 27310,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "TIRAP",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 8082,
     "ration_cards_active": 8082,
     "allocation_mt": 0.0,
@@ -357,14 +357,14 @@
     "phh_ration_cards": 4592,
     "phh_beneficiaries": 22789,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "UPPER SIANG",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 4683,
     "ration_cards_active": 4683,
     "allocation_mt": 0.0,
@@ -376,14 +376,14 @@
     "phh_ration_cards": 3867,
     "phh_beneficiaries": 18922,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "UPPER SUBANSIRI",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 9116,
     "ration_cards_active": 9116,
     "allocation_mt": 0.0,
@@ -395,14 +395,14 @@
     "phh_ration_cards": 5749,
     "phh_beneficiaries": 37301,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "WEST KAMENG",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 8974,
     "ration_cards_active": 8974,
     "allocation_mt": 0.0,
@@ -414,14 +414,14 @@
     "phh_ration_cards": 6601,
     "phh_beneficiaries": 29398,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "WEST SIANG",
     "state": "ARUNACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "12",
+    "fin_year": "cumulative",
     "ration_cards_total": 13783,
     "ration_cards_active": 13783,
     "allocation_mt": 0.0,
@@ -433,7 +433,7 @@
     "phh_ration_cards": 11453,
     "phh_beneficiaries": 49493,
     "date_of_data": "03 Jan 2019",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

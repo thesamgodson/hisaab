@@ -2,8 +2,8 @@
   {
     "district": "BILASPUR",
     "state": "HIMACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "02",
+    "fin_year": "cumulative",
     "ration_cards_total": 47131,
     "ration_cards_active": 47131,
     "allocation_mt": 0.0,
@@ -15,14 +15,14 @@
     "phh_ration_cards": 36347,
     "phh_beneficiaries": 139074,
     "date_of_data": "31 Mar 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "CHAMBA",
     "state": "HIMACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "02",
+    "fin_year": "cumulative",
     "ration_cards_total": 62597,
     "ration_cards_active": 62597,
     "allocation_mt": 0.0,
@@ -34,14 +34,14 @@
     "phh_ration_cards": 33548,
     "phh_beneficiaries": 143244,
     "date_of_data": "31 Mar 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "HAMIRPUR",
     "state": "HIMACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "02",
+    "fin_year": "cumulative",
     "ration_cards_total": 46396,
     "ration_cards_active": 46396,
     "allocation_mt": 0.0,
@@ -53,14 +53,14 @@
     "phh_ration_cards": 36896,
     "phh_beneficiaries": 138680,
     "date_of_data": "31 Mar 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KANGRA",
     "state": "HIMACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "02",
+    "fin_year": "cumulative",
     "ration_cards_total": 183307,
     "ration_cards_active": 183307,
     "allocation_mt": 0.0,
@@ -72,14 +72,14 @@
     "phh_ration_cards": 147065,
     "phh_beneficiaries": 579900,
     "date_of_data": "31 Mar 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KINNAUR",
     "state": "HIMACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "02",
+    "fin_year": "cumulative",
     "ration_cards_total": 5580,
     "ration_cards_active": 5580,
     "allocation_mt": 0.0,
@@ -91,14 +91,14 @@
     "phh_ration_cards": 4407,
     "phh_beneficiaries": 14224,
     "date_of_data": "31 Mar 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "KULLU",
     "state": "HIMACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "02",
+    "fin_year": "cumulative",
     "ration_cards_total": 49150,
     "ration_cards_active": 49150,
     "allocation_mt": 0.0,
@@ -110,14 +110,14 @@
     "phh_ration_cards": 42401,
     "phh_beneficiaries": 163010,
     "date_of_data": "31 Mar 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "LAHUL AND SPITI",
     "state": "HIMACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "02",
+    "fin_year": "cumulative",
     "ration_cards_total": 1935,
     "ration_cards_active": 1935,
     "allocation_mt": 0.0,
@@ -129,14 +129,14 @@
     "phh_ration_cards": 1092,
     "phh_beneficiaries": 3467,
     "date_of_data": "31 Mar 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "MANDI",
     "state": "HIMACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "02",
+    "fin_year": "cumulative",
     "ration_cards_total": 125444,
     "ration_cards_active": 125444,
     "allocation_mt": 0.0,
@@ -148,14 +148,14 @@
     "phh_ration_cards": 100134,
     "phh_beneficiaries": 356297,
     "date_of_data": "31 Mar 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SHIMLA",
     "state": "HIMACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "02",
+    "fin_year": "cumulative",
     "ration_cards_total": 64004,
     "ration_cards_active": 64004,
     "allocation_mt": 0.0,
@@ -167,14 +167,14 @@
     "phh_ration_cards": 47624,
     "phh_beneficiaries": 188087,
     "date_of_data": "31 Mar 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SIRMAUR",
     "state": "HIMACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "02",
+    "fin_year": "cumulative",
     "ration_cards_total": 52034,
     "ration_cards_active": 52034,
     "allocation_mt": 0.0,
@@ -186,14 +186,14 @@
     "phh_ration_cards": 43299,
     "phh_beneficiaries": 197692,
     "date_of_data": "31 Mar 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "SOLAN",
     "state": "HIMACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "02",
+    "fin_year": "cumulative",
     "ration_cards_total": 54479,
     "ration_cards_active": 54479,
     "allocation_mt": 0.0,
@@ -205,14 +205,14 @@
     "phh_ration_cards": 43938,
     "phh_beneficiaries": 176431,
     "date_of_data": "31 Mar 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   },
   {
     "district": "UNA",
     "state": "HIMACHAL PRADESH",
-    "state_code": "",
-    "fin_year": "2024-2025",
+    "state_code": "02",
+    "fin_year": "cumulative",
     "ration_cards_total": 60712,
     "ration_cards_active": 60712,
     "allocation_mt": 0.0,
@@ -224,7 +224,7 @@
     "phh_ration_cards": 50449,
     "phh_beneficiaries": 206554,
     "date_of_data": "31 Mar 2024",
-    "source_url": "nfsa.gov.in/public/nfsadashboard/PublicRCDashboard.aspx",
-    "scraped_at": "2026-03-06T04:52:37.947451+00:00"
+    "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
+    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
   }
 ]

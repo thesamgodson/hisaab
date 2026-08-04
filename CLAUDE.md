@@ -22,7 +22,9 @@ Public accountability infrastructure for India. 11 government welfare schemes, s
   `scripts/gen_district_aliases.py` — additive only) unify portal, India
   Post, and census spellings and official renames. Always join on
   `(district, state)`.
-- **Scrapers**: requests + Playwright (MGNREGA/PMGSY/PMAY-G/NRLM need browser)
+- **Scrapers**: requests everywhere except PMGSY/PMAY-G (Playwright). All
+  data.gov.in fetches go through `scrapers/io_utils.py:datagov_session()` —
+  the platform black-holes python-requests UAs and rate-limits the demo key.
 - **Refresh**: `.github/workflows/refresh-data.yml` — weekly scrape → load →
   publish → prod smoke probes.
 
@@ -49,14 +51,14 @@ npm run dev                             # Start at localhost:3000
 |--------|----------|--------|----------------|
 | MGNREGA | financial_statement, fto_status, fto_pendency (live) · misappropriation, issues_reported (**frozen FY2024-25**) | mnregaweb2.dord.gov.in citizen portal | Yes — district-level (lakhs) |
 | PMGSY | pmgsy_progress, pmgsy_district | pmgsy.dord.gov.in | Yes — district-level (crores→lakhs in VIEWs) |
-| PM Kisan | pmkisan_district | data.gov.in | Yes — state-level (amount_paid_lakhs) |
+| PM Kisan | pmkisan_district | pmkisan.gov.in homepage (state) + data.gov.in village rollup (district) | Counts only — money frozen at 8 states' FY2024-25 rows |
 | PMAY-G | pmayg_district, **pmayg_finance** | report.pmayg.dord.gov.in | Yes — **state-level** alloc/release/utilized (2019-26, 7 years) |
 | JJM | jjm_district, **jjm_allocation** | ejalshakti.gov.in | Yes — **state-level** alloc/release/expend (2019-25, 6 years) |
 | PM POSHAN | pmposhan_district, **pmposhan_finance** | pmposhan-ams.education.gov.in + data.gov.in | Yes — **state-level** alloc/release/utilized (2016-25) |
 | NSAP | nsap_district, **nsap_finance** | data.gov.in | Yes — **state-level real release** (2019-24); district imputed |
-| PDS/NFSA | nfsa_district, **nfsa_allocation** | nfsa.gov.in + data.gov.in | Yes — **state-level** alloc/offtake in MT (2019-25) |
+| PDS/NFSA | nfsa_district, **nfsa_allocation** | nfsa.gov.in dashboard handler + data.gov.in | Yes — **state-level** alloc/offtake in MT (2019-25) |
 | SBM-G | sbm_district | sbm.gov.in | No — delivery only (ODF+ villages, star ratings) |
-| DAY-NRLM | nrlm_district | nrlm.gov.in | Partial — RF disbursement (lakhs) at district level |
+| DAY-NRLM | nrlm_district | cdn.lokos.in (LokOS FDM district feeds) | Partial — RF disbursement (lakhs) at district level |
 | UDISE+ | udise_state | api.udiseplus.gov.in | No — education delivery (schools, enrollment, PTR, infra) |
 
 ## 3 Unified VIEWs
@@ -97,10 +99,10 @@ GET /api/v1/brief/{district} | /stats | /red-flags?state= | /constituency/* | /m
 
 ## Data Quality Context
 
-- Financial data: district-level MGNREGA + PMGSY (real), NSAP (imputed); state-level PM Kisan, PM POSHAN (2016-25), NSAP (2019-24), PMAY-G (2019-26), JJM (2019-25), NFSA (MT)
+- Financial data: district-level MGNREGA + PMGSY (real), NSAP (imputed), NRLM RF (real); state-level PM POSHAN (2016-25), NSAP (2019-24), PMAY-G (2019-26, frozen — captcha-only source), JJM (2019-25), NFSA (MT). PM Kisan money is frozen at 8 states' FY2024-25 rows
 - **No invented percentages**: PM POSHAN children_fed is a daily snapshot; NFSA active=total by construction — both excluded from delivery_pct at the VIEW layer and from diagnoses/rankings
 - Scores need ≥3 schemes with data (`MIN_SCHEMES_FOR_SCORE`) — below that: no grade, red flags only
-- PM Kisan: 28/36 states have district='ALL' (state-level only)
+- PM Kisan: district rows are per-installment beneficiary counts (36 states); district='ALL' rows are current-period homepage state totals — don't sum ALL + district rows within a fin_year
 - NFSA tracks metric tonnes, never rupees — money_flow publishes NULL money columns for it
 - Caveats: `queries/common.py:data_quality_warnings()` ↔ `web/src/lib/data-quality.ts` (update together); every caveat backed by a DATA_CLAIMS.md entry
 
