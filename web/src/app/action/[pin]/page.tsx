@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getBaseUrl } from "@/lib/get-base-url";
-import type { ActionBriefResponse, DiagnosisItem } from "@/lib/action-types";
+import { buildActionBrief } from "@/lib/action-brief";
+import type { DiagnosisItem } from "@/lib/action-types";
 import SourceLink from "@/components/SourceLink";
 
 /* ---------- severity styling ---------- */
@@ -69,39 +69,12 @@ export default async function ActionPage({ params }: PageProps) {
     );
   }
 
-  /* Fetch data from action API */
-  const res = await fetch(`${getBaseUrl()}/api/v1/action/${pin}`, {
-    cache: "no-store",
-  });
+  /* Build the brief in-process — same code path the public API serves */
+  const data = await buildActionBrief(pin);
 
-  if (res.status === 404) {
+  if (!data) {
     notFound();
   }
-
-  if (!res.ok) {
-    return (
-      <main className="max-w-3xl mx-auto px-4 py-20 text-center">
-        <h1
-          className="text-2xl font-bold mb-3"
-          style={{ color: "var(--text-primary)" }}
-        >
-          Something went wrong
-        </h1>
-        <p style={{ color: "var(--text-secondary)" }}>
-          Could not load data for PIN {pin}. Please try again later.
-        </p>
-        <Link
-          href="/"
-          className="inline-block mt-6 px-5 py-2.5 rounded-xl text-sm font-medium text-white transition-opacity duration-150 hover:opacity-90"
-          style={{ background: "var(--accent)" }}
-        >
-          Go back home
-        </Link>
-      </main>
-    );
-  }
-
-  const data: ActionBriefResponse = await res.json();
 
   const generatedDate = new Date(data.generated_at).toLocaleDateString(
     "en-IN",

@@ -99,6 +99,7 @@ _OVERRIDES: dict[tuple[str, str], str] = {
     ("JHARKHAND", "EAST SINGHBUM"): "EAST SINGHBHUM",
     ("JHARKHAND", "WEST SINGHBUM"): "WEST SINGHBHUM",
     ("ANDHRA PRADESH", "VISAKHAPATANAM"): "VISAKHAPATNAM",
+    ("MAHARASHTRA", "AMRAWATI"): "AMRAVATI",
 }
 
 
@@ -130,6 +131,18 @@ def similar(a: str, b: str) -> float:
 
 def apply_override(state: str, name: str) -> str:
     return _OVERRIDES.get((state, name), name)
+
+
+def _existing_aliases() -> dict[tuple[str, str], str]:
+    """The registry is monotonic: once the DB is normalized, the variant
+    evidence disappears from it, so a fresh run can only ADD aliases on top
+    of the committed set — never shrink it."""
+    try:
+        from db.district_aliases import ALIASES
+
+        return dict(ALIASES)
+    except ImportError:
+        return {}
 
 
 def main() -> None:
@@ -175,7 +188,8 @@ def main() -> None:
             if s and m:
                 variants[s].add(m)
 
-    aliases: dict[tuple[str, str], str] = dict(_OVERRIDES)
+    aliases: dict[tuple[str, str], str] = _existing_aliases()
+    aliases.update(_OVERRIDES)
 
     for st in sorted(variants):
         reg = registry.get(st, set())
