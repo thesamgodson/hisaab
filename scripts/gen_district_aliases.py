@@ -32,6 +32,13 @@ DB = ROOT / "data" / "hisaab.db"
 TOPO = ROOT / "web" / "public" / "india-districts.topojson"
 OUT = ROOT / "db" / "district_aliases.py"
 
+# Script-dir invocation doesn't put the repo root on sys.path — without this
+# the existing-registry import silently fails and the registry SHRINKS.
+import sys  # noqa: E402
+
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 THRESH = 0.88
 
 GUARD_TOKENS = {
@@ -136,13 +143,13 @@ def apply_override(state: str, name: str) -> str:
 def _existing_aliases() -> dict[tuple[str, str], str]:
     """The registry is monotonic: once the DB is normalized, the variant
     evidence disappears from it, so a fresh run can only ADD aliases on top
-    of the committed set — never shrink it."""
-    try:
-        from db.district_aliases import ALIASES
-
-        return dict(ALIASES)
-    except ImportError:
+    of the committed set — never shrink it. A missing registry is only legal
+    when the file genuinely doesn't exist yet."""
+    if not (ROOT / "db" / "district_aliases.py").exists():
         return {}
+    from db.district_aliases import ALIASES  # import failure = hard error
+
+    return dict(ALIASES)
 
 
 def main() -> None:

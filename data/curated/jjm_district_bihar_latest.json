@@ -1,7 +1,7 @@
 [
   {
     "district": "KHAGARIA",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "223",
     "fin_year": "cumulative",
     "total_households": 262675,
@@ -19,11 +19,11 @@
     "national_rank": 1,
     "district_name_hindi": "खगरिया",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MADHEPURA",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "213",
     "fin_year": "cumulative",
     "total_households": 381245,
@@ -41,11 +41,11 @@
     "national_rank": 1,
     "district_name_hindi": "मधेपुरा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SHEIKHPURA",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "228",
     "fin_year": "cumulative",
     "total_households": 106129,
@@ -63,11 +63,11 @@
     "national_rank": 1,
     "district_name_hindi": "शेखपुरा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SUPAUL",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "208",
     "fin_year": "cumulative",
     "total_households": 410868,
@@ -81,15 +81,15 @@
     "connections_2019_20": 28463,
     "connections_2020_onwards": 368159,
     "remaining_households": 339,
-    "district_rank": 206,
-    "national_rank": 207,
+    "district_rank": 210,
+    "national_rank": 211,
     "district_name_hindi": "सुपौल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "VAISHALI",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "220",
     "fin_year": "cumulative",
     "total_households": 628623,
@@ -103,15 +103,15 @@
     "connections_2019_20": 75487,
     "connections_2020_onwards": 550082,
     "remaining_households": 512,
-    "district_rank": 206,
-    "national_rank": 206,
+    "district_rank": 210,
+    "national_rank": 210,
     "district_name_hindi": "वैशाली",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "BANKA",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "225",
     "fin_year": "cumulative",
     "total_households": 325875,
@@ -125,15 +125,15 @@
     "connections_2019_20": 62201,
     "connections_2020_onwards": 258286,
     "remaining_households": 565,
-    "district_rank": 215,
-    "national_rank": 216,
+    "district_rank": 218,
+    "national_rank": 219,
     "district_name_hindi": "बांका",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "ARWAL",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "240",
     "fin_year": "cumulative",
     "total_households": 123056,
@@ -147,15 +147,15 @@
     "connections_2019_20": 55443,
     "connections_2020_onwards": 63265,
     "remaining_households": 992,
-    "district_rank": 229,
-    "national_rank": 229,
+    "district_rank": 234,
+    "national_rank": 234,
     "district_name_hindi": "अरवल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "NAWADA",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "237",
     "fin_year": "cumulative",
     "total_households": 307851,
@@ -169,15 +169,15 @@
     "connections_2019_20": 80592,
     "connections_2020_onwards": 198302,
     "remaining_households": 3316,
-    "district_rank": 235,
-    "national_rank": 235,
+    "district_rank": 240,
+    "national_rank": 240,
     "district_name_hindi": "नवादा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "JEHANABAD",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "239",
     "fin_year": "cumulative",
     "total_households": 175299,
@@ -191,15 +191,15 @@
     "connections_2019_20": 62628,
     "connections_2020_onwards": 95272,
     "remaining_households": 1952,
-    "district_rank": 237,
-    "national_rank": 237,
+    "district_rank": 241,
+    "national_rank": 241,
     "district_name_hindi": "जहानाबाद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KAIMUR (BHABUA)",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "233",
     "fin_year": "cumulative",
     "total_households": 284185,
@@ -213,15 +213,15 @@
     "connections_2019_20": 98479,
     "connections_2020_onwards": 172623,
     "remaining_households": 3189,
-    "district_rank": 238,
-    "national_rank": 239,
+    "district_rank": 242,
+    "national_rank": 243,
     "district_name_hindi": "कैमूर (भबुआ)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "ARARIA",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "209",
     "fin_year": "cumulative",
     "total_households": 566348,
@@ -235,37 +235,37 @@
     "connections_2019_20": 19739,
     "connections_2020_onwards": 402399,
     "remaining_households": 6617,
-    "district_rank": 240,
-    "national_rank": 240,
+    "district_rank": 244,
+    "national_rank": 244,
     "district_name_hindi": "अररिया",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KATIHAR",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "212",
     "fin_year": "cumulative",
-    "total_households": 528501,
+    "total_households": 528773,
     "households_with_tap": 522302,
     "tap_connections_provided": 522302,
-    "coverage_pct": 98.83,
+    "coverage_pct": 98.78,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 540885,
     "connections_pre_2019": 42190,
     "connections_2019_20": 33711,
     "connections_2020_onwards": 442291,
-    "remaining_households": 6199,
-    "district_rank": 240,
-    "national_rank": 241,
+    "remaining_households": 6471,
+    "district_rank": 246,
+    "national_rank": 246,
     "district_name_hindi": "कटिहार",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "GOPALGANJ",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "217",
     "fin_year": "cumulative",
     "total_households": 385187,
@@ -279,15 +279,15 @@
     "connections_2019_20": 30205,
     "connections_2020_onwards": 343571,
     "remaining_households": 4893,
-    "district_rank": 243,
-    "national_rank": 243,
+    "district_rank": 247,
+    "national_rank": 247,
     "district_name_hindi": "गोपालगंज",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "JAMUI",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "238",
     "fin_year": "cumulative",
     "total_households": 238038,
@@ -301,15 +301,15 @@
     "connections_2019_20": 47797,
     "connections_2020_onwards": 176416,
     "remaining_households": 3220,
-    "district_rank": 244,
-    "national_rank": 244,
+    "district_rank": 248,
+    "national_rank": 248,
     "district_name_hindi": "जमुई",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "NALANDA",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "229",
     "fin_year": "cumulative",
     "total_households": 515952,
@@ -323,15 +323,15 @@
     "connections_2019_20": 165858,
     "connections_2020_onwards": 293779,
     "remaining_households": 7525,
-    "district_rank": 246,
-    "national_rank": 246,
+    "district_rank": 252,
+    "national_rank": 252,
     "district_name_hindi": "NALANDA",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SAMASTIPUR",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "221",
     "fin_year": "cumulative",
     "total_households": 817325,
@@ -345,15 +345,15 @@
     "connections_2019_20": 116382,
     "connections_2020_onwards": 707127,
     "remaining_households": 12905,
-    "district_rank": 250,
-    "national_rank": 250,
+    "district_rank": 257,
+    "national_rank": 257,
     "district_name_hindi": "समस्तीपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PASHCHIM CHAMPARAN",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "203",
     "fin_year": "cumulative",
     "total_households": 544364,
@@ -367,15 +367,15 @@
     "connections_2019_20": 70980,
     "connections_2020_onwards": 449706,
     "remaining_households": 8745,
-    "district_rank": 253,
-    "national_rank": 253,
+    "district_rank": 262,
+    "national_rank": 262,
     "district_name_hindi": "पश्चिम चंपारण",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "BUXAR",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "232",
     "fin_year": "cumulative",
     "total_households": 256587,
@@ -389,15 +389,15 @@
     "connections_2019_20": 62549,
     "connections_2020_onwards": 173151,
     "remaining_households": 4233,
-    "district_rank": 255,
-    "national_rank": 257,
+    "district_rank": 266,
+    "national_rank": 268,
     "district_name_hindi": "बक्सर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "BHOJPUR",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "231",
     "fin_year": "cumulative",
     "total_households": 391365,
@@ -411,15 +411,15 @@
     "connections_2019_20": 45711,
     "connections_2020_onwards": 310069,
     "remaining_households": 7007,
-    "district_rank": 264,
-    "national_rank": 264,
+    "district_rank": 275,
+    "national_rank": 275,
     "district_name_hindi": "भोजपुर(आरा)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SARAN",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "219",
     "fin_year": "cumulative",
     "total_households": 568566,
@@ -433,15 +433,15 @@
     "connections_2019_20": 142425,
     "connections_2020_onwards": 395599,
     "remaining_households": 10198,
-    "district_rank": 264,
-    "national_rank": 265,
+    "district_rank": 275,
+    "national_rank": 276,
     "district_name_hindi": "सरन",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "ROHTAS",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "234",
     "fin_year": "cumulative",
     "total_households": 432866,
@@ -455,15 +455,15 @@
     "connections_2019_20": 145982,
     "connections_2020_onwards": 272128,
     "remaining_households": 10284,
-    "district_rank": 283,
-    "national_rank": 283,
+    "district_rank": 300,
+    "national_rank": 300,
     "district_name_hindi": "रोहतास",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SIWAN",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "218",
     "fin_year": "cumulative",
     "total_households": 476365,
@@ -477,15 +477,15 @@
     "connections_2019_20": 50488,
     "connections_2020_onwards": 407072,
     "remaining_households": 13181,
-    "district_rank": 289,
-    "national_rank": 289,
+    "district_rank": 306,
+    "national_rank": 306,
     "district_name_hindi": "सिवान",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "LAKHISARAI",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "227",
     "fin_year": "cumulative",
     "total_households": 170075,
@@ -499,15 +499,15 @@
     "connections_2019_20": 27999,
     "connections_2020_onwards": 122381,
     "remaining_households": 4918,
-    "district_rank": 291,
-    "national_rank": 291,
+    "district_rank": 308,
+    "national_rank": 308,
     "district_name_hindi": "लखीसराय",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "GAYA",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "236",
     "fin_year": "cumulative",
     "total_households": 594001,
@@ -521,15 +521,15 @@
     "connections_2019_20": 80521,
     "connections_2020_onwards": 485432,
     "remaining_households": 17342,
-    "district_rank": 292,
-    "national_rank": 292,
+    "district_rank": 310,
+    "national_rank": 310,
     "district_name_hindi": "गया",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KISHANGANJ",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "210",
     "fin_year": "cumulative",
     "total_households": 279161,
@@ -543,15 +543,15 @@
     "connections_2019_20": 4543,
     "connections_2020_onwards": 229907,
     "remaining_households": 8180,
-    "district_rank": 293,
-    "national_rank": 293,
+    "district_rank": 311,
+    "national_rank": 311,
     "district_name_hindi": "किशनगंज",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "AURANGABAD",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "235",
     "fin_year": "cumulative",
     "total_households": 393965,
@@ -565,20 +565,20 @@
     "connections_2019_20": 69458,
     "connections_2020_onwards": 271652,
     "remaining_households": 12394,
-    "district_rank": 297,
-    "national_rank": 297,
+    "district_rank": 317,
+    "national_rank": 317,
     "district_name_hindi": "औरंगाबाद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "BEGUSARAI",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "222",
     "fin_year": "cumulative",
     "total_households": 495953,
-    "households_with_tap": 479812,
-    "tap_connections_provided": 479812,
+    "households_with_tap": 479821,
+    "tap_connections_provided": 479821,
     "coverage_pct": 96.75,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
@@ -586,16 +586,16 @@
     "connections_pre_2019": 1666,
     "connections_2019_20": 34631,
     "connections_2020_onwards": 407279,
-    "remaining_households": 16141,
-    "district_rank": 298,
-    "national_rank": 298,
+    "remaining_households": 16132,
+    "district_rank": 319,
+    "national_rank": 319,
     "district_name_hindi": "BEGUSARAI",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PURNIA",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "211",
     "fin_year": "cumulative",
     "total_households": 529037,
@@ -609,15 +609,15 @@
     "connections_2019_20": 96293,
     "connections_2020_onwards": 408410,
     "remaining_households": 17606,
-    "district_rank": 300,
-    "national_rank": 300,
+    "district_rank": 320,
+    "national_rank": 320,
     "district_name_hindi": "पूर्णिया",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PATNA",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "230",
     "fin_year": "cumulative",
     "total_households": 662233,
@@ -631,15 +631,15 @@
     "connections_2019_20": 176058,
     "connections_2020_onwards": 436943,
     "remaining_households": 22469,
-    "district_rank": 302,
-    "national_rank": 302,
+    "district_rank": 321,
+    "national_rank": 321,
     "district_name_hindi": "पटना",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "BHAGALPUR",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "224",
     "fin_year": "cumulative",
     "total_households": 436737,
@@ -653,15 +653,15 @@
     "connections_2019_20": 34382,
     "connections_2020_onwards": 369013,
     "remaining_households": 15846,
-    "district_rank": 310,
-    "national_rank": 310,
+    "district_rank": 325,
+    "national_rank": 325,
     "district_name_hindi": "भागलपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SITAMARHI",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "206",
     "fin_year": "cumulative",
     "total_households": 523375,
@@ -675,15 +675,15 @@
     "connections_2019_20": 100415,
     "connections_2020_onwards": 389626,
     "remaining_households": 20159,
-    "district_rank": 311,
-    "national_rank": 311,
+    "district_rank": 326,
+    "national_rank": 326,
     "district_name_hindi": "सीतामढ़ी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MUNGER",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "226",
     "fin_year": "cumulative",
     "total_households": 180345,
@@ -697,15 +697,15 @@
     "connections_2019_20": 20933,
     "connections_2020_onwards": 146294,
     "remaining_households": 7742,
-    "district_rank": 315,
-    "national_rank": 315,
+    "district_rank": 331,
+    "national_rank": 332,
     "district_name_hindi": "MUNGER",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MUZAFFARPUR",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "216",
     "fin_year": "cumulative",
     "total_households": 770017,
@@ -719,15 +719,15 @@
     "connections_2019_20": 353734,
     "connections_2020_onwards": 373991,
     "remaining_households": 33298,
-    "district_rank": 317,
-    "national_rank": 317,
+    "district_rank": 333,
+    "national_rank": 333,
     "district_name_hindi": "मुजफ्फरपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SHEOHAR",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "205",
     "fin_year": "cumulative",
     "total_households": 145443,
@@ -741,15 +741,15 @@
     "connections_2019_20": 18923,
     "connections_2020_onwards": 107078,
     "remaining_households": 8282,
-    "district_rank": 333,
-    "national_rank": 333,
+    "district_rank": 349,
+    "national_rank": 349,
     "district_name_hindi": "शिवहर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PURBI CHAMPARAN",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "204",
     "fin_year": "cumulative",
     "total_households": 904131,
@@ -763,15 +763,15 @@
     "connections_2019_20": 236295,
     "connections_2020_onwards": 575411,
     "remaining_households": 69425,
-    "district_rank": 367,
-    "national_rank": 367,
+    "district_rank": 376,
+    "national_rank": 376,
     "district_name_hindi": "पूर्वी चंपारण",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "DARBHANGA",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "215",
     "fin_year": "cumulative",
     "total_households": 737499,
@@ -785,15 +785,15 @@
     "connections_2019_20": 90222,
     "connections_2020_onwards": 524249,
     "remaining_households": 107710,
-    "district_rank": 476,
-    "national_rank": 477,
+    "district_rank": 489,
+    "national_rank": 489,
     "district_name_hindi": "दरभंगा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MADHUBANI",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "207",
     "fin_year": "cumulative",
     "total_households": 873925,
@@ -807,15 +807,15 @@
     "connections_2019_20": 66720,
     "connections_2020_onwards": 621945,
     "remaining_households": 174452,
-    "district_rank": 535,
-    "national_rank": 535,
+    "district_rank": 537,
+    "national_rank": 537,
     "district_name_hindi": "मधुबनी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SAHARSA",
-    "state": "BIHAR",
+    "state": "Bihar",
     "state_code": "214",
     "fin_year": "cumulative",
     "total_households": 331874,
@@ -829,10 +829,10 @@
     "connections_2019_20": 12015,
     "connections_2020_onwards": 237253,
     "remaining_households": 76751,
-    "district_rank": 555,
-    "national_rank": 555,
+    "district_rank": 564,
+    "national_rank": 564,
     "district_name_hindi": "सहरसा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   }
 ]

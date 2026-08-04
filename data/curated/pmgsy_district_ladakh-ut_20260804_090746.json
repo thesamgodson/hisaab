@@ -1,0 +1,34 @@
+[
+  {
+    "district": "Kargil",
+    "state": "Ladakh (UT)",
+    "state_code": "",
+    "fin_year": "cumulative",
+    "scheme": "All",
+    "roads_sanctioned": 68,
+    "roads_completed": 48,
+    "length_sanctioned_km": 744.71,
+    "length_completed_km": 569.0,
+    "habitations_covered": 0,
+    "value_of_projects_cr": 489.71,
+    "expenditure_cr": 373.73,
+    "source_url": "https://pmgsy.dord.gov.in/MvcReportViewer.aspx?_r=%2fPMGSYCitizen%2fDistrictBriefDetailsNew&Level=2&STATE=37&DISTRICT=0&PMGSY=0&BLOCK=0&ROADSTATUS=0&SCHEME=0&CYEAR=2025",
+    "scraped_at": "2026-08-04T09:08:03.720105+00:00"
+  },
+  {
+    "district": "Leh",
+    "state": "Ladakh (UT)",
+    "state_code": "",
+    "fin_year": "cumulative",
+    "scheme": "All",
+    "roads_sanctioned": 123,
+    "roads_completed": 107,
+    "length_sanctioned_km": 877.12,
+    "length_completed_km": 795.91,
+    "habitations_covered": 3,
+    "value_of_projects_cr": 680.86,
+    "expenditure_cr": 609.79,
+    "source_url": "https://pmgsy.dord.gov.in/MvcReportViewer.aspx?_r=%2fPMGSYCitizen%2fDistrictBriefDetailsNew&Level=2&STATE=37&DISTRICT=0&PMGSY=0&BLOCK=0&ROADSTATUS=0&SCHEME=0&CYEAR=2025",
+    "scraped_at": "2026-08-04T09:08:03.720105+00:00"
+  }
+]

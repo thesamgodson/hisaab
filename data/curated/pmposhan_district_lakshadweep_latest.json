@@ -4,14 +4,14 @@
     "state": "LAKSHADWEEP",
     "state_code": "19",
     "fin_year": "2025-2026",
-    "schools_reported": 0,
-    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
-    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
     "schools_covered": 27,
+    "schools_reported": 4,
     "children_enrolled": 9124,
-    "children_fed": 0,
-    "utilization_pct": 0.0,
+    "children_fed": 807,
     "funds_released_lakhs": 0,
-    "funds_utilized_lakhs": 0
+    "funds_utilized_lakhs": 0,
+    "utilization_pct": 85.58,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-08-04T08:59:46.787825+00:00"
   }
 ]

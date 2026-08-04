@@ -1,7 +1,7 @@
 [
   {
     "district": "BILASPUR",
-    "state": "HIMACHAL PRADESH",
+    "state": "Himachal Pradesh",
     "state_code": "030",
     "fin_year": "cumulative",
     "total_households": 100451,
@@ -19,11 +19,11 @@
     "national_rank": 1,
     "district_name_hindi": "बिलासपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "CHAMBA",
-    "state": "HIMACHAL PRADESH",
+    "state": "Himachal Pradesh",
     "state_code": "023",
     "fin_year": "cumulative",
     "total_households": 121658,
@@ -41,11 +41,11 @@
     "national_rank": 1,
     "district_name_hindi": "चम्बा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "HAMIRPUR",
-    "state": "HIMACHAL PRADESH",
+    "state": "Himachal Pradesh",
     "state_code": "028",
     "fin_year": "cumulative",
     "total_households": 112534,
@@ -63,11 +63,11 @@
     "national_rank": 1,
     "district_name_hindi": "हमीरपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KANGRA",
-    "state": "HIMACHAL PRADESH",
+    "state": "Himachal Pradesh",
     "state_code": "024",
     "fin_year": "cumulative",
     "total_households": 400102,
@@ -85,11 +85,11 @@
     "national_rank": 1,
     "district_name_hindi": "काँगड़ा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KINNAUR",
-    "state": "HIMACHAL PRADESH",
+    "state": "Himachal Pradesh",
     "state_code": "034",
     "fin_year": "cumulative",
     "total_households": 22763,
@@ -107,11 +107,11 @@
     "national_rank": 1,
     "district_name_hindi": "किन्नौर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KULLU",
-    "state": "HIMACHAL PRADESH",
+    "state": "Himachal Pradesh",
     "state_code": "026",
     "fin_year": "cumulative",
     "total_households": 113905,
@@ -129,11 +129,11 @@
     "national_rank": 1,
     "district_name_hindi": "कुल्लू",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "LAHAUL AND SPITI",
-    "state": "HIMACHAL PRADESH",
+    "state": "Himachal Pradesh",
     "state_code": "025",
     "fin_year": "cumulative",
     "total_households": 7284,
@@ -151,11 +151,11 @@
     "national_rank": 1,
     "district_name_hindi": "लाहुल एंड स्पीति",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MANDI",
-    "state": "HIMACHAL PRADESH",
+    "state": "Himachal Pradesh",
     "state_code": "027",
     "fin_year": "cumulative",
     "total_households": 308119,
@@ -173,11 +173,11 @@
     "national_rank": 1,
     "district_name_hindi": "मंडी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SHIMLA",
-    "state": "HIMACHAL PRADESH",
+    "state": "Himachal Pradesh",
     "state_code": "033",
     "fin_year": "cumulative",
     "total_households": 172266,
@@ -195,11 +195,11 @@
     "national_rank": 1,
     "district_name_hindi": "शिमला",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SIRMAUR",
-    "state": "HIMACHAL PRADESH",
+    "state": "Himachal Pradesh",
     "state_code": "032",
     "fin_year": "cumulative",
     "total_households": 121917,
@@ -217,11 +217,11 @@
     "national_rank": 1,
     "district_name_hindi": "सिरमौर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SOLAN",
-    "state": "HIMACHAL PRADESH",
+    "state": "Himachal Pradesh",
     "state_code": "031",
     "fin_year": "cumulative",
     "total_households": 113519,
@@ -239,11 +239,11 @@
     "national_rank": 1,
     "district_name_hindi": "सोलन",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "UNA",
-    "state": "HIMACHAL PRADESH",
+    "state": "Himachal Pradesh",
     "state_code": "029",
     "fin_year": "cumulative",
     "total_households": 114209,
@@ -261,6 +261,6 @@
     "national_rank": 1,
     "district_name_hindi": "ऊना",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   }
 ]

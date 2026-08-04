@@ -1,7 +1,7 @@
 [
   {
     "district": "GANGTOK",
-    "state": "SIKKIM",
+    "state": "Sikkim",
     "state_code": "244",
     "fin_year": "cumulative",
     "total_households": 19125,
@@ -19,11 +19,11 @@
     "national_rank": 1,
     "district_name_hindi": "ईस्ट",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SORENG",
-    "state": "SIKKIM",
+    "state": "Sikkim",
     "state_code": "802",
     "fin_year": "cumulative",
     "total_households": 18820,
@@ -37,15 +37,15 @@
     "connections_2019_20": -10642,
     "connections_2020_onwards": 0,
     "remaining_households": 1192,
-    "district_rank": 346,
-    "national_rank": 346,
+    "district_rank": 358,
+    "national_rank": 358,
     "district_name_hindi": "Soreng",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MANGAN",
-    "state": "SIKKIM",
+    "state": "Sikkim",
     "state_code": "241",
     "fin_year": "cumulative",
     "total_households": 12739,
@@ -59,15 +59,15 @@
     "connections_2019_20": -220,
     "connections_2020_onwards": 2937,
     "remaining_households": 1066,
-    "district_rank": 375,
-    "national_rank": 375,
+    "district_rank": 385,
+    "national_rank": 385,
     "district_name_hindi": "नार्थ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "GYALSHING",
-    "state": "SIKKIM",
+    "state": "Sikkim",
     "state_code": "242",
     "fin_year": "cumulative",
     "total_households": 21401,
@@ -81,37 +81,37 @@
     "connections_2019_20": 10642,
     "connections_2020_onwards": 8226,
     "remaining_households": 1913,
-    "district_rank": 383,
-    "national_rank": 383,
+    "district_rank": 395,
+    "national_rank": 395,
     "district_name_hindi": "वेस्ट",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "NAMCHI",
-    "state": "SIKKIM",
+    "state": "Sikkim",
     "state_code": "243",
     "fin_year": "cumulative",
     "total_households": 35843,
-    "households_with_tap": 32585,
-    "tap_connections_provided": 32585,
-    "coverage_pct": 90.91,
+    "households_with_tap": 32589,
+    "tap_connections_provided": 32589,
+    "coverage_pct": 90.92,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 27824,
     "connections_pre_2019": 21971,
     "connections_2019_20": 0,
     "connections_2020_onwards": 1472,
-    "remaining_households": 3258,
-    "district_rank": 390,
-    "national_rank": 390,
+    "remaining_households": 3254,
+    "district_rank": 398,
+    "national_rank": 398,
     "district_name_hindi": "साउथ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PAKYONG",
-    "state": "SIKKIM",
+    "state": "Sikkim",
     "state_code": "801",
     "fin_year": "cumulative",
     "total_households": 24862,
@@ -125,10 +125,10 @@
     "connections_2019_20": -11201,
     "connections_2020_onwards": 0,
     "remaining_households": 3073,
-    "district_rank": 445,
-    "national_rank": 445,
+    "district_rank": 456,
+    "national_rank": 456,
     "district_name_hindi": "Pakyong",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   }
 ]

@@ -1,0 +1,14 @@
+[
+  {
+    "state": "Ladakh (UT)",
+    "state_code": "",
+    "fin_year": "cumulative",
+    "roads_completed": 126,
+    "length_completed_km": 1004.1,
+    "habitations_connected": 2,
+    "expenditure_programme_cr": 702.63,
+    "expenditure_admin_cr": 0.0,
+    "source_url": "https://pmgsy.dord.gov.in/MvcReportViewer.aspx?_r=%2fPMGSYCitizen%2fDistrictBriefDetailsNew&Level=2&STATE=37&DISTRICT=0&PMGSY=0&BLOCK=0&ROADSTATUS=0&SCHEME=0&CYEAR=2025",
+    "scraped_at": "2026-08-04T09:08:03.720769+00:00"
+  }
+]

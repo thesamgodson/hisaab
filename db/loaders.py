@@ -14,6 +14,18 @@ def _load_json(path: Path) -> list[dict[str, Any]]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _norm_fin_year(value: object) -> str | None:
+    """Canonicalize fin_year format: '2025-26' -> '2025-2026'. Content is
+    never changed, only the format — portals disagree on 2- vs 4-digit ends."""
+    if not value:
+        return None
+    s = str(value).strip()
+    parts = s.split("-")
+    if len(parts) == 2 and len(parts[0]) == 4 and len(parts[1]) == 2 and s[:4].isdigit():
+        return f"{parts[0]}-{parts[0][:2]}{parts[1]}"
+    return s
+
+
 def load_misappropriation(conn: sqlite3.Connection, records: list[dict[str, Any]], fin_year: str) -> int:
     loaded = 0
     for r in records:
@@ -29,7 +41,7 @@ def load_misappropriation(conn: sqlite3.Connection, records: list[dict[str, Any]
                     r["district"],
                     r["state"],
                     r["state_code"],
-                    fin_year,
+                    _norm_fin_year(r.get("fin_year")) or fin_year,
                     r["cases_reported"],
                     r["amount_reported"],
                     r["cases_decided"],
@@ -66,7 +78,7 @@ def load_fto_status(conn: sqlite3.Connection, records: list[dict[str, Any]], fin
                     r["district"],
                     r["state"],
                     r["state_code"],
-                    fin_year,
+                    _norm_fin_year(r.get("fin_year")) or fin_year,
                     r["total_fto_generated"],
                     r["first_signatory_signed"],
                     r["first_signatory_pending"],
@@ -100,7 +112,7 @@ def load_fto_pendency(conn: sqlite3.Connection, records: list[dict[str, Any]], f
                     int(r["is_total"]),
                     r["state"],
                     r["state_code"],
-                    fin_year,
+                    _norm_fin_year(r.get("fin_year")) or fin_year,
                     r.get("pending_1_7_days", 0),
                     r.get("pending_8_15_days", 0),
                     r.get("pending_16_30_days", 0),
@@ -133,7 +145,7 @@ def load_issues_reported(conn: sqlite3.Connection, records: list[dict[str, Any]]
                     r["district"],
                     r["state"],
                     r["state_code"],
-                    fin_year,
+                    _norm_fin_year(r.get("fin_year")) or fin_year,
                     r["total_gps"],
                     r["gps_audited"],
                     r.get("misappropriation_issues", 0),
@@ -190,7 +202,7 @@ def load_financial_statement(conn: sqlite3.Connection, records: list[dict[str, A
                     r["district"],
                     r["state"],
                     r["state_code"],
-                    fin_year,
+                    _norm_fin_year(r.get("fin_year")) or fin_year,
                     r.get("col_2_num", 0),
                     r.get("col_3_num", 0),
                     r.get("col_4_num", 0),
@@ -264,7 +276,7 @@ def load_pmgsy_district(conn: sqlite3.Connection, records: list[dict[str, Any]],
                     r.get("district", ""),
                     r.get("state", ""),
                     r.get("state_code", ""),
-                    fin_year,
+                    _norm_fin_year(r.get("fin_year")) or fin_year,
                     r.get("scheme", ""),
                     r.get("roads_sanctioned", 0),
                     r.get("roads_completed", 0),
@@ -297,7 +309,7 @@ def load_pmayg_district(conn: sqlite3.Connection, records: list[dict[str, Any]],
                     r["district"],
                     r["state"],
                     r.get("state_code", ""),
-                    fin_year,
+                    _norm_fin_year(r.get("fin_year")) or fin_year,
                     r.get("houses_sanctioned", 0),
                     r.get("houses_completed", 0),
                     r.get("houses_occupied", 0),
@@ -328,7 +340,7 @@ def load_pmkisan_district(conn: sqlite3.Connection, records: list[dict[str, Any]
                     r["district"],
                     r["state"],
                     r.get("state_code", ""),
-                    fin_year,
+                    _norm_fin_year(r.get("fin_year")) or fin_year,
                     r.get("beneficiaries_registered", 0),
                     r.get("beneficiaries_paid", 0),
                     r.get("amount_paid_lakhs", 0),
@@ -358,7 +370,7 @@ def load_jjm_district(conn: sqlite3.Connection, records: list[dict[str, Any]], f
                     r["district"],
                     r["state"],
                     r.get("state_code", ""),
-                    fin_year,
+                    _norm_fin_year(r.get("fin_year")) or fin_year,
                     r.get("total_households", 0),
                     r.get("households_with_tap", 0),
                     r.get("tap_connections_provided", 0),
@@ -389,7 +401,7 @@ def load_pmposhan_district(conn: sqlite3.Connection, records: list[dict[str, Any
                     r["district"],
                     r["state"],
                     r.get("state_code", ""),
-                    fin_year,
+                    _norm_fin_year(r.get("fin_year")) or fin_year,
                     r.get("schools_covered", 0),
                     r.get("children_enrolled", 0),
                     r.get("children_fed", 0),
@@ -420,7 +432,7 @@ def load_nsap_district(conn: sqlite3.Connection, records: list[dict[str, Any]], 
                     r["district"],
                     r["state"],
                     r.get("state_code", ""),
-                    fin_year,
+                    _norm_fin_year(r.get("fin_year")) or fin_year,
                     r.get("scheme_type", ""),
                     r.get("beneficiaries_eligible", 0),
                     r.get("beneficiaries_paid", 0),
@@ -450,7 +462,7 @@ def load_nfsa_district(conn: sqlite3.Connection, records: list[dict[str, Any]], 
                     r["district"],
                     r["state"],
                     r.get("state_code", ""),
-                    fin_year,
+                    _norm_fin_year(r.get("fin_year")) or fin_year,
                     r.get("ration_cards_total", 0),
                     r.get("ration_cards_active", 0),
                     r.get("allocation_mt", 0),
@@ -786,7 +798,7 @@ def load_all_latest(fin_year: str = "2024-2025", state_slug: str = "tamil-nadu")
                 (
                     records[0].get("state", ""),
                     records[0].get("state_code", ""),
-                    fin_year,
+                    _norm_fin_year(records[0].get("fin_year")) or fin_year,
                     report_name,
                     len(records),
                     records[0].get("source_url", ""),

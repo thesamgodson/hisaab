@@ -1,7 +1,7 @@
 [
   {
     "district": "AIZAWL",
-    "state": "MIZORAM",
+    "state": "Mizoram",
     "state_code": "283",
     "fin_year": "cumulative",
     "total_households": 17254,
@@ -19,11 +19,11 @@
     "national_rank": 1,
     "district_name_hindi": "आइजोल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "CHAMPHAI",
-    "state": "MIZORAM",
+    "state": "Mizoram",
     "state_code": "284",
     "fin_year": "cumulative",
     "total_households": 9317,
@@ -41,11 +41,11 @@
     "national_rank": 1,
     "district_name_hindi": "CHAMPHAI",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "HNAHTHIAL",
-    "state": "MIZORAM",
+    "state": "Mizoram",
     "state_code": "793",
     "fin_year": "cumulative",
     "total_households": 5341,
@@ -63,11 +63,11 @@
     "national_rank": 1,
     "district_name_hindi": "Hnahthial",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KHAWZAWL",
-    "state": "MIZORAM",
+    "state": "Mizoram",
     "state_code": "795",
     "fin_year": "cumulative",
     "total_households": 4910,
@@ -85,11 +85,11 @@
     "national_rank": 1,
     "district_name_hindi": "Khawzawl",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KOLASIB",
-    "state": "MIZORAM",
+    "state": "Mizoram",
     "state_code": "282",
     "fin_year": "cumulative",
     "total_households": 9038,
@@ -107,11 +107,11 @@
     "national_rank": 1,
     "district_name_hindi": "कोलासिब",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "LAWNGTLAI",
-    "state": "MIZORAM",
+    "state": "Mizoram",
     "state_code": "287",
     "fin_year": "cumulative",
     "total_households": 27158,
@@ -129,11 +129,11 @@
     "national_rank": 1,
     "district_name_hindi": "लावन्ग्त्लाई",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "LUNGLEI",
-    "state": "MIZORAM",
+    "state": "Mizoram",
     "state_code": "286",
     "fin_year": "cumulative",
     "total_households": 17312,
@@ -151,11 +151,11 @@
     "national_rank": 1,
     "district_name_hindi": "लूँग्लेई",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MAMIT",
-    "state": "MIZORAM",
+    "state": "Mizoram",
     "state_code": "281",
     "fin_year": "cumulative",
     "total_households": 18184,
@@ -173,11 +173,11 @@
     "national_rank": 1,
     "district_name_hindi": "मामित",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SAITUAL",
-    "state": "MIZORAM",
+    "state": "Mizoram",
     "state_code": "794",
     "fin_year": "cumulative",
     "total_households": 9433,
@@ -195,11 +195,11 @@
     "national_rank": 1,
     "district_name_hindi": "Saitual",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SERCHHIP",
-    "state": "MIZORAM",
+    "state": "Mizoram",
     "state_code": "285",
     "fin_year": "cumulative",
     "total_households": 7147,
@@ -217,11 +217,11 @@
     "national_rank": 1,
     "district_name_hindi": "सेरछिप",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SIAHA",
-    "state": "MIZORAM",
+    "state": "Mizoram",
     "state_code": "288",
     "fin_year": "cumulative",
     "total_households": 7966,
@@ -239,6 +239,6 @@
     "national_rank": 1,
     "district_name_hindi": "सिह",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   }
 ]

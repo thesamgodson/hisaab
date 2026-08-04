@@ -125,7 +125,7 @@ def open_mis_session(page: Any, fin_year: str, state_name: str) -> dict[str, str
     Navigate MIS portal, solve captcha, select year/state.
     Returns dict of {report_name: authenticated_url}.
     """
-    page.goto(MIS_URL, timeout=30000)
+    page.goto(MIS_URL, timeout=120000)
     page.wait_for_timeout(3000)
 
     # Solve client-side captcha (answer is in hidden field)
@@ -593,7 +593,7 @@ def run_for_state(
             time.sleep(delay_sec)
 
             try:
-                page.goto(url, timeout=30000)
+                page.goto(url, timeout=120000)
                 page.wait_for_timeout(5000)
 
                 # Expand DataTables pagination to show all rows

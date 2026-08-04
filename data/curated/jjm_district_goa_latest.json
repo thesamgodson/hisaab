@@ -1,7 +1,7 @@
 [
   {
     "district": "NORTH GOA",
-    "state": "GOA",
+    "state": "Goa",
     "state_code": "585",
     "fin_year": "cumulative",
     "total_households": 134035,
@@ -19,11 +19,11 @@
     "national_rank": 1,
     "district_name_hindi": "उत्तरी गोवा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SOUTH GOA",
-    "state": "GOA",
+    "state": "Goa",
     "state_code": "586",
     "fin_year": "cumulative",
     "total_households": 129887,
@@ -41,6 +41,6 @@
     "national_rank": 1,
     "district_name_hindi": "दक्षिण गोवा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   }
 ]

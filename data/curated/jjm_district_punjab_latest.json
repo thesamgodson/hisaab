@@ -1,7 +1,7 @@
 [
   {
     "district": "AMRITSAR",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "049",
     "fin_year": "cumulative",
     "total_households": 213512,
@@ -19,11 +19,11 @@
     "national_rank": 1,
     "district_name_hindi": "अमृतसर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "BARNALA",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "054",
     "fin_year": "cumulative",
     "total_households": 74569,
@@ -41,11 +41,11 @@
     "national_rank": 1,
     "district_name_hindi": "बरनाला",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "BATHINDA",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "046",
     "fin_year": "cumulative",
     "total_households": 158415,
@@ -63,11 +63,11 @@
     "national_rank": 1,
     "district_name_hindi": "बठिंडा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "FARIDKOT",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "045",
     "fin_year": "cumulative",
     "total_households": 78408,
@@ -85,11 +85,11 @@
     "national_rank": 1,
     "district_name_hindi": "फरीदकोट",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "FATEHGARH SAHIB",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "040",
     "fin_year": "cumulative",
     "total_households": 78475,
@@ -107,11 +107,11 @@
     "national_rank": 1,
     "district_name_hindi": "फतेहगढ़ साहिब",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "FAZILKA",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "701",
     "fin_year": "cumulative",
     "total_households": 141539,
@@ -129,11 +129,11 @@
     "national_rank": 1,
     "district_name_hindi": "फ़ज़िलका",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "FEROZEPUR",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "043",
     "fin_year": "cumulative",
     "total_households": 127014,
@@ -151,11 +151,11 @@
     "national_rank": 1,
     "district_name_hindi": "फिरोज़पुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "GURDASPUR",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "035",
     "fin_year": "cumulative",
     "total_households": 248742,
@@ -173,11 +173,11 @@
     "national_rank": 1,
     "district_name_hindi": "गुरदासपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "HOSHIARPUR",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "038",
     "fin_year": "cumulative",
     "total_households": 273829,
@@ -195,11 +195,11 @@
     "national_rank": 1,
     "district_name_hindi": "होशिअरपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "JALANDHAR",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "037",
     "fin_year": "cumulative",
     "total_households": 224197,
@@ -217,11 +217,11 @@
     "national_rank": 1,
     "district_name_hindi": "जालंधर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KAPURTHALA",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "036",
     "fin_year": "cumulative",
     "total_households": 111598,
@@ -239,11 +239,11 @@
     "national_rank": 1,
     "district_name_hindi": "कपूरथला",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "LUDHIANA",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "041",
     "fin_year": "cumulative",
     "total_households": 325877,
@@ -261,11 +261,11 @@
     "national_rank": 1,
     "district_name_hindi": "लुधिअना",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MALERKOTLA",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "797",
     "fin_year": "cumulative",
     "total_households": 49881,
@@ -283,11 +283,11 @@
     "national_rank": 1,
     "district_name_hindi": "Malerkotla",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MANSA",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "047",
     "fin_year": "cumulative",
     "total_households": 108594,
@@ -305,11 +305,11 @@
     "national_rank": 1,
     "district_name_hindi": "मनसा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MOGA",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "042",
     "fin_year": "cumulative",
     "total_households": 144042,
@@ -327,11 +327,11 @@
     "national_rank": 1,
     "district_name_hindi": "मोगा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PATHANKOT",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "773",
     "fin_year": "cumulative",
     "total_households": 82592,
@@ -349,11 +349,11 @@
     "national_rank": 1,
     "district_name_hindi": "पठानकोट",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PATIALA",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "048",
     "fin_year": "cumulative",
     "total_households": 223973,
@@ -371,11 +371,11 @@
     "national_rank": 1,
     "district_name_hindi": "पटिआला",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "RUPNAGAR",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "051",
     "fin_year": "cumulative",
     "total_households": 104819,
@@ -393,11 +393,11 @@
     "national_rank": 1,
     "district_name_hindi": "रूपनगर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "S.A.S NAGAR",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "052",
     "fin_year": "cumulative",
     "total_households": 82024,
@@ -415,11 +415,11 @@
     "national_rank": 1,
     "district_name_hindi": "स य स नगर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SANGRUR",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "053",
     "fin_year": "cumulative",
     "total_households": 170951,
@@ -437,11 +437,11 @@
     "national_rank": 1,
     "district_name_hindi": "संगरूर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SHAHID BHAGAT SINGH NAGAR",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "039",
     "fin_year": "cumulative",
     "total_households": 110148,
@@ -459,11 +459,11 @@
     "national_rank": 1,
     "district_name_hindi": "शहीद भगत सिंह नगर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SRI MUKTSAR SAHIB",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "044",
     "fin_year": "cumulative",
     "total_households": 125789,
@@ -481,11 +481,11 @@
     "national_rank": 1,
     "district_name_hindi": "मुक्तसर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "TARN TARAN",
-    "state": "PUNJAB",
+    "state": "Punjab",
     "state_code": "050",
     "fin_year": "cumulative",
     "total_households": 167820,
@@ -503,6 +503,6 @@
     "national_rank": 1,
     "district_name_hindi": "तरण तरण",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   }
 ]

@@ -73,7 +73,7 @@ def _fetch_delivery_scores(conn: sqlite3.Connection, fin_year: str) -> dict[tupl
         WHERE delivery_pct IS NOT NULL
           AND delivery_pct > 0
           AND district != 'ALL'
-          AND fin_year = ?
+          AND (fin_year = ? OR fin_year = 'cumulative')
         """,
         (fin_year,),
     ).fetchall()
@@ -99,7 +99,7 @@ def _fetch_finance_scores(conn: sqlite3.Connection, fin_year: str) -> dict[tuple
         WHERE utilization_pct IS NOT NULL
           AND utilization_pct > 0
           AND utilization_pct <= 150
-          AND fin_year = ?
+          AND (fin_year = ? OR fin_year = 'cumulative')
         """,
         (fin_year,),
     ).fetchall()
@@ -359,6 +359,35 @@ def get_worst_districts(n: int = 50, fin_year: str = "2024-2025") -> list[dict[s
     all_scores = compute_district_scores(fin_year=fin_year)
     scored = [r for r in all_scores if r["score"] is not None]
     return list(reversed(scored[-n:]))
+
+
+def persist_all_district_scores(conn: sqlite3.Connection) -> dict[str, int]:
+    """Recompute district_scores for EVERY real financial year in the data.
+
+    Clears the whole table first so score rows can never outlive the
+    underlying data they were computed from (cumulative-basis schemes like
+    JJM/SBM count toward every year's evidence).
+    """
+    # Only years with DISTRICT-level evidence get score sets — state-level
+    # ('ALL') finance history must not spawn per-district "scores" backed
+    # solely by cumulative data.
+    years = [
+        row[0]
+        for row in conn.execute(
+            """SELECT DISTINCT fin_year FROM scheme_delivery
+               WHERE fin_year != 'cumulative' AND district != 'ALL'
+               UNION
+               SELECT DISTINCT fin_year FROM scheme_finance
+               WHERE fin_year != 'cumulative' AND district != 'ALL'
+               ORDER BY 1"""
+        ).fetchall()
+    ]
+    conn.execute("DELETE FROM district_scores")
+    conn.commit()
+    results = {}
+    for year in years:
+        results[year] = persist_district_scores(conn, year)
+    return results
 
 
 def persist_district_scores(conn: sqlite3.Connection, fin_year: str = "2024-2025") -> int:

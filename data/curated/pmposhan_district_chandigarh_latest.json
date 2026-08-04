@@ -4,14 +4,14 @@
     "state": "CHANDIGARH",
     "state_code": "06",
     "fin_year": "2025-2026",
-    "schools_reported": 61,
-    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
-    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
     "schools_covered": 116,
+    "schools_reported": 60,
     "children_enrolled": 95429,
-    "children_fed": 21300,
-    "utilization_pct": 48.37,
+    "children_fed": 31386,
     "funds_released_lakhs": 0,
-    "funds_utilized_lakhs": 0
+    "funds_utilized_lakhs": 0,
+    "utilization_pct": 69.89,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-08-04T08:59:46.787825+00:00"
   }
 ]

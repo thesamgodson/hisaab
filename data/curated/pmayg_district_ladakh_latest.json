@@ -3,7 +3,7 @@
     "district": "KARGIL",
     "state": "LADAKH",
     "state_code": "37",
-    "fin_year": "2024-2025",
+    "fin_year": "2025-2026",
     "houses_sanctioned": 0,
     "registered": 0,
     "geo_tagged": 0,
@@ -18,14 +18,14 @@
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "completion_pct": 0.0,
-    "source_url": "https://report.pmayg.dord.gov.in/netiay/DataAnalytics/PhysicalProgressRpt.aspx?state=37&fy=2024-2025",
-    "scraped_at": "2026-03-31T11:18:30.366605+00:00"
+    "source_url": "https://report.pmayg.dord.gov.in/netiay/DataAnalytics/PhysicalProgressRpt.aspx?state=37&fy=2025-2026",
+    "scraped_at": "2026-08-04T09:02:09.161154+00:00"
   },
   {
     "district": "LEH (LADAKH)",
     "state": "LADAKH",
     "state_code": "37",
-    "fin_year": "2024-2025",
+    "fin_year": "2025-2026",
     "houses_sanctioned": 0,
     "registered": 0,
     "geo_tagged": 0,
@@ -40,7 +40,7 @@
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "completion_pct": 0.0,
-    "source_url": "https://report.pmayg.dord.gov.in/netiay/DataAnalytics/PhysicalProgressRpt.aspx?state=37&fy=2024-2025",
-    "scraped_at": "2026-03-31T11:18:30.366605+00:00"
+    "source_url": "https://report.pmayg.dord.gov.in/netiay/DataAnalytics/PhysicalProgressRpt.aspx?state=37&fy=2025-2026",
+    "scraped_at": "2026-08-04T09:02:09.161154+00:00"
   }
 ]

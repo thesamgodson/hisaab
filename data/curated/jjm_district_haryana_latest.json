@@ -1,7 +1,7 @@
 [
   {
     "district": "AMBALA",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "070",
     "fin_year": "cumulative",
     "total_households": 119431,
@@ -19,11 +19,11 @@
     "national_rank": 1,
     "district_name_hindi": "अम्बाला",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "BHIWANI",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "081",
     "fin_year": "cumulative",
     "total_households": 167544,
@@ -41,11 +41,11 @@
     "national_rank": 1,
     "district_name_hindi": "भिवानी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "CHARKI DADRI",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "765",
     "fin_year": "cumulative",
     "total_households": 81922,
@@ -63,11 +63,11 @@
     "national_rank": 1,
     "district_name_hindi": "Charki Dadri",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "FARIDABAD",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "088",
     "fin_year": "cumulative",
     "total_households": 47460,
@@ -85,11 +85,11 @@
     "national_rank": 1,
     "district_name_hindi": "फरीदाबाद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "FATEHABAD",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "078",
     "fin_year": "cumulative",
     "total_households": 141804,
@@ -107,11 +107,11 @@
     "national_rank": 1,
     "district_name_hindi": "फतेहाबाद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "GURUGRAM",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "086",
     "fin_year": "cumulative",
     "total_households": 58817,
@@ -129,11 +129,11 @@
     "national_rank": 1,
     "district_name_hindi": "गुडगाँव",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "HISAR",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "080",
     "fin_year": "cumulative",
     "total_households": 215435,
@@ -151,11 +151,11 @@
     "national_rank": 1,
     "district_name_hindi": "हिसार",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "JHAJJAR",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "083",
     "fin_year": "cumulative",
     "total_households": 162374,
@@ -173,11 +173,11 @@
     "national_rank": 1,
     "district_name_hindi": "झज्जर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "JIND",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "077",
     "fin_year": "cumulative",
     "total_households": 190363,
@@ -195,11 +195,11 @@
     "national_rank": 1,
     "district_name_hindi": "जींद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KAITHAL",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "073",
     "fin_year": "cumulative",
     "total_households": 157897,
@@ -217,11 +217,11 @@
     "national_rank": 1,
     "district_name_hindi": "कैथल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KARNAL",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "074",
     "fin_year": "cumulative",
     "total_households": 189152,
@@ -239,11 +239,11 @@
     "national_rank": 1,
     "district_name_hindi": "करनाल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KURUKSHETRA",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "072",
     "fin_year": "cumulative",
     "total_households": 139720,
@@ -261,11 +261,11 @@
     "national_rank": 1,
     "district_name_hindi": "कुरुक्षेत्र",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MAHENDRAGARH",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "084",
     "fin_year": "cumulative",
     "total_households": 147923,
@@ -283,11 +283,11 @@
     "national_rank": 1,
     "district_name_hindi": "महेंद्रगढ़",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "NUH",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "087",
     "fin_year": "cumulative",
     "total_households": 157547,
@@ -305,11 +305,11 @@
     "national_rank": 1,
     "district_name_hindi": "मेवात",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PALWAL",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "089",
     "fin_year": "cumulative",
     "total_households": 129356,
@@ -327,11 +327,11 @@
     "national_rank": 1,
     "district_name_hindi": "पलवल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PANCHKULA",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "069",
     "fin_year": "cumulative",
     "total_households": 34433,
@@ -349,11 +349,11 @@
     "national_rank": 1,
     "district_name_hindi": "पंचकुला",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PANIPAT",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "075",
     "fin_year": "cumulative",
     "total_households": 122912,
@@ -371,11 +371,11 @@
     "national_rank": 1,
     "district_name_hindi": "पानीपत",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "REWARI",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "085",
     "fin_year": "cumulative",
     "total_households": 138564,
@@ -393,11 +393,11 @@
     "national_rank": 1,
     "district_name_hindi": "रेवाड़ी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "ROHTAK",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "082",
     "fin_year": "cumulative",
     "total_households": 132816,
@@ -415,11 +415,11 @@
     "national_rank": 1,
     "district_name_hindi": "रोहतक",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SIRSA",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "079",
     "fin_year": "cumulative",
     "total_households": 188263,
@@ -437,11 +437,11 @@
     "national_rank": 1,
     "district_name_hindi": "सिरसा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SONIPAT",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "076",
     "fin_year": "cumulative",
     "total_households": 204620,
@@ -459,11 +459,11 @@
     "national_rank": 1,
     "district_name_hindi": "सोनीपत",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "YAMUNANAGAR",
-    "state": "HARYANA",
+    "state": "Haryana",
     "state_code": "071",
     "fin_year": "cumulative",
     "total_households": 112961,
@@ -481,6 +481,6 @@
     "national_rank": 1,
     "district_name_hindi": "यमुनानगर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   }
 ]

@@ -4,29 +4,29 @@
     "state": "GOA",
     "state_code": "10",
     "fin_year": "2025-2026",
-    "schools_reported": 234,
-    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
-    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
     "schools_covered": 565,
+    "schools_reported": 207,
     "children_enrolled": 76699,
-    "children_fed": 22873,
-    "utilization_pct": 89.6,
+    "children_fed": 25243,
     "funds_released_lakhs": 0,
-    "funds_utilized_lakhs": 0
+    "funds_utilized_lakhs": 0,
+    "utilization_pct": 89.68,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-08-04T08:59:46.787825+00:00"
   },
   {
     "district": "SOUTH GOA",
     "state": "GOA",
     "state_code": "10",
     "fin_year": "2025-2026",
-    "schools_reported": 232,
-    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
-    "scraped_at": "2026-03-06T05:49:15.021323+00:00",
     "schools_covered": 651,
+    "schools_reported": 332,
     "children_enrolled": 83295,
-    "children_fed": 22187,
-    "utilization_pct": 82.16,
+    "children_fed": 38041,
     "funds_released_lakhs": 0,
-    "funds_utilized_lakhs": 0
+    "funds_utilized_lakhs": 0,
+    "utilization_pct": 86.16,
+    "source_url": "pmposhan-ams.education.gov.in/Reported_ams_School.aspx",
+    "scraped_at": "2026-08-04T08:59:46.787825+00:00"
   }
 ]

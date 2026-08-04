@@ -1,7 +1,7 @@
 [
   {
     "district": "AHMEDABAD",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "474",
     "fin_year": "cumulative",
     "total_households": 364552,
@@ -19,11 +19,11 @@
     "national_rank": 1,
     "district_name_hindi": "अहमदाबाद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "AMRELI",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "480",
     "fin_year": "cumulative",
     "total_households": 253485,
@@ -41,11 +41,11 @@
     "national_rank": 1,
     "district_name_hindi": "अमरेली",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "ANAND",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "482",
     "fin_year": "cumulative",
     "total_households": 401409,
@@ -63,11 +63,11 @@
     "national_rank": 1,
     "district_name_hindi": "आनंद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "ARVALLI",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "725",
     "fin_year": "cumulative",
     "total_households": 280643,
@@ -85,11 +85,11 @@
     "national_rank": 1,
     "district_name_hindi": "अरवल्ली",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "BANAS KANTHA",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "469",
     "fin_year": "cumulative",
     "total_households": 629379,
@@ -107,11 +107,11 @@
     "national_rank": 1,
     "district_name_hindi": "बनास कांठा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "BHARUCH",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "488",
     "fin_year": "cumulative",
     "total_households": 336863,
@@ -129,11 +129,11 @@
     "national_rank": 1,
     "district_name_hindi": "भरूच",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "BHAVNAGAR",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "481",
     "fin_year": "cumulative",
     "total_households": 254497,
@@ -151,11 +151,11 @@
     "national_rank": 1,
     "district_name_hindi": "भावनगर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "BOTAD",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "726",
     "fin_year": "cumulative",
     "total_households": 99640,
@@ -173,11 +173,11 @@
     "national_rank": 1,
     "district_name_hindi": "बोटाद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "CHHOTAUDEPUR",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "731",
     "fin_year": "cumulative",
     "total_households": 232985,
@@ -195,11 +195,11 @@
     "national_rank": 1,
     "district_name_hindi": "छोटाउदेपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "DAHOD",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "485",
     "fin_year": "cumulative",
     "total_households": 320768,
@@ -217,11 +217,11 @@
     "national_rank": 1,
     "district_name_hindi": "दोहद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "DANGS",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "489",
     "fin_year": "cumulative",
     "total_households": 47511,
@@ -239,11 +239,11 @@
     "national_rank": 1,
     "district_name_hindi": "दांग",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "DEVBHUMI DWARKA",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "728",
     "fin_year": "cumulative",
     "total_households": 115529,
@@ -261,11 +261,11 @@
     "national_rank": 1,
     "district_name_hindi": "देवभूमि द्वारका",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "GANDHINAGAR",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "473",
     "fin_year": "cumulative",
     "total_households": 284911,
@@ -283,11 +283,11 @@
     "national_rank": 1,
     "district_name_hindi": "गांधीनगर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "GIR SOMNATH",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "729",
     "fin_year": "cumulative",
     "total_households": 172472,
@@ -305,11 +305,11 @@
     "national_rank": 1,
     "district_name_hindi": "गिर सोमनाथ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "JAMNAGAR",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "477",
     "fin_year": "cumulative",
     "total_households": 142084,
@@ -327,11 +327,11 @@
     "national_rank": 1,
     "district_name_hindi": "जामनगर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "JUNAGADH",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "479",
     "fin_year": "cumulative",
     "total_households": 200119,
@@ -349,11 +349,11 @@
     "national_rank": 1,
     "district_name_hindi": "जूनागढ़",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KACHCHH",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "468",
     "fin_year": "cumulative",
     "total_households": 392043,
@@ -371,11 +371,11 @@
     "national_rank": 1,
     "district_name_hindi": "कच्छ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "KHEDA",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "483",
     "fin_year": "cumulative",
     "total_households": 369324,
@@ -393,11 +393,11 @@
     "national_rank": 1,
     "district_name_hindi": "खेडा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MAHESANA",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "471",
     "fin_year": "cumulative",
     "total_households": 510503,
@@ -415,11 +415,11 @@
     "national_rank": 1,
     "district_name_hindi": "महेसाना",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MAHISAGAR",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "730",
     "fin_year": "cumulative",
     "total_households": 221848,
@@ -437,11 +437,11 @@
     "national_rank": 1,
     "district_name_hindi": "महीसागर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "MORBI",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "727",
     "fin_year": "cumulative",
     "total_households": 181725,
@@ -459,11 +459,11 @@
     "national_rank": 1,
     "district_name_hindi": "मोरबी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "NARMADA",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "487",
     "fin_year": "cumulative",
     "total_households": 150861,
@@ -481,11 +481,11 @@
     "national_rank": 1,
     "district_name_hindi": "नर्मदा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "NAVSARI",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "490",
     "fin_year": "cumulative",
     "total_households": 279766,
@@ -503,11 +503,11 @@
     "national_rank": 1,
     "district_name_hindi": "नवसारी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PANCH MAHALS",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "484",
     "fin_year": "cumulative",
     "total_households": 356227,
@@ -525,11 +525,11 @@
     "national_rank": 1,
     "district_name_hindi": "पञ्च महलस",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PATAN",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "470",
     "fin_year": "cumulative",
     "total_households": 284832,
@@ -547,11 +547,11 @@
     "national_rank": 1,
     "district_name_hindi": "पतन",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "PORBANDAR",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "478",
     "fin_year": "cumulative",
     "total_households": 63572,
@@ -569,11 +569,11 @@
     "national_rank": 1,
     "district_name_hindi": "पोरबंदर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "RAJKOT",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "476",
     "fin_year": "cumulative",
     "total_households": 323224,
@@ -591,11 +591,11 @@
     "national_rank": 1,
     "district_name_hindi": "राजकोट",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SABAR KANTHA",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "472",
     "fin_year": "cumulative",
     "total_households": 345649,
@@ -613,11 +613,11 @@
     "national_rank": 1,
     "district_name_hindi": "सबर कांठा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SURAT",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "492",
     "fin_year": "cumulative",
     "total_households": 383576,
@@ -635,11 +635,11 @@
     "national_rank": 1,
     "district_name_hindi": "सूरत",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "SURENDRANAGAR",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "475",
     "fin_year": "cumulative",
     "total_households": 276504,
@@ -657,33 +657,11 @@
     "national_rank": 1,
     "district_name_hindi": "सुरेंद्रनगर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
-  },
-  {
-    "district": "TAPI",
-    "state": "GUJARAT",
-    "state_code": "493",
-    "fin_year": "cumulative",
-    "total_households": 239124,
-    "households_with_tap": 239124,
-    "tap_connections_provided": 239124,
-    "coverage_pct": 100.0,
-    "funds_released_lakhs": 0,
-    "funds_utilized_lakhs": 0,
-    "hh_as_of_2019": 155747,
-    "connections_pre_2019": 100229,
-    "connections_2019_20": 9342,
-    "connections_2020_onwards": 123168,
-    "remaining_households": 0,
-    "district_rank": 1,
-    "national_rank": 1,
-    "district_name_hindi": "तापी",
-    "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "VADODARA",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "486",
     "fin_year": "cumulative",
     "total_households": 295351,
@@ -701,11 +679,11 @@
     "national_rank": 1,
     "district_name_hindi": "वड़ोदरा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   },
   {
     "district": "VALSAD",
-    "state": "GUJARAT",
+    "state": "Gujarat",
     "state_code": "491",
     "fin_year": "cumulative",
     "total_households": 307439,
@@ -723,6 +701,28 @@
     "national_rank": 1,
     "district_name_hindi": "वलसाड",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-03-06T04:34:20.340500+00:00"
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+  },
+  {
+    "district": "TAPI",
+    "state": "Gujarat",
+    "state_code": "493",
+    "fin_year": "cumulative",
+    "total_households": 239248,
+    "households_with_tap": 239124,
+    "tap_connections_provided": 239124,
+    "coverage_pct": 99.95,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0,
+    "hh_as_of_2019": 155747,
+    "connections_pre_2019": 100229,
+    "connections_2019_20": 9342,
+    "connections_2020_onwards": 123168,
+    "remaining_households": 124,
+    "district_rank": 206,
+    "national_rank": 206,
+    "district_name_hindi": "तापी",
+    "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
+    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
   }
 ]

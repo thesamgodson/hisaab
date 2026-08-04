@@ -321,10 +321,11 @@ def load_curated_into_db(fin_year: str) -> dict[str, int]:
         print(f"  Normalized {table}: {n} rows")
 
     # Precompute composite scores — the single place the formula runs.
-    from queries.composite import persist_district_scores
+    from queries.composite import persist_all_district_scores
 
-    n_scores = persist_district_scores(conn, fin_year)
-    print(f"  district_scores: {n_scores} rows precomputed")
+    per_year = persist_all_district_scores(conn)
+    for year, n in per_year.items():
+        print(f"  district_scores[{year}]: {n} rows precomputed")
 
     conn.close()
     return results
