@@ -245,9 +245,11 @@ def test_freshness_structure(client: TestClient) -> None:
     assert isinstance(body["freshness"], list)
 
 
-def test_freshness_eight_schemes(client: TestClient) -> None:
+def test_freshness_covers_all_eleven_schemes(client: TestClient) -> None:
     body = client.get("/api/v1/freshness").json()
-    assert len(body["freshness"]) == 8
+    schemes = {entry["scheme"] for entry in body["freshness"]}
+    assert len(body["freshness"]) == 11
+    assert {"SBM-G", "DAY-NRLM", "UDISE+"}.issubset(schemes)
 
 
 def test_freshness_entry_keys(client: TestClient) -> None:

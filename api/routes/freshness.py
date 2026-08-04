@@ -11,26 +11,34 @@ from db import DB_PATH
 
 router = APIRouter()
 
+# Every dataset the product serves — the freshness surface must cover ALL of
+# them, including finance/allocation tables (mirrors the web freshness route).
 SCHEME_TABLES = {
     "MGNREGA": ["misappropriation", "financial_statement", "fto_status", "fto_pendency", "issues_reported"],
     "PMGSY": ["pmgsy_progress", "pmgsy_district"],
-    "PMAY-G": ["pmayg_district"],
+    "PMAY-G": ["pmayg_district", "pmayg_finance"],
     "PM Kisan": ["pmkisan_district"],
-    "JJM": ["jjm_district"],
-    "PM POSHAN": ["pmposhan_district"],
-    "NSAP": ["nsap_district"],
-    "PDS/NFSA": ["nfsa_district"],
+    "JJM": ["jjm_district", "jjm_allocation"],
+    "PM POSHAN": ["pmposhan_district", "pmposhan_finance"],
+    "NSAP": ["nsap_district", "nsap_finance"],
+    "PDS/NFSA": ["nfsa_district", "nfsa_allocation"],
+    "SBM-G": ["sbm_district"],
+    "DAY-NRLM": ["nrlm_district"],
+    "UDISE+": ["udise_state"],
 }
 
 SCHEME_SOURCES = {
     "MGNREGA": "nrega.nic.in",
     "PMGSY": "pmgsy.dord.gov.in",
-    "PMAY-G": "report.pmayg.dord.gov.in",
+    "PMAY-G": "report.pmayg.dord.gov.in / data.gov.in",
     "PM Kisan": "data.gov.in",
     "JJM": "ejalshakti.gov.in",
-    "PM POSHAN": "pmposhan-ams.education.gov.in",
+    "PM POSHAN": "pmposhan-ams.education.gov.in / data.gov.in",
     "NSAP": "nsap.nic.in / data.gov.in",
-    "PDS/NFSA": "nfsa.gov.in",
+    "PDS/NFSA": "nfsa.gov.in / data.gov.in",
+    "SBM-G": "sbm.gov.in",
+    "DAY-NRLM": "nrlm.gov.in",
+    "UDISE+": "api.udiseplus.gov.in",
 }
 
 
