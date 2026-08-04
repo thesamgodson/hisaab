@@ -1,16 +1,16 @@
 [
   {
-    "district": "SOUTH GOA",
+    "district": "NORTH GOA",
     "state": "GOA",
     "state_code": "30",
     "fin_year": "2024-2025",
-    "scheme_type": "IGNOAPS",
+    "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 2952,
+    "beneficiaries_paid": 235,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
   },
   {
     "district": "NORTH GOA",
@@ -23,7 +23,7 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
   },
   {
     "district": "NORTH GOA",
@@ -36,20 +36,7 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
-  },
-  {
-    "district": "SOUTH GOA",
-    "state": "GOA",
-    "state_code": "30",
-    "fin_year": "2024-2025",
-    "scheme_type": "IGNWPS",
-    "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 2987,
-    "amount_paid_lakhs": 0,
-    "pension_per_month": 0,
-    "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
   },
   {
     "district": "SOUTH GOA",
@@ -62,19 +49,32 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
   },
   {
-    "district": "NORTH GOA",
+    "district": "SOUTH GOA",
     "state": "GOA",
     "state_code": "30",
     "fin_year": "2024-2025",
-    "scheme_type": "IGNDPS",
+    "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 235,
+    "beneficiaries_paid": 2952,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
+  },
+  {
+    "district": "SOUTH GOA",
+    "state": "GOA",
+    "state_code": "30",
+    "fin_year": "2024-2025",
+    "scheme_type": "IGNWPS",
+    "beneficiaries_eligible": 0,
+    "beneficiaries_paid": 2987,
+    "amount_paid_lakhs": 0,
+    "pension_per_month": 0,
+    "source_url": "api.data.gov.in/resource/nsap",
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
   }
 ]

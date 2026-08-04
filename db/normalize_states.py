@@ -29,6 +29,8 @@ _ALIASES: dict[str, list[str]] = {
         "D&NH AND D&D",
         "DNH & DD",
         "DNH AND DD",
+        "DD & DNH",
+        "DD AND DNH",
         "D & NH AND D & D",
         "THE DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
         "THE DADRA AND NAGAR HAVELI AND  DAMAN AND DIU",

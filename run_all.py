@@ -14,7 +14,7 @@ Schemes supported:
   7. NSAP — Pensions (CSV import)
   8. PDS/NFSA — Ration system (CSV import)
   9. SBM-G — Rural sanitation ODF Plus (scrapes sbm.gov.in)
- 10. DAY-NRLM — Rural livelihoods SHGs (scrapes nrlm.gov.in, needs Playwright)
+ 10. DAY-NRLM — Rural livelihoods SHGs (LokOS CDN JSON, plain requests)
  11. UDISE+ — School education stats (scrapes api.udiseplus.gov.in)
 
 Quick start:
@@ -112,15 +112,11 @@ def scrape_sbm(states: list[str] | None = None) -> dict[str, int]:
 
 
 def scrape_nrlm(states: list[str] | None = None, include_rf: bool = True) -> dict[str, int]:
-    """Run DAY-NRLM scraper — needs Playwright, all India or filtered states."""
+    """Run DAY-NRLM scraper — LokOS CDN JSON, plain requests."""
     try:
-        import asyncio
-
         from scrapers.scrape_nrlm import save_curated, scrape_all_states
 
-        records = asyncio.run(
-            scrape_all_states(states_filter=states, include_rf=include_rf)
-        )
+        records = scrape_all_states(states_filter=states, include_rf=include_rf)
         if records:
             save_curated(records)
             by_state: dict[str, int] = {}
@@ -418,7 +414,7 @@ SCHEME_SOURCES = {
     "NSAP": "data.gov.in",
     "PDS/NFSA": "nfsa.gov.in + data.gov.in",
     "SBM-G": "sbm.gov.in",
-    "DAY-NRLM": "nrlm.gov.in",
+    "DAY-NRLM": "cdn.lokos.in (LokOS)",
     "UDISE+": "api.udiseplus.gov.in",
 }
 

@@ -37,7 +37,7 @@ SCHEME_SOURCES = {
     "NSAP": "nsap.nic.in / data.gov.in",
     "PDS/NFSA": "nfsa.gov.in / data.gov.in",
     "SBM-G": "sbm.gov.in",
-    "DAY-NRLM": "nrlm.gov.in",
+    "DAY-NRLM": "cdn.lokos.in (LokOS)",
     "UDISE+": "api.udiseplus.gov.in",
 }
 

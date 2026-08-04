@@ -107,6 +107,27 @@ _OVERRIDES: dict[tuple[str, str], str] = {
     ("JHARKHAND", "WEST SINGHBUM"): "WEST SINGHBHUM",
     ("ANDHRA PRADESH", "VISAKHAPATANAM"): "VISAKHAPATNAM",
     ("MAHARASHTRA", "AMRAWATI"): "AMRAVATI",
+    # Odisha — unify to the India Post / PIN-directory forms (also the
+    # majority of scheme tables). pmgsy/pmposhan carry the other spelling.
+    ("ODISHA", "BALASORE"): "BALESHWAR",
+    ("ODISHA", "BOLANGIR"): "BALANGIR",
+    ("ODISHA", "KEONJHAR"): "KENDUJHAR",
+    ("ODISHA", "KHURDA"): "KHORDHA",
+    ("ODISHA", "NUAPARA"): "NUAPADA",
+    ("ODISHA", "SUBARNAPUR"): "SONEPUR",
+    # Recent official renames (2024-2026), mapped NEW->OLD for now because the
+    # ecosystem canon (PIN directory, lineage, map, 10 of 11 scheme sources)
+    # still carries the pre-rename name. Deliberately the REVERSE of the
+    # AYODHYA/PRAYAGRAJ entries above — flip these in one dedicated
+    # rename-migration pass (with map + PIN verification), not piecemeal.
+    ("BIHAR", "GAYAJI"): "GAYA",
+    ("ASSAM", "SRIBHUMI"): "KARIMGANJ",
+    ("KARNATAKA", "BENGALURU SOUTH"): "RAMANAGARA",
+    # LokOS (DAY-NRLM) spellings
+    ("ASSAM", "DIMA HASAO NORTH CACHAR HILLS"): "DIMA HASAO",
+    ("KARNATAKA", "DHARWAR"): "DHARWAD",
+    ("WEST BENGAL", "ALIPURUDUAR"): "ALIPURDUAR",
+    ("WEST BENGAL", "SILIGURI MAHAKUMA PARISHAD DMMU"): "SILIGURI M P DMMU",
 }
 
 

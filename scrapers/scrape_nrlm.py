@@ -1,60 +1,116 @@
 """
-DAY-NRLM (National Rural Livelihoods Mission) scraper.
+DAY-NRLM (National Rural Livelihoods Mission) scraper — LokOS CDN.
 
-Scrapes SHG (Self-Help Group) formation and revolving fund (RF) data from
-nrlm.gov.in using Playwright. The portal uses JavaScript-driven drill-downs
-that require a real browser to interact with.
+nrlm.gov.in's report tree died in the Aug 2026 platform migration (the whole
+domain is unreachable at the TCP level). The ministry's SHG ecosystem moved to
+LokOS (lokos.in), whose public Community Funds dashboard is backed by
+un-authenticated, district-level JSON on cdn.lokos.in:
 
-Reports scraped:
-  G1 — SHG formation: state/district counts (new, revived, pre-NRLM, total)
-        and total member count.
-  F1a — RF disbursement: SHGs provided revolving fund and amount (Rs in lakh)
-         by district.
+    https://cdn.lokos.in/lokos-in/fdm/prod/{SC}/DISTRICT_FDM_OVERALL.json
+    https://cdn.lokos.in/lokos-in/fdm/prod/{SC}/DISTRICT_FDM_REVOLVINGFUND.json
+
+{SC} is LokOS's own 2-letter state code (NOT ISO/census: Bihar=BH, Kerala=KR,
+Punjab=PJ, Puducherry=PO). The mapping ships in lokos.in's Angular bundle
+(chunk-UA3272OP.js, keyed by state LGD code) and is pinned below. Discovered
+and validated 2026-08-04: 34/34 states, 757 districts, sum(totalDistricts)
+from the national feed matches exactly.
+
+Semantics:
+  - shgs_total        <- totalShgs        (DISTRICT_FDM_OVERALL)
+  - rf_amount_lakhs   <- rfReceived / 1e5 (DISTRICT_FDM_REVOLVINGFUND; rupees)
+  - rf_shgs_provided  <- shgReceivingRf   (DISTRICT_FDM_REVOLVINGFUND)
+  - shgs_new / shgs_revived / shgs_pre_nrlm / members_total exist ONLY on the
+    dead nrlm.gov.in report — LokOS does not publish the formation breakdown.
+    They are carried forward from the previous curated snapshot (frozen at
+    their 2026-03-21 scrape) so a refresh cannot silently zero real data.
+    DATA_CLAIMS.md records the column-level vintage split.
+
+Granularity guard: save_curated() refuses to replace the curated file with a
+snapshot covering fewer distinct (state, district) pairs — a coarser or
+partial feed must never overwrite a finer one (learnings.md 2026-08-04).
 
 Data is cumulative (no fin_year breakdown on the portal).
 
-Output: data/curated/nrlm_district_all_latest.json
+Output: data/curated/nrlm_district_all_latest.json (+ timestamped snapshot)
 
 Usage:
-    python scrape_nrlm.py                         # All states
-    python scrape_nrlm.py --states "BIHAR"        # Single state
-    python scrape_nrlm.py --states "BIHAR,TAMIL NADU"
-    python scrape_nrlm.py --skip-rf               # SHG data only, no RF drill-down
+    python -m scrapers.scrape_nrlm                    # All states
+    python -m scrapers.scrape_nrlm --states "BIHAR"   # Single state
+    python -m scrapers.scrape_nrlm --skip-rf          # SHG counts only
 """
 
 from __future__ import annotations
 
 import argparse
-import asyncio
 import json
 import sys
-from dataclasses import dataclass
+import time
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+
+import requests
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
 RAW_DIR = DATA_DIR / "raw"
 CURATED_DIR = DATA_DIR / "curated"
 
-SHG_REPORT_URL = "https://nrlm.gov.in/shgOuterReports.do?methodName=showShgreport"
-RF_REPORT_URL = "https://nrlm.gov.in/RevolvingFundDisbursementAction.do?methodName=showView"
+try:
+    from scrapers.io_utils import atomic_write_json
+except ImportError:  # direct script invocation from scrapers/
+    from io_utils import atomic_write_json
 
+FDM_BASE = "https://cdn.lokos.in/lokos-in/fdm/prod/"
 CURATED_FILENAME = "nrlm_district_all_latest.json"
 
-# Wait times in ms
-WAIT_AFTER_CLICK = 3000
-WAIT_AFTER_NAVIGATE = 5000
-PAGE_TIMEOUT = 30000
+# chunk-UA3272OP.js: {stateLgdCode: (lokosCode, stateName)}. lokosCode is the
+# 2-letter CDN path segment. Delhi and Chandigarh do not participate in
+# DAY-NRLM (rural programme) and have no LokOS feed.
+STATE_CODES: dict[int, tuple[str, str]] = {
+    35: ("AN", "ANDAMAN AND NICOBAR"),
+    28: ("AP", "ANDHRA PRADESH"),
+    12: ("AR", "ARUNACHAL PRADESH"),
+    18: ("AS", "ASSAM"),
+    10: ("BH", "BIHAR"),
+    22: ("CG", "CHHATTISGARH"),
+    38: ("DN", "DD & DNH"),
+    30: ("GO", "GOA"),
+    24: ("GJ", "GUJARAT"),
+    6: ("HA", "HARYANA"),
+    2: ("HP", "HIMACHAL PRADESH"),
+    1: ("JK", "JAMMU AND KASHMIR"),
+    20: ("JH", "JHARKHAND"),
+    29: ("KN", "KARNATAKA"),
+    32: ("KR", "KERALA"),
+    37: ("LD", "LAKSHADWEEP"),
+    31: ("LA", "LADAKH"),
+    23: ("MP", "MADHYA PRADESH"),
+    27: ("MH", "MAHARASHTRA"),
+    14: ("MN", "MANIPUR"),
+    17: ("MG", "MEGHALAYA"),
+    15: ("MZ", "MIZORAM"),
+    13: ("NG", "NAGALAND"),
+    21: ("OR", "ODISHA"),
+    34: ("PO", "PUDUCHERRY"),
+    3: ("PJ", "PUNJAB"),
+    8: ("RJ", "RAJASTHAN"),
+    11: ("SK", "SIKKIM"),
+    33: ("TN", "TAMIL NADU"),
+    36: ("TS", "TELANGANA"),
+    16: ("TR", "TRIPURA"),
+    5: ("UK", "UTTARAKHAND"),
+    9: ("UP", "UTTAR PRADESH"),
+    19: ("WB", "WEST BENGAL"),
+}
+
+UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/126.0 Safari/537.36"
+TIMEOUT = 30
+MAX_ATTEMPTS = 3
 
 
 def utc_iso() -> str:
     return datetime.now(UTC).isoformat()
-
-
-def state_slug(name: str) -> str:
-    return name.lower().replace(" ", "-").replace("&", "and").replace("/", "-")
 
 
 def ensure_dirs() -> None:
@@ -62,442 +118,184 @@ def ensure_dirs() -> None:
         d.mkdir(parents=True, exist_ok=True)
 
 
-def _parse_int(text: str) -> int:
-    """Parse a number string, handling commas and empty/dash values."""
-    cleaned = str(text).strip().replace(",", "").replace(" ", "")
-    if not cleaned or cleaned in ("-", "N/A", "NA", "0"):
-        return 0
-    try:
-        return int(float(cleaned))
-    except ValueError:
-        return 0
+def _get_json(session: requests.Session, url: str) -> Any:
+    last_exc: Exception | None = None
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            resp = session.get(url, timeout=TIMEOUT)
+            resp.raise_for_status()
+            return resp.json()
+        except (requests.RequestException, ValueError) as exc:
+            last_exc = exc
+            if attempt < MAX_ATTEMPTS:
+                time.sleep(2 * attempt)
+    raise RuntimeError(f"GET {url} failed after {MAX_ATTEMPTS} attempts: {last_exc}")
 
 
-def _parse_float(text: str) -> float:
-    """Parse a float string, handling commas and empty/dash values."""
-    cleaned = str(text).strip().replace(",", "").replace(" ", "")
-    if not cleaned or cleaned in ("-", "N/A", "NA"):
-        return 0.0
-    try:
-        return float(cleaned)
-    except ValueError:
-        return 0.0
+def _carry_forward_map() -> dict[tuple[str, str], dict[str, int]]:
+    """Formation-breakdown columns from the previous curated snapshot.
 
-
-@dataclass
-class StateEntry:
-    state_id: str
-    state_name: str
-
-
-@dataclass
-class ShgRecord:
-    district: str
-    state: str
-    state_code: str
-    shgs_new: int
-    shgs_revived: int
-    shgs_pre_nrlm: int
-    shgs_total: int
-    members_total: int
-    source_url: str
-    scraped_at: str
-    fin_year: str = "cumulative"
-    rf_shgs_provided: int = 0
-    rf_amount_lakhs: float = 0.0
-
-
-def to_dict(r: ShgRecord) -> dict[str, Any]:
-    return {
-        "district": r.district,
-        "state": r.state,
-        "state_code": r.state_code,
-        "fin_year": r.fin_year,
-        "shgs_total": r.shgs_total,
-        "shgs_new": r.shgs_new,
-        "shgs_revived": r.shgs_revived,
-        "shgs_pre_nrlm": r.shgs_pre_nrlm,
-        "members_total": r.members_total,
-        "rf_shgs_provided": r.rf_shgs_provided,
-        "rf_amount_lakhs": r.rf_amount_lakhs,
-        "source_url": r.source_url,
-        "scraped_at": r.scraped_at,
-    }
-
-
-async def _get_state_list(page: Any) -> list[StateEntry]:
-    """Parse the state-level G1 table to extract state IDs and names."""
-    rows = await page.query_selector_all("table tr")
-    states: list[StateEntry] = []
-
-    for row in rows:
-        cells = await row.query_selector_all("td")
-        if len(cells) < 2:
-            continue
-
-        # Look for cells containing javascript:districtList calls
-        onclick_el = await row.query_selector("td a[href*='districtList']")
-        if not onclick_el:
-            # Also check for onclick in the row itself or any td
-            onclick_el = await row.query_selector("[onclick*='districtList']")
-
-        if not onclick_el:
-            continue
-
-        href = await onclick_el.get_attribute("href") or ""
-        onclick = await onclick_el.get_attribute("onclick") or ""
-        js_src = href if "districtList" in href else onclick
-
-        # Extract: javascript:districtList('05','BIHAR')
-        # or onclick="districtList('05','BIHAR')"
-        import re
-
-        match = re.search(r"districtList\s*\(\s*'([^']+)'\s*,\s*'([^']+)'\s*\)", js_src)
-        if not match:
-            continue
-
-        state_id = match.group(1).strip()
-        state_name = match.group(2).strip().upper()
-        if state_id and state_name:
-            states.append(StateEntry(state_id=state_id, state_name=state_name))
-
-    return states
-
-
-async def _parse_district_table(
-    page: Any,
-    state: StateEntry,
-    source_url: str,
-    scraped_at: str,
-) -> list[ShgRecord]:
-    """Parse district rows from the currently-rendered G1 table."""
-    # DataTable defaults to 10 rows — show all by setting length to 100
-    await page.evaluate(
-        """() => {
-            var sel = document.querySelector('select[name="example_length"]');
-            if (sel) { sel.value = '100'; sel.dispatchEvent(new Event('change')); }
-            if (typeof jQuery !== 'undefined' && jQuery.fn.DataTable) {
-                try { jQuery('#example').DataTable().page.len(100).draw(); } catch(e) {}
-            }
-        }""",
-    )
-    await page.wait_for_timeout(1000)
-
-    records: list[ShgRecord] = []
-    rows = await page.query_selector_all("table#example tr, table tr")
-
-    for row in rows:
-        cells = await row.query_selector_all("td")
-        if len(cells) < 7:
-            continue
-
-        texts = [(await c.inner_text()).strip() for c in cells]
-
-        # Skip header, total, and grand-total rows
-        first = texts[0].lower()
-        if not first or first in ("sl.no", "s.no", "sno", "#"):
-            continue
-
-        # Row format varies but typically:
-        # [serial, district, new_shgs, revived_shgs, pre_nrlm_shgs, total_shgs, members]
-        # Some tables have an extra column; detect by checking if col 0 is a number
-        if not texts[0].replace(".", "").isdigit():
-            continue
-
-        district_name = texts[1].strip().upper()
-        if not district_name or district_name.lower() in (
-            "total",
-            "grand total",
-            "state total",
-        ):
-            continue
-
-        # Flexible column mapping: find total_shgs as the largest plausible column
-        # Typical ordering: serial | district | new | revived | pre_nrlm | total | members
-        if len(texts) >= 7:
-            shgs_new = _parse_int(texts[2])
-            shgs_revived = _parse_int(texts[3])
-            shgs_pre_nrlm = _parse_int(texts[4])
-            shgs_total = _parse_int(texts[5])
-            members_total = _parse_int(texts[6])
-        elif len(texts) >= 6:
-            # Condensed table without pre-NRLM breakdown
-            shgs_new = _parse_int(texts[2])
-            shgs_revived = _parse_int(texts[3])
-            shgs_pre_nrlm = 0
-            shgs_total = _parse_int(texts[4])
-            members_total = _parse_int(texts[5])
-        else:
-            continue
-
-        records.append(
-            ShgRecord(
-                district=district_name,
-                state=state.state_name,
-                state_code=state.state_id,
-                shgs_new=shgs_new,
-                shgs_revived=shgs_revived,
-                shgs_pre_nrlm=shgs_pre_nrlm,
-                shgs_total=shgs_total,
-                members_total=members_total,
-                source_url=source_url,
-                scraped_at=scraped_at,
-            )
-        )
-
-    return records
-
-
-async def _parse_rf_district_table(
-    page: Any,
-    state: StateEntry,
-) -> dict[str, tuple[int, float]]:
+    Keyed by canonical (state, district) so LokOS spelling variants still
+    inherit their district's frozen 2026-03 formation data. Normalizer import
+    failure is a hard error — a silent {} here would zero the breakdown for
+    every district, exactly the silent-degradation this map exists to prevent.
     """
-    Parse RF disbursement district table.
+    if str(ROOT_DIR) not in sys.path:
+        sys.path.insert(0, str(ROOT_DIR))
+    from db.normalize_districts import normalize_district
+    from db.normalize_states import normalize_state
 
-    Returns a mapping of district_name -> (rf_shgs_provided, rf_amount_lakhs).
-    """
-    result: dict[str, tuple[int, float]] = {}
-    # Expand DataTable pagination
-    await page.evaluate(
-        """() => {
-            var sel = document.querySelector('select[name="example_length"]');
-            if (sel) { sel.value = '100'; sel.dispatchEvent(new Event('change')); }
-            if (typeof jQuery !== 'undefined' && jQuery.fn.DataTable) {
-                try { jQuery('#example').DataTable().page.len(100).draw(); } catch(e) {}
-            }
-        }""",
-    )
-    await page.wait_for_timeout(1000)
-    rows = await page.query_selector_all("table tr")
-
-    for row in rows:
-        cells = await row.query_selector_all("td")
-        if len(cells) < 4:
-            continue
-
-        texts = [(await c.inner_text()).strip() for c in cells]
-
-        first = texts[0].lower()
-        if not first or not texts[0].replace(".", "").isdigit():
-            continue
-
-        district_name = texts[1].strip().upper()
-        if not district_name or district_name.lower() in (
-            "total",
-            "grand total",
-            "state total",
-        ):
-            continue
-
-        # RF table format: serial | district | no_of_shgs | amount (lakh)
-        # Some tables may have multiple fund-source columns — sum them
-        if len(texts) >= 4:
-            rf_shgs = _parse_int(texts[2])
-            rf_amount = _parse_float(texts[-1])  # Last column is typically total
-        else:
-            continue
-
-        result[district_name] = (rf_shgs, rf_amount)
-
-    return result
-
-
-async def scrape_shg_state(
-    page: Any,
-    state: StateEntry,
-    scraped_at: str,
-) -> list[ShgRecord]:
-    """Trigger district drill-down for one state and parse its table."""
-    try:
-        await page.evaluate(
-            "(args) => { districtList(args[0], args[1]); }",
-            [state.state_id, state.state_name],
-        )
-        await page.wait_for_timeout(WAIT_AFTER_CLICK)
-    except Exception as exc:
-        print(f"    JS evaluation failed for {state.state_name}: {exc}")
-        return []
-
-    records = await _parse_district_table(
-        page,
-        state,
-        source_url=SHG_REPORT_URL,
-        scraped_at=scraped_at,
-    )
-    return records
-
-
-async def scrape_rf_state(
-    page: Any,
-    state: StateEntry,
-) -> dict[str, tuple[int, float]]:
-    """Trigger RF district drill-down for one state and parse the table."""
-    try:
-        await page.evaluate(
-            "(args) => { getDetail(args[0], args[1]); }",
-            [state.state_id, state.state_name],
-        )
-        await page.wait_for_timeout(WAIT_AFTER_CLICK)
-    except Exception as exc:
-        print(f"    RF JS failed for {state.state_name}: {exc}")
+    path = CURATED_DIR / CURATED_FILENAME
+    if not path.exists():
         return {}
 
-    return await _parse_rf_district_table(page, state)
+    carried: dict[tuple[str, str], dict[str, int]] = {}
+    for r in json.loads(path.read_text(encoding="utf-8")):
+        state = normalize_state(str(r.get("state", "")).upper())
+        district = normalize_district(str(r.get("district", "")).upper(), state)
+        carried[(state, district)] = {
+            "shgs_new": int(r.get("shgs_new") or 0),
+            "shgs_revived": int(r.get("shgs_revived") or 0),
+            "shgs_pre_nrlm": int(r.get("shgs_pre_nrlm") or 0),
+            "members_total": int(r.get("members_total") or 0),
+        }
+    return carried
 
 
-async def _merge_rf_data(
-    records: list[ShgRecord],
-    rf_map: dict[str, tuple[int, float]],
-) -> list[ShgRecord]:
-    """Return new list of ShgRecords with RF fields filled from rf_map."""
-    merged: list[ShgRecord] = []
-    for r in records:
-        rf_shgs, rf_amount = rf_map.get(r.district, (0, 0.0))
-        merged.append(
-            ShgRecord(
-                district=r.district,
-                state=r.state,
-                state_code=r.state_code,
-                fin_year=r.fin_year,
-                shgs_new=r.shgs_new,
-                shgs_revived=r.shgs_revived,
-                shgs_pre_nrlm=r.shgs_pre_nrlm,
-                shgs_total=r.shgs_total,
-                members_total=r.members_total,
-                rf_shgs_provided=rf_shgs,
-                rf_amount_lakhs=rf_amount,
-                source_url=r.source_url,
-                scraped_at=r.scraped_at,
-            )
+def scrape_state(
+    session: requests.Session,
+    lokos_code: str,
+    include_rf: bool,
+    scraped_at: str,
+    carried: dict[tuple[str, str], dict[str, int]],
+) -> list[dict[str, Any]]:
+    """Fetch one state's district rows and merge OVERALL + REVOLVINGFUND."""
+    if str(ROOT_DIR) not in sys.path:
+        sys.path.insert(0, str(ROOT_DIR))
+    from db.normalize_districts import normalize_district
+    from db.normalize_states import normalize_state
+
+    overall_url = f"{FDM_BASE}{lokos_code}/DISTRICT_FDM_OVERALL.json"
+    rf_url = f"{FDM_BASE}{lokos_code}/DISTRICT_FDM_REVOLVINGFUND.json"
+
+    overall = _get_json(session, overall_url)
+
+    rf_by_district: dict[int, dict[str, Any]] = {}
+    if include_rf:
+        for row in _get_json(session, rf_url):
+            rf_by_district[int(row["districtId"])] = row
+
+    records: list[dict[str, Any]] = []
+    for row in overall:
+        district_id = int(row["districtId"])
+        rf = rf_by_district.get(district_id, {})
+        state_name = str(row["stateName"]).upper().strip()
+        district_name = str(row["districtName"]).upper().strip()
+        canon_key = (
+            normalize_state(state_name),
+            normalize_district(district_name, normalize_state(state_name)),
         )
-    return merged
+        frozen = carried.get(canon_key, {})
+        records.append(
+            {
+                "district": district_name,
+                "state": state_name,
+                "state_code": lokos_code,
+                "state_lgd_code": int(row.get("stateLgdCode") or 0),
+                "district_lgd_code": int(row.get("districtLgdCode") or 0),
+                "fin_year": "cumulative",
+                "shgs_total": int(row.get("totalShgs") or 0),
+                # Frozen at 2026-03-21 (source dead) — see module docstring.
+                "shgs_new": frozen.get("shgs_new", 0),
+                "shgs_revived": frozen.get("shgs_revived", 0),
+                "shgs_pre_nrlm": frozen.get("shgs_pre_nrlm", 0),
+                "members_total": frozen.get("members_total", 0),
+                "rf_shgs_provided": int(rf.get("shgReceivingRf") or 0),
+                "rf_amount_lakhs": round(float(rf.get("rfReceived") or 0.0) / 1e5, 2),
+                "source_url": overall_url,
+                "rf_source_url": rf_url if include_rf else None,
+                "scraped_at": scraped_at,
+            }
+        )
+    return records
 
 
-async def scrape_all_states(
+def scrape_all_states(
     states_filter: list[str] | None = None,
     include_rf: bool = True,
-    delay_sec: int = 2,
+    delay_sec: float = 1.0,
 ) -> list[dict[str, Any]]:
-    """
-    Scrape SHG and optional RF data for all (or filtered) states.
-
-    Returns list of record dicts ready for JSON serialisation.
-    """
-    from playwright.async_api import async_playwright
-
+    """Scrape district rows for all (or filtered) states. Plain requests."""
     ensure_dirs()
     scraped_at = utc_iso()
-    all_records: list[ShgRecord] = []
+    session = requests.Session()
+    session.headers.update({"User-Agent": UA, "Accept": "application/json"})
 
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
+    carried = _carry_forward_map()
+    upper_filter = {s.upper() for s in states_filter} if states_filter else None
 
-        # ── Step 1: SHG formation data ────────────────────────────────────
-        print("  Loading SHG G1 report page...")
-        page = await browser.new_page(ignore_https_errors=True)
+    all_records: list[dict[str, Any]] = []
+    failed: list[str] = []
+    for lokos_code, state_name in sorted(STATE_CODES.values(), key=lambda t: t[1]):
+        if upper_filter and state_name not in upper_filter:
+            continue
         try:
-            await page.goto(SHG_REPORT_URL, timeout=PAGE_TIMEOUT)
-            await page.wait_for_load_state("networkidle", timeout=PAGE_TIMEOUT)
-            await page.wait_for_timeout(WAIT_AFTER_NAVIGATE)
-        except Exception as exc:
-            print(f"  Failed to load G1 page: {exc}")
-            await browser.close()
-            return []
+            records = scrape_state(session, lokos_code, include_rf, scraped_at, carried)
+        except RuntimeError as exc:
+            print(f"    {state_name}: FAILED — {exc}")
+            failed.append(state_name)
+            continue
+        print(f"    {state_name}: {len(records)} districts")
+        all_records.extend(records)
+        time.sleep(delay_sec)
 
-        states = await _get_state_list(page)
-        print(f"  Found {len(states)} states on G1 report")
+    if failed:
+        print(f"  WARNING: {len(failed)} state(s) failed: {', '.join(failed)}")
+    return all_records
 
-        if not states:
-            print("  No states found — page structure may have changed")
-            # Save raw HTML for debugging
-            raw_html = await page.content()
-            debug_path = RAW_DIR / "nrlm_g1_debug.html"
-            debug_path.write_text(raw_html, encoding="utf-8")
-            print(f"  Saved raw HTML to {debug_path}")
-            await browser.close()
-            return []
 
-        if states_filter:
-            upper_filter = {s.upper() for s in states_filter}
-            states = [s for s in states if s.state_name.upper() in upper_filter]
-            print(f"  Filtered to {len(states)} states")
-
-        for state in states:
-            print(f"    Scraping SHG data: {state.state_name} (id={state.state_id})...")
-            records = await scrape_shg_state(page, state, scraped_at)
-            print(f"      {len(records)} districts parsed")
-            all_records.extend(records)
-
-            if delay_sec > 0 and state is not states[-1]:
-                await asyncio.sleep(delay_sec)
-
-        await page.close()
-
-        # ── Step 2: RF disbursement data (optional) ───────────────────────
-        if include_rf and all_records:
-            print("\n  Loading RF F1a report page...")
-            rf_page = await browser.new_page(ignore_https_errors=True)
-            try:
-                await rf_page.goto(RF_REPORT_URL, timeout=PAGE_TIMEOUT)
-                await rf_page.wait_for_load_state("networkidle", timeout=PAGE_TIMEOUT)
-                await rf_page.wait_for_timeout(WAIT_AFTER_NAVIGATE)
-            except Exception as exc:
-                print(f"  Failed to load RF page: {exc}")
-                await rf_page.close()
-                await browser.close()
-                return [to_dict(r) for r in all_records]
-
-            # Build state lookup by name for RF merging
-            states_for_rf = {r.state: StateEntry(state_id=r.state_code, state_name=r.state) for r in all_records}
-            records_by_state: dict[str, list[ShgRecord]] = {}
-            for r in all_records:
-                records_by_state.setdefault(r.state, []).append(r)
-
-            merged_all: list[ShgRecord] = []
-            for state_name, state_records in records_by_state.items():
-                se = states_for_rf[state_name]
-                print(f"    Scraping RF data: {state_name}...")
-                rf_map = await scrape_rf_state(rf_page, se)
-                merged = await _merge_rf_data(state_records, rf_map)
-                merged_all.extend(merged)
-                if delay_sec > 0:
-                    await asyncio.sleep(delay_sec)
-
-            all_records = merged_all
-            await rf_page.close()
-
-        await browser.close()
-
-    return [to_dict(r) for r in all_records]
+def _distinct_pairs(records: list[dict[str, Any]]) -> set[tuple[str, str]]:
+    return {(str(r.get("state", "")), str(r.get("district", ""))) for r in records}
 
 
 def save_curated(records: list[dict[str, Any]]) -> Path:
-    """Save all records to a single national JSON file."""
+    """Atomically save records — refusing any granularity regression."""
     path = CURATED_DIR / CURATED_FILENAME
-    path.write_text(
-        json.dumps(records, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
+
+    new_pairs = _distinct_pairs(records)
+    if any(d == "ALL" for _, d in new_pairs):
+        raise ValueError(
+            "Refusing to save: batch contains district='ALL' (state-level) rows; "
+            "state-level data must never enter the district table"
+        )
+    if path.exists():
+        old_pairs = _distinct_pairs(json.loads(path.read_text(encoding="utf-8")))
+        if len(new_pairs) < len(old_pairs):
+            raise ValueError(
+                f"Refusing to save: new snapshot has {len(new_pairs)} distinct "
+                f"(state, district) pairs, existing has {len(old_pairs)} — "
+                "a refresh must never reduce granularity or coverage"
+            )
+
+    run_id = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
+    atomic_write_json(CURATED_DIR / f"nrlm_district_all_{run_id}.json", records)
+    atomic_write_json(path, records)
     return path
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Scrape DAY-NRLM SHG formation and RF data")
-    parser.add_argument(
-        "--states",
-        help="Comma-separated state names (default: all states)",
-    )
+    parser = argparse.ArgumentParser(description="Scrape DAY-NRLM SHG + RF data from the LokOS CDN")
+    parser.add_argument("--states", help="Comma-separated state names (default: all states)")
     parser.add_argument(
         "--skip-rf",
         action="store_true",
-        help="Skip revolving fund (F1a) drill-down — SHG data only",
+        help="Skip the REVOLVINGFUND feed — SHG counts only",
     )
     parser.add_argument(
         "--delay-sec",
-        type=int,
-        default=2,
-        help="Delay in seconds between state requests (default: 2)",
+        type=float,
+        default=1.0,
+        help="Delay in seconds between states (default: 1.0)",
     )
     args = parser.parse_args()
 
@@ -505,24 +303,21 @@ def main() -> int:
     include_rf = not args.skip_rf
 
     label = f"{len(states_filter)} states" if states_filter else "all states"
-    print(f"DAY-NRLM Scraper — {label}, RF={'yes' if include_rf else 'no'}")
+    print(f"DAY-NRLM Scraper (LokOS CDN) — {label}, RF={'yes' if include_rf else 'no'}")
 
-    records = asyncio.run(
-        scrape_all_states(
-            states_filter=states_filter,
-            include_rf=include_rf,
-            delay_sec=args.delay_sec,
-        )
+    records = scrape_all_states(
+        states_filter=states_filter,
+        include_rf=include_rf,
+        delay_sec=args.delay_sec,
     )
 
     if not records:
-        print("No records scraped — check portal connectivity or page structure.")
+        print("No records scraped — check CDN connectivity.")
         return 1
 
     path = save_curated(records)
     print(f"\nSaved {len(records)} district records → {path.name}")
 
-    # Summary by state
     by_state: dict[str, int] = {}
     for r in records:
         by_state[r["state"]] = by_state.get(r["state"], 0) + 1

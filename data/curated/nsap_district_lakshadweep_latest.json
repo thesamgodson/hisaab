@@ -4,13 +4,26 @@
     "state": "LAKSHADWEEP",
     "state_code": "31",
     "fin_year": "2024-2025",
+    "scheme_type": "IGNDPS",
+    "beneficiaries_eligible": 0,
+    "beneficiaries_paid": 61,
+    "amount_paid_lakhs": 0,
+    "pension_per_month": 0,
+    "source_url": "api.data.gov.in/resource/nsap",
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
+  },
+  {
+    "district": "LAKSHADWEEP DISTRICT",
+    "state": "LAKSHADWEEP",
+    "state_code": "31",
+    "fin_year": "2024-2025",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
     "beneficiaries_paid": 120,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
   },
   {
     "district": "LAKSHADWEEP DISTRICT",
@@ -23,19 +36,6 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
-  },
-  {
-    "district": "LAKSHADWEEP DISTRICT",
-    "state": "LAKSHADWEEP",
-    "state_code": "31",
-    "fin_year": "2024-2025",
-    "scheme_type": "IGNDPS",
-    "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 61,
-    "amount_paid_lakhs": 0,
-    "pension_per_month": 0,
-    "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
   }
 ]

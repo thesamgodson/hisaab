@@ -4,39 +4,26 @@
     "state": "LADAKH",
     "state_code": "37",
     "fin_year": "2024-2025",
-    "scheme_type": "IGNOAPS",
+    "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 4056,
+    "beneficiaries_paid": 86,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
   },
   {
-    "district": "LEH LADAKH",
+    "district": "KARGIL",
     "state": "LADAKH",
     "state_code": "37",
     "fin_year": "2024-2025",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 2094,
+    "beneficiaries_paid": 4392,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
-  },
-  {
-    "district": "LEH LADAKH",
-    "state": "LADAKH",
-    "state_code": "37",
-    "fin_year": "2024-2025",
-    "scheme_type": "IGNWPS",
-    "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 193,
-    "amount_paid_lakhs": 0,
-    "pension_per_month": 0,
-    "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
   },
   {
     "district": "KARGIL",
@@ -45,24 +32,11 @@
     "fin_year": "2024-2025",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 244,
+    "beneficiaries_paid": 251,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
-  },
-  {
-    "district": "KARGIL",
-    "state": "LADAKH",
-    "state_code": "37",
-    "fin_year": "2024-2025",
-    "scheme_type": "IGNDPS",
-    "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 102,
-    "amount_paid_lakhs": 0,
-    "pension_per_month": 0,
-    "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
   },
   {
     "district": "LEH LADAKH",
@@ -71,10 +45,36 @@
     "fin_year": "2024-2025",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 122,
+    "beneficiaries_paid": 123,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-03-06T06:07:11.224390+00:00"
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
+  },
+  {
+    "district": "LEH LADAKH",
+    "state": "LADAKH",
+    "state_code": "37",
+    "fin_year": "2024-2025",
+    "scheme_type": "IGNOAPS",
+    "beneficiaries_eligible": 0,
+    "beneficiaries_paid": 2052,
+    "amount_paid_lakhs": 0,
+    "pension_per_month": 0,
+    "source_url": "api.data.gov.in/resource/nsap",
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
+  },
+  {
+    "district": "LEH LADAKH",
+    "state": "LADAKH",
+    "state_code": "37",
+    "fin_year": "2024-2025",
+    "scheme_type": "IGNWPS",
+    "beneficiaries_eligible": 0,
+    "beneficiaries_paid": 192,
+    "amount_paid_lakhs": 0,
+    "pension_per_month": 0,
+    "source_url": "api.data.gov.in/resource/nsap",
+    "scraped_at": "2026-08-04T13:31:08.539096+00:00"
   }
 ]
