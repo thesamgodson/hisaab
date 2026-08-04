@@ -27,6 +27,7 @@ import argparse
 import os
 import sqlite3
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -133,27 +134,43 @@ def main() -> int:
         url=url.replace("libsql://", "https://"), auth_token=token
     )
 
+    def _with_retry(fn, what: str, attempts: int = 4):
+        """Turso over HTTP throws transient errors under bursty writes —
+        retry with backoff before giving up."""
+        for attempt in range(1, attempts + 1):
+            try:
+                return fn()
+            except Exception as exc:
+                if "already exists" in str(exc):
+                    return None
+                if attempt == attempts:
+                    raise
+                wait = 2.0 * attempt
+                print(f"  retry {attempt}/{attempts - 1} for {what} in {wait:.0f}s ({type(exc).__name__})")
+                time.sleep(wait)
+
     try:
         for name, create_sql in tables:
             stmts = _table_statements(local, name, create_sql)
             # One transactional batch per table when small enough; otherwise
             # chunked batches (first batch carries DROP+CREATE).
             for i in range(0, len(stmts), BATCH_STATEMENTS):
-                client.batch(stmts[i : i + BATCH_STATEMENTS])
+                chunk = stmts[i : i + BATCH_STATEMENTS]
+                _with_retry(lambda c=chunk: client.batch(c), f"{name} batch {i // BATCH_STATEMENTS}")
             print(f"  pushed {name}")
 
-        # Indexes and views (idempotent by nature of CREATE ... IF NOT EXISTS
-        # not being guaranteed here — drop views first, ignore index dupes)
+        # Indexes and views — drop views first; duplicate indexes are fine
         for sql in extras:
-            try:
-                if sql.upper().startswith("CREATE VIEW"):
-                    view_name = sql.split()[2]
-                    client.batch([f"DROP VIEW IF EXISTS {view_name}", sql])
-                else:
-                    client.execute(sql)
-            except libsql_client.LibsqlError as exc:
-                if "already exists" not in str(exc):
-                    raise
+            if sql.upper().startswith("CREATE VIEW"):
+                view_name = sql.split()[2]
+                _with_retry(
+                    lambda s=sql, v=view_name: client.batch(
+                        [f"DROP VIEW IF EXISTS {v}", s]
+                    ),
+                    f"view {view_name}",
+                )
+            else:
+                _with_retry(lambda s=sql: client.execute(s), "index")
         print(f"  pushed {len(extras)} indexes/views")
 
         # Verify
