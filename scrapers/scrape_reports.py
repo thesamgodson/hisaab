@@ -31,7 +31,8 @@ from typing import Any
 
 from bs4 import BeautifulSoup
 
-MIS_URL = "https://nreganarep.nic.in/netnrega/MISreport4.aspx"
+# nreganarep.nic.in died when MGNREGA moved to *.dord.gov.in (Aug 2026)
+MIS_URL = "https://mnregaweb4.dord.gov.in/netnrega/MISreport4.aspx"
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
@@ -154,7 +155,7 @@ def open_mis_session(page: Any, fin_year: str, state_name: str) -> dict[str, str
     report_urls: dict[str, str] = {}
 
     for name, pattern in REPORT_PATTERNS.items():
-        for m in re.finditer(rf'href="(https://mnregaweb4\.nic\.in[^"]*{pattern}[^"]*)"', content):
+        for m in re.finditer(rf'href="(https://mnregaweb4\.(?:nic\.in|dord\.gov\.in)[^"]*{pattern}[^"]*)"', content):
             url = htmllib.unescape(m.group(1))
             if name not in report_urls:
                 report_urls[name] = url
