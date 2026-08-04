@@ -86,5 +86,25 @@ def normalize_civic_tables(conn: sqlite3.Connection) -> dict[str, int]:
         if n:
             changed[table] = n
 
+    # district_lineage keys by (new_district, state) and references a parent
+    # district — both sides must speak canonical names.
+    rows = conn.execute(
+        "SELECT rowid, state, new_district, parent_district FROM district_lineage"
+    ).fetchall()
+    n = 0
+    for rowid, state, new_d, parent_d in rows:
+        st = normalize_state(state)
+        nd = normalize_district(new_d, st)
+        pd = normalize_district(parent_d, st)
+        if st != state or nd != new_d or pd != parent_d:
+            conn.execute(
+                "UPDATE OR REPLACE district_lineage"
+                " SET state = ?, new_district = ?, parent_district = ? WHERE rowid = ?",
+                (st, nd, pd, rowid),
+            )
+            n += 1
+    if n:
+        changed["district_lineage"] = n
+
     conn.commit()
     return changed
