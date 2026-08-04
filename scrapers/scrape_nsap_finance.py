@@ -225,11 +225,7 @@ def deduplicate(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for r in records:
         key = (r["state"], r["fin_year"])
         existing = best.get(key)
-        if existing is None:
-            best[key] = r
-        elif r.get("beneficiaries", 0) > existing.get("beneficiaries", 0):
-            best[key] = r
-        elif (
+        if existing is None or r.get("beneficiaries", 0) > existing.get("beneficiaries", 0) or (
             r.get("released_lakhs", 0) > existing.get("released_lakhs", 0)
             and existing.get("beneficiaries", 0) == 0
         ):

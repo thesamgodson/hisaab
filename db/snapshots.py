@@ -14,8 +14,7 @@ from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
-from db.connection import DB_PATH, get_connection
-
+from db.connection import get_connection
 
 # ---------------------------------------------------------------------------
 # Metric extraction specs

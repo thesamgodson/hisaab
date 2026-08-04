@@ -27,7 +27,7 @@ import requests
 
 from constituency.fuzzy_match import build_canonical_districts, match_district, normalize_district
 from constituency.mapper import load_ac_data, load_constituency_data, load_mla_data, load_mp_data, load_pin_data
-from db import init_db, get_connection
+from db import get_connection, init_db
 from db.normalize_states import normalize_state
 
 # ---------------------------------------------------------------------------

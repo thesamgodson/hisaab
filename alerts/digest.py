@@ -10,8 +10,6 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
-
 
 # ---------------------------------------------------------------------------
 # Dataclasses
@@ -118,8 +116,8 @@ def generate_weekly_digest(
     Returns:
         A populated WeeklyDigest instance.
     """
-    from queries.trends import trending_worse, trending_better
     from queries.composite import compute_district_scores
+    from queries.trends import trending_better, trending_worse
 
     # --- Degrading districts ---
     worse_result = trending_worse(n=top_degrading_n, weeks=weeks, db_path=db_path)

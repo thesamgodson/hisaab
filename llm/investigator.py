@@ -19,11 +19,10 @@ from __future__ import annotations
 import re
 import sqlite3
 import textwrap
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any
 
 from db.connection import get_connection
-from db.schema import SCHEMA
 from llm.providers import Provider, generate
 
 # Maximum rows returned to the LLM for narrative generation.

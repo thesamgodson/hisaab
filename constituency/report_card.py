@@ -11,14 +11,12 @@ Image formats:
 
 from __future__ import annotations
 
-import sqlite3
 import textwrap
 from dataclasses import dataclass, field
 from typing import Any
 
-from db.connection import DB_PATH, get_connection
 from constituency.mapper import get_districts_for_constituency, get_mp_info
-from queries.composite import get_district_score
+from db.connection import DB_PATH, get_connection
 
 # ---------------------------------------------------------------------------
 # Constants

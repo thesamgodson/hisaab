@@ -222,7 +222,7 @@ def _parse_rows(
       6:CentralRelease 7:StateRelease 8:TotalRelease 9:TotalAvailable
       10:Utilization 11:%Utilized
     """
-    source_url = f"report.pmayg.dord.gov.in B.3 HighLevel FinancialProgress"
+    source_url = "report.pmayg.dord.gov.in B.3 HighLevel FinancialProgress"
     records: list[dict[str, Any]] = []
 
     for row in rows:

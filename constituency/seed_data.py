@@ -21,7 +21,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from constituency.mapper import load_constituency_data, load_mp_data, load_pin_data
-from db import init_db, get_connection
+from db import get_connection, init_db
 from db.connection import DB_PATH
 
 # ---------------------------------------------------------------------------

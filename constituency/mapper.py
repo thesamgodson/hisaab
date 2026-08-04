@@ -26,7 +26,6 @@ from typing import Any
 
 from db.connection import DB_PATH, get_connection
 
-
 # ---------------------------------------------------------------------------
 # Internal helpers
 # ---------------------------------------------------------------------------

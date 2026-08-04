@@ -180,11 +180,11 @@ def _parse_rows(
         if len(cells) < 4:
             continue
 
-        def _get(key: str, default: str = "") -> str:
+        def _get(key: str, default: str = "", _cells: list = cells) -> str:
             idx = col.get(key)
-            if idx is None or idx >= len(cells):
+            if idx is None or idx >= len(_cells):
                 return default
-            return (cells[idx] or "").strip()
+            return (_cells[idx] or "").strip()
 
         candidate = _get("candidate")
         constituency_raw = _get("constituency").upper()

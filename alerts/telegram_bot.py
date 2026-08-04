@@ -102,7 +102,6 @@ def _get_active_subscribers(db_path: Path | None = None) -> list[dict[str, Any]]
 def _format_district_snapshot(district: str) -> str:
     """Return a short accountability snapshot for a district."""
     try:
-        from queries.composite import get_district_score
         # Attempt to find the state by scanning composite scores
         from queries.composite import compute_district_scores
         all_scores = compute_district_scores()
@@ -175,7 +174,7 @@ def _format_red_flags() -> str:
 # Command handlers
 # ---------------------------------------------------------------------------
 
-async def _cmd_start(update: "Update", context: "ContextTypes.DEFAULT_TYPE") -> None:
+async def _cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     chat_id = update.effective_chat.id
     username = update.effective_user.username if update.effective_user else None
     _add_subscriber(chat_id, username)
@@ -192,7 +191,7 @@ async def _cmd_start(update: "Update", context: "ContextTypes.DEFAULT_TYPE") -> 
     )
 
 
-async def _cmd_district(update: "Update", context: "ContextTypes.DEFAULT_TYPE") -> None:
+async def _cmd_district(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not context.args:
         await update.message.reply_text("Usage: /district <district name>")
         return
@@ -201,17 +200,17 @@ async def _cmd_district(update: "Update", context: "ContextTypes.DEFAULT_TYPE") 
     await update.message.reply_text(text, parse_mode="Markdown")
 
 
-async def _cmd_worst(update: "Update", context: "ContextTypes.DEFAULT_TYPE") -> None:
+async def _cmd_worst(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     text = _format_worst_districts(n=5)
     await update.message.reply_text(text, parse_mode="Markdown")
 
 
-async def _cmd_redflags(update: "Update", context: "ContextTypes.DEFAULT_TYPE") -> None:
+async def _cmd_redflags(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     text = _format_red_flags()
     await update.message.reply_text(text, parse_mode="Markdown")
 
 
-async def _cmd_subscribe(update: "Update", context: "ContextTypes.DEFAULT_TYPE") -> None:
+async def _cmd_subscribe(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     chat_id = update.effective_chat.id
     username = update.effective_user.username if update.effective_user else None
     if not context.args:
@@ -225,7 +224,7 @@ async def _cmd_subscribe(update: "Update", context: "ContextTypes.DEFAULT_TYPE")
     )
 
 
-async def _cmd_unsubscribe(update: "Update", context: "ContextTypes.DEFAULT_TYPE") -> None:
+async def _cmd_unsubscribe(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     chat_id = update.effective_chat.id
     _remove_subscriber(chat_id)
     await update.message.reply_text("You have been unsubscribed from Hisaab alerts.")

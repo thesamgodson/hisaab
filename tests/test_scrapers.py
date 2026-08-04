@@ -14,7 +14,6 @@ import scrapers.scrape_jjm_ejalshakti as jjm
 import scrapers.scrape_sbm as sbm
 import scrapers.scrape_udise as udise
 
-
 # ---------------------------------------------------------------------------
 # JJM — encode_txt
 # ---------------------------------------------------------------------------

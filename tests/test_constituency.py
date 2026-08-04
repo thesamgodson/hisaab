@@ -13,7 +13,6 @@ import pytest
 
 from db import init_db
 
-
 # ---------------------------------------------------------------------------
 # Helpers / Fixtures
 # ---------------------------------------------------------------------------
@@ -72,12 +71,12 @@ def _insert_seed(db_path: Path) -> None:
 
 class TestSeedAll:
     def test_seed_all_populates_tables(self, tmp_db: Path) -> None:
+        from constituency.mapper import load_constituency_data, load_mp_data, load_pin_data
         from constituency.seed_data import (
-            SAMPLE_PINS,
             SAMPLE_CONSTITUENCIES,
             SAMPLE_MP_INFO,
+            SAMPLE_PINS,
         )
-        from constituency.mapper import load_pin_data, load_constituency_data, load_mp_data
 
         with patch("constituency.mapper.DB_PATH", tmp_db):
             pins = load_pin_data(SAMPLE_PINS)
@@ -89,8 +88,8 @@ class TestSeedAll:
         assert mps > 0
 
     def test_seed_populates_pin_table(self, tmp_db: Path) -> None:
-        from constituency.seed_data import SAMPLE_PINS
         from constituency.mapper import load_pin_data
+        from constituency.seed_data import SAMPLE_PINS
 
         with patch("constituency.mapper.DB_PATH", tmp_db):
             load_pin_data(SAMPLE_PINS)
@@ -101,8 +100,8 @@ class TestSeedAll:
         assert count == len(SAMPLE_PINS)
 
     def test_seed_populates_constituency_district(self, tmp_db: Path) -> None:
-        from constituency.seed_data import SAMPLE_CONSTITUENCIES
         from constituency.mapper import load_constituency_data
+        from constituency.seed_data import SAMPLE_CONSTITUENCIES
 
         with patch("constituency.mapper.DB_PATH", tmp_db):
             load_constituency_data(SAMPLE_CONSTITUENCIES)
@@ -113,8 +112,8 @@ class TestSeedAll:
         assert count == len(SAMPLE_CONSTITUENCIES)
 
     def test_seed_populates_mp_info(self, tmp_db: Path) -> None:
-        from constituency.seed_data import SAMPLE_MP_INFO
         from constituency.mapper import load_mp_data
+        from constituency.seed_data import SAMPLE_MP_INFO
 
         with patch("constituency.mapper.DB_PATH", tmp_db):
             load_mp_data(SAMPLE_MP_INFO)
@@ -325,7 +324,7 @@ class TestGenerateMpReportCard:
     def test_unknown_constituency_returns_mp_report_card_type(self, tmp_db: Path) -> None:
         with patch("constituency.mapper.DB_PATH", tmp_db), \
              patch("constituency.report_card.DB_PATH", tmp_db):
-            from constituency.report_card import generate_mp_report_card, MPReportCard
+            from constituency.report_card import MPReportCard, generate_mp_report_card
             rc = generate_mp_report_card("NONEXISTENT CONSTITUENCY XYZ")
 
         assert isinstance(rc, MPReportCard)
@@ -333,7 +332,7 @@ class TestGenerateMpReportCard:
     def test_unknown_constituency_has_all_schemes(self, tmp_db: Path) -> None:
         with patch("constituency.mapper.DB_PATH", tmp_db), \
              patch("constituency.report_card.DB_PATH", tmp_db):
-            from constituency.report_card import generate_mp_report_card, ALL_SCHEMES
+            from constituency.report_card import ALL_SCHEMES, generate_mp_report_card
             rc = generate_mp_report_card("NONEXISTENT CONSTITUENCY XYZ")
 
         assert len(rc.schemes) == len(ALL_SCHEMES)

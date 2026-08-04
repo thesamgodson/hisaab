@@ -266,11 +266,7 @@ def deduplicate(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for r in records:
         key = (r["state"], r["fin_year"], r["grain_type"])
         existing = best.get(key)
-        if existing is None:
-            best[key] = r
-        elif r.get("offtake_mt", 0) > 0 and existing.get("offtake_mt", 0) == 0:
-            best[key] = r
-        elif r.get("allocation_mt", 0) > existing.get("allocation_mt", 0):
+        if existing is None or r.get("offtake_mt", 0) > 0 and existing.get("offtake_mt", 0) == 0 or r.get("allocation_mt", 0) > existing.get("allocation_mt", 0):
             best[key] = r
     return sorted(
         best.values(),

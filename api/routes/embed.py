@@ -90,7 +90,7 @@ def _fetch_district_metrics(
             return None
 
     def _row(table: str, extra_where: str = "", params: tuple = ()) -> sqlite3.Row | None:
-        where = f"UPPER(district) = UPPER(?)"
+        where = "UPPER(district) = UPPER(?)"
         p: list[Any] = [d]
         if s:
             where += " AND UPPER(state) = UPPER(?)"
@@ -241,7 +241,7 @@ def _fetch_district_metrics(
                         "metric": "Pension beneficiaries",
                         "value": f"{total_bene:,}",
                         "indicator": "green",
-                        "detail": f"IGNOAPS + IGNWPS",
+                        "detail": "IGNOAPS + IGNWPS",
                     }
                 )
 

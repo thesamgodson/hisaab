@@ -13,7 +13,6 @@ import pytest
 
 from db import init_db
 
-
 # ---------------------------------------------------------------------------
 # Fixtures
 # ---------------------------------------------------------------------------
@@ -73,7 +72,7 @@ def tmp_db_with_snapshots(tmp_path: Path) -> Path:
 
 class TestGenerateWeeklyDigest:
     def test_returns_weekly_digest_instance(self, tmp_db: Path) -> None:
-        from alerts.digest import generate_weekly_digest, WeeklyDigest
+        from alerts.digest import WeeklyDigest, generate_weekly_digest
 
         digest = generate_weekly_digest(db_path=tmp_db)
         assert isinstance(digest, WeeklyDigest)
@@ -139,7 +138,7 @@ class TestGenerateWeeklyDigest:
                 assert entry.delta_pct > 0
 
     def test_district_change_structure(self, tmp_db_with_snapshots: Path) -> None:
-        from alerts.digest import generate_weekly_digest, DistrictChange
+        from alerts.digest import DistrictChange, generate_weekly_digest
 
         digest = generate_weekly_digest(weeks=4, db_path=tmp_db_with_snapshots)
         for entry in digest.top_degrading + digest.top_improving:
@@ -157,14 +156,15 @@ class TestGenerateWeeklyDigest:
         assert digest.weeks == 3
 
     def test_generated_at_is_datetime(self, tmp_db: Path) -> None:
-        from alerts.digest import generate_weekly_digest
         from datetime import datetime
+
+        from alerts.digest import generate_weekly_digest
 
         digest = generate_weekly_digest(db_path=tmp_db)
         assert isinstance(digest.generated_at, datetime)
 
     def test_red_flag_entry_structure(self, tmp_db: Path) -> None:
-        from alerts.digest import generate_weekly_digest, RedFlagEntry
+        from alerts.digest import RedFlagEntry, generate_weekly_digest
 
         digest = generate_weekly_digest(db_path=tmp_db)
         for entry in digest.new_red_flags:
@@ -188,7 +188,7 @@ class TestBuildHeadline:
         assert "No significant" in headline
 
     def test_degrading_input_mentions_scheme(self) -> None:
-        from alerts.digest import _build_headline, DistrictChange
+        from alerts.digest import DistrictChange, _build_headline
 
         degrading = [
             DistrictChange(
@@ -201,7 +201,7 @@ class TestBuildHeadline:
         assert "JJM" in headline
 
     def test_red_flags_mentioned_in_headline(self) -> None:
-        from alerts.digest import _build_headline, RedFlagEntry
+        from alerts.digest import RedFlagEntry, _build_headline
 
         flags = [
             RedFlagEntry(district="GAYA", state="BIHAR", score=15.0, grade="F", flags=["JJM delivery 10%"])
@@ -210,7 +210,7 @@ class TestBuildHeadline:
         assert "red-flag" in headline.lower() or "threshold" in headline.lower()
 
     def test_headline_is_capitalized(self) -> None:
-        from alerts.digest import _build_headline, DistrictChange
+        from alerts.digest import DistrictChange, _build_headline
 
         degrading = [
             DistrictChange("D", "S", "MGNREGA", "utilization_pct", -5.0, 80.0, 75.0)
@@ -232,8 +232,9 @@ class TestEmailHtmlRendering:
         return render_digest_html(digest)
 
     def _make_empty_digest(self):
-        from alerts.digest import WeeklyDigest
         from datetime import datetime
+
+        from alerts.digest import WeeklyDigest
 
         return WeeklyDigest(
             top_degrading=[],
@@ -246,8 +247,9 @@ class TestEmailHtmlRendering:
         )
 
     def _make_full_digest(self):
-        from alerts.digest import WeeklyDigest, DistrictChange, RedFlagEntry
         from datetime import datetime
+
+        from alerts.digest import DistrictChange, RedFlagEntry, WeeklyDigest
 
         return WeeklyDigest(
             top_degrading=[

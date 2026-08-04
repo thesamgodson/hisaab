@@ -20,7 +20,6 @@ from fastapi.testclient import TestClient  # noqa: E402
 
 from api.main import app  # noqa: E402
 
-
 # ---------------------------------------------------------------------------
 # Shared fixture — module-scoped, read-only
 # ---------------------------------------------------------------------------
@@ -260,6 +259,7 @@ class TestEmbedJsonEndpoint:
 def _has_constituency_tables() -> bool:
     """Return True if the live DB has the constituency tables (populated via init_db or migration)."""
     import sqlite3
+
     from db.connection import DB_PATH
 
     try:

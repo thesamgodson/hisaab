@@ -380,8 +380,9 @@ def test_api_action_valid_pin(db):
     from directory.seed_data import seed_grievance_channels
     seed_grievance_channels(db)
 
-    from api.routes.action import router, _set_test_conn
     from fastapi import FastAPI
+
+    from api.routes.action import _set_test_conn, router
     app = FastAPI()
     app.include_router(router, prefix="/api/v1")
     _set_test_conn(db)
@@ -399,8 +400,9 @@ def test_api_action_valid_pin(db):
 
 
 def test_api_action_invalid_pin():
-    from api.routes.action import router, _set_test_conn
     from fastapi import FastAPI
+
+    from api.routes.action import _set_test_conn, router
     app = FastAPI()
     app.include_router(router, prefix="/api/v1")
     _set_test_conn(None)
@@ -416,8 +418,9 @@ def test_api_action_card_svg(db):
     from directory.seed_data import seed_grievance_channels
     seed_grievance_channels(db)
 
-    from api.routes.action import router, _set_test_conn
     from fastapi import FastAPI
+
+    from api.routes.action import _set_test_conn, router
     app = FastAPI()
     app.include_router(router, prefix="/api/v1")
     _set_test_conn(db)

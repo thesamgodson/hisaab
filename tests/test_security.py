@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import pytest
 
-
 # ---------------------------------------------------------------------------
 # _validate_sql — mutation keyword blocking
 # ---------------------------------------------------------------------------
@@ -190,6 +189,7 @@ class TestApiKeyNotLeaked:
     def test_api_key_not_in_502_error_body(self) -> None:
         """A 502 (LLM provider error) must not contain the API key in the error detail."""
         from fastapi.testclient import TestClient
+
         from api.main import app
 
         client = TestClient(app)
@@ -212,6 +212,7 @@ class TestApiKeyNotLeaked:
     def test_api_key_not_in_validation_error_detail(self) -> None:
         """A 422 for a too-short question must not contain the api_key value in the error msg field."""
         from fastapi.testclient import TestClient
+
         from api.main import app
 
         client = TestClient(app)
@@ -243,6 +244,7 @@ class TestConstituencySearchSqlSafety:
     def patch_db(self, tmp_path, monkeypatch):
         """Patch DB_PATH to a temp DB that has the schema."""
         import sqlite3 as _sqlite3
+
         from db import init_db as _init_db
 
         db_path = tmp_path / "search_test.db"

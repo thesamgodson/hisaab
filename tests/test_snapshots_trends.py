@@ -7,14 +7,12 @@ and do not affect data/hisaab.db.
 from __future__ import annotations
 
 import sqlite3
-import tempfile
 from datetime import date, timedelta
 from pathlib import Path
 
 import pytest
 
 from db import init_db
-
 
 # ---------------------------------------------------------------------------
 # Fixtures

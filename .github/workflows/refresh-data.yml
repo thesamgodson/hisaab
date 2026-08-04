@@ -1,0 +1,73 @@
+name: Refresh Data
+
+# Weekly scrape -> load -> publish -> prod smoke test.
+# Partial scraper failures are tolerated: loaders only replace tables whose
+# curated JSON exists, so a failed portal leaves its previous data intact.
+on:
+  schedule:
+    - cron: "30 21 * * 0" # Sundays 21:30 UTC = 03:00 IST Monday
+  workflow_dispatch:
+    inputs:
+      schemes:
+        description: "Comma-separated schemes to scrape (or 'all')"
+        default: "jjm,sbm,udise,mgnrega,pmgsy"
+        required: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Scrape (failures tolerated per scheme)
+        continue-on-error: true
+        run: |
+          python run_all.py --schemes "${{ github.event.inputs.schemes || 'jjm,sbm,udise,mgnrega,pmgsy' }}"
+
+      - name: Load curated data into SQLite
+        run: python run_all.py --load-only
+
+      - name: Update district alias registry (additive) and reload
+        run: |
+          python scripts/gen_district_aliases.py
+          python run_all.py --load-only
+
+      - name: Publish to Turso
+        env:
+          TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+        run: python scripts/sync_turso.py
+
+      - name: Smoke test production
+        run: |
+          set -e
+          for ep in "api/v1/pin/600001" "api/v1/stats" "api/v1/scores/worst?n=1" "api/v1/freshness"; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "https://hisaab-one.vercel.app/$ep")
+            echo "$code /$ep"
+            [ "$code" = "200" ] || exit 1
+          done
+
+      - name: Commit refreshed curated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/curated data/catalog db/district_aliases.py DATA_CLAIMS.md || true
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "chore: scheduled data refresh [skip ci]"
+            git push
+          fi

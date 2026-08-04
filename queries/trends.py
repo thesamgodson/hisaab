@@ -8,7 +8,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from db.connection import DB_PATH, get_connection
+from db.connection import get_connection
 from db.snapshots import compute_deltas, get_biggest_changes, get_trend
 
 

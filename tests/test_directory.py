@@ -8,8 +8,8 @@ from datetime import datetime, timedelta
 import pytest
 
 from db.schema import SCHEMA
-from directory.officials import get_officials
 from directory.grievances import get_grievance_channels
+from directory.officials import get_officials
 
 
 @pytest.fixture

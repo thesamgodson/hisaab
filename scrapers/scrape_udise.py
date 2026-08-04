@@ -23,8 +23,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-import urllib3
 import requests
+import urllib3
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -74,8 +74,7 @@ def _convert_year(api_year: str) -> str:
     if len(parts) != 2:
         return api_year
     start = parts[0].strip()
-    end_short = parts[1].strip()
-    # end_short is 2 digits; derive full year from start
+    # end is 2 digits in the API format; derive the full year from start
     start_int = int(start)
     end_int = start_int + 1
     return f"{start_int}-{end_int}"

@@ -20,7 +20,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Any
 
 from db.connection import get_connection
@@ -368,7 +368,7 @@ def persist_district_scores(conn: sqlite3.Connection, fin_year: str = "2024-2025
     table — the formula runs in exactly one place.
     """
     records = compute_district_scores(fin_year=fin_year)
-    computed_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    computed_at = datetime.now(UTC).isoformat(timespec="seconds")
 
     conn.execute("DELETE FROM district_scores WHERE fin_year = ?", (fin_year,))
     conn.executemany(

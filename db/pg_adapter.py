@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import re
 
-
 # ---------------------------------------------------------------------------
 # SQL translation helpers
 # ---------------------------------------------------------------------------
@@ -160,7 +159,7 @@ class PgConnectionAdapter:
     def close(self) -> None:
         self._conn.close()  # type: ignore[attr-defined]
 
-    def __enter__(self) -> "PgConnectionAdapter":
+    def __enter__(self) -> PgConnectionAdapter:
         return self
 
     def __exit__(self, *args: object) -> None:
