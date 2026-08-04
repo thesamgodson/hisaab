@@ -782,6 +782,31 @@ CREATE TABLE IF NOT EXISTS metrics_snapshot (
 CREATE INDEX IF NOT EXISTS idx_snapshot_lookup
     ON metrics_snapshot(scheme, state, district, metric_name);
 
+-- =====================================================================
+-- Precomputed composite accountability scores — written at load time by
+-- queries/composite.py:persist_district_scores(). Every serving surface
+-- (web, CLI, briefs) reads this table; nothing recomputes the formula.
+-- =====================================================================
+CREATE TABLE IF NOT EXISTS district_scores (
+    district            TEXT NOT NULL,
+    state               TEXT NOT NULL,
+    fin_year            TEXT NOT NULL,
+    score               REAL,               -- NULL when schemes_count < minimum
+    grade               TEXT,
+    schemes_count       INTEGER NOT NULL DEFAULT 0,
+    schemes_with_data   TEXT NOT NULL DEFAULT '[]',   -- JSON array
+    red_flags           TEXT NOT NULL DEFAULT '[]',   -- JSON array
+    delivery_avg        REAL,
+    delivery_schemes    TEXT NOT NULL DEFAULT '[]',   -- JSON array
+    finance_avg         REAL,
+    finance_schemes     TEXT NOT NULL DEFAULT '[]',   -- JSON array
+    governance_score    REAL,
+    computed_at         TEXT NOT NULL,
+    PRIMARY KEY (district, state, fin_year)
+);
+CREATE INDEX IF NOT EXISTS idx_district_scores_state ON district_scores(state, fin_year);
+CREATE INDEX IF NOT EXISTS idx_district_scores_score ON district_scores(fin_year, score);
+
 DROP VIEW IF EXISTS money_flow;
 CREATE VIEW money_flow AS
 SELECT

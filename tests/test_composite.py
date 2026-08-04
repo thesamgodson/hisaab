@@ -46,13 +46,23 @@ def db() -> sqlite3.Connection:
 
 
 def _seed_delivery_data(db: sqlite3.Connection) -> None:
-    """Insert pmayg + jjm rows to create measurable delivery scores."""
+    """Insert pmayg + jjm + mgnrega rows to create measurable delivery scores.
+
+    Three schemes per district — MIN_SCHEMES_FOR_SCORE requires >= 3 for a grade.
+    """
     db.execute(
         """INSERT INTO pmayg_district
         (district, state, state_code, fin_year, houses_sanctioned, houses_completed,
          houses_occupied, funds_released_lakhs, funds_utilized_lakhs, completion_pct,
          source_url, scraped_at)
         VALUES ('PATNA', 'BIHAR', '05', '2024-2025', 1000, 800, 700, 3000, 2400, 80.0,
+                'src', '2026-01-01')"""
+    )
+    db.execute(
+        """INSERT INTO sbm_district
+        (district, state, state_code, fin_year, total_villages, odf_plus_villages,
+         odf_plus_pct, source_url, scraped_at)
+        VALUES ('PATNA', 'BIHAR', '05', '2024-2025', 100, 80, 80.0,
                 'src', '2026-01-01')"""
     )
     db.execute(
@@ -77,6 +87,13 @@ def _seed_delivery_data(db: sqlite3.Connection) -> None:
          tap_connections_provided, coverage_pct, funds_released_lakhs, funds_utilized_lakhs,
          source_url, scraped_at)
         VALUES ('GAYA', 'BIHAR', '05', '2024-2025', 5000, 500, 500, 10.0, 2000, 200,
+                'src', '2026-01-01')"""
+    )
+    db.execute(
+        """INSERT INTO sbm_district
+        (district, state, state_code, fin_year, total_villages, odf_plus_villages,
+         odf_plus_pct, source_url, scraped_at)
+        VALUES ('GAYA', 'BIHAR', '05', '2024-2025', 100, 20, 20.0,
                 'src', '2026-01-01')"""
     )
     db.commit()
@@ -175,11 +192,26 @@ class TestBuildScoreRecord:
 
         record = _build_score_record(
             "PATNA", "BIHAR",
-            delivery={"PMAY-G": 80.0},
+            delivery={"PMAY-G": 80.0, "JJM": 70.0},
             finance={"MGNREGA": 90.0},
             recovery_rate=None,
         )
         assert record["grade"] == _grade(record["score"])
+
+    def test_below_min_schemes_returns_null_score(self) -> None:
+        """Confidence rule: <3 schemes -> no grade, but data stays visible."""
+        from queries.composite import _build_score_record
+
+        record = _build_score_record(
+            "ZUNHEBOTO", "NAGALAND",
+            delivery={"PMAY-G": 0.0},
+            finance={},
+            recovery_rate=None,
+        )
+        assert record["score"] is None
+        assert record["grade"] is None
+        assert record["schemes_with_data"] == ["PMAY-G"]
+        assert record["schemes_count"] == 1
 
     def test_empty_data_returns_null_score(self) -> None:
         from queries.composite import _build_score_record
@@ -230,7 +262,7 @@ class TestBuildScoreRecord:
 
         record = _build_score_record(
             "TEST", "STATE",
-            delivery={"PMAY-G": 100.0},
+            delivery={"PMAY-G": 100.0, "JJM": 100.0},
             finance={"MGNREGA": 150.0},  # over 100 — should be capped
             recovery_rate=100.0,
         )

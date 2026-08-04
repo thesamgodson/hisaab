@@ -1,19 +1,31 @@
 """Composite accountability score per district.
 
+THE single implementation of the scoring formula. Scores are persisted to the
+district_scores table at load time (persist_district_scores) and every serving
+surface — web, CLI, briefs — reads that table. Do not port this formula.
+
 Scoring methodology (0-100):
   - Delivery metrics (60%): average delivery_pct across all schemes with data
   - Financial utilization (30%): average utilization_pct from scheme_finance VIEW
   - Governance / recovery (10%): MGNREGA recovery_rate_pct (if available)
+
+Confidence rule: a district needs data from at least MIN_SCHEMES_FOR_SCORE
+schemes to receive a score/grade. One scheme's bad quarter must not brand a
+district "F" on the public map.
 
 Grades: A=80+, B=60-80, C=40-60, D=20-40, F=<20
 """
 
 from __future__ import annotations
 
+import json
 import sqlite3
+from datetime import datetime, timezone
 from typing import Any
 
 from db.connection import get_connection
+
+MIN_SCHEMES_FOR_SCORE = 3
 
 # ---------------------------------------------------------------------------
 # Internal helpers
@@ -166,6 +178,25 @@ def _build_score_record(
     finance_avg = _avg(finance_scores)
     governance_score = min(100.0, recovery_rate) if recovery_rate is not None else None
 
+    # Confidence rule: too little data -> no score, but keep the breakdown
+    # visible so the page can say WHY there is no grade.
+    schemes_with_data = sorted(set(delivery.keys()) | set(finance.keys()))
+    if len(schemes_with_data) < MIN_SCHEMES_FOR_SCORE:
+        record = _null_score_record(district, state)
+        record["schemes_with_data"] = schemes_with_data
+        record["schemes_count"] = len(schemes_with_data)
+        # Red flags are factual per-scheme statements — keep them even when
+        # there is too little data for a composite grade.
+        record["red_flags"] = _compute_red_flags(delivery, finance, recovery_rate)
+        record["breakdown"] = {
+            "delivery_avg": round(delivery_avg, 1) if delivery_avg is not None else None,
+            "delivery_schemes": sorted(delivery.keys()),
+            "finance_avg": round(finance_avg, 1) if finance_avg is not None else None,
+            "finance_schemes": sorted(finance.keys()),
+            "governance_score": round(governance_score, 1) if governance_score is not None else None,
+        }
+        return record
+
     # Determine weights dynamically based on data availability
     components: list[tuple[float, float]] = []
     if delivery_avg is not None:
@@ -183,7 +214,6 @@ def _build_score_record(
     score = sum((w / total_weight) * v for w, v in components)
     score = round(min(100.0, max(0.0, score)), 1)
 
-    schemes_with_data = sorted(set(delivery.keys()) | set(finance.keys()))
     red_flags = _compute_red_flags(delivery, finance, recovery_rate)
 
     return {
@@ -329,3 +359,46 @@ def get_worst_districts(n: int = 50, fin_year: str = "2024-2025") -> list[dict[s
     all_scores = compute_district_scores(fin_year=fin_year)
     scored = [r for r in all_scores if r["score"] is not None]
     return list(reversed(scored[-n:]))
+
+
+def persist_district_scores(conn: sqlite3.Connection, fin_year: str = "2024-2025") -> int:
+    """Compute all district scores and write them to the district_scores table.
+
+    Called at load time (run_all.py). The web app, CLI, and briefs read this
+    table — the formula runs in exactly one place.
+    """
+    records = compute_district_scores(fin_year=fin_year)
+    computed_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+    conn.execute("DELETE FROM district_scores WHERE fin_year = ?", (fin_year,))
+    conn.executemany(
+        """
+        INSERT OR REPLACE INTO district_scores (
+            district, state, fin_year, score, grade,
+            schemes_count, schemes_with_data, red_flags,
+            delivery_avg, delivery_schemes, finance_avg, finance_schemes,
+            governance_score, computed_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        [
+            (
+                r["district"],
+                r["state"],
+                fin_year,
+                r["score"],
+                r["grade"],
+                r["schemes_count"],
+                json.dumps(r["schemes_with_data"]),
+                json.dumps(r["red_flags"]),
+                r["breakdown"]["delivery_avg"],
+                json.dumps(r["breakdown"]["delivery_schemes"]),
+                r["breakdown"]["finance_avg"],
+                json.dumps(r["breakdown"]["finance_schemes"]),
+                r["breakdown"]["governance_score"],
+                computed_at,
+            )
+            for r in records
+        ],
+    )
+    conn.commit()
+    return len(records)

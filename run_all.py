@@ -320,6 +320,12 @@ def load_curated_into_db(fin_year: str) -> dict[str, int]:
     for table, n in civic.items():
         print(f"  Normalized {table}: {n} rows")
 
+    # Precompute composite scores — the single place the formula runs.
+    from queries.composite import persist_district_scores
+
+    n_scores = persist_district_scores(conn, fin_year)
+    print(f"  district_scores: {n_scores} rows precomputed")
+
     conn.close()
     return results
 

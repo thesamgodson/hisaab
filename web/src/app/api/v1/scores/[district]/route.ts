@@ -1,6 +1,7 @@
 import { type NextRequest } from "next/server";
-import { computeDistrictScores } from "@/lib/scores";
-import { resolveState } from "@/lib/db";
+import { getDistrictScore } from "@/lib/scores";
+
+export const revalidate = 3600;
 
 export async function GET(
   request: NextRequest,
@@ -10,20 +11,9 @@ export async function GET(
   const district = decodeURIComponent(rawDistrict).toUpperCase();
   const searchParams = request.nextUrl.searchParams;
   const finYear = searchParams.get("fin_year") ?? "2024-2025";
+  const state = searchParams.get("state")?.toUpperCase() ?? null;
 
-  let state = searchParams.get("state")?.toUpperCase() ?? null;
-  if (!state) {
-    state = await resolveState(district);
-    if (state) state = state.toUpperCase();
-  }
-
-  const allScores = await computeDistrictScores(finYear);
-
-  const match = allScores.find((s) => {
-    if (s.district !== district) return false;
-    if (state && s.state !== state) return false;
-    return true;
-  });
+  const match = await getDistrictScore(district, state, finYear);
 
   if (!match) {
     return Response.json(
