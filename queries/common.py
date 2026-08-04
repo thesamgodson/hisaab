@@ -126,7 +126,8 @@ def data_quality_warnings() -> dict[str, list[str]]:
             "Delivery metrics only (ODF Plus villages, star ratings) — SBM-G publishes no district-level financial data.",
         ],
         "DAY-NRLM": [
-            "SHG counts at district level; revolving-fund disbursement column present but zero in the current scrape.",
+            "District-level SHG counts plus two real money streams — Revolving Fund and Community Investment Fund (both cumulative, from the LokOS FDM feed, which lags real time by ~2 months).",
+            "The served CIF figure is money received; the eligible-vs-received gap travels in the data (cif_shgs_eligible vs cif_shgs_provided) and only a minority of eligible SHGs have received CIF nationally.",
         ],
         "UDISE+": [
             "State-level education indicators only (schools, enrollment, PTR, infrastructure) — no district breakdown, no financial data.",

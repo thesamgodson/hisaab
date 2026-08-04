@@ -19,6 +19,13 @@ Semantics:
   - shgs_total        <- totalShgs        (DISTRICT_FDM_OVERALL)
   - rf_amount_lakhs   <- rfReceived / 1e5 (DISTRICT_FDM_REVOLVINGFUND; rupees)
   - rf_shgs_provided  <- shgReceivingRf   (DISTRICT_FDM_REVOLVINGFUND)
+  - cif_amount_lakhs  <- cifReceived / 1e5 (DISTRICT_FDM_COMMUNITYINVESTMENTFUND)
+  - cif_shgs_provided <- shgReceivingCif  (DISTRICT_FDM_COMMUNITYINVESTMENTFUND)
+  - cif_shgs_eligible <- cifEligibleShg   (DISTRICT_FDM_COMMUNITYINVESTMENTFUND)
+    CIF (Community Investment Fund) is a second district-level SHG money stream
+    alongside the Revolving Fund — a district money metric almost no other
+    scheme provides. The eligible-vs-received gap (cif_shgs_eligible vs
+    cif_shgs_provided) is itself an accountability signal.
   - shgs_new / shgs_revived / shgs_pre_nrlm / members_total exist ONLY on the
     dead nrlm.gov.in report — LokOS does not publish the formation breakdown.
     They are carried forward from the previous curated snapshot (frozen at
@@ -177,18 +184,23 @@ def scrape_state(
 
     overall_url = f"{FDM_BASE}{lokos_code}/DISTRICT_FDM_OVERALL.json"
     rf_url = f"{FDM_BASE}{lokos_code}/DISTRICT_FDM_REVOLVINGFUND.json"
+    cif_url = f"{FDM_BASE}{lokos_code}/DISTRICT_FDM_COMMUNITYINVESTMENTFUND.json"
 
     overall = _get_json(session, overall_url)
 
     rf_by_district: dict[int, dict[str, Any]] = {}
+    cif_by_district: dict[int, dict[str, Any]] = {}
     if include_rf:
         for row in _get_json(session, rf_url):
             rf_by_district[int(row["districtId"])] = row
+        for row in _get_json(session, cif_url):
+            cif_by_district[int(row["districtId"])] = row
 
     records: list[dict[str, Any]] = []
     for row in overall:
         district_id = int(row["districtId"])
         rf = rf_by_district.get(district_id, {})
+        cif = cif_by_district.get(district_id, {})
         state_name = str(row["stateName"]).upper().strip()
         district_name = str(row["districtName"]).upper().strip()
         canon_key = (
@@ -212,8 +224,12 @@ def scrape_state(
                 "members_total": frozen.get("members_total", 0),
                 "rf_shgs_provided": int(rf.get("shgReceivingRf") or 0),
                 "rf_amount_lakhs": round(float(rf.get("rfReceived") or 0.0) / 1e5, 2),
+                "cif_shgs_provided": int(cif.get("shgReceivingCif") or 0),
+                "cif_shgs_eligible": int(cif.get("cifEligibleShg") or 0),
+                "cif_amount_lakhs": round(float(cif.get("cifReceived") or 0.0) / 1e5, 2),
                 "source_url": overall_url,
                 "rf_source_url": rf_url if include_rf else None,
+                "cif_source_url": cif_url if include_rf else None,
                 "scraped_at": scraped_at,
             }
         )

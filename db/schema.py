@@ -343,6 +343,9 @@ CREATE TABLE IF NOT EXISTS nrlm_district (
     members_total INTEGER NOT NULL DEFAULT 0,
     rf_shgs_provided INTEGER NOT NULL DEFAULT 0,
     rf_amount_lakhs REAL NOT NULL DEFAULT 0,
+    cif_shgs_provided INTEGER NOT NULL DEFAULT 0,
+    cif_shgs_eligible INTEGER NOT NULL DEFAULT 0,
+    cif_amount_lakhs REAL NOT NULL DEFAULT 0,
     source_url TEXT,
     scraped_at TEXT NOT NULL,
     UNIQUE(district, state, fin_year)
@@ -527,7 +530,22 @@ SELECT
          THEN (expended_crores / released_crores * 100)
          ELSE NULL END as utilization_pct,
     source_url
-FROM jjm_allocation;
+FROM jjm_allocation
+UNION ALL
+-- DAY-NRLM district-level SHG community funds: Revolving Fund + Community
+-- Investment Fund (both cumulative, rupees/1e5 from the LokOS FDM feed) — a
+-- district money metric almost no other scheme provides. utilization_pct is
+-- NULL: LokOS publishes no allocated/utilized split, and composite scoring
+-- only counts scheme_finance rows with a non-null utilization_pct, so exposing
+-- NRLM money here does not perturb any district score.
+SELECT
+    'DAY-NRLM' as scheme, state, district, fin_year,
+    NULL as allocated_lakhs,
+    (rf_amount_lakhs + cif_amount_lakhs) as released_lakhs,
+    (rf_amount_lakhs + cif_amount_lakhs) as expended_lakhs,
+    NULL as utilization_pct,
+    source_url
+FROM nrlm_district;
 
 -- =====================================================================
 -- VIEW 2: scheme_delivery — Service delivery / beneficiary coverage
@@ -955,10 +973,14 @@ SELECT
 FROM nfsa_district
 UNION ALL
 SELECT
+    -- released/expended = Revolving Fund + Community Investment Fund, the two
+    -- district-level SHG money streams the LokOS FDM feed publishes (both
+    -- cumulative, rupees/1e5). rf_amount_lakhs alone was CLAIM-2026-0027's basis;
+    -- the combined figure is CLAIM-2026-0033.
     'DAY-NRLM' as scheme, state, district, fin_year,
     NULL as allocated_lakhs,
-    rf_amount_lakhs as released_lakhs,
-    rf_amount_lakhs as expended_lakhs,
+    (rf_amount_lakhs + cif_amount_lakhs) as released_lakhs,
+    (rf_amount_lakhs + cif_amount_lakhs) as expended_lakhs,
     NULL as utilization_pct,
     NULL as units_target,
     shgs_total as units_completed,

@@ -58,7 +58,7 @@ npm run dev                             # Start at localhost:3000
 | NSAP | nsap_district, **nsap_finance** | data.gov.in | Yes — **state-level real release** (2019-24); district imputed |
 | PDS/NFSA | nfsa_district, **nfsa_allocation** | nfsa.gov.in dashboard handler + data.gov.in | Yes — **state-level** alloc/offtake in MT (2019-25) |
 | SBM-G | sbm_district | sbm.gov.in | No — delivery only (ODF+ villages, star ratings) |
-| DAY-NRLM | nrlm_district | cdn.lokos.in (LokOS FDM district feeds) | Partial — RF disbursement (lakhs) at district level |
+| DAY-NRLM | nrlm_district | cdn.lokos.in (LokOS FDM district feeds) | Yes — RF + CIF disbursement (lakhs) at district level |
 | UDISE+ | udise_state | api.udiseplus.gov.in | No — education delivery (schools, enrollment, PTR, infra) |
 
 ## 3 Unified VIEWs
@@ -99,7 +99,7 @@ GET /api/v1/brief/{district} | /stats | /red-flags?state= | /constituency/* | /m
 
 ## Data Quality Context
 
-- Financial data: district-level MGNREGA + PMGSY (real), NSAP (imputed), NRLM RF (real); state-level PM POSHAN (2016-25), NSAP (2019-24), PMAY-G (2019-26, frozen — captcha-only source), JJM (2019-25), NFSA (MT). PM Kisan money is frozen at 8 states' FY2024-25 rows
+- Financial data: district-level MGNREGA + PMGSY (real), NSAP (imputed), NRLM RF+CIF (real, cumulative); state-level PM POSHAN (2016-25), NSAP (2019-24), PMAY-G (2019-26, frozen — captcha-only source), JJM (2019-25), NFSA (MT). PM Kisan money is frozen at 8 states' FY2024-25 rows
 - **No invented percentages**: PM POSHAN children_fed is a daily snapshot; NFSA active=total by construction — both excluded from delivery_pct at the VIEW layer and from diagnoses/rankings
 - Scores need ≥3 schemes with data (`MIN_SCHEMES_FOR_SCORE`) — below that: no grade, red flags only
 - PM Kisan: district rows are per-installment beneficiary counts (36 states); district='ALL' rows are current-period homepage state totals — don't sum ALL + district rows within a fin_year
