@@ -21,7 +21,6 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 import time
 from datetime import UTC, datetime
@@ -29,6 +28,11 @@ from pathlib import Path
 from typing import Any
 
 import requests
+
+try:
+    from scrapers.io_utils import atomic_write_json
+except ImportError:
+    from io_utils import atomic_write_json
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
@@ -188,7 +192,7 @@ def scrape_all(
 
 def save_raw(records: list[dict[str, Any]], fin_year: str) -> Path:
     path = RAW_DIR / f"nsap_api_{fin_year}_raw.json"
-    path.write_text(json.dumps(records, indent=2, ensure_ascii=False), encoding="utf-8")
+    atomic_write_json(path, records)
     return path
 
 
@@ -201,10 +205,7 @@ def save_curated_by_state(records: list[dict[str, Any]]) -> dict[str, Path]:
     for state_name, state_records in sorted(by_state.items()):
         slug = state_slug(state_name)
         path = CURATED_DIR / f"nsap_district_{slug}_latest.json"
-        path.write_text(
-            json.dumps(state_records, indent=2, ensure_ascii=False),
-            encoding="utf-8",
-        )
+        atomic_write_json(path, state_records)
         paths[state_name] = path
 
     return paths

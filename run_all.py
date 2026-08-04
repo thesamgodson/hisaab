@@ -483,6 +483,16 @@ Examples:
         help=f"Comma-separated schemes to scrape: {','.join(ALL_SCHEMES)} or 'all'",
     )
     parser.add_argument("--load-only", action="store_true", help="Skip scraping, just load existing data into DB")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help=(
+            "Re-run finance scrapers even when their curated file already exists "
+            "(normally skipped in --load-only). Use this instead of deleting a "
+            "curated file to force a refresh — deleting first means a failed "
+            "re-scrape loses the previous good data instead of just keeping it."
+        ),
+    )
     parser.add_argument("--snapshot", action="store_true", help="Capture a metric snapshot after loading (for trend tracking)")
     parser.add_argument("--summary", action="store_true", help="Just print DB summary and exit")
     parser.add_argument("--freshness", action="store_true", help="Show data freshness per scheme and exit")
@@ -510,14 +520,19 @@ Examples:
                 if count:
                     print(f"  {scheme}: {count} records imported")
 
-        # Run finance scrapers (data.gov.in API, fast)
+        # Run finance scrapers (data.gov.in API, fast). Normally skipped once
+        # the curated file exists; --force re-runs them anyway instead of
+        # requiring the file to be deleted first (see atomic_write_json —
+        # a --force re-scrape that comes back empty keeps the existing file).
         for scheme in FINANCE_SCRAPERS:
             curated_file = CURATED_DIR / FINANCE_CURATED_FILES[scheme]
-            if not curated_file.exists():
+            if args.force or not curated_file.exists():
                 print(f"\n  Running {scheme} finance scraper...")
                 count = scrape_finance(scheme)
                 if count:
                     print(f"  {scheme} finance: {count} records scraped")
+                elif args.force and curated_file.exists():
+                    print(f"  {scheme} finance: re-scrape returned 0 records — kept existing curated file")
 
         results = load_curated_into_db(args.fin_year)
         print("\nLoaded into database:")
@@ -574,14 +589,13 @@ Examples:
             scrape_jjm(state_names_for_filter)
 
         elif scheme == "mgnrega":
-            mgnrega_reports = [
-                "misappropriation",
-                "fto_status",
-                "fto_pendency",
-                "issues_reported",
-                "financial_statement",
-            ]
-            scrape_mgnrega(states, args.fin_year, mgnrega_reports)
+            # Only the reports reachable from the public citizen portal.
+            # misappropriation + issues_reported live solely on the
+            # captcha-gated MIS index since the Aug 2026 *.dord.gov.in move —
+            # see scrapers/scrape_reports.UNAVAILABLE_REPORTS and DATA_CLAIMS.md.
+            from scrapers.scrape_reports import AVAILABLE_REPORTS
+
+            scrape_mgnrega(states, args.fin_year, AVAILABLE_REPORTS)
 
         elif scheme == "pmgsy":
             scrape_pmgsy(states)

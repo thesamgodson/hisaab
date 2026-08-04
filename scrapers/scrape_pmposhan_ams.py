@@ -28,6 +28,11 @@ from typing import Any
 import requests
 from bs4 import BeautifulSoup
 
+try:
+    from scrapers.io_utils import atomic_write_json
+except ImportError:
+    from io_utils import atomic_write_json
+
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
 RAW_DIR = DATA_DIR / "raw" / "pmposhan"
@@ -366,10 +371,7 @@ def scrape_all(
 def save_raw(records: list[dict[str, Any]]) -> Path:
     """Save all records to raw JSON."""
     path = RAW_DIR / "pmposhan_ams_raw.json"
-    path.write_text(
-        json.dumps(records, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
+    atomic_write_json(path, records)
     return path
 
 
@@ -383,10 +385,7 @@ def save_curated_by_state(records: list[dict[str, Any]]) -> dict[str, Path]:
     for state_name, state_records in sorted(by_state.items()):
         slug = state_slug(state_name)
         path = CURATED_DIR / f"pmposhan_district_{slug}_latest.json"
-        path.write_text(
-            json.dumps(state_records, indent=2, ensure_ascii=False),
-            encoding="utf-8",
-        )
+        atomic_write_json(path, state_records)
         paths[state_name] = path
 
     return paths

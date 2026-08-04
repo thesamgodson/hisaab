@@ -18,12 +18,16 @@ from __future__ import annotations
 
 import argparse
 import asyncio
-import json
 import sys
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+
+try:
+    from scrapers.io_utils import atomic_write_json
+except ImportError:
+    from io_utils import atomic_write_json
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
@@ -250,10 +254,7 @@ def save_curated(records: list[dict[str, Any]], state_name: str) -> Path:
     """Save parsed records as JSON."""
     slug = state_slug(state_name)
     path = CURATED_DIR / f"pmayg_district_{slug}_latest.json"
-    path.write_text(
-        json.dumps(records, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
+    atomic_write_json(path, records)
     return path
 
 

@@ -24,6 +24,11 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+try:
+    from scrapers.io_utils import atomic_write_json
+except ImportError:
+    from io_utils import atomic_write_json
+
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
 CURATED_DIR = DATA_DIR / "curated"
@@ -261,10 +266,7 @@ def parse_records(
 def save_curated(records: list[dict[str, Any]]) -> Path:
     """Save all records to a single national file (SBM-G is one dataset)."""
     path = CURATED_DIR / "sbm_district_all_latest.json"
-    path.write_text(
-        json.dumps(records, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
+    atomic_write_json(path, records)
     return path
 
 

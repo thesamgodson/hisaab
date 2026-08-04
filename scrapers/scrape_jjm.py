@@ -16,13 +16,17 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
 import requests
+
+try:
+    from scrapers.io_utils import atomic_write_json
+except ImportError:
+    from io_utils import atomic_write_json
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
@@ -137,19 +141,13 @@ def _parse_float(val: str | float) -> float:
 def save_curated(records: list[dict[str, Any]], state_name: str) -> Path:
     slug = state_slug(state_name)
     path = CURATED_DIR / f"jjm_district_{slug}_latest.json"
-    path.write_text(
-        json.dumps(records, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
+    atomic_write_json(path, records)
     return path
 
 
 def save_raw(raw_data: list[dict[str, Any]]) -> Path:
     path = RAW_DIR / "jjm_national_latest.json"
-    path.write_text(
-        json.dumps(raw_data, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
+    atomic_write_json(path, raw_data)
     return path
 
 

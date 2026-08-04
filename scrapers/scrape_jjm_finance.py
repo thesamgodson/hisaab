@@ -13,7 +13,6 @@ Output: data/curated/jjm_allocation_all_latest.json
 from __future__ import annotations
 
 import argparse
-import json
 import re
 import sys
 import time
@@ -22,6 +21,11 @@ from pathlib import Path
 from typing import Any
 
 import requests
+
+try:
+    from scrapers.io_utils import atomic_write_json
+except ImportError:
+    from io_utils import atomic_write_json
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 CURATED_DIR = ROOT_DIR / "data" / "curated"
@@ -233,11 +237,8 @@ def scrape_all() -> list[dict[str, Any]]:
 
 
 def save_curated(records: list[dict[str, Any]]) -> Path:
-    CURATED_DIR.mkdir(parents=True, exist_ok=True)
     path = CURATED_DIR / "jjm_allocation_all_latest.json"
-    path.write_text(
-        json.dumps(records, indent=2, ensure_ascii=False), encoding="utf-8",
-    )
+    atomic_write_json(path, records)
     return path
 
 

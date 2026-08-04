@@ -23,12 +23,16 @@ from __future__ import annotations
 
 import argparse
 import asyncio
-import json
 import re
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+
+try:
+    from scrapers.io_utils import atomic_write_json
+except ImportError:
+    from io_utils import atomic_write_json
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
@@ -282,11 +286,8 @@ async def scrape_all(fin_years: list[str]) -> list[dict[str, Any]]:
 
 
 def save_curated(records: list[dict[str, Any]]) -> Path:
-    CURATED_DIR.mkdir(parents=True, exist_ok=True)
     path = CURATED_DIR / "pmayg_finance_all_latest.json"
-    path.write_text(
-        json.dumps(records, indent=2, ensure_ascii=False), encoding="utf-8",
-    )
+    atomic_write_json(path, records)
     return path
 
 

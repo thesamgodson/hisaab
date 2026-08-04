@@ -33,6 +33,11 @@ from typing import Any
 
 import requests
 
+try:
+    from scrapers.io_utils import atomic_write_json
+except ImportError:
+    from io_utils import atomic_write_json
+
 BASE_URL = "https://pmgsy.dord.gov.in"
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
@@ -312,9 +317,11 @@ def save_report(
     latest_path = CURATED_DIR / f"{report_name}_{state_slug}_latest.json"
 
     raw_path.write_text(raw_text, encoding="utf-8")
-    payload = json.dumps(records, ensure_ascii=False, indent=2)
-    curated_path.write_text(payload, encoding="utf-8")
-    latest_path.write_text(payload, encoding="utf-8")
+    # Only touch the curated JSON files when the parse produced records — an
+    # empty parse (portal layout change, mid-scrape failure) must never
+    # truncate the last known-good "latest" snapshot.
+    atomic_write_json(curated_path, records)
+    atomic_write_json(latest_path, records)
 
     return {
         "raw": str(raw_path),

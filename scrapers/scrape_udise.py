@@ -16,7 +16,6 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 import time
 from datetime import UTC, datetime
@@ -25,6 +24,11 @@ from typing import Any
 
 import requests
 import urllib3
+
+try:
+    from scrapers.io_utils import atomic_write_json
+except ImportError:
+    from io_utils import atomic_write_json
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -314,12 +318,8 @@ def scrape_all(target_years: list[str] | None = None) -> list[dict[str, Any]]:
 
 
 def save_curated(records: list[dict[str, Any]]) -> Path:
-    CURATED_DIR.mkdir(parents=True, exist_ok=True)
     path = CURATED_DIR / "udise_state_all_latest.json"
-    path.write_text(
-        json.dumps(records, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
+    atomic_write_json(path, records)
     return path
 
 
