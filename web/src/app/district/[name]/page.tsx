@@ -20,19 +20,35 @@ interface MoneyFlowRow {
 
 /**
  * Group rows by scheme and pick the latest fin_year for each.
- * fin_year format: "2024-2025" — lexicographic sort works.
+ * fin_year is "YYYY-YYYY" or "cumulative" — a real year always beats
+ * "cumulative" (which would win a bare lexicographic comparison).
  */
+function finYearRank(finYear: string): string {
+  return finYear === "cumulative" ? "0000" : finYear;
+}
+
 function latestPerScheme(rows: MoneyFlowRow[]): SchemeData[] {
   const map = new Map<string, MoneyFlowRow>();
   for (const row of rows) {
     const existing = map.get(row.scheme);
-    if (!existing || row.fin_year > existing.fin_year) {
+    if (!existing || finYearRank(row.fin_year) > finYearRank(existing.fin_year)) {
       map.set(row.scheme, row);
     }
   }
   return Array.from(map.values()).sort((a, b) =>
     a.scheme.localeCompare(b.scheme),
   );
+}
+
+export async function generateMetadata(props: {
+  params: Promise<{ name: string }>;
+}) {
+  const { name } = await props.params;
+  const district = decodeURIComponent(name).toUpperCase().replace(/-/g, " ");
+  return {
+    title: `${district} — Hisaab`,
+    description: `Government welfare scheme delivery and fund flow for ${district}, from official portals.`,
+  };
 }
 
 export default async function DistrictPage(props: {
@@ -54,16 +70,17 @@ export default async function DistrictPage(props: {
     notFound();
   }
 
-  // Query money_flow VIEW directly
+  // Query money_flow VIEW directly. The state predicate matters: 14 district
+  // names exist in two states (AURANGABAD, BILASPUR, …) and must not merge.
   const rows = await query<MoneyFlowRow>(
     `SELECT scheme, state, district, fin_year,
             allocated_lakhs, released_lakhs, expended_lakhs,
             utilization_pct, units_target, units_completed,
             units_label, source_url
      FROM money_flow
-     WHERE UPPER(district) = UPPER(?)
+     WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)
      ORDER BY scheme, fin_year DESC`,
-    [districtName],
+    [districtName, state],
   );
 
   const schemes = latestPerScheme(rows);

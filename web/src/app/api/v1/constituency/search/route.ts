@@ -24,7 +24,9 @@ export async function GET(request: NextRequest) {
      UNION
      SELECT constituency, state FROM mp_info
      WHERE UPPER(mp_name) LIKE '%' || UPPER(?) || '%'
-        OR UPPER(constituency) LIKE '%' || UPPER(?) || '%'`,
+        OR UPPER(constituency) LIKE '%' || UPPER(?) || '%'
+     ORDER BY constituency
+     LIMIT 25`,
     [searchTerm, searchTerm, searchTerm],
   );
 

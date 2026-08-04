@@ -1,5 +1,6 @@
-import { type NextRequest } from "next/server";
 import { query, queryOne } from "@/lib/db";
+
+export const revalidate = 3600;
 
 const MAJOR_TABLES = [
   "misappropriation",
@@ -29,62 +30,36 @@ interface CountRow {
   cnt: number;
 }
 
-interface MaxRow {
+interface StatRow {
+  cnt: number;
   latest: string | null;
 }
 
-export async function GET(_request: NextRequest) {
-  try {
-    // Scheme count from money_flow view
-    const schemeRow = await queryOne<CountRow>(
-      "SELECT COUNT(DISTINCT scheme) as cnt FROM money_flow",
-    );
-    const schemeCount = schemeRow?.cnt ?? 0;
+export async function GET() {
+  // One UNION ALL statement instead of 42 serial round-trips.
+  const perTableSql = MAJOR_TABLES.map(
+    (t) => `SELECT COUNT(*) AS cnt, MAX(scraped_at) AS latest FROM ${t}`,
+  ).join("\nUNION ALL\n");
 
-    // District count (exclude state-level 'ALL' rows)
-    const districtRow = await queryOne<CountRow>(
+  const [schemeRow, districtRow, tableStats] = await Promise.all([
+    queryOne<CountRow>("SELECT COUNT(DISTINCT scheme) as cnt FROM money_flow"),
+    queryOne<CountRow>(
       "SELECT COUNT(DISTINCT district) as cnt FROM money_flow WHERE district != 'ALL'",
-    );
-    const districtCount = districtRow?.cnt ?? 0;
+    ),
+    query<StatRow>(perTableSql),
+  ]);
 
-    // Total records across all major tables
-    let totalRecords = 0;
-    for (const table of MAJOR_TABLES) {
-      try {
-        const row = await queryOne<CountRow>(
-          `SELECT COUNT(*) as cnt FROM ${table}`,
-        );
-        totalRecords += row?.cnt ?? 0;
-      } catch {
-        // Table may not exist — skip
-      }
-    }
+  const totalRecords = tableStats.reduce((sum, r) => sum + Number(r.cnt), 0);
+  const lastUpdated = tableStats.reduce<string | null>(
+    (latest, r) =>
+      r.latest && (latest === null || r.latest > latest) ? r.latest : latest,
+    null,
+  );
 
-    // Last updated: MAX(scraped_at) across tables
-    let lastUpdated: string | null = null;
-    for (const table of MAJOR_TABLES) {
-      try {
-        const row = await queryOne<MaxRow>(
-          `SELECT MAX(scraped_at) as latest FROM ${table}`,
-        );
-        if (row?.latest && (lastUpdated === null || row.latest > lastUpdated)) {
-          lastUpdated = row.latest;
-        }
-      } catch {
-        // Table may not exist — skip
-      }
-    }
-
-    return Response.json({
-      scheme_count: schemeCount,
-      district_count: districtCount,
-      total_records: totalRecords,
-      last_updated: lastUpdated?.slice(0, 10) ?? null,
-    });
-  } catch (error) {
-    return Response.json(
-      { error: "Failed to fetch stats" },
-      { status: 500 },
-    );
-  }
+  return Response.json({
+    scheme_count: schemeRow?.cnt ?? 0,
+    district_count: districtRow?.cnt ?? 0,
+    total_records: totalRecords,
+    last_updated: lastUpdated?.slice(0, 10) ?? null,
+  });
 }

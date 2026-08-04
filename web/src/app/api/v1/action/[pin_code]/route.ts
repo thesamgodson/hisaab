@@ -252,67 +252,10 @@ async function buildDiagnosis(
     }
   }
 
-  // PM POSHAN
-  const poshan = await queryOne<Record<string, unknown>>(
-    `SELECT * FROM pmposhan_district WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?`,
-    [district, state, finYear],
-  );
-  if (poshan) {
-    const enrolled = Number(poshan.children_enrolled ?? 0);
-    const fed = Number(poshan.children_fed ?? 0);
-    const pct = enrolled > 0 ? (fed / enrolled) * 100 : 100;
-    if (pct < 70) {
-      items.push({
-        severity: "medium",
-        scheme: "PM POSHAN",
-        summary: `Only ${pct.toFixed(0)}% children fed`,
-        detail: `${fed.toLocaleString("en-IN")} of ${enrolled.toLocaleString("en-IN")} enrolled children being fed`,
-        amount: null,
-        source_url: (poshan.source_url as string) ?? null,
-      });
-    }
-  }
-
-  // NFSA
-  const nfsa = await queryOne<Record<string, unknown>>(
-    `SELECT * FROM nfsa_district WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?`,
-    [district, state, finYear],
-  );
-  if (nfsa) {
-    const total = Number(nfsa.ration_cards_total ?? 0);
-    const active = Number(nfsa.ration_cards_active ?? 0);
-    const pct = total > 0 ? (active / total) * 100 : 100;
-    if (pct < 80) {
-      items.push({
-        severity: "medium",
-        scheme: "PDS/NFSA",
-        summary: `Only ${pct.toFixed(0)}% ration cards active`,
-        detail: `${active.toLocaleString("en-IN")} of ${total.toLocaleString("en-IN")} cards are active`,
-        amount: null,
-        source_url: (nfsa.source_url as string) ?? null,
-      });
-    }
-  }
-
-  // NSAP
-  const nsap = await queryOne<Record<string, unknown>>(
-    `SELECT * FROM nsap_district WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?`,
-    [district, state, finYear],
-  );
-  if (nsap) {
-    const target = Number(nsap.beneficiaries_eligible ?? 0);
-    const paid = Number(nsap.beneficiaries_paid ?? 0);
-    if (target > 0 && paid < target) {
-      items.push({
-        severity: "medium",
-        scheme: "NSAP",
-        summary: `Only ${paid.toLocaleString("en-IN")} of ${target.toLocaleString("en-IN")} target beneficiaries paid`,
-        detail: `${((paid / target) * 100).toFixed(0)}% pension coverage`,
-        amount: Number(nsap.amount_paid_lakhs ?? 0),
-        source_url: (nsap.source_url as string) ?? null,
-      });
-    }
-  }
+  // PM POSHAN, NFSA, and NSAP have NO honest shortfall metric at district
+  // level (children_fed is a daily snapshot; ration cards active=total by
+  // construction; NSAP publishes no eligibility target — see DATA_CLAIMS.md).
+  // They appear on the district page as reported figures, never as diagnoses.
 
   // Sort by severity, cap at 5
   items.sort(

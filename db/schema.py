@@ -575,13 +575,13 @@ SELECT
 FROM jjm_district
 UNION ALL
 SELECT
+    -- children_fed is a DAILY reporting snapshot (CLAIM-2026-0006); dividing
+    -- it by total enrollment is not a delivery rate. No percentage published.
     'PM POSHAN' as scheme, state, district, fin_year,
-    children_enrolled as units_target,
+    NULL as units_target,
     children_fed as units_completed,
-    'children fed' as units_label,
-    CASE WHEN children_enrolled > 0
-         THEN (children_fed * 100.0 / children_enrolled)
-         ELSE NULL END as delivery_pct,
+    'children fed (daily snapshot)' as units_label,
+    NULL as delivery_pct,
     source_url
 FROM pmposhan_district
 UNION ALL
@@ -597,13 +597,14 @@ SELECT
 FROM nsap_district
 UNION ALL
 SELECT
+    -- active = total by construction in the source (CLAIM-2026-0008) — an
+    -- active/total ratio would always read 100%. Card counts published as a
+    -- stock figure, not a delivery rate.
     'PDS/NFSA' as scheme, state, district, fin_year,
-    ration_cards_total as units_target,
-    ration_cards_active as units_completed,
+    NULL as units_target,
+    ration_cards_total as units_completed,
     'ration cards' as units_label,
-    CASE WHEN ration_cards_total > 0
-         THEN (ration_cards_active * 100.0 / ration_cards_total)
-         ELSE NULL END as delivery_pct,
+    NULL as delivery_pct,
     source_url
 FROM nfsa_district
 UNION ALL
@@ -941,13 +942,15 @@ SELECT
 FROM nsap_finance
 UNION ALL
 SELECT
+    -- allocation/offtake are METRIC TONNES, never rupees — they must not
+    -- flow into *_lakhs columns. Card counts are a stock, not delivery.
     'PDS/NFSA' as scheme, state, district, fin_year,
-    allocation_mt as allocated_lakhs,
-    allocation_mt as released_lakhs,
-    offtake_mt as expended_lakhs,
+    NULL as allocated_lakhs,
+    NULL as released_lakhs,
+    NULL as expended_lakhs,
     offtake_pct as utilization_pct,
-    ration_cards_total as units_target,
-    ration_cards_active as units_completed,
+    NULL as units_target,
+    ration_cards_total as units_completed,
     'ration cards' as units_label, source_url
 FROM nfsa_district
 UNION ALL

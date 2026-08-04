@@ -29,8 +29,17 @@ function formatLakhs(amount: number): string {
 }
 
 export async function GET(request: NextRequest) {
-  const state =
-    request.nextUrl.searchParams.get("state") ?? "TAMIL NADU";
+  const state = request.nextUrl.searchParams.get("state");
+  if (!state) {
+    // A national API must never silently answer for one state.
+    return Response.json(
+      {
+        error:
+          "Query parameter 'state' is required. For national worst districts use /api/v1/scores/worst.",
+      },
+      { status: 400 },
+    );
+  }
   const limitParam = request.nextUrl.searchParams.get("limit");
   const limit = Math.min(
     Math.max(parseInt(limitParam ?? "10", 10) || 10, 1),

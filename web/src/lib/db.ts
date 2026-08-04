@@ -38,16 +38,21 @@ export async function queryOne<T = Record<string, unknown>>(
   return rows[0] ?? null;
 }
 
-/** Resolve state for a district by checking multiple tables. */
+/** Resolve state for a district name.
+ *
+ * district_scores is the canonical district registry — it holds every
+ * (district, state) pair seen in any scheme table, written at load time.
+ * Homonym districts (AURANGABAD in Bihar & Maharashtra) resolve to their
+ * first match — callers that know the state should pass it explicitly
+ * instead of relying on this.
+ */
 export async function resolveState(district: string): Promise<string | null> {
   // Normalize: replace hyphens with spaces to match DB convention
   const normalized = district.toUpperCase().trim().replace(/-/g, " ");
-  for (const table of ["pmgsy_district", "misappropriation", "financial_statement"]) {
-    const row = await queryOne<{ state: string }>(
-      `SELECT state FROM ${table} WHERE UPPER(district) = UPPER(?) LIMIT 1`,
-      [normalized],
-    );
-    if (row) return row.state;
-  }
-  return null;
+  const row = await queryOne<{ state: string }>(
+    `SELECT state FROM district_scores WHERE UPPER(district) = UPPER(?)
+     ORDER BY state LIMIT 1`,
+    [normalized],
+  );
+  return row?.state ?? null;
 }

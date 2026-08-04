@@ -29,14 +29,19 @@ function fmtNum(n: number): string {
   return n.toLocaleString("en-IN");
 }
 
-/** Status color and label based on best available percentage. */
+/** Status color and label based on best available percentage.
+ *
+ * "Reported" (neutral) means figures exist but no percentage can honestly be
+ * computed (no target, or the source metric is not a completion rate) — it is
+ * NOT a judgment. Never label a card "No data" while rendering data on it.
+ */
 function statusInfo(row: SchemeData): { color: string; label: string } {
   const deliveryPct =
     row.units_target && row.units_target > 0 && row.units_completed != null
       ? (row.units_completed / row.units_target) * 100
       : null;
   const pct = deliveryPct ?? row.utilization_pct;
-  if (pct == null) return { color: "oklch(0.70 0 0)", label: "No data" };
+  if (pct == null) return { color: "oklch(0.60 0 0)", label: "Reported" };
   if (pct >= 75) return { color: "oklch(0.55 0.18 145)", label: "Good" };
   if (pct >= 50) return { color: "oklch(0.62 0.16 75)", label: "Fair" };
   return { color: "oklch(0.55 0.20 25)", label: "Poor" };

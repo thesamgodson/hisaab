@@ -349,7 +349,7 @@ export default async function ActionPage({ params }: PageProps) {
         style={{ borderTop: "1px solid var(--border-subtle)" }}
       >
         <Link
-          href={`/district/${districtSlug}`}
+          href={`/district/${districtSlug}?state=${encodeURIComponent(data.state)}`}
           className="inline-flex items-center gap-1.5 text-sm font-medium transition-opacity duration-150 hover:opacity-80"
           style={{ color: "var(--accent)" }}
         >

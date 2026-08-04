@@ -1,15 +1,10 @@
 import { type NextRequest } from "next/server";
 import { query } from "@/lib/db";
-
-type SchemeKey =
-  | "MGNREGA"
-  | "PMGSY"
-  | "PMAY-G"
-  | "PM Kisan"
-  | "JJM"
-  | "PM POSHAN"
-  | "NSAP"
-  | "PDS/NFSA";
+import {
+  resolveSchemeParam,
+  VALID_SCHEME_SLUGS,
+  type SchemeKey,
+} from "@/lib/schemes";
 
 interface SchemeQuery {
   sql: string;
@@ -101,33 +96,29 @@ function buildQuery(
   }
 }
 
-const VALID_SCHEMES: SchemeKey[] = [
-  "MGNREGA",
-  "PMGSY",
-  "PMAY-G",
-  "PM Kisan",
-  "JJM",
-  "PM POSHAN",
-  "NSAP",
-  "PDS/NFSA",
-];
-
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ scheme: string }> },
 ) {
   const { scheme: rawScheme } = await params;
-  const scheme = decodeURIComponent(rawScheme) as SchemeKey;
+  const scheme = resolveSchemeParam(rawScheme);
   const searchParams = request.nextUrl.searchParams;
-  const state = searchParams.get("state") ?? "TAMIL NADU";
+  const state = searchParams.get("state");
   const finYear = searchParams.get("fin_year") ?? "2024-2025";
 
-  if (!VALID_SCHEMES.includes(scheme)) {
+  if (!scheme) {
     return Response.json(
       {
-        error: `Unknown scheme "${scheme}". Valid schemes: ${VALID_SCHEMES.join(", ")}`,
+        error: `Unknown scheme "${decodeURIComponent(rawScheme)}". Valid slugs: ${VALID_SCHEME_SLUGS.join(", ")}`,
       },
       { status: 404 },
+    );
+  }
+
+  if (!state) {
+    return Response.json(
+      { error: "Query parameter 'state' is required (e.g. ?state=BIHAR)." },
+      { status: 400 },
     );
   }
 

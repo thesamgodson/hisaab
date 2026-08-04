@@ -79,11 +79,9 @@ export async function GET(
       if (amtReported > 0) {
         briefParts.push(`Amount reported: ${fmtRs(amtReported, "lakhs")}`);
         briefParts.push(`Amount recovered: ${fmtRs(amtRecovered, "lakhs")}`);
-        const recoveryPct = amtReported > 0
-          ? ((amtRecovered / amtReported) * 100).toFixed(1)
-          : "Not applicable";
-        briefParts.push(`Recovery rate: ${recoveryPct}${typeof recoveryPct === "string" ? "" : "%"}`);
-        if (typeof recoveryPct === "number" || (typeof recoveryPct === "string" && Number(recoveryPct) < 30)) {
+        const recoveryPct = (amtRecovered / amtReported) * 100;
+        briefParts.push(`Recovery rate: ${recoveryPct.toFixed(1)}%`);
+        if (recoveryPct < 30) {
           briefParts.push(`RED FLAG: Recovery rate below 30%`);
         }
       }
