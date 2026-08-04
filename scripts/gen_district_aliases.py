@@ -115,14 +115,15 @@ _OVERRIDES: dict[tuple[str, str], str] = {
     ("ODISHA", "KHURDA"): "KHORDHA",
     ("ODISHA", "NUAPARA"): "NUAPADA",
     ("ODISHA", "SUBARNAPUR"): "SONEPUR",
-    # Recent official renames (2024-2026), mapped NEW->OLD for now because the
-    # ecosystem canon (PIN directory, lineage, map, 10 of 11 scheme sources)
-    # still carries the pre-rename name. Deliberately the REVERSE of the
-    # AYODHYA/PRAYAGRAJ entries above — flip these in one dedicated
-    # rename-migration pass (with map + PIN verification), not piecemeal.
-    ("BIHAR", "GAYAJI"): "GAYA",
-    ("ASSAM", "SRIBHUMI"): "KARIMGANJ",
-    ("KARNATAKA", "BENGALURU SOUTH"): "RAMANAGARA",
+    # Recent official renames (2024-2026), FLIPPED to the official post-rename
+    # canon on 2026-08-04 (dedicated rename-migration pass) — old portal / PIN /
+    # map spellings now map INTO the new name, same direction as the
+    # AYODHYA/PRAYAGRAJ entries above. The topojson map polygons (GAYA,
+    # KARIMGANJ) were renamed to match; Ramanagara has no map polygon.
+    # normalize_civic_tables folds the seed_data.py old GAYA/RAMANAGARA forms.
+    ("BIHAR", "GAYA"): "GAYAJI",
+    ("ASSAM", "KARIMGANJ"): "SRIBHUMI",
+    ("KARNATAKA", "RAMANAGARA"): "BENGALURU SOUTH",
     # LokOS (DAY-NRLM) spellings
     ("ASSAM", "DIMA HASAO NORTH CACHAR HILLS"): "DIMA HASAO",
     ("KARNATAKA", "DHARWAR"): "DHARWAD",

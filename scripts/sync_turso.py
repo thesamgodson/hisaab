@@ -149,8 +149,28 @@ def main() -> int:
                 print(f"  retry {attempt}/{attempts - 1} for {what} in {wait:.0f}s ({type(exc).__name__})")
                 time.sleep(wait)
 
+    local_counts = dict(plan)
+    skipped: list[str] = []
+
     try:
         for name, create_sql in tables:
+            # Never replace a populated remote table with an empty local one.
+            # This is the March-2026 disaster class: a from-scratch DB build
+            # that didn't re-seed a table (e.g. pin_district_mapping when the
+            # refresh only ran --mla-only) would otherwise DROP+recreate it
+            # empty on prod and 500 the PIN flow. Empty-both is fine to push.
+            if local_counts[name] == 0:
+                remote_existing = _with_retry(
+                    lambda n=name: client.execute(
+                        f"SELECT COUNT(*) FROM {n}"
+                    ).rows[0][0],
+                    f"{name} remote count",
+                )
+                if remote_existing:
+                    print(f"  SKIP {name}: local empty, remote has {remote_existing:,} rows — kept")
+                    skipped.append(name)
+                    continue
+
             stmts = _table_statements(local, name, create_sql)
             # One transactional batch per table when small enough; otherwise
             # chunked batches (first batch carries DROP+CREATE).
@@ -178,6 +198,10 @@ def main() -> int:
         mismatches = 0
         for name, local_count in plan:
             remote = client.execute(f"SELECT COUNT(*) FROM {name}").rows[0][0]
+            if name in skipped:
+                # Intentionally not overwritten — prod kept its rows.
+                print(f"  {name}: {local_count:,} / {remote:,}  KEPT (local empty)")
+                continue
             status = "OK" if remote == local_count else "MISMATCH"
             if remote != local_count:
                 mismatches += 1
