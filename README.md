@@ -20,7 +20,7 @@ Read the [Manifesto](MANIFESTO.md) | [Data Claims Policy](DATA_CLAIMS.md)
 
 | Scheme | Coverage | Source |
 |--------|----------|--------|
-| MGNREGA | Rural employment, fund flow, misappropriation, FTO status | nrega.nic.in |
+| MGNREGA | Rural employment, fund flow, FTO status (misappropriation frozen at FY2024-25) | mnregaweb2.dord.gov.in |
 | PMGSY | Rural roads — sanctioned vs completed, expenditure | pmgsy.dord.gov.in |
 | PMAY-G | Rural housing — targets, completion, fund release | report.pmayg.dord.gov.in |
 | PM Kisan | Farmer direct benefit transfers | data.gov.in |

@@ -47,7 +47,7 @@ npm run dev                             # Start at localhost:3000
 
 | Scheme | Table(s) | Source | Financial Data? |
 |--------|----------|--------|----------------|
-| MGNREGA | misappropriation, financial_statement, fto_status, fto_pendency, issues_reported | nrega.nic.in | Yes — district-level (lakhs) |
+| MGNREGA | financial_statement, fto_status, fto_pendency (live) · misappropriation, issues_reported (**frozen FY2024-25**) | mnregaweb2.dord.gov.in citizen portal | Yes — district-level (lakhs) |
 | PMGSY | pmgsy_progress, pmgsy_district | pmgsy.dord.gov.in | Yes — district-level (crores→lakhs in VIEWs) |
 | PM Kisan | pmkisan_district | data.gov.in | Yes — state-level (amount_paid_lakhs) |
 | PMAY-G | pmayg_district, **pmayg_finance** | report.pmayg.dord.gov.in | Yes — **state-level** alloc/release/utilized (2019-26, 7 years) |

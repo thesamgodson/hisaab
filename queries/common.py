@@ -82,6 +82,9 @@ def data_quality_warnings() -> dict[str, list[str]]:
     return {
         "MGNREGA": [
             "Financial amounts are in lakhs (amounts_in_lakhs=1 in financial_statement).",
+            "Social audit tables (misappropriation, issues_reported) are FROZEN at FY2024-25: "
+            "their only source, the national MIS index, went captcha-gated in Aug 2026. "
+            "Cite those figures as FY2024-25, never as current. See DATA_CLAIMS.md CLAIM-2026-0001.",
         ],
         "PMGSY": [
             "Amounts are in crores. Converted to lakhs (*100) in VIEWs.",

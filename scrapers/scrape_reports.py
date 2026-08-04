@@ -1,17 +1,27 @@
 """
-Unified MGNREGA report scraper via MIS portal.
+MGNREGA report scraper via the public (un-gated) state citizen portal.
 
-Uses Playwright headless browser to:
-1. Navigate to the MIS report portal (nreganarep.nic.in)
-2. Solve the client-side captcha (answer is in a hidden field)
-3. Select financial year and state to generate Digest-authenticated URLs
-4. Fetch report pages and parse district-level HTML tables
+The national MIS report index (mnregaweb4.dord.gov.in/netnrega/MISreport4.aspx)
+became CAPTCHA-gated when MGNREGA moved from *.nic.in to *.dord.gov.in in
+Aug 2026 — it renders zero report links before the captcha is answered, so it
+is off limits. This scraper uses the state citizen home page instead, which is
+public, needs no captcha, and emits the same Digest-signed report URLs:
 
-Reports scraped:
-- Financial Misappropriation Recovery (R.9.2.6)
-- FTO Status Report (R8)
-- FTO Pendency Day-wise (R8)
-- Social Audit Issues Reported by Category (R.9.2.3)
+    https://mnregaweb2.dord.gov.in/netnrega/homestciti.aspx?state_code=..&state_name=..
+
+Flow: GET the citizen page -> ASP.NET postback on its `fin_year` dropdown to
+select the target financial year -> harvest the Digest-signed report hrefs ->
+fetch and parse each report's HTML table.
+
+Reachable from the citizen portal:
+- Financial Statement (R7)     -> financial_statement (district-level)
+- FTO Status Report (R8)       -> fto_status          (district-level)
+- FTO Pendency Day-wise (R8)   -> fto_pendency        (bank-level by design)
+
+NOT reachable un-gated (see UNAVAILABLE_REPORTS): Financial Misappropriation
+Recovery (R.9.2.6) and Social Audit Issues Reported by Category (R.9.2.3).
+Both exist only on the captcha-gated MIS index. Their parsers are retained so
+the datasets can be revived the moment an un-gated route reappears.
 
 Output: JSON files in data/curated/ with raw HTML snapshots in data/raw/.
 """
@@ -19,20 +29,33 @@ Output: JSON files in data/curated/ with raw HTML snapshots in data/raw/.
 from __future__ import annotations
 
 import argparse
-import html as htmllib
 import json
 import re
 import sys
 import time
-from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlencode, urljoin
 
+import requests
 from bs4 import BeautifulSoup
 
-# nreganarep.nic.in died when MGNREGA moved to *.dord.gov.in (Aug 2026)
-MIS_URL = "https://mnregaweb4.dord.gov.in/netnrega/MISreport4.aspx"
+try:
+    from scrapers.io_utils import atomic_write_json
+except ImportError:
+    from io_utils import atomic_write_json
+
+# nreganarep.nic.in died and MISreport4.aspx went behind a captcha when MGNREGA
+# moved to *.dord.gov.in (Aug 2026). The state citizen page is the public route.
+CITIZEN_BASE = "https://mnregaweb2.dord.gov.in/netnrega/"
+CITIZEN_PAGE = CITIZEN_BASE + "homestciti.aspx"
+
+USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+)
+REQUEST_TIMEOUT = 120
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
@@ -42,26 +65,7 @@ META_DIR = DATA_DIR / "metadata"
 LOG_DIR = DATA_DIR / "logs"
 
 
-@dataclass(frozen=True)
-class ReportURL:
-    name: str
-    url: str
-    pattern: str
-
-
-@dataclass(frozen=True)
-class StateConfig:
-    state_name: str
-    state_code: str
-    mis_option_value: str  # e.g. "29RTNY" for Tamil Nadu
-
-
-# Known MIS dropdown values per state. Extend as needed.
-# Format: {state_code}{R|S}{short_name}{Y}
-# The MIS portal uses a specific encoding for each state.
-STATE_CONFIGS: dict[str, StateConfig] = {}
-
-
+# href fragments identifying each report on the citizen page (matched case-insensitively)
 REPORT_PATTERNS: dict[str, str] = {
     "misappropriation": r"SAU_FMRecoveryReport\.aspx",
     "fto_status": r"FTO/FTOReport\.aspx",
@@ -69,6 +73,19 @@ REPORT_PATTERNS: dict[str, str] = {
     "issues_reported": r"SA-CatWise-IssueReported\.aspx",
     "financial_statement": r"fundstreportMtemp\.aspx",
 }
+
+# Datasets that exist only behind the captcha-gated national MIS index.
+# Requesting one is not a crash — it reports the limitation and skips.
+UNAVAILABLE_REPORTS: dict[str, str] = {
+    "misappropriation": "captcha-gated MIS index only (MISreport4.aspx) — no un-gated route",
+    "issues_reported": "captcha-gated MIS index only (MISreport4.aspx) — no un-gated route",
+}
+
+AVAILABLE_REPORTS: list[str] = [name for name in REPORT_PATTERNS if name not in UNAVAILABLE_REPORTS]
+
+# The portal signs each report URL with a `Digest` over its query string and
+# serves this page when the signature does not match the parameters.
+TAMPER_MARKERS = ("url tempered", "url tampered")
 
 
 def now_utc() -> datetime:
@@ -108,59 +125,95 @@ def parse_number(raw: str) -> int:
 
 
 # ---------------------------------------------------------------------------
-# MIS Portal session
+# Citizen portal session (public — no captcha anywhere in this path)
 # ---------------------------------------------------------------------------
-def discover_mis_option_value(page: Any, state_name: str) -> str | None:
-    """Find the MIS dropdown option value for a state by name matching."""
-    state_sel = page.locator("#ContentPlaceHolder1_ddl_States")
-    options = state_sel.locator("option").all()
-    for opt in options:
-        txt = opt.text_content().strip().upper()
-        if txt == state_name.upper():
-            return opt.get_attribute("value")
-    return None
+def new_session() -> requests.Session:
+    session = requests.Session()
+    session.headers.update({"User-Agent": USER_AGENT, "Accept-Language": "en-US,en;q=0.9"})
+    return session
 
 
-def open_mis_session(page: Any, fin_year: str, state_name: str) -> dict[str, str]:
+def citizen_url(state_name: str, state_code: str) -> str:
+    query = urlencode(
+        {"state_code": state_code, "state_name": state_name, "lflag": "eng", "labels": "labels"}
+    )
+    return f"{CITIZEN_PAGE}?{query}"
+
+
+def _aspnet_form_fields(soup: BeautifulSoup) -> dict[str, str]:
+    """Collect the hidden __VIEWSTATE / __EVENTVALIDATION etc. of the page form."""
+    form = soup.find("form")
+    if form is None:
+        raise RuntimeError("Citizen page has no <form> — portal layout changed")
+    return {i["name"]: i.get("value", "") for i in form.find_all("input") if i.get("name")}
+
+
+def available_fin_years(soup: BeautifulSoup) -> list[str]:
+    select = soup.find("select", {"name": "fin_year"})
+    if select is None:
+        return []
+    return [o.get("value", "") for o in select.find_all("option") if o.get("value")]
+
+
+def extract_report_urls(html: str, page_url: str) -> dict[str, str]:
+    """Map report name -> absolute Digest-signed URL found on the citizen page."""
+    soup = BeautifulSoup(html, "html.parser")
+    urls: dict[str, str] = {}
+    for anchor in soup.find_all("a", href=True):
+        href = anchor["href"]
+        for name, pattern in REPORT_PATTERNS.items():
+            if name not in urls and re.search(pattern, href, re.IGNORECASE):
+                urls[name] = urljoin(page_url, href)
+    return urls
+
+
+def open_citizen_session(
+    session: requests.Session, state_name: str, state_code: str, fin_year: str, delay_sec: float
+) -> tuple[dict[str, str], str]:
     """
-    Navigate MIS portal, solve captcha, select year/state.
-    Returns dict of {report_name: authenticated_url}.
+    Load the public state citizen page and switch it to `fin_year`, returning
+    ({report_name: Digest-signed url}, citizen_page_url).
+
+    The Digest signs the financial year, so the year must be selected through
+    the page's own ASP.NET postback — hand-editing fin_year in a report URL
+    yields the portal's "URL TEMPERED" page.
     """
-    page.goto(MIS_URL, timeout=120000)
-    page.wait_for_timeout(3000)
+    page_url = citizen_url(state_name, state_code)
+    response = session.get(page_url, timeout=REQUEST_TIMEOUT)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.text, "html.parser")
 
-    # Solve client-side captcha (answer is in hidden field)
-    hf = page.locator('[id*="hfCaptcha"]').get_attribute("value")
-    if not hf:
-        raise RuntimeError("Could not find captcha hidden field")
+    years = available_fin_years(soup)
+    if years and fin_year not in years:
+        raise RuntimeError(f"FY {fin_year} not offered for {state_name}; portal lists {', '.join(years)}")
 
-    page.locator('[id*="txtCaptcha"]').last.fill(hf)
-    page.locator('[id*="btnLogin"]').click()
-    page.wait_for_timeout(2000)
+    if years and years[0] != fin_year:
+        fields = _aspnet_form_fields(soup)
+        fields.update({"__EVENTTARGET": "fin_year", "__EVENTARGUMENT": "", "fin_year": fin_year})
+        time.sleep(delay_sec)
+        response = session.post(page_url, data=fields, timeout=REQUEST_TIMEOUT, headers={"Referer": page_url})
+        response.raise_for_status()
 
-    # Select financial year
-    page.locator("#ContentPlaceHolder1_ddlfinyr").select_option(fin_year)
-    page.wait_for_timeout(500)
+    urls = extract_report_urls(response.text, page_url)
+    # Guard against a silent year mismatch leaving us with last year's numbers.
+    stale = {name: url for name, url in urls.items() if fin_year not in url}
+    for name in stale:
+        del urls[name]
+    if stale:
+        print(f"  Dropped {len(stale)} report URL(s) not carrying FY {fin_year}: {', '.join(sorted(stale))}")
 
-    # Find and select state
-    option_value = discover_mis_option_value(page, state_name)
-    if not option_value:
-        raise RuntimeError(f"State '{state_name}' not found in MIS dropdown")
+    return urls, page_url
 
-    page.locator("#ContentPlaceHolder1_ddl_States").select_option(option_value)
-    page.wait_for_timeout(3000)
 
-    # Extract all report URLs with Digest tokens
-    content = page.content()
-    report_urls: dict[str, str] = {}
+def fetch_report(session: requests.Session, url: str, referer: str) -> str:
+    response = session.get(url, timeout=REQUEST_TIMEOUT, headers={"Referer": referer})
+    response.raise_for_status()
+    return response.text
 
-    for name, pattern in REPORT_PATTERNS.items():
-        for m in re.finditer(rf'href="(https://mnregaweb4\.(?:nic\.in|dord\.gov\.in)[^"]*{pattern}[^"]*)"', content):
-            url = htmllib.unescape(m.group(1))
-            if name not in report_urls:
-                report_urls[name] = url
 
-    return report_urls
+def is_tampered(html: str) -> bool:
+    lowered = html.lower()
+    return any(marker in lowered for marker in TAMPER_MARKERS)
 
 
 # ---------------------------------------------------------------------------
@@ -490,10 +543,6 @@ def parse_financial_statement(html: str, state_name: str, state_code: str, sourc
     return records
 
 
-# Reports that use DataTables client-side pagination — need page size expansion
-DATATABLES_REPORTS = {"issues_reported"}
-
-
 PARSERS: dict[str, Any] = {
     "misappropriation": parse_misappropriation,
     "fto_status": parse_fto_status,
@@ -519,8 +568,11 @@ def save_report(
     latest_path = CURATED_DIR / f"{report_name}_{state_slug}_latest.json"
 
     raw_path.write_text(html, encoding="utf-8")
-    curated_path.write_text(json.dumps(records, ensure_ascii=False, indent=2), encoding="utf-8")
-    latest_path.write_text(json.dumps(records, ensure_ascii=False, indent=2), encoding="utf-8")
+    # Only touch the curated JSON files when the parse produced records — an
+    # empty parse (captcha/tamper block, portal layout change) must never
+    # truncate the last known-good "latest" snapshot.
+    atomic_write_json(curated_path, records)
+    atomic_write_json(latest_path, records)
 
     return {
         "raw": str(raw_path),
@@ -545,103 +597,82 @@ def run_for_state(
     reports: list[str],
     delay_sec: float,
 ) -> int:
-    from playwright.sync_api import sync_playwright
-
     ensure_dirs()
     run_id = now_utc().strftime("%Y%m%d_%H%M%S")
     state_slug = slugify(state_name)
+    results: dict[str, dict[str, Any]] = {}
 
-    print(f"Opening MIS portal for {state_name} (FY {fin_year})...")
+    requested = list(reports)
+    for report_name in requested:
+        if report_name in UNAVAILABLE_REPORTS:
+            print(f"  {report_name}: SKIPPED — {UNAVAILABLE_REPORTS[report_name]}")
+            results[report_name] = {"status": "unavailable_ungated", "reason": UNAVAILABLE_REPORTS[report_name]}
+    obtainable = [r for r in requested if r not in UNAVAILABLE_REPORTS]
+    if not obtainable:
+        return 0
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
+    print(f"Opening public citizen portal for {state_name} (FY {fin_year})...")
+    session = new_session()
+
+    try:
+        report_urls, page_url = open_citizen_session(session, state_name, state_code, fin_year, delay_sec)
+    except Exception as exc:
+        print(f"Failed to open citizen session: {exc}")
+        append_run_log(
+            {
+                "run_id": run_id,
+                "state": state_name,
+                "status": "failed_session",
+                "error": str(exc),
+                "timestamp": utc_iso(),
+            }
+        )
+        return 2
+
+    print(f"Found {len(report_urls)} Digest-signed report URLs")
+    for name, url in report_urls.items():
+        print(f"  {name}: {url[:110]}...")
+
+    for report_name in obtainable:
+        if report_name not in report_urls:
+            print(f"\n  {report_name}: URL not present on the citizen page for this state/year")
+            results[report_name] = {"status": "url_missing"}
+            continue
+
+        url = report_urls[report_name]
+        parser = PARSERS[report_name]
+
+        print(f"\n  Fetching {report_name}...")
+        time.sleep(delay_sec)
 
         try:
-            report_urls = open_mis_session(page, fin_year, state_name)
+            html = fetch_report(session, url, page_url)
         except Exception as exc:
-            print(f"Failed to open MIS session: {exc}")
-            append_run_log(
-                {
-                    "run_id": run_id,
-                    "state": state_name,
-                    "status": "failed_session",
-                    "error": str(exc),
-                    "timestamp": utc_iso(),
-                }
-            )
-            browser.close()
-            return 2
+            print(f"    Failed to fetch: {exc}")
+            results[report_name] = {"status": "failed_fetch", "error": str(exc)}
+            continue
 
-        print(f"Found {len(report_urls)} report URLs with valid Digest tokens")
-        for name, url in report_urls.items():
-            print(f"  {name}: {url[:100]}...")
+        if is_tampered(html):
+            print("    URL Tampered response — Digest no longer matches these parameters")
+            results[report_name] = {"status": "tampered"}
+            continue
 
-        results: dict[str, dict[str, Any]] = {}
+        records = parser(html, state_name, state_code, url)
+        for record in records:
+            record["fin_year"] = fin_year
+        paths = save_report(report_name, state_slug, run_id, html, records, url)
 
-        for report_name in reports:
-            if report_name not in report_urls:
-                print(f"\n  {report_name}: URL not found in MIS portal")
-                continue
-
-            url = report_urls[report_name]
-            parser = PARSERS.get(report_name)
-            if not parser:
-                print(f"\n  {report_name}: No parser available")
-                continue
-
-            print(f"\n  Fetching {report_name}...")
-            time.sleep(delay_sec)
-
-            try:
-                page.goto(url, timeout=120000)
-                page.wait_for_timeout(5000)
-
-                # Expand DataTables pagination to show all rows
-                if report_name in DATATABLES_REPORTS:
-                    try:
-                        expanded = page.evaluate("""() => {
-                            const selects = document.querySelectorAll('select');
-                            for (const s of selects) {
-                                const opts = Array.from(s.options).map(o => o.value);
-                                if (opts.includes('100')) {
-                                    s.value = '100';
-                                    s.dispatchEvent(new Event('change'));
-                                    return true;
-                                }
-                            }
-                            return false;
-                        }""")
-                        if expanded:
-                            page.wait_for_timeout(3000)
-                    except Exception:
-                        pass  # Not a DataTables page, continue
-
-                html = page.content()
-            except Exception as exc:
-                print(f"    Failed to fetch: {exc}")
-                results[report_name] = {"status": "failed_fetch", "error": str(exc)}
-                continue
-
-            tampered = "url tampered" in html.lower()
-            if tampered:
-                print("    URL Tampered response — Digest token may have expired")
-                results[report_name] = {"status": "tampered"}
-                continue
-
-            records = parser(html, state_name, state_code, url)
-            paths = save_report(report_name, state_slug, run_id, html, records, url)
-
-            print(f"    Parsed {len(records)} district records")
+        print(f"    Parsed {len(records)} records")
+        if records:
             print(f"    Saved: {paths['latest']}")
+        else:
+            print("    Nothing parsed — curated JSON left untouched")
 
-            results[report_name] = {
-                "status": "success" if records else "empty",
-                "record_count": len(records),
-                "paths": paths,
-            }
-
-        browser.close()
+        results[report_name] = {
+            "status": "success" if records else "empty",
+            "record_count": len(records),
+            "paths": paths,
+        }
 
     # Summary
     print(f"\n{'=' * 60}")
@@ -663,23 +694,29 @@ def run_for_state(
         }
     )
 
-    failed = sum(1 for r in results.values() if r.get("status") not in ("success",))
+    # "unavailable_ungated" is a documented portal limitation, not a run failure.
+    failed = sum(1 for r in results.values() if r.get("status") not in ("success", "unavailable_ungated"))
     return 0 if failed == 0 else 1
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Scrape MGNREGA reports via MIS portal (Playwright headless)")
-    parser.add_argument("--state-name", default="TAMIL NADU")
-    parser.add_argument("--state-code", default="29")
-    parser.add_argument("--fin-year", default="2024-2025")
+    parser = argparse.ArgumentParser(
+        description="Scrape MGNREGA reports from the public state citizen portal (no captcha, requests only)"
+    )
+    parser.add_argument("--state-name", default="BIHAR")
+    parser.add_argument("--state-code", default="05")
+    parser.add_argument("--fin-year", default="2025-2026")
     parser.add_argument(
         "--reports",
         nargs="+",
-        default=["misappropriation", "fto_status", "fto_pendency", "issues_reported", "financial_statement"],
+        default=AVAILABLE_REPORTS,
         choices=list(REPORT_PATTERNS.keys()),
-        help="Which reports to scrape",
+        help=(
+            "Which reports to scrape. Default: the ones reachable un-gated. "
+            f"Never obtainable without a captcha: {', '.join(sorted(UNAVAILABLE_REPORTS))}"
+        ),
     )
-    parser.add_argument("--delay-sec", type=float, default=2.0, help="Delay between report fetches")
+    parser.add_argument("--delay-sec", type=float, default=2.0, help="Delay between requests (>=2s, be polite)")
     return parser
 
 
