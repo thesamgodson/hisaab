@@ -51,6 +51,7 @@ web/out/
 tasks.md
 findings.md
 learnings.md
+HANDOFF.md
 
 # DB sidecars
 *.db-shm
