@@ -44,8 +44,14 @@ web/out/
 *.png
 !web/public/*.png
 
-# Stale root files
-hisaab.db
-tasks.md
-states.json
+# Vercel project link
 .vercel
+
+# Agent logbook (local working notes)
+tasks.md
+findings.md
+learnings.md
+
+# DB sidecars
+*.db-shm
+*.db-wal

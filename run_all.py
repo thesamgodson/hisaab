@@ -33,6 +33,7 @@ What each mode does:
 from __future__ import annotations
 
 import argparse
+import importlib
 import json
 import sys
 import time
@@ -234,7 +235,7 @@ def scrape_finance(scheme: str) -> int:
     if not module_name:
         return 0
     try:
-        module = __import__(module_name)
+        module = importlib.import_module(f"scrapers.{module_name}")
         records = module.scrape_all()
         if records:
             module.save_curated(records)
@@ -267,7 +268,7 @@ def import_csvs(scheme: str) -> int:
         return 0
 
     try:
-        module = __import__(module_name)
+        module = importlib.import_module(f"scrapers.{module_name}")
         total = module.process_directory(csv_dir)
         return total
     except Exception as exc:
@@ -278,6 +279,8 @@ def import_csvs(scheme: str) -> int:
 def load_curated_into_db(fin_year: str) -> dict[str, int]:
     """Load all curated JSON files into SQLite, then run imputations."""
     from db import CURATED_DIR, LOADERS, get_connection, impute_nsap_financials, init_db
+    from db.normalize_districts import normalize_civic_tables
+    from db.normalize_districts import normalize_records as normalize_district_records
     from db.normalize_states import normalize_records
 
     conn = get_connection()
@@ -287,11 +290,17 @@ def load_curated_into_db(fin_year: str) -> dict[str, int]:
     for loader_name, loader_fn in LOADERS.items():
         pattern = f"{loader_name}_*_latest.json"
         files = list(CURATED_DIR.glob(pattern))
+        if files:
+            # Curated JSON is the source of truth for this table. Clear it
+            # first so renamed/renormalized keys don't leave stale rows behind
+            # (loader names match table names by construction).
+            conn.execute(f"DELETE FROM {loader_name}")
         total = 0
         for path in files:
             try:
                 records = json.loads(path.read_text(encoding="utf-8"))
                 records = normalize_records(records, "state")
+                records = normalize_district_records(records)
                 count = loader_fn(conn, records, fin_year)
                 conn.commit()
                 total += count
@@ -304,6 +313,12 @@ def load_curated_into_db(fin_year: str) -> dict[str, int]:
     nsap_imputed = impute_nsap_financials(conn)
     if nsap_imputed > 0:
         print(f"\n  NSAP imputation: {nsap_imputed} rows updated with estimated pension amounts")
+
+    # Civic tables (PIN directory, constituency maps) are loaded outside this
+    # path — normalize them to the same canonical district names.
+    civic = normalize_civic_tables(conn)
+    for table, n in civic.items():
+        print(f"  Normalized {table}: {n} rows")
 
     conn.close()
     return results
