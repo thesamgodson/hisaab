@@ -37,13 +37,20 @@ jobs:
         run: |
           python run_all.py --schemes "${{ github.event.inputs.schemes || 'jjm,sbm,udise,mgnrega,pmgsy' }}"
 
+      - name: Refresh MLAs (MyNeta) and re-ingest politicians
+        continue-on-error: true
+        run: |
+          python scrapers/scrape_mla_myneta.py --no-cache
+          python -m constituency.ingest --mla-only
+          python -m constituency.ingest --mp-only
+
       - name: Load curated data into SQLite
         run: python run_all.py --load-only
 
       - name: Update district alias registry (additive) and reload
         run: |
           python scripts/gen_district_aliases.py
-          python run_all.py --load-only
+          python run_all.py --load-only --snapshot
 
       - name: Publish to Turso
         env:

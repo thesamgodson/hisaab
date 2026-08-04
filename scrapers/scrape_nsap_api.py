@@ -86,7 +86,7 @@ def fetch_scheme_data(
         url = f"{API_BASE}/{uuid}"
 
         try:
-            resp = requests.get(url, params=params, timeout=30)
+            resp = requests.get(url, params=params, timeout=120)
             resp.raise_for_status()
             data = resp.json()
         except (requests.RequestException, ValueError) as e:

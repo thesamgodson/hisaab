@@ -518,6 +518,27 @@ def ingest_mlas_from_curated(dry_run: bool = False) -> int:
     if dry_run:
         return len(records)
 
+    # Replace each state's assembly WHOLESALE. Delimitation renames ACs
+    # between elections, so INSERT OR REPLACE keyed on (ac_name, state) would
+    # leave the previous assembly's orphaned rows serving stale MLAs.
+    import sqlite3 as _sqlite3
+
+    from db.connection import DB_PATH as _DB_PATH
+
+    states_in_batch = sorted({r["state"] for r in records})
+    conn = _sqlite3.connect(str(_DB_PATH))
+    try:
+        removed = 0
+        for st in states_in_batch:
+            removed += conn.execute(
+                "DELETE FROM mla_info WHERE state = ?", (st,)
+            ).rowcount
+        conn.commit()
+        if removed:
+            print(f"  Cleared {removed} previous rows across {len(states_in_batch)} states")
+    finally:
+        conn.close()
+
     loaded = load_mla_data(records)
     print(f"  MLA records inserted/replaced: {loaded}")
     return loaded
