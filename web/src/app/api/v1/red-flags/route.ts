@@ -1,5 +1,6 @@
 import { type NextRequest } from "next/server";
 import { query } from "@/lib/db";
+import { getLatestFinYear } from "@/lib/fin-year";
 
 interface MisappropriationRow {
   district: string;
@@ -45,6 +46,8 @@ export async function GET(request: NextRequest) {
     Math.max(parseInt(limitParam ?? "10", 10) || 10, 1),
     50,
   );
+  const finYear =
+    request.nextUrl.searchParams.get("fin_year") ?? (await getLatestFinYear());
 
   // Misappropriation
   let misappropriation: {
@@ -57,10 +60,10 @@ export async function GET(request: NextRequest) {
     const rows = await query<MisappropriationRow>(
       `SELECT district, cases_reported, amount_reported, recovery_rate_pct, source_url
        FROM misappropriation
-       WHERE UPPER(state) = UPPER(?) AND fin_year = '2024-2025'
+       WHERE UPPER(state) = UPPER(?) AND fin_year = ?
        ORDER BY amount_reported DESC
        LIMIT ?`,
-      [state, limit],
+      [state, finYear, limit],
     );
 
     if (rows.length > 0) {
@@ -114,10 +117,10 @@ export async function GET(request: NextRequest) {
     const rows = await query<JjmRow>(
       `SELECT district, coverage_pct
        FROM jjm_district
-       WHERE UPPER(state) = UPPER(?) AND fin_year = '2024-2025'
+       WHERE UPPER(state) = UPPER(?) AND fin_year = ?
        ORDER BY coverage_pct ASC
        LIMIT ?`,
-      [state, limit],
+      [state, finYear, limit],
     );
 
     if (rows.length > 0) {

@@ -28,7 +28,7 @@ import urllib3
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 CURATED_DIR = ROOT_DIR / "data" / "curated"
 
 BASE_URL = "https://api.udiseplus.gov.in/open-services/v1.1"

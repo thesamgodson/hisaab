@@ -28,7 +28,7 @@ from urllib.parse import quote
 
 import requests
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 CURATED_DIR = ROOT_DIR / "data" / "curated"
 
 BASE_URL = "https://ejalshakti.gov.in/jjmreport"

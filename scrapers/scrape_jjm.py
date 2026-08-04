@@ -24,7 +24,7 @@ from typing import Any
 
 import requests
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
 RAW_DIR = DATA_DIR / "raw"
 CURATED_DIR = DATA_DIR / "curated"

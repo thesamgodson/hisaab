@@ -1,3 +1,4 @@
+import { getLatestFinYear } from "@/lib/fin-year";
 import { type NextRequest } from "next/server";
 import { query } from "@/lib/db";
 
@@ -10,7 +11,7 @@ interface DistrictRow {
  *  (district_scores, written at load time — 'ALL' state-rows excluded). */
 export async function GET(request: NextRequest) {
   const state = request.nextUrl.searchParams.get("state");
-  const finYear = request.nextUrl.searchParams.get("fin_year") ?? "2024-2025";
+  const finYear = request.nextUrl.searchParams.get("fin_year") ?? (await getLatestFinYear());
 
   const rows = state
     ? await query<DistrictRow>(

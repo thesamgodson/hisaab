@@ -33,7 +33,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
 RAW_DIR = DATA_DIR / "raw"
 CURATED_DIR = DATA_DIR / "curated"
@@ -395,7 +395,7 @@ async def scrape_all_states(
 
         # ── Step 1: SHG formation data ────────────────────────────────────
         print("  Loading SHG G1 report page...")
-        page = await browser.new_page()
+        page = await browser.new_page(ignore_https_errors=True)
         try:
             await page.goto(SHG_REPORT_URL, timeout=PAGE_TIMEOUT)
             await page.wait_for_load_state("networkidle", timeout=PAGE_TIMEOUT)
@@ -437,7 +437,7 @@ async def scrape_all_states(
         # ── Step 2: RF disbursement data (optional) ───────────────────────
         if include_rf and all_records:
             print("\n  Loading RF F1a report page...")
-            rf_page = await browser.new_page()
+            rf_page = await browser.new_page(ignore_https_errors=True)
             try:
                 await rf_page.goto(RF_REPORT_URL, timeout=PAGE_TIMEOUT)
                 await rf_page.wait_for_load_state("networkidle", timeout=PAGE_TIMEOUT)

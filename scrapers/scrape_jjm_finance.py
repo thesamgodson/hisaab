@@ -23,7 +23,7 @@ from typing import Any
 
 import requests
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 CURATED_DIR = ROOT_DIR / "data" / "curated"
 
 API_KEY = "579b464db66ec23bdd000001cdc3b564546246a772a26393094f5645"

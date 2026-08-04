@@ -1,3 +1,4 @@
+import { getLatestFinYear } from "@/lib/fin-year";
 import { type NextRequest } from "next/server";
 import { queryOne } from "@/lib/db";
 import { buildConstituencyReportCard } from "@/lib/report-card";
@@ -17,7 +18,7 @@ export async function GET(
 ) {
   const { name } = await params;
   const constituency = decodeURIComponent(name);
-  const finYear = request.nextUrl.searchParams.get("fin_year") ?? "2024-2025";
+  const finYear = request.nextUrl.searchParams.get("fin_year") ?? (await getLatestFinYear());
 
   const mp = await queryOne<MpInfo>(
     `SELECT * FROM mp_info WHERE UPPER(constituency) = UPPER(?)`,

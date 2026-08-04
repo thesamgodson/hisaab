@@ -1,3 +1,4 @@
+import { getLatestFinYear } from "@/lib/fin-year";
 import { type NextRequest } from "next/server";
 import { query, resolveState } from "@/lib/db";
 
@@ -19,7 +20,7 @@ export async function GET(
   // Normalize: hyphens → spaces to match DB convention (TopoJSON uses hyphens)
   const district = decodeURIComponent(name).toUpperCase().trim().replace(/-/g, " ");
   const searchParams = request.nextUrl.searchParams;
-  const finYear = searchParams.get("fin_year") ?? "2024-2025";
+  const finYear = searchParams.get("fin_year") ?? (await getLatestFinYear());
 
   let state = searchParams.get("state");
   if (!state) {

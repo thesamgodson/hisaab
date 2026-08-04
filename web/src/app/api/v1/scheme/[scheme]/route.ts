@@ -1,3 +1,4 @@
+import { getLatestFinYear } from "@/lib/fin-year";
 import { type NextRequest } from "next/server";
 import { query } from "@/lib/db";
 import {
@@ -104,7 +105,7 @@ export async function GET(
   const scheme = resolveSchemeParam(rawScheme);
   const searchParams = request.nextUrl.searchParams;
   const state = searchParams.get("state");
-  const finYear = searchParams.get("fin_year") ?? "2024-2025";
+  const finYear = searchParams.get("fin_year") ?? (await getLatestFinYear());
 
   if (!scheme) {
     return Response.json(

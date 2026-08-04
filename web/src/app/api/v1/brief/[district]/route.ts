@@ -1,3 +1,4 @@
+import { getLatestFinYear } from "@/lib/fin-year";
 import { type NextRequest } from "next/server";
 import { queryOne, resolveState } from "@/lib/db";
 
@@ -18,7 +19,7 @@ export async function GET(
   const { district: rawDistrict } = await params;
   const district = decodeURIComponent(rawDistrict).toUpperCase().trim().replace(/-/g, " ");
   const searchParams = request.nextUrl.searchParams;
-  const finYear = searchParams.get("fin_year") ?? "2024-2025";
+  const finYear = searchParams.get("fin_year") ?? (await getLatestFinYear());
 
   let state = searchParams.get("state");
   if (!state) {

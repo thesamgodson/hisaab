@@ -33,7 +33,7 @@ from bs4 import BeautifulSoup
 
 MIS_URL = "https://nreganarep.nic.in/netnrega/MISreport4.aspx"
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
 RAW_DIR = DATA_DIR / "raw"
 CURATED_DIR = DATA_DIR / "curated"

@@ -11,6 +11,7 @@
  * DATA_CLAIMS.md), so they are never diagnosed, only reported.
  */
 
+import { getLatestFinYear } from "@/lib/fin-year";
 import { query, queryOne } from "@/lib/db";
 import type {
   ActionBriefResponse,
@@ -173,7 +174,7 @@ export async function buildActionBrief(
   if (!mapping) return null;
 
   const { district, state } = mapping;
-  const finYear = "2024-2025";
+  const finYear = await getLatestFinYear();
 
   const [lineage, mpRow, mlaRow, diagnosis] = await Promise.all([
     queryOne<{ parent_district: string; split_year: number }>(

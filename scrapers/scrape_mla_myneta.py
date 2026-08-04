@@ -41,7 +41,7 @@ _CACHE_DIR = _PROJECT_ROOT / "data" / "raw" / "myneta"
 STATE_ELECTIONS: list[tuple[str, str, int]] = [
     ("ANDHRA PRADESH", "AndhraPradesh2024", 2024),
     ("ARUNACHAL PRADESH", "ArunachalPradesh2024", 2024),
-    ("ASSAM", "assam2021", 2021),
+    ("ASSAM", "Assam2026", 2026),
     ("BIHAR", "Bihar2025", 2025),
     ("CHHATTISGARH", "chhattisgarh2023", 2023),
     ("DELHI", "Delhi2025", 2025),
@@ -52,7 +52,7 @@ STATE_ELECTIONS: list[tuple[str, str, int]] = [
     ("JAMMU AND KASHMIR", "JammuKashmir2024", 2024),
     ("JHARKHAND", "Jharkhand2024", 2024),
     ("KARNATAKA", "Karnataka2023", 2023),
-    ("KERALA", "kerala2021", 2021),
+    ("KERALA", "Kerala2026", 2026),
     ("MADHYA PRADESH", "MadhyaPradesh2023", 2023),
     ("MAHARASHTRA", "Maharashtra2024", 2024),
     ("MANIPUR", "manipur2022", 2022),
@@ -60,16 +60,16 @@ STATE_ELECTIONS: list[tuple[str, str, int]] = [
     ("MIZORAM", "mizoram2023", 2023),
     ("NAGALAND", "nagaland2023", 2023),
     ("ODISHA", "Odisha2024", 2024),
-    ("PUDUCHERRY", "puducherry2021", 2021),
+    ("PUDUCHERRY", "Puducherry2026", 2026),
     ("PUNJAB", "punjab2022", 2022),
     ("RAJASTHAN", "rajasthan2023", 2023),
     ("SIKKIM", "Sikkim2024", 2024),
-    ("TAMIL NADU", "tamilnadu2021", 2021),
+    ("TAMIL NADU", "TamilNadu2026", 2026),
     ("TELANGANA", "Telangana2023", 2023),
     ("TRIPURA", "tripura2023", 2023),
     ("UTTARAKHAND", "uttarakhand2022", 2022),
     ("UTTAR PRADESH", "UttarPradesh2022", 2022),
-    ("WEST BENGAL", "westbengal2021", 2021),
+    ("WEST BENGAL", "WestBengal2026", 2026),
 ]
 
 # ---------------------------------------------------------------------------
