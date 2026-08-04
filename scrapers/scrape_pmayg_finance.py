@@ -3,31 +3,43 @@ PMAY-G state-level financial scraper (report.pmayg.dord.gov.in).
 
 Scrapes the B.3 High Level Financial Progress report which shows:
   Opening Balance, Central/State Allocation, Release, Utilization — all in lakhs.
-  Available for FY 2010-2011 through 2025-2026.
+  Available for FY 2010-2011 through 2026-2027.
 
-Form interaction: FY postback → Scheme postback → Captcha solve → Submit.
-The captcha is an arithmetic image (e.g., "51 - 40") solved via Tesseract OCR.
+UN-GATED as of 2026-08-04: the arithmetic captcha that used to guard this report
+is GONE — `Report_HighLevel_FinancialProgress.aspx` renders no captcha control
+and carries no `__EVENTVALIDATION`, so plain stateless `requests` form POSTs
+work. This scraper was rewritten off the Playwright + Tesseract OCR path (which
+the no-captcha-automation decision forbade); the table is no longer frozen.
 
-This replaces/supplements scrape_pmayg_dashboard.py (data.gov.in, 2 years only).
+Flow (per FY, a mandatory 3-POST chain — a single combined POST resets the
+scheme dropdown and returns 0 rows):
+  GET  page                                   -> __VIEWSTATE / __VIEWSTATEGENERATOR
+  POST __EVENTTARGET=ddlFinYear (scheme=0)    -> FY postback
+  POST __EVENTTARGET=ddlScheme  (scheme=PMAYG)-> scheme postback
+  POST __EVENTTARGET=''         (btnSubmit)   -> renders the gvData grid
+Each POST relays the __VIEWSTATE / __VIEWSTATEGENERATOR from the PREVIOUS
+response. No cookies, no login, no captcha. A browser User-Agent is required.
 
 Output: data/curated/pmayg_finance_all_latest.json
 
 Usage:
     python3 scrape_pmayg_finance.py
-    python3 scrape_pmayg_finance.py --years 2022-2023,2023-2024,2024-2025
-
-Requires: playwright, pytesseract, Pillow, tesseract (brew install tesseract)
+    python3 scrape_pmayg_finance.py --years 2023-2024,2024-2025
 """
 
 from __future__ import annotations
 
 import argparse
-import asyncio
+import json
 import re
 import sys
+import time
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+
+import requests
+from bs4 import BeautifulSoup
 
 try:
     from scrapers.io_utils import atomic_write_json
@@ -44,6 +56,13 @@ REPORT_URL = (
     "FinancialProgressReport/Report_HighLevel_FinancialProgress.aspx"
 )
 
+# Browser UA required — the portal does not black-hole python-requests like
+# data.gov.in, but a bare UA still gets a plain (non-report) shell.
+UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36"
+GRID_ID = "ctl00_ContentPlaceHolder1_gvData"
+TIMEOUT = 40
+DELAY_SEC = 1.0
+
 DEFAULT_FIN_YEARS = [
     "2019-2020",
     "2020-2021",
@@ -52,10 +71,8 @@ DEFAULT_FIN_YEARS = [
     "2023-2024",
     "2024-2025",
     "2025-2026",
+    "2026-2027",
 ]
-
-DELAY_MS = 3000
-MAX_CAPTCHA_ATTEMPTS = 5
 
 
 def utc_iso() -> str:
@@ -94,124 +111,27 @@ def _is_total_row(state: str) -> bool:
     return state.upper() in ("TOTAL", "GRAND TOTAL", "ALL INDIA", "INDIA")
 
 
-async def _solve_captcha(page: Any) -> str | None:
-    """Screenshot captcha image, OCR the arithmetic, solve it."""
-    try:
-        import pytesseract
-        from PIL import Image
-
-        captcha_img = page.locator("#ctl00_ContentPlaceHolder1_imgCaptcha")
-        path = RAW_DIR / "captcha_temp.png"
-        await captcha_img.screenshot(path=str(path))
-
-        img = Image.open(path)
-        text = pytesseract.image_to_string(
-            img,
-            config="--psm 7 -c tessedit_char_whitelist=0123456789+-x */",
-        ).strip()
-
-        text = text.replace("x", "*").replace("X", "*").replace("×", "*")
-        text = re.sub(r"[^0-9+\-*/\s]", "", text).strip()
-
-        if not text:
-            return None
-
-        result = eval(text)  # noqa: S307 — trusted captcha arithmetic
-        return str(int(result))
-    except Exception as e:
-        print(f"    Captcha OCR error: {e}")
-        return None
+def _hidden(html: str, name: str) -> str:
+    """Extract an ASP.NET hidden field value (e.g. __VIEWSTATE) from a response."""
+    m = re.search(rf'name="{re.escape(name)}"[^>]*value="([^"]*)"', html)
+    return m.group(1) if m else ""
 
 
-async def _scrape_year(page: Any, fy: str, scraped_at: str) -> list[dict[str, Any]]:
-    """Scrape one financial year. Returns parsed records or empty list."""
+def _grid_rows(html: str) -> list[list[str]]:
+    """Return the gvData table as a list of <td>-cell-text rows.
 
-    for attempt in range(MAX_CAPTCHA_ATTEMPTS):
-        # Fresh page load each attempt (ASP.NET viewstate must be clean)
-        await page.goto(REPORT_URL, timeout=30000)
-        await page.wait_for_load_state("load", timeout=15000)
-        await page.wait_for_timeout(DELAY_MS)
-
-        # Step 1: Select FY via postback (populates scheme dropdown)
-        await page.evaluate(
-            """(fy) => {
-                document.getElementById('ctl00_ContentPlaceHolder1_ddlFinYear').value = fy;
-                __doPostBack('ctl00$ContentPlaceHolder1$ddlFinYear', '');
-            }""",
-            fy,
-        )
-        await page.wait_for_load_state("load", timeout=15000)
-        await page.wait_for_timeout(DELAY_MS)
-
-        # Step 2: Select scheme via postback (loads state data)
-        await page.evaluate(
-            """() => {
-                var s = document.getElementById('ctl00_ContentPlaceHolder1_ddlScheme');
-                s.disabled = false;
-                s.value = 'PMAYG';
-                __doPostBack('ctl00$ContentPlaceHolder1$ddlScheme', '');
-            }""",
-        )
-        await page.wait_for_load_state("load", timeout=15000)
-        await page.wait_for_timeout(DELAY_MS)
-
-        # Step 3: Solve captcha
-        answer = await _solve_captcha(page)
-        if not answer:
-            print(f"    Attempt {attempt + 1}: OCR failed")
-            continue
-
-        print(f"    Attempt {attempt + 1}: captcha={answer}")
-
-        # Step 4: Fill and submit
-        await page.fill("#ctl00_ContentPlaceHolder1_txtCaptcha", answer)
-        await page.click("#ctl00_ContentPlaceHolder1_btnSubmit")
-        await page.wait_for_load_state("load", timeout=30000)
-        await page.wait_for_timeout(DELAY_MS)
-
-        # Step 5: Check if table loaded
-        table_rows = await page.evaluate(
-            """() => {
-                var gv = document.getElementById('ctl00_ContentPlaceHolder1_gvData');
-                return gv ? gv.querySelectorAll('tr').length : 0;
-            }""",
-        )
-
-        if table_rows > 3:
-            # Parse the table
-            raw_rows = await page.evaluate(
-                """() => {
-                    var gv = document.getElementById('ctl00_ContentPlaceHolder1_gvData');
-                    var result = [];
-                    var rows = gv.querySelectorAll('tr');
-                    for (var i = 0; i < rows.length; i++) {
-                        var cells = rows[i].querySelectorAll('td');
-                        if (cells.length < 5) continue;
-                        result.push(Array.from(cells, c => c.innerText.trim()));
-                    }
-                    return result;
-                }""",
-            )
-
-            # Save raw HTML
-            html = await page.content()
-            (RAW_DIR / f"pmayg_finance_{fy}.html").write_text(html, encoding="utf-8")
-
-            records = _parse_rows(raw_rows, fy, scraped_at)
-            print(f"  {len(records)} states scraped")
-            return records
-
-        status = await page.evaluate(
-            """() => {
-                var lbl = document.getElementById('ctl00_ContentPlaceHolder1_lblStatus');
-                return lbl ? lbl.innerText : '';
-            }""",
-        )
-        if status:
-            print(f"    Status: {status}")
-
-    print(f"  FAILED after {MAX_CAPTCHA_ATTEMPTS} attempts")
-    return []
+    Header bands are <th> (no <td>) and drop out; the two 'Total' rows survive
+    here but are filtered in _parse_rows (non-numeric SNo)."""
+    soup = BeautifulSoup(html, "html.parser")
+    table = soup.find("table", {"id": GRID_ID})
+    if table is None:
+        return []
+    rows: list[list[str]] = []
+    for tr in table.find_all("tr"):
+        tds = tr.find_all("td")
+        if tds:
+            rows.append([td.get_text(strip=True) for td in tds])
+    return rows
 
 
 def _parse_rows(
@@ -221,12 +141,11 @@ def _parse_rows(
 ) -> list[dict[str, Any]]:
     """Parse B.3 table rows.
 
-    12-column layout (confirmed):
+    12-column layout (confirmed live 2026-08-04):
       0:SNo 1:State 2:OB 3:CentralAlloc 4:StateAlloc 5:TotalAlloc
       6:CentralRelease 7:StateRelease 8:TotalRelease 9:TotalAvailable
       10:Utilization 11:%Utilized
     """
-    source_url = "report.pmayg.dord.gov.in B.3 HighLevel FinancialProgress"
     records: list[dict[str, Any]] = []
 
     for row in rows:
@@ -253,78 +172,102 @@ def _parse_rows(
                 "allocated_lakhs": total_alloc,
                 "released_lakhs": total_release,
                 "utilized_lakhs": utilization,
-                "source_url": source_url,
+                "source_url": REPORT_URL,
                 "scraped_at": scraped_at,
             })
 
     return records
 
 
-async def scrape_all(fin_years: list[str]) -> list[dict[str, Any]]:
-    from playwright.async_api import async_playwright
+def _post(
+    session: requests.Session, prev_html: str, target: str, scheme: str, fin_year: str, submit: bool
+) -> str:
+    data = {
+        "__EVENTTARGET": target,
+        "__EVENTARGUMENT": "",
+        "__LASTFOCUS": "",
+        "__VIEWSTATE": _hidden(prev_html, "__VIEWSTATE"),
+        "__VIEWSTATEGENERATOR": _hidden(prev_html, "__VIEWSTATEGENERATOR"),
+        "ctl00$ContentPlaceHolder1$ddlFinYear": fin_year,
+        "ctl00$ContentPlaceHolder1$ddlScheme": scheme,
+        "ctl00$ContentPlaceHolder1$ddlState": "0",
+    }
+    if submit:
+        data["ctl00$ContentPlaceHolder1$btnSubmit"] = "Submit"
+    resp = session.post(REPORT_URL, data=data, timeout=TIMEOUT)
+    resp.raise_for_status()
+    return resp.text
 
-    all_records: list[dict[str, Any]] = []
+
+def _scrape_year(session: requests.Session, fy: str, scraped_at: str) -> list[dict[str, Any]]:
+    """Scrape one FY via the GET -> 3-POST VIEWSTATE-relay chain."""
+    h0 = session.get(REPORT_URL, timeout=TIMEOUT)
+    h0.raise_for_status()
+    if "captcha" in h0.text.lower():
+        raise RuntimeError(f"{fy}: a captcha control reappeared on the B.3 report — refusing to proceed (no-captcha policy)")
+    h1 = _post(session, h0.text, "ctl00$ContentPlaceHolder1$ddlFinYear", "0", fy, submit=False)
+    h2 = _post(session, h1, "ctl00$ContentPlaceHolder1$ddlScheme", "PMAYG", fy, submit=False)
+    h3 = _post(session, h2, "", "PMAYG", fy, submit=True)
+    (RAW_DIR / f"pmayg_finance_{fy}.html").write_text(h3, encoding="utf-8")
+    records = _parse_rows(_grid_rows(h3), fy, scraped_at)
+    print(f"  {fy}: {len(records)} states")
+    return records
+
+
+def scrape_all(fin_years: list[str] | None = None) -> list[dict[str, Any]]:
+    """Scrape B.3 finance for each FY. Plain requests, no captcha, no browser."""
+    fin_years = fin_years or DEFAULT_FIN_YEARS
+    for d in (RAW_DIR, CURATED_DIR):
+        d.mkdir(parents=True, exist_ok=True)
+    session = requests.Session()
+    session.headers.update({"User-Agent": UA, "Referer": REPORT_URL})
     scraped_at = utc_iso()
 
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        page = await browser.new_page()
-
+    all_records: list[dict[str, Any]] = []
+    for fy in fin_years:
         try:
-            for fy in fin_years:
-                print(f"\n--- {fy} ---")
-                records = await _scrape_year(page, fy, scraped_at)
-                all_records.extend(records)
-        except Exception as e:
-            print(f"  Error: {e}")
-            import traceback
-            traceback.print_exc()
-        finally:
-            await browser.close()
+            all_records.extend(_scrape_year(session, fy, scraped_at))
+        except (requests.RequestException, RuntimeError) as exc:
+            print(f"  {fy}: FAILED — {exc}")
+        time.sleep(DELAY_SEC)
 
     return sorted(all_records, key=lambda x: (x["state"], x["fin_year"]))
 
 
 def save_curated(records: list[dict[str, Any]]) -> Path:
+    """Save records, refusing a state-coverage regression (guard mirrors the
+    other re-sourced scrapers — a bad scrape must never shrink the table)."""
     path = CURATED_DIR / "pmayg_finance_all_latest.json"
+    new_states = {r["state"] for r in records}
+    if path.exists():
+        old_states = {r["state"] for r in json.loads(path.read_text(encoding="utf-8"))}
+        if old_states and len(new_states) < len(old_states):
+            raise ValueError(
+                f"Refusing to save PMAY-G finance: {len(new_states)} states < existing "
+                f"{len(old_states)} — a refresh must never reduce coverage"
+            )
     atomic_write_json(path, records)
     return path
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(
-        description="Scrape PMAY-G financial data from portal",
-    )
-    parser.add_argument(
-        "--years",
-        help="Comma-separated fin years (default: 2019-2026)",
-    )
+    parser = argparse.ArgumentParser(description="Scrape PMAY-G B.3 financial data (un-gated)")
+    parser.add_argument("--years", help="Comma-separated fin years (default: 2019-2027)")
     args = parser.parse_args()
 
-    fin_years = (
-        [y.strip() for y in args.years.split(",")]
-        if args.years
-        else DEFAULT_FIN_YEARS
-    )
+    fin_years = [y.strip() for y in args.years.split(",")] if args.years else DEFAULT_FIN_YEARS
+    print(f"PMAY-G Financial Scraper (un-gated B.3) — {len(fin_years)} years")
 
-    for d in (RAW_DIR, CURATED_DIR):
-        d.mkdir(parents=True, exist_ok=True)
-
-    print(f"PMAY-G Financial Scraper — {len(fin_years)} years")
-    print(f"Years: {', '.join(fin_years)}")
-
-    records = asyncio.run(scrape_all(fin_years))
+    records = scrape_all(fin_years)
     if not records:
         print("\nNo records scraped.")
         return 1
 
     path = save_curated(records)
-    print(f"\nSaved {len(records)} records to {path}")
-
     years = sorted({r["fin_year"] for r in records})
     states = sorted({r["state"] for r in records})
-    print(f"Years: {', '.join(years)}")
-    print(f"States: {len(states)}")
+    print(f"\nSaved {len(records)} records to {path}")
+    print(f"Years: {', '.join(years)}  |  States: {len(states)}")
     return 0
 
 

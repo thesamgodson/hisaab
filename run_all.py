@@ -59,15 +59,17 @@ CSV_IMPORTERS = {"pmkisan", "pmposhan", "nsap", "nfsa"}
 # jjm points at the ejalshakti portal scraper — the data.gov.in one
 # (scrape_jjm_finance) covers fewer years/columns and silently downgraded
 # the curated file when wired here.
-# pmayg is DELIBERATELY absent: the only source for pmayg_finance is the
-# captcha-gated B.3 report and scrape_pmayg_finance solves that captcha by
-# OCR, which the no-captcha-automation decision forbids running. The
-# curated file stays frozen at its 2026-03 scrape (see DATA_CLAIMS.md).
+# pmayg B.3 finance is UN-GATED again (2026-08-04): the arithmetic captcha was
+# removed from Report_HighLevel_FinancialProgress.aspx, so scrape_pmayg_finance
+# was rewritten to plain requests (GET + 3 VIEWSTATE-relay POSTs, no captcha,
+# no Playwright) and re-wired here — the table is no longer frozen. The scraper
+# refuses to run if a captcha control ever reappears (no-captcha policy).
 FINANCE_SCRAPERS = {
     "pmposhan": "scrape_pmposhan_finance",
     "nsap": "scrape_nsap_finance",
     "nfsa": "scrape_nfsa_finance",
     "jjm": "scrape_jjm_ejalshakti",
+    "pmayg": "scrape_pmayg_finance",
 }
 
 # Curated output filenames written by each finance scraper's save_curated()
@@ -76,6 +78,7 @@ FINANCE_CURATED_FILES = {
     "nsap": "nsap_finance_all_latest.json",
     "nfsa": "nfsa_allocation_all_latest.json",
     "jjm": "jjm_allocation_all_latest.json",
+    "pmayg": "pmayg_finance_all_latest.json",
 }
 
 
