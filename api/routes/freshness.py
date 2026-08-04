@@ -28,7 +28,7 @@ SCHEME_TABLES = {
 }
 
 SCHEME_SOURCES = {
-    "MGNREGA": "nrega.nic.in",
+    "MGNREGA": "mnregaweb2.dord.gov.in (citizen portal)",
     "PMGSY": "pmgsy.dord.gov.in",
     "PMAY-G": "report.pmayg.dord.gov.in / data.gov.in",
     "PM Kisan": "data.gov.in",

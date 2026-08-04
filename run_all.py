@@ -5,7 +5,7 @@ This is the single entry point for collecting data across all 9 government schem
 Run this script to populate your local database with the latest data.
 
 Schemes supported:
-  1. MGNREGA — Rural employment (scrapes nrega.nic.in)
+  1. MGNREGA — Rural employment (scrapes the mnregaweb2.dord.gov.in citizen portal)
   2. PMGSY — Rural roads (scrapes pmgsy.dord.gov.in)
   3. PMAY-G — Rural housing (scrapes report.pmayg.dord.gov.in, needs Playwright)
   4. PM Kisan — Farmer payments (CSV import from data.gov.in)
@@ -409,7 +409,7 @@ SCHEME_TABLES = {
 }
 
 SCHEME_SOURCES = {
-    "MGNREGA": "nrega.nic.in",
+    "MGNREGA": "mnregaweb2.dord.gov.in (citizen portal)",
     "PMGSY": "pmgsy.dord.gov.in",
     "PMAY-G": "report.pmayg.dord.gov.in + dashboard.dord.gov.in",
     "PM Kisan": "data.gov.in",

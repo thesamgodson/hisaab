@@ -1,0 +1,34 @@
+[
+  {
+    "district": "KARGIL",
+    "state": "LADAKH",
+    "state_code": "37",
+    "total_fto_generated": 2191,
+    "first_signatory_signed": 2191,
+    "first_signatory_pending": 0,
+    "second_signatory_signed": 2191,
+    "second_signatory_pending": 0,
+    "fto_sent_to_bank": 2191,
+    "source_url": "https://mnregaweb2.dord.gov.in/netnrega/FTO/FTOReport.aspx?lflag=eng&state_code=37&state_name=LADAKH&page=s&fin_year=2025-2026&Digest=EFNMshKMmGT46LC6IfNqyQ",
+    "scraped_at": "2026-08-04T13:15:10.894172+00:00",
+    "fto_processed_by_bank": 133561,
+    "transactions_processed": 2187,
+    "fin_year": "2025-2026"
+  },
+  {
+    "district": "LEH (LADAKH)",
+    "state": "LADAKH",
+    "state_code": "37",
+    "total_fto_generated": 5947,
+    "first_signatory_signed": 5947,
+    "first_signatory_pending": 0,
+    "second_signatory_signed": 5947,
+    "second_signatory_pending": 0,
+    "fto_sent_to_bank": 5947,
+    "source_url": "https://mnregaweb2.dord.gov.in/netnrega/FTO/FTOReport.aspx?lflag=eng&state_code=37&state_name=LADAKH&page=s&fin_year=2025-2026&Digest=EFNMshKMmGT46LC6IfNqyQ",
+    "scraped_at": "2026-08-04T13:15:10.894200+00:00",
+    "fto_processed_by_bank": 108008,
+    "transactions_processed": 5906,
+    "fin_year": "2025-2026"
+  }
+]

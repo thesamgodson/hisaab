@@ -26,7 +26,7 @@ const SCHEME_TABLES: Record<string, string[]> = {
 };
 
 const SCHEME_SOURCES: Record<string, string> = {
-  MGNREGA: "nrega.nic.in",
+  MGNREGA: "mnregaweb2.dord.gov.in (citizen portal)",
   PMGSY: "pmgsy.dord.gov.in",
   "PMAY-G": "report.pmayg.dord.gov.in / data.gov.in",
   "PM Kisan": "data.gov.in",

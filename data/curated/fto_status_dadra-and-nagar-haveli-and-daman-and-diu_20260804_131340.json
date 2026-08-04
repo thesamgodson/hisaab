@@ -1,0 +1,18 @@
+[
+  {
+    "district": "DADRA AND NAGAR HAVELI",
+    "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "state_code": "07",
+    "total_fto_generated": 1357,
+    "first_signatory_signed": 1357,
+    "first_signatory_pending": 0,
+    "second_signatory_signed": 1357,
+    "second_signatory_pending": 0,
+    "fto_sent_to_bank": 1357,
+    "source_url": "https://mnregaweb2.dord.gov.in/netnrega/FTO/FTOReport.aspx?lflag=eng&state_code=07&state_name=DADRA+AND+NAGAR+HAVELI+AND+DAMAN+AND+DIU&page=s&fin_year=2025-2026&Digest=o9zmig2LezWT8dQOYGwuRg",
+    "scraped_at": "2026-08-04T13:13:45.337606+00:00",
+    "fto_processed_by_bank": 44311,
+    "transactions_processed": 1357,
+    "fin_year": "2025-2026"
+  }
+]
