@@ -1,5 +1,5 @@
 import { type NextRequest } from "next/server";
-import { query, queryOne, resolveState } from "@/lib/db";
+import { queryOne, resolveState } from "@/lib/db";
 
 function fmtRs(amount: number, unit: string = "rupees"): string {
   if (unit === "lakhs") {

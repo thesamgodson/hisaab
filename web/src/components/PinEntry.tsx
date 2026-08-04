@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useRef, type KeyboardEvent } from "react";
+import { useState, type KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
 
 export default function PinEntry() {
   const [pin, setPin] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
   const handleChange = (value: string) => {
@@ -31,7 +30,6 @@ export default function PinEntry() {
         Enter your 6-digit PIN code
       </label>
       <input
-        ref={inputRef}
         id="pin-input"
         type="text"
         inputMode="numeric"

@@ -14,15 +14,12 @@ export interface DistrictFeature {
   geometry: GeoJSON.Geometry;
 }
 
-// Re-export for backward compatibility (old map used StateBoundary)
-export type StateBoundary = DistrictFeature;
-
 /**
  * Normalize a district name to match DB conventions:
  * - Replace hyphens with spaces (TopoJSON uses hyphens, DB uses spaces)
  * - Uppercase
  */
-export function normalizeDistrictName(raw: string): string {
+function normalizeDistrictName(raw: string): string {
   return raw.toUpperCase().trim().replace(/-/g, " ");
 }
 

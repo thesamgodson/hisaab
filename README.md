@@ -1,7 +1,7 @@
 # Hisaab
 
 [![CI](https://github.com/thesamgodson/hisaab/actions/workflows/ci.yml/badge.svg)](https://github.com/thesamgodson/hisaab/actions/workflows/ci.yml)
-[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.14+](https://img.shields.io/badge/python-3.14+-blue.svg)](https://www.python.org/downloads/)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15-black.svg)](https://nextjs.org/)
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-green.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Deploy](https://img.shields.io/badge/Vercel-Live-brightgreen.svg)](https://hisaab-one.vercel.app)
@@ -41,15 +41,20 @@ Read the [Manifesto](MANIFESTO.md) | [Data Claims Policy](DATA_CLAIMS.md)
 ## Local Development
 
 ```bash
-# Backend
+# Data pipeline (Python)
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python3 run_all.py --load-only
-uvicorn api.main:app --reload
+python3 run_all.py --load-only              # build data/hisaab.db from curated JSON
+python3 scripts/sync_turso.py --env-file web/.env.local   # publish to production DB
 
-# Frontend
-cd web && npm install && npm run dev
+# Frontend (serves production traffic from Turso)
+cd web && npm install
+vercel env pull .env.local                  # Turso credentials
+npm run dev
 ```
+
+Data refreshes weekly via `.github/workflows/refresh-data.yml`
+(scrape → load → publish → prod smoke test).
 
 ## API
 
@@ -74,13 +79,16 @@ All endpoints under `/api/v1/`:
 ## Project Structure
 
 ```
-web/            Next.js frontend (Vercel deployment root)
-api/            FastAPI REST API
-db/             Schema, loaders, VIEWs
-queries/        SQL query functions
+web/            Next.js frontend + production /api/v1 (Vercel deployment root)
+db/             Schema, loaders, VIEWs, district canonicalization
+queries/        SQL query functions + composite scoring (precomputed)
 scrapers/       Scheme-specific scrapers
+constituency/   PIN / constituency / MP / MLA / district-lineage ingest
+action_brief/   PIN → diagnosis → actions engine
 briefs/         Journalist brief generator
-data/curated/   Normalized JSON from scrapers
+scripts/        sync_turso.py (publish), gen_district_aliases.py, data_audit.py
+api/            FastAPI (local analysis only — not deployed)
+data/curated/   Normalized JSON from scrapers (source of truth for the DB)
 tests/          pytest suite
 ```
 

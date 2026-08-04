@@ -6,12 +6,25 @@ Public accountability infrastructure for India. 11 government welfare schemes, s
 
 **Manifesto rule:** No public numeric claim without source and date in `DATA_CLAIMS.md`.
 
-## Stack
+## Architecture — TypeScript serves, Python produces
 
-- **Backend**: Python 3.14+, SQLite, FastAPI
-- **Frontend**: Next.js 15, React 19, Tailwind CSS, TypeScript
+- **Production serving**: Next.js 15 route handlers (`web/src/app/api/v1/`)
+  query **Turso** (libSQL) directly. FastAPI (`api/`) is local/analysis only —
+  it is NOT deployed.
+- **Data production (Python 3.14+)**: scrape → `data/curated/*.json` →
+  `run_all.py --load-only` (canonical district normalization + precomputed
+  `district_scores`) → `data/hisaab.db` → `scripts/sync_turso.py` → Turso.
+- **Derived numbers live in the DB.** The scoring formula exists ONLY in
+  `queries/composite.py`, persisted to `district_scores` at load time. Never
+  port a formula into TypeScript; move its output into a table.
+- **District identity is canonical.** `db/normalize_districts.py` + the
+  generated alias registry (`db/district_aliases.py`, regenerate with
+  `scripts/gen_district_aliases.py` — additive only) unify portal, India
+  Post, and census spellings and official renames. Always join on
+  `(district, state)`.
 - **Scrapers**: requests + Playwright (MGNREGA/PMGSY/PMAY-G/NRLM need browser)
-- **Data flow**: scrape → `data/curated/*.json` → `run_all.py --load-only` → `data/hisaab.db` → FastAPI → Next.js
+- **Refresh**: `.github/workflows/refresh-data.yml` — weekly scrape → load →
+  publish → prod smoke probes.
 
 ## Quick Start
 
@@ -21,10 +34,13 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python3 run_all.py --load-only          # Build DB from curated JSON
 python3 -m pytest tests/ -v             # Run tests
-uvicorn api.main:app --reload           # Start API at localhost:8000
+python3 scripts/sync_turso.py --env-file web/.env.local   # Publish to prod DB
+uvicorn api.main:app --reload           # Optional: local analysis API :8000
 
 # Frontend
-cd web && npm install && npm run dev    # Start at localhost:3000
+cd web && npm install
+vercel env pull .env.local              # Turso credentials
+npm run dev                             # Start at localhost:3000
 ```
 
 ## 11 Schemes
@@ -53,62 +69,57 @@ cd web && npm install && npm run dev    # Start at localhost:3000
 
 | Module | Purpose |
 |--------|---------|
-| `db/` | Schema, 21 loaders, 3 VIEWs, NSAP imputation |
-| `queries/` | 35 query functions + data_quality_warnings() |
-| `briefs/` | Per-district/state briefs with red flags |
-| `api/` | FastAPI REST API (13 endpoints) |
-| `web/` | Next.js 15 frontend (citizen interface) |
-| `run_all.py` | Orchestrator: scrape + load |
+| `db/` | Schema, 21 loaders, 3 VIEWs, district canonicalization, NSAP imputation |
+| `queries/` | 38 query functions, `composite.py` (THE scoring implementation → `district_scores`), `common.py:data_quality_warnings()` |
+| `briefs/` | Per-district/state journalist briefs (CLI) |
+| `action_brief/` | PIN → diagnosis → contacts → actions engine (Python; TS twin in `web/src/lib/action-brief.ts`) |
+| `constituency/` | PIN/constituency/MP/MLA ingest + district lineage seed |
+| `api/` | FastAPI (31 endpoints) — LOCAL ONLY, not deployed; unique features: /investigate (LLM), /embed, /trends |
+| `web/` | Next.js 15 citizen interface + production `/api/v1/*` (see `web/AGENTS.md`) |
+| `scripts/` | `sync_turso.py` (publish→prod), `gen_district_aliases.py`, `data_audit.py`, `build_geodata.py` |
+| `run_all.py` | Orchestrator: scrape + load + normalize + precompute scores |
 | `cli.py` | Natural language CLI (keyword routing) |
-| `data_audit.py` | Per-column completeness report |
+| `alerts/`, `llm/` | Complete but unscheduled/unreached (Telegram digest, text-to-SQL investigator) |
 
-## API Endpoints
+## Production API (Next.js route handlers)
 
 ```
-GET  /api/v1/schemes                    — list 8 schemes + warnings
-GET  /api/v1/scheme/{scheme}            — state-level summary
-GET  /api/v1/scheme/{scheme}/worst      — worst districts
-GET  /api/v1/districts                  — list all districts with data
-GET  /api/v1/district/{name}            — full district overview
-GET  /api/v1/district/{name}/schemes    — schemes with data for district
-GET  /api/v1/district/{name}/money-flow — cross-scheme money flow
-GET  /api/v1/district/{name}/{scheme}   — per-scheme data for district
-GET  /api/v1/brief/{district}           — journalist brief
-GET  /api/v1/freshness                  — per-scheme scrape dates
-GET  /api/v1/data-quality               — quality warnings
-GET  /api/v1/red-flags                  — worst districts
-POST /api/v1/query                      — natural language query
+GET /api/v1/pin/{pin}                    — PIN → district, MP, MLA, lineage
+GET /api/v1/action/{pin}                 — full citizen action brief
+GET /api/v1/scores[/worst|/states|/{d}]  — precomputed accountability scores
+GET /api/v1/districts                    — canonical district registry
+GET /api/v1/district/{name}[/*]          — district overview / money-flow
+GET /api/v1/scheme/{slug}[/worst]        — per-scheme (slugs: mgnrega, pds-nfsa, …; ?state= required)
+GET /api/v1/schemes | /data-quality      — caveats (single source: web/src/lib/data-quality.ts)
+GET /api/v1/freshness                    — per-scheme scrape dates (all 11 schemes)
+GET /api/v1/brief/{district} | /stats | /red-flags?state= | /constituency/* | /mp/{name}
 ```
 
 ## Data Quality Context
 
-- **8/10 schemes** have financial data:
-  - District-level: MGNREGA, PMGSY (real); NSAP (imputed at district, real at state); DAY-NRLM (RF disbursement)
-  - State-level: PM Kisan, PM POSHAN (2016-25), NSAP (2019-24), PMAY-G (2019-26, 7 years), JJM (2019-25, alloc+release+expend), NFSA (MT, 2019-25)
-  - No financial data: SBM-G (delivery metrics only), PM POSHAN/PMAY-G/JJM/NFSA at district level
-- District-level financial columns remain zero for PM POSHAN, PMAY-G, JJM, NFSA — delivery metrics still work
+- Financial data: district-level MGNREGA + PMGSY (real), NSAP (imputed); state-level PM Kisan, PM POSHAN (2016-25), NSAP (2019-24), PMAY-G (2019-26), JJM (2019-25), NFSA (MT)
+- **No invented percentages**: PM POSHAN children_fed is a daily snapshot; NFSA active=total by construction — both excluded from delivery_pct at the VIEW layer and from diagnoses/rankings
+- Scores need ≥3 schemes with data (`MIN_SCHEMES_FOR_SCORE`) — below that: no grade, red flags only
 - PM Kisan: 28/36 states have district='ALL' (state-level only)
-- NFSA tracks metric tonnes, not rupees — do not compare with other schemes' lakhs columns
-- `queries/common.py:data_quality_warnings()` returns per-scheme caveats
+- NFSA tracks metric tonnes, never rupees — money_flow publishes NULL money columns for it
+- Caveats: `queries/common.py:data_quality_warnings()` ↔ `web/src/lib/data-quality.ts` (update together); every caveat backed by a DATA_CLAIMS.md entry
 
 ## Testing
 
 ```bash
-python3 -m pytest tests/ -v
+python3 -m pytest tests/ -v    # 16 test files, ~500 tests
 ```
 
-6 test files:
-- `test_queries.py` — query function correctness
-- `test_pmgsy.py` — PMGSY-specific queries
-- `test_cross_scheme.py` — cross-scheme VIEW queries
-- `test_loaders.py` — loader ingestion
-- `test_scrapers.py` — pure scraper function unit tests
-- `test_data_integrity.py` — DB invariant checks (skips if no DB)
+CI (`.github/workflows/ci.yml`) builds the DB from curated JSON before pytest
+so the integration suites actually run, plus ruff + frontend typecheck/build.
 
 ## Conventions
 
 - All amounts in lakhs internally (PMGSY converts crores→lakhs in VIEWs)
-- State names UPPER CASE, district names UPPER CASE
-- `scraped_at` timestamp on every record
-- `fin_year` format: `"2024-2025"`
+- State + district names UPPER CASE **canonical** (normalized at load — see
+  `db/normalize_districts.py`; regenerate aliases additively via
+  `scripts/gen_district_aliases.py`)
+- `scraped_at` timestamp on every record; `fin_year` format `"2024-2025"`
 - DB path: `data/hisaab.db` (single source of truth in `db/connection.py:DB_PATH`)
+- Derived numbers are precomputed in Python and read everywhere — never
+  reimplement a formula in TypeScript

@@ -65,16 +65,6 @@ const BAND_LABEL: Record<ScoreBand, string> = {
 const HOVER_STROKE = "oklch(0.50 0.20 265)";
 
 // ---------------------------------------------------------------------------
-// India bounding box for projection fitting
-// ---------------------------------------------------------------------------
-
-/** Approximate bounding box: [west, south, east, north] */
-const INDIA_BBOX: [[number, number], [number, number]] = [
-  [68.0, 6.5],
-  [97.5, 37.0],
-];
-
-// ---------------------------------------------------------------------------
 // DistrictPath -- memoised SVG path for a single district
 // ---------------------------------------------------------------------------
 
@@ -347,7 +337,10 @@ export default function IndiaMap() {
   }, []);
 
   useEffect(() => {
-    loadData();
+    // All setState calls inside loadData happen after awaits (microtasks),
+    // never synchronously in the effect body.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    void loadData();
   }, [loadData]);
 
   // ---- Projection ----
@@ -359,29 +352,6 @@ export default function IndiaMap() {
       .center([82.5, 22.5])
       .scale(MAP_WIDTH * 1.5)
       .translate([MAP_WIDTH / 2, MAP_HEIGHT / 2]);
-    /* Original fitSize approach (broken by island territories):
-    return geoMercator().fitSize([MAP_WIDTH, MAP_HEIGHT], {
-      type: "FeatureCollection",
-      features: [
-        {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            type: "Polygon",
-            coordinates: [
-              [
-                [INDIA_BBOX[0][0], INDIA_BBOX[0][1]],
-                [INDIA_BBOX[1][0], INDIA_BBOX[0][1]],
-                [INDIA_BBOX[1][0], INDIA_BBOX[1][1]],
-                [INDIA_BBOX[0][0], INDIA_BBOX[1][1]],
-                [INDIA_BBOX[0][0], INDIA_BBOX[0][1]],
-              ],
-            ],
-          },
-        },
-      ],
-    });
-    */
   }, []);
 
   const pathGenerator = useMemo(() => geoPath(projection), [projection]);
@@ -517,7 +487,7 @@ export default function IndiaMap() {
               <DistrictPath
                 key={`${dp.key}_${idx}`}
                 d={dp.d}
-                fill={hoveredKey === dp.key ? BAND_FILL[scoreBand(dp.score)] : dp.fill}
+                fill={dp.fill}
                 district={dp.district}
                 state={dp.state}
                 score={dp.score}
