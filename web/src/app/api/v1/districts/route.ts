@@ -1,8 +1,6 @@
 import { type NextRequest } from "next/server";
 import { query } from "@/lib/db";
 
-export const revalidate = 3600;
-
 interface DistrictRow {
   district: string;
   state: string;

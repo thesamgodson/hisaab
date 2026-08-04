@@ -1,8 +1,6 @@
 import { type NextRequest } from "next/server";
 import { getDistrictScore } from "@/lib/scores";
 
-export const revalidate = 3600;
-
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ district: string }> },

@@ -1,6 +1,6 @@
 import { query, queryOne } from "@/lib/db";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 const MAJOR_TABLES = [
   "misappropriation",

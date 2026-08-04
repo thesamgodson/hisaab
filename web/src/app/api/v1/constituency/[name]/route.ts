@@ -2,8 +2,6 @@ import { type NextRequest } from "next/server";
 import { queryOne } from "@/lib/db";
 import { buildConstituencyReportCard } from "@/lib/report-card";
 
-export const revalidate = 3600;
-
 interface MpInfo {
   mp_name: string;
   party: string;

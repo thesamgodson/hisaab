@@ -1,6 +1,6 @@
 import { query } from "@/lib/db";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 /** Every dataset the product serves — the freshness surface must cover ALL
  *  of them, including finance/allocation tables. An accountability site
