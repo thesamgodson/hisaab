@@ -16,7 +16,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BANKURA",
@@ -35,7 +36,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BIRBHUM",
@@ -54,7 +56,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "COOCHBEHAR",
@@ -73,7 +76,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DAKSHIN DINAJPUR",
@@ -92,7 +96,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GORKHALAND TERRITORIAL ADMINISTRATION (GTA)",
@@ -111,7 +116,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HOOGHLY",
@@ -130,7 +136,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HOWRAH",
@@ -149,7 +156,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "JALPAIGURI",
@@ -168,7 +176,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "JHARGRAM",
@@ -187,7 +196,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KALIMPONG",
@@ -206,7 +216,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MALDAH",
@@ -225,7 +236,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MURSHIDABAD",
@@ -244,7 +256,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NADIA",
@@ -263,7 +276,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NORTH 24 PARGANAS",
@@ -282,7 +296,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PASCHIM BARDHAMAN",
@@ -301,7 +316,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PASCHIM MEDINIPUR",
@@ -320,7 +336,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PURBA BARDHAMAN",
@@ -339,7 +356,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PURBA MEDINIPUR",
@@ -358,7 +376,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PURULIA",
@@ -377,7 +396,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 1,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SILIGURI MAHAKUMA PARISAD",
@@ -396,7 +416,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SOUTH 24 PARGANAS",
@@ -415,7 +436,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UTTAR DINAJPUR",
@@ -434,6 +456,7 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   }
 ]

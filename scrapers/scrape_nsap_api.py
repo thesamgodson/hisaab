@@ -10,17 +10,19 @@ Covers 3 sub-schemes with district+monthly beneficiary counts:
 Data limitations:
   - Only beneficiary counts available (no amounts, no eligibility, no pension rates)
   - Monthly snapshots — we take the latest available month per district per FY
-  - Free API key from data.gov.in (public key included for convenience)
+  - Uses the shared data.gov.in demo key by default; set DATA_GOV_IN_API_KEY to a
+    registered project key to lift the rate-limit ceiling.
 
 Usage:
-    python3 scrape_nsap_api.py                           # All states, latest FY
+    python3 scrape_nsap_api.py                           # All states, auto FY
     python3 scrape_nsap_api.py --states "BIHAR"          # Single state
-    python3 scrape_nsap_api.py --fin-year "2023-2024"    # Specific FY
+    python3 scrape_nsap_api.py --fin-year "2023-2024"    # Pin a specific FY
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 import time
 from datetime import UTC, datetime
@@ -30,9 +32,19 @@ from typing import Any
 import requests
 
 try:
-    from scrapers.io_utils import atomic_write_json, datagov_session
+    from scrapers.io_utils import (
+        atomic_write_json,
+        current_indian_fy,
+        datagov_api_key,
+        datagov_session,
+    )
 except ImportError:
-    from io_utils import atomic_write_json, datagov_session
+    from io_utils import (
+        atomic_write_json,
+        current_indian_fy,
+        datagov_api_key,
+        datagov_session,
+    )
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
@@ -41,7 +53,7 @@ CURATED_DIR = DATA_DIR / "curated"
 
 # data.gov.in public demo API key
 SESSION = datagov_session()
-API_KEY = "579b464db66ec23bdd000001cdc3b564546246a772a26393094f5645"
+API_KEY = datagov_api_key()
 API_BASE = "https://api.data.gov.in/resource"
 
 SCHEMES = {
@@ -65,6 +77,45 @@ def state_slug(name: str) -> str:
 def ensure_dirs() -> None:
     for d in (RAW_DIR, CURATED_DIR):
         d.mkdir(parents=True, exist_ok=True)
+
+
+def _fy_has_data(fin_year: str) -> bool:
+    """One cheap request: does the resource carry any IGNOAPS rows for this FY?"""
+    params = {
+        "api-key": API_KEY,
+        "format": "json",
+        "offset": 0,
+        "limit": 1,
+        "filters[fin_year]": fin_year,
+    }
+    resp = SESSION.get(f"{API_BASE}/{SCHEMES['IGNOAPS']}", params=params, timeout=60)
+    resp.raise_for_status()
+    data = resp.json()
+    return bool(data.get("records")) or int(data.get("total") or 0) > 0
+
+
+def resolve_fin_year(preferred: str | None = None, lookback: int = 2) -> str:
+    """Choose the FY to scrape.
+
+    An explicit `preferred` FY wins outright. Otherwise start at the current
+    Indian FY and step back a year at a time (up to `lookback` steps) until the
+    resource actually carries data — data.gov.in publishes NSAP monthly and the
+    running FY can be empty for weeks after it begins while the prior year stays
+    populated. Returns the current FY if every probe is empty (the empty-result
+    no-op then leaves existing curated data untouched)."""
+    if preferred:
+        return preferred
+    fy = current_indian_fy()
+    newest = fy
+    for _ in range(lookback + 1):
+        try:
+            if _fy_has_data(fy):
+                return fy
+        except (requests.RequestException, ValueError):
+            pass  # transient probe failure: try the next-older FY
+        start = int(fy.split("-")[0]) - 1
+        fy = f"{start}-{start + 1}"
+    return newest
 
 
 def fetch_scheme_data(
@@ -171,10 +222,16 @@ def transform_records(
 
 
 def scrape_all(
-    fin_year: str = "2024-2025",
+    fin_year: str | None = None,
     states_filter: list[str] | None = None,
 ) -> list[dict[str, Any]]:
-    """Scrape all NSAP scheme data from data.gov.in API."""
+    """Scrape all NSAP scheme data from data.gov.in API.
+
+    With no fin_year, auto-resolves to the current Indian FY (falling back to the
+    latest year the resource publishes) — never a stale hardcoded year.
+    """
+    if fin_year is None:
+        fin_year = resolve_fin_year()
     scraped_at = utc_iso()
     all_raw: list[dict[str, Any]] = []
 
@@ -201,7 +258,46 @@ def save_raw(records: list[dict[str, Any]], fin_year: str) -> Path:
     return path
 
 
-def save_curated_by_state(records: list[dict[str, Any]]) -> dict[str, Path]:
+def _distinct_pairs(records: list[dict[str, Any]]) -> set[tuple[str, str]]:
+    return {(str(r.get("state", "")), str(r.get("district", ""))) for r in records}
+
+
+def _existing_curated_pairs() -> set[tuple[str, str]]:
+    """Distinct (state, district) pairs across all existing nsap curated files."""
+    pairs: set[tuple[str, str]] = set()
+    for p in CURATED_DIR.glob("nsap_district_*_latest.json"):
+        try:
+            for r in json.loads(p.read_text(encoding="utf-8")):
+                pairs.add((str(r.get("state", "")), str(r.get("district", ""))))
+        except (json.JSONDecodeError, OSError):
+            continue
+    return pairs
+
+
+def save_curated_by_state(
+    records: list[dict[str, Any]], national: bool = True
+) -> dict[str, Path]:
+    """Save per-state curated files.
+
+    Granularity guard (national runs only): a full pull covering fewer distinct
+    (state, district) pairs than the existing curated set is refused, not
+    written — this is the partial-early-FY trap, where the running year has a
+    handful of reporting districts and would otherwise replace the complete
+    prior year. Mirrors the NRLM/PM Kisan/NFSA guards (learnings.md 2026-08-04).
+    Targeted --states runs skip the aggregate guard: they legitimately touch
+    only the named states' files.
+    """
+    if national:
+        new_pairs = _distinct_pairs(records)
+        existing = _existing_curated_pairs()
+        if existing and len(new_pairs) < len(existing):
+            raise ValueError(
+                f"Refusing NSAP save: new pull covers {len(new_pairs)} distinct "
+                f"(state, district) pairs, existing curated has {len(existing)} — a "
+                "refresh must never reduce coverage. Likely a partial early-FY pull; "
+                "the prior complete year is kept."
+            )
+
     by_state: dict[str, list[dict[str, Any]]] = {}
     for r in records:
         by_state.setdefault(r["state"], []).append(r)
@@ -214,6 +310,25 @@ def save_curated_by_state(records: list[dict[str, Any]]) -> dict[str, Path]:
         paths[state_name] = path
 
     return paths
+
+
+def process_live(fin_year: str | None = None) -> int:
+    """Scrape NSAP district data for the resolved FY and save per-state.
+
+    Entry point for run_all.py (mirrors scrape_nfsa.process_live). With no
+    fin_year it auto-tracks the current Indian FY, falling back to the latest
+    year the resource actually publishes. Returns the number of curated rows.
+    """
+    ensure_dirs()
+    resolved = resolve_fin_year(fin_year)
+    print(f"  NSAP: resolved FY -> {resolved}")
+    records = scrape_all(fin_year=resolved)
+    if not records:
+        print(f"  NSAP: no records for FY {resolved} — curated files untouched")
+        return 0
+    save_raw(records, resolved)
+    save_curated_by_state(records, national=True)
+    return len(records)
 
 
 def print_summary(records: list[dict[str, Any]], paths: dict[str, Path]) -> None:
@@ -240,7 +355,12 @@ def main() -> int:
         description="Scrape NSAP pension data from data.gov.in API",
     )
     parser.add_argument("--states", help="Comma-separated list of states")
-    parser.add_argument("--fin-year", default="2024-2025")
+    parser.add_argument(
+        "--fin-year",
+        default=None,
+        help="Financial year, e.g. 2025-2026. Default: auto — current Indian FY, "
+        "falling back to the latest year the resource publishes.",
+    )
     args = parser.parse_args()
 
     ensure_dirs()
@@ -249,16 +369,18 @@ def main() -> int:
     if args.states:
         states_filter = [s.strip() for s in args.states.split(",")]
 
-    records = scrape_all(fin_year=args.fin_year, states_filter=states_filter)
+    fin_year = resolve_fin_year(args.fin_year)
+    print(f"NSAP scrape — FY {fin_year}{' (auto-resolved)' if not args.fin_year else ''}")
+    records = scrape_all(fin_year=fin_year, states_filter=states_filter)
 
     if not records:
         print("\nNo records scraped.")
         return 1
 
-    raw_path = save_raw(records, args.fin_year)
+    raw_path = save_raw(records, fin_year)
     print(f"\nRaw data saved: {raw_path}")
 
-    paths = save_curated_by_state(records)
+    paths = save_curated_by_state(records, national=states_filter is None)
     print_summary(records, paths)
     return 0
 

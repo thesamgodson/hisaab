@@ -14,7 +14,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619098+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BADGAM",
@@ -31,7 +32,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619134+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BANDIPORA",
@@ -48,7 +50,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619149+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BARAMULLA",
@@ -65,7 +68,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619163+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DODA",
@@ -82,7 +86,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619179+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GANDERBAL",
@@ -99,7 +104,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619191+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "JAMMU",
@@ -116,7 +122,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619204+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KATHUA",
@@ -133,7 +140,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619216+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KISHTWAR",
@@ -150,7 +158,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619229+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KULGAM",
@@ -167,7 +176,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619242+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KUPWARA",
@@ -184,7 +194,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619254+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "POONCH",
@@ -201,7 +212,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619266+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PULWAMA",
@@ -218,7 +230,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619279+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "RAJAURI",
@@ -235,7 +248,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619292+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "RAMBAN",
@@ -252,7 +266,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619304+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "REASI",
@@ -269,7 +284,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619316+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SAMBA",
@@ -286,7 +302,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619328+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SHOPIAN",
@@ -303,7 +320,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619340+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SRINAGAR",
@@ -320,7 +338,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619352+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UDHAMPUR",
@@ -337,6 +356,7 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=JAMMU AND KASHMIR&state_code=14&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=AXEeuf4/bCnuMrXS3EgwgA",
     "scraped_at": "2026-03-04T20:39:45.619367+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   }
 ]

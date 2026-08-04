@@ -16,7 +16,8 @@
     "grievances_issues": 29,
     "grievances_amount": 0.0,
     "total_issues": 49,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHANDEL",
@@ -35,7 +36,8 @@
     "grievances_issues": 41,
     "grievances_amount": 0.0,
     "total_issues": 127,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHURACHANDPUR",
@@ -54,7 +56,8 @@
     "grievances_issues": 4,
     "grievances_amount": 0.0,
     "total_issues": 139,
-    "total_amount": 56800.0
+    "total_amount": 56800.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "IMPHAL EAST",
@@ -73,7 +76,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 196,
-    "total_amount": 8032.0
+    "total_amount": 8032.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "IMPHAL WEST",
@@ -92,7 +96,8 @@
     "grievances_issues": 6,
     "grievances_amount": 0.0,
     "total_issues": 67,
-    "total_amount": 399405.0
+    "total_amount": 399405.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "JIRIBAM",
@@ -111,7 +116,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 24,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KAKCHING",
@@ -130,7 +136,8 @@
     "grievances_issues": 2,
     "grievances_amount": 0.0,
     "total_issues": 65,
-    "total_amount": 471508.0
+    "total_amount": 471508.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KAMJONG",
@@ -149,7 +156,8 @@
     "grievances_issues": 19,
     "grievances_amount": 0.0,
     "total_issues": 150,
-    "total_amount": 86292.0
+    "total_amount": 86292.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KANGPOKPI",
@@ -168,7 +176,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NONEY",
@@ -187,7 +196,8 @@
     "grievances_issues": 1,
     "grievances_amount": 0.0,
     "total_issues": 96,
-    "total_amount": 45000.0
+    "total_amount": 45000.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PHERZAWL",
@@ -206,7 +216,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 24,
-    "total_amount": 7600.0
+    "total_amount": 7600.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SENAPATI",
@@ -225,7 +236,8 @@
     "grievances_issues": 7,
     "grievances_amount": 0.0,
     "total_issues": 38,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TAMENGLONG",
@@ -244,7 +256,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 172,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TENGNOUPAL",
@@ -263,7 +276,8 @@
     "grievances_issues": 48,
     "grievances_amount": 0.0,
     "total_issues": 127,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "THOUBAL",
@@ -282,7 +296,8 @@
     "grievances_issues": 1,
     "grievances_amount": 0.0,
     "total_issues": 113,
-    "total_amount": 3380758.0
+    "total_amount": 3380758.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UKHRUL",
@@ -301,6 +316,7 @@
     "grievances_issues": 10,
     "grievances_amount": 0.0,
     "total_issues": 101,
-    "total_amount": 75605.0
+    "total_amount": 75605.0,
+    "fin_year": "2024-2025"
   }
 ]

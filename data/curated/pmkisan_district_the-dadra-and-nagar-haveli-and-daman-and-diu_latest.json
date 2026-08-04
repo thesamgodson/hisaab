@@ -52,5 +52,19 @@
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
     "scraped_at": "2026-08-04T14:13:02.457704+00:00"
+  },
+  {
+    "district": "ALL",
+    "state": "THE DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+    "state_code": "38",
+    "fin_year": "2026-2027",
+    "beneficiaries_registered": 11735,
+    "beneficiaries_paid": 11639,
+    "amount_paid_lakhs": 0,
+    "beneficiaries_rejected": 0,
+    "installment": "April-July",
+    "data_generated_on": "28/06/2026",
+    "source_url": "https://pmkisan.gov.in/",
+    "scraped_at": "2026-08-04T14:06:04.832523+00:00"
   }
 ]

@@ -16,7 +16,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 3593,
-    "total_amount": 569170165.0
+    "total_amount": 569170165.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BALLARI",
@@ -35,7 +36,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 2534,
-    "total_amount": 525451321.0
+    "total_amount": 525451321.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BELAGAVI",
@@ -54,7 +56,8 @@
     "grievances_issues": 35,
     "grievances_amount": 0.0,
     "total_issues": 9004,
-    "total_amount": 1079178197.0
+    "total_amount": 1079178197.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BENGALURU",
@@ -73,7 +76,8 @@
     "grievances_issues": 1,
     "grievances_amount": 0.0,
     "total_issues": 87,
-    "total_amount": 2596576.0
+    "total_amount": 2596576.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BENGALURU RURAL",
@@ -92,7 +96,8 @@
     "grievances_issues": 72,
     "grievances_amount": 3818071.0,
     "total_issues": 2276,
-    "total_amount": 213275663.0
+    "total_amount": 213275663.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BENGALURU SOUTH",
@@ -111,7 +116,8 @@
     "grievances_issues": 8,
     "grievances_amount": 322873.0,
     "total_issues": 2877,
-    "total_amount": 942508868.0
+    "total_amount": 942508868.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BIDAR",
@@ -130,7 +136,8 @@
     "grievances_issues": 85,
     "grievances_amount": 898207.0,
     "total_issues": 5003,
-    "total_amount": 409820437.0
+    "total_amount": 409820437.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHAMARAJA NAGARA",
@@ -149,7 +156,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 937,
-    "total_amount": 172592398.0
+    "total_amount": 172592398.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHIKKABALLAPURA",
@@ -168,7 +176,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 1620,
-    "total_amount": 340605078.0
+    "total_amount": 340605078.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHIKKAMAGALURU",
@@ -187,7 +196,8 @@
     "grievances_issues": 6,
     "grievances_amount": 104452.0,
     "total_issues": 4919,
-    "total_amount": 254611479.0
+    "total_amount": 254611479.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHITRADURGA",
@@ -206,7 +216,8 @@
     "grievances_issues": 17,
     "grievances_amount": 1507614.0,
     "total_issues": 9819,
-    "total_amount": 1013247046.0
+    "total_amount": 1013247046.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DAKSHINA KANNADA",
@@ -225,7 +236,8 @@
     "grievances_issues": 4,
     "grievances_amount": 11044.0,
     "total_issues": 1553,
-    "total_amount": 62368266.0
+    "total_amount": 62368266.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DAVANAGERE",
@@ -244,7 +256,8 @@
     "grievances_issues": 2,
     "grievances_amount": 89774.0,
     "total_issues": 1122,
-    "total_amount": 147577670.0
+    "total_amount": 147577670.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DHARWAR",
@@ -263,7 +276,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 2569,
-    "total_amount": 239050964.0
+    "total_amount": 239050964.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GADAG",
@@ -282,7 +296,8 @@
     "grievances_issues": 1,
     "grievances_amount": 9480.0,
     "total_issues": 5154,
-    "total_amount": 735734791.0
+    "total_amount": 735734791.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HASSAN",
@@ -301,7 +316,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 3825,
-    "total_amount": 197508290.0
+    "total_amount": 197508290.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HAVERI",
@@ -320,7 +336,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 5632,
-    "total_amount": 785146216.0
+    "total_amount": 785146216.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KALABURAGI",
@@ -339,7 +356,8 @@
     "grievances_issues": 3,
     "grievances_amount": 0.0,
     "total_issues": 6674,
-    "total_amount": 632495719.0
+    "total_amount": 632495719.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KODAGU",
@@ -358,7 +376,8 @@
     "grievances_issues": 2,
     "grievances_amount": 14369.0,
     "total_issues": 623,
-    "total_amount": 45288639.0
+    "total_amount": 45288639.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KOLAR",
@@ -377,7 +396,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 4085,
-    "total_amount": 239475032.0
+    "total_amount": 239475032.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KOPPAL",
@@ -396,7 +416,8 @@
     "grievances_issues": 9,
     "grievances_amount": 415851.0,
     "total_issues": 5419,
-    "total_amount": 1311722329.0
+    "total_amount": 1311722329.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MANDYA",
@@ -415,7 +436,8 @@
     "grievances_issues": 21,
     "grievances_amount": 48610.0,
     "total_issues": 2044,
-    "total_amount": 125560410.0
+    "total_amount": 125560410.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MYSURU",
@@ -434,7 +456,8 @@
     "grievances_issues": 1,
     "grievances_amount": 102068.0,
     "total_issues": 4226,
-    "total_amount": 301090250.0
+    "total_amount": 301090250.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "RAICHUR",
@@ -453,7 +476,8 @@
     "grievances_issues": 9,
     "grievances_amount": 145360.0,
     "total_issues": 6210,
-    "total_amount": 1300937774.0
+    "total_amount": 1300937774.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SHIVAMOGGA",
@@ -472,7 +496,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 2253,
-    "total_amount": 140038624.0
+    "total_amount": 140038624.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TUMAKURU",
@@ -491,7 +516,8 @@
     "grievances_issues": 14,
     "grievances_amount": 250111.0,
     "total_issues": 6030,
-    "total_amount": 1413227912.0
+    "total_amount": 1413227912.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UDUPI",
@@ -510,7 +536,8 @@
     "grievances_issues": 15,
     "grievances_amount": 34726.0,
     "total_issues": 985,
-    "total_amount": 32489820.0
+    "total_amount": 32489820.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UTTARA KANNADA",
@@ -529,7 +556,8 @@
     "grievances_issues": 10,
     "grievances_amount": 943930.0,
     "total_issues": 2185,
-    "total_amount": 152616665.0
+    "total_amount": 152616665.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "VIJAYANAGARA",
@@ -548,7 +576,8 @@
     "grievances_issues": 128,
     "grievances_amount": 0.0,
     "total_issues": 3947,
-    "total_amount": 514467435.0
+    "total_amount": 514467435.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "VIJAYPURA",
@@ -567,7 +596,8 @@
     "grievances_issues": 6,
     "grievances_amount": 207953.0,
     "total_issues": 1996,
-    "total_amount": 167112693.0
+    "total_amount": 167112693.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Yadgir",
@@ -586,6 +616,7 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 1788,
-    "total_amount": 222648858.0
+    "total_amount": 222648858.0,
+    "fin_year": "2024-2025"
   }
 ]

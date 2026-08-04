@@ -16,7 +16,8 @@
     "grievances_issues": 1,
     "grievances_amount": 4480.0,
     "total_issues": 121,
-    "total_amount": 676176.0
+    "total_amount": 676176.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Gyalshing District",
@@ -35,7 +36,8 @@
     "grievances_issues": 1,
     "grievances_amount": 497.0,
     "total_issues": 130,
-    "total_amount": 29358.0
+    "total_amount": 29358.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Mangan District",
@@ -54,7 +56,8 @@
     "grievances_issues": 2,
     "grievances_amount": 16784.0,
     "total_issues": 155,
-    "total_amount": 2835375.0
+    "total_amount": 2835375.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Namchi District",
@@ -73,7 +76,8 @@
     "grievances_issues": 7,
     "grievances_amount": 26826.0,
     "total_issues": 408,
-    "total_amount": 2238057.0
+    "total_amount": 2238057.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PAKYONG",
@@ -92,7 +96,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 171,
-    "total_amount": 2362684.0
+    "total_amount": 2362684.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SORENG",
@@ -111,6 +116,7 @@
     "grievances_issues": 9,
     "grievances_amount": 27767.0,
     "total_issues": 199,
-    "total_amount": 355719.0
+    "total_amount": 355719.0,
+    "fin_year": "2024-2025"
   }
 ]

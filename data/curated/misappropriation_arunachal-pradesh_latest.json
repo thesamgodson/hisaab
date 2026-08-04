@@ -14,7 +14,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745652+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHANGLANG",
@@ -31,7 +32,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745680+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "EAST KAMENG",
@@ -48,7 +50,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745695+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "EAST SIANG",
@@ -65,7 +68,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745708+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KAMLE",
@@ -82,7 +86,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745720+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KEYI PANYOR",
@@ -99,7 +104,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745733+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KRA-DAADI",
@@ -116,7 +122,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745746+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KURUNG KUMEY",
@@ -133,7 +140,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745760+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LEPARADA",
@@ -150,7 +158,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745774+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LOHIT",
@@ -167,7 +176,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745785+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LONGDING",
@@ -184,7 +194,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745797+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LOWER DIBANG VALLEY",
@@ -201,7 +212,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745808+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LOWER SIANG",
@@ -218,7 +230,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745820+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LOWER SUBANSIRI",
@@ -235,7 +248,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745831+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NAMSAI",
@@ -252,7 +266,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745842+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PAKKE KESSANG",
@@ -269,7 +284,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745854+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PAPUM PARE",
@@ -286,7 +302,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745865+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SHI YOMI",
@@ -303,7 +320,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745879+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SIANG",
@@ -320,7 +338,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745890+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TAWANG",
@@ -337,7 +356,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745902+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TIRAP",
@@ -354,7 +374,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745913+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UPPER DIBANG VALLEY",
@@ -371,7 +392,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745924+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UPPER SIANG",
@@ -388,7 +410,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745936+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UPPER SUBANSIRI",
@@ -405,7 +428,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745947+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "WEST KAMENG",
@@ -422,7 +446,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745958+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "WEST SIANG",
@@ -439,6 +464,7 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=ARUNACHAL PRADESH&state_code=03&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=z5y/zQNuUjl0BilvnEe/2A",
     "scraped_at": "2026-03-05T02:41:33.745970+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   }
 ]

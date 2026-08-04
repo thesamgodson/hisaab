@@ -16,7 +16,8 @@
     "grievances_issues": 240,
     "grievances_amount": 0.0,
     "total_issues": 4437,
-    "total_amount": 91702.0
+    "total_amount": 91702.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BAGESHWAR",
@@ -35,7 +36,8 @@
     "grievances_issues": 25,
     "grievances_amount": 0.0,
     "total_issues": 179,
-    "total_amount": 8855.0
+    "total_amount": 8855.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHAMOLI",
@@ -54,7 +56,8 @@
     "grievances_issues": 36,
     "grievances_amount": 0.0,
     "total_issues": 2689,
-    "total_amount": 419253.0
+    "total_amount": 419253.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHAMPAWAT",
@@ -73,7 +76,8 @@
     "grievances_issues": 16,
     "grievances_amount": 0.0,
     "total_issues": 601,
-    "total_amount": 88549.0
+    "total_amount": 88549.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DEHRADUN",
@@ -92,7 +96,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HARIDWAR",
@@ -111,7 +116,8 @@
     "grievances_issues": 46,
     "grievances_amount": 0.0,
     "total_issues": 2134,
-    "total_amount": 90619.0
+    "total_amount": 90619.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NAINITAL",
@@ -130,7 +136,8 @@
     "grievances_issues": 190,
     "grievances_amount": 0.0,
     "total_issues": 3879,
-    "total_amount": 116058.0
+    "total_amount": 116058.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PAURI GARHWAL",
@@ -149,7 +156,8 @@
     "grievances_issues": 41,
     "grievances_amount": 0.0,
     "total_issues": 2434,
-    "total_amount": 32621.0
+    "total_amount": 32621.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PITHORAGARH",
@@ -168,7 +176,8 @@
     "grievances_issues": 30,
     "grievances_amount": 0.0,
     "total_issues": 1006,
-    "total_amount": 6745.0
+    "total_amount": 6745.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "RUDRA PRAYAG",
@@ -187,7 +196,8 @@
     "grievances_issues": 10,
     "grievances_amount": 0.0,
     "total_issues": 1293,
-    "total_amount": 6150.0
+    "total_amount": 6150.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TEHRI GARHWAL",
@@ -206,7 +216,8 @@
     "grievances_issues": 66,
     "grievances_amount": 0.0,
     "total_issues": 4030,
-    "total_amount": 433512.0
+    "total_amount": 433512.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UDAM SINGH NAGAR",
@@ -225,7 +236,8 @@
     "grievances_issues": 31,
     "grievances_amount": 0.0,
     "total_issues": 427,
-    "total_amount": 22016.0
+    "total_amount": 22016.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UTTAR KASHI",
@@ -244,6 +256,7 @@
     "grievances_issues": 2,
     "grievances_amount": 0.0,
     "total_issues": 1316,
-    "total_amount": 16766.0
+    "total_amount": 16766.0,
+    "fin_year": "2024-2025"
   }
 ]

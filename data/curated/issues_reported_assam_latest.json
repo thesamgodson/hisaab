@@ -16,7 +16,8 @@
     "grievances_issues": 36,
     "grievances_amount": 0.0,
     "total_issues": 92,
-    "total_amount": 17372734.0
+    "total_amount": 17372734.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BAKSA",
@@ -35,7 +36,8 @@
     "grievances_issues": 56,
     "grievances_amount": 1886299.0,
     "total_issues": 228,
-    "total_amount": 53395510.0
+    "total_amount": 53395510.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BARPETA",
@@ -54,7 +56,8 @@
     "grievances_issues": 207,
     "grievances_amount": 0.0,
     "total_issues": 460,
-    "total_amount": 791855.0
+    "total_amount": 791855.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Biswanath",
@@ -73,7 +76,8 @@
     "grievances_issues": 30,
     "grievances_amount": 0.0,
     "total_issues": 209,
-    "total_amount": 5192213.0
+    "total_amount": 5192213.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BONGAIGAON",
@@ -92,7 +96,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 178,
-    "total_amount": 2747569.0
+    "total_amount": 2747569.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CACHAR",
@@ -111,7 +116,8 @@
     "grievances_issues": 2,
     "grievances_amount": 0.0,
     "total_issues": 340,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHARAIDEO",
@@ -130,7 +136,8 @@
     "grievances_issues": 5,
     "grievances_amount": 0.0,
     "total_issues": 128,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHIRANG",
@@ -149,7 +156,8 @@
     "grievances_issues": 28,
     "grievances_amount": 0.0,
     "total_issues": 208,
-    "total_amount": 103562228.0
+    "total_amount": 103562228.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DARRANG",
@@ -168,7 +176,8 @@
     "grievances_issues": 4,
     "grievances_amount": 0.0,
     "total_issues": 211,
-    "total_amount": 75479.0
+    "total_amount": 75479.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DHEMAJI",
@@ -187,7 +196,8 @@
     "grievances_issues": 3,
     "grievances_amount": 0.0,
     "total_issues": 206,
-    "total_amount": 7140.0
+    "total_amount": 7140.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DHUBRI",
@@ -206,7 +216,8 @@
     "grievances_issues": 67,
     "grievances_amount": 0.0,
     "total_issues": 506,
-    "total_amount": 29879800.0
+    "total_amount": 29879800.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DIBRUGARH",
@@ -225,7 +236,8 @@
     "grievances_issues": 7,
     "grievances_amount": 0.0,
     "total_issues": 284,
-    "total_amount": 16975584.0
+    "total_amount": 16975584.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Dima Hasao",
@@ -244,7 +256,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 190,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GOALPARA",
@@ -263,7 +276,8 @@
     "grievances_issues": 18,
     "grievances_amount": 0.0,
     "total_issues": 236,
-    "total_amount": 16036.0
+    "total_amount": 16036.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GOLAGHAT",
@@ -282,7 +296,8 @@
     "grievances_issues": 44,
     "grievances_amount": 0.0,
     "total_issues": 233,
-    "total_amount": 672584.0
+    "total_amount": 672584.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HAILAKANDI",
@@ -301,7 +316,8 @@
     "grievances_issues": 106,
     "grievances_amount": 0.0,
     "total_issues": 201,
-    "total_amount": 12377428.0
+    "total_amount": 12377428.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HOJAI",
@@ -320,7 +336,8 @@
     "grievances_issues": 78,
     "grievances_amount": 0.0,
     "total_issues": 237,
-    "total_amount": 1247844.0
+    "total_amount": 1247844.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "JORHAT",
@@ -339,7 +356,8 @@
     "grievances_issues": 27,
     "grievances_amount": 0.0,
     "total_issues": 472,
-    "total_amount": 4586802.0
+    "total_amount": 4586802.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KAMRUP",
@@ -358,7 +376,8 @@
     "grievances_issues": 43,
     "grievances_amount": 0.0,
     "total_issues": 460,
-    "total_amount": 12376.0
+    "total_amount": 12376.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KAMRUP (METRO)",
@@ -377,7 +396,8 @@
     "grievances_issues": 1,
     "grievances_amount": 0.0,
     "total_issues": 75,
-    "total_amount": 714.0
+    "total_amount": 714.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KARBI ANGLONG",
@@ -396,7 +416,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KOKRAJHAR",
@@ -415,7 +436,8 @@
     "grievances_issues": 33,
     "grievances_amount": 0.0,
     "total_issues": 508,
-    "total_amount": 751716.0
+    "total_amount": 751716.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LAKHIMPUR",
@@ -434,7 +456,8 @@
     "grievances_issues": 7,
     "grievances_amount": 0.0,
     "total_issues": 135,
-    "total_amount": 134943.0
+    "total_amount": 134943.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MAJULI",
@@ -453,7 +476,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 29,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Morigaon",
@@ -472,7 +496,8 @@
     "grievances_issues": 27,
     "grievances_amount": 0.0,
     "total_issues": 161,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NAGAON",
@@ -491,7 +516,8 @@
     "grievances_issues": 44,
     "grievances_amount": 0.0,
     "total_issues": 482,
-    "total_amount": 947419.0
+    "total_amount": 947419.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NALBARI",
@@ -510,7 +536,8 @@
     "grievances_issues": 5,
     "grievances_amount": 0.0,
     "total_issues": 134,
-    "total_amount": 413279.0
+    "total_amount": 413279.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SIVASAGAR",
@@ -529,7 +556,8 @@
     "grievances_issues": 15,
     "grievances_amount": 1428.0,
     "total_issues": 350,
-    "total_amount": 8160760.0
+    "total_amount": 8160760.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SONITPUR",
@@ -548,7 +576,8 @@
     "grievances_issues": 72,
     "grievances_amount": 1428.0,
     "total_issues": 291,
-    "total_amount": 2203797.0
+    "total_amount": 2203797.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SOUTH SALMARA-MANKACHAR",
@@ -567,7 +596,8 @@
     "grievances_issues": 14,
     "grievances_amount": 0.0,
     "total_issues": 164,
-    "total_amount": 433591438.0
+    "total_amount": 433591438.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Sribhumi",
@@ -586,7 +616,8 @@
     "grievances_issues": 22,
     "grievances_amount": 0.0,
     "total_issues": 368,
-    "total_amount": 2241564.0
+    "total_amount": 2241564.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TAMULPUR",
@@ -605,7 +636,8 @@
     "grievances_issues": 40,
     "grievances_amount": 1116807.0,
     "total_issues": 131,
-    "total_amount": 11553478.0
+    "total_amount": 11553478.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TINSUKIA",
@@ -624,7 +656,8 @@
     "grievances_issues": 32,
     "grievances_amount": 0.0,
     "total_issues": 345,
-    "total_amount": 18171243.0
+    "total_amount": 18171243.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UDALGURI",
@@ -643,7 +676,8 @@
     "grievances_issues": 21,
     "grievances_amount": 0.0,
     "total_issues": 304,
-    "total_amount": 13079930.0
+    "total_amount": 13079930.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "WEST KARBI ANGLONG",
@@ -662,6 +696,7 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   }
 ]

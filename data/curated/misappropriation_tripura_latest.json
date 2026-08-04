@@ -14,7 +14,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=TRIPURA&state_code=30&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=fk7uFC5bwnLYcG9bNMdCug",
     "scraped_at": "2026-03-04T20:51:25.463086+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Gomati",
@@ -31,7 +32,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=TRIPURA&state_code=30&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=fk7uFC5bwnLYcG9bNMdCug",
     "scraped_at": "2026-03-04T20:51:25.463121+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Khowai",
@@ -48,7 +50,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=TRIPURA&state_code=30&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=fk7uFC5bwnLYcG9bNMdCug",
     "scraped_at": "2026-03-04T20:51:25.463140+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NORTH TRIPURA",
@@ -65,7 +68,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=TRIPURA&state_code=30&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=fk7uFC5bwnLYcG9bNMdCug",
     "scraped_at": "2026-03-04T20:51:25.463162+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Sepahijala",
@@ -82,7 +86,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=TRIPURA&state_code=30&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=fk7uFC5bwnLYcG9bNMdCug",
     "scraped_at": "2026-03-04T20:51:25.463177+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SOUTH TRIPURA",
@@ -99,7 +104,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=TRIPURA&state_code=30&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=fk7uFC5bwnLYcG9bNMdCug",
     "scraped_at": "2026-03-04T20:51:25.463195+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Unakoti",
@@ -116,7 +122,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=TRIPURA&state_code=30&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=fk7uFC5bwnLYcG9bNMdCug",
     "scraped_at": "2026-03-04T20:51:25.463211+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "WEST TRIPURA",
@@ -133,6 +140,7 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=TRIPURA&state_code=30&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=fk7uFC5bwnLYcG9bNMdCug",
     "scraped_at": "2026-03-04T20:51:25.463225+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   }
 ]

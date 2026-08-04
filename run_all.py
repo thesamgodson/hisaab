@@ -39,6 +39,8 @@ import sys
 import time
 from pathlib import Path
 
+from scrapers.io_utils import last_complete_indian_fy
+
 ROOT_DIR = Path(__file__).resolve().parent
 CURATED_DIR = ROOT_DIR / "data" / "curated"
 RAW_DIR = ROOT_DIR / "data" / "raw"
@@ -478,7 +480,14 @@ Examples:
   python run_all.py --schemes all --states BIHAR   # All schemes for Bihar
         """,
     )
-    parser.add_argument("--fin-year", default="2024-2025", help="Financial year (default: 2024-2025)")
+    parser.add_argument(
+        "--fin-year",
+        default=last_complete_indian_fy(),
+        help="Financial year for cumulative-annual scrapes (MGNREGA/PMAY-G) and "
+        "the load-time fallback for records that carry no year of their own. "
+        "Default: the last COMPLETE Indian FY — the running year holds only "
+        "partial cumulative totals. NSAP district self-resolves its own FY.",
+    )
     parser.add_argument("--states", help="Comma-separated state names (default: all)")
     parser.add_argument("--batch", type=int, default=0, help="Only run first N states")
     parser.add_argument(
@@ -629,6 +638,20 @@ Examples:
                 print(f"  PM Kisan live: {count} rows")
             except Exception as exc:
                 print(f"  PM Kisan live fetch failed (curated files untouched): {exc}")
+
+        elif scheme == "nsap":
+            # District pension counts from the data.gov.in NSAP resource
+            # (un-gated). Auto-resolves the current Indian FY (falling back to
+            # the latest published year); a coverage guard refuses any
+            # partial-early-FY pull that would shrink district coverage. The
+            # state-level finance scraper runs separately via FINANCE_SCRAPERS.
+            try:
+                from scrapers.scrape_nsap_api import process_live as nsap_live
+
+                count = nsap_live()
+                print(f"  NSAP district: {count} rows")
+            except Exception as exc:
+                print(f"  NSAP district fetch failed (curated files untouched): {exc}")
 
         elif scheme in CSV_IMPORTERS:
             count = import_csvs(scheme)

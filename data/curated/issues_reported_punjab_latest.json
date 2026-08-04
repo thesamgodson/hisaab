@@ -16,7 +16,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 263,
-    "total_amount": 38525631.0
+    "total_amount": 38525631.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BARNALA",
@@ -35,7 +36,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 97,
-    "total_amount": 3333201.0
+    "total_amount": 3333201.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BHATINDA",
@@ -54,7 +56,8 @@
     "grievances_issues": 207,
     "grievances_amount": 0.0,
     "total_issues": 634,
-    "total_amount": 3697586.0
+    "total_amount": 3697586.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "FARIDKOT",
@@ -73,7 +76,8 @@
     "grievances_issues": 77,
     "grievances_amount": 0.0,
     "total_issues": 243,
-    "total_amount": 1241997.0
+    "total_amount": 1241997.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "FATEHGARH SAHIB",
@@ -92,7 +96,8 @@
     "grievances_issues": 53,
     "grievances_amount": 0.0,
     "total_issues": 1068,
-    "total_amount": 3242961.0
+    "total_amount": 3242961.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Fazilka",
@@ -111,7 +116,8 @@
     "grievances_issues": 22,
     "grievances_amount": 0.0,
     "total_issues": 275,
-    "total_amount": 3000591.0
+    "total_amount": 3000591.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "FEROZEPUR",
@@ -130,7 +136,8 @@
     "grievances_issues": 4,
     "grievances_amount": 0.0,
     "total_issues": 457,
-    "total_amount": 199466882.0
+    "total_amount": 199466882.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GURDASPUR",
@@ -149,7 +156,8 @@
     "grievances_issues": 4,
     "grievances_amount": 0.0,
     "total_issues": 393,
-    "total_amount": 71685380.0
+    "total_amount": 71685380.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HOSHIARPUR",
@@ -168,7 +176,8 @@
     "grievances_issues": 46,
     "grievances_amount": 0.0,
     "total_issues": 623,
-    "total_amount": 3873340.0
+    "total_amount": 3873340.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "JALANDHAR",
@@ -187,7 +196,8 @@
     "grievances_issues": 124,
     "grievances_amount": 369357.0,
     "total_issues": 963,
-    "total_amount": 30593234.0
+    "total_amount": 30593234.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KAPURTHALA",
@@ -206,7 +216,8 @@
     "grievances_issues": 34,
     "grievances_amount": 0.0,
     "total_issues": 554,
-    "total_amount": 88520421.0
+    "total_amount": 88520421.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LUDHIANA",
@@ -225,7 +236,8 @@
     "grievances_issues": 15,
     "grievances_amount": 0.0,
     "total_issues": 1616,
-    "total_amount": 45781926.0
+    "total_amount": 45781926.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MALERKOTLA",
@@ -244,7 +256,8 @@
     "grievances_issues": 5,
     "grievances_amount": 0.0,
     "total_issues": 399,
-    "total_amount": 15269.0
+    "total_amount": 15269.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MANSA",
@@ -263,7 +276,8 @@
     "grievances_issues": 100,
     "grievances_amount": 0.0,
     "total_issues": 336,
-    "total_amount": 197539.0
+    "total_amount": 197539.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MOGA",
@@ -282,7 +296,8 @@
     "grievances_issues": 2,
     "grievances_amount": 0.0,
     "total_issues": 191,
-    "total_amount": 33299450.0
+    "total_amount": 33299450.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MUKATSAR",
@@ -301,7 +316,8 @@
     "grievances_issues": 158,
     "grievances_amount": 0.0,
     "total_issues": 531,
-    "total_amount": 145518346.0
+    "total_amount": 145518346.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NAWANSHAHR",
@@ -320,7 +336,8 @@
     "grievances_issues": 21,
     "grievances_amount": 0.0,
     "total_issues": 324,
-    "total_amount": 55627600.0
+    "total_amount": 55627600.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Pathankot",
@@ -339,7 +356,8 @@
     "grievances_issues": 8,
     "grievances_amount": 118473.0,
     "total_issues": 397,
-    "total_amount": 35066950.0
+    "total_amount": 35066950.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PATIALA",
@@ -358,7 +376,8 @@
     "grievances_issues": 212,
     "grievances_amount": 0.0,
     "total_issues": 2462,
-    "total_amount": 1211588.0
+    "total_amount": 1211588.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ROPAR",
@@ -377,7 +396,8 @@
     "grievances_issues": 10,
     "grievances_amount": 24000.0,
     "total_issues": 476,
-    "total_amount": 1666092.0
+    "total_amount": 1666092.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SANGRUR",
@@ -396,7 +416,8 @@
     "grievances_issues": 91,
     "grievances_amount": 0.0,
     "total_issues": 707,
-    "total_amount": 763195.0
+    "total_amount": 763195.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SAS NAGAR MOHALI",
@@ -415,7 +436,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 260,
-    "total_amount": 3670860.0
+    "total_amount": 3670860.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TARN TARAN",
@@ -434,6 +456,7 @@
     "grievances_issues": 5,
     "grievances_amount": 0.0,
     "total_issues": 507,
-    "total_amount": 59956580.0
+    "total_amount": 59956580.0,
+    "fin_year": "2024-2025"
   }
 ]

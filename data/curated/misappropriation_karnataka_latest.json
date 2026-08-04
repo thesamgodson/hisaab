@@ -14,7 +14,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401574+00:00",
     "amount_unrecovered": 72579.0,
-    "recovery_rate_pct": 95.33
+    "recovery_rate_pct": 95.33,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BALLARI",
@@ -31,7 +32,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401598+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BELAGAVI",
@@ -48,7 +50,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401612+00:00",
     "amount_unrecovered": 211346.0,
-    "recovery_rate_pct": 93.82
+    "recovery_rate_pct": 93.82,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BENGALURU",
@@ -65,7 +68,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401627+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BENGALURU RURAL",
@@ -82,7 +86,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401638+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BENGALURU SOUTH",
@@ -99,7 +104,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401651+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BIDAR",
@@ -116,7 +122,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401662+00:00",
     "amount_unrecovered": 50769.0,
-    "recovery_rate_pct": 53.96
+    "recovery_rate_pct": 53.96,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHAMARAJA NAGARA",
@@ -133,7 +140,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401673+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHIKKABALLAPURA",
@@ -150,7 +158,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401684+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHIKKAMAGALURU",
@@ -167,7 +176,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401695+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHITRADURGA",
@@ -184,7 +194,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401706+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DAKSHINA KANNADA",
@@ -201,7 +212,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401717+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DAVANAGERE",
@@ -218,7 +230,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401727+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DHARWAR",
@@ -235,7 +248,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401738+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GADAG",
@@ -252,7 +266,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401754+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HASSAN",
@@ -269,7 +284,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401766+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HAVERI",
@@ -286,7 +302,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401780+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KALABURAGI",
@@ -303,7 +320,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401791+00:00",
     "amount_unrecovered": 142484.0,
-    "recovery_rate_pct": 44.36
+    "recovery_rate_pct": 44.36,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KODAGU",
@@ -320,7 +338,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401803+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KOLAR",
@@ -337,7 +356,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401814+00:00",
     "amount_unrecovered": 37408.0,
-    "recovery_rate_pct": 97.98
+    "recovery_rate_pct": 97.98,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KOPPAL",
@@ -354,7 +374,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401825+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MANDYA",
@@ -371,7 +392,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401836+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MYSURU",
@@ -388,7 +410,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401847+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "RAICHUR",
@@ -405,7 +428,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401857+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SHIVAMOGGA",
@@ -422,7 +446,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401868+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TUMAKURU",
@@ -439,7 +464,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401879+00:00",
     "amount_unrecovered": 2212.0,
-    "recovery_rate_pct": 99.95
+    "recovery_rate_pct": 99.95,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UDUPI",
@@ -456,7 +482,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401890+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UTTARA KANNADA",
@@ -473,7 +500,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401900+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "VIJAYANAGARA",
@@ -490,7 +518,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401911+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "VIJAYPURA",
@@ -507,7 +536,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401921+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Yadgir",
@@ -524,6 +554,7 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=KARNATAKA&state_code=15&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=GdbDGuqvW5VX8fBaaPSS5g",
     "scraped_at": "2026-03-04T20:40:44.401932+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   }
 ]

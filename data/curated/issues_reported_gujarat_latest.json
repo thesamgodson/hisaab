@@ -16,7 +16,8 @@
     "grievances_issues": 64,
     "grievances_amount": 0.0,
     "total_issues": 64,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "AMRELI",
@@ -35,7 +36,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 138,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ANAND",
@@ -54,7 +56,8 @@
     "grievances_issues": 1,
     "grievances_amount": 0.0,
     "total_issues": 42,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ARVALLI",
@@ -73,7 +76,8 @@
     "grievances_issues": 77,
     "grievances_amount": 0.0,
     "total_issues": 138,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BANAS KANTHA",
@@ -92,7 +96,8 @@
     "grievances_issues": 297,
     "grievances_amount": 0.0,
     "total_issues": 297,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BHARUCH",
@@ -111,7 +116,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 16,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BHAVNAGAR",
@@ -130,7 +136,8 @@
     "grievances_issues": 121,
     "grievances_amount": 0.0,
     "total_issues": 278,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Botad",
@@ -149,7 +156,8 @@
     "grievances_issues": 5,
     "grievances_amount": 0.0,
     "total_issues": 484,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Chhotaudepur",
@@ -168,7 +176,8 @@
     "grievances_issues": 178,
     "grievances_amount": 0.0,
     "total_issues": 192,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DANG",
@@ -187,7 +196,8 @@
     "grievances_issues": 10,
     "grievances_amount": 0.0,
     "total_issues": 56,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DEVBHUMI DWARKA",
@@ -206,7 +216,8 @@
     "grievances_issues": 95,
     "grievances_amount": 0.0,
     "total_issues": 111,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DOHAD",
@@ -225,7 +236,8 @@
     "grievances_issues": 289,
     "grievances_amount": 0.0,
     "total_issues": 404,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GANDHINAGAR",
@@ -244,7 +256,8 @@
     "grievances_issues": 46,
     "grievances_amount": 0.0,
     "total_issues": 157,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GIR SOMNATH",
@@ -263,7 +276,8 @@
     "grievances_issues": 72,
     "grievances_amount": 0.0,
     "total_issues": 143,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "JAMNAGAR",
@@ -282,7 +296,8 @@
     "grievances_issues": 212,
     "grievances_amount": 0.0,
     "total_issues": 228,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "JUNAGADH",
@@ -301,7 +316,8 @@
     "grievances_issues": 26,
     "grievances_amount": 0.0,
     "total_issues": 45,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KACHCHH",
@@ -320,7 +336,8 @@
     "grievances_issues": 31,
     "grievances_amount": 0.0,
     "total_issues": 113,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KHEDA",
@@ -339,7 +356,8 @@
     "grievances_issues": 40,
     "grievances_amount": 0.0,
     "total_issues": 74,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MAHESANA",
@@ -358,7 +376,8 @@
     "grievances_issues": 28,
     "grievances_amount": 0.0,
     "total_issues": 153,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MAHISAGAR",
@@ -377,7 +396,8 @@
     "grievances_issues": 147,
     "grievances_amount": 0.0,
     "total_issues": 270,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Morbi",
@@ -396,7 +416,8 @@
     "grievances_issues": 33,
     "grievances_amount": 0.0,
     "total_issues": 119,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NARMADA",
@@ -415,7 +436,8 @@
     "grievances_issues": 3,
     "grievances_amount": 0.0,
     "total_issues": 12,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NAVSARI",
@@ -434,7 +456,8 @@
     "grievances_issues": 181,
     "grievances_amount": 0.0,
     "total_issues": 295,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PANCH MAHALS",
@@ -453,7 +476,8 @@
     "grievances_issues": 50,
     "grievances_amount": 0.0,
     "total_issues": 137,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PATAN",
@@ -472,7 +496,8 @@
     "grievances_issues": 116,
     "grievances_amount": 0.0,
     "total_issues": 116,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PORBANDAR",
@@ -491,7 +516,8 @@
     "grievances_issues": 44,
     "grievances_amount": 0.0,
     "total_issues": 80,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "RAJKOT",
@@ -510,7 +536,8 @@
     "grievances_issues": 19,
     "grievances_amount": 0.0,
     "total_issues": 133,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SABAR KANTHA",
@@ -529,7 +556,8 @@
     "grievances_issues": 194,
     "grievances_amount": 0.0,
     "total_issues": 194,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SURAT",
@@ -548,7 +576,8 @@
     "grievances_issues": 5,
     "grievances_amount": 0.0,
     "total_issues": 62,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SURENDRANAGAR",
@@ -567,7 +596,8 @@
     "grievances_issues": 203,
     "grievances_amount": 0.0,
     "total_issues": 203,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TAPI",
@@ -586,7 +616,8 @@
     "grievances_issues": 2,
     "grievances_amount": 0.0,
     "total_issues": 83,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "VADODARA",
@@ -605,7 +636,8 @@
     "grievances_issues": 215,
     "grievances_amount": 0.0,
     "total_issues": 336,
-    "total_amount": 75720.0
+    "total_amount": 75720.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "VALSAD",
@@ -624,6 +656,7 @@
     "grievances_issues": 89,
     "grievances_amount": 0.0,
     "total_issues": 144,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   }
 ]

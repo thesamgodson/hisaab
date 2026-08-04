@@ -16,7 +16,8 @@
     "grievances_issues": 219,
     "grievances_amount": 154693.0,
     "total_issues": 4195,
-    "total_amount": 18226017.0
+    "total_amount": 18226017.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ERNAKULAM",
@@ -35,7 +36,8 @@
     "grievances_issues": 143,
     "grievances_amount": 0.0,
     "total_issues": 1940,
-    "total_amount": 3398211.0
+    "total_amount": 3398211.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "IDUKKI",
@@ -54,7 +56,8 @@
     "grievances_issues": 444,
     "grievances_amount": 148873.0,
     "total_issues": 2029,
-    "total_amount": 48600793.0
+    "total_amount": 48600793.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KANNUR",
@@ -73,7 +76,8 @@
     "grievances_issues": 94,
     "grievances_amount": 7644.0,
     "total_issues": 2635,
-    "total_amount": 3310766.0
+    "total_amount": 3310766.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KASARGOD",
@@ -92,7 +96,8 @@
     "grievances_issues": 106,
     "grievances_amount": 333.0,
     "total_issues": 1553,
-    "total_amount": 4737197.0
+    "total_amount": 4737197.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KOLLAM",
@@ -111,7 +116,8 @@
     "grievances_issues": 376,
     "grievances_amount": 107817.0,
     "total_issues": 2777,
-    "total_amount": 4957263.0
+    "total_amount": 4957263.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KOTTAYAM",
@@ -130,7 +136,8 @@
     "grievances_issues": 179,
     "grievances_amount": 40857.0,
     "total_issues": 4438,
-    "total_amount": 8330188.0
+    "total_amount": 8330188.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KOZHIKODE",
@@ -149,7 +156,8 @@
     "grievances_issues": 147,
     "grievances_amount": 331.0,
     "total_issues": 4336,
-    "total_amount": 811568.0
+    "total_amount": 811568.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MALAPPURAM",
@@ -168,7 +176,8 @@
     "grievances_issues": 157,
     "grievances_amount": 15784.0,
     "total_issues": 1527,
-    "total_amount": 3097902.0
+    "total_amount": 3097902.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PALAKKAD",
@@ -187,7 +196,8 @@
     "grievances_issues": 203,
     "grievances_amount": 141653.0,
     "total_issues": 7579,
-    "total_amount": 3756031.0
+    "total_amount": 3756031.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PATHANAMTHITTA",
@@ -206,7 +216,8 @@
     "grievances_issues": 117,
     "grievances_amount": 0.0,
     "total_issues": 1518,
-    "total_amount": 15676312.0
+    "total_amount": 15676312.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "THIRUVANANTHAPURAM",
@@ -225,7 +236,8 @@
     "grievances_issues": 213,
     "grievances_amount": 75346.0,
     "total_issues": 6772,
-    "total_amount": 7249678.0
+    "total_amount": 7249678.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "THRISSUR",
@@ -244,7 +256,8 @@
     "grievances_issues": 278,
     "grievances_amount": 181069.0,
     "total_issues": 2566,
-    "total_amount": 2818412.0
+    "total_amount": 2818412.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "WAYANAD",
@@ -263,6 +276,7 @@
     "grievances_issues": 167,
     "grievances_amount": 0.0,
     "total_issues": 4580,
-    "total_amount": 9175081.0
+    "total_amount": 9175081.0,
+    "fin_year": "2024-2025"
   }
 ]

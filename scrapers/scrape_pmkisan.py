@@ -20,6 +20,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import sys
 import time
 from datetime import UTC, datetime
@@ -27,9 +28,9 @@ from pathlib import Path
 from typing import Any
 
 try:
-    from scrapers.io_utils import atomic_write_json, datagov_session
+    from scrapers.io_utils import atomic_write_json, datagov_api_key, datagov_session
 except ImportError:
-    from io_utils import atomic_write_json, datagov_session
+    from io_utils import atomic_write_json, datagov_api_key, datagov_session
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 DATA_DIR = ROOT_DIR / "data"
@@ -42,7 +43,14 @@ def utc_iso() -> str:
 
 
 def state_slug(name: str) -> str:
-    return name.lower().replace(" ", "-")
+    # Collapse runs of whitespace before slugging so a UT that arrives
+    # double-spaced from one source (the homepage's "…HAVELI AND  DAMAN…")
+    # slugs identically to its single-spaced form from the village dataset —
+    # otherwise the same state writes two curated files and the loader, which
+    # globs pmkisan_district_*_latest.json, counts it twice. Every
+    # single-spaced name is byte-for-byte unchanged, so existing per-state
+    # filenames stay stable.
+    return re.sub(r"\s+", "-", name.strip().lower())
 
 
 def ensure_dirs() -> None:
@@ -165,7 +173,7 @@ HOMEPAGE_URL = "https://pmkisan.gov.in/"
 # the homepage by one installment.
 VILLAGE_RESOURCE = "388208c6-d82a-4190-90df-91aa2c326fec"
 VILLAGE_API = f"https://api.data.gov.in/resource/{VILLAGE_RESOURCE}"
-API_KEY = "579b464db66ec23bdd000001cdc3b564546246a772a26393094f5645"
+API_KEY = datagov_api_key()
 PAGE_LIMIT = 5000
 
 

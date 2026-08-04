@@ -16,7 +16,8 @@
     "grievances_issues": 9,
     "grievances_amount": 0.0,
     "total_issues": 577,
-    "total_amount": 173232.0
+    "total_amount": 173232.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KIPHIRE",
@@ -35,7 +36,8 @@
     "grievances_issues": 25,
     "grievances_amount": 0.0,
     "total_issues": 409,
-    "total_amount": 33696.0
+    "total_amount": 33696.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KOHIMA",
@@ -54,7 +56,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 222,
-    "total_amount": 217704.0
+    "total_amount": 217704.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LONGLENG",
@@ -73,7 +76,8 @@
     "grievances_issues": 24,
     "grievances_amount": 0.0,
     "total_issues": 348,
-    "total_amount": 30888.0
+    "total_amount": 30888.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MOKOKCHUNG",
@@ -92,7 +96,8 @@
     "grievances_issues": 7,
     "grievances_amount": 0.0,
     "total_issues": 439,
-    "total_amount": 72360.0
+    "total_amount": 72360.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MON",
@@ -111,7 +116,8 @@
     "grievances_issues": 13,
     "grievances_amount": 0.0,
     "total_issues": 491,
-    "total_amount": 66744.0
+    "total_amount": 66744.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PEREN",
@@ -130,7 +136,8 @@
     "grievances_issues": 11,
     "grievances_amount": 0.0,
     "total_issues": 281,
-    "total_amount": 177246.0
+    "total_amount": 177246.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PHEK",
@@ -149,7 +156,8 @@
     "grievances_issues": 13,
     "grievances_amount": 0.0,
     "total_issues": 394,
-    "total_amount": 203635.0
+    "total_amount": 203635.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TUENSANG",
@@ -168,7 +176,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 379,
-    "total_amount": 124696.0
+    "total_amount": 124696.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "WOKHA",
@@ -187,7 +196,8 @@
     "grievances_issues": 1,
     "grievances_amount": 0.0,
     "total_issues": 515,
-    "total_amount": 214056.0
+    "total_amount": 214056.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ZUNHEBOTO",
@@ -206,6 +216,7 @@
     "grievances_issues": 27,
     "grievances_amount": 0.0,
     "total_issues": 864,
-    "total_amount": 155200.0
+    "total_amount": 155200.0,
+    "fin_year": "2024-2025"
   }
 ]

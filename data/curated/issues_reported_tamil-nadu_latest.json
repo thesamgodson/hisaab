@@ -16,7 +16,8 @@
     "grievances_issues": 244,
     "grievances_amount": 0.0,
     "total_issues": 1157,
-    "total_amount": 129436320.0
+    "total_amount": 129436320.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHENGALPATTU",
@@ -35,7 +36,8 @@
     "grievances_issues": 251,
     "grievances_amount": 38395.0,
     "total_issues": 2065,
-    "total_amount": 507706806.0
+    "total_amount": 507706806.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "COIMBATORE",
@@ -54,7 +56,8 @@
     "grievances_issues": 241,
     "grievances_amount": 16962.0,
     "total_issues": 1482,
-    "total_amount": 43208615.0
+    "total_amount": 43208615.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CUDDALORE",
@@ -73,7 +76,8 @@
     "grievances_issues": 760,
     "grievances_amount": 4250.0,
     "total_issues": 4282,
-    "total_amount": 295320795.0
+    "total_amount": 295320795.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DHARMAPURI",
@@ -92,7 +96,8 @@
     "grievances_issues": 173,
     "grievances_amount": 0.0,
     "total_issues": 1545,
-    "total_amount": 133194719.0
+    "total_amount": 133194719.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DINDIGUL",
@@ -111,7 +116,8 @@
     "grievances_issues": 376,
     "grievances_amount": 0.0,
     "total_issues": 2225,
-    "total_amount": 377081043.0
+    "total_amount": 377081043.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ERODE",
@@ -130,7 +136,8 @@
     "grievances_issues": 311,
     "grievances_amount": 47178.0,
     "total_issues": 1738,
-    "total_amount": 168122322.0
+    "total_amount": 168122322.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KALLAKURICHI",
@@ -149,7 +156,8 @@
     "grievances_issues": 420,
     "grievances_amount": 3.0,
     "total_issues": 2454,
-    "total_amount": 335045327.0
+    "total_amount": 335045327.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KANCHIPURAM",
@@ -168,7 +176,8 @@
     "grievances_issues": 51,
     "grievances_amount": 0.0,
     "total_issues": 1590,
-    "total_amount": 419699217.0
+    "total_amount": 419699217.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KANNIYAKUMARI",
@@ -187,7 +196,8 @@
     "grievances_issues": 118,
     "grievances_amount": 6232.0,
     "total_issues": 554,
-    "total_amount": 21228668.0
+    "total_amount": 21228668.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KARUR",
@@ -206,7 +216,8 @@
     "grievances_issues": 243,
     "grievances_amount": 0.0,
     "total_issues": 1192,
-    "total_amount": 123124665.0
+    "total_amount": 123124665.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KRISHNAGIRI",
@@ -225,7 +236,8 @@
     "grievances_issues": 255,
     "grievances_amount": 64696.0,
     "total_issues": 2172,
-    "total_amount": 242895059.0
+    "total_amount": 242895059.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MADURAI",
@@ -244,7 +256,8 @@
     "grievances_issues": 459,
     "grievances_amount": 37353.0,
     "total_issues": 3094,
-    "total_amount": 447610067.0
+    "total_amount": 447610067.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MAYILADUTHURAI",
@@ -263,7 +276,8 @@
     "grievances_issues": 440,
     "grievances_amount": 54423.0,
     "total_issues": 2031,
-    "total_amount": 141518060.0
+    "total_amount": 141518060.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NAGAPATTINAM",
@@ -282,7 +296,8 @@
     "grievances_issues": 231,
     "grievances_amount": 268307.0,
     "total_issues": 1174,
-    "total_amount": 40296185.0
+    "total_amount": 40296185.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NAMAKKAL",
@@ -301,7 +316,8 @@
     "grievances_issues": 490,
     "grievances_amount": 259662.0,
     "total_issues": 2346,
-    "total_amount": 132542649840.0
+    "total_amount": 132542649840.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PERAMBALUR",
@@ -320,7 +336,8 @@
     "grievances_issues": 144,
     "grievances_amount": 0.0,
     "total_issues": 792,
-    "total_amount": 251914952.0
+    "total_amount": 251914952.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PUDUKKOTTAI",
@@ -339,7 +356,8 @@
     "grievances_issues": 576,
     "grievances_amount": 9040.0,
     "total_issues": 3690,
-    "total_amount": 1057126065.0
+    "total_amount": 1057126065.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "RAMANATHAPURAM",
@@ -358,7 +376,8 @@
     "grievances_issues": 462,
     "grievances_amount": 371894.0,
     "total_issues": 3175,
-    "total_amount": 334586356.0
+    "total_amount": 334586356.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Ranipet",
@@ -377,7 +396,8 @@
     "grievances_issues": 43,
     "grievances_amount": 0.0,
     "total_issues": 1551,
-    "total_amount": 331298462.0
+    "total_amount": 331298462.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SALEM",
@@ -396,7 +416,8 @@
     "grievances_issues": 530,
     "grievances_amount": 28100.0,
     "total_issues": 2839,
-    "total_amount": 369377665.0
+    "total_amount": 369377665.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SIVAGANGAI",
@@ -415,7 +436,8 @@
     "grievances_issues": 495,
     "grievances_amount": 74713.0,
     "total_issues": 4179,
-    "total_amount": 490980430.0
+    "total_amount": 490980430.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TENKASI",
@@ -434,7 +456,8 @@
     "grievances_issues": 257,
     "grievances_amount": 0.0,
     "total_issues": 1764,
-    "total_amount": 121272699.0
+    "total_amount": 121272699.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "THANJAVUR",
@@ -453,7 +476,8 @@
     "grievances_issues": 548,
     "grievances_amount": 5232.0,
     "total_issues": 3266,
-    "total_amount": 71794168.0
+    "total_amount": 71794168.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "THE NILGIRIS",
@@ -472,7 +496,8 @@
     "grievances_issues": 29,
     "grievances_amount": 0.0,
     "total_issues": 280,
-    "total_amount": 19312751.0
+    "total_amount": 19312751.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "THENI",
@@ -491,7 +516,8 @@
     "grievances_issues": 159,
     "grievances_amount": 0.0,
     "total_issues": 793,
-    "total_amount": 107793514.0
+    "total_amount": 107793514.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "THOOTHUKKUDI",
@@ -510,7 +536,8 @@
     "grievances_issues": 540,
     "grievances_amount": 3194.0,
     "total_issues": 2863,
-    "total_amount": 98237130.0
+    "total_amount": 98237130.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TIRUCHIRAPPALLI",
@@ -529,7 +556,8 @@
     "grievances_issues": 376,
     "grievances_amount": 0.0,
     "total_issues": 2887,
-    "total_amount": 254108197.0
+    "total_amount": 254108197.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TIRUNELVELI",
@@ -548,7 +576,8 @@
     "grievances_issues": 273,
     "grievances_amount": 376.0,
     "total_issues": 1799,
-    "total_amount": 105104891.0
+    "total_amount": 105104891.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TIRUPATHUR",
@@ -567,7 +596,8 @@
     "grievances_issues": 2,
     "grievances_amount": 0.0,
     "total_issues": 1354,
-    "total_amount": 171157659.0
+    "total_amount": 171157659.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TIRUPPUR",
@@ -586,7 +616,8 @@
     "grievances_issues": 317,
     "grievances_amount": 402.0,
     "total_issues": 2164,
-    "total_amount": 108365508.0
+    "total_amount": 108365508.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TIRUVALLUR",
@@ -605,7 +636,8 @@
     "grievances_issues": 158,
     "grievances_amount": 0.0,
     "total_issues": 3142,
-    "total_amount": 798812902.0
+    "total_amount": 798812902.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TIRUVANNAMALAI",
@@ -624,7 +656,8 @@
     "grievances_issues": 522,
     "grievances_amount": 224.0,
     "total_issues": 5836,
-    "total_amount": 1122095063.0
+    "total_amount": 1122095063.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TIRUVARUR",
@@ -643,7 +676,8 @@
     "grievances_issues": 619,
     "grievances_amount": 1152233.0,
     "total_issues": 2895,
-    "total_amount": 49986750.0
+    "total_amount": 49986750.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "VELLORE",
@@ -662,7 +696,8 @@
     "grievances_issues": 47,
     "grievances_amount": 0.0,
     "total_issues": 1321,
-    "total_amount": 134956257.0
+    "total_amount": 134956257.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "VILLUPURAM",
@@ -681,7 +716,8 @@
     "grievances_issues": 694,
     "grievances_amount": 42410.0,
     "total_issues": 4618,
-    "total_amount": 578927408.0
+    "total_amount": 578927408.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "VIRUDHUNAGAR",
@@ -700,6 +736,7 @@
     "grievances_issues": 656,
     "grievances_amount": 9270.0,
     "total_issues": 3872,
-    "total_amount": 342936753.0
+    "total_amount": 342936753.0,
+    "fin_year": "2024-2025"
   }
 ]

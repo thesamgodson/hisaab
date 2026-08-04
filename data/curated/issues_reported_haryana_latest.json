@@ -16,7 +16,8 @@
     "grievances_issues": 205,
     "grievances_amount": 0.0,
     "total_issues": 238,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BHIWANI",
@@ -35,7 +36,8 @@
     "grievances_issues": 226,
     "grievances_amount": 0.0,
     "total_issues": 378,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHARKI DADRI",
@@ -54,7 +56,8 @@
     "grievances_issues": 393,
     "grievances_amount": 0.0,
     "total_issues": 403,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "FARIDABAD",
@@ -73,7 +76,8 @@
     "grievances_issues": 63,
     "grievances_amount": 0.0,
     "total_issues": 125,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "FATEHABAD",
@@ -92,7 +96,8 @@
     "grievances_issues": 256,
     "grievances_amount": 0.0,
     "total_issues": 380,
-    "total_amount": 268960.0
+    "total_amount": 268960.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GURUGRAM",
@@ -111,7 +116,8 @@
     "grievances_issues": 53,
     "grievances_amount": 0.0,
     "total_issues": 88,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HISAR",
@@ -130,7 +136,8 @@
     "grievances_issues": 502,
     "grievances_amount": 0.0,
     "total_issues": 677,
-    "total_amount": 7573880.0
+    "total_amount": 7573880.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "JHAJJAR",
@@ -149,7 +156,8 @@
     "grievances_issues": 288,
     "grievances_amount": 0.0,
     "total_issues": 414,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "JIND",
@@ -168,7 +176,8 @@
     "grievances_issues": 372,
     "grievances_amount": 0.0,
     "total_issues": 804,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KAITHAL",
@@ -187,7 +196,8 @@
     "grievances_issues": 608,
     "grievances_amount": 0.0,
     "total_issues": 1000,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KARNAL",
@@ -206,7 +216,8 @@
     "grievances_issues": 360,
     "grievances_amount": 0.0,
     "total_issues": 576,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KURUKSHETRA",
@@ -225,7 +236,8 @@
     "grievances_issues": 456,
     "grievances_amount": 0.0,
     "total_issues": 1143,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MAHENDRAGARH",
@@ -244,7 +256,8 @@
     "grievances_issues": 146,
     "grievances_amount": 0.0,
     "total_issues": 426,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MEWAT",
@@ -263,7 +276,8 @@
     "grievances_issues": 220,
     "grievances_amount": 0.0,
     "total_issues": 622,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PALWAL",
@@ -282,7 +296,8 @@
     "grievances_issues": 17,
     "grievances_amount": 0.0,
     "total_issues": 26,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PANCHKULA",
@@ -301,7 +316,8 @@
     "grievances_issues": 119,
     "grievances_amount": 0.0,
     "total_issues": 231,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PANIPAT",
@@ -320,7 +336,8 @@
     "grievances_issues": 94,
     "grievances_amount": 0.0,
     "total_issues": 94,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "REWARI",
@@ -339,7 +356,8 @@
     "grievances_issues": 267,
     "grievances_amount": 0.0,
     "total_issues": 296,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ROHTAK",
@@ -358,7 +376,8 @@
     "grievances_issues": 233,
     "grievances_amount": 0.0,
     "total_issues": 409,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SIRSA",
@@ -377,7 +396,8 @@
     "grievances_issues": 434,
     "grievances_amount": 0.0,
     "total_issues": 596,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SONIPAT",
@@ -396,7 +416,8 @@
     "grievances_issues": 278,
     "grievances_amount": 0.0,
     "total_issues": 347,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "YAMUNANAGAR",
@@ -415,6 +436,7 @@
     "grievances_issues": 607,
     "grievances_amount": 0.0,
     "total_issues": 932,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   }
 ]

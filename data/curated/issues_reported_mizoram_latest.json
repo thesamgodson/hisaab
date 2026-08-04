@@ -16,7 +16,8 @@
     "grievances_issues": 6,
     "grievances_amount": 0.0,
     "total_issues": 103,
-    "total_amount": 26600.0
+    "total_amount": 26600.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHAMPHAI",
@@ -35,7 +36,8 @@
     "grievances_issues": 15,
     "grievances_amount": 0.0,
     "total_issues": 104,
-    "total_amount": 7400.0
+    "total_amount": 7400.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HNAHTHIAL",
@@ -54,7 +56,8 @@
     "grievances_issues": 7,
     "grievances_amount": 0.0,
     "total_issues": 50,
-    "total_amount": 6000.0
+    "total_amount": 6000.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KHAWZAWL",
@@ -73,7 +76,8 @@
     "grievances_issues": 6,
     "grievances_amount": 0.0,
     "total_issues": 51,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KOLASIB",
@@ -92,7 +96,8 @@
     "grievances_issues": 4,
     "grievances_amount": 0.0,
     "total_issues": 98,
-    "total_amount": 9976.0
+    "total_amount": 9976.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LAWNGTLAI",
@@ -111,7 +116,8 @@
     "grievances_issues": 11,
     "grievances_amount": 0.0,
     "total_issues": 320,
-    "total_amount": 110808.0
+    "total_amount": 110808.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LUNGLEI",
@@ -130,7 +136,8 @@
     "grievances_issues": 10,
     "grievances_amount": 0.0,
     "total_issues": 150,
-    "total_amount": 44101.0
+    "total_amount": 44101.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MAMIT",
@@ -149,7 +156,8 @@
     "grievances_issues": 12,
     "grievances_amount": 0.0,
     "total_issues": 204,
-    "total_amount": 17000.0
+    "total_amount": 17000.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SAITUAL",
@@ -168,7 +176,8 @@
     "grievances_issues": 1,
     "grievances_amount": 0.0,
     "total_issues": 56,
-    "total_amount": 10000.0
+    "total_amount": 10000.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SERCHHIP",
@@ -187,7 +196,8 @@
     "grievances_issues": 5,
     "grievances_amount": 0.0,
     "total_issues": 79,
-    "total_amount": 19996.0
+    "total_amount": 19996.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Siaha",
@@ -206,6 +216,7 @@
     "grievances_issues": 12,
     "grievances_amount": 0.0,
     "total_issues": 177,
-    "total_amount": 174292.0
+    "total_amount": 174292.0,
+    "fin_year": "2024-2025"
   }
 ]

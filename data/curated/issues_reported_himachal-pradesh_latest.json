@@ -16,7 +16,8 @@
     "grievances_issues": 66,
     "grievances_amount": 277636.0,
     "total_issues": 889,
-    "total_amount": 2900649.0
+    "total_amount": 2900649.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHAMBA",
@@ -35,7 +36,8 @@
     "grievances_issues": 319,
     "grievances_amount": 0.0,
     "total_issues": 1412,
-    "total_amount": 4909839.0
+    "total_amount": 4909839.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HAMIRPUR",
@@ -54,7 +56,8 @@
     "grievances_issues": 24,
     "grievances_amount": 87494.0,
     "total_issues": 985,
-    "total_amount": 2334383.0
+    "total_amount": 2334383.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KANGRA",
@@ -73,7 +76,8 @@
     "grievances_issues": 157,
     "grievances_amount": 0.0,
     "total_issues": 3380,
-    "total_amount": 7447624.0
+    "total_amount": 7447624.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KINNAUR",
@@ -92,7 +96,8 @@
     "grievances_issues": 23,
     "grievances_amount": 11070.0,
     "total_issues": 275,
-    "total_amount": 414591.0
+    "total_amount": 414591.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KULLU",
@@ -111,7 +116,8 @@
     "grievances_issues": 4,
     "grievances_amount": 0.0,
     "total_issues": 1233,
-    "total_amount": 2886827.0
+    "total_amount": 2886827.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LAHUL AND SPITI",
@@ -130,7 +136,8 @@
     "grievances_issues": 16,
     "grievances_amount": 0.0,
     "total_issues": 144,
-    "total_amount": 49197.0
+    "total_amount": 49197.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MANDI",
@@ -149,7 +156,8 @@
     "grievances_issues": 163,
     "grievances_amount": 3792.0,
     "total_issues": 2669,
-    "total_amount": 9494552.0
+    "total_amount": 9494552.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SHIMLA",
@@ -168,7 +176,8 @@
     "grievances_issues": 433,
     "grievances_amount": 305374.0,
     "total_issues": 2297,
-    "total_amount": 2735210.0
+    "total_amount": 2735210.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SIRMAUR",
@@ -187,7 +196,8 @@
     "grievances_issues": 55,
     "grievances_amount": 10960.0,
     "total_issues": 1097,
-    "total_amount": 42023574.0
+    "total_amount": 42023574.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SOLAN",
@@ -206,7 +216,8 @@
     "grievances_issues": 251,
     "grievances_amount": 352293.0,
     "total_issues": 1908,
-    "total_amount": 33258068.0
+    "total_amount": 33258068.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UNA",
@@ -225,6 +236,7 @@
     "grievances_issues": 292,
     "grievances_amount": 0.0,
     "total_issues": 1212,
-    "total_amount": 628223.0
+    "total_amount": 628223.0,
+    "fin_year": "2024-2025"
   }
 ]

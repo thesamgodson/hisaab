@@ -16,7 +16,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 6,
-    "total_amount": 639400.0
+    "total_amount": 639400.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "East Jaintia Hills",
@@ -35,7 +36,8 @@
     "grievances_issues": 10,
     "grievances_amount": 0.0,
     "total_issues": 391,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "EAST KHASI HILLS",
@@ -54,7 +56,8 @@
     "grievances_issues": 435,
     "grievances_amount": 0.0,
     "total_issues": 2284,
-    "total_amount": 260820.0
+    "total_amount": 260820.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "EASTERN WEST KHASI HILLS",
@@ -73,7 +76,8 @@
     "grievances_issues": 19,
     "grievances_amount": 0.0,
     "total_issues": 97,
-    "total_amount": 1014795.0
+    "total_amount": 1014795.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NORTH GARO HILLS",
@@ -92,7 +96,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 0,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "RI BHOI",
@@ -111,7 +116,8 @@
     "grievances_issues": 54,
     "grievances_amount": 0.0,
     "total_issues": 586,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SOUTH GARO HILLS",
@@ -130,7 +136,8 @@
     "grievances_issues": 7,
     "grievances_amount": 0.0,
     "total_issues": 18,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SOUTH WEST GARO HILLS",
@@ -149,7 +156,8 @@
     "grievances_issues": 10,
     "grievances_amount": 1566372.0,
     "total_issues": 139,
-    "total_amount": 1629972.0
+    "total_amount": 1629972.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SOUTH WEST KHASI HILLS",
@@ -168,7 +176,8 @@
     "grievances_issues": 15,
     "grievances_amount": 0.0,
     "total_issues": 80,
-    "total_amount": 7542773.0
+    "total_amount": 7542773.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "WEST GARO HILLS",
@@ -187,7 +196,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 10,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "WEST JAINTIA HILLS",
@@ -206,7 +216,8 @@
     "grievances_issues": 46,
     "grievances_amount": 0.0,
     "total_issues": 166,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "WEST KHASI HILLS",
@@ -225,6 +236,7 @@
     "grievances_issues": 1,
     "grievances_amount": 0.0,
     "total_issues": 29,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   }
 ]

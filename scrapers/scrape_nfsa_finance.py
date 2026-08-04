@@ -22,15 +22,15 @@ from typing import Any
 import requests
 
 try:
-    from scrapers.io_utils import atomic_write_json, datagov_session
+    from scrapers.io_utils import atomic_write_json, datagov_api_key, datagov_session
 except ImportError:
-    from io_utils import atomic_write_json, datagov_session
+    from io_utils import atomic_write_json, datagov_api_key, datagov_session
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
 CURATED_DIR = ROOT_DIR / "data" / "curated"
 
 SESSION = datagov_session()
-API_KEY = "579b464db66ec23bdd000001cdc3b564546246a772a26393094f5645"
+API_KEY = datagov_api_key()
 API_BASE = "https://api.data.gov.in/resource"
 PAGE_SIZE = 500
 DELAY_SECONDS = 1.0

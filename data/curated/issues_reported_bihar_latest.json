@@ -16,7 +16,8 @@
     "grievances_issues": 49,
     "grievances_amount": 0.0,
     "total_issues": 906,
-    "total_amount": 49821640.0
+    "total_amount": 49821640.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ARWAL",
@@ -35,7 +36,8 @@
     "grievances_issues": 219,
     "grievances_amount": 1000.0,
     "total_issues": 411,
-    "total_amount": 24917432.0
+    "total_amount": 24917432.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "AURANAGABAD",
@@ -54,7 +56,8 @@
     "grievances_issues": 375,
     "grievances_amount": 2600.0,
     "total_issues": 867,
-    "total_amount": 13879251.0
+    "total_amount": 13879251.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BANKA",
@@ -73,7 +76,8 @@
     "grievances_issues": 172,
     "grievances_amount": 0.0,
     "total_issues": 394,
-    "total_amount": 582320.0
+    "total_amount": 582320.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BEGUSARAI",
@@ -92,7 +96,8 @@
     "grievances_issues": 525,
     "grievances_amount": 0.0,
     "total_issues": 1884,
-    "total_amount": 9025895.0
+    "total_amount": 9025895.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BHAGALPUR",
@@ -111,7 +116,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 322,
-    "total_amount": 12897199.0
+    "total_amount": 12897199.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BHOJPUR",
@@ -130,7 +136,8 @@
     "grievances_issues": 15,
     "grievances_amount": 0.0,
     "total_issues": 1279,
-    "total_amount": 8316477.0
+    "total_amount": 8316477.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BUXAR",
@@ -149,7 +156,8 @@
     "grievances_issues": 423,
     "grievances_amount": 2964.0,
     "total_issues": 1174,
-    "total_amount": 22681703.0
+    "total_amount": 22681703.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "DARBHANGA",
@@ -168,7 +176,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 353,
-    "total_amount": 112000.0
+    "total_amount": 112000.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GAYAJI",
@@ -187,7 +196,8 @@
     "grievances_issues": 1186,
     "grievances_amount": 0.0,
     "total_issues": 1854,
-    "total_amount": 419119.0
+    "total_amount": 419119.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GOPALGANJ",
@@ -206,7 +216,8 @@
     "grievances_issues": 475,
     "grievances_amount": 0.0,
     "total_issues": 1579,
-    "total_amount": 4031660.0
+    "total_amount": 4031660.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "JAMUI",
@@ -225,7 +236,8 @@
     "grievances_issues": 357,
     "grievances_amount": 0.0,
     "total_issues": 1375,
-    "total_amount": 42521546.0
+    "total_amount": 42521546.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "JEHANABAD",
@@ -244,7 +256,8 @@
     "grievances_issues": 263,
     "grievances_amount": 0.0,
     "total_issues": 792,
-    "total_amount": 104884.0
+    "total_amount": 104884.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KAIMUR (BHABUA)",
@@ -263,7 +276,8 @@
     "grievances_issues": 646,
     "grievances_amount": 0.0,
     "total_issues": 1083,
-    "total_amount": 100210003.0
+    "total_amount": 100210003.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KATIHAR",
@@ -282,7 +296,8 @@
     "grievances_issues": 756,
     "grievances_amount": 0.0,
     "total_issues": 1220,
-    "total_amount": 11103139.0
+    "total_amount": 11103139.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KHAGARIA",
@@ -301,7 +316,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 803,
-    "total_amount": 2028363.0
+    "total_amount": 2028363.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KISHANGANJ",
@@ -320,7 +336,8 @@
     "grievances_issues": 269,
     "grievances_amount": 3420.0,
     "total_issues": 667,
-    "total_amount": 23691699.0
+    "total_amount": 23691699.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LAKHISARAI",
@@ -339,7 +356,8 @@
     "grievances_issues": 124,
     "grievances_amount": 1800.0,
     "total_issues": 555,
-    "total_amount": 1763456.0
+    "total_amount": 1763456.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MADHEPURA",
@@ -358,7 +376,8 @@
     "grievances_issues": 27,
     "grievances_amount": 62401.0,
     "total_issues": 383,
-    "total_amount": 109608580.0
+    "total_amount": 109608580.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MADHUBANI",
@@ -377,7 +396,8 @@
     "grievances_issues": 388,
     "grievances_amount": 0.0,
     "total_issues": 1684,
-    "total_amount": 216750292.0
+    "total_amount": 216750292.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MUNGER",
@@ -396,7 +416,8 @@
     "grievances_issues": 330,
     "grievances_amount": 0.0,
     "total_issues": 730,
-    "total_amount": 534656.0
+    "total_amount": 534656.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MUZAFFARPUR",
@@ -415,7 +436,8 @@
     "grievances_issues": 636,
     "grievances_amount": 4950.0,
     "total_issues": 2250,
-    "total_amount": 22213820.0
+    "total_amount": 22213820.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NALANDA",
@@ -434,7 +456,8 @@
     "grievances_issues": 153,
     "grievances_amount": 0.0,
     "total_issues": 1202,
-    "total_amount": 1496550.0
+    "total_amount": 1496550.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NAWADA",
@@ -453,7 +476,8 @@
     "grievances_issues": 275,
     "grievances_amount": 0.0,
     "total_issues": 860,
-    "total_amount": 3051450.0
+    "total_amount": 3051450.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PASHCHIM CHAMPARAN",
@@ -472,7 +496,8 @@
     "grievances_issues": 543,
     "grievances_amount": 0.0,
     "total_issues": 2440,
-    "total_amount": 368088954.0
+    "total_amount": 368088954.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PATNA",
@@ -491,7 +516,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 1414,
-    "total_amount": 79252.0
+    "total_amount": 79252.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PURBI CHAMPARAN",
@@ -510,7 +536,8 @@
     "grievances_issues": 1158,
     "grievances_amount": 0.0,
     "total_issues": 2715,
-    "total_amount": 98734891.0
+    "total_amount": 98734891.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PURNIA",
@@ -529,7 +556,8 @@
     "grievances_issues": 776,
     "grievances_amount": 0.0,
     "total_issues": 1406,
-    "total_amount": 35365811.0
+    "total_amount": 35365811.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ROHTAS",
@@ -548,7 +576,8 @@
     "grievances_issues": 979,
     "grievances_amount": 0.0,
     "total_issues": 1830,
-    "total_amount": 303483789.0
+    "total_amount": 303483789.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SAHARSA",
@@ -567,7 +596,8 @@
     "grievances_issues": 0,
     "grievances_amount": 0.0,
     "total_issues": 389,
-    "total_amount": 40000.0
+    "total_amount": 40000.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SAMASTIPUR",
@@ -586,7 +616,8 @@
     "grievances_issues": 177,
     "grievances_amount": 0.0,
     "total_issues": 1323,
-    "total_amount": 0.0
+    "total_amount": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SARAN",
@@ -605,7 +636,8 @@
     "grievances_issues": 777,
     "grievances_amount": 12050.0,
     "total_issues": 1993,
-    "total_amount": 66732057.0
+    "total_amount": 66732057.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Sheikhpura",
@@ -624,7 +656,8 @@
     "grievances_issues": 30,
     "grievances_amount": 38092.0,
     "total_issues": 300,
-    "total_amount": 1343652.0
+    "total_amount": 1343652.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SHEOHAR",
@@ -643,7 +676,8 @@
     "grievances_issues": 186,
     "grievances_amount": 0.0,
     "total_issues": 301,
-    "total_amount": 1597450.0
+    "total_amount": 1597450.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SITAMARHI",
@@ -662,7 +696,8 @@
     "grievances_issues": 869,
     "grievances_amount": 0.0,
     "total_issues": 1175,
-    "total_amount": 36252383.0
+    "total_amount": 36252383.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SIWAN",
@@ -681,7 +716,8 @@
     "grievances_issues": 1077,
     "grievances_amount": 0.0,
     "total_issues": 2026,
-    "total_amount": 1999121.0
+    "total_amount": 1999121.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SUPAUL",
@@ -700,7 +736,8 @@
     "grievances_issues": 324,
     "grievances_amount": 0.0,
     "total_issues": 1137,
-    "total_amount": 641914.0
+    "total_amount": 641914.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "VAISHALI",
@@ -719,6 +756,7 @@
     "grievances_issues": 1040,
     "grievances_amount": 0.0,
     "total_issues": 1876,
-    "total_amount": 5600264.0
+    "total_amount": 5600264.0,
+    "fin_year": "2024-2025"
   }
 ]

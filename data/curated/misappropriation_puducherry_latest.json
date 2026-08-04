@@ -14,7 +14,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=PUDUCHERRY&state_code=25&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=JwyM1mHSVyQsqpmo3MuBhg",
     "scraped_at": "2026-03-04T20:48:32.093068+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PONDICHERRY",
@@ -31,6 +32,7 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=PUDUCHERRY&state_code=25&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=JwyM1mHSVyQsqpmo3MuBhg",
     "scraped_at": "2026-03-04T20:48:32.093097+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 0.0
+    "recovery_rate_pct": 0.0,
+    "fin_year": "2024-2025"
   }
 ]

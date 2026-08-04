@@ -16,7 +16,8 @@
     "grievances_issues": 62,
     "grievances_amount": 24034.0,
     "total_issues": 728,
-    "total_amount": 127068583.0
+    "total_amount": 127068583.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Gomati",
@@ -35,7 +36,8 @@
     "grievances_issues": 79,
     "grievances_amount": 0.0,
     "total_issues": 950,
-    "total_amount": 4126142.0
+    "total_amount": 4126142.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Khowai",
@@ -54,7 +56,8 @@
     "grievances_issues": 5,
     "grievances_amount": 10104.0,
     "total_issues": 453,
-    "total_amount": 3896430.0
+    "total_amount": 3896430.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NORTH TRIPURA",
@@ -73,7 +76,8 @@
     "grievances_issues": 48,
     "grievances_amount": 38130.0,
     "total_issues": 562,
-    "total_amount": 41893260.0
+    "total_amount": 41893260.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Sepahijala",
@@ -92,7 +96,8 @@
     "grievances_issues": 17,
     "grievances_amount": 3485.0,
     "total_issues": 616,
-    "total_amount": 1567799.0
+    "total_amount": 1567799.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SOUTH TRIPURA",
@@ -111,7 +116,8 @@
     "grievances_issues": 73,
     "grievances_amount": 18758.0,
     "total_issues": 790,
-    "total_amount": 51770211.0
+    "total_amount": 51770211.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Unakoti",
@@ -130,7 +136,8 @@
     "grievances_issues": 48,
     "grievances_amount": 3108.0,
     "total_issues": 538,
-    "total_amount": 45374640.0
+    "total_amount": 45374640.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "WEST TRIPURA",
@@ -149,6 +156,7 @@
     "grievances_issues": 38,
     "grievances_amount": 52182.0,
     "total_issues": 887,
-    "total_amount": 23256453.0
+    "total_amount": 23256453.0,
+    "fin_year": "2024-2025"
   }
 ]

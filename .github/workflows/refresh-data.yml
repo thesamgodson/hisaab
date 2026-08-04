@@ -10,13 +10,13 @@ on:
     inputs:
       schemes:
         description: "Comma-separated schemes to scrape (or 'all')"
-        default: "jjm,sbm,udise,mgnrega,pmgsy"
+        default: "all"
         required: false
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 150
     permissions:
       contents: write
     steps:
@@ -35,7 +35,7 @@ jobs:
       - name: Scrape (failures tolerated per scheme)
         continue-on-error: true
         run: |
-          python run_all.py --schemes "${{ github.event.inputs.schemes || 'jjm,sbm,udise,mgnrega,pmgsy' }}"
+          python run_all.py --schemes "${{ github.event.inputs.schemes || 'all' }}"
 
       - name: Refresh MLAs (MyNeta) and re-ingest politicians
         continue-on-error: true
@@ -43,6 +43,13 @@ jobs:
           python scrapers/scrape_mla_myneta.py --no-cache
           python -m constituency.ingest --mla-only
           python -m constituency.ingest --mp-only
+
+      # Acceptance gate before anything loads: a scrape that reduced
+      # granularity, coverage, or a money column (past its own guard) is
+      # reverted to its last-good HEAD version so the clean schemes still
+      # publish and prod keeps the prior data for the regressed one.
+      - name: Verify refreshed curated data (revert regressions)
+        run: python scripts/verify_refresh.py --revert-regressions
 
       - name: Load curated data into SQLite
         run: python run_all.py --load-only

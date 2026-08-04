@@ -14,7 +14,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=HIMACHAL PRADESH&state_code=13&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=XYSToEDJ12rWgJRSy/wkGg",
     "scraped_at": "2026-03-04T20:38:49.384217+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHAMBA",
@@ -31,7 +32,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=HIMACHAL PRADESH&state_code=13&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=XYSToEDJ12rWgJRSy/wkGg",
     "scraped_at": "2026-03-04T20:38:49.384249+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "HAMIRPUR",
@@ -48,7 +50,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=HIMACHAL PRADESH&state_code=13&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=XYSToEDJ12rWgJRSy/wkGg",
     "scraped_at": "2026-03-04T20:38:49.384262+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KANGRA",
@@ -65,7 +68,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=HIMACHAL PRADESH&state_code=13&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=XYSToEDJ12rWgJRSy/wkGg",
     "scraped_at": "2026-03-04T20:38:49.384278+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KINNAUR",
@@ -82,7 +86,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=HIMACHAL PRADESH&state_code=13&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=XYSToEDJ12rWgJRSy/wkGg",
     "scraped_at": "2026-03-04T20:38:49.384290+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KULLU",
@@ -99,7 +104,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=HIMACHAL PRADESH&state_code=13&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=XYSToEDJ12rWgJRSy/wkGg",
     "scraped_at": "2026-03-04T20:38:49.384304+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "LAHUL AND SPITI",
@@ -116,7 +122,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=HIMACHAL PRADESH&state_code=13&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=XYSToEDJ12rWgJRSy/wkGg",
     "scraped_at": "2026-03-04T20:38:49.384318+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "MANDI",
@@ -133,7 +140,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=HIMACHAL PRADESH&state_code=13&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=XYSToEDJ12rWgJRSy/wkGg",
     "scraped_at": "2026-03-04T20:38:49.384329+00:00",
     "amount_unrecovered": 6480.0,
-    "recovery_rate_pct": 99.71
+    "recovery_rate_pct": 99.71,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SHIMLA",
@@ -150,7 +158,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=HIMACHAL PRADESH&state_code=13&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=XYSToEDJ12rWgJRSy/wkGg",
     "scraped_at": "2026-03-04T20:38:49.384342+00:00",
     "amount_unrecovered": 1377.0,
-    "recovery_rate_pct": 98.84
+    "recovery_rate_pct": 98.84,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SIRMAUR",
@@ -167,7 +176,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=HIMACHAL PRADESH&state_code=13&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=XYSToEDJ12rWgJRSy/wkGg",
     "scraped_at": "2026-03-04T20:38:49.384355+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SOLAN",
@@ -184,7 +194,8 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=HIMACHAL PRADESH&state_code=13&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=XYSToEDJ12rWgJRSy/wkGg",
     "scraped_at": "2026-03-04T20:38:49.384371+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "UNA",
@@ -201,6 +212,7 @@
     "source_url": "https://mnregaweb4.nic.in/netnrega/SocialAuditFindings/SAU_FMRecoveryReport.aspx?lflag=eng&page=s&short_name=&state_name=HIMACHAL PRADESH&state_code=13&fin_year=2024-2025&source=national&issue_type_code=all&rep_type=SoA&Digest=XYSToEDJ12rWgJRSy/wkGg",
     "scraped_at": "2026-03-04T20:38:49.384383+00:00",
     "amount_unrecovered": 0.0,
-    "recovery_rate_pct": 100.0
+    "recovery_rate_pct": 100.0,
+    "fin_year": "2024-2025"
   }
 ]

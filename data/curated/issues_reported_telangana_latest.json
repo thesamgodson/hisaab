@@ -16,7 +16,8 @@
     "grievances_issues": 781,
     "grievances_amount": 626036.0,
     "total_issues": 14389,
-    "total_amount": 163261280.0
+    "total_amount": 163261280.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Bhadradri Kothagudem",
@@ -35,7 +36,8 @@
     "grievances_issues": 686,
     "grievances_amount": 727025.0,
     "total_issues": 10576,
-    "total_amount": 53748638.0
+    "total_amount": 53748638.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Hanumakonda",
@@ -54,7 +56,8 @@
     "grievances_issues": 360,
     "grievances_amount": 210153.0,
     "total_issues": 4583,
-    "total_amount": 21899591.0
+    "total_amount": 21899591.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Jagtial",
@@ -73,7 +76,8 @@
     "grievances_issues": 728,
     "grievances_amount": 681349.0,
     "total_issues": 7975,
-    "total_amount": 112449141.0
+    "total_amount": 112449141.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Jangaon",
@@ -92,7 +96,8 @@
     "grievances_issues": 435,
     "grievances_amount": 301288.0,
     "total_issues": 8604,
-    "total_amount": 89719995.0
+    "total_amount": 89719995.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Jayashanker Bhopalapally",
@@ -111,7 +116,8 @@
     "grievances_issues": 312,
     "grievances_amount": 543927.0,
     "total_issues": 5642,
-    "total_amount": 31329655.0
+    "total_amount": 31329655.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Jogulamba Gadwal",
@@ -130,7 +136,8 @@
     "grievances_issues": 283,
     "grievances_amount": 168624.0,
     "total_issues": 6676,
-    "total_amount": 40768982.0
+    "total_amount": 40768982.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Kamareddy",
@@ -149,7 +156,8 @@
     "grievances_issues": 1136,
     "grievances_amount": 2402529.0,
     "total_issues": 14833,
-    "total_amount": 180591122.0
+    "total_amount": 180591122.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Karimnagar",
@@ -168,7 +176,8 @@
     "grievances_issues": 468,
     "grievances_amount": 495032.0,
     "total_issues": 7538,
-    "total_amount": 34737393.0
+    "total_amount": 34737393.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Khammam",
@@ -187,7 +196,8 @@
     "grievances_issues": 602,
     "grievances_amount": 389142.0,
     "total_issues": 10553,
-    "total_amount": 50931089.0
+    "total_amount": 50931089.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Kumram Bheem(Asifabad)",
@@ -206,7 +216,8 @@
     "grievances_issues": 613,
     "grievances_amount": 429832.0,
     "total_issues": 9283,
-    "total_amount": 146325281.0
+    "total_amount": 146325281.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Mahabubabad",
@@ -225,7 +236,8 @@
     "grievances_issues": 858,
     "grievances_amount": 1527893.0,
     "total_issues": 13763,
-    "total_amount": 158139243.0
+    "total_amount": 158139243.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Mahabubnagar",
@@ -244,7 +256,8 @@
     "grievances_issues": 378,
     "grievances_amount": 270292.0,
     "total_issues": 9625,
-    "total_amount": 51052566.0
+    "total_amount": 51052566.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Mancherial",
@@ -263,7 +276,8 @@
     "grievances_issues": 484,
     "grievances_amount": 248780.0,
     "total_issues": 6855,
-    "total_amount": 61512424.0
+    "total_amount": 61512424.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Medak",
@@ -282,7 +296,8 @@
     "grievances_issues": 754,
     "grievances_amount": 647968.0,
     "total_issues": 13987,
-    "total_amount": 96883906.0
+    "total_amount": 96883906.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Medchal",
@@ -301,7 +316,8 @@
     "grievances_issues": 5,
     "grievances_amount": 0.0,
     "total_issues": 458,
-    "total_amount": 890098.0
+    "total_amount": 890098.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Mulugu",
@@ -320,7 +336,8 @@
     "grievances_issues": 239,
     "grievances_amount": 325669.0,
     "total_issues": 4730,
-    "total_amount": 40296699.0
+    "total_amount": 40296699.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Nagarkurnool",
@@ -339,7 +356,8 @@
     "grievances_issues": 480,
     "grievances_amount": 321357.0,
     "total_issues": 12341,
-    "total_amount": 68289060.0
+    "total_amount": 68289060.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Nalgonda",
@@ -358,7 +376,8 @@
     "grievances_issues": 1034,
     "grievances_amount": 1310896.0,
     "total_issues": 20054,
-    "total_amount": 137149313.0
+    "total_amount": 137149313.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Narayanpet",
@@ -377,7 +396,8 @@
     "grievances_issues": 338,
     "grievances_amount": 335982.0,
     "total_issues": 7688,
-    "total_amount": 48752100.0
+    "total_amount": 48752100.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Nirmal",
@@ -396,7 +416,8 @@
     "grievances_issues": 779,
     "grievances_amount": 1001637.0,
     "total_issues": 10106,
-    "total_amount": 149679574.0
+    "total_amount": 149679574.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Nizamabad",
@@ -415,7 +436,8 @@
     "grievances_issues": 1235,
     "grievances_amount": 1400522.0,
     "total_issues": 12784,
-    "total_amount": 164321971.0
+    "total_amount": 164321971.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Peddapalli",
@@ -434,7 +456,8 @@
     "grievances_issues": 313,
     "grievances_amount": 32132.0,
     "total_issues": 5180,
-    "total_amount": 40510415.0
+    "total_amount": 40510415.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Rajanna Sirsilla",
@@ -453,7 +476,8 @@
     "grievances_issues": 454,
     "grievances_amount": 474053.0,
     "total_issues": 5419,
-    "total_amount": 26803085.0
+    "total_amount": 26803085.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Rangareddy",
@@ -472,7 +496,8 @@
     "grievances_issues": 333,
     "grievances_amount": 280588.0,
     "total_issues": 10052,
-    "total_amount": 27976571.0
+    "total_amount": 27976571.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Sangareddy",
@@ -491,7 +516,8 @@
     "grievances_issues": 718,
     "grievances_amount": 460328.0,
     "total_issues": 15730,
-    "total_amount": 108005995.0
+    "total_amount": 108005995.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Siddipet",
@@ -510,7 +536,8 @@
     "grievances_issues": 697,
     "grievances_amount": 487894.0,
     "total_issues": 12457,
-    "total_amount": 53040687.0
+    "total_amount": 53040687.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Suryapet",
@@ -529,7 +556,8 @@
     "grievances_issues": 535,
     "grievances_amount": 308540.0,
     "total_issues": 10656,
-    "total_amount": 60499788.0
+    "total_amount": 60499788.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Vikarabad",
@@ -548,7 +576,8 @@
     "grievances_issues": 1097,
     "grievances_amount": 919098.0,
     "total_issues": 18308,
-    "total_amount": 119355015.0
+    "total_amount": 119355015.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Wanaparthy",
@@ -567,7 +596,8 @@
     "grievances_issues": 236,
     "grievances_amount": 171780.0,
     "total_issues": 5799,
-    "total_amount": 45358695.0
+    "total_amount": 45358695.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Warangal",
@@ -586,7 +616,8 @@
     "grievances_issues": 315,
     "grievances_amount": 282100.0,
     "total_issues": 6071,
-    "total_amount": 15560021.0
+    "total_amount": 15560021.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Yadadri Bhuvanagiri",
@@ -605,6 +636,7 @@
     "grievances_issues": 525,
     "grievances_amount": 741664.0,
     "total_issues": 10109,
-    "total_amount": 60542251.0
+    "total_amount": 60542251.0,
+    "fin_year": "2024-2025"
   }
 ]

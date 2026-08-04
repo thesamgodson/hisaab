@@ -16,7 +16,8 @@
     "grievances_issues": 74,
     "grievances_amount": 503518.0,
     "total_issues": 4308,
-    "total_amount": 141215284.0
+    "total_amount": 141215284.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ANAKAPALLI",
@@ -35,7 +36,8 @@
     "grievances_issues": 50,
     "grievances_amount": 329623.0,
     "total_issues": 3964,
-    "total_amount": 124593976.0
+    "total_amount": 124593976.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ANANTAPUR",
@@ -54,7 +56,8 @@
     "grievances_issues": 96,
     "grievances_amount": 579811.0,
     "total_issues": 7785,
-    "total_amount": 241316135.0
+    "total_amount": 241316135.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ANNAMAYYA",
@@ -73,7 +76,8 @@
     "grievances_issues": 14,
     "grievances_amount": 6327.0,
     "total_issues": 5250,
-    "total_amount": 161339821.0
+    "total_amount": 161339821.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "BAPATLA",
@@ -92,7 +96,8 @@
     "grievances_issues": 79,
     "grievances_amount": 64254.0,
     "total_issues": 4367,
-    "total_amount": 136750190.0
+    "total_amount": 136750190.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "CHITTOOR",
@@ -111,7 +116,8 @@
     "grievances_issues": 51,
     "grievances_amount": 24111.0,
     "total_issues": 5151,
-    "total_amount": 117332385.0
+    "total_amount": 117332385.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "EAST GODAVARI",
@@ -130,7 +136,8 @@
     "grievances_issues": 132,
     "grievances_amount": 35025.0,
     "total_issues": 3290,
-    "total_amount": 106957266.0
+    "total_amount": 106957266.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "ELURU",
@@ -149,7 +156,8 @@
     "grievances_issues": 79,
     "grievances_amount": 328579.0,
     "total_issues": 5759,
-    "total_amount": 139612574.0
+    "total_amount": 139612574.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "GUNTUR",
@@ -168,7 +176,8 @@
     "grievances_issues": 271,
     "grievances_amount": 218649.0,
     "total_issues": 1654,
-    "total_amount": 17775032.0
+    "total_amount": 17775032.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KAKINADA",
@@ -187,7 +196,8 @@
     "grievances_issues": 139,
     "grievances_amount": 638787.0,
     "total_issues": 3558,
-    "total_amount": 59048537.0
+    "total_amount": 59048537.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KONASEEMA",
@@ -206,7 +216,8 @@
     "grievances_issues": 139,
     "grievances_amount": 128231.0,
     "total_issues": 2483,
-    "total_amount": 35969497.0
+    "total_amount": 35969497.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KRISHNA",
@@ -225,7 +236,8 @@
     "grievances_issues": 98,
     "grievances_amount": 135012.0,
     "total_issues": 2784,
-    "total_amount": 25854442.0
+    "total_amount": 25854442.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "KURNOOL",
@@ -244,7 +256,8 @@
     "grievances_issues": 46,
     "grievances_amount": 144472.0,
     "total_issues": 6286,
-    "total_amount": 195486475.0
+    "total_amount": 195486475.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NANDYAL",
@@ -263,7 +276,8 @@
     "grievances_issues": 24,
     "grievances_amount": 4100.0,
     "total_issues": 5983,
-    "total_amount": 141309225.0
+    "total_amount": 141309225.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NELLORE",
@@ -282,7 +296,8 @@
     "grievances_issues": 30,
     "grievances_amount": 494843.0,
     "total_issues": 7530,
-    "total_amount": 396596045.0
+    "total_amount": 396596045.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "NTR",
@@ -301,7 +316,8 @@
     "grievances_issues": 13,
     "grievances_amount": 14216.0,
     "total_issues": 3300,
-    "total_amount": 94977479.0
+    "total_amount": 94977479.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PALNADU",
@@ -320,7 +336,8 @@
     "grievances_issues": 102,
     "grievances_amount": 148733.0,
     "total_issues": 4042,
-    "total_amount": 38100953.0
+    "total_amount": 38100953.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PARVATHIPURAM MANYAM",
@@ -339,7 +356,8 @@
     "grievances_issues": 71,
     "grievances_amount": 135916.0,
     "total_issues": 3000,
-    "total_amount": 58229027.0
+    "total_amount": 58229027.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "PRAKASAM",
@@ -358,7 +376,8 @@
     "grievances_issues": 122,
     "grievances_amount": 94862.0,
     "total_issues": 6641,
-    "total_amount": 310830729.0
+    "total_amount": 310830729.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SRI SATHYA SAI",
@@ -377,7 +396,8 @@
     "grievances_issues": 52,
     "grievances_amount": 0.0,
     "total_issues": 6128,
-    "total_amount": 186552277.0
+    "total_amount": 186552277.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "SRIKAKULAM",
@@ -396,7 +416,8 @@
     "grievances_issues": 121,
     "grievances_amount": 435083.0,
     "total_issues": 8414,
-    "total_amount": 332857480.0
+    "total_amount": 332857480.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "TIRUPATI",
@@ -415,7 +436,8 @@
     "grievances_issues": 68,
     "grievances_amount": 90631.0,
     "total_issues": 5567,
-    "total_amount": 265823704.0
+    "total_amount": 265823704.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "VISAKHAPATANAM",
@@ -434,7 +456,8 @@
     "grievances_issues": 2,
     "grievances_amount": 2430.0,
     "total_issues": 575,
-    "total_amount": 28892890.0
+    "total_amount": 28892890.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "VIZIANAGARAM",
@@ -453,7 +476,8 @@
     "grievances_issues": 170,
     "grievances_amount": 2727402.0,
     "total_issues": 5072,
-    "total_amount": 196341327.0
+    "total_amount": 196341327.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "WEST GODAVARI",
@@ -472,7 +496,8 @@
     "grievances_issues": 21,
     "grievances_amount": 10691.0,
     "total_issues": 2137,
-    "total_amount": 21395329.0
+    "total_amount": 21395329.0,
+    "fin_year": "2024-2025"
   },
   {
     "district": "Y.S.R",
@@ -491,6 +516,7 @@
     "grievances_issues": 58,
     "grievances_amount": 145019.0,
     "total_issues": 3407,
-    "total_amount": 69923348.0
+    "total_amount": 69923348.0,
+    "fin_year": "2024-2025"
   }
 ]

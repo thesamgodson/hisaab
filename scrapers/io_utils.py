@@ -22,6 +22,7 @@ from __future__ import annotations
 import json
 import os
 import tempfile
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -37,6 +38,43 @@ DATAGOV_UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 )
+
+# Public demo key shared by every data.gov.in caller in this repo. It rate-limits
+# hard (429s across ALL demo-key users, not just us) and is the fallback only —
+# set DATA_GOV_IN_API_KEY in the environment to a registered project key to lift
+# the ceiling before big pulls. Never commit a project key; the demo key is
+# public by design (it ships in data.gov.in's own docs).
+DATAGOV_DEMO_KEY = "579b464db66ec23bdd000001cdc3b564546246a772a26393094f5645"
+
+
+def datagov_api_key() -> str:
+    """Return the data.gov.in API key — DATA_GOV_IN_API_KEY env var if set,
+    else the public demo key. Single source of truth so a project key can be
+    threaded in via one env var without editing seven scrapers."""
+    return os.environ.get("DATA_GOV_IN_API_KEY", "").strip() or DATAGOV_DEMO_KEY
+
+
+# Indian financial year runs 1 April–31 March. Computed in IST (UTC+5:30) so the
+# label doesn't flip a few hours early around the 1 April boundary.
+_IST = timedelta(hours=5, minutes=30)
+
+
+def current_indian_fy() -> str:
+    """The running Indian FY label, e.g. '2026-2027'. Before April we are still
+    in the FY that began the previous calendar year. Correct target for
+    monthly-snapshot data (NSAP beneficiary counts) where 'latest' is best."""
+    now = datetime.now(UTC) + _IST
+    start = now.year if now.month >= 4 else now.year - 1
+    return f"{start}-{start + 1}"
+
+
+def last_complete_indian_fy() -> str:
+    """The most recently COMPLETED Indian FY (current minus one). Correct default
+    for cumulative annual scrapes (MGNREGA financial_statement, PMAY-G) run
+    mid-year: the running FY holds only partial-year totals, so pulling it would
+    replace a complete year with a smaller in-progress one."""
+    start = int(current_indian_fy().split("-")[0]) - 1
+    return f"{start}-{start + 1}"
 
 
 def datagov_session(total_retries: int = 5, backoff_factor: float = 2.0) -> requests.Session:
