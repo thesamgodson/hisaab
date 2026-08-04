@@ -28,7 +28,7 @@ export function dataQualityWarnings(): Record<string, string[]> {
     ],
     PMGSY: ["Amounts are in crores. Converted to lakhs (*100) in VIEWs."],
     "PMAY-G": [
-      "STATE-LEVEL: Allocation + release + utilization from data.gov.in (2019-2026, pmayg_finance). ~45% of rows have release=0 (allocation present).",
+      "STATE-LEVEL: Allocation + release + utilization from the un-gated B.3 High Level Financial Progress report (report.pmayg.dord.gov.in, 2019-2026, pmayg_finance; captcha removed 2026-08-04). ~45% of rows have release=0 (allocation present).",
       "DISTRICT-LEVEL: funds_released/utilized remain zero — FinancialProgressRpt.aspx requires login.",
       "Delivery metrics (houses_sanctioned/completed) available at district level.",
     ],
