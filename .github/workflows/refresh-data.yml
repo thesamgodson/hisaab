@@ -24,6 +24,12 @@ jobs:
     timeout-minutes: 150
     permissions:
       contents: write
+    # data.gov.in project key lifts the demo-key 429 throttle that made PM Kisan
+    # + finance scrapers crawl in CI. Empty when the secret is unset — the
+    # scrapers (via io_utils.datagov_api_key) then fall back to the public demo
+    # key, so this is safe to wire before the secret exists.
+    env:
+      DATA_GOV_IN_API_KEY: ${{ secrets.DATA_GOV_IN_API_KEY }}
     steps:
       - uses: actions/checkout@v4
 
