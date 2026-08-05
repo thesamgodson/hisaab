@@ -15,11 +15,11 @@
     "connections_2019_20": 0,
     "connections_2020_onwards": 509709,
     "remaining_households": 131247,
-    "district_rank": 430,
-    "national_rank": 430,
+    "district_rank": 431,
+    "national_rank": 431,
     "district_name_hindi": "नदिअ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "PURBA BARDHAMAN",
@@ -27,8 +27,8 @@
     "state_code": "335",
     "fin_year": "cumulative",
     "total_households": 1120030,
-    "households_with_tap": 858266,
-    "tap_connections_provided": 858266,
+    "households_with_tap": 858328,
+    "tap_connections_provided": 858328,
     "coverage_pct": 76.63,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
@@ -36,12 +36,12 @@
     "connections_pre_2019": 47591,
     "connections_2019_20": 0,
     "connections_2020_onwards": 276892,
-    "remaining_households": 261764,
+    "remaining_households": 261702,
     "district_rank": 566,
     "national_rank": 566,
     "district_name_hindi": "बर्धमान",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "PASCHIM BARDHAMAN",
@@ -63,7 +63,7 @@
     "national_rank": 599,
     "district_name_hindi": "Paschim Bardhaman",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "HOOGHLY",
@@ -85,7 +85,7 @@
     "national_rank": 628,
     "district_name_hindi": "हूगःलय्",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "COOCH BEHAR",
@@ -107,7 +107,7 @@
     "national_rank": 634,
     "district_name_hindi": "कूचबिहार",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "NORTH 24 PARGANAS",
@@ -129,7 +129,7 @@
     "national_rank": 636,
     "district_name_hindi": "नार्थ २४ परगनस",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "HOWRAH",
@@ -137,8 +137,8 @@
     "state_code": "341",
     "fin_year": "cumulative",
     "total_households": 677705,
-    "households_with_tap": 417198,
-    "tap_connections_provided": 417198,
+    "households_with_tap": 417209,
+    "tap_connections_provided": 417209,
     "coverage_pct": 61.56,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
@@ -146,12 +146,12 @@
     "connections_pre_2019": 1486,
     "connections_2019_20": 0,
     "connections_2020_onwards": 165117,
-    "remaining_households": 260507,
+    "remaining_households": 260496,
     "district_rank": 662,
     "national_rank": 662,
     "district_name_hindi": "होव्रह",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "JHARGRAM",
@@ -173,7 +173,7 @@
     "national_rank": 666,
     "district_name_hindi": "Jhargram",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "ALIPURDUAR",
@@ -195,7 +195,7 @@
     "national_rank": 676,
     "district_name_hindi": "अलिपुरदुआर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "BANKURA",
@@ -217,7 +217,7 @@
     "national_rank": 677,
     "district_name_hindi": "बांकुरा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "PURBA MEDINIPUR",
@@ -239,7 +239,7 @@
     "national_rank": 686,
     "district_name_hindi": "पुरबा मेदिनीपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "KALIMPONG",
@@ -261,7 +261,7 @@
     "national_rank": 688,
     "district_name_hindi": "Kalimpong",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "DAKSHIN DINAJPUR",
@@ -283,7 +283,7 @@
     "national_rank": 689,
     "district_name_hindi": "दक्षिण दिनाजपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "JALPAIGURI",
@@ -305,7 +305,7 @@
     "national_rank": 692,
     "district_name_hindi": "जलपाईगुड़ी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "SOUTH 24 PARGANAS",
@@ -327,7 +327,7 @@
     "national_rank": 695,
     "district_name_hindi": "साउथ २४ परगनस",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "DARJEELING",
@@ -349,7 +349,7 @@
     "national_rank": 704,
     "district_name_hindi": "दार्जिलिंग",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "BIRBHUM",
@@ -371,7 +371,7 @@
     "national_rank": 718,
     "district_name_hindi": "बीरभूम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "MURSHIDABAD",
@@ -393,7 +393,7 @@
     "national_rank": 719,
     "district_name_hindi": "मुर्शिदाबाद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "UTTAR DINAJPUR",
@@ -415,7 +415,7 @@
     "national_rank": 726,
     "district_name_hindi": "उत्तर दिनाजपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "PASCHIM MEDINIPUR",
@@ -437,7 +437,7 @@
     "national_rank": 729,
     "district_name_hindi": "पश्चिम मेदिनीपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "MALDA",
@@ -459,7 +459,7 @@
     "national_rank": 732,
     "district_name_hindi": "मालदह",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "PURULIA",
@@ -481,6 +481,6 @@
     "national_rank": 748,
     "district_name_hindi": "पुरुलिा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   }
 ]

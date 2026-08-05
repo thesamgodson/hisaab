@@ -16,7 +16,7 @@
     "phh_beneficiaries": 205279,
     "date_of_data": "29 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
+    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
   },
   {
     "district": "CHAMPHAI",
@@ -35,7 +35,7 @@
     "phh_beneficiaries": 45518,
     "date_of_data": "29 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
+    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
   },
   {
     "district": "KOLASIB",
@@ -54,7 +54,7 @@
     "phh_beneficiaries": 46380,
     "date_of_data": "29 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
+    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
   },
   {
     "district": "LAWNGTLAI",
@@ -73,7 +73,7 @@
     "phh_beneficiaries": 55340,
     "date_of_data": "29 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
+    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
   },
   {
     "district": "LUNGLEI",
@@ -92,7 +92,7 @@
     "phh_beneficiaries": 89876,
     "date_of_data": "29 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
+    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
   },
   {
     "district": "MAMIT",
@@ -111,7 +111,7 @@
     "phh_beneficiaries": 53561,
     "date_of_data": "29 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
+    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
   },
   {
     "district": "SAIHA",
@@ -130,7 +130,7 @@
     "phh_beneficiaries": 34536,
     "date_of_data": "29 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
+    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
   },
   {
     "district": "SERCHHIP",
@@ -149,6 +149,6 @@
     "phh_beneficiaries": 42497,
     "date_of_data": "29 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-04T14:01:43.788662+00:00"
+    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
   }
 ]

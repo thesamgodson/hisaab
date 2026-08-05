@@ -19,7 +19,7 @@
     "national_rank": 1,
     "district_name_hindi": "अरियालुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "COIMBATORE",
@@ -41,7 +41,7 @@
     "national_rank": 1,
     "district_name_hindi": "कोइम्बटोर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "CUDDALORE",
@@ -63,7 +63,7 @@
     "national_rank": 1,
     "district_name_hindi": "कुड्डालोर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "KANCHEEPURAM",
@@ -85,7 +85,7 @@
     "national_rank": 1,
     "district_name_hindi": "कांचीपुरम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "KANNIYAKUMARI",
@@ -107,7 +107,7 @@
     "national_rank": 1,
     "district_name_hindi": "कन्याकुमारी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "MAYILADUTHURAI",
@@ -129,7 +129,7 @@
     "national_rank": 1,
     "district_name_hindi": "Mayiladuthurai",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "NAMAKKAL",
@@ -151,7 +151,7 @@
     "national_rank": 1,
     "district_name_hindi": "नमक्कल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "RANIPET",
@@ -173,7 +173,7 @@
     "national_rank": 1,
     "district_name_hindi": "Ranipet",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "THANJAVUR",
@@ -195,7 +195,7 @@
     "national_rank": 1,
     "district_name_hindi": "थन्जावुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "THE NILGIRIS",
@@ -217,7 +217,7 @@
     "national_rank": 1,
     "district_name_hindi": "नीलगिरिस",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "THENI",
@@ -239,7 +239,7 @@
     "national_rank": 1,
     "district_name_hindi": "थेनि",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "THIRUVALLUR",
@@ -261,7 +261,7 @@
     "national_rank": 1,
     "district_name_hindi": "तिरुवल्लुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "TIRUPATHUR",
@@ -283,7 +283,29 @@
     "national_rank": 1,
     "district_name_hindi": "Tirupathur",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
+  },
+  {
+    "district": "TIRUVANNAMALAI",
+    "state": "Tamil Nadu",
+    "state_code": "606",
+    "fin_year": "cumulative",
+    "total_households": 530392,
+    "households_with_tap": 530392,
+    "tap_connections_provided": 530392,
+    "coverage_pct": 100.0,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0,
+    "hh_as_of_2019": 596655,
+    "connections_pre_2019": 85300,
+    "connections_2019_20": 226,
+    "connections_2020_onwards": 185150,
+    "remaining_households": 0,
+    "district_rank": 1,
+    "national_rank": 1,
+    "district_name_hindi": "तिरुवन्नामलई",
+    "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "VELLORE",
@@ -305,7 +327,7 @@
     "national_rank": 1,
     "district_name_hindi": "वेल्लोर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "VILUPPURAM",
@@ -327,29 +349,7 @@
     "national_rank": 1,
     "district_name_hindi": "विल्लुपुरम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
-  },
-  {
-    "district": "TIRUVANNAMALAI",
-    "state": "Tamil Nadu",
-    "state_code": "606",
-    "fin_year": "cumulative",
-    "total_households": 530392,
-    "households_with_tap": 530383,
-    "tap_connections_provided": 530383,
-    "coverage_pct": 99.99,
-    "funds_released_lakhs": 0,
-    "funds_utilized_lakhs": 0,
-    "hh_as_of_2019": 596655,
-    "connections_pre_2019": 85300,
-    "connections_2019_20": 226,
-    "connections_2020_onwards": 185150,
-    "remaining_households": 9,
-    "district_rank": 198,
-    "national_rank": 198,
-    "district_name_hindi": "तिरुवन्नामलई",
-    "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "CHENGALPATTU",
@@ -371,7 +371,7 @@
     "national_rank": 207,
     "district_name_hindi": "Chengalpattu",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "TIRUNELVELI",
@@ -379,21 +379,21 @@
     "state_code": "628",
     "fin_year": "cumulative",
     "total_households": 280241,
-    "households_with_tap": 276022,
-    "tap_connections_provided": 276022,
-    "coverage_pct": 98.5,
+    "households_with_tap": 276716,
+    "tap_connections_provided": 276716,
+    "coverage_pct": 98.74,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 654267,
     "connections_pre_2019": 40712,
     "connections_2019_20": 0,
     "connections_2020_onwards": 75288,
-    "remaining_households": 4219,
-    "district_rank": 253,
-    "national_rank": 254,
+    "remaining_households": 3525,
+    "district_rank": 247,
+    "national_rank": 247,
     "district_name_hindi": "तिरुनेलवेली",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "MADURAI",
@@ -401,21 +401,21 @@
     "state_code": "623",
     "fin_year": "cumulative",
     "total_households": 449154,
-    "households_with_tap": 428661,
-    "tap_connections_provided": 428661,
-    "coverage_pct": 95.44,
+    "households_with_tap": 429005,
+    "tap_connections_provided": 429005,
+    "coverage_pct": 95.51,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 529633,
     "connections_pre_2019": 55265,
     "connections_2019_20": -50,
     "connections_2020_onwards": 100708,
-    "remaining_households": 20493,
-    "district_rank": 336,
-    "national_rank": 336,
+    "remaining_households": 20149,
+    "district_rank": 334,
+    "national_rank": 334,
     "district_name_hindi": "मदुरै",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "TIRUPPUR",
@@ -437,7 +437,7 @@
     "national_rank": 351,
     "district_name_hindi": "तिरुप्पूर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "TIRUCHIRAPPALLI",
@@ -459,7 +459,7 @@
     "national_rank": 353,
     "district_name_hindi": "तिरुचिराप्पल्ली",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "ERODE",
@@ -481,7 +481,7 @@
     "national_rank": 363,
     "district_name_hindi": "इरोड",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "PERAMBALUR",
@@ -503,7 +503,7 @@
     "national_rank": 364,
     "district_name_hindi": "पेरम्बलुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "VIRUDHUNAGAR",
@@ -525,7 +525,7 @@
     "national_rank": 378,
     "district_name_hindi": "विरुधुनगर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "DINDIGUL",
@@ -543,11 +543,11 @@
     "connections_2019_20": -33,
     "connections_2020_onwards": 106301,
     "remaining_households": 38784,
-    "district_rank": 389,
-    "national_rank": 389,
+    "district_rank": 390,
+    "national_rank": 390,
     "district_name_hindi": "डिंडीगुल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "KARUR",
@@ -565,11 +565,11 @@
     "connections_2019_20": -3,
     "connections_2020_onwards": 66466,
     "remaining_households": 18675,
-    "district_rank": 400,
-    "national_rank": 400,
+    "district_rank": 401,
+    "national_rank": 401,
     "district_name_hindi": "करूर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "SALEM",
@@ -591,7 +591,7 @@
     "national_rank": 436,
     "district_name_hindi": "सालेम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "THOOTHUKKUDI",
@@ -609,11 +609,11 @@
     "connections_2019_20": 0,
     "connections_2020_onwards": 130555,
     "remaining_households": 44383,
-    "district_rank": 452,
-    "national_rank": 452,
+    "district_rank": 453,
+    "national_rank": 453,
     "district_name_hindi": "थूठुकुडी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "THIRUVARUR",
@@ -635,7 +635,7 @@
     "national_rank": 527,
     "district_name_hindi": "तिरुवरुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "NAGAPATTINAM",
@@ -643,21 +643,21 @@
     "state_code": "618",
     "fin_year": "cumulative",
     "total_households": 157116,
-    "households_with_tap": 125595,
-    "tap_connections_provided": 125595,
-    "coverage_pct": 79.94,
+    "households_with_tap": 125688,
+    "tap_connections_provided": 125688,
+    "coverage_pct": 80.0,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 445231,
     "connections_pre_2019": 6064,
     "connections_2019_20": 17076,
     "connections_2020_onwards": -14770,
-    "remaining_households": 31521,
-    "district_rank": 539,
+    "remaining_households": 31428,
+    "district_rank": 538,
     "national_rank": 539,
     "district_name_hindi": "नागपट्टिनम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "SIVAGANGA",
@@ -679,7 +679,7 @@
     "national_rank": 558,
     "district_name_hindi": "शिवगंगा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "KRISHNAGIRI",
@@ -687,21 +687,21 @@
     "state_code": "631",
     "fin_year": "cumulative",
     "total_households": 409435,
-    "households_with_tap": 298180,
-    "tap_connections_provided": 298180,
-    "coverage_pct": 72.83,
+    "households_with_tap": 298223,
+    "tap_connections_provided": 298223,
+    "coverage_pct": 72.84,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 449885,
     "connections_pre_2019": 5158,
     "connections_2019_20": 660,
     "connections_2020_onwards": 70083,
-    "remaining_households": 111255,
+    "remaining_households": 111212,
     "district_rank": 592,
     "national_rank": 592,
     "district_name_hindi": "कृष्णागिरि",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "TENKASI",
@@ -723,7 +723,7 @@
     "national_rank": 593,
     "district_name_hindi": "Tenkasi",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "KALLAKURICHI",
@@ -745,7 +745,7 @@
     "national_rank": 627,
     "district_name_hindi": "Kallakurichi",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "DHARMAPURI",
@@ -767,7 +767,7 @@
     "national_rank": 665,
     "district_name_hindi": "धरमपुरी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "PUDUKKOTTAI",
@@ -789,7 +789,7 @@
     "national_rank": 669,
     "district_name_hindi": "पुदुक्कोट्टई",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   },
   {
     "district": "RAMANATHAPURAM",
@@ -811,6 +811,6 @@
     "national_rank": 711,
     "district_name_hindi": "रामनाथपुरम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-04T08:51:24.950913+00:00"
+    "scraped_at": "2026-08-05T05:09:36.179976+00:00"
   }
 ]
