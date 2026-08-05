@@ -13,6 +13,7 @@
 
 import { getLatestFinYear } from "@/lib/fin-year";
 import { query, queryOne } from "@/lib/db";
+import { candidateStates } from "@/lib/vintage-states";
 import type {
   ActionBriefResponse,
   ActionItem,
@@ -174,6 +175,8 @@ export async function buildActionBrief(
   if (!mapping) return null;
 
   const { district, state } = mapping;
+  const states = candidateStates(state);
+  const stateSlots = states.map(() => "?").join(", ");
   const finYear = await getLatestFinYear();
 
   const [lineage, mpRow, mlaRow, diagnosis] = await Promise.all([
@@ -190,12 +193,19 @@ export async function buildActionBrief(
       elected_year: number;
       source_url: string;
     }>(
+      // States join through candidateStates (constituency_district carries
+      // vintage pre-bifurcation labels; PC names repeat across states).
+      // Names join with " (SC)"/" (ST)" stripped: datameet keeps the
+      // reservation suffix, OpenCity/MyNeta drop it.
       `SELECT m.mp_name, m.party, m.constituency, m.state, m.elected_year, m.source_url
        FROM constituency_district cd
-       JOIN mp_info m ON UPPER(cd.constituency) = UPPER(m.constituency)
-       WHERE UPPER(cd.district) = UPPER(?) AND UPPER(cd.state) = UPPER(?)
+       JOIN mp_info m
+         ON UPPER(REPLACE(REPLACE(m.constituency, ' (SC)', ''), ' (ST)', ''))
+          = UPPER(REPLACE(REPLACE(cd.constituency, ' (SC)', ''), ' (ST)', ''))
+        AND UPPER(m.state) IN (${stateSlots})
+       WHERE UPPER(cd.district) = UPPER(?) AND UPPER(cd.state) IN (${stateSlots})
        LIMIT 1`,
-      [district, state],
+      [...states, district, ...states],
     ),
     queryOne<{
       mla_name: string;
@@ -206,10 +216,13 @@ export async function buildActionBrief(
     }>(
       `SELECT ml.mla_name, ml.party, ml.ac_name, ml.state, ml.source_url
        FROM ac_district ac
-       JOIN mla_info ml ON UPPER(ac.ac_name) = UPPER(ml.ac_name) AND UPPER(ac.state) = UPPER(ml.state)
-       WHERE UPPER(ac.district) = UPPER(?) AND UPPER(ac.state) = UPPER(?)
+       JOIN mla_info ml
+         ON UPPER(REPLACE(REPLACE(ml.ac_name, ' (SC)', ''), ' (ST)', ''))
+          = UPPER(REPLACE(REPLACE(ac.ac_name, ' (SC)', ''), ' (ST)', ''))
+        AND UPPER(ml.state) IN (${stateSlots})
+       WHERE UPPER(ac.district) = UPPER(?) AND UPPER(ac.state) IN (${stateSlots})
        LIMIT 1`,
-      [district, state],
+      [...states, district, ...states],
     ),
     buildDiagnosis(district, state, finYear),
   ]);

@@ -53,6 +53,7 @@ _ALIASES: dict[str, list[str]] = {
     ],
     "UTTARAKHAND": [
         "UTTARANCHAL",
+        "UTTARKHAND",
     ],
     "CHHATTISGARH": [
         "CHATTISGARH",

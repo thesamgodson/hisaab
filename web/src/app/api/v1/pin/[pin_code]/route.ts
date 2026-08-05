@@ -1,5 +1,6 @@
 import { type NextRequest } from "next/server";
 import { query, queryOne } from "@/lib/db";
+import { candidateStates } from "@/lib/vintage-states";
 
 interface PinMapping {
   pin_code: string;
@@ -39,6 +40,41 @@ interface MlaInfo {
   ac_name: string;
   state: string;
   source_url: string;
+}
+
+// India reuses PC names across states (AURANGABAD is a Bihar seat and a
+// Maharashtra seat), so a name-only lookup can return another state's
+// representative. Match name+state (with the vintage equivalence above);
+// an honest null beats a wrong MP/MLA. Names compare with " (SC)"/" (ST)"
+// stripped: datameet carries the reservation suffix (250 of 543 PCs, 953
+// ACs) while OpenCity/MyNeta mostly drop it — exact matching left every
+// reserved seat without its representative.
+async function findMp(constituency: string, state: string): Promise<MpInfo | null> {
+  for (const st of candidateStates(state)) {
+    const mp = await queryOne<MpInfo>(
+      `SELECT * FROM mp_info
+       WHERE UPPER(REPLACE(REPLACE(constituency, ' (SC)', ''), ' (ST)', ''))
+           = UPPER(REPLACE(REPLACE(?, ' (SC)', ''), ' (ST)', ''))
+         AND UPPER(state) = ?`,
+      [constituency, st],
+    );
+    if (mp) return mp;
+  }
+  return null;
+}
+
+async function findMla(acName: string, state: string): Promise<MlaInfo | null> {
+  for (const st of candidateStates(state)) {
+    const mla = await queryOne<MlaInfo>(
+      `SELECT * FROM mla_info
+       WHERE UPPER(REPLACE(REPLACE(ac_name, ' (SC)', ''), ' (ST)', ''))
+           = UPPER(REPLACE(REPLACE(?, ' (SC)', ''), ' (ST)', ''))
+         AND UPPER(state) = ?`,
+      [acName, st],
+    );
+    if (mla) return mla;
+  }
+  return null;
 }
 
 export async function GET(
@@ -136,10 +172,7 @@ export async function GET(
 
   const constituenciesWithMp = await Promise.all(
     constituencies.map(async (c) => {
-      const mp = await queryOne<MpInfo>(
-        `SELECT * FROM mp_info WHERE UPPER(constituency) = UPPER(?)`,
-        [c.constituency],
-      );
+      const mp = await findMp(c.constituency, c.state);
       return {
         ...c,
         mp: mp
@@ -157,10 +190,7 @@ export async function GET(
 
   const acsWithMla = await Promise.all(
     assemblyConstituencies.map(async (ac) => {
-      const mla = await queryOne<MlaInfo>(
-        `SELECT * FROM mla_info WHERE UPPER(ac_name) = UPPER(?) AND UPPER(state) = UPPER(?)`,
-        [ac.ac_name, ac.state],
-      );
+      const mla = await findMla(ac.ac_name, ac.state);
       return {
         type: "VIDHAN_SABHA" as const,
         ac_name: ac.ac_name,
