@@ -21,10 +21,10 @@ from __future__ import annotations
 
 import csv
 import io
-import re
 import sqlite3
 from typing import Any
 
+from constituency.pc_name_registry import pc_name_lookup_candidates, strip_reservation
 from db.connection import DB_PATH, get_connection
 from db.normalize_states import candidate_states
 
@@ -36,27 +36,15 @@ from db.normalize_states import candidate_states
 # ("GAYA (SC)", "WARANGAL(SC)"); OpenCity/MyNeta mostly drop them. Both sides
 # of any cross-source name join must pass through this normalizer. Keep in
 # lockstep with pcNameNorm in web/src/lib/vintage-states.ts.
+#
+# Stored PC labels are canonical (constituency/pc_name_registry.py applied at
+# ingest/load), so joins need only this mechanical suffix normalizer;
+# user-supplied names expand through pc_name_lookup_candidates so legacy
+# forms (PONDICHERRY, KALIABOR, PATLIPUTRA) still resolve.
 PC_NAME_NORM_SQL = (
     "TRIM(REPLACE(REPLACE(REPLACE(REPLACE(UPPER({col}),"
     " ' (SC)', ''), ' (ST)', ''), '(SC)', ''), '(ST)', ''))"
 )
-
-_RESERVATION_RE = re.compile(r"\s*\((?:SC|ST)\)\s*$", re.IGNORECASE)
-
-# Known spelling mismatches between the datameet GeoJSON (constituency_district)
-# and the OpenCity MP CSV (mp_info), applied in both directions. ~35 more
-# datameet names are truncated/renamed and need a proper registry (follow-up).
-_PC_ALIASES = {"PATALIPUTRA": "PATLIPUTRA", "PATLIPUTRA": "PATALIPUTRA"}
-
-
-def strip_reservation(name: str) -> str:
-    """Uppercase and drop a trailing '(SC)'/'(ST)' reservation suffix."""
-    return _RESERVATION_RE.sub("", name.strip().upper()).strip()
-
-
-def _name_candidates(constituency: str) -> tuple[str, str]:
-    clean = strip_reservation(constituency)
-    return clean, _PC_ALIASES.get(clean, clean)
 
 
 # ---------------------------------------------------------------------------
@@ -126,16 +114,18 @@ def get_mp_candidates(constituency: str) -> list[dict[str, Any]]:
     """All MPs whose constituency matches the (suffix-stripped) name, any state.
 
     India reuses PC names across states (AURANGABAD in Bihar and Maharashtra),
-    so a name can legitimately return several rows — one per state.
+    so a name can legitimately return several rows — one per state. Legacy
+    names resolve through the registry (PONDICHERRY finds PUDUCHERRY's MP).
     """
-    clean, alias = _name_candidates(constituency)
+    names = pc_name_lookup_candidates(constituency)
+    slots = ", ".join("?" for _ in names)
     norm = PC_NAME_NORM_SQL.format(col="constituency")
     conn = _conn()
     try:
         rows = conn.execute(
             "SELECT constituency, mp_name, party, state, elected_year, source_url "
-            f"FROM mp_info WHERE {norm} IN (?, ?) ORDER BY state",
-            (clean, alias),
+            f"FROM mp_info WHERE {norm} IN ({slots}) ORDER BY state",
+            names,
         ).fetchall()
         return [dict(r) for r in rows]
     finally:
@@ -167,12 +157,13 @@ def get_districts_for_constituency(constituency: str, state: str | None = None) 
     aliases. With `state`, rows are scoped to that state (vintage labels
     accepted) — duplicate PC names otherwise merge two states' districts.
     """
-    clean, alias = _name_candidates(constituency)
+    states = candidate_states(state) if state is not None else None
+    names = pc_name_lookup_candidates(constituency, states=states)
+    name_slots = ", ".join("?" for _ in names)
     norm = PC_NAME_NORM_SQL.format(col="constituency")
-    sql = f"SELECT district FROM constituency_district WHERE {norm} IN (?, ?)"
-    params: list[Any] = [clean, alias]
-    if state is not None:
-        states = candidate_states(state)
+    sql = f"SELECT district FROM constituency_district WHERE {norm} IN ({name_slots})"
+    params: list[Any] = [*names]
+    if states is not None:
         slots = ", ".join("?" for _ in states)
         sql += f" AND UPPER(state) IN ({slots})"
         params.extend(states)

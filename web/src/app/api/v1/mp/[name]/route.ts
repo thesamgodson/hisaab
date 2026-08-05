@@ -4,8 +4,8 @@ import { query, queryOne } from "@/lib/db";
 import { buildConstituencyReportCard } from "@/lib/report-card";
 import {
   candidateStates,
+  pcNameLookupCandidates,
   pcNameNorm,
-  stripReservation,
 } from "@/lib/vintage-states";
 
 interface MpInfo {
@@ -19,7 +19,8 @@ interface MpInfo {
 
 // India reuses PC names across states (AURANGABAD is a Bihar seat and a
 // Maharashtra seat). Without ?state= an ambiguous name answers 300 with the
-// candidates — never another state's MP.
+// candidates — never another state's MP. Legacy/variant names expand through
+// the PC-name registry (PONDICHERRY resolves to PUDUCHERRY's MP).
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ name: string }> },
@@ -29,23 +30,26 @@ export async function GET(
   const finYear =
     request.nextUrl.searchParams.get("fin_year") ?? (await getLatestFinYear());
   const stateParam = request.nextUrl.searchParams.get("state");
-  const cleanName = stripReservation(constituency);
 
   let mp: MpInfo | null = null;
   if (stateParam) {
+    const names = pcNameLookupCandidates(constituency, stateParam);
+    const nameSlots = names.map(() => "?").join(", ");
     for (const st of candidateStates(stateParam)) {
       mp = await queryOne<MpInfo>(
         `SELECT * FROM mp_info
-         WHERE ${pcNameNorm("constituency")} = ? AND UPPER(state) = ?`,
-        [cleanName, st],
+         WHERE ${pcNameNorm("constituency")} IN (${nameSlots}) AND UPPER(state) = ?`,
+        [...names, st],
       );
       if (mp) break;
     }
   } else {
+    const names = pcNameLookupCandidates(constituency);
+    const nameSlots = names.map(() => "?").join(", ");
     const matches = await query<MpInfo>(
       `SELECT * FROM mp_info
-       WHERE ${pcNameNorm("constituency")} = ? ORDER BY state`,
-      [cleanName],
+       WHERE ${pcNameNorm("constituency")} IN (${nameSlots}) ORDER BY state`,
+      names,
     );
     if (matches.length > 1) {
       return Response.json(

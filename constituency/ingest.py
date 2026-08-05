@@ -27,6 +27,7 @@ import requests
 
 from constituency.fuzzy_match import build_canonical_districts, match_district
 from constituency.mapper import load_ac_data, load_constituency_data, load_mla_data, load_mp_data, load_pin_data
+from constituency.pc_name_registry import canonical_pc_name
 from db import get_connection, init_db
 
 # District labels STORED in civic tables must come from the canonical
@@ -79,6 +80,31 @@ MP_CSV_URL = (
 def _ensure_dirs() -> None:
     _RAW_DIR.mkdir(parents=True, exist_ok=True)
     _PIN_PAGES_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _clear_table_for_reingest(table: str, incoming: int) -> None:
+    """Wholesale-replace guard: clear `table` only when a full batch is ready.
+
+    INSERT OR REPLACE cannot retire rows whose unique key changed — a PC-name
+    canonicalization (KALIABOR -> KAZIRANGA) would otherwise leave the old
+    label serving alongside the new one (same failure the MLA ingest already
+    guards against for delimitation renames). Never clears for an empty batch,
+    so a failed source parse cannot empty a populated table.
+    """
+    if incoming <= 0:
+        return
+    import sqlite3 as _sqlite3
+
+    from db.connection import DB_PATH as _DB_PATH
+
+    conn = _sqlite3.connect(str(_DB_PATH))
+    try:
+        removed = conn.execute(f"DELETE FROM {table}").rowcount  # noqa: S608 — fixed table names
+        conn.commit()
+        if removed:
+            print(f"  Cleared {removed} previous {table} rows (wholesale replace)")
+    finally:
+        conn.close()
 
 
 def _download(url: str, dest: Path, label: str) -> Path:
@@ -245,15 +271,16 @@ def ingest_constituencies(dry_run: bool = False) -> int:
 
         state_norm = normalize_state(st_name)
         dist_norm = normalize_district(dist_name, state_norm)
+        pc_canon = canonical_pc_name(pc_name, state_norm)
 
-        key = (pc_name, dist_norm, state_norm)
+        key = (pc_canon, dist_norm, state_norm)
         if key in seen:
             continue
         seen.add(key)
 
         records.append(
             {
-                "constituency": pc_name,
+                "constituency": pc_canon,
                 "state": state_norm,
                 "district": dist_norm,
                 "constituency_type": "LOK_SABHA",
@@ -264,6 +291,7 @@ def ingest_constituencies(dry_run: bool = False) -> int:
     if dry_run:
         return len(records)
 
+    _clear_table_for_reingest("constituency_district", len(records))
     loaded = load_constituency_data(records)
     print(f"  Constituency-district records inserted/replaced: {loaded}")
     return loaded
@@ -318,12 +346,13 @@ def ingest_mps(dry_run: bool = False) -> int:
         except ValueError:
             margin_votes = None
 
+        state_norm = normalize_state(state_raw)
         records.append(
             {
-                "constituency": pc_name,
+                "constituency": canonical_pc_name(pc_name, state_norm),
                 "mp_name": mp_name,
                 "party": party,
-                "state": normalize_state(state_raw),
+                "state": state_norm,
                 "elected_year": 2024,
                 "source_url": MP_CSV_URL,
                 "margin_votes": margin_votes,
@@ -334,6 +363,7 @@ def ingest_mps(dry_run: bool = False) -> int:
     if dry_run:
         return len(records)
 
+    _clear_table_for_reingest("mp_info", len(records))
     loaded = load_mp_data(records)
     print(f"  MP records inserted/replaced: {loaded}")
     return loaded
@@ -399,7 +429,7 @@ def ingest_assembly_constituencies(dry_run: bool = False) -> int:
                 "ac_no": ac_no,
                 "state": state_norm,
                 "district": dist_norm,
-                "pc_name": pc_name or None,
+                "pc_name": canonical_pc_name(pc_name, state_norm) if pc_name else None,
             }
         )
 
@@ -407,6 +437,7 @@ def ingest_assembly_constituencies(dry_run: bool = False) -> int:
     if dry_run:
         return len(records)
 
+    _clear_table_for_reingest("ac_district", len(records))
     loaded = load_ac_data(records)
     print(f"  AC→district records inserted/replaced: {loaded}")
     return loaded
@@ -667,6 +698,10 @@ def main() -> None:
     if run_all or args.pc_only:
         print("\n=== Constituency → District (Lok Sabha) ===")
         totals["constituencies"] = ingest_constituencies(dry_run=args.dry_run)
+        if not args.dry_run:
+            from constituency.seed_data import load_ut_constituency_districts
+            totals["ut_constituencies"] = load_ut_constituency_districts()
+            print(f"  UT constituency-district rows (datameet has no UT polygons): {totals['ut_constituencies']}")
 
     if run_all or args.mp_only:
         print("\n=== MP Info ===")

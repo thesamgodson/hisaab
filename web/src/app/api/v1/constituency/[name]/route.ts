@@ -4,6 +4,7 @@ import { query, queryOne } from "@/lib/db";
 import { buildConstituencyReportCard } from "@/lib/report-card";
 import {
   candidateStates,
+  pcNameLookupCandidates,
   pcNameNorm,
   stripReservation,
 } from "@/lib/vintage-states";
@@ -30,6 +31,10 @@ export async function GET(
     request.nextUrl.searchParams.get("fin_year") ?? (await getLatestFinYear());
   const stateParam = request.nextUrl.searchParams.get("state");
   const cleanName = stripReservation(constituency);
+  // Legacy/variant names (PONDICHERRY, KALIABOR) expand through the PC-name
+  // registry; stored labels are canonical, so known names match directly.
+  const names = pcNameLookupCandidates(constituency, stateParam ?? undefined);
+  const nameSlots = names.map(() => "?").join(", ");
 
   // Where can this name legitimately live? constituency_district (datameet,
   // internally-consistent vintage labels) is the primary registry; names it
@@ -37,15 +42,15 @@ export async function GET(
   // two vocabularies — a vintage seat would look falsely ambiguous.
   const cdStates = await query<{ state: string }>(
     `SELECT DISTINCT state FROM constituency_district
-     WHERE ${pcNameNorm("constituency")} = ? ORDER BY state`,
-    [cleanName],
+     WHERE ${pcNameNorm("constituency")} IN (${nameSlots}) ORDER BY state`,
+    names,
   );
   const mpStates = cdStates.length
     ? []
     : await query<{ state: string }>(
         `SELECT DISTINCT state FROM mp_info
-         WHERE ${pcNameNorm("constituency")} = ? ORDER BY state`,
-        [cleanName],
+         WHERE ${pcNameNorm("constituency")} IN (${nameSlots}) ORDER BY state`,
+        names,
       );
   const scopes = (cdStates.length ? cdStates : mpStates).map((r) =>
     r.state.toUpperCase(),
@@ -68,21 +73,24 @@ export async function GET(
     for (const st of candidateStates(scope)) {
       mp = await queryOne<MpInfo>(
         `SELECT * FROM mp_info
-         WHERE ${pcNameNorm("constituency")} = ? AND UPPER(state) = ?`,
-        [cleanName, st],
+         WHERE ${pcNameNorm("constituency")} IN (${nameSlots}) AND UPPER(state) = ?`,
+        [...names, st],
       );
       if (mp) break;
     }
   }
 
+  // Serve and report on the canonical seat name — a legacy query like
+  // PONDICHERRY answers as PUDUCHERRY, never as a phantom seat.
+  const resolvedName = mp ? stripReservation(mp.constituency) : cleanName;
   const reportCard = await buildConstituencyReportCard(
-    constituency,
+    resolvedName,
     finYear,
     scope ?? undefined,
   );
 
   return Response.json({
-    constituency: constituency.toUpperCase(),
+    constituency: resolvedName,
     state: mp?.state ?? scope ?? "Unknown",
     mp_name: mp?.mp_name ?? "Unknown",
     party: mp?.party ?? null,

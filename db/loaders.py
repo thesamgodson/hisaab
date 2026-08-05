@@ -757,11 +757,14 @@ def load_pin_constituency(
     join (GeoNames PIN coordinates vs datameet PC polygons — DERIVED-2026-0002);
     its generator is gone, so the tracked JSON is the source of truth. The
     mapping is not year-scoped: fin_year is accepted only for LOADERS-registry
-    signature compatibility. `constituency` is stored verbatim — it joins
-    constituency_district/mp_info by PC name, which district canonicalization
-    must never rewrite.
+    signature compatibility. The curated file keeps datameet-vintage labels
+    verbatim; the DB label is canonicalized through the state-scoped PC-name
+    registry (CLAIM-2026-0036) so it joins constituency_district/mp_info —
+    district canonicalization must never touch this column.
     """
     del fin_year  # not year-scoped
+    from constituency.pc_name_registry import canonical_pc_name
+
     loaded = 0
     for r in records:
         pin = str(r.get("pin_code", "")).strip()
@@ -773,7 +776,7 @@ def load_pin_constituency(
             """INSERT OR REPLACE INTO pin_constituency
             (pin_code, constituency, state, method)
             VALUES (?, ?, ?, ?)""",
-            (pin, constituency, state, r.get("method") or "spatial_join"),
+            (pin, canonical_pc_name(constituency, state), state, r.get("method") or "spatial_join"),
         )
         loaded += 1
     return loaded

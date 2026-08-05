@@ -1,3 +1,5 @@
+import { PC_NAME_REGISTRY } from "@/lib/pc-name-registry";
+
 // datameet's 2008-delimitation polygons predate Telangana (2014) and Ladakh
 // (2019): constituency_district/ac_district rows carry the parent state's
 // label while pin_district_mapping/mp_info/mla_info carry today's. Queries
@@ -34,4 +36,25 @@ export function stripReservation(name: string): string {
     .toUpperCase()
     .replace(/\s*\((?:SC|ST)\)\s*$/, "")
     .trim();
+}
+
+// Stored PC labels are canonical (the state-scoped registry is applied at
+// ingest/load — constituency/pc_name_registry.py, CLAIM-2026-0036), so joins
+// between tables need only pcNameNorm. User-supplied names go through this
+// expansion so legacy forms (PONDICHERRY, KALIABOR, PATLIPUTRA) still
+// resolve. Twin of pc_name_lookup_candidates in the Python registry.
+export function pcNameLookupCandidates(name: string, state?: string): string[] {
+  const collapsed = name.trim().toUpperCase().replace(/\s+/g, " ");
+  const stripped = stripReservation(collapsed);
+  const scopes = state ? candidateStates(state) : Object.keys(PC_NAME_REGISTRY);
+  const out = [stripped];
+  for (const st of scopes) {
+    const variants = PC_NAME_REGISTRY[st];
+    const hit = variants?.[collapsed] ?? variants?.[stripped];
+    if (hit) {
+      const clean = stripReservation(hit);
+      if (!out.includes(clean)) out.push(clean);
+    }
+  }
+  return out;
 }

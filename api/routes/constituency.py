@@ -229,7 +229,11 @@ def mp_lookup(
             ),
         )
 
-    rc = generate_mp_report_card(name.upper(), fin_year=fin_year, scope_state=mp["state"])
+    # Report on the canonical seat (legacy names like TEZPUR resolve to
+    # SONITPUR via the PC-name registry) — never a phantom seat label.
+    rc = generate_mp_report_card(
+        mp["constituency"], fin_year=fin_year, scope_state=mp["state"]
+    )
 
     return {
         "mp_name": mp["mp_name"],

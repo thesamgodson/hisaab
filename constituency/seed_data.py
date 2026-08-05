@@ -507,6 +507,42 @@ def load_district_lineage(records: list[dict]) -> int:
 
 
 # ---------------------------------------------------------------------------
+# Union-territory constituency → district rows (production data, not sample)
+# ---------------------------------------------------------------------------
+
+# datameet's ac.geojson has no features for UTs without a legislative assembly
+# (and blank DIST_NAME for all of Delhi), so ingest_constituencies can never
+# produce these rows. Each UT seat's districts are geographically total — every
+# district of the UT lies in its single PC — so the mapping is exact, grounded
+# in the India Post PIN directory's district registry (see DATA_CLAIMS.md
+# CLAIM-2026-0037). Delhi's 7 seats stay unmapped: its PC↔district boundaries
+# genuinely cross-cut and no defensible source is wired yet.
+# Districts pass through normalize_district at load so canon renames track.
+
+UT_CONSTITUENCY_DISTRICTS: list[dict] = [
+    {"constituency": "ANDAMAN & NICOBAR ISLANDS", "state": "ANDAMAN AND NICOBAR", "district": "NICOBARS"},
+    {"constituency": "ANDAMAN & NICOBAR ISLANDS", "state": "ANDAMAN AND NICOBAR", "district": "NORTH AND MIDDLE ANDAMAN"},
+    {"constituency": "ANDAMAN & NICOBAR ISLANDS", "state": "ANDAMAN AND NICOBAR", "district": "SOUTH ANDAMANS"},
+    {"constituency": "CHANDIGARH", "state": "CHANDIGARH", "district": "CHANDIGARH"},
+    {"constituency": "LAKSHADWEEP", "state": "LAKSHADWEEP", "district": "LAKSHADWEEP DISTRICT"},
+    {"constituency": "DADRA & NAGAR HAVELI", "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU", "district": "DADRA AND NAGAR HAVELI"},
+    {"constituency": "DAMAN & DIU", "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU", "district": "DAMAN"},
+    {"constituency": "DAMAN & DIU", "state": "DADRA AND NAGAR HAVELI AND DAMAN AND DIU", "district": "DIU"},
+]
+
+
+def load_ut_constituency_districts() -> int:
+    """Insert the UT constituency→district rows. Returns rows inserted."""
+    from db.normalize_districts import normalize_district
+
+    records = [
+        {**rec, "district": normalize_district(rec["district"], rec["state"])}
+        for rec in UT_CONSTITUENCY_DISTRICTS
+    ]
+    return load_constituency_data(records)
+
+
+# ---------------------------------------------------------------------------
 # Seed runner
 # ---------------------------------------------------------------------------
 
