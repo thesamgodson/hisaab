@@ -16,7 +16,7 @@
     "phh_beneficiaries": 209820,
     "date_of_data": "03 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
+    "scraped_at": "2026-08-05T08:15:37.459686+00:00"
   },
   {
     "district": "GOMATI",
@@ -35,7 +35,7 @@
     "phh_beneficiaries": 231094,
     "date_of_data": "03 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
+    "scraped_at": "2026-08-05T08:15:37.459686+00:00"
   },
   {
     "district": "KHOWAI",
@@ -54,7 +54,7 @@
     "phh_beneficiaries": 164789,
     "date_of_data": "03 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
+    "scraped_at": "2026-08-05T08:15:37.459686+00:00"
   },
   {
     "district": "NORTH TRIPURA",
@@ -73,7 +73,7 @@
     "phh_beneficiaries": 204049,
     "date_of_data": "03 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
+    "scraped_at": "2026-08-05T08:15:37.459686+00:00"
   },
   {
     "district": "SEPAHIJALA",
@@ -92,7 +92,7 @@
     "phh_beneficiaries": 252106,
     "date_of_data": "03 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
+    "scraped_at": "2026-08-05T08:15:37.459686+00:00"
   },
   {
     "district": "SOUTH TRIPURA",
@@ -111,7 +111,7 @@
     "phh_beneficiaries": 208766,
     "date_of_data": "03 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
+    "scraped_at": "2026-08-05T08:15:37.459686+00:00"
   },
   {
     "district": "UNAKOTI",
@@ -130,7 +130,7 @@
     "phh_beneficiaries": 148176,
     "date_of_data": "03 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
+    "scraped_at": "2026-08-05T08:15:37.459686+00:00"
   },
   {
     "district": "WEST TRIPURA",
@@ -149,6 +149,6 @@
     "phh_beneficiaries": 483766,
     "date_of_data": "03 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-05T05:17:27.608910+00:00"
+    "scraped_at": "2026-08-05T08:15:37.459686+00:00"
   }
 ]
