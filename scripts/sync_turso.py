@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import sqlite3
 import sys
 import time
@@ -182,7 +183,12 @@ def main() -> int:
                 _with_retry(lambda c=chunk: client.batch(c), f"{name} batch {i // BATCH_STATEMENTS}")
             print(f"  pushed {name}")
 
-        # Indexes and views — drop views first; duplicate indexes are fine
+        # Indexes and views — drop-then-create both, in one batch each.
+        # Indexes MUST be dropped first: sqlite_master strips IF NOT EXISTS
+        # from the stored DDL we replay, and an index on a wipe-guard-KEPT
+        # table still exists remotely — the bare CREATE INDEX then fails
+        # forever (libsql surfaces it as KeyError('result'), which is what
+        # actually killed both 2026-08-05 CI publishes, not a transient).
         for sql in extras:
             if sql.upper().startswith("CREATE VIEW"):
                 view_name = sql.split()[2]
@@ -191,6 +197,20 @@ def main() -> int:
                         [f"DROP VIEW IF EXISTS {v}", s]
                     ),
                     f"view {view_name}",
+                )
+                continue
+            index_match = re.match(
+                r"CREATE\s+(?:UNIQUE\s+)?INDEX\s+(?:IF\s+NOT\s+EXISTS\s+)?(\S+)",
+                sql,
+                re.IGNORECASE,
+            )
+            if index_match:
+                index_name = index_match.group(1)
+                _with_retry(
+                    lambda s=sql, n=index_name: client.batch(
+                        [f"DROP INDEX IF EXISTS {n}", s]
+                    ),
+                    f"index {index_name}",
                 )
             else:
                 _with_retry(lambda s=sql: client.execute(s), sql[:70])
