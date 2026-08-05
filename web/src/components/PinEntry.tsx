@@ -3,8 +3,28 @@
 import { useState, type KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
 
+interface LocatedPin {
+  pin_code: string;
+  district: string;
+  state: string;
+  distance_km: number;
+}
+
+type LocateState =
+  | { status: "idle" }
+  | { status: "locating" }
+  | { status: "matched"; match: LocatedPin }
+  | { status: "error"; message: string };
+
+const GEO_ERROR_COPY: Record<number, string> = {
+  1: "Location permission denied — type your 6-digit PIN instead.",
+  2: "Couldn't read your location — type your PIN instead.",
+  3: "Locating took too long — type your PIN instead.",
+};
+
 export default function PinEntry() {
   const [pin, setPin] = useState("");
+  const [locate, setLocate] = useState<LocateState>({ status: "idle" });
   const router = useRouter();
 
   const handleChange = (value: string) => {
@@ -23,6 +43,50 @@ export default function PinEntry() {
       e.preventDefault();
     }
   };
+
+  // One-shot lookup: coordinates go to /api/v1/locate (POST body, never the
+  // URL) and are not stored anywhere — the microcopy below promises this.
+  const handleUseLocation = () => {
+    setLocate({ status: "locating" });
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          const res = await fetch("/api/v1/locate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              lat: pos.coords.latitude,
+              lng: pos.coords.longitude,
+            }),
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            setLocate({
+              status: "error",
+              message: data?.error ?? "Couldn't match a PIN — type it instead.",
+            });
+            return;
+          }
+          setLocate({ status: "matched", match: data as LocatedPin });
+        } catch {
+          setLocate({
+            status: "error",
+            message: "Network error — type your PIN instead.",
+          });
+        }
+      },
+      (err) => {
+        setLocate({
+          status: "error",
+          message: GEO_ERROR_COPY[err.code] ?? "Couldn't read your location.",
+        });
+      },
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 },
+    );
+  };
+
+  const geolocationSupported =
+    typeof navigator !== "undefined" && "geolocation" in navigator;
 
   return (
     <div className="w-full max-w-xs mx-auto">
@@ -62,6 +126,87 @@ export default function PinEntry() {
       >
         Auto-navigates when you type 6 digits
       </p>
+
+      {geolocationSupported && locate.status !== "matched" && (
+        <>
+          <button
+            type="button"
+            onClick={handleUseLocation}
+            disabled={locate.status === "locating"}
+            aria-busy={locate.status === "locating"}
+            className="w-full mt-4 py-3 px-4 rounded-xl text-sm font-medium transition-all duration-200 disabled:opacity-60"
+            style={{
+              background: "var(--background)",
+              color: "var(--text-primary)",
+              border: "2px solid var(--border)",
+              boxShadow: "var(--shadow-xs)",
+            }}
+          >
+            {locate.status === "locating"
+              ? "Finding your PIN…"
+              : "📍 Use my location"}
+          </button>
+          <p
+            className="text-xs text-center mt-2"
+            style={{ color: "var(--text-muted)" }}
+          >
+            Checked once to find your PIN — never stored.
+          </p>
+        </>
+      )}
+
+      <div aria-live="polite">
+        {locate.status === "error" && (
+          <p
+            className="text-xs text-center mt-2"
+            style={{ color: "var(--text-primary)" }}
+          >
+            {locate.message}
+          </p>
+        )}
+
+        {locate.status === "matched" && (
+          <div
+            className="mt-4 p-4 rounded-xl text-center"
+            style={{
+              background: "var(--background)",
+              border: "2px solid var(--accent)",
+              boxShadow: "var(--shadow-xs)",
+            }}
+          >
+            <p className="text-sm" style={{ color: "var(--text-primary)" }}>
+              📍 PIN <span className="font-mono font-semibold">{locate.match.pin_code}</span>
+              {" · "}
+              {locate.match.district}, {locate.match.state}
+            </p>
+            <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+              nearest post office area, ~{locate.match.distance_km} km from you
+            </p>
+            <button
+              type="button"
+              onClick={() => router.push(`/action/${locate.match.pin_code}`)}
+              className="w-full mt-3 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-200"
+              style={{
+                background: "var(--accent)",
+                color: "var(--background)",
+              }}
+            >
+              See what&apos;s owed here →
+            </button>
+            <button
+              type="button"
+              onClick={() => setLocate({ status: "idle" })}
+              className="w-full mt-2 py-2 text-xs"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Not my area? Type your PIN instead
+            </button>
+            <p className="text-[10px] mt-2" style={{ color: "var(--text-muted)" }}>
+              Location matching via GeoNames postal data (CC BY 4.0)
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

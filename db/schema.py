@@ -691,6 +691,21 @@ CREATE TABLE IF NOT EXISTS pin_constituency (
 );
 CREATE INDEX IF NOT EXISTS idx_pin_constituency ON pin_constituency(constituency, state);
 
+-- PIN centroids from GeoNames postal localities (CC BY 4.0) — powers the
+-- "use my location" nearest-PIN lookup. lat/lng are the MEDIAN of the PIN's
+-- locality coordinates (robust to bad geocodes); spread_km records how far
+-- the localities scatter, as a per-PIN quality signal (CLAIM-2026-0038).
+CREATE TABLE IF NOT EXISTS pin_geo (
+    pin_code TEXT PRIMARY KEY,
+    lat REAL NOT NULL,
+    lng REAL NOT NULL,
+    locality_count INTEGER,
+    spread_km REAL,
+    source TEXT,
+    scraped_at TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_pin_geo_latlng ON pin_geo(lat, lng);
+
 -- India reuses PC names across states, and two states can even share a PC
 -- name AND a district name (HAMIRPUR/HAMIRPUR in UP and HP) — uniqueness
 -- must include state or one state's row silently vanishes at ingest.

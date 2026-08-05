@@ -782,6 +782,48 @@ def load_pin_constituency(
     return loaded
 
 
+def load_pin_geo(
+    conn: sqlite3.Connection, records: list[dict[str, Any]], fin_year: str
+) -> int:
+    """Load PIN centroid coordinates (civic table, not a scheme).
+
+    Built from GeoNames postal localities by scripts/build_pin_geo.py
+    (CLAIM-2026-0038); powers the "use my location" nearest-PIN lookup.
+    Not year-scoped: fin_year is accepted only for LOADERS-registry signature
+    compatibility. Rows outside India's bounding box (lat 6..38, lng 68..98)
+    are skipped — a mis-geocoded centroid would silently misroute citizens.
+    """
+    del fin_year  # not year-scoped
+    loaded = 0
+    for r in records:
+        pin = str(r.get("pin_code", "")).strip()
+        if len(pin) != 6 or not pin.isdigit():
+            continue
+        try:
+            lat = float(r["lat"])
+            lng = float(r["lng"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        if not (6.0 <= lat <= 38.0 and 68.0 <= lng <= 98.0):
+            continue
+        conn.execute(
+            """INSERT OR REPLACE INTO pin_geo
+            (pin_code, lat, lng, locality_count, spread_km, source, scraped_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?)""",
+            (
+                pin,
+                lat,
+                lng,
+                r.get("locality_count"),
+                r.get("spread_km"),
+                r.get("source"),
+                r.get("scraped_at"),
+            ),
+        )
+        loaded += 1
+    return loaded
+
+
 LOADERS = {
     "misappropriation": load_misappropriation,
     "fto_status": load_fto_status,
@@ -808,6 +850,7 @@ LOADERS = {
     # The rest of the civic set (pin_district_mapping, mp/mla, lineage…) is
     # seeded from data/raw caches by `python -m constituency.ingest` instead.
     "pin_constituency": load_pin_constituency,
+    "pin_geo": load_pin_geo,
 }
 
 
