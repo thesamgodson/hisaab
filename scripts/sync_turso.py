@@ -134,9 +134,12 @@ def main() -> int:
         url=url.replace("libsql://", "https://"), auth_token=token
     )
 
-    def _with_retry(fn, what: str, attempts: int = 4):
+    def _with_retry(fn, what: str, attempts: int = 8):
         """Turso over HTTP throws transient errors under bursty writes —
-        retry with backoff before giving up."""
+        retry with backoff before giving up. The libsql KeyError('result')
+        after a 30-table burst outlived a 3-retry/12s budget in CI
+        (2026-08-05 babysit run), so the ceiling is deliberately generous:
+        7 retries, ~56s worst case."""
         for attempt in range(1, attempts + 1):
             try:
                 return fn()
@@ -190,7 +193,7 @@ def main() -> int:
                     f"view {view_name}",
                 )
             else:
-                _with_retry(lambda s=sql: client.execute(s), "index")
+                _with_retry(lambda s=sql: client.execute(s), sql[:70])
         print(f"  pushed {len(extras)} indexes/views")
 
         # Verify

@@ -70,6 +70,26 @@ jobs:
           python scripts/gen_district_aliases.py
           python run_all.py --load-only --snapshot
 
+      # Commit BEFORE publishing: the 2026-08-05 babysit run failed inside
+      # sync_turso AFTER all tables had pushed, and the skipped commit left
+      # prod serving data no git commit described. Curated-in-git is the
+      # source of truth — land it first, then publish from it; a publish
+      # failure then means "git ahead of prod", which any later sync heals.
+      - name: Commit refreshed curated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/curated data/catalog db/district_aliases.py DATA_CLAIMS.md || true
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "chore: scheduled data refresh [skip ci]"
+            # The scrape runs for an hour+; main may have moved since checkout.
+            # Rebase our single data commit instead of failing the push.
+            git pull --rebase origin main
+            git push
+          fi
+
       - name: Publish to Turso
         env:
           TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
@@ -84,15 +104,3 @@ jobs:
             echo "$code /$ep"
             [ "$code" = "200" ] || exit 1
           done
-
-      - name: Commit refreshed curated data
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/curated data/catalog db/district_aliases.py DATA_CLAIMS.md || true
-          if git diff --cached --quiet; then
-            echo "No data changes to commit."
-          else
-            git commit -m "chore: scheduled data refresh [skip ci]"
-            git push
-          fi
