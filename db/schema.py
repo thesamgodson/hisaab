@@ -691,28 +691,34 @@ CREATE TABLE IF NOT EXISTS pin_constituency (
 );
 CREATE INDEX IF NOT EXISTS idx_pin_constituency ON pin_constituency(constituency, state);
 
+-- India reuses PC names across states, and two states can even share a PC
+-- name AND a district name (HAMIRPUR/HAMIRPUR in UP and HP) — uniqueness
+-- must include state or one state's row silently vanishes at ingest.
 CREATE TABLE IF NOT EXISTS constituency_district (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     constituency TEXT NOT NULL,
     state TEXT NOT NULL,
     district TEXT NOT NULL,
     constituency_type TEXT NOT NULL DEFAULT 'LOK_SABHA',
-    UNIQUE(constituency, district)
+    UNIQUE(constituency, state, district)
 );
-CREATE INDEX IF NOT EXISTS idx_constituency_district ON constituency_district(constituency);
+CREATE INDEX IF NOT EXISTS idx_constituency_district ON constituency_district(constituency, state);
 CREATE INDEX IF NOT EXISTS idx_constituency_district_district ON constituency_district(district, state);
 
+-- India reuses PC names across states (AURANGABAD is a Bihar seat and a
+-- Maharashtra seat), so uniqueness must be per (constituency, state).
 CREATE TABLE IF NOT EXISTS mp_info (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    constituency TEXT NOT NULL UNIQUE,
+    constituency TEXT NOT NULL,
     mp_name TEXT NOT NULL,
     party TEXT NOT NULL DEFAULT '',
     state TEXT NOT NULL,
     elected_year INTEGER NOT NULL DEFAULT 2024,
     margin_votes INTEGER,
-    source_url TEXT
+    source_url TEXT,
+    UNIQUE(constituency, state)
 );
-CREATE INDEX IF NOT EXISTS idx_mp_info_constituency ON mp_info(constituency);
+CREATE INDEX IF NOT EXISTS idx_mp_info_constituency ON mp_info(constituency, state);
 
 -- Assembly Constituency → District mapping
 CREATE TABLE IF NOT EXISTS ac_district (

@@ -115,6 +115,9 @@ _OVERRIDES: dict[tuple[str, str], str] = {
     ("ODISHA", "KHURDA"): "KHORDHA",
     ("ODISHA", "NUAPARA"): "NUAPADA",
     ("ODISHA", "SUBARNAPUR"): "SONEPUR",
+    # Gujarat — official spelling: Dohad was renamed Dahod; the scheme
+    # majority already carries DAHOD while India Post still prints DOHAD.
+    ("GUJARAT", "DOHAD"): "DAHOD",
     # Recent official renames (2024-2026), FLIPPED to the official post-rename
     # canon on 2026-08-04 (dedicated rename-migration pass) — old portal / PIN /
     # map spellings now map INTO the new name, same direction as the

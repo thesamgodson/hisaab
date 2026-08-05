@@ -15,3 +15,23 @@ export function candidateStates(state: string): string[] {
   const upper = state.toUpperCase();
   return [upper, ...(VINTAGE_STATE_EQUIV[upper] ?? [])];
 }
+
+// datameet writes reservation suffixes with and without a leading space
+// ("GAYA (SC)", "WARANGAL(SC)"); OpenCity/MyNeta mostly drop them. Both
+// sides of any cross-source PC/AC name join must pass through this
+// normalizer. Keep in lockstep with PC_NAME_NORM_SQL in constituency/mapper.py.
+export function pcNameNorm(expr: string): string {
+  return (
+    `TRIM(REPLACE(REPLACE(REPLACE(REPLACE(UPPER(${expr}),` +
+    ` ' (SC)', ''), ' (ST)', ''), '(SC)', ''), '(ST)', ''))`
+  );
+}
+
+/** JS twin of pcNameNorm, for query parameters. */
+export function stripReservation(name: string): string {
+  return name
+    .trim()
+    .toUpperCase()
+    .replace(/\s*\((?:SC|ST)\)\s*$/, "")
+    .trim();
+}

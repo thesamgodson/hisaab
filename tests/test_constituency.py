@@ -259,6 +259,151 @@ class TestGetMpInfo:
 
 
 # ---------------------------------------------------------------------------
+# Duplicate PC names across states — mp_info UNIQUE(constituency, state)
+# ---------------------------------------------------------------------------
+
+def _seed_duplicate_pc_names(db_path: Path) -> None:
+    """Two states sharing one PC name, plus cd rows for district scoping."""
+    from constituency.mapper import load_constituency_data, load_mp_data
+
+    with patch("constituency.mapper.DB_PATH", db_path):
+        load_mp_data(
+            [
+                {"constituency": "AURANGABAD", "mp_name": "Bihar Test MP",
+                 "party": "P1", "state": "BIHAR", "elected_year": 2024},
+                {"constituency": "AURANGABAD", "mp_name": "Maharashtra Test MP",
+                 "party": "P2", "state": "MAHARASHTRA", "elected_year": 2024},
+            ]
+        )
+        load_constituency_data(
+            [
+                {"constituency": "AURANGABAD", "state": "BIHAR",
+                 "district": "AURANGABAD"},
+                {"constituency": "AURANGABAD", "state": "MAHARASHTRA",
+                 "district": "AURANGABAD"},
+            ]
+        )
+
+
+class TestDuplicatePcNames:
+    def test_both_states_rows_survive_ingest(self, tmp_db: Path) -> None:
+        _seed_duplicate_pc_names(tmp_db)
+
+        conn = sqlite3.connect(str(tmp_db))
+        count = conn.execute(
+            "SELECT COUNT(*) FROM mp_info WHERE constituency = 'AURANGABAD'"
+        ).fetchone()[0]
+        conn.close()
+        assert count == 2  # UNIQUE(constituency) would have kept only one
+
+    def test_reingest_is_idempotent(self, tmp_db: Path) -> None:
+        _seed_duplicate_pc_names(tmp_db)
+        _seed_duplicate_pc_names(tmp_db)
+
+        conn = sqlite3.connect(str(tmp_db))
+        count = conn.execute("SELECT COUNT(*) FROM mp_info").fetchone()[0]
+        conn.close()
+        assert count == 2
+
+    def test_state_scoped_lookup_returns_right_mp(self, tmp_db: Path) -> None:
+        _seed_duplicate_pc_names(tmp_db)
+        with patch("constituency.mapper.DB_PATH", tmp_db):
+            from constituency.mapper import get_mp_info
+            bihar = get_mp_info("AURANGABAD", state="BIHAR")
+            maha = get_mp_info("AURANGABAD", state="MAHARASHTRA")
+
+        assert bihar is not None and bihar["mp_name"] == "Bihar Test MP"
+        assert maha is not None and maha["mp_name"] == "Maharashtra Test MP"
+
+    def test_ambiguous_name_without_state_returns_none(self, tmp_db: Path) -> None:
+        _seed_duplicate_pc_names(tmp_db)
+        with patch("constituency.mapper.DB_PATH", tmp_db):
+            from constituency.mapper import get_mp_info
+            result = get_mp_info("AURANGABAD")
+
+        assert result is None  # honest null beats another state's MP
+
+    def test_unambiguous_name_without_state_still_resolves(self, tmp_db: Path) -> None:
+        _insert_seed(tmp_db)
+        with patch("constituency.mapper.DB_PATH", tmp_db):
+            from constituency.mapper import get_mp_info
+            result = get_mp_info("PATNA SAHIB")
+
+        assert result is not None
+        assert result["mp_name"] == "Ravi Shankar Prasad"
+
+    def test_get_mp_candidates_lists_all_states(self, tmp_db: Path) -> None:
+        _seed_duplicate_pc_names(tmp_db)
+        with patch("constituency.mapper.DB_PATH", tmp_db):
+            from constituency.mapper import get_mp_candidates
+            candidates = get_mp_candidates("AURANGABAD")
+
+        assert [c["state"] for c in candidates] == ["BIHAR", "MAHARASHTRA"]
+
+    def test_vintage_state_label_resolves(self, tmp_db: Path) -> None:
+        from constituency.mapper import load_mp_data
+
+        with patch("constituency.mapper.DB_PATH", tmp_db):
+            load_mp_data(
+                [{"constituency": "SECUNDERABAD", "mp_name": "Telangana Test MP",
+                  "party": "P1", "state": "TELANGANA", "elected_year": 2024}]
+            )
+            from constituency.mapper import get_mp_info
+            # datameet's vintage label for a Telangana seat
+            result = get_mp_info("SECUNDERABAD", state="ANDHRA PRADESH")
+
+        assert result is not None
+        assert result["mp_name"] == "Telangana Test MP"
+
+    def test_wrong_state_returns_none(self, tmp_db: Path) -> None:
+        _seed_duplicate_pc_names(tmp_db)
+        with patch("constituency.mapper.DB_PATH", tmp_db):
+            from constituency.mapper import get_mp_info
+            result = get_mp_info("AURANGABAD", state="UTTAR PRADESH")
+
+        assert result is None
+
+    def test_suffix_without_space_matches(self, tmp_db: Path) -> None:
+        from constituency.mapper import load_mp_data
+
+        with patch("constituency.mapper.DB_PATH", tmp_db):
+            load_mp_data(
+                [{"constituency": "WARANGAL", "mp_name": "Warangal Test MP",
+                  "party": "P1", "state": "TELANGANA", "elected_year": 2024}]
+            )
+            from constituency.mapper import get_mp_info
+            # datameet writes the reserved seat as "WARANGAL(SC)" — no space
+            result = get_mp_info("WARANGAL(SC)", state="TELANGANA")
+
+        assert result is not None
+        assert result["mp_name"] == "Warangal Test MP"
+
+    def test_districts_scoped_by_state(self, tmp_db: Path) -> None:
+        _seed_duplicate_pc_names(tmp_db)
+        with patch("constituency.mapper.DB_PATH", tmp_db):
+            from constituency.mapper import get_districts_for_constituency
+            merged = get_districts_for_constituency("AURANGABAD")
+            bihar_only = get_districts_for_constituency("AURANGABAD", state="BIHAR")
+
+        assert len(merged) == 2  # unscoped keeps both rows (same district name here)
+        assert len(bihar_only) == 1
+
+    def test_ambiguous_report_card_is_honest_stub(self, tmp_db: Path) -> None:
+        _seed_duplicate_pc_names(tmp_db)
+        with patch("constituency.mapper.DB_PATH", tmp_db), \
+             patch("constituency.report_card.DB_PATH", tmp_db):
+            from constituency.report_card import generate_mp_report_card
+            rc = generate_mp_report_card("AURANGABAD")
+            rc_scoped = generate_mp_report_card("AURANGABAD", scope_state="BIHAR")
+
+        assert rc.mp_name == "Unknown"
+        assert rc.districts == []
+        assert rc.extra.get("ambiguous_states") == ["BIHAR", "MAHARASHTRA"]
+        assert rc_scoped.mp_name == "Bihar Test MP"
+        assert rc_scoped.state == "BIHAR"
+
+
+# ---------------------------------------------------------------------------
 # search_constituency
 # ---------------------------------------------------------------------------
 

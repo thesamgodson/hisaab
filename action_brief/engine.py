@@ -11,6 +11,8 @@ from action_brief.contacts import build_contacts
 from action_brief.diagnosis import build_diagnosis
 from action_brief.models import ActionBrief
 from briefs.formatting import get_conn
+from constituency.mapper import PC_NAME_NORM_SQL
+from db.normalize_states import candidate_states
 
 
 def build_action_brief(
@@ -66,29 +68,42 @@ def build_action_brief(
             conn.close()
 
 
+# Names join through the shared normalizer (datameet keeps reservation
+# suffixes, OpenCity/MyNeta drop them) and states through candidate_states
+# (constituency_district/ac_district carry vintage pre-bifurcation labels;
+# PC names repeat across states). Mirrors web/src/lib/action-brief.ts.
 def _get_first_mp(conn: sqlite3.Connection, district: str, state: str) -> dict[str, Any] | None:
+    states = candidate_states(state)
+    slots = ", ".join("?" for _ in states)
+    m_norm = PC_NAME_NORM_SQL.format(col="m.constituency")
+    cd_norm = PC_NAME_NORM_SQL.format(col="cd.constituency")
     row = conn.execute(
-        """SELECT cd.constituency, m.mp_name, m.party, m.state,
+        f"""SELECT cd.constituency, m.mp_name, m.party, m.state,
                   m.elected_year, m.source_url
            FROM constituency_district cd
-           JOIN mp_info m ON UPPER(cd.constituency) = UPPER(m.constituency)
+           JOIN mp_info m ON {m_norm} = {cd_norm}
+            AND UPPER(m.state) IN ({slots})
            WHERE UPPER(cd.district) = UPPER(?)
-             AND UPPER(cd.state) = UPPER(?)
+             AND UPPER(cd.state) IN ({slots})
            LIMIT 1""",
-        (district, state),
+        (*states, district, *states),
     ).fetchone()
     return dict(row) if row else None
 
 
 def _get_first_mla(conn: sqlite3.Connection, district: str, state: str) -> dict[str, Any] | None:
+    states = candidate_states(state)
+    slots = ", ".join("?" for _ in states)
+    m_norm = PC_NAME_NORM_SQL.format(col="m.ac_name")
+    a_norm = PC_NAME_NORM_SQL.format(col="a.ac_name")
     row = conn.execute(
-        """SELECT a.ac_name, m.mla_name, m.party, m.state, m.source_url
+        f"""SELECT a.ac_name, m.mla_name, m.party, m.state, m.source_url
            FROM ac_district a
-           JOIN mla_info m ON UPPER(a.ac_name) = UPPER(m.ac_name)
-             AND UPPER(a.state) = UPPER(m.state)
+           JOIN mla_info m ON {m_norm} = {a_norm}
+            AND UPPER(m.state) IN ({slots})
            WHERE UPPER(a.district) = UPPER(?)
-             AND UPPER(a.state) = UPPER(?)
+             AND UPPER(a.state) IN ({slots})
            LIMIT 1""",
-        (district, state),
+        (*states, district, *states),
     ).fetchone()
     return dict(row) if row else None

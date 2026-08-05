@@ -25,9 +25,16 @@ from typing import Any
 
 import requests
 
-from constituency.fuzzy_match import build_canonical_districts, match_district, normalize_district
+from constituency.fuzzy_match import build_canonical_districts, match_district
 from constituency.mapper import load_ac_data, load_constituency_data, load_mla_data, load_mp_data, load_pin_data
 from db import get_connection, init_db
+
+# District labels STORED in civic tables must come from the canonical
+# state-scoped normalizer (db/district_aliases.py is keyed by (state, name)).
+# The state-blind fuzzy_match.normalize_district once relabeled BIHAR's
+# AURANGABAD district as Maharashtra's CHHATRAPATI SAMBHAJINAGAR — it is for
+# fuzzy MATCHING (match report) only, never for stored labels.
+from db.normalize_districts import normalize_district
 from db.normalize_states import normalize_state
 
 # ---------------------------------------------------------------------------
@@ -170,11 +177,12 @@ def ingest_pins(dry_run: bool = False) -> int:
                 continue
             seen.add(key)
 
+            state_norm = normalize_state(state_raw)
             records.append(
                 {
                     "pin_code": pin,
-                    "district": normalize_district(district),
-                    "state": normalize_state(state_raw),
+                    "district": normalize_district(district, state_norm),
+                    "state": state_norm,
                     "office_name": office,
                 }
             )
@@ -236,7 +244,7 @@ def ingest_constituencies(dry_run: bool = False) -> int:
             continue
 
         state_norm = normalize_state(st_name)
-        dist_norm = normalize_district(dist_name)
+        dist_norm = normalize_district(dist_name, state_norm)
 
         key = (pc_name, dist_norm, state_norm)
         if key in seen:
@@ -372,7 +380,7 @@ def ingest_assembly_constituencies(dry_run: bool = False) -> int:
             continue
 
         state_norm = normalize_state(st_name)
-        dist_norm = normalize_district(dist_name)
+        dist_norm = normalize_district(dist_name, state_norm)
         ac_upper = ac_name.upper()
 
         key = (ac_upper, state_norm, dist_norm)

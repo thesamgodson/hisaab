@@ -13,7 +13,7 @@
 
 import { getLatestFinYear } from "@/lib/fin-year";
 import { query, queryOne } from "@/lib/db";
-import { candidateStates } from "@/lib/vintage-states";
+import { candidateStates, pcNameNorm } from "@/lib/vintage-states";
 import type {
   ActionBriefResponse,
   ActionItem,
@@ -195,13 +195,12 @@ export async function buildActionBrief(
     }>(
       // States join through candidateStates (constituency_district carries
       // vintage pre-bifurcation labels; PC names repeat across states).
-      // Names join with " (SC)"/" (ST)" stripped: datameet keeps the
-      // reservation suffix, OpenCity/MyNeta drop it.
+      // Names join through the shared normalizer: datameet keeps reservation
+      // suffixes (with and without a leading space), OpenCity/MyNeta drop them.
       `SELECT m.mp_name, m.party, m.constituency, m.state, m.elected_year, m.source_url
        FROM constituency_district cd
        JOIN mp_info m
-         ON UPPER(REPLACE(REPLACE(m.constituency, ' (SC)', ''), ' (ST)', ''))
-          = UPPER(REPLACE(REPLACE(cd.constituency, ' (SC)', ''), ' (ST)', ''))
+         ON ${pcNameNorm("m.constituency")} = ${pcNameNorm("cd.constituency")}
         AND UPPER(m.state) IN (${stateSlots})
        WHERE UPPER(cd.district) = UPPER(?) AND UPPER(cd.state) IN (${stateSlots})
        LIMIT 1`,
@@ -217,8 +216,7 @@ export async function buildActionBrief(
       `SELECT ml.mla_name, ml.party, ml.ac_name, ml.state, ml.source_url
        FROM ac_district ac
        JOIN mla_info ml
-         ON UPPER(REPLACE(REPLACE(ml.ac_name, ' (SC)', ''), ' (ST)', ''))
-          = UPPER(REPLACE(REPLACE(ac.ac_name, ' (SC)', ''), ' (ST)', ''))
+         ON ${pcNameNorm("ml.ac_name")} = ${pcNameNorm("ac.ac_name")}
         AND UPPER(ml.state) IN (${stateSlots})
        WHERE UPPER(ac.district) = UPPER(?) AND UPPER(ac.state) IN (${stateSlots})
        LIMIT 1`,

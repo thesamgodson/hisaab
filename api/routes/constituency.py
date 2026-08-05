@@ -11,6 +11,7 @@ from constituency.mapper import (
     district_to_ac,
     district_to_constituency,
     get_mla_info,
+    get_mp_candidates,
     get_mp_info,
     pin_to_district,
     search_constituency,
@@ -57,7 +58,7 @@ def pin_lookup(pin_code: str) -> dict[str, Any]:
 
     enriched: list[dict[str, Any]] = []
     for c in constituencies:
-        mp = get_mp_info(c["constituency"])
+        mp = get_mp_info(c["constituency"], state=c["state"])
         enriched.append({**c, "mp": mp})
 
     acs = district_to_ac(district, state)
@@ -103,6 +104,11 @@ def constituency_search(
 def constituency_report(
     name: str,
     fin_year: str = Query(default="2024-2025", description="Financial year"),
+    state: str | None = Query(
+        default=None,
+        description="Disambiguates PC names that exist in more than one state "
+        "(AURANGABAD, MAHARAJGANJ, HAMIRPUR)",
+    ),
 ) -> dict[str, Any]:
     """Full report card for a Lok Sabha constituency.
 
@@ -117,7 +123,7 @@ def constituency_report(
     If the constituency is not yet in the database, returns a stub with
     mp_name='Unknown' and empty scheme data (tables may be empty).
     """
-    rc = generate_mp_report_card(name.upper(), fin_year=fin_year)
+    rc = generate_mp_report_card(name.upper(), fin_year=fin_year, scope_state=state)
 
     return {
         "constituency": rc.constituency,
@@ -151,6 +157,7 @@ def constituency_card(
     name: str,
     fin_year: str = Query(default="2024-2025"),
     fmt: str = Query(default="portrait", description="'portrait' (1080x1920) or 'landscape' (1200x630)"),
+    state: str | None = Query(default=None, description="Disambiguates duplicate PC names"),
 ) -> Response:
     """Generate a shareable SVG report card for a constituency.
 
@@ -162,7 +169,7 @@ def constituency_card(
     if fmt not in ("portrait", "landscape"):
         raise HTTPException(status_code=400, detail="fmt must be 'portrait' or 'landscape'")
 
-    rc = generate_mp_report_card(name.upper(), fin_year=fin_year)
+    rc = generate_mp_report_card(name.upper(), fin_year=fin_year, scope_state=state)
     svg_bytes = generate_report_card_image(rc, fmt=fmt)
 
     return Response(
@@ -183,14 +190,37 @@ def constituency_card(
 def mp_lookup(
     name: str,
     fin_year: str = Query(default="2024-2025"),
+    state: str | None = Query(
+        default=None,
+        description="Required when the constituency name exists in more than "
+        "one state (AURANGABAD, MAHARAJGANJ, HAMIRPUR)",
+    ),
 ) -> dict[str, Any]:
     """Look up an MP by constituency name and return their report card.
 
     `name` is the constituency name (e.g., 'VARANASI', 'LUCKNOW').
-    Case-insensitive.
+    Case-insensitive. Duplicate names across states answer 300 with the
+    candidate states — never another state's MP.
     """
-    mp = get_mp_info(name)
+    mp = get_mp_info(name, state=state)
     if not mp:
+        candidates = get_mp_candidates(name)
+        if state is None and len(candidates) > 1:
+            raise HTTPException(
+                status_code=300,
+                detail={
+                    "error": f"Constituency {name!r} exists in more than one state.",
+                    "candidates": [
+                        {
+                            "constituency": c["constituency"],
+                            "state": c["state"],
+                            "mp_name": c["mp_name"],
+                        }
+                        for c in candidates
+                    ],
+                    "hint": "Retry with ?state=<STATE>.",
+                },
+            )
         raise HTTPException(
             status_code=404,
             detail=(
@@ -199,7 +229,7 @@ def mp_lookup(
             ),
         )
 
-    rc = generate_mp_report_card(name.upper(), fin_year=fin_year)
+    rc = generate_mp_report_card(name.upper(), fin_year=fin_year, scope_state=mp["state"])
 
     return {
         "mp_name": mp["mp_name"],

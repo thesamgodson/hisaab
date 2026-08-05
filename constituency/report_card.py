@@ -15,7 +15,7 @@ import textwrap
 from dataclasses import dataclass, field
 from typing import Any
 
-from constituency.mapper import get_districts_for_constituency, get_mp_info
+from constituency.mapper import get_districts_for_constituency, get_mp_candidates, get_mp_info
 from db.connection import DB_PATH, get_connection
 
 # ---------------------------------------------------------------------------
@@ -259,14 +259,40 @@ def _collect_red_flags(schemes: list[SchemePerformance]) -> list[str]:
 def generate_mp_report_card(
     constituency: str,
     fin_year: str = "2024-2025",
+    scope_state: str | None = None,
 ) -> MPReportCard:
     """Generate a full MP Report Card for a constituency.
+
+    `scope_state` disambiguates PC names that exist in more than one state
+    (AURANGABAD, MAHARAJGANJ, HAMIRPUR); without it such names get the
+    honest Unknown stub with no districts — never a two-state merge.
 
     If constituency is not found in mp_info, a stub card is returned with
     mp_name='Unknown' so callers can still display district-level data.
     """
-    mp = get_mp_info(constituency)
-    districts = get_districts_for_constituency(constituency)
+    if scope_state is None:
+        candidates = get_mp_candidates(constituency)
+        if len({c["state"] for c in candidates}) > 1:
+            return MPReportCard(
+                constituency=constituency.upper(),
+                state="",
+                mp_name="Unknown",
+                party="",
+                elected_year=2024,
+                districts=[],
+                composite_score=None,
+                composite_grade=None,
+                national_avg_score=_get_national_average(fin_year),
+                schemes=_aggregate_scheme_performance([], "", fin_year),
+                red_flags=[],
+                fin_year=fin_year,
+                extra={"ambiguous_states": sorted({c["state"] for c in candidates})},
+            )
+
+    mp = get_mp_info(constituency, state=scope_state)
+    districts = get_districts_for_constituency(
+        constituency, state=scope_state or (mp["state"] if mp else None)
+    )
 
     if mp:
         mp_name = mp["mp_name"]
@@ -276,7 +302,7 @@ def generate_mp_report_card(
     else:
         mp_name = "Unknown"
         party = ""
-        state = ""
+        state = scope_state.strip().upper() if scope_state else ""
         elected_year = 2024
 
     # If state is empty but we have districts, try to infer state from constituency_district

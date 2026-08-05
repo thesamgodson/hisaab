@@ -21,10 +21,43 @@ from __future__ import annotations
 
 import csv
 import io
+import re
 import sqlite3
 from typing import Any
 
 from db.connection import DB_PATH, get_connection
+from db.normalize_states import candidate_states
+
+# ---------------------------------------------------------------------------
+# PC/AC name matching across sources
+# ---------------------------------------------------------------------------
+
+# datameet writes reservation suffixes with and without a leading space
+# ("GAYA (SC)", "WARANGAL(SC)"); OpenCity/MyNeta mostly drop them. Both sides
+# of any cross-source name join must pass through this normalizer. Keep in
+# lockstep with pcNameNorm in web/src/lib/vintage-states.ts.
+PC_NAME_NORM_SQL = (
+    "TRIM(REPLACE(REPLACE(REPLACE(REPLACE(UPPER({col}),"
+    " ' (SC)', ''), ' (ST)', ''), '(SC)', ''), '(ST)', ''))"
+)
+
+_RESERVATION_RE = re.compile(r"\s*\((?:SC|ST)\)\s*$", re.IGNORECASE)
+
+# Known spelling mismatches between the datameet GeoJSON (constituency_district)
+# and the OpenCity MP CSV (mp_info), applied in both directions. ~35 more
+# datameet names are truncated/renamed and need a proper registry (follow-up).
+_PC_ALIASES = {"PATALIPUTRA": "PATLIPUTRA", "PATLIPUTRA": "PATALIPUTRA"}
+
+
+def strip_reservation(name: str) -> str:
+    """Uppercase and drop a trailing '(SC)'/'(ST)' reservation suffix."""
+    return _RESERVATION_RE.sub("", name.strip().upper()).strip()
+
+
+def _name_candidates(constituency: str) -> tuple[str, str]:
+    clean = strip_reservation(constituency)
+    return clean, _PC_ALIASES.get(clean, clean)
+
 
 # ---------------------------------------------------------------------------
 # Internal helpers
@@ -89,39 +122,64 @@ def district_to_constituency(district: str, state: str) -> list[dict[str, Any]]:
         conn.close()
 
 
-def get_mp_info(constituency: str) -> dict[str, Any] | None:
-    """Return MP info for a constituency: {mp_name, party, state, elected_year, source_url}.
+def get_mp_candidates(constituency: str) -> list[dict[str, Any]]:
+    """All MPs whose constituency matches the (suffix-stripped) name, any state.
 
-    Lookup is case-insensitive.  Returns None if not found.
+    India reuses PC names across states (AURANGABAD in Bihar and Maharashtra),
+    so a name can legitimately return several rows — one per state.
     """
+    clean, alias = _name_candidates(constituency)
+    norm = PC_NAME_NORM_SQL.format(col="constituency")
     conn = _conn()
     try:
-        # Strip reservation suffixes: "GAYA (SC)" → "GAYA"
-        import re
-        clean_name = re.sub(r"\s*\((?:SC|ST)\)\s*$", "", constituency.strip().upper())
-        # Known spelling mismatches between GeoJSON and MP CSV
-        _PC_ALIASES = {"PATALIPUTRA": "PATLIPUTRA", "PATLIPUTRA": "PATALIPUTRA"}
-        alias = _PC_ALIASES.get(clean_name, clean_name)
-        row = conn.execute(
+        rows = conn.execute(
             "SELECT constituency, mp_name, party, state, elected_year, source_url "
-            "FROM mp_info WHERE UPPER(constituency) IN (UPPER(?), UPPER(?), UPPER(?))",
-            (constituency, clean_name, alias),
-        ).fetchone()
-        return _row_to_dict(row)
+            f"FROM mp_info WHERE {norm} IN (?, ?) ORDER BY state",
+            (clean, alias),
+        ).fetchall()
+        return [dict(r) for r in rows]
     finally:
         conn.close()
 
 
-def get_districts_for_constituency(constituency: str) -> list[str]:
-    """Return all districts that belong to a constituency."""
+def get_mp_info(constituency: str, state: str | None = None) -> dict[str, Any] | None:
+    """Return MP info for a constituency: {mp_name, party, state, elected_year, source_url}.
+
+    Lookup is case-insensitive and ignores reservation suffixes. With `state`,
+    the lookup is scoped to that state (vintage pre-bifurcation labels
+    accepted). Without it, a name that exists in more than one state returns
+    None — an honest null beats another state's MP.
+    """
+    candidates = get_mp_candidates(constituency)
+    if state is not None:
+        allowed = set(candidate_states(state))
+        for c in candidates:
+            if c["state"].strip().upper() in allowed:
+                return c
+        return None
+    return candidates[0] if len(candidates) == 1 else None
+
+
+def get_districts_for_constituency(constituency: str, state: str | None = None) -> list[str]:
+    """Return all districts that belong to a constituency.
+
+    Name matching strips reservation suffixes and applies known spelling
+    aliases. With `state`, rows are scoped to that state (vintage labels
+    accepted) — duplicate PC names otherwise merge two states' districts.
+    """
+    clean, alias = _name_candidates(constituency)
+    norm = PC_NAME_NORM_SQL.format(col="constituency")
+    sql = f"SELECT district FROM constituency_district WHERE {norm} IN (?, ?)"
+    params: list[Any] = [clean, alias]
+    if state is not None:
+        states = candidate_states(state)
+        slots = ", ".join("?" for _ in states)
+        sql += f" AND UPPER(state) IN ({slots})"
+        params.extend(states)
+    sql += " ORDER BY district"
     conn = _conn()
     try:
-        rows = conn.execute(
-            "SELECT district FROM constituency_district "
-            "WHERE UPPER(constituency) = UPPER(?) "
-            "ORDER BY district",
-            (constituency,),
-        ).fetchall()
+        rows = conn.execute(sql, params).fetchall()
         return [r["district"] for r in rows]
     finally:
         conn.close()
@@ -294,22 +352,24 @@ def district_to_ac(district: str, state: str) -> list[dict[str, Any]]:
 def get_mla_info(ac_name: str, state: str) -> dict[str, Any] | None:
     """Return MLA info for an assembly constituency.
 
-    Lookup is case-insensitive.  Returns None if not found.
+    Lookup is case-insensitive, ignores reservation suffixes, and accepts
+    vintage pre-bifurcation state labels. Returns None if not found.
     """
-    import re
-
-    clean_name = re.sub(r"\s*\((?:SC|ST)\)\s*$", "", ac_name.strip().upper())
+    clean_name = strip_reservation(ac_name)
+    states = candidate_states(state)
+    slots = ", ".join("?" for _ in states)
+    norm = PC_NAME_NORM_SQL.format(col="ac_name")
     conn = _conn()
     try:
         row = conn.execute(
-            """
+            f"""
             SELECT ac_name, ac_no, state, mla_name, party, elected_year, source_url
             FROM mla_info
-            WHERE UPPER(state) = UPPER(?)
-              AND (UPPER(ac_name) = UPPER(?) OR UPPER(ac_name) = UPPER(?))
+            WHERE UPPER(state) IN ({slots})
+              AND {norm} = ?
             LIMIT 1
             """,
-            (state, ac_name.strip(), clean_name),
+            (*states, clean_name),
         ).fetchone()
         return _row_to_dict(row)
     finally:
@@ -333,7 +393,7 @@ def pin_to_full_representatives(pin_code: str) -> dict[str, Any] | None:
     constituencies = district_to_constituency(district, state)
     mps: list[dict[str, Any]] = []
     for c in constituencies:
-        mp = get_mp_info(c["constituency"])
+        mp = get_mp_info(c["constituency"], state=c["state"])
         entry: dict[str, Any] = {
             "type": "LOK_SABHA",
             "constituency": c["constituency"],

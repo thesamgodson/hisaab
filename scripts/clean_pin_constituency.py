@@ -37,19 +37,9 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
 
 from db.connection import DB_PATH  # noqa: E402
-from db.normalize_states import normalize_state  # noqa: E402
+from db.normalize_states import VINTAGE_STATE_EQUIV, normalize_state  # noqa: E402
 
 CURATED_PATH = ROOT_DIR / "data" / "curated" / "pin_constituency_all_latest.json"
-
-# States whose PC polygons predate a bifurcation and carry the parent
-# state's label. Keep in lockstep with VINTAGE_STATE_EQUIV in
-# web/src/app/api/v1/pin/[pin_code]/route.ts.
-VINTAGE_STATE_EQUIV: dict[str, frozenset[str]] = {
-    "ANDHRA PRADESH": frozenset({"TELANGANA"}),
-    "TELANGANA": frozenset({"ANDHRA PRADESH"}),
-    "JAMMU AND KASHMIR": frozenset({"LADAKH"}),
-    "LADAKH": frozenset({"JAMMU AND KASHMIR"}),
-}
 
 
 def is_electorally_consistent(pc_state: str, pin_states: set[str] | None) -> bool:

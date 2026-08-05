@@ -1,6 +1,10 @@
 import { type NextRequest } from "next/server";
 import { query, queryOne } from "@/lib/db";
-import { candidateStates } from "@/lib/vintage-states";
+import {
+  candidateStates,
+  pcNameNorm,
+  stripReservation,
+} from "@/lib/vintage-states";
 
 interface PinMapping {
   pin_code: string;
@@ -45,18 +49,17 @@ interface MlaInfo {
 // India reuses PC names across states (AURANGABAD is a Bihar seat and a
 // Maharashtra seat), so a name-only lookup can return another state's
 // representative. Match name+state (with the vintage equivalence above);
-// an honest null beats a wrong MP/MLA. Names compare with " (SC)"/" (ST)"
-// stripped: datameet carries the reservation suffix (250 of 543 PCs, 953
-// ACs) while OpenCity/MyNeta mostly drop it — exact matching left every
-// reserved seat without its representative.
+// an honest null beats a wrong MP/MLA. Names compare through the shared
+// normalizer: datameet carries reservation suffixes (250 of 543 PCs, 953
+// ACs, with and without a leading space) while OpenCity/MyNeta mostly drop
+// them — exact matching left every reserved seat without its representative.
 async function findMp(constituency: string, state: string): Promise<MpInfo | null> {
   for (const st of candidateStates(state)) {
     const mp = await queryOne<MpInfo>(
       `SELECT * FROM mp_info
-       WHERE UPPER(REPLACE(REPLACE(constituency, ' (SC)', ''), ' (ST)', ''))
-           = UPPER(REPLACE(REPLACE(?, ' (SC)', ''), ' (ST)', ''))
+       WHERE ${pcNameNorm("constituency")} = ?
          AND UPPER(state) = ?`,
-      [constituency, st],
+      [stripReservation(constituency), st],
     );
     if (mp) return mp;
   }
@@ -67,10 +70,9 @@ async function findMla(acName: string, state: string): Promise<MlaInfo | null> {
   for (const st of candidateStates(state)) {
     const mla = await queryOne<MlaInfo>(
       `SELECT * FROM mla_info
-       WHERE UPPER(REPLACE(REPLACE(ac_name, ' (SC)', ''), ' (ST)', ''))
-           = UPPER(REPLACE(REPLACE(?, ' (SC)', ''), ' (ST)', ''))
+       WHERE ${pcNameNorm("ac_name")} = ?
          AND UPPER(state) = ?`,
-      [acName, st],
+      [stripReservation(acName), st],
     );
     if (mla) return mla;
   }
@@ -127,13 +129,12 @@ export async function GET(
       [pinConstituency.constituency, pinConstituency.state],
     );
     if (constituencies.length === 0) {
-      // Try matching without (SC)/(ST) suffix, or match base name
+      // Try matching with reservation suffixes normalized away on both sides
       constituencies = await query<ConstituencyDistrict>(
         `SELECT * FROM constituency_district
-         WHERE (UPPER(REPLACE(REPLACE(constituency, ' (SC)', ''), ' (ST)', '')) = UPPER(?)
-            OR UPPER(?) LIKE UPPER(REPLACE(REPLACE(constituency, ' (SC)', ''), ' (ST)', '')))
+         WHERE ${pcNameNorm("constituency")} = ?
            AND UPPER(state) = UPPER(?)`,
-        [pinConstituency.constituency, pinConstituency.constituency, pinConstituency.state],
+        [stripReservation(pinConstituency.constituency), pinConstituency.state],
       );
     }
     // Deduplicate by constituency name

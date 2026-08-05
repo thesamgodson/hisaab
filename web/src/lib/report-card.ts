@@ -9,6 +9,11 @@
  */
 
 import { query } from "@/lib/db";
+import {
+  candidateStates,
+  pcNameNorm,
+  stripReservation,
+} from "@/lib/vintage-states";
 
 export const REPORT_CARD_SOURCE_NOTE =
   "Composite = mean of district accountability scores (precomputed; " +
@@ -69,11 +74,20 @@ function round1(v: number): number {
 export async function buildConstituencyReportCard(
   constituency: string,
   finYear: string,
+  state?: string,
 ): Promise<ConstituencyReportCard> {
+  // Names join through the shared normalizer (datameet keeps reservation
+  // suffixes, OpenCity drops them). `state` scopes duplicate PC names —
+  // AURANGABAD must never merge Bihar's and Maharashtra's districts —
+  // accepting vintage pre-bifurcation labels.
+  const scopeStates = state ? candidateStates(state) : null;
+  const stateSql = scopeStates
+    ? ` AND UPPER(state) IN (${scopeStates.map(() => "?").join(", ")})`
+    : "";
   const districtRows = await query<DistrictRow>(
     `SELECT DISTINCT district, state FROM constituency_district
-     WHERE UPPER(constituency) = UPPER(?)`,
-    [constituency],
+     WHERE ${pcNameNorm("constituency")} = ?${stateSql}`,
+    [stripReservation(constituency), ...(scopeStates ?? [])],
   );
 
   if (districtRows.length === 0) {

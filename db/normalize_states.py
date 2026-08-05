@@ -145,3 +145,25 @@ def normalize_state(name: str) -> str:
 def normalize_records(records: list[dict], state_field: str = "state") -> list[dict]:
     """Return new list of records with normalized state names."""
     return [{**r, state_field: normalize_state(r.get(state_field, ""))} for r in records]
+
+
+# ---------------------------------------------------------------------------
+# Vintage state equivalence
+# ---------------------------------------------------------------------------
+# datameet's 2008-delimitation polygons predate Telangana (2014) and Ladakh
+# (2019): constituency_district / ac_district / pin_constituency carry the
+# parent state's label while pin_district_mapping / mp_info / mla_info carry
+# today's. Any join across that divide must accept either label. Keep in
+# lockstep with VINTAGE_STATE_EQUIV in web/src/lib/vintage-states.ts.
+VINTAGE_STATE_EQUIV: dict[str, frozenset[str]] = {
+    "ANDHRA PRADESH": frozenset({"TELANGANA"}),
+    "TELANGANA": frozenset({"ANDHRA PRADESH"}),
+    "JAMMU AND KASHMIR": frozenset({"LADAKH"}),
+    "LADAKH": frozenset({"JAMMU AND KASHMIR"}),
+}
+
+
+def candidate_states(state: str) -> list[str]:
+    """The state's own name (uppercased) plus any vintage-equivalent labels."""
+    upper = state.strip().upper()
+    return [upper, *sorted(VINTAGE_STATE_EQUIV.get(upper, frozenset()))]
