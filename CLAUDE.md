@@ -71,7 +71,7 @@ npm run dev                             # Start at localhost:3000
 
 | Module | Purpose |
 |--------|---------|
-| `db/` | Schema, 21 loaders, 3 VIEWs, district canonicalization, NSAP imputation |
+| `db/` | Schema, 22 loaders (incl. civic `pin_constituency` from its tracked curated file), 3 VIEWs, district canonicalization, NSAP imputation |
 | `queries/` | 38 query functions, `composite.py` (THE scoring implementation → `district_scores`), `common.py:data_quality_warnings()` |
 | `briefs/` | Per-district/state journalist briefs (CLI) |
 | `action_brief/` | PIN → diagnosis → contacts → actions engine (Python; TS twin in `web/src/lib/action-brief.ts`) |

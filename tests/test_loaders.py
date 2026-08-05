@@ -23,6 +23,7 @@ from db import (
     load_nfsa_district,
     load_nrlm_district,
     load_nsap_district,
+    load_pin_constituency,
     load_pmayg_district,
     load_pmgsy_district,
     load_pmgsy_progress,
@@ -628,3 +629,51 @@ class TestUDISEState:
         assert count == 1
         assert len(rows) == 1
         assert rows[0]["total_students"] == 8750000
+
+
+class TestPinConstituency:
+    def test_round_trip(self, db):
+        records = [
+            {
+                "pin_code": "110001",
+                "constituency": "NEW DELHI",
+                "state": "DELHI",
+                "method": "spatial_geonames",
+            }
+        ]
+        count, rows = _load_and_query(db, load_pin_constituency, "pin_constituency", records)
+        assert count == 1
+        r = rows[0]
+        assert r["pin_code"] == "110001"
+        assert r["constituency"] == "NEW DELHI"
+        assert r["state"] == "DELHI"
+        assert r["method"] == "spatial_geonames"
+
+    def test_rejects_malformed_rows(self, db):
+        records = [
+            {"pin_code": "1100", "constituency": "NEW DELHI", "state": "DELHI"},
+            {"pin_code": "11000X", "constituency": "NEW DELHI", "state": "DELHI"},
+            {"pin_code": "110001", "constituency": "", "state": "DELHI"},
+            {"pin_code": "110001", "constituency": "NEW DELHI", "state": ""},
+        ]
+        count, rows = _load_and_query(db, load_pin_constituency, "pin_constituency", records)
+        assert count == 0
+        assert rows == []
+
+    def test_method_defaults_when_absent(self, db):
+        records = [{"pin_code": "823001", "constituency": "GAYA", "state": "BIHAR"}]
+        count, rows = _load_and_query(db, load_pin_constituency, "pin_constituency", records)
+        assert count == 1
+        assert rows[0]["method"] == "spatial_join"
+
+    def test_registered_and_curated_file_matches_load_glob(self):
+        """The March gap: the curated file existed but nothing loaded it.
+        Guard both halves — registry entry AND a file matching run_all's
+        `{loader_name}_*_latest.json` glob."""
+        from db import LOADERS
+        from db.connection import CURATED_DIR
+
+        assert LOADERS.get("pin_constituency") is load_pin_constituency
+        assert list(CURATED_DIR.glob("pin_constituency_*_latest.json")), (
+            "no curated file matches the pin_constituency load glob"
+        )

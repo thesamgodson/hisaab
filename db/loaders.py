@@ -748,6 +748,37 @@ def load_udise_state(conn: sqlite3.Connection, records: list[dict[str, Any]], fi
     return loaded
 
 
+def load_pin_constituency(
+    conn: sqlite3.Connection, records: list[dict[str, Any]], fin_year: str
+) -> int:
+    """Load PIN → Lok Sabha constituency mapping (civic table, not a scheme).
+
+    The curated file is the durable artifact of a one-off March-2026 spatial
+    join (GeoNames PIN coordinates vs datameet PC polygons — DERIVED-2026-0002);
+    its generator is gone, so the tracked JSON is the source of truth. The
+    mapping is not year-scoped: fin_year is accepted only for LOADERS-registry
+    signature compatibility. `constituency` is stored verbatim — it joins
+    constituency_district/mp_info by PC name, which district canonicalization
+    must never rewrite.
+    """
+    del fin_year  # not year-scoped
+    loaded = 0
+    for r in records:
+        pin = str(r.get("pin_code", "")).strip()
+        constituency = str(r.get("constituency", "")).strip()
+        state = str(r.get("state", "")).strip()
+        if len(pin) != 6 or not pin.isdigit() or not constituency or not state:
+            continue
+        conn.execute(
+            """INSERT OR REPLACE INTO pin_constituency
+            (pin_code, constituency, state, method)
+            VALUES (?, ?, ?, ?)""",
+            (pin, constituency, state, r.get("method") or "spatial_join"),
+        )
+        loaded += 1
+    return loaded
+
+
 LOADERS = {
     "misappropriation": load_misappropriation,
     "fto_status": load_fto_status,
@@ -770,6 +801,10 @@ LOADERS = {
     "sbm_district": load_sbm_district,
     "nrlm_district": load_nrlm_district,
     "udise_state": load_udise_state,
+    # Civic (non-scheme) tables whose source of truth is a tracked curated file.
+    # The rest of the civic set (pin_district_mapping, mp/mla, lineage…) is
+    # seeded from data/raw caches by `python -m constituency.ingest` instead.
+    "pin_constituency": load_pin_constituency,
 }
 
 
