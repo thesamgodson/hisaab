@@ -2,8 +2,14 @@ import { cache } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { buildActionBrief } from "@/lib/action-brief";
-import { formatDistrictLabel, titleCasePlace } from "@/lib/format-place";
+import { getDistrictSchemeRows } from "@/lib/money-flow";
+import {
+  displayPersonName,
+  formatDistrictLabel,
+  titleCasePlace,
+} from "@/lib/format-place";
 import ComplaintKitSection from "@/components/ComplaintKit";
+import SchemeDataSection from "@/components/SchemeDataSection";
 import DiagnosisCard from "@/components/DiagnosisCard";
 import PinNotice from "@/components/PinNotice";
 import SectionHeader from "@/components/SectionHeader";
@@ -62,6 +68,7 @@ export default async function ActionPage({ params }: PageProps) {
     { day: "numeric", month: "long", year: "numeric" },
   );
 
+  const schemes = await getDistrictSchemeRows(data.district, data.state);
   const districtSlug = data.district.toLowerCase().replace(/\s+/g, "-");
   const districtHref = `/district/${districtSlug}?state=${encodeURIComponent(data.state)}`;
   const districtLabel = formatDistrictLabel(data.district, data.state);
@@ -74,8 +81,8 @@ export default async function ActionPage({ params }: PageProps) {
   const hasKits =
     data.complaint_kits.length > 0 || data.universal_channels.length > 0;
   const representatives = [
-    data.mp && `MP ${displayName(data.mp.mp_name)} (${data.mp.party})`,
-    data.mla && `MLA ${displayName(data.mla.mla_name)} (${data.mla.party})`,
+    data.mp && `MP ${displayPersonName(data.mp.mp_name)} (${data.mp.party})`,
+    data.mla && `MLA ${displayPersonName(data.mla.mla_name)} (${data.mla.party})`,
   ].filter((r): r is string => Boolean(r));
 
   return (
@@ -124,7 +131,7 @@ export default async function ActionPage({ params }: PageProps) {
         >
           {data.mp && (
             <span>
-              <span className="font-medium">MP:</span> {displayName(data.mp.mp_name)}{" "}
+              <span className="font-medium">MP:</span> {displayPersonName(data.mp.mp_name)}{" "}
               <span style={{ color: "var(--text-muted)" }}>
                 ({data.mp.party})
               </span>
@@ -132,7 +139,7 @@ export default async function ActionPage({ params }: PageProps) {
           )}
           {data.mla && (
             <span>
-              <span className="font-medium">MLA:</span> {displayName(data.mla.mla_name)}{" "}
+              <span className="font-medium">MLA:</span> {displayPersonName(data.mla.mla_name)}{" "}
               <span style={{ color: "var(--text-muted)" }}>
                 ({data.mla.party}, {data.mla.ac_name})
               </span>
@@ -347,6 +354,9 @@ export default async function ActionPage({ params }: PageProps) {
         </section>
       )}
 
+      {/* ---- Scheme evidence cards (same section the district page serves) ---- */}
+      <SchemeDataSection schemes={schemes} />
+
       {/* ---- Footer ---- */}
       <footer
         className="pt-8 mt-4 flex flex-col gap-3"
@@ -399,9 +409,4 @@ const SCHEME_LIST_FORMAT = new Intl.ListFormat("en", { type: "conjunction" });
 
 function formatSchemeList(schemes: string[]): string {
   return SCHEME_LIST_FORMAT.format(schemes);
-}
-
-/** Rosters mix "ABHAY KUMAR SINHA" with "Romit Kumar" — calm the shouty ones. */
-function displayName(name: string): string {
-  return name === name.toUpperCase() ? titleCasePlace(name) : name;
 }

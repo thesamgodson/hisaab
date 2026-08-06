@@ -58,3 +58,21 @@ class ActionBrief:
     # first). Twin of complaint_kits/universal_channels in action-types.ts.
     complaint_kits: list[dict[str, Any]] = field(default_factory=list)
     universal_channels: list[dict[str, Any]] = field(default_factory=list)
+
+
+@dataclass(frozen=True)
+class DistrictBrief:
+    """District-grain brief — the same sections as ActionBrief with honestly
+    PLURAL representatives (a district commonly spans 2-3 Lok Sabha seats).
+    Twin of DistrictBriefResponse in web/src/lib/action-brief.ts."""
+
+    district: str
+    state: str
+    formerly_part_of: dict[str, Any] | None
+    mps: list[dict[str, Any]]
+    ac_count: int
+    diagnosis: list[DiagnosisItem]
+    schemes_checked: list[str]
+    complaint_kits: list[dict[str, Any]]
+    universal_channels: list[dict[str, Any]]
+    generated_at: datetime

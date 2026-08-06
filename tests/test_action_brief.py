@@ -488,6 +488,32 @@ def test_engine_complaint_kits_presence_and_order(db):
     assert "PDS/NFSA" not in schemes
 
 
+def test_engine_district_brief_matches_pin_brief_sections(db):
+    """Map entry (district grain) must serve the same sections as PIN entry —
+    with honestly-plural MPs instead of a single 'your MP'."""
+    _seed_complaint_data(db)
+    db.execute(
+        """INSERT INTO constituency_district (constituency, state, district)
+           VALUES ('VELLORE', 'TAMIL NADU', 'VELLORE'),
+                  ('ARAKKONAM', 'TAMIL NADU', 'VELLORE')"""
+    )
+    db.execute(
+        """INSERT INTO mp_info (constituency, mp_name, party, state, elected_year, source_url)
+           VALUES ('VELLORE', 'D M KATHIR ANAND', 'DMK', 'TAMIL NADU', 2024, 'https://x.gov.in'),
+                  ('ARAKKONAM', 'S JAGATHRATCHAKAN', 'DMK', 'TAMIL NADU', 2024, 'https://x.gov.in')"""
+    )
+    db.commit()
+
+    from action_brief.engine import build_district_brief
+    brief = build_district_brief("VELLORE", "TAMIL NADU", conn=db)
+
+    assert [m["constituency"] for m in brief.mps] == ["ARAKKONAM", "VELLORE"]
+    kit_schemes = [k["scheme"] for k in brief.complaint_kits]
+    assert kit_schemes and kit_schemes[0] == "MGNREGA"  # flagged first, same as PIN brief
+    assert brief.diagnosis and brief.diagnosis[0].scheme == "MGNREGA"
+    assert [c["scheme"] for c in brief.universal_channels] == ["ALL"]
+
+
 def test_engine_invalid_pin():
     from action_brief.engine import build_action_brief
     result = build_action_brief("12345")

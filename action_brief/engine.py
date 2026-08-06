@@ -10,7 +10,7 @@ from typing import Any
 from action_brief.actions import build_actions
 from action_brief.contacts import build_contacts
 from action_brief.diagnosis import build_diagnosis, schemes_with_district_data
-from action_brief.models import ActionBrief
+from action_brief.models import ActionBrief, DistrictBrief
 from briefs.formatting import get_conn
 from constituency.mapper import PC_NAME_NORM_SQL
 from constituency.pc_name_registry import strip_reservation
@@ -72,6 +72,69 @@ def build_action_brief(
     finally:
         if own_conn:
             conn.close()
+
+
+def build_district_brief(
+    district: str,
+    state: str,
+    *,
+    conn: sqlite3.Connection | None = None,
+) -> DistrictBrief:
+    """District-grain brief for map/search entry — same sections as the PIN
+    brief, honestly-plural MPs. Twin of buildDistrictBrief in action-brief.ts."""
+    own_conn = conn is None
+    if own_conn:
+        conn = get_conn()
+    try:
+        lineage = conn.execute(
+            """SELECT parent_district, split_year FROM district_lineage
+               WHERE UPPER(new_district)=UPPER(?) AND UPPER(state)=UPPER(?)""",
+            (district, state),
+        ).fetchone()
+        diagnosis = build_diagnosis(conn, district, state)
+        flagged = list({d.scheme for d in diagnosis})
+        kits, universal = _build_complaint_kits(conn, district, state, flagged)
+        return DistrictBrief(
+            district=district, state=state,
+            formerly_part_of=dict(lineage) if lineage else None,
+            mps=_get_district_mps(conn, district, state),
+            ac_count=_get_ac_count(conn, district, state),
+            diagnosis=diagnosis,
+            schemes_checked=schemes_with_district_data(conn, district, state),
+            complaint_kits=kits, universal_channels=universal,
+            generated_at=datetime.now(),
+        )
+    finally:
+        if own_conn:
+            conn.close()
+
+
+def _get_district_mps(conn: sqlite3.Connection, district: str, state: str) -> list[dict[str, Any]]:
+    states = candidate_states(state)
+    slots = ", ".join("?" for _ in states)
+    m_norm = PC_NAME_NORM_SQL.format(col="m.constituency")
+    cd_norm = PC_NAME_NORM_SQL.format(col="cd.constituency")
+    rows = conn.execute(
+        f"""SELECT DISTINCT m.constituency, m.mp_name, m.party, m.state,
+                  m.elected_year, m.source_url
+           FROM constituency_district cd
+           JOIN mp_info m ON {m_norm} = {cd_norm}
+            AND UPPER(m.state) IN ({slots})
+           WHERE UPPER(cd.district) = UPPER(?)
+             AND UPPER(cd.state) IN ({slots})
+           ORDER BY m.constituency""",
+        (*states, district, *states),
+    ).fetchall()
+    return [dict(r) for r in rows]
+
+
+def _get_ac_count(conn: sqlite3.Connection, district: str, state: str) -> int:
+    row = conn.execute(
+        """SELECT COUNT(DISTINCT ac_name) AS n FROM ac_district
+           WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?)""",
+        (district, state),
+    ).fetchone()
+    return int(row["n"]) if row else 0
 
 
 _LEVEL_ORDER_SQL = (

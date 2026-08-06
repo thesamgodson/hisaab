@@ -1,50 +1,22 @@
 import { cache } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { query, resolveState } from "@/lib/db";
-import { formatDistrictLabel, titleCasePlace } from "@/lib/format-place";
-import SchemeRow, { type SchemeData } from "@/components/SchemeRow";
+import { resolveState } from "@/lib/db";
+import { buildDistrictBrief } from "@/lib/action-brief";
+import { getDistrictSchemeRows } from "@/lib/money-flow";
+import {
+  displayPersonName,
+  formatDistrictLabel,
+  titleCasePlace,
+} from "@/lib/format-place";
+import ComplaintKitSection from "@/components/ComplaintKit";
+import DiagnosisCard from "@/components/DiagnosisCard";
+import SchemeDataSection from "@/components/SchemeDataSection";
+import SectionHeader from "@/components/SectionHeader";
 
 interface DistrictPageProps {
   params: Promise<{ name: string }>;
   searchParams: Promise<{ state?: string }>;
-}
-
-interface MoneyFlowRow {
-  scheme: string;
-  state: string;
-  district: string;
-  fin_year: string;
-  allocated_lakhs: number | null;
-  released_lakhs: number | null;
-  expended_lakhs: number | null;
-  utilization_pct: number | null;
-  units_target: number | null;
-  units_completed: number | null;
-  units_label: string | null;
-  source_url: string | null;
-}
-
-/**
- * Group rows by scheme and pick the latest fin_year for each.
- * fin_year is "YYYY-YYYY" or "cumulative" — a real year always beats
- * "cumulative" (which would win a bare lexicographic comparison).
- */
-function finYearRank(finYear: string): string {
-  return finYear === "cumulative" ? "0000" : finYear;
-}
-
-function latestPerScheme(rows: MoneyFlowRow[]): SchemeData[] {
-  const map = new Map<string, MoneyFlowRow>();
-  for (const row of rows) {
-    const existing = map.get(row.scheme);
-    if (!existing || finYearRank(row.fin_year) > finYearRank(existing.fin_year)) {
-      map.set(row.scheme, row);
-    }
-  }
-  return Array.from(map.values()).sort((a, b) =>
-    a.scheme.localeCompare(b.scheme),
-  );
 }
 
 /* generateMetadata and the page resolve the same district — cache() keeps the
@@ -77,10 +49,17 @@ export async function generateMetadata(props: DistrictPageProps) {
     : titleCasePlace(districtName);
   return {
     title: label,
-    description: `Government welfare scheme delivery and fund flow for ${label}, from official portals.`,
+    description: `Scheme shortfalls, how to complain, who is accountable, and fund-flow data for ${label} — from official government sources.`,
   };
 }
 
+/**
+ * The district page IS the accountability brief at district grain — the same
+ * sections the PIN page serves (issues, complaint kits, scheme data), with
+ * honestly-plural representatives: a district commonly spans 2-3 Lok Sabha
+ * constituencies, so naming "your MP" needs a PIN. Map clicks and PIN entry
+ * must never net different products.
+ */
 export default async function DistrictPage(props: DistrictPageProps) {
   const { districtName, state } = await resolveDistrict(props);
 
@@ -89,24 +68,19 @@ export default async function DistrictPage(props: DistrictPageProps) {
   }
 
   const districtLabel = formatDistrictLabel(districtName, state);
+  const [brief, schemes] = await Promise.all([
+    buildDistrictBrief(districtName, state),
+    getDistrictSchemeRows(districtName, state),
+  ]);
 
-  // Query money_flow VIEW directly. The state predicate matters: 14 district
-  // names exist in two states (AURANGABAD, BILASPUR, …) and must not merge.
-  const rows = await query<MoneyFlowRow>(
-    `SELECT scheme, state, district, fin_year,
-            allocated_lakhs, released_lakhs, expended_lakhs,
-            utilization_pct, units_target, units_completed,
-            units_label, source_url
-     FROM money_flow
-     WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)
-     ORDER BY scheme, fin_year DESC`,
-    [districtName, state],
+  const nothingChecked =
+    brief.diagnosis.length === 0 && brief.schemes_checked.length === 0;
+  const representatives = brief.mps.map(
+    (mp) => `MP ${displayPersonName(mp.mp_name)} (${mp.party})`,
   );
 
-  const schemes = latestPerScheme(rows);
-
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
       {/* Breadcrumb */}
       <nav
         className="text-sm mb-8"
@@ -138,27 +112,111 @@ export default async function DistrictPage(props: DistrictPageProps) {
         >
           {districtLabel}
         </h1>
-        <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+        <p className="text-sm mb-3" style={{ color: "var(--text-muted)" }}>
           {titleCasePlace(state)} · {schemes.length} scheme
           {schemes.length !== 1 ? "s" : ""} with data
         </p>
+
+        {brief.formerly_part_of && (
+          <p className="text-sm mb-3" style={{ color: "var(--text-muted)" }}>
+            Formerly part of{" "}
+            {titleCasePlace(brief.formerly_part_of.parent_district)} district,
+            reorganized {brief.formerly_part_of.split_year}
+          </p>
+        )}
+
+        {brief.mps.length > 0 && (
+          <div
+            className="flex flex-col gap-1 text-sm"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            {brief.mps.map((mp) => (
+              <span key={mp.constituency}>
+                <span className="font-medium">
+                  MP ({titleCasePlace(mp.constituency)}):
+                </span>{" "}
+                {displayPersonName(mp.mp_name)}{" "}
+                <span style={{ color: "var(--text-muted)" }}>({mp.party})</span>
+              </span>
+            ))}
+            <span className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+              {brief.ac_count > 0
+                ? `${brief.ac_count} assembly seats cover this district — `
+                : ""}
+              <Link
+                href="/"
+                className="underline underline-offset-2"
+                style={{ color: "var(--accent)" }}
+              >
+                enter your PIN
+              </Link>{" "}
+              for your exact MP and MLA.
+            </span>
+          </div>
+        )}
       </header>
 
-      {/* Scheme cards */}
-      {schemes.length > 0 ? (
-        <div className="grid gap-5 sm:grid-cols-2">
-          {schemes.map((s, i) => (
+      {/* Issues Found — same section the PIN page serves */}
+      <section className="mb-12">
+        <SectionHeader title="Issues Found" count={brief.diagnosis.length} />
+        {brief.diagnosis.length === 0 ? (
+          nothingChecked ? (
             <div
-              key={s.scheme}
-              className={`animate-fade-in-up stagger-${Math.min(i + 1, 10)}`}
+              className="rounded-xl px-5 py-5"
+              style={{
+                background: "var(--surface)",
+                border: "1px solid var(--border-subtle)",
+              }}
             >
-              <SchemeRow data={s} />
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                The schemes we can check for shortfalls at district level
+                (MGNREGA, PMAY-G, JJM, PMGSY) don&apos;t report district data
+                for {districtLabel}. That&apos;s common in urban districts —
+                the scheme data below is what we track here.
+              </p>
             </div>
-          ))}
-        </div>
-      ) : (
+          ) : (
+            <div
+              className="rounded-xl px-5 py-5 text-sm font-medium"
+              style={{
+                background: "oklch(0.97 0.02 145)",
+                color: "oklch(0.35 0.14 145)",
+                border: "1px solid oklch(0.88 0.06 145)",
+              }}
+            >
+              No shortfalls flagged in the data we can check for this district.
+            </div>
+          )
+        ) : (
+          <div className="flex flex-col gap-4">
+            {brief.diagnosis.map((item, i) => (
+              <div
+                key={i}
+                className={`animate-fade-in-up stagger-${Math.min(i + 1, 10)}`}
+              >
+                <DiagnosisCard item={item} />
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* How to Complain — same kits the PIN page serves */}
+      <ComplaintKitSection
+        kits={brief.complaint_kits}
+        universal={brief.universal_channels}
+        representatives={representatives}
+      />
+
+      {/* Scheme evidence cards */}
+      <SchemeDataSection schemes={schemes} />
+
+      {schemes.length === 0 && (
         <div
-          className="text-center py-20 rounded-xl"
+          className="text-center py-16 rounded-xl mb-12"
           style={{
             background: "var(--surface)",
             border: "1px solid var(--border-subtle)",
@@ -179,7 +237,7 @@ export default async function DistrictPage(props: DistrictPageProps) {
 
       {/* Footer note */}
       <footer
-        className="mt-12 pt-6"
+        className="mt-4 pt-6"
         style={{ borderTop: "1px solid var(--border-subtle)" }}
       >
         <p className="text-xs" style={{ color: "var(--text-muted)" }}>

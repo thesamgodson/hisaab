@@ -24,6 +24,12 @@ const DELHI_DIRECTIONAL_DISTRICTS = new Set([
   "WEST",
 ]);
 
+/** Rosters mix "ABHAY KUMAR SINHA" with "Romit Kumar" — calm the shouty ones,
+ *  leave already-cased names untouched. */
+export function displayPersonName(name: string): string {
+  return name === name.toUpperCase() ? titleCasePlace(name) : name;
+}
+
 /** "WEST"/"DELHI" -> "West Delhi"; "GAYAJI"/"BIHAR" -> "Gayaji, Bihar". */
 export function formatDistrictLabel(district: string, state: string): string {
   const d = district.trim().toUpperCase();

@@ -299,6 +299,87 @@ async function buildComplaintKits(
   return { kits, universal };
 }
 
+async function getLineage(district: string, state: string) {
+  return queryOne<{ parent_district: string; split_year: number }>(
+    `SELECT parent_district, split_year FROM district_lineage
+     WHERE UPPER(new_district) = UPPER(?) AND UPPER(state) = UPPER(?)`,
+    [district, state],
+  );
+}
+
+/** All MPs whose constituencies overlap this district — the honest plural
+ *  answer at district grain (a district commonly spans 2-3 PCs). */
+async function findDistrictMps(
+  district: string,
+  state: string,
+): Promise<MPInfo[]> {
+  const states = candidateStates(state);
+  const slots = states.map(() => "?").join(", ");
+  return query<MPInfo>(
+    `SELECT DISTINCT m.mp_name, m.party, m.constituency, m.state,
+            m.elected_year, m.source_url
+     FROM constituency_district cd
+     JOIN mp_info m
+       ON ${pcNameNorm("m.constituency")} = ${pcNameNorm("cd.constituency")}
+      AND UPPER(m.state) IN (${slots})
+     WHERE UPPER(cd.district) = UPPER(?) AND UPPER(cd.state) IN (${slots})
+     ORDER BY m.constituency`,
+    [...states, district, ...states],
+  );
+}
+
+/** District-grain brief: what the /district page renders, and what the
+ *  PIN-grain brief specializes. Same sections, honest plural representatives. */
+export interface DistrictBriefResponse {
+  district: string;
+  state: string;
+  formerly_part_of: { parent_district: string; split_year: number } | null;
+  mps: MPInfo[];
+  /** Assembly seats overlapping this district — a PIN pins down which one. */
+  ac_count: number;
+  diagnosis: DiagnosisItem[];
+  schemes_checked: string[];
+  complaint_kits: ComplaintKit[];
+  universal_channels: GrievanceChannel[];
+  generated_at: string;
+}
+
+export async function buildDistrictBrief(
+  district: string,
+  state: string,
+): Promise<DistrictBriefResponse> {
+  const finYear = await getLatestFinYear();
+  const [lineage, mps, acCount, diagnosis] = await Promise.all([
+    getLineage(district, state),
+    findDistrictMps(district, state),
+    queryOne<{ n: number }>(
+      `SELECT COUNT(DISTINCT ac_name) AS n FROM ac_district
+       WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)`,
+      [district, state],
+    ),
+    buildDiagnosis(district, state, finYear),
+  ]);
+  const { kits, universal } = await buildComplaintKits(
+    district,
+    state,
+    [...new Set(diagnosis.items.map((d) => d.scheme))],
+  );
+  return {
+    district,
+    state,
+    formerly_part_of: lineage
+      ? { parent_district: lineage.parent_district, split_year: lineage.split_year }
+      : null,
+    mps,
+    ac_count: acCount?.n ?? 0,
+    diagnosis: diagnosis.items,
+    schemes_checked: diagnosis.schemesChecked,
+    complaint_kits: kits,
+    universal_channels: universal,
+    generated_at: new Date().toISOString(),
+  };
+}
+
 /** Build the full action brief for a PIN, or null when the PIN is unknown. */
 export async function buildActionBrief(
   pinCode: string,
@@ -318,11 +399,7 @@ export async function buildActionBrief(
   const finYear = await getLatestFinYear();
 
   const [lineage, mpRow, mlaRow, diagnosis] = await Promise.all([
-    queryOne<{ parent_district: string; split_year: number }>(
-      `SELECT parent_district, split_year FROM district_lineage
-       WHERE UPPER(new_district) = UPPER(?) AND UPPER(state) = UPPER(?)`,
-      [district, state],
-    ),
+    getLineage(district, state),
     queryOne<{
       mp_name: string;
       party: string;
