@@ -13,13 +13,18 @@
 
 import { getLatestFinYear } from "@/lib/fin-year";
 import { query, queryOne } from "@/lib/db";
-import { candidateStates, pcNameNorm } from "@/lib/vintage-states";
+import {
+  candidateStates,
+  pcNameNorm,
+  stripReservation,
+} from "@/lib/vintage-states";
 import type {
   ActionBriefResponse,
   ActionItem,
   ActionStep,
   DiagnosisItem,
   GrievanceChannel,
+  MPInfo,
   SchemeDataEntry,
 } from "@/lib/action-types";
 
@@ -44,12 +49,21 @@ const SCHEME_ACTIONS: Record<string, ActionStep[]> = {
   ],
 };
 
+/** Shortfall findings plus the schemes we actually had district data to check. */
+interface Diagnosis {
+  items: DiagnosisItem[];
+  schemesChecked: string[];
+}
+
 async function buildDiagnosis(
   district: string,
   state: string,
   finYear: string,
-): Promise<DiagnosisItem[]> {
+): Promise<Diagnosis> {
   const items: DiagnosisItem[] = [];
+  // An empty diagnosis means "nothing wrong" only if something was looked at;
+  // urban districts report none of these at district level.
+  const checked = new Set<string>();
 
   // MGNREGA misappropriation
   const misapprop = await queryOne<Record<string, unknown>>(
@@ -57,6 +71,7 @@ async function buildDiagnosis(
     [district, state, finYear],
   );
   if (misapprop) {
+    checked.add("MGNREGA");
     const recoveryRate = Number(misapprop.recovery_rate_pct ?? 100);
     if (recoveryRate < 50) {
       items.push({
@@ -76,6 +91,7 @@ async function buildDiagnosis(
     [district, state, finYear],
   );
   if (financial) {
+    checked.add("MGNREGA");
     const totalAvail = Number(financial.total_availability ?? 0);
     const totalExpend = Number(financial.cumulative_expenditure ?? 0);
     const utilizationPct = Number(
@@ -100,6 +116,7 @@ async function buildDiagnosis(
     [district, state, finYear],
   );
   if (pmayg) {
+    checked.add("PMAY-G");
     const sanctioned = Number(pmayg.houses_sanctioned ?? 0);
     const completed = Number(pmayg.houses_completed ?? 0);
     const pct = sanctioned > 0 ? (completed / sanctioned) * 100 : 100;
@@ -121,6 +138,7 @@ async function buildDiagnosis(
     [district, state, finYear],
   );
   if (jjm) {
+    checked.add("JJM");
     const coveragePct = Number(jjm.coverage_pct ?? 100);
     if (coveragePct < 50) {
       items.push({
@@ -140,6 +158,7 @@ async function buildDiagnosis(
     [district, state],
   );
   if (pmgsy) {
+    checked.add("PMGSY");
     const sanctioned = Number(pmgsy.length_sanctioned_km ?? 0);
     const completed = Number(pmgsy.length_completed_km ?? 0);
     const pct = sanctioned > 0 ? (completed / sanctioned) * 100 : 100;
@@ -158,7 +177,33 @@ async function buildDiagnosis(
   items.sort(
     (a, b) => (SEVERITY_ORDER[a.severity] ?? 9) - (SEVERITY_ORDER[b.severity] ?? 9),
   );
-  return items.slice(0, 5);
+  return { items: items.slice(0, 5), schemesChecked: [...checked] };
+}
+
+/**
+ * Fallback MP lookup for PINs whose district has no constituency_district row
+ * (all of Delhi, among others) but does have a spatial PIN→PC match. Same join
+ * discipline as /api/v1/pin/[pin_code]: reservation suffixes normalized on both
+ * sides, state matched against its vintage-equivalent labels.
+ */
+async function findMpByPin(pinCode: string): Promise<MPInfo | null> {
+  const pinPc = await queryOne<{ constituency: string; state: string }>(
+    `SELECT constituency, state FROM pin_constituency WHERE pin_code = ?`,
+    [pinCode],
+  );
+  if (!pinPc) return null;
+
+  for (const st of candidateStates(pinPc.state)) {
+    const mp = await queryOne<MPInfo>(
+      `SELECT mp_name, party, constituency, state, elected_year, source_url
+       FROM mp_info
+       WHERE ${pcNameNorm("constituency")} = ?
+         AND UPPER(state) = ?`,
+      [stripReservation(pinPc.constituency), st],
+    );
+    if (mp) return mp;
+  }
+  return null;
 }
 
 /** Build the full action brief for a PIN, or null when the PIN is unknown. */
@@ -225,7 +270,9 @@ export async function buildActionBrief(
     buildDiagnosis(district, state, finYear),
   ]);
 
-  const flaggedSchemes = [...new Set(diagnosis.map((d) => d.scheme))];
+  const mp = mpRow ?? (await findMpByPin(pinCode));
+
+  const flaggedSchemes = [...new Set(diagnosis.items.map((d) => d.scheme))];
   let grievanceChannels: GrievanceChannel[] = [];
   if (flaggedSchemes.length > 0) {
     const placeholders = flaggedSchemes.map(() => "?").join(",");
@@ -242,7 +289,7 @@ export async function buildActionBrief(
     .map((scheme) => ({ scheme, steps: SCHEME_ACTIONS[scheme] }));
 
   const schemeData: Record<string, SchemeDataEntry> = {};
-  for (const item of diagnosis) {
+  for (const item of diagnosis.items) {
     if (!schemeData[item.scheme]) {
       schemeData[item.scheme] = {
         severity: item.severity,
@@ -261,9 +308,10 @@ export async function buildActionBrief(
     formerly_part_of: lineage
       ? { parent_district: lineage.parent_district, split_year: lineage.split_year }
       : null,
-    mp: mpRow ?? null,
+    mp: mp ?? null,
     mla: mlaRow ?? null,
-    diagnosis,
+    diagnosis: diagnosis.items,
+    schemes_checked: diagnosis.schemesChecked,
     actions,
     grievance_channels: grievanceChannels,
     scheme_data: schemeData,

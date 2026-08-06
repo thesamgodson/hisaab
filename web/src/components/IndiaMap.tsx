@@ -297,6 +297,7 @@ const MAP_HEIGHT = 720;
 
 export default function IndiaMap() {
   const router = useRouter();
+  const rootRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [districts, setDistricts] = useState<DistrictFeature[] | null>(null);
@@ -336,11 +337,27 @@ export default function IndiaMap() {
     }
   }, []);
 
+  // The boundaries file is 778KB and the scores fetch follows it; on phones the
+  // map sits well below the fold, so both must wait until it is nearly in view
+  // rather than compete with the hero. The skeleton covers the gap.
   useEffect(() => {
-    // All setState calls inside loadData happen after awaits (microtasks),
-    // never synchronously in the effect body.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    void loadData();
+    if (typeof IntersectionObserver === "undefined") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      void loadData();
+      return;
+    }
+    const el = rootRef.current;
+    if (!el) return;
+
+    // No rootMargin: the hero is ~600px tall, so any prefetch margin puts the
+    // map "in view" on load for every portrait phone and the defer never fires.
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      observer.disconnect();
+      void loadData();
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
   }, [loadData]);
 
   // ---- Projection ----
@@ -379,6 +396,13 @@ export default function IndiaMap() {
       };
     });
   }, [districts, scoreMap, pathGenerator]);
+
+  // Disputed-territory features carry no district name and are never scored,
+  // so they must not inflate the denominator the header reports.
+  const disputedCount = useMemo(
+    () => districts?.filter((feat) => !feat.district).length ?? 0,
+    [districts],
+  );
 
   // ---- Event handlers ----
 
@@ -419,7 +443,7 @@ export default function IndiaMap() {
 
   if (loading) {
     return (
-      <div className="w-full max-w-2xl mx-auto">
+      <div ref={rootRef} className="w-full max-w-2xl mx-auto">
         <div className="rounded-2xl border shadow-sm overflow-hidden px-4 pt-4 pb-2"
              style={{
                borderColor: "oklch(0.94 0.005 260)",
@@ -438,7 +462,7 @@ export default function IndiaMap() {
 
   if (error || !districts) {
     return (
-      <div className="w-full max-w-2xl mx-auto">
+      <div ref={rootRef} className="w-full max-w-2xl mx-auto">
         <div className="rounded-2xl border shadow-sm overflow-hidden px-4 pt-4 pb-2"
              style={{
                borderColor: "oklch(0.94 0.005 260)",
@@ -451,9 +475,13 @@ export default function IndiaMap() {
   }
 
   const scoredCount = [...scoreMap.values()].filter((s) => s.score != null).length;
+  const districtCount = districts.length - disputedCount;
+  const hoveredPath = hoveredKey
+    ? districtPaths.find((dp) => dp.key === hoveredKey)
+    : undefined;
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div ref={rootRef} className="w-full max-w-2xl mx-auto">
       <div
         className="rounded-2xl border shadow-sm overflow-hidden px-4 pt-4 pb-2"
         style={{
@@ -469,8 +497,8 @@ export default function IndiaMap() {
           </h2>
           <span className="text-xs" style={{ color: "oklch(0.55 0.01 262)" }}>
             {scoredCount > 0
-              ? `${scoredCount} of ${districts.length - 28} districts scored`
-              : `${districts.length - 28} districts`}
+              ? `${scoredCount} of ${districtCount} districts scored`
+              : `${districtCount} districts`}
           </span>
         </div>
 
@@ -501,9 +529,9 @@ export default function IndiaMap() {
             ))}
 
             {/* Hover stroke overlay -- separate so it renders on top */}
-            {hoveredKey && districtPaths.find((dp) => dp.key === hoveredKey) && (
+            {hoveredPath && (
               <path
-                d={districtPaths.find((dp) => dp.key === hoveredKey)!.d}
+                d={hoveredPath.d}
                 fill="none"
                 stroke={HOVER_STROKE}
                 strokeWidth={1.5}

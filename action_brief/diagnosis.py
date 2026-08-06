@@ -288,6 +288,40 @@ def _check_mgnrega_complaints(
     return []
 
 
+# Each diagnosable scheme and the district tables its checkers read. An empty
+# diagnosis means "nothing wrong" only if at least one of these had a row —
+# urban districts report none of them. Twin of the schemesChecked set in
+# web/src/lib/action-brief.ts.
+_DIAGNOSABLE_TABLES: dict[str, tuple[str, ...]] = {
+    "MGNREGA": ("misappropriation", "issues_reported"),
+    "PMAY-G": ("pmayg_district",),
+    "JJM": ("jjm_district",),
+    "PMGSY": ("pmgsy_district",),
+    "PM POSHAN": ("pmposhan_district",),
+    "PDS/NFSA": ("nfsa_district",),
+    "NSAP": ("nsap_district",),
+}
+
+
+def schemes_with_district_data(
+    conn: sqlite3.Connection, district: str, state: str
+) -> list[str]:
+    """Return the diagnosable schemes that report any row for this district."""
+    found: list[str] = []
+    for scheme, tables in _DIAGNOSABLE_TABLES.items():
+        for table in tables:
+            row = conn.execute(
+                f"""SELECT 1 FROM {table}
+                   WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?)
+                   LIMIT 1""",
+                (district, state),
+            ).fetchone()
+            if row:
+                found.append(scheme)
+                break
+    return found
+
+
 def build_diagnosis(
     conn: sqlite3.Connection, district: str, state: str
 ) -> list[DiagnosisItem]:

@@ -1,45 +1,33 @@
-import { notFound } from "next/navigation";
+import { cache } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { buildActionBrief } from "@/lib/action-brief";
-import type { DiagnosisItem } from "@/lib/action-types";
-import SourceLink from "@/components/SourceLink";
+import { formatDistrictLabel, titleCasePlace } from "@/lib/format-place";
+import DiagnosisCard from "@/components/DiagnosisCard";
+import PinNotice from "@/components/PinNotice";
+import SectionHeader from "@/components/SectionHeader";
 
-/* ---------- severity styling ---------- */
-
-const SEVERITY_BG: Record<DiagnosisItem["severity"], string> = {
-  high: "oklch(0.97 0.02 25)",
-  medium: "oklch(0.97 0.02 85)",
-  low: "oklch(0.97 0.02 145)",
-};
-
-const SEVERITY_BORDER: Record<DiagnosisItem["severity"], string> = {
-  high: "oklch(0.80 0.12 25)",
-  medium: "oklch(0.82 0.10 85)",
-  low: "oklch(0.82 0.10 145)",
-};
-
-const SEVERITY_TEXT: Record<DiagnosisItem["severity"], string> = {
-  high: "oklch(0.40 0.18 25)",
-  medium: "oklch(0.40 0.14 85)",
-  low: "oklch(0.38 0.14 145)",
-};
-
-const SEVERITY_ACCENT: Record<DiagnosisItem["severity"], string> = {
-  high: "oklch(0.55 0.20 25)",
-  medium: "oklch(0.60 0.16 85)",
-  low: "oklch(0.55 0.16 145)",
-};
-
-const SEVERITY_LABEL: Record<DiagnosisItem["severity"], string> = {
-  high: "High severity",
-  medium: "Medium",
-  low: "Low",
-};
+/* generateMetadata and the page both need the brief — cache() collapses them
+   into a single build per request. */
+const getBrief = cache(buildActionBrief);
 
 /* ---------- page ---------- */
 
 interface PageProps {
   params: Promise<{ pin: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { pin } = await params;
+  if (!/^\d{6}$/.test(pin)) return { title: "Invalid PIN code" };
+
+  const data = await getBrief(pin);
+  if (!data) return { title: `PIN ${pin}` };
+
+  return {
+    title: `PIN ${pin} · ${formatDistrictLabel(data.district, data.state)}`,
+    description: `Welfare scheme shortfalls, who is accountable, and what you can do about them for PIN ${pin}.`,
+  };
 }
 
 export default async function ActionPage({ params }: PageProps) {
@@ -48,32 +36,24 @@ export default async function ActionPage({ params }: PageProps) {
   /* Validate PIN format */
   if (!/^\d{6}$/.test(pin)) {
     return (
-      <main className="max-w-3xl mx-auto px-4 py-20 text-center">
-        <h1
-          className="text-2xl font-bold mb-3"
-          style={{ color: "var(--text-primary)" }}
-        >
-          Invalid PIN Code
-        </h1>
-        <p style={{ color: "var(--text-secondary)" }}>
-          &ldquo;{pin}&rdquo; is not a valid 6-digit PIN code.
-        </p>
-        <Link
-          href="/"
-          className="inline-block mt-6 px-5 py-2.5 rounded-xl text-sm font-medium text-white transition-opacity duration-150 hover:opacity-90"
-          style={{ background: "var(--accent)" }}
-        >
-          Go back home
-        </Link>
-      </main>
+      <PinNotice heading="Invalid PIN Code">
+        &ldquo;{pin}&rdquo; is not a valid 6-digit PIN code.
+      </PinNotice>
     );
   }
 
   /* Build the brief in-process — same code path the public API serves */
-  const data = await buildActionBrief(pin);
+  const data = await getBrief(pin);
 
+  /* A well-formed PIN we don't serve is a typo, not a missing page — the 404
+     shell ("does not exist or has been moved") tells the user nothing. */
   if (!data) {
-    notFound();
+    return (
+      <PinNotice heading={`PIN ${pin} not found`}>
+        This PIN isn&apos;t in the postal directory we serve. Double-check the
+        code, or try a nearby PIN.
+      </PinNotice>
+    );
   }
 
   const generatedDate = new Date(data.generated_at).toLocaleDateString(
@@ -82,9 +62,15 @@ export default async function ActionPage({ params }: PageProps) {
   );
 
   const districtSlug = data.district.toLowerCase().replace(/\s+/g, "-");
+  const districtHref = `/district/${districtSlug}?state=${encodeURIComponent(data.state)}`;
+  const districtLabel = formatDistrictLabel(data.district, data.state);
+  // Nothing flagged AND nothing checked: the honest answer is "no district
+  // data", not a green all-clear.
+  const nothingChecked =
+    data.diagnosis.length === 0 && data.schemes_checked.length === 0;
 
   return (
-    <main className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
       {/* ---- Section 1: Your Area ---- */}
       <section className="mb-12 animate-fade-in">
         <nav
@@ -113,12 +99,12 @@ export default async function ActionPage({ params }: PageProps) {
           className="text-2xl sm:text-3xl font-bold tracking-tight mb-1"
           style={{ color: "var(--text-primary)" }}
         >
-          {titleCase(data.district)}, {titleCase(data.state)}
+          {districtLabel}
         </h1>
 
         {data.formerly_part_of && (
           <p className="text-sm mb-3" style={{ color: "var(--text-muted)" }}>
-            Formerly part of {titleCase(data.formerly_part_of.parent_district)} district,
+            Formerly part of {titleCasePlace(data.formerly_part_of.parent_district)} district,
             reorganized {data.formerly_part_of.split_year}
           </p>
         )}
@@ -129,7 +115,7 @@ export default async function ActionPage({ params }: PageProps) {
         >
           {data.mp && (
             <span>
-              <span className="font-medium">MP:</span> {data.mp.mp_name}{" "}
+              <span className="font-medium">MP:</span> {displayName(data.mp.mp_name)}{" "}
               <span style={{ color: "var(--text-muted)" }}>
                 ({data.mp.party})
               </span>
@@ -137,7 +123,7 @@ export default async function ActionPage({ params }: PageProps) {
           )}
           {data.mla && (
             <span>
-              <span className="font-medium">MLA:</span> {data.mla.mla_name}{" "}
+              <span className="font-medium">MLA:</span> {displayName(data.mla.mla_name)}{" "}
               <span style={{ color: "var(--text-muted)" }}>
                 ({data.mla.party}, {data.mla.ac_name})
               </span>
@@ -158,16 +144,44 @@ export default async function ActionPage({ params }: PageProps) {
         />
 
         {data.diagnosis.length === 0 ? (
-          <div
-            className="rounded-xl px-5 py-5 text-sm font-medium"
-            style={{
-              background: "oklch(0.97 0.02 145)",
-              color: "oklch(0.35 0.14 145)",
-              border: "1px solid oklch(0.88 0.06 145)",
-            }}
-          >
-            No major issues flagged for your area.
-          </div>
+          nothingChecked ? (
+            <div
+              className="rounded-xl px-5 py-5"
+              style={{
+                background: "var(--surface)",
+                border: "1px solid var(--border-subtle)",
+              }}
+            >
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                The schemes we can check for shortfalls at district level
+                (MGNREGA, PMAY-G, JJM, PMGSY) don&apos;t report district data for{" "}
+                {districtLabel}. That&apos;s common in urban districts.
+              </p>
+              <Link
+                href={districtHref}
+                className="inline-flex items-center gap-1.5 mt-4 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-opacity duration-150 hover:opacity-90"
+                style={{ background: "var(--accent)" }}
+              >
+                View full district data for {titleCasePlace(data.district)}
+                <ArrowRightIcon />
+              </Link>
+            </div>
+          ) : (
+            <div
+              className="rounded-xl px-5 py-5 text-sm font-medium"
+              style={{
+                background: "oklch(0.97 0.02 145)",
+                color: "oklch(0.35 0.14 145)",
+                border: "1px solid oklch(0.88 0.06 145)",
+              }}
+            >
+              No shortfalls flagged in {formatSchemeList(data.schemes_checked)}{" "}
+              data for your area.
+            </div>
+          )
         ) : (
           <div className="flex flex-col gap-4">
             {data.diagnosis.map((item, i) => (
@@ -321,123 +335,56 @@ export default async function ActionPage({ params }: PageProps) {
         className="pt-8 mt-4 flex flex-col gap-3"
         style={{ borderTop: "1px solid var(--border-subtle)" }}
       >
-        <Link
-          href={`/district/${districtSlug}?state=${encodeURIComponent(data.state)}`}
-          className="inline-flex items-center gap-1.5 text-sm font-medium transition-opacity duration-150 hover:opacity-80"
-          style={{ color: "var(--accent)" }}
-        >
-          View full district data for {titleCase(data.district)}
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
+        {/* Promoted into the diagnosis section when it is the primary action. */}
+        {!nothingChecked && (
+          <Link
+            href={districtHref}
+            className="inline-flex items-center gap-1.5 text-sm font-medium transition-opacity duration-150 hover:opacity-80"
+            style={{ color: "var(--accent)" }}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </Link>
+            View full district data for {titleCasePlace(data.district)}
+            <ArrowRightIcon />
+          </Link>
+        )}
         <p className="text-xs" style={{ color: "var(--text-muted)" }}>
           Data from official government portals. Source links provided per
           finding.
         </p>
       </footer>
-    </main>
+    </div>
   );
 }
 
 /* ---------- sub-components ---------- */
 
-function SectionHeader({ title, count }: { title: string; count?: number }) {
+function ArrowRightIcon() {
   return (
-    <div className="flex items-center gap-3 mb-5">
-      <h2
-        className="text-lg font-semibold"
-        style={{ color: "var(--text-primary)" }}
-      >
-        {title}
-      </h2>
-      {count != null && count > 0 && (
-        <span
-          className="inline-flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-semibold"
-          style={{
-            background: "var(--accent-light)",
-            color: "var(--accent)",
-          }}
-        >
-          {count}
-        </span>
-      )}
-      <div
-        className="flex-1 h-px"
-        style={{ background: "var(--border-subtle)" }}
-      />
-    </div>
-  );
-}
-
-function DiagnosisCard({ item }: { item: DiagnosisItem }) {
-  return (
-    <div
-      className="rounded-xl overflow-hidden"
-      style={{
-        background: SEVERITY_BG[item.severity],
-        border: `1px solid ${SEVERITY_BORDER[item.severity]}`,
-      }}
+    <svg
+      className="w-4 h-4"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
     >
-      {/* Severity accent bar */}
-      <div
-        style={{
-          height: "3px",
-          background: SEVERITY_ACCENT[item.severity],
-        }}
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M9 5l7 7-7 7"
       />
-
-      <div className="px-5 py-4">
-        <div className="flex items-center justify-between gap-3 mb-2">
-          <p
-            className="text-sm font-semibold"
-            style={{ color: SEVERITY_TEXT[item.severity] }}
-          >
-            {item.scheme}
-          </p>
-          <span
-            className="inline-block px-2.5 py-0.5 rounded-md text-[11px] font-semibold uppercase tracking-wide text-white"
-            style={{ background: SEVERITY_ACCENT[item.severity] }}
-          >
-            {SEVERITY_LABEL[item.severity]}
-          </span>
-        </div>
-
-        <p
-          className="text-[15px] font-medium mb-1.5 leading-snug"
-          style={{ color: "var(--text-primary)" }}
-        >
-          {item.summary}
-        </p>
-
-        <p
-          className="text-sm leading-relaxed mb-3"
-          style={{ color: "var(--text-secondary)" }}
-        >
-          {item.detail}
-        </p>
-
-        {item.source_url && <SourceLink url={item.source_url} />}
-      </div>
-    </div>
+    </svg>
   );
 }
 
 /* ---------- util ---------- */
 
-function titleCase(s: string): string {
-  return s
-    .toLowerCase()
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+const SCHEME_LIST_FORMAT = new Intl.ListFormat("en", { type: "conjunction" });
+
+function formatSchemeList(schemes: string[]): string {
+  return SCHEME_LIST_FORMAT.format(schemes);
+}
+
+/** Rosters mix "ABHAY KUMAR SINHA" with "Romit Kumar" — calm the shouty ones. */
+function displayName(name: string): string {
+  return name === name.toUpperCase() ? titleCasePlace(name) : name;
 }

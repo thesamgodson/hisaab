@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8 animate-pulse space-y-6">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 animate-pulse space-y-6">
       <div
         className="h-10 w-64 rounded-lg shimmer"
         style={{ background: "var(--surface-tinted)" }}
@@ -22,6 +22,6 @@ export default function Loading() {
           />
         ))}
       </div>
-    </main>
+    </div>
   );
 }

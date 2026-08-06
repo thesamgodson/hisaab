@@ -1,7 +1,14 @@
+import { cache } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { query, resolveState } from "@/lib/db";
+import { formatDistrictLabel, titleCasePlace } from "@/lib/format-place";
 import SchemeRow, { type SchemeData } from "@/components/SchemeRow";
+
+interface DistrictPageProps {
+  params: Promise<{ name: string }>;
+  searchParams: Promise<{ state?: string }>;
+}
 
 interface MoneyFlowRow {
   scheme: string;
@@ -40,35 +47,48 @@ function latestPerScheme(rows: MoneyFlowRow[]): SchemeData[] {
   );
 }
 
-export async function generateMetadata(props: {
-  params: Promise<{ name: string }>;
-}) {
-  const { name } = await props.params;
-  const district = decodeURIComponent(name).toUpperCase().replace(/-/g, " ");
-  return {
-    title: `${district} — Hisaab`,
-    description: `Government welfare scheme delivery and fund flow for ${district}, from official portals.`,
-  };
-}
+/* generateMetadata and the page resolve the same district — cache() keeps the
+   state lookup to a single query per request. */
+const getState = cache(resolveState);
 
-export default async function DistrictPage(props: {
-  params: Promise<{ name: string }>;
-  searchParams: Promise<{ state?: string }>;
-}) {
-  const { name: rawName } = await props.params;
-  const searchParams = await props.searchParams;
+async function resolveDistrict(props: DistrictPageProps) {
+  const [{ name: rawName }, searchParams] = await Promise.all([
+    props.params,
+    props.searchParams,
+  ]);
 
+  // Canonical form — this feeds the query, never the display.
   const districtName = decodeURIComponent(rawName)
     .toUpperCase()
     .replace(/-/g, " ");
 
   // Resolve state from query param or DB lookup
   const stateFromParam = searchParams.state?.toUpperCase().replace(/-/g, " ") ?? null;
-  const state = stateFromParam ?? (await resolveState(districtName));
+  const state = stateFromParam ?? (await getState(districtName));
+
+  return { districtName, state };
+}
+
+export async function generateMetadata(props: DistrictPageProps) {
+  const { districtName, state } = await resolveDistrict(props);
+  // The root layout's title template appends "| Hisaab".
+  const label = state
+    ? formatDistrictLabel(districtName, state)
+    : titleCasePlace(districtName);
+  return {
+    title: label,
+    description: `Government welfare scheme delivery and fund flow for ${label}, from official portals.`,
+  };
+}
+
+export default async function DistrictPage(props: DistrictPageProps) {
+  const { districtName, state } = await resolveDistrict(props);
 
   if (!state) {
     notFound();
   }
+
+  const districtLabel = formatDistrictLabel(districtName, state);
 
   // Query money_flow VIEW directly. The state predicate matters: 14 district
   // names exist in two states (AURANGABAD, BILASPUR, …) and must not merge.
@@ -105,7 +125,7 @@ export default async function DistrictPage(props: {
           </li>
           <li aria-hidden="true" style={{ color: "var(--border)" }}>/</li>
           <li className="font-medium" style={{ color: "var(--text-primary)" }}>
-            {districtName}
+            {districtLabel}
           </li>
         </ol>
       </nav>
@@ -116,10 +136,11 @@ export default async function DistrictPage(props: {
           className="text-2xl sm:text-3xl font-bold tracking-tight mb-1"
           style={{ color: "var(--text-primary)" }}
         >
-          {districtName}
+          {districtLabel}
         </h1>
         <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-          {state} · {schemes.length} scheme{schemes.length !== 1 ? "s" : ""} with data
+          {titleCasePlace(state)} · {schemes.length} scheme
+          {schemes.length !== 1 ? "s" : ""} with data
         </p>
       </header>
 

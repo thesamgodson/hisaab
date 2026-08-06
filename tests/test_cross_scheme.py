@@ -348,6 +348,136 @@ class TestMoneyFlowView:
 
 
 # ---------------------------------------------------------------------------
+# Honest-percentage guarantees in the VIEWs
+#
+# A missing denominator must surface as NULL ("not reported"), never as 0 —
+# a fabricated 0% renders as a real "Poor" badge on the public pages.
+# ---------------------------------------------------------------------------
+
+
+class TestViewsDoNotFabricatePercentages:
+    def test_pmkisan_no_registered_yields_null_utilization(self, db):
+        db.execute(
+            """INSERT INTO pmkisan_district
+            (district, state, state_code, fin_year, beneficiaries_registered,
+             beneficiaries_paid, amount_paid_lakhs, installment, source_url, scraped_at)
+            VALUES ('ALPHA', 'TESTSTATE', 'TS', '2024-2025', 0, 551, 0, 'I', 'src', '2026-01-01')"""
+        )
+        db.commit()
+
+        for view in ("money_flow", "scheme_finance"):
+            row = db.execute(
+                f"SELECT utilization_pct FROM {view} WHERE scheme='PM Kisan'"
+            ).fetchone()
+            assert row["utilization_pct"] is None, view
+
+    def test_nsap_district_aggregated_to_one_row(self, db):
+        for scheme_type, eligible, paid, amount in [
+            ("IGNOAPS", 100, 90, 10.5),
+            ("IGNWPS", 50, 40, 5.25),
+            ("IGNDPS", 20, 10, 1.25),
+        ]:
+            db.execute(
+                """INSERT INTO nsap_district
+                (district, state, state_code, fin_year, scheme_type, beneficiaries_eligible,
+                 beneficiaries_paid, amount_paid_lakhs, source_url, scraped_at)
+                VALUES ('ALPHA', 'TESTSTATE', 'TS', '2024-2025', ?, ?, ?, ?, 'src', '2026-01-01')""",
+                (scheme_type, eligible, paid, amount),
+            )
+        db.commit()
+
+        rows = db.execute(
+            "SELECT * FROM money_flow WHERE scheme='NSAP' AND district='ALPHA'"
+        ).fetchall()
+        assert len(rows) == 1
+        row = rows[0]
+        assert row["released_lakhs"] == pytest.approx(17.0)
+        assert row["expended_lakhs"] == pytest.approx(17.0)
+        assert row["units_target"] == 170
+        assert row["units_completed"] == 140
+        assert row["utilization_pct"] == pytest.approx(140 * 100.0 / 170)
+        assert row["units_label"] == "pensioners"
+
+    def test_nsap_district_no_eligibility_yields_null_target(self, db):
+        db.execute(
+            """INSERT INTO nsap_district
+            (district, state, state_code, fin_year, scheme_type, beneficiaries_eligible,
+             beneficiaries_paid, amount_paid_lakhs, source_url, scraped_at)
+            VALUES ('ALPHA', 'TESTSTATE', 'TS', '2024-2025', 'IGNOAPS', 0, 16986, 466.812,
+                    'src', '2026-01-01')"""
+        )
+        db.commit()
+
+        row = db.execute(
+            "SELECT * FROM money_flow WHERE scheme='NSAP' AND district='ALPHA'"
+        ).fetchone()
+        assert row["units_target"] is None
+        assert row["utilization_pct"] is None
+        assert row["units_completed"] == 16986
+
+    def test_nfsa_district_utilization_is_null(self, db):
+        # offtake_pct is 0 for every district row in the real data — no
+        # district-level offtake is published at all.
+        db.execute(
+            """INSERT INTO nfsa_district
+            (district, state, state_code, fin_year, ration_cards_total, ration_cards_active,
+             allocation_mt, offtake_mt, offtake_pct, beneficiaries_total, source_url, scraped_at)
+            VALUES ('ALPHA', 'TESTSTATE', 'TS', '2024-2025', 5000, 5000, 0, 0, 0, 20000,
+                    'src', '2026-01-01')"""
+        )
+        db.commit()
+
+        row = db.execute(
+            "SELECT utilization_pct, units_target, units_completed FROM money_flow WHERE scheme='PDS/NFSA'"
+        ).fetchone()
+        assert row["utilization_pct"] is None
+        assert row["units_target"] is None
+        assert row["units_completed"] == 5000
+
+    def test_zero_denominator_branches_yield_null(self, db):
+        """PMGSY / PMAY-G / JJM / PM POSHAN / PMAY-G(state) never fabricate 0%."""
+        db.execute(
+            """INSERT INTO pmgsy_district
+            (district, state, state_code, fin_year, scheme, roads_sanctioned, roads_completed,
+             length_sanctioned_km, length_completed_km, habitations_covered,
+             value_of_projects_cr, expenditure_cr, source_url, scraped_at)
+            VALUES ('ZERO', 'TESTSTATE', '', '2024-2025', 'PMGSY-I', 0, 0, 0, 0, 0, 0, 0,
+                    'src', '2026-01-01')"""
+        )
+        db.execute(
+            """INSERT INTO pmayg_district
+            (district, state, state_code, fin_year, houses_sanctioned, houses_completed,
+             houses_occupied, funds_released_lakhs, funds_utilized_lakhs, completion_pct,
+             source_url, scraped_at)
+            VALUES ('ZERO', 'TESTSTATE', 'TS', '2024-2025', 0, 0, 0, 0, 0, 0, 'src', '2026-01-01')"""
+        )
+        db.execute(
+            """INSERT INTO jjm_district
+            (district, state, state_code, fin_year, total_households, households_with_tap,
+             tap_connections_provided, coverage_pct, funds_released_lakhs, funds_utilized_lakhs,
+             source_url, scraped_at)
+            VALUES ('ZERO', 'TESTSTATE', 'TS', '2024-2025', 0, 0, 0, 0, 0, 0, 'src', '2026-01-01')"""
+        )
+        db.execute(
+            """INSERT INTO pmposhan_finance (state, fin_year, allocated_lakhs, released_lakhs,
+             utilized_lakhs, source_url, scraped_at)
+            VALUES ('TESTSTATE', '2024-2025', 100, 0, 0, 'src', '2026-01-01')"""
+        )
+        db.execute(
+            """INSERT INTO pmayg_finance (state, fin_year, allocated_lakhs, released_lakhs,
+             utilized_lakhs, source_url, scraped_at)
+            VALUES ('TESTSTATE', '2024-2025', 100, 0, 0, 'src', '2026-01-01')"""
+        )
+        db.commit()
+
+        for view in ("money_flow", "scheme_finance"):
+            rows = db.execute(
+                f"SELECT scheme, utilization_pct FROM {view} WHERE utilization_pct = 0"
+            ).fetchall()
+            assert rows == [], f"{view} fabricated 0% for {[r['scheme'] for r in rows]}"
+
+
+# ---------------------------------------------------------------------------
 # Cross-scheme query tests
 # ---------------------------------------------------------------------------
 

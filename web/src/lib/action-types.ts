@@ -66,6 +66,9 @@ export interface ActionBriefResponse {
   mp: MPInfo | null;
   mla: MLAInfo | null;
   diagnosis: DiagnosisItem[];
+  /** Schemes that reported district data at all — an empty diagnosis with an
+   *  empty list means "nothing was checked", not "nothing is wrong". */
+  schemes_checked: string[];
   actions: ActionItem[];
   grievance_channels: GrievanceChannel[];
   scheme_data: Record<string, SchemeDataEntry>;

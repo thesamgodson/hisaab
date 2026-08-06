@@ -7,7 +7,7 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <main className="flex-1 flex flex-col items-center justify-center px-4 py-24 text-center">
+    <div className="flex-1 flex flex-col items-center justify-center px-4 py-24 text-center">
       <div
         className="w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center"
         style={{ background: "oklch(0.93 0.05 25)" }}
@@ -48,6 +48,6 @@ export default function Error({
       >
         Try again
       </button>
-    </main>
+    </div>
   );
 }

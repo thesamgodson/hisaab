@@ -1,7 +1,7 @@
 """Frozen dataclasses for the citizen action brief."""
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import date, datetime
 from typing import Any
 
@@ -51,3 +51,6 @@ class ActionBrief:
     actions: list[ActionItem]
     scheme_data: dict[str, Any]
     generated_at: datetime
+    # Schemes that reported district data at all — an empty diagnosis with an
+    # empty list means "nothing was checked", not "nothing is wrong".
+    schemes_checked: list[str] = field(default_factory=list)

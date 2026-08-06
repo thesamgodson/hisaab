@@ -38,14 +38,22 @@ async function candidatesWithin(lat: number, lng: number, windowDeg: number) {
 }
 
 export async function POST(request: NextRequest) {
-  let lat: number, lng: number;
+  let rawLat: unknown, rawLng: unknown;
   try {
     const body = await request.json();
-    lat = Number(body?.lat);
-    lng = Number(body?.lng);
+    rawLat = body?.lat;
+    rawLng = body?.lng;
   } catch {
     return Response.json({ error: "Body must be JSON: { lat, lng }" }, { status: 400 });
   }
+  // Type check before any coercion: Number(null), Number("") and Number([]) are
+  // all 0 — a valid-looking coordinate that sailed past this guard and got
+  // rejected downstream as "outside India" instead of as malformed input.
+  if (typeof rawLat !== "number" || typeof rawLng !== "number") {
+    return Response.json({ error: "lat and lng must be numbers" }, { status: 400 });
+  }
+  const lat = rawLat;
+  const lng = rawLng;
   if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
     return Response.json({ error: "lat and lng must be numbers" }, { status: 400 });
   }

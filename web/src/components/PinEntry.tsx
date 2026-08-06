@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
+import { formatDistrictLabel } from "@/lib/format-place";
 
 interface LocatedPin {
   pin_code: string;
@@ -25,7 +26,36 @@ const GEO_ERROR_COPY: Record<number, string> = {
 export default function PinEntry() {
   const [pin, setPin] = useState("");
   const [locate, setLocate] = useState<LocateState>({ status: "idle" });
+  const [mounted, setMounted] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const seeOwedRef = useRef<HTMLButtonElement>(null);
   const router = useRouter();
+
+  // navigator only exists on the client: reading it during render made the
+  // server tree (no button) disagree with the client tree (button), and React
+  // discarded the whole hydrated tree on every load.
+  useEffect(() => {
+    // The one legitimate set-state-in-effect: a mount flag is the only way to
+    // defer a client-only branch past hydration.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  // Desktop convenience only — an autofocused input on a touch device throws
+  // the software keyboard over the hero before the user has read it.
+  useEffect(() => {
+    if (window.matchMedia("(pointer: fine)").matches) {
+      inputRef.current?.focus();
+    }
+  }, []);
+
+  // The locate button unmounts the moment a match lands, dropping focus to
+  // <body> mid-flow; move it to the action the match card is asking for.
+  useEffect(() => {
+    if (locate.status === "matched") {
+      seeOwedRef.current?.focus();
+    }
+  }, [locate.status]);
 
   const handleChange = (value: string) => {
     const cleaned = value.replace(/\D/g, "").slice(0, 6);
@@ -36,6 +66,8 @@ export default function PinEntry() {
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    // Cmd/Ctrl/Alt chords are shortcuts, not input — blocking "v" here broke paste.
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
     if (
       !/^\d$/.test(e.key) &&
       !["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(e.key)
@@ -85,9 +117,6 @@ export default function PinEntry() {
     );
   };
 
-  const geolocationSupported =
-    typeof navigator !== "undefined" && "geolocation" in navigator;
-
   return (
     <div className="w-full max-w-xs mx-auto">
       <label htmlFor="pin-input" className="sr-only">
@@ -95,6 +124,7 @@ export default function PinEntry() {
       </label>
       <input
         id="pin-input"
+        ref={inputRef}
         type="text"
         inputMode="numeric"
         pattern="[0-9]{6}"
@@ -103,7 +133,6 @@ export default function PinEntry() {
         onChange={(e) => handleChange(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="110001"
-        autoFocus
         className="w-full text-center text-3xl font-mono tracking-[0.3em] py-4 px-4 rounded-xl transition-all duration-200 placeholder:text-lg placeholder:tracking-normal placeholder:opacity-30"
         style={{
           background: "var(--background)",
@@ -127,7 +156,7 @@ export default function PinEntry() {
         Auto-navigates when you type 6 digits
       </p>
 
-      {geolocationSupported && locate.status !== "matched" && (
+      {mounted && "geolocation" in navigator && locate.status !== "matched" && (
         <>
           <button
             type="button"
@@ -177,13 +206,14 @@ export default function PinEntry() {
             <p className="text-sm" style={{ color: "var(--text-primary)" }}>
               📍 PIN <span className="font-mono font-semibold">{locate.match.pin_code}</span>
               {" · "}
-              {locate.match.district}, {locate.match.state}
+              {formatDistrictLabel(locate.match.district, locate.match.state)}
             </p>
             <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
               nearest post office area, ~{locate.match.distance_km} km from you
             </p>
             <button
               type="button"
+              ref={seeOwedRef}
               onClick={() => router.push(`/action/${locate.match.pin_code}`)}
               className="w-full mt-3 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-200"
               style={{
@@ -195,7 +225,10 @@ export default function PinEntry() {
             </button>
             <button
               type="button"
-              onClick={() => setLocate({ status: "idle" })}
+              onClick={() => {
+                setLocate({ status: "idle" });
+                inputRef.current?.focus();
+              }}
               className="w-full mt-2 py-2 text-xs"
               style={{ color: "var(--text-muted)" }}
             >

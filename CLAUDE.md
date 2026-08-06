@@ -106,6 +106,7 @@ GET /api/v1/brief/{district} | /stats | /red-flags?state= | /constituency/* | /m
 - PM Kisan: district rows are per-installment beneficiary counts (36 states); district='ALL' rows are current-period homepage state totals — don't sum ALL + district rows within a fin_year
 - NFSA tracks metric tonnes, never rupees — money_flow publishes NULL money columns for it
 - Caveats: `queries/common.py:data_quality_warnings()` ↔ `web/src/lib/data-quality.ts` (update together); every caveat backed by a DATA_CLAIMS.md entry
+- Views never fabricate percentages: a 0/absent denominator yields `utilization_pct` NULL ("not reported"), and money_flow serves NSAP as ONE aggregated district row (3 pension sub-schemes summed) — DERIVED-2026-0005; district labels are display-formatted only via `web/src/lib/format-place.ts` (canonical names in DB/joins/URLs stay UPPER CASE)
 
 ## Testing
 

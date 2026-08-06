@@ -358,6 +358,58 @@ def test_engine_valid_pin(db):
     assert brief.generated_at is not None
 
 
+def test_engine_mp_falls_back_to_pin_constituency(db):
+    """Delhi has no constituency_district rows — the spatial PIN→PC match must
+    still resolve the MP rather than leaving the brief blank."""
+    db.execute(
+        """INSERT INTO pin_district_mapping (pin_code, district, state, office_name)
+           VALUES ('110018', 'WEST', 'DELHI', 'Delhi Cantt')"""
+    )
+    db.execute(
+        """INSERT INTO pin_constituency (pin_code, constituency, state, method)
+           VALUES ('110018', 'WEST DELHI', 'DELHI', 'spatial_join')"""
+    )
+    db.execute(
+        """INSERT INTO mp_info (constituency, mp_name, party, state, elected_year, source_url)
+           VALUES ('WEST DELHI', 'KAMALJEET SEHRAWAT', 'BJP', 'DELHI', 2024, 'https://eci.gov.in')"""
+    )
+    db.commit()
+
+    from action_brief.engine import build_action_brief
+    brief = build_action_brief("110018", conn=db)
+    assert brief is not None
+    assert brief.mp is not None
+    assert brief.mp["mp_name"] == "KAMALJEET SEHRAWAT"
+
+
+def test_engine_schemes_checked_reports_what_was_looked_at(db):
+    db.execute(
+        """INSERT INTO pin_district_mapping (pin_code, district, state, office_name)
+           VALUES ('110018', 'WEST', 'DELHI', 'Delhi Cantt')"""
+    )
+    db.commit()
+
+    from action_brief.engine import build_action_brief
+    thin = build_action_brief("110018", conn=db)
+    assert thin is not None
+    assert thin.diagnosis == []
+    assert thin.schemes_checked == []
+
+    db.execute(
+        """INSERT INTO pmayg_district
+           (district, state, fin_year, houses_sanctioned, houses_completed,
+            houses_occupied, completion_pct, source_url, scraped_at)
+           VALUES ('WEST', 'DELHI', '2024-2025', 1000, 900, 800, 90.0,
+                   'https://pmayg.nic.in/', '2026-03-30T00:00:00')"""
+    )
+    db.commit()
+
+    checked = build_action_brief("110018", conn=db)
+    assert checked is not None
+    assert checked.diagnosis == []
+    assert checked.schemes_checked == ["PMAY-G"]
+
+
 def test_engine_invalid_pin():
     from action_brief.engine import build_action_brief
     result = build_action_brief("12345")

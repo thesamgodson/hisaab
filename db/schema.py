@@ -461,6 +461,11 @@ CREATE INDEX IF NOT EXISTS idx_pmayg_finance ON pmayg_finance(state);
 -- Schemes with financial data: MGNREGA, PMGSY, PM Kisan (district-level),
 -- PM POSHAN, NSAP, PMAY-G, JJM (state-level from data.gov.in/dashboards).
 -- NFSA excluded: metric tons, not rupees.
+--
+-- Every utilization_pct CASE falls back to NULL, never 0: a missing
+-- denominator means "not reported", and a fabricated 0% renders as a real
+-- "Poor" score on the public pages. Scoring already skips non-positive
+-- utilization (queries/composite.py), so NULL is the honest encoding.
 
 DROP VIEW IF EXISTS scheme_finance;
 CREATE VIEW scheme_finance AS
@@ -479,7 +484,7 @@ SELECT
     expenditure_cr * 100 as expended_lakhs,
     CASE WHEN value_of_projects_cr > 0
          THEN (expenditure_cr / value_of_projects_cr * 100)
-         ELSE 0 END as utilization_pct,
+         ELSE NULL END as utilization_pct,
     source_url
 FROM pmgsy_district
 UNION ALL
@@ -490,7 +495,7 @@ SELECT
     amount_paid_lakhs as expended_lakhs,
     CASE WHEN beneficiaries_registered > 0
          THEN (beneficiaries_paid * 100.0 / beneficiaries_registered)
-         ELSE 0 END as utilization_pct,
+         ELSE NULL END as utilization_pct,
     source_url
 FROM pmkisan_district
 UNION ALL
@@ -499,7 +504,7 @@ SELECT
     allocated_lakhs, released_lakhs, utilized_lakhs as expended_lakhs,
     CASE WHEN released_lakhs > 0
          THEN (utilized_lakhs / released_lakhs * 100)
-         ELSE 0 END as utilization_pct,
+         ELSE NULL END as utilization_pct,
     source_url
 FROM pmposhan_finance
 UNION ALL
@@ -517,7 +522,7 @@ SELECT
     allocated_lakhs, released_lakhs, utilized_lakhs as expended_lakhs,
     CASE WHEN released_lakhs > 0
          THEN (utilized_lakhs / released_lakhs * 100)
-         ELSE 0 END as utilization_pct,
+         ELSE NULL END as utilization_pct,
     source_url
 FROM pmayg_finance
 UNION ALL
@@ -866,7 +871,7 @@ SELECT
     expenditure_cr * 100 as expended_lakhs,
     CASE WHEN value_of_projects_cr > 0
          THEN (expenditure_cr / value_of_projects_cr * 100)
-         ELSE 0 END as utilization_pct,
+         ELSE NULL END as utilization_pct,
     roads_sanctioned as units_target,
     roads_completed as units_completed,
     'roads' as units_label, source_url
@@ -879,7 +884,7 @@ SELECT
     funds_utilized_lakhs as expended_lakhs,
     CASE WHEN funds_released_lakhs > 0
          THEN (funds_utilized_lakhs / funds_released_lakhs * 100)
-         ELSE 0 END as utilization_pct,
+         ELSE NULL END as utilization_pct,
     houses_sanctioned as units_target,
     houses_completed as units_completed,
     'houses' as units_label, source_url
@@ -891,7 +896,7 @@ SELECT
     utilized_lakhs as expended_lakhs,
     CASE WHEN released_lakhs > 0
          THEN (utilized_lakhs / released_lakhs * 100)
-         ELSE 0 END as utilization_pct,
+         ELSE NULL END as utilization_pct,
     NULL as units_target, NULL as units_completed,
     NULL as units_label, source_url
 FROM pmayg_finance
@@ -903,7 +908,7 @@ SELECT
     amount_paid_lakhs as expended_lakhs,
     CASE WHEN beneficiaries_registered > 0
          THEN (beneficiaries_paid * 100.0 / beneficiaries_registered)
-         ELSE 0 END as utilization_pct,
+         ELSE NULL END as utilization_pct,
     beneficiaries_registered as units_target,
     beneficiaries_paid as units_completed,
     'beneficiaries' as units_label, source_url
@@ -916,7 +921,7 @@ SELECT
     funds_utilized_lakhs as expended_lakhs,
     CASE WHEN funds_released_lakhs > 0
          THEN (funds_utilized_lakhs / funds_released_lakhs * 100)
-         ELSE 0 END as utilization_pct,
+         ELSE NULL END as utilization_pct,
     total_households as units_target,
     households_with_tap as units_completed,
     'tap connections' as units_label, source_url
@@ -951,23 +956,29 @@ SELECT
     utilized_lakhs as expended_lakhs,
     CASE WHEN released_lakhs > 0
          THEN (utilized_lakhs / released_lakhs * 100)
-         ELSE 0 END as utilization_pct,
+         ELSE NULL END as utilization_pct,
     NULL as units_target, NULL as units_completed,
     NULL as units_label, source_url
 FROM pmposhan_finance
 UNION ALL
 SELECT
+    -- NSAP is three pension sub-schemes (IGNOAPS/IGNWPS/IGNDPS) stored as
+    -- three rows per district-year. Emitted un-aggregated they are
+    -- indistinguishable here (no scheme_type column), so a consumer picking
+    -- "the NSAP row" showed one arbitrary sub-scheme as the district's whole
+    -- pension picture. The district total is the only honest single row.
     'NSAP' as scheme, state, district, fin_year,
     NULL as allocated_lakhs,
-    amount_paid_lakhs as released_lakhs,
-    amount_paid_lakhs as expended_lakhs,
-    CASE WHEN beneficiaries_eligible > 0
-         THEN (beneficiaries_paid * 100.0 / beneficiaries_eligible)
+    SUM(amount_paid_lakhs) as released_lakhs,
+    SUM(amount_paid_lakhs) as expended_lakhs,
+    CASE WHEN SUM(beneficiaries_eligible) > 0
+         THEN (SUM(beneficiaries_paid) * 100.0 / SUM(beneficiaries_eligible))
          ELSE NULL END as utilization_pct,
-    beneficiaries_eligible as units_target,
-    beneficiaries_paid as units_completed,
-    'pensioners' as units_label, source_url
+    NULLIF(SUM(beneficiaries_eligible), 0) as units_target,
+    SUM(beneficiaries_paid) as units_completed,
+    'pensioners' as units_label, MAX(source_url) as source_url
 FROM nsap_district
+GROUP BY state, district, fin_year
 UNION ALL
 SELECT
     'NSAP' as scheme, state, 'ALL' as district, fin_year,
@@ -983,11 +994,13 @@ UNION ALL
 SELECT
     -- allocation/offtake are METRIC TONNES, never rupees — they must not
     -- flow into *_lakhs columns. Card counts are a stock, not delivery.
+    -- offtake_pct is 0 for every district row (no district-level offtake is
+    -- published at all), so surfacing it read as a real 0% utilization.
     'PDS/NFSA' as scheme, state, district, fin_year,
     NULL as allocated_lakhs,
     NULL as released_lakhs,
     NULL as expended_lakhs,
-    offtake_pct as utilization_pct,
+    NULL as utilization_pct,
     NULL as units_target,
     ration_cards_total as units_completed,
     'ration cards' as units_label, source_url
