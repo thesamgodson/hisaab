@@ -784,18 +784,31 @@ CREATE INDEX IF NOT EXISTS idx_officials_district ON district_officials(district
 
 -- Grievance channels per scheme — portals, helplines, escalation paths
 CREATE TABLE IF NOT EXISTS grievance_channels (
-    scheme              TEXT NOT NULL,
-    level               TEXT NOT NULL,
+    scheme              TEXT NOT NULL,  -- scheme name, or 'ALL' for universal channels (CPGRAMS, RTI)
+    level               TEXT NOT NULL,  -- local | district | state | national
+    authority           TEXT,           -- WHO hears this rung (Programme Officer, Collector, Ombudsperson…)
     portal_name         TEXT NOT NULL,
     portal_url          TEXT NOT NULL,
-    phone               TEXT,
-    description         TEXT,
+    phone               TEXT,           -- only if printed on an official page
+    description         TEXT,           -- HOW: what to do at this rung, one sentence
     escalation_scheme   TEXT,
     source_url          TEXT NOT NULL,
     scraped_at          TEXT NOT NULL,
     PRIMARY KEY (scheme, level, portal_name)
 );
 CREATE INDEX IF NOT EXISTS idx_grievance_scheme ON grievance_channels(scheme);
+
+-- WHY a citizen should complain: the legal entitlement per scheme, in plain
+-- language, with its statutory basis. Curated from acts/guidelines — every
+-- row carries the official source it was verified against.
+CREATE TABLE IF NOT EXISTS scheme_entitlements (
+    scheme          TEXT PRIMARY KEY,
+    entitlement     TEXT NOT NULL,  -- what the citizen is owed, one sentence
+    legal_basis     TEXT NOT NULL,  -- act + section / guideline + clause
+    complain_when   TEXT,           -- JSON array of concrete trigger conditions
+    source_url      TEXT NOT NULL,
+    scraped_at      TEXT NOT NULL
+);
 
 -- District lineage — tracks district splits/reorganizations so the UI
 -- can show "formerly part of <parent>" when a new district was carved out.

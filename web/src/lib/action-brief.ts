@@ -22,6 +22,7 @@ import type {
   ActionBriefResponse,
   ActionItem,
   ActionStep,
+  ComplaintKit,
   DiagnosisItem,
   GrievanceChannel,
   MPInfo,
@@ -206,6 +207,98 @@ async function findMpByPin(pinCode: string): Promise<MPInfo | null> {
   return null;
 }
 
+const LEVEL_ORDER_SQL =
+  "CASE level WHEN 'local' THEN 0 WHEN 'district' THEN 1 WHEN 'state' THEN 2 WHEN 'national' THEN 3 ELSE 4 END";
+
+interface EntitlementRow {
+  scheme: string;
+  entitlement: string;
+  legal_basis: string;
+  complain_when: string | null;
+  source_url: string;
+}
+
+/**
+ * WHY / WHO / HOW to complain, per scheme with a presence in this district.
+ * Deliberately NOT gated on a flagged shortfall: a citizen's personal
+ * grievance (delayed wages, refused rations) exists regardless of whether the
+ * district aggregate crosses a diagnosis threshold. Flagged schemes sort
+ * first. Empty until the curated grievance data is published.
+ */
+async function buildComplaintKits(
+  district: string,
+  state: string,
+  flaggedSchemes: string[],
+): Promise<{ kits: ComplaintKit[]; universal: GrievanceChannel[] }> {
+  const [present, channels, entitlements] = await Promise.all([
+    query<{ scheme: string }>(
+      `SELECT DISTINCT scheme FROM scheme_delivery
+        WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)
+       UNION
+       SELECT DISTINCT scheme FROM money_flow
+        WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)`,
+      [district, state, district, state],
+    ),
+    query<GrievanceChannel>(
+      `SELECT scheme, level, authority, portal_name, portal_url, phone,
+              COALESCE(description, '') AS description
+         FROM grievance_channels
+        ORDER BY scheme, ${LEVEL_ORDER_SQL}`,
+      [],
+    ),
+    query<EntitlementRow>(
+      `SELECT scheme, entitlement, legal_basis, complain_when, source_url
+         FROM scheme_entitlements`,
+      [],
+    ),
+  ]);
+
+  const universal = channels.filter((c) => c.scheme === "ALL");
+  const bySchemeChannels = new Map<string, GrievanceChannel[]>();
+  for (const c of channels) {
+    if (c.scheme === "ALL") continue;
+    const list = bySchemeChannels.get(c.scheme) ?? [];
+    list.push(c);
+    bySchemeChannels.set(c.scheme, list);
+  }
+  const bySchemeEntitlement = new Map(entitlements.map((e) => [e.scheme, e]));
+
+  const flagged = new Set(flaggedSchemes);
+  const schemes = [
+    ...new Set([...flaggedSchemes, ...present.map((p) => p.scheme)]),
+  ];
+
+  const kits: ComplaintKit[] = [];
+  for (const scheme of schemes) {
+    const ent = bySchemeEntitlement.get(scheme);
+    const laddered = bySchemeChannels.get(scheme) ?? [];
+    if (!ent && laddered.length === 0) continue; // nothing curated — no kit
+    let complainWhen: string[] = [];
+    if (ent?.complain_when) {
+      try {
+        const parsed: unknown = JSON.parse(ent.complain_when);
+        if (Array.isArray(parsed)) complainWhen = parsed.map(String);
+      } catch {
+        complainWhen = [ent.complain_when];
+      }
+    }
+    kits.push({
+      scheme,
+      flagged: flagged.has(scheme),
+      entitlement: ent?.entitlement ?? null,
+      legal_basis: ent?.legal_basis ?? null,
+      complain_when: complainWhen,
+      entitlement_source_url: ent?.source_url ?? null,
+      channels: laddered,
+    });
+  }
+  kits.sort(
+    (a, b) =>
+      Number(b.flagged) - Number(a.flagged) || a.scheme.localeCompare(b.scheme),
+  );
+  return { kits, universal };
+}
+
 /** Build the full action brief for a PIN, or null when the PIN is unknown. */
 export async function buildActionBrief(
   pinCode: string,
@@ -273,6 +366,11 @@ export async function buildActionBrief(
   const mp = mpRow ?? (await findMpByPin(pinCode));
 
   const flaggedSchemes = [...new Set(diagnosis.items.map((d) => d.scheme))];
+  const { kits, universal } = await buildComplaintKits(
+    district,
+    state,
+    flaggedSchemes,
+  );
   let grievanceChannels: GrievanceChannel[] = [];
   if (flaggedSchemes.length > 0) {
     const placeholders = flaggedSchemes.map(() => "?").join(",");
@@ -314,6 +412,8 @@ export async function buildActionBrief(
     schemes_checked: diagnosis.schemesChecked,
     actions,
     grievance_channels: grievanceChannels,
+    complaint_kits: kits,
+    universal_channels: universal,
     scheme_data: schemeData,
     generated_at: new Date().toISOString(),
   };

@@ -1,0 +1,124 @@
+[
+ {
+  "scheme": "MGNREGA",
+  "entitlement": "Every rural household whose adult members volunteer for unskilled manual work is guaranteed at least 100 days of wage employment in a financial year — you must get a job card within 15 days of applying, work within 15 days of asking for it (or an unemployment allowance if you are not given work), and your wages within 15 days of the muster roll closing, after which the government owes you delay compensation of 0.05% of your unpaid wages for every day of delay beyond the 16th day.",
+  "legal_basis": "Mahatma Gandhi National Rural Employment Guarantee Act, 2005 — s.3(1) (not less than 100 days per household per financial year), s.3(3) (wages disbursed weekly and in any case not later than a fortnight), s.7(1) (unemployment allowance if employment not provided within 15 days of application), Schedule II para 2 (job card within 15 days of application), Schedule II para 29(1) (compensation at 0.05% of unpaid wages per day of delay beyond the 16th day of closure of the muster roll). Grievance machinery: s.19 (State Government to set up Block- and district-level grievance redressal by rules), s.23(5) and s.23(6) (disputes referred to the Programme Officer, entered in a complaint register and disposed of within seven days), s.14 (District Programme Coordinator is the CEO of the District Panchayat or the Collector).",
+  "complain_when": [
+   "You applied for a job card and 15 days have passed with no card issued, or you demanded work and 15 days have passed with neither work nor unemployment allowance.",
+   "Your muster roll closed more than 15 days ago and the wages have not reached your bank or post office account — you are owed the wages plus 0.05% per day delay compensation, and the MGNREGA software is required to calculate that compensation automatically."
+  ],
+  "source_url": "https://upload.indiacode.nic.in/schedulefile?aid=AC_CEN_18_21_00009_200542_1517807324969&rid=375",
+  "scraped_at": "2026-08-06T05:58:26.827137+00:00"
+ },
+ {
+  "scheme": "PMGSY",
+  "entitlement": "PMGSY is a village infrastructure programme, not an individual cash entitlement — what your habitation is owed is one all-weather road (with the culverts and cross-drainage that keep it usable through the year) if it was an eligible unconnected habitation of 500 or more people in the plains, or 250 or more in the Hill States, desert areas, Schedule V tribal areas and selected tribal/backward districts; and once that road is built, the same contractor who built it is bound by contract to maintain it for 5 years.",
+  "legal_basis": "PMGSY Programme Guidelines (April 2012), Ministry of Rural Development / NRRDA — para 2.1 (all-weather connectivity; 500/250 population thresholds), paras 3.1 and 3.10 (single road connectivity only; an already-connected habitation is not eligible again even if the road is now bad), paras 8.6 and 17.2 (5-year routine maintenance contracted out along with construction, to the same contractor), para 11.4 (site signboard within 15 days of Work Order), para 15.8 (authority empowered to receive quality complaints; 30-day reply).",
+  "complain_when": [
+   "A PMGSY road near you is potholed, broken or washed out while still inside its 5-year post-construction maintenance period — the original contractor is still contractually liable to repair it at no extra public cost.",
+   "Construction quality is visibly bad or the work has been abandoned mid-way, or the mandatory PMGSY signboard showing the road name, length, estimated cost, start date, due completion date and the contractor's name is missing from the work site."
+  ],
+  "source_url": "https://pmgsy.dord.gov.in/ReferenceDocs/PMGSY_Guidelines.pdf",
+  "scraped_at": "2026-08-06T05:58:26.827137+00:00"
+ },
+ {
+  "scheme": "PM Kisan",
+  "entitlement": "Every eligible landholding farmer family gets Rs 6,000 a year from the Central Government paid straight into the bank account, as three instalments of Rs 2,000 every four months (April-July, August-November, December-March), and any grievance about it is to be disposed of on merit preferably within two weeks.",
+  "legal_basis": "PM-KISAN is a Central Sector Scheme with no dedicated Act — Revised PM-KISAN Operational Guidelines, Department of Agriculture & Farmers Welfare: para 10.1 (Rs 6,000/year in three instalments of Rs 2,000 each every 4 months), section 3 (definition of a landholder farmer's family), section 7.2 (States to notify State and District Level Grievance Redressal Monitoring Committees; grievances disposed of on merit preferably within two weeks).",
+  "complain_when": [
+   "An instalment you were receiving has stopped or your beneficiary status shows rejected or pending — check the status page first, because most stoppages are an eKYC, Aadhaar name-mismatch or land-seeding failure you can correct yourself before complaining.",
+   "You are an eligible landholding farmer, your application has been lying with the village or block officials, and neither a sanction nor a written rejection has come back."
+  ],
+  "source_url": "https://pmkisan.gov.in/Documents/RevisedPM-KISANOperationalGuidelines(English).pdf",
+  "scraped_at": "2026-08-06T05:58:26.827137+00:00"
+ },
+ {
+  "scheme": "PMAY-G",
+  "entitlement": "If your name is on the Gram Sabha-verified Permanent Wait List and your house has been sanctioned, you are owed Rs 1,20,000 (Rs 1,30,000 in Hill States, North-Eastern States, notified difficult areas and IAP districts) paid straight into your own bank or post-office account in at least 3 instalments — the first within 7 working days of the sanction order — plus up to 90 days (95 in hill/NE/difficult/IAP areas) of unskilled MGNREGS wages and Rs 12,000 for a toilet, to build a pucca house of at least 25 square metres that you construct yourself (no contractor may be engaged).",
+  "legal_basis": "Framework for Implementation, Pradhan Mantri Awaas Yojana-Gramin (2022), Ministry of Rural Development — para 5.1.1 (unit assistance Rs 1.20 lakh / Rs 1.30 lakh), 5.1.2 (90/95 persondays unskilled labour under MGNREGS), 5.1.3 (Rs 12,000 toilet via SBM-G/MGNREGS), 5.1.4 (minimum 25 sq m with hygienic cooking space), 5.4.1 (first instalment within 7 working days of sanction order), 5.5.1 (no contractor to be engaged), 5.7.1 (minimum 3 instalments); grievance machinery in Chapter 12 and para 4.5.",
+  "complain_when": [
+   "Your name was on the priority list verified by the Gram Sabha but has been deleted from, or pushed down, the Permanent Wait List without due procedure being followed.",
+   "Your house is sanctioned but an instalment has not reached your bank or post-office account — the first instalment is due within 7 working days of the sanction order, and later instalments are due once construction reaches the stage mapped to it in AwaasSoft.",
+   "Someone demanded a cut to release your money, or the State engaged a contractor to build your house instead of paying you to build it yourself."
+  ],
+  "source_url": "https://pmayg.dord.gov.in/netiayHome/Uploaded/Guidelines-English_Book_Final.pdf",
+  "scraped_at": "2026-08-06T05:58:26.827137+00:00"
+ },
+ {
+  "scheme": "JJM",
+  "entitlement": "Every rural household is entitled to a working tap connection inside the house that gives at least 55 litres of water per person per day, of drinking quality meeting the IS 10500 standard, regularly and year-round.",
+  "legal_basis": "Jal Jeevan Mission Operational Guidelines (Department of Drinking Water & Sanitation, Ministry of Jal Shakti, 2019) — 'Definitions', printed p.5: 'Functional Household Tap Connection [FHTC]' and 'Functionality — ... water in adequate quantity, i.e. at least 55 lpcd, of prescribed quality, i.e. BIS:10500 standard, on regular basis, i.e. continuous supply in long-term' (footnote 1 cites IS 10500:2012 'Indian Standard — Drinking Water Specification'). Restated as Mission objective at para 3.2(ii)/3.3 (p.14) and as the functionality standard at para 11.1.5 and Table 11 (p.66); DWSM grievance redressal at para 5.3 item xxvii (p.31). This is a scheme-guideline entitlement, NOT a statutory right — there is no drinking-water Act creating an individually enforceable claim.",
+  "complain_when": [
+   "Your household is recorded as having a Har Ghar Jal tap connection on the JJM dashboard, but no water actually reaches the tap — or it runs for fewer hours or months than the Gram Panchayat has fixed.",
+   "The supply is less than 55 litres per person per day, or the water is discoloured, smells or tastes wrong, or a test shows arsenic, fluoride, nitrate or bacterial contamination above IS 10500 limits."
+  ],
+  "source_url": "https://jaljeevanmission.gov.in/sites/default/files/guideline/JJM_Operational_Guidelines.pdf",
+  "scraped_at": "2026-08-06T05:58:26.827137+00:00"
+ },
+ {
+  "scheme": "PM POSHAN",
+  "entitlement": "If your child is enrolled in Bal Vatika or Classes I-VIII in a Government or Government-aided school, the school must serve one free hot cooked meal on every school day — 450 calories and 12 g protein (from 100 g foodgrain, 20 g pulses, 50 g vegetables, 5 g oil/fat) for Bal Vatika and Classes I-V, and 700 calories and 20 g protein (150 g foodgrain, 30 g pulses, 75 g vegetables, 7.5 g oil/fat) for Classes VI-VIII.",
+  "legal_basis": "National Food Security Act, 2013, s.5(1)(b) read with Schedule II — a statutory right to 'one mid-day meal, free of charge, everyday, except on school holidays, in all schools run by local bodies, Government and Government aided schools'. Operational norms: Guidelines on PM POSHAN Scheme (Ministry of Education, Department of School Education & Literacy), para 1.2 (legal backing under NFSA), para 1.5 (beneficiaries), para 1.7 (food and nutrition norms), para 9.1 (display of children's entitlements at a prominent place), paras 2.3-2.5 (State/district/block nodal officers and School Management Committee), paras 11.1 and 15.7 (State grievance redressal mechanism).",
+  "complain_when": [
+   "No meal is served on one or more school days — the school says foodgrain, cooking cost or ingredients have not arrived, or the cook is absent, or meals stop for several consecutive days.",
+   "The meal is served but falls short of the prescribed norm — less than 100 g (Bal Vatika/primary) or 150 g (upper primary) of foodgrain per child, no pulses or vegetables, spoiled or unhygienic food, or the school has not displayed the per-child entitlement board required by para 9.1."
+  ],
+  "source_url": "https://pmposhan.education.gov.in/Files/Guidelines/2023/Guidelines%20on%20PM%20POSHAN%20SCHEME.pdf",
+  "scraped_at": "2026-08-06T05:58:26.827137+00:00"
+ },
+ {
+  "scheme": "NSAP",
+  "entitlement": "If you are from a BPL family, you are entitled to a monthly pension paid into your account — a central share of Rs 200/month if you are 60-79 and Rs 500/month from age 80 (IGNOAPS old-age); Rs 300/month for a widow aged 40+, rising to Rs 500 at 80 (IGNWPS); Rs 300/month if you are 18+ with 80% or more disability, rising to Rs 500 at 80 (IGNDPS) — and your application must be decided within 60 days, with written reasons if it is rejected. Most States add a top-up on the central share, so what you actually receive is set by your State.",
+  "legal_basis": "Article 41 of the Constitution of India (Directive Principle — public assistance in old age, sickness and disablement), implemented through the NSAP Guidelines, Ministry of Rural Development, October 2014: para 2.3 (eligibility and scale of assistance), para 2.4.1-2.4.2 (States urged to add at least an equivalent top-up; norms vary widely by State), para 3.2.2 (60 days from receipt to sanction or rejection), para 3.3 (rejection recorded and intimated; first appeal to an Appellate Authority, second appeal to a Reviewing Authority), para 3.5 (15 days to dispose of each appeal), para 6.9 (State grievance redressal at Gram/Intermediate Panchayat/District/Municipality level with a dated receipt for every complaint).",
+  "complain_when": [
+   "You applied for an old-age, widow or disability pension and more than 60 days have passed with no sanction order and no written rejection, or your application was rejected without written reasons being given to you.",
+   "You were sanctioned a pension but payments have stopped, are arriving late, are short of the sanctioned amount, or someone is demanding a cut to release them — the beneficiary list must be publicly displayed at the Gram Panchayat/Ward office and updated every three months."
+  ],
+  "source_url": "https://nsap.dord.gov.in/Guidelines/nsap_guidelines_oct2014.pdf",
+  "scraped_at": "2026-08-06T05:58:26.827137+00:00"
+ },
+ {
+  "scheme": "PDS/NFSA",
+  "entitlement": "If you hold a priority-household ration card you are entitled to 5 kg of foodgrains per person per month, and an Antyodaya Anna Yojana household to 35 kg per household per month, at the subsidised prices fixed under the Act — and if the entitled foodgrains or meals are not supplied to you, the State Government owes you a food security allowance in cash.",
+  "legal_basis": "National Food Security Act, 2013 — s.3(1) (5 kg per person per month for priority households; 35 kg per household per month for Antyodaya Anna Yojana households, at the prices specified in Schedule I), s.2(7) read with s.8 (food security allowance payable by the State Government where entitlements are not supplied). Grievance machinery: s.14 (every State Government shall put in place an internal grievance redressal mechanism, which may include call centres, help lines and nodal officers), s.15 (District Grievance Redressal Officer for each district, who shall hear complaints regarding non-distribution of entitled foodgrains and act within the prescribed time), s.15(6) (appeal against the DGRO's order to the State Food Commission), s.16(6)(b) and s.16(6)(e) (State Food Commission may inquire into violations suo motu or on complaint and hears appeals against the DGRO).",
+  "complain_when": [
+   "The fair price shop refused your entitled quota, gave you less than 5 kg per person (or 35 kg for an AAY card), charged more than the notified issue price, or told you the e-PoS machine 'failed' and sent you away empty-handed.",
+   "Your ration card application, correction or addition of a family member has been pending with the food and supply office beyond the time your State prescribes, or your card was cancelled without notice."
+  ],
+  "source_url": "https://dfpd.gov.in/WriteReadData/Other/nfsa_1.pdf",
+  "scraped_at": "2026-08-06T05:58:26.827137+00:00"
+ },
+ {
+  "scheme": "SBM-G",
+  "entitlement": "If your rural household has no toilet and you are BPL — or an identified APL household (SC/ST, a household with a physically disabled person, a landless labourer with a homestead, a small or marginal farmer, or a woman-headed household) — you are entitled to an incentive of up to Rs 12,000 to build one individual household latrine including a water-storage facility for handwashing and cleaning; and your village is entitled to be kept ODF Plus, meaning everyone has a toilet, solid and liquid waste are managed, and the village is visually clean.",
+  "legal_basis": "SBM(G) Phase II Operational Guidelines (Department of Drinking Water & Sanitation, Ministry of Jal Shakti, 2020) — para 5.1 'Construction of Individual Household Latrines', printed p.21, verbatim: 'All BPL households and identified APL households (SC/ST households, households with physically disabled person, landless labourers with homestead, small and marginal farmers and women headed households) shall be eligible for incentive up to Rs. 12,000 for the construction of one unit of IHHL including for water storage facility for handwashing and cleaning to ensure hygiene'; same clause: identification 'be initiated by the Gram Panchayat in Gram Sabha meeting and to be approved by Block and District levels authorities'. ODF Plus definition and its four components (ODF sustainability, solid waste management, liquid waste management, visual cleanliness) at para 4.1 p.18; third-party verification within 90 days of ODF Plus declaration plus annual re-verification at para 17.5 p.59; six-monthly Gram Panchayat Social Audit at para 17.7 p.60. Scheme guideline, not a statute — no individually enforceable right.",
+  "complain_when": [
+   "You are in an eligible category and have no toilet, but the Gram Panchayat has not put your name on the Gram Sabha list, or your SBM(G) application is stuck, or the Rs 12,000 has not reached your bank account after the toilet was completed.",
+   "Your village is shown as ODF or ODF Plus on the SBM(G) dashboard but people still defecate in the open, the Community Sanitary Complex required for a village of over 100 households is missing or non-functional, or solid waste and greywater are not being managed."
+  ],
+  "source_url": "https://swachhbharatmission.ddws.gov.in/sites/default/files/Guidelines/SBMG%20Phase-II%20Operational%20Guidelines.pdf",
+  "scraped_at": "2026-08-06T05:58:26.827137+00:00"
+ },
+ {
+  "scheme": "DAY-NRLM",
+  "entitlement": "If you are a rural woman from a poor household you have the right to join a Self-Help Group, and once your SHG is functioning properly and graded 'A' it is entitled to a one-time Revolving Fund of Rs 10,000 to Rs 15,000, a start-up fund of Rs 2,500, and Community Investment Fund support of up to Rs 2.50 lakh routed through your Village Organisation or Cluster Level Federation — and as a women's SHG you can borrow up to Rs 3 lakh from a bank at 7% interest a year, dropping to an effective 4% if you repay on time.",
+  "legal_basis": "DAY-NRLM is a Centrally Sponsored Scheme of the Ministry of Rural Development with no dedicated Act — the entitlement is administrative, set out in the DAY-NRLM Master Circular 'Guidance for Mission Implementation': para 3.12 (start-up fund Rs 2,500/SHG; Revolving Fund minimum Rs 10,000 to maximum Rs 15,000/SHG one-time; Community Investment Fund maximum Rs 2.50 lakh/SHG routed via VOs and CLFs; interest subvention categories), para 8.7 (loans up to Rs 3.00 lakh at 7% p.a. in 250 select districts plus an additional 3% subvention on prompt repayment, reducing the effective rate to 4%), para 13.9 (all State Rural Livelihoods Missions to constitute grievance cells at SMMU, DMMU and BMMU levels), para 13.10 (mechanism to receive complaints directly from community institutions and individual members). Eligibility for RF/CIF/bank loans is conditional on the SHG holding an 'A' grade.",
+  "complain_when": [
+   "Your SHG has been functioning and meets the norms but has never received its one-time Revolving Fund, or the Community Investment Fund sanctioned to your SHG was never passed on by the Village Organisation or Cluster Level Federation, or someone demanded a cut to release it.",
+   "A bank refused to open your SHG account or refused an SHG loan of up to Rs 3 lakh without written reasons, is charging you more than 7% a year, or has not credited the additional 3% interest subvention despite your SHG repaying on time."
+  ],
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3e6c2dc3dee4a51dcec3a876aa2339a78/uploads/2023/08/2023080411.pdf",
+  "scraped_at": "2026-08-06T05:58:26.827137+00:00"
+ },
+ {
+  "scheme": "UDISE+",
+  "entitlement": "Every child aged 6 to 14 has a legal right to free and compulsory elementary education (up to Class VIII) in a neighbourhood school — no fee or charge of any kind, no capitation fee or donation, no screening test or interview for admission, no expulsion before elementary education is completed, no physical punishment, and no Board examination until elementary education is finished.",
+  "legal_basis": "Right of Children to Free and Compulsory Education Act, 2009 (Act 35 of 2009): s.3(1) and s.3(2) (right to free and compulsory education in a neighbourhood school; no fee or charges that would prevent completion); s.12(1)(c) (specified private unaided schools must admit at least 25% of Class I strength from weaker sections and disadvantaged groups in the neighbourhood, free, till completion); s.13(1) (no capitation fee, no screening procedure — fines up to 10x the capitation fee, and Rs 25,000/Rs 50,000 for screening); s.16(4) (no child shall be expelled till completion of elementary education); s.17 (no physical punishment or mental harassment); s.30(1) (no Board examination till completion of elementary education); the Schedule (see ss.19 and 25) for pupil-teacher ratio, building, toilet and drinking-water norms; s.31 (Commissions for Protection of Child Rights may inquire into complaints) and s.32 (written complaint to the local authority, appeal to the SCPCR).",
+  "complain_when": [
+   "A school refuses admission to a 6-14 year old from the neighbourhood, demands a donation, capitation fee or any fee, or subjects the child or parents to a screening test or interview — or a private unaided school refuses to fill its 25% weaker-section quota under s.12(1)(c).",
+   "A child is expelled or pushed out before completing Class VIII, is physically punished or mentally harassed, or the school runs below the Schedule's norms — fewer teachers than the prescribed pupil-teacher ratio, no all-weather building, no safe drinking water, or no separate toilets for girls and boys."
+  ],
+  "source_url": "https://www.indiacode.nic.in/bitstream/123456789/2086/5/a2009-35.pdf",
+  "scraped_at": "2026-08-06T05:58:26.827137+00:00"
+ }
+]

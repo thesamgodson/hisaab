@@ -54,3 +54,7 @@ class ActionBrief:
     # Schemes that reported district data at all — an empty diagnosis with an
     # empty list means "nothing was checked", not "nothing is wrong".
     schemes_checked: list[str] = field(default_factory=list)
+    # WHY/WHO/HOW to complain, per scheme present in the district (flagged
+    # first). Twin of complaint_kits/universal_channels in action-types.ts.
+    complaint_kits: list[dict[str, Any]] = field(default_factory=list)
+    universal_channels: list[dict[str, Any]] = field(default_factory=list)

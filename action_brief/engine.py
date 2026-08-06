@@ -1,6 +1,7 @@
 """Orchestrator: PIN → ActionBrief."""
 from __future__ import annotations
 
+import json
 import re
 import sqlite3
 from datetime import datetime
@@ -58,6 +59,7 @@ def build_action_brief(
         )
 
         actions = build_actions(conn, flagged_schemes)
+        kits, universal = _build_complaint_kits(conn, district, state, flagged_schemes)
 
         return ActionBrief(
             pin=clean, district=district, state=state,
@@ -65,10 +67,87 @@ def build_action_brief(
             diagnosis=diagnosis, contacts=contacts, actions=actions,
             scheme_data={}, generated_at=datetime.now(),
             schemes_checked=schemes_checked,
+            complaint_kits=kits, universal_channels=universal,
         )
     finally:
         if own_conn:
             conn.close()
+
+
+_LEVEL_ORDER_SQL = (
+    "CASE level WHEN 'local' THEN 0 WHEN 'district' THEN 1 "
+    "WHEN 'state' THEN 2 WHEN 'national' THEN 3 ELSE 4 END"
+)
+
+
+def _build_complaint_kits(
+    conn: sqlite3.Connection, district: str, state: str, flagged_schemes: list[str]
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """WHY/WHO/HOW to complain, per scheme present in this district.
+
+    Not gated on a flagged shortfall — a personal grievance (delayed wages,
+    refused rations) exists regardless of the district aggregate. Flagged
+    schemes sort first. Twin of buildComplaintKits in web/src/lib/action-brief.ts.
+    """
+    present = {
+        r["scheme"]
+        for r in conn.execute(
+            """SELECT DISTINCT scheme FROM scheme_delivery
+                WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?)
+               UNION
+               SELECT DISTINCT scheme FROM money_flow
+                WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?)""",
+            (district, state, district, state),
+        ).fetchall()
+    }
+    channels = [
+        dict(r)
+        for r in conn.execute(
+            f"""SELECT scheme, level, authority, portal_name, portal_url, phone,
+                       COALESCE(description,'') AS description
+                  FROM grievance_channels
+                 ORDER BY scheme, {_LEVEL_ORDER_SQL}"""
+        ).fetchall()
+    ]
+    entitlements = {
+        r["scheme"]: dict(r)
+        for r in conn.execute(
+            """SELECT scheme, entitlement, legal_basis, complain_when, source_url
+                 FROM scheme_entitlements"""
+        ).fetchall()
+    }
+
+    universal = [c for c in channels if c["scheme"] == "ALL"]
+    by_scheme: dict[str, list[dict[str, Any]]] = {}
+    for c in channels:
+        if c["scheme"] != "ALL":
+            by_scheme.setdefault(c["scheme"], []).append(c)
+
+    flagged = set(flagged_schemes)
+    kits: list[dict[str, Any]] = []
+    for scheme in dict.fromkeys([*flagged_schemes, *sorted(present)]):
+        ent = entitlements.get(scheme)
+        laddered = by_scheme.get(scheme, [])
+        if not ent and not laddered:
+            continue
+        complain_when: list[str] = []
+        if ent and ent.get("complain_when"):
+            try:
+                parsed = json.loads(ent["complain_when"])
+                complain_when = [str(x) for x in parsed] if isinstance(parsed, list) else [str(parsed)]
+            except (json.JSONDecodeError, TypeError):
+                complain_when = [str(ent["complain_when"])]
+        kits.append({
+            "scheme": scheme,
+            "flagged": scheme in flagged,
+            "entitlement": ent["entitlement"] if ent else None,
+            "legal_basis": ent["legal_basis"] if ent else None,
+            "complain_when": complain_when,
+            "entitlement_source_url": ent["source_url"] if ent else None,
+            "channels": laddered,
+        })
+    kits.sort(key=lambda k: (not k["flagged"], k["scheme"]))
+    return kits, universal
 
 
 # Names join through the shared normalizer (datameet keeps reservation

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { buildActionBrief } from "@/lib/action-brief";
 import { formatDistrictLabel, titleCasePlace } from "@/lib/format-place";
+import ComplaintKitSection from "@/components/ComplaintKit";
 import DiagnosisCard from "@/components/DiagnosisCard";
 import PinNotice from "@/components/PinNotice";
 import SectionHeader from "@/components/SectionHeader";
@@ -68,6 +69,14 @@ export default async function ActionPage({ params }: PageProps) {
   // data", not a green all-clear.
   const nothingChecked =
     data.diagnosis.length === 0 && data.schemes_checked.length === 0;
+  // Curated complaint routing supersedes the legacy hardcoded actions the
+  // moment its data is published; until then the old sections still render.
+  const hasKits =
+    data.complaint_kits.length > 0 || data.universal_channels.length > 0;
+  const representatives = [
+    data.mp && `MP ${displayName(data.mp.mp_name)} (${data.mp.party})`,
+    data.mla && `MLA ${displayName(data.mla.mla_name)} (${data.mla.party})`,
+  ].filter((r): r is string => Boolean(r));
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
@@ -196,8 +205,16 @@ export default async function ActionPage({ params }: PageProps) {
         )}
       </section>
 
-      {/* ---- Section 3: What You Can Do ---- */}
-      {data.actions.length > 0 && (
+      {/* ---- Section 3: How to Complain (curated) / legacy actions ---- */}
+      {hasKits && (
+        <ComplaintKitSection
+          kits={data.complaint_kits}
+          universal={data.universal_channels}
+          representatives={representatives}
+        />
+      )}
+
+      {!hasKits && data.actions.length > 0 && (
         <section className="mb-12">
           <SectionHeader title="What You Can Do" />
 
@@ -274,8 +291,8 @@ export default async function ActionPage({ params }: PageProps) {
         </section>
       )}
 
-      {/* ---- Section 4: Grievance Portals ---- */}
-      {data.grievance_channels && data.grievance_channels.length > 0 && (
+      {/* ---- Section 4: Grievance Portals (legacy — superseded by kits) ---- */}
+      {!hasKits && data.grievance_channels && data.grievance_channels.length > 0 && (
         <section className="mb-12">
           <SectionHeader title="Grievance Portals" />
 

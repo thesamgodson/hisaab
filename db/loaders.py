@@ -824,6 +824,67 @@ def load_pin_geo(
     return loaded
 
 
+def load_grievance_channels(
+    conn: sqlite3.Connection,
+    records: list[dict[str, Any]],
+    fin_year: str = "",
+) -> int:
+    """Load grievance channel records (curated, not year-scoped).
+
+    Wholesale-replace: a renamed rung would otherwise leave BOTH the old and
+    new row serving under INSERT OR REPLACE (same failure class as civic
+    ingest). Never clears for an empty batch.
+    """
+    del fin_year  # not year-scoped
+    # Filter BEFORE clearing: an all-invalid batch must not wipe good rows.
+    records = [r for r in records if r.get("portal_url") and r.get("source_url")]
+    if not records:
+        return 0
+    conn.execute("DELETE FROM grievance_channels")
+    loaded = 0
+    for r in records:
+        conn.execute(
+            """INSERT OR REPLACE INTO grievance_channels
+               (scheme, level, authority, portal_name, portal_url, phone,
+                description, escalation_scheme, source_url, scraped_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (r.get("scheme", ""), r.get("level", ""), r.get("authority"),
+             r.get("portal_name", ""), r.get("portal_url", ""), r.get("phone"),
+             r.get("description"), r.get("escalation_scheme"),
+             r.get("source_url", ""), r.get("scraped_at", "")),
+        )
+        loaded += 1
+    return loaded
+
+
+def load_scheme_entitlements(
+    conn: sqlite3.Connection,
+    records: list[dict[str, Any]],
+    fin_year: str = "",
+) -> int:
+    """Load per-scheme legal entitlements (curated, not year-scoped)."""
+    del fin_year  # not year-scoped
+    # Filter BEFORE clearing: an all-invalid batch must not wipe good rows.
+    records = [r for r in records if r.get("entitlement") and r.get("source_url")]
+    if not records:
+        return 0
+    conn.execute("DELETE FROM scheme_entitlements")
+    loaded = 0
+    for r in records:
+        complain_when = r.get("complain_when")
+        conn.execute(
+            """INSERT OR REPLACE INTO scheme_entitlements
+               (scheme, entitlement, legal_basis, complain_when, source_url, scraped_at)
+               VALUES (?, ?, ?, ?, ?, ?)""",
+            (r.get("scheme", ""), r.get("entitlement", ""),
+             r.get("legal_basis", ""),
+             json.dumps(complain_when) if isinstance(complain_when, list) else complain_when,
+             r.get("source_url", ""), r.get("scraped_at", "")),
+        )
+        loaded += 1
+    return loaded
+
+
 LOADERS = {
     "misappropriation": load_misappropriation,
     "fto_status": load_fto_status,
@@ -851,6 +912,9 @@ LOADERS = {
     # seeded from data/raw caches by `python -m constituency.ingest` instead.
     "pin_constituency": load_pin_constituency,
     "pin_geo": load_pin_geo,
+    # Complaint routing (curated from official sources — DATA_CLAIMS-backed).
+    "grievance_channels": load_grievance_channels,
+    "scheme_entitlements": load_scheme_entitlements,
 }
 
 
@@ -920,25 +984,3 @@ def load_district_officials(
     return loaded
 
 
-def load_grievance_channels(
-    conn: sqlite3.Connection,
-    records: list[dict[str, Any]],
-) -> int:
-    """Load grievance channel records."""
-    loaded = 0
-    for r in records:
-        try:
-            conn.execute(
-                """INSERT OR REPLACE INTO grievance_channels
-                   (scheme, level, portal_name, portal_url, phone, description,
-                    escalation_scheme, source_url, scraped_at)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-                (r.get("scheme", ""), r.get("level", ""), r.get("portal_name", ""),
-                 r.get("portal_url", ""), r.get("phone"), r.get("description"),
-                 r.get("escalation_scheme"), r.get("source_url", ""),
-                 r.get("scraped_at", "")),
-            )
-            loaded += 1
-        except sqlite3.IntegrityError:
-            pass
-    return loaded

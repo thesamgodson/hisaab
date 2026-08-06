@@ -410,6 +410,84 @@ def test_engine_schemes_checked_reports_what_was_looked_at(db):
     assert checked.schemes_checked == ["PMAY-G"]
 
 
+def _seed_complaint_data(db):
+    db.execute(
+        """INSERT INTO pin_district_mapping (pin_code, district, state, office_name)
+           VALUES ('632001', 'VELLORE', 'TAMIL NADU', 'Vellore HO')"""
+    )
+    db.execute(
+        """INSERT INTO grievance_channels
+           (scheme, level, authority, portal_name, portal_url, phone,
+            description, source_url, scraped_at)
+           VALUES
+           ('MGNREGA','local','Programme Officer','Block office','https://nrega.dord.gov.in',NULL,
+            'Written complaint at the Block office','https://nrega.dord.gov.in','2026-08-06'),
+           ('MGNREGA','national','Ministry of Rural Development','CPGRAMS','https://pgportal.gov.in',NULL,
+            'Lodge on CPGRAMS','https://pgportal.gov.in','2026-08-06'),
+           ('PDS/NFSA','local','State PDS helpline','PDS toll-free','https://nfsa.gov.in','1967',
+            'Call 1967','https://nfsa.gov.in','2026-08-06'),
+           ('ALL','national','DARPG','CPGRAMS','https://pgportal.gov.in',NULL,
+            'Any scheme, any ministry','https://pgportal.gov.in','2026-08-06')"""
+    )
+    db.execute(
+        """INSERT INTO scheme_entitlements
+           (scheme, entitlement, legal_basis, complain_when, source_url, scraped_at)
+           VALUES ('MGNREGA','Wages within 15 days plus delay compensation',
+                   'MGNREGA Act 2005 s.3(3), Schedule II para 29(1)',
+                   '["Wages pending beyond 15 days"]',
+                   'https://www.indiacode.nic.in','2026-08-06')"""
+    )
+    # District presence: MGNREGA via financial_statement (money_flow branch).
+    db.execute(
+        """INSERT INTO financial_statement
+           (district, state, state_code, fin_year, total_availability,
+            cumulative_expenditure, utilization_pct, source_url, scraped_at)
+           VALUES ('VELLORE', 'TAMIL NADU', 'TN', '2024-2025', 1000, 400, 40.0,
+                   'https://x.gov.in', '2026-03-30T00:00:00')"""
+    )
+    # Flag trigger for the PYTHON twin: its MGNREGA checker reads
+    # misappropriation at FIN_YEAR with recovery_rate_pct < 20.
+    from briefs.formatting import FIN_YEAR
+    db.execute(
+        """INSERT INTO misappropriation
+           (district, state, state_code, fin_year, cases_reported, amount_reported,
+            cases_decided, amount_decided, cases_pending_recovery, amount_to_recover,
+            cases_recovered, amount_recovered, amount_unrecovered, recovery_rate_pct,
+            source_url, scraped_at)
+           VALUES ('VELLORE', 'TAMIL NADU', 'TN', ?, 10, 50.0, 5, 25.0, 5, 45.0,
+                   1, 5.0, 45.0, 10.0, 'https://x.gov.in', '2026-03-30T00:00:00')""",
+        (FIN_YEAR,),
+    )
+    db.commit()
+
+
+def test_engine_complaint_kits_presence_and_order(db):
+    """Kits render for schemes PRESENT in the district (not just flagged),
+    flagged schemes first, with entitlement + ladder + universal separated."""
+    _seed_complaint_data(db)
+
+    from action_brief.engine import build_action_brief
+    brief = build_action_brief("632001", conn=db)
+    assert brief is not None
+
+    schemes = [k["scheme"] for k in brief.complaint_kits]
+    assert "MGNREGA" in schemes  # present via financial_statement
+    mgnrega = next(k for k in brief.complaint_kits if k["scheme"] == "MGNREGA")
+    # 40% utilization < 60% threshold — flagged, so it must sort first.
+    assert mgnrega["flagged"] is True
+    assert schemes[0] == "MGNREGA"
+    assert mgnrega["entitlement"].startswith("Wages within 15 days")
+    assert mgnrega["complain_when"] == ["Wages pending beyond 15 days"]
+    levels = [c["level"] for c in mgnrega["channels"]]
+    assert levels == ["local", "national"]  # ladder ordering
+
+    # Universal channels are separated out, never duplicated into kits.
+    assert [c["scheme"] for c in brief.universal_channels] == ["ALL"]
+    assert all(k["scheme"] != "ALL" for k in brief.complaint_kits)
+    # PDS has a channel but no VELLORE presence in this fixture — no kit.
+    assert "PDS/NFSA" not in schemes
+
+
 def test_engine_invalid_pin():
     from action_brief.engine import build_action_brief
     result = build_action_brief("12345")
