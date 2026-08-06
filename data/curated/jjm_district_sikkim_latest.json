@@ -19,7 +19,7 @@
     "national_rank": 1,
     "district_name_hindi": "ईस्ट",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "SORENG",
@@ -41,7 +41,7 @@
     "national_rank": 358,
     "district_name_hindi": "Soreng",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "MANGAN",
@@ -59,11 +59,11 @@
     "connections_2019_20": -220,
     "connections_2020_onwards": 2937,
     "remaining_households": 1066,
-    "district_rank": 386,
-    "national_rank": 386,
+    "district_rank": 387,
+    "national_rank": 387,
     "district_name_hindi": "नार्थ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "GYALSHING",
@@ -85,7 +85,7 @@
     "national_rank": 396,
     "district_name_hindi": "वेस्ट",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "NAMCHI",
@@ -107,7 +107,7 @@
     "national_rank": 399,
     "district_name_hindi": "साउथ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "PAKYONG",
@@ -129,6 +129,6 @@
     "national_rank": 456,
     "district_name_hindi": "Pakyong",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   }
 ]

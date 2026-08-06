@@ -19,7 +19,7 @@
     "national_rank": 1,
     "district_name_hindi": "बुरहानपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "NIWARI",
@@ -41,7 +41,7 @@
     "national_rank": 1,
     "district_name_hindi": "Niwari",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "INDORE",
@@ -63,7 +63,7 @@
     "national_rank": 209,
     "district_name_hindi": "इंदौर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "BALAGHAT",
@@ -85,7 +85,7 @@
     "national_rank": 230,
     "district_name_hindi": "बालाघाट",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "HARDA",
@@ -107,7 +107,7 @@
     "national_rank": 233,
     "district_name_hindi": "हरदा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "NARMADAPURAM",
@@ -129,7 +129,7 @@
     "national_rank": 299,
     "district_name_hindi": "होशंगाबाद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "DATIA",
@@ -151,7 +151,7 @@
     "national_rank": 335,
     "district_name_hindi": "दतिया",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "NARSIMHAPUR",
@@ -159,21 +159,21 @@
     "state_code": "452",
     "fin_year": "cumulative",
     "total_households": 209448,
-    "households_with_tap": 199709,
-    "tap_connections_provided": 199709,
-    "coverage_pct": 95.35,
+    "households_with_tap": 199722,
+    "tap_connections_provided": 199722,
+    "coverage_pct": 95.36,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 206410,
     "connections_pre_2019": 72134,
     "connections_2019_20": 2763,
     "connections_2020_onwards": 57377,
-    "remaining_households": 9739,
+    "remaining_households": 9726,
     "district_rank": 338,
-    "national_rank": 339,
+    "national_rank": 338,
     "district_name_hindi": "नरसिंहपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "GWALIOR",
@@ -195,7 +195,7 @@
     "national_rank": 340,
     "district_name_hindi": "ग्वालियर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "BETUL",
@@ -217,7 +217,7 @@
     "national_rank": 348,
     "district_name_hindi": "बेतुल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "JHABUA",
@@ -239,7 +239,7 @@
     "national_rank": 361,
     "district_name_hindi": "झाबुआ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "ANUPPUR",
@@ -247,28 +247,28 @@
     "state_code": "461",
     "fin_year": "cumulative",
     "total_households": 124937,
-    "households_with_tap": 115958,
-    "tap_connections_provided": 115958,
-    "coverage_pct": 92.81,
+    "households_with_tap": 115994,
+    "tap_connections_provided": 115994,
+    "coverage_pct": 92.84,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 139233,
     "connections_pre_2019": 11362,
     "connections_2019_20": 7346,
     "connections_2020_onwards": 36530,
-    "remaining_households": 8979,
+    "remaining_households": 8943,
     "district_rank": 371,
     "national_rank": 371,
     "district_name_hindi": "अनुपपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "KATNI",
     "state": "Madhya Pradesh",
     "state_code": "450",
     "fin_year": "cumulative",
-    "total_households": 212445,
+    "total_households": 212438,
     "households_with_tap": 194682,
     "tap_connections_provided": 194682,
     "coverage_pct": 91.64,
@@ -278,12 +278,12 @@
     "connections_pre_2019": 25246,
     "connections_2019_20": 1516,
     "connections_2020_onwards": 73718,
-    "remaining_households": 17763,
-    "district_rank": 385,
-    "national_rank": 385,
+    "remaining_households": 17756,
+    "district_rank": 386,
+    "national_rank": 386,
     "district_name_hindi": "कटनी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "KHARGONE (WEST NIMAR)",
@@ -305,7 +305,7 @@
     "national_rank": 408,
     "district_name_hindi": "खरगोन",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "RAJGARH",
@@ -327,7 +327,7 @@
     "national_rank": 413,
     "district_name_hindi": "राजगढ़",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "MORENA",
@@ -349,29 +349,29 @@
     "national_rank": 418,
     "district_name_hindi": "मोरेना",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "CHHINDWARA",
     "state": "Madhya Pradesh",
     "state_code": "455",
     "fin_year": "cumulative",
-    "total_households": 349646,
+    "total_households": 349597,
     "households_with_tap": 310811,
     "tap_connections_provided": 310811,
-    "coverage_pct": 88.89,
+    "coverage_pct": 88.91,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 329125,
     "connections_pre_2019": 87783,
     "connections_2019_20": 1657,
     "connections_2020_onwards": 69360,
-    "remaining_households": 38835,
+    "remaining_households": 38786,
     "district_rank": 435,
     "national_rank": 435,
     "district_name_hindi": "छिंदवाड़ा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "BHIND",
@@ -393,7 +393,7 @@
     "national_rank": 452,
     "district_name_hindi": "भिंड",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "KHANDWA (EAST NIMAR)",
@@ -415,7 +415,7 @@
     "national_rank": 468,
     "district_name_hindi": "खंडवा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "UMARIA",
@@ -437,7 +437,7 @@
     "national_rank": 478,
     "district_name_hindi": "उमरिया",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "BHOPAL",
@@ -459,51 +459,51 @@
     "national_rank": 510,
     "district_name_hindi": "भोपाल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "RAISEN",
     "state": "Madhya Pradesh",
     "state_code": "446",
     "fin_year": "cumulative",
-    "total_households": 217624,
+    "total_households": 217374,
     "households_with_tap": 178834,
     "tap_connections_provided": 178834,
-    "coverage_pct": 82.18,
+    "coverage_pct": 82.27,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 211076,
     "connections_pre_2019": 22088,
     "connections_2019_20": 13718,
     "connections_2020_onwards": 47485,
-    "remaining_households": 38790,
-    "district_rank": 517,
-    "national_rank": 517,
+    "remaining_households": 38540,
+    "district_rank": 515,
+    "national_rank": 515,
     "district_name_hindi": "रायसेन",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "MANDLA",
     "state": "Madhya Pradesh",
     "state_code": "454",
     "fin_year": "cumulative",
-    "total_households": 237481,
-    "households_with_tap": 194883,
-    "tap_connections_provided": 194883,
-    "coverage_pct": 82.06,
+    "total_households": 237283,
+    "households_with_tap": 194884,
+    "tap_connections_provided": 194884,
+    "coverage_pct": 82.13,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 226402,
     "connections_pre_2019": 27407,
     "connections_2019_20": 2105,
     "connections_2020_onwards": 67800,
-    "remaining_households": 42598,
+    "remaining_households": 42399,
     "district_rank": 519,
     "national_rank": 519,
     "district_name_hindi": "मंडला",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "DEWAS",
@@ -525,7 +525,7 @@
     "national_rank": 521,
     "district_name_hindi": "देवास",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "SHAHDOL",
@@ -533,21 +533,21 @@
     "state_code": "460",
     "fin_year": "cumulative",
     "total_households": 200402,
-    "households_with_tap": 163022,
-    "tap_connections_provided": 163022,
-    "coverage_pct": 81.35,
+    "households_with_tap": 163056,
+    "tap_connections_provided": 163056,
+    "coverage_pct": 81.36,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 203242,
     "connections_pre_2019": 12990,
     "connections_2019_20": 1760,
     "connections_2020_onwards": 50599,
-    "remaining_households": 37380,
+    "remaining_households": 37346,
     "district_rank": 525,
     "national_rank": 525,
     "district_name_hindi": "शहडोल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "DHAR",
@@ -569,7 +569,7 @@
     "national_rank": 532,
     "district_name_hindi": "धार",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "SEONI",
@@ -591,7 +591,7 @@
     "national_rank": 538,
     "district_name_hindi": "सोनी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "UJJAIN",
@@ -613,7 +613,7 @@
     "national_rank": 559,
     "district_name_hindi": "उज्जैन",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "DAMOH",
@@ -635,29 +635,29 @@
     "national_rank": 574,
     "district_name_hindi": "दमोह",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "SHEOPUR",
     "state": "Madhya Pradesh",
     "state_code": "418",
     "fin_year": "cumulative",
-    "total_households": 160650,
+    "total_households": 160597,
     "households_with_tap": 120184,
     "tap_connections_provided": 120184,
-    "coverage_pct": 74.81,
+    "coverage_pct": 74.84,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 119826,
     "connections_pre_2019": 10170,
     "connections_2019_20": 6880,
     "connections_2020_onwards": 45829,
-    "remaining_households": 40466,
+    "remaining_households": 40413,
     "district_rank": 579,
     "national_rank": 579,
     "district_name_hindi": "शेओपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "SAGAR",
@@ -675,11 +675,11 @@
     "connections_2019_20": 7770,
     "connections_2020_onwards": 68568,
     "remaining_households": 95435,
-    "district_rank": 601,
-    "national_rank": 601,
+    "district_rank": 602,
+    "national_rank": 602,
     "district_name_hindi": "सागर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "JABALPUR",
@@ -697,11 +697,11 @@
     "connections_2019_20": 2115,
     "connections_2020_onwards": 54308,
     "remaining_households": 67112,
-    "district_rank": 613,
-    "national_rank": 613,
+    "district_rank": 614,
+    "national_rank": 614,
     "district_name_hindi": "जबलपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "BARWANI",
@@ -719,11 +719,11 @@
     "connections_2019_20": 9272,
     "connections_2020_onwards": 77368,
     "remaining_households": 64927,
-    "district_rank": 614,
-    "national_rank": 614,
+    "district_rank": 615,
+    "national_rank": 615,
     "district_name_hindi": "बरवानी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "DINDORI",
@@ -741,11 +741,11 @@
     "connections_2019_20": 1646,
     "connections_2020_onwards": 48581,
     "remaining_households": 50991,
-    "district_rank": 615,
-    "national_rank": 616,
+    "district_rank": 616,
+    "national_rank": 617,
     "district_name_hindi": "डिंडोरी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "TIKAMGARH",
@@ -767,7 +767,7 @@
     "national_rank": 620,
     "district_name_hindi": "टीकमगढ़",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "RATLAM",
@@ -789,7 +789,29 @@
     "national_rank": 632,
     "district_name_hindi": "रतलाम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+  },
+  {
+    "district": "AGAR-MALWA",
+    "state": "Madhya Pradesh",
+    "state_code": "724",
+    "fin_year": "cumulative",
+    "total_households": 91364,
+    "households_with_tap": 61030,
+    "tap_connections_provided": 61030,
+    "coverage_pct": 66.8,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0,
+    "hh_as_of_2019": 94016,
+    "connections_pre_2019": 14609,
+    "connections_2019_20": 9043,
+    "connections_2020_onwards": 24277,
+    "remaining_households": 30334,
+    "district_rank": 636,
+    "national_rank": 636,
+    "district_name_hindi": "अगर",
+    "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "VIDISHA",
@@ -807,33 +829,11 @@
     "connections_2019_20": 5076,
     "connections_2020_onwards": 73994,
     "remaining_households": 76475,
-    "district_rank": 638,
-    "national_rank": 638,
-    "district_name_hindi": "विदिशा",
-    "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
-  },
-  {
-    "district": "AGAR-MALWA",
-    "state": "Madhya Pradesh",
-    "state_code": "724",
-    "fin_year": "cumulative",
-    "total_households": 91364,
-    "households_with_tap": 60883,
-    "tap_connections_provided": 60883,
-    "coverage_pct": 66.64,
-    "funds_released_lakhs": 0,
-    "funds_utilized_lakhs": 0,
-    "hh_as_of_2019": 94016,
-    "connections_pre_2019": 14609,
-    "connections_2019_20": 9043,
-    "connections_2020_onwards": 24277,
-    "remaining_households": 30481,
     "district_rank": 639,
     "national_rank": 639,
-    "district_name_hindi": "अगर",
+    "district_name_hindi": "विदिशा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "MANDSAUR",
@@ -855,7 +855,7 @@
     "national_rank": 657,
     "district_name_hindi": "मंदसौर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "SHAJAPUR",
@@ -877,7 +877,7 @@
     "national_rank": 672,
     "district_name_hindi": "शाजापुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "GUNA",
@@ -899,7 +899,7 @@
     "national_rank": 674,
     "district_name_hindi": "गुना",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "NEEMUCH",
@@ -921,7 +921,7 @@
     "national_rank": 680,
     "district_name_hindi": "नीमच",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "SEHORE",
@@ -929,21 +929,21 @@
     "state_code": "445",
     "fin_year": "cumulative",
     "total_households": 224678,
-    "households_with_tap": 128048,
-    "tap_connections_provided": 128048,
-    "coverage_pct": 56.99,
+    "households_with_tap": 128084,
+    "tap_connections_provided": 128084,
+    "coverage_pct": 57.01,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 214777,
     "connections_pre_2019": 18408,
     "connections_2019_20": 19551,
     "connections_2020_onwards": 65608,
-    "remaining_households": 96630,
+    "remaining_households": 96594,
     "district_rank": 685,
     "national_rank": 685,
     "district_name_hindi": "सेहोरे",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "SHIVPURI",
@@ -965,7 +965,7 @@
     "national_rank": 696,
     "district_name_hindi": "शिवपुरी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "SIDHI",
@@ -987,7 +987,7 @@
     "national_rank": 697,
     "district_name_hindi": "सीधी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "REWA",
@@ -995,8 +995,8 @@
     "state_code": "430",
     "fin_year": "cumulative",
     "total_households": 393947,
-    "households_with_tap": 205543,
-    "tap_connections_provided": 205543,
+    "households_with_tap": 205565,
+    "tap_connections_provided": 205565,
     "coverage_pct": 52.18,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
@@ -1004,12 +1004,12 @@
     "connections_pre_2019": 32626,
     "connections_2019_20": 12599,
     "connections_2020_onwards": 87305,
-    "remaining_households": 188404,
+    "remaining_households": 188382,
     "district_rank": 698,
     "national_rank": 698,
     "district_name_hindi": "रेवा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "ASHOKNAGAR",
@@ -1031,29 +1031,29 @@
     "national_rank": 712,
     "district_name_hindi": "अशोकनगर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "PANNA",
     "state": "Madhya Pradesh",
     "state_code": "426",
     "fin_year": "cumulative",
-    "total_households": 157039,
-    "households_with_tap": 71456,
-    "tap_connections_provided": 71456,
-    "coverage_pct": 45.5,
+    "total_households": 156960,
+    "households_with_tap": 71508,
+    "tap_connections_provided": 71508,
+    "coverage_pct": 45.56,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 229141,
     "connections_pre_2019": 9628,
     "connections_2019_20": 1867,
     "connections_2020_onwards": 23777,
-    "remaining_households": 85583,
+    "remaining_households": 85452,
     "district_rank": 715,
     "national_rank": 715,
     "district_name_hindi": "पन्ना",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "CHHATARPUR",
@@ -1075,7 +1075,7 @@
     "national_rank": 721,
     "district_name_hindi": "छतरपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "ALIRAJPUR",
@@ -1097,7 +1097,7 @@
     "national_rank": 722,
     "district_name_hindi": "अलीराजपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "SATNA",
@@ -1119,7 +1119,7 @@
     "national_rank": 723,
     "district_name_hindi": "सतना",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   },
   {
     "district": "SINGRAULI",
@@ -1127,8 +1127,8 @@
     "state_code": "463",
     "fin_year": "cumulative",
     "total_households": 161082,
-    "households_with_tap": 65590,
-    "tap_connections_provided": 65590,
+    "households_with_tap": 65595,
+    "tap_connections_provided": 65595,
     "coverage_pct": 40.72,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
@@ -1136,11 +1136,11 @@
     "connections_pre_2019": 2015,
     "connections_2019_20": 12751,
     "connections_2020_onwards": 35472,
-    "remaining_households": 95492,
+    "remaining_households": 95487,
     "district_rank": 728,
     "national_rank": 728,
     "district_name_hindi": "सिंगरौली",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-05T08:07:29.569362+00:00"
+    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
   }
 ]
