@@ -33,6 +33,29 @@
         "restraint": 5,
         "variety": 4
       }
+    },
+    {
+      "date": "2026-08-06",
+      "scope": "service-design",
+      "genre": "public-service casework utility",
+      "theme": "calm civic action sheet",
+      "app_macrostructure": "one staged service shell",
+      "enrichment": "official public-service standards and citizen-access evidence",
+      "brief": "Problem to first accountable action, preparation, and escalation; district data is supporting evidence",
+      "status": "proposed pending direct citizen research",
+      "design_system": "design.md",
+      "research": [
+        "SERVICE_DESIGN.md",
+        "USER_RESEARCH_PLAN.md"
+      ],
+      "critique": {
+        "philosophy": 5,
+        "hierarchy": 5,
+        "execution": 3,
+        "specificity": 5,
+        "restraint": 5,
+        "variety": 4
+      }
     }
   ]
 }
