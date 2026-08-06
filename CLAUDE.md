@@ -90,7 +90,7 @@ GET /api/v1/pin/{pin}                    — PIN → district, MP, MLA, lineage
 POST /api/v1/locate {lat,lng}            — nearest PIN via pin_geo centroids (coords transient, never logged)
 GET /api/v1/action/{pin}                 — full citizen action brief
 GET /api/v1/scores[/worst|/states|/{d}]  — precomputed accountability scores
-GET /api/v1/districts                    — canonical district registry
+GET /api/v1/districts                    — canonical registry (`districts` labels + state-scoped `items`)
 GET /api/v1/district/{name}[/*]          — district overview / money-flow
 GET /api/v1/scheme/{slug}[/worst]        — per-scheme (slugs: mgnrega, pds-nfsa, …; ?state= required)
 GET /api/v1/schemes | /data-quality      — caveats (single source: web/src/lib/data-quality.ts)

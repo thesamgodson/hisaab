@@ -1,97 +1,81 @@
 # Design — Hisaab
 
-A locked, human-first design system for Hisaab. Public-service tasks outrank
-data display: every surface should answer what affects the person, what they
-are owed, what to do next, who is accountable, and where the evidence came
-from.
+Hisaab is one public-service interface, not a landing page followed by two
+different products. The design exists to help a person identify their area,
+understand one problem, and take one defensible next step.
 
 ## Genre
 
-Civic editorial: the trust and restraint of a public record, with the speed
-and clarity of a modern service interface.
+Modern-minimal civic utility. It should feel calm, specific, and operational —
+closer to a well-made public service than a campaign site or analytics dashboard.
 
 ## Macrostructure family
 
-- Marketing page: Narrative Workflow. PIN entry is the first real action;
-  the map is a secondary district-browsing tool.
-- App pages: Workbench with an index-first summary. Next action first,
-  representatives second, complaint path third, raw evidence last.
-- Content pages: Long Document if one is ever required. Do not add a page when
-  progressive disclosure on an existing page will do.
+- Canonical app surface: Index-First. The area lookup is the index; a result
+  replaces it in the same route and preserves a clear way back.
+- Result mode: one continuous task document — context, data caveat, complaint
+  guide, accountable people, evidence.
+- Compatibility routes: redirects only. They never own a second visual product.
 
 ## Theme
 
-Almanac, adapted for public service:
+- White paper and cool graphite text.
+- One civic blue for actions and links.
+- Red, amber, and green appear only when the underlying data carries that state.
+- No gradients, glass, decorative shadows, illustration, or ornamental colour.
 
-- `--color-paper`: `oklch(0.975 0.012 85)`
-- `--color-paper-2`: `oklch(0.95 0.016 85)`
-- `--color-surface`: `oklch(0.99 0.008 85)`
-- `--color-ink`: `oklch(0.22 0.025 255)`
-- `--color-ink-2`: `oklch(0.41 0.025 255)`
-- `--color-muted`: `oklch(0.46 0.02 255)`
-- `--color-rule`: `oklch(0.84 0.018 85)`
-- `--color-accent`: `oklch(0.43 0.15 276)`
-- `--color-focus`: `oklch(0.52 0.17 276)`
-
-Status colours are evidence annotations, never the brand: green means a
-higher reported rate, amber a middle reported rate, and red a lower reported
-rate or a flagged shortfall. Text always states the exact value or caveat.
+All values live in `web/src/app/tokens.css`; component CSS uses tokens only.
 
 ## Typography
 
-- Display and wordmark: Newsreader, weight 600
-- Body and controls: Geist, weights 400 and 600
-- Figures and PINs: Geist Mono, weight 500
-- Display tracking: `-0.025em`
-- Body floor: `1rem`; labels never below `0.6875rem`
+- UI and display: Aptos where available, then metric-stable Geist and Segoe UI.
+- Wordmark and figures: Geist Mono.
+- Body: 16px minimum, 1.55 line-height.
+- Headings: 700; body: 400. No serif display type and no giant headline.
+- Five sizes maximum. Numeric evidence uses tabular figures.
 
-Fonts load through `next/font` so they are self-hosted and reserve their
-metrics before paint.
+## Spacing and shape
 
-## Spacing
-
-A four-point named scale lives in `web/src/app/tokens.css`. Page components
-use system classes and semantic tokens rather than one-off colour values.
+- Four-point spacing scale.
+- Content measure: 48rem for results, 36rem for lookup.
+- Radius: 4–8px. A control may be rounded; whole sections are not floating cards.
+- Structure comes from whitespace and rules, not repeated containers.
 
 ## Motion
 
-- No scroll-triggered reveal sequence.
-- State changes use `--dur-short: 160ms` and `--ease-out`.
-- Focus indicators are immediate and never animated.
-- Reduced motion removes all non-essential animation.
+- No entrance, scroll, stagger, lift, shimmer sweep, or decorative motion.
+- Hover and active feedback use colour only, at 120ms.
+- Focus rings are immediate. Reduced motion removes remaining transitions.
 
-## Microinteractions stance
+## Interaction
 
-- No decorative hover lifts, glass effects, gradient text, or emoji icons.
-- Disclosures are native `<details>` elements with 48px minimum summaries.
-- Loading regions reserve space so hydration and geolocation do not shift the
-  page.
-- Success is quiet; limitations are stated in plain language.
+- One primary action at a time.
+- PIN submission is explicit; the sixth digit never navigates by surprise.
+- District browsing is a secondary disclosure and loads only when requested.
+- Complaint kits use one native select and show one guide at a time.
+- The first local grievance rung is visible; escalation and raw evidence disclose.
+- Every claim remains paired with its official source or an explicit scope caveat.
 
-## CTA voice
+## Voice
 
-- Primary: solid civic indigo, short verb-led label, 10px radius.
-- Secondary: paper surface with a hairline rule.
-- Links and buttons never wrap.
+- Plain problem language before scheme names.
+- Short labels: “Check this PIN”, “Open official route”, “Search another area”.
+- Never call missing data an all-clear.
+- Never present a district aggregate as a decision about an individual case.
 
-## Per-page allowances
+## Responsive contract
 
-- Home may use the existing district map, after the PIN task.
-- Brief pages use no decorative enrichment; the person’s next step is the
-  visual anchor.
-- Evidence is always present but progressively disclosed.
+- Mobile-first at 320, 375, 414, and 768 CSS pixels.
+- No horizontal scrolling or two-line button labels.
+- One column until the content can support two without compression.
+- `html` and `body` use `overflow-x: clip`.
 
-## What every page shares
+## Exports
 
-- Newsreader wordmark and headings, Geist controls, Geist Mono figures.
-- Warm paper, deep ink, civic indigo used sparingly.
-- A compact edge-aligned masthead and one-line colophon footer.
-- Plain-language need first, scheme acronym second.
-- One `<main>`, no horizontal scroll, and verified layouts at 320, 375, 414,
-  and 768 CSS pixels.
+The canonical CSS export is `web/src/app/tokens.css`. The equivalent mappings are:
 
-## What pages may differ on
+- Tailwind: paper → `background`, ink → `foreground`, accent → `primary`.
+- DTCG: `color.paper`, `color.ink`, `color.accent`, `space.*`, `font.ui`.
+- shadcn/ui: `--background`, `--foreground`, `--primary`, `--border`, `--ring`.
 
-- Home uses a two-column task-first opening above a secondary map.
-- PIN and district briefs share the same workbench hierarchy, but the PIN
-  brief names exact representatives while the district brief stays plural.
+Those exports must mirror `tokens.css`; they do not define independent values.

@@ -1,31 +1,23 @@
 import SchemeRow, { type SchemeData } from "@/components/SchemeRow";
 
-export default function SchemeDataSection({
-  schemes,
-}: {
-  schemes: SchemeData[];
-}) {
+export default function SchemeDataSection({ schemes }: { schemes: SchemeData[] }) {
   if (schemes.length === 0) return null;
 
   return (
-    <section id="evidence" className="content-section">
-      <details className="evidence-panel">
+    <section id="evidence" className="result-section">
+      <header className="section-title">
+        <h2>Evidence</h2>
+        <p>Reported money and delivery from official sources.</p>
+      </header>
+      <details className="evidence-disclosure">
         <summary>
-          <span className="evidence-panel__summary-copy">
-            <span className="eyebrow">Evidence</span>
-            <h2>Official figures behind this brief</h2>
-            <p>Open to inspect reported money and delivery.</p>
-          </span>
-          <span className="evidence-panel__count">
+          <strong>View scheme records</strong>
+          <span className="evidence-disclosure__count">
             {schemes.length} scheme{schemes.length === 1 ? "" : "s"}
           </span>
         </summary>
-        <div className="evidence-panel__body">
-          <div className="scheme-grid">
-            {schemes.map((scheme) => (
-              <SchemeRow key={scheme.scheme} data={scheme} />
-            ))}
-          </div>
+        <div className="evidence-list">
+          {schemes.map((scheme) => <SchemeRow key={scheme.scheme} data={scheme} />)}
         </div>
       </details>
     </section>

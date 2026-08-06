@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { formatDistrictLabel } from "@/lib/format-place";
 
@@ -13,63 +13,50 @@ interface LocatedPin {
 
 type LocateState =
   | { status: "idle" }
-  | { status: "locating" }
+  | { status: "loading" }
   | { status: "matched"; match: LocatedPin }
   | { status: "error"; message: string };
 
 const GEO_ERROR_COPY: Record<number, string> = {
-  1: "Location permission denied — type your 6-digit PIN instead.",
-  2: "Couldn’t read your location — type your PIN instead.",
-  3: "Locating took too long — type your PIN instead.",
+  1: "Location permission was denied. Enter your PIN instead.",
+  2: "We couldn’t read your location. Enter your PIN instead.",
+  3: "Location took too long. Enter your PIN instead.",
 };
+
+function locatedPin(data: unknown): LocatedPin | null {
+  if (!data || typeof data !== "object") return null;
+  const value = data as Partial<LocatedPin>;
+  if (
+    typeof value.pin_code !== "string" ||
+    typeof value.district !== "string" ||
+    typeof value.state !== "string" ||
+    typeof value.distance_km !== "number"
+  ) return null;
+  return value as LocatedPin;
+}
 
 export default function PinEntry() {
   const [pin, setPin] = useState("");
   const [locate, setLocate] = useState<LocateState>({ status: "idle" });
-  const inputRef = useRef<HTMLInputElement>(null);
-  const openBriefRef = useRef<HTMLButtonElement>(null);
   const router = useRouter();
+  const pinIsValid = /^\d{6}$/.test(pin);
 
-  useEffect(() => {
-    if (window.matchMedia("(pointer: fine)").matches) {
-      inputRef.current?.focus();
-    }
-  }, []);
-
-  useEffect(() => {
-    if (locate.status === "matched") {
-      openBriefRef.current?.focus();
-    }
-  }, [locate.status]);
-
-  const handleChange = (value: string) => {
-    const cleaned = value.replace(/\D/g, "").slice(0, 6);
-    setPin(cleaned);
-    if (cleaned.length === 6) {
-      router.push(`/action/${cleaned}`);
-    }
+  const openPin = (nextPin: string) => {
+    router.push(`/?pin=${encodeURIComponent(nextPin)}#result`);
   };
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.metaKey || event.ctrlKey || event.altKey) return;
-    if (
-      !/^\d$/.test(event.key) &&
-      !["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(event.key)
-    ) {
-      event.preventDefault();
-    }
+  const submit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (pinIsValid) openPin(pin);
   };
 
-  const handleUseLocation = () => {
+  const useLocation = () => {
     if (!("geolocation" in navigator)) {
-      setLocate({
-        status: "error",
-        message: "Location isn’t available in this browser — type your PIN instead.",
-      });
+      setLocate({ status: "error", message: "Location is not available in this browser." });
       return;
     }
 
-    setLocate({ status: "locating" });
+    setLocate({ status: "loading" });
     navigator.geolocation.getCurrentPosition(
       async (position) => {
         try {
@@ -85,117 +72,82 @@ export default function PinEntry() {
           if (!response.ok) {
             setLocate({
               status: "error",
-              message: data?.error ?? "Couldn’t match a PIN — type it instead.",
+              message: data?.error ?? "We couldn’t match this location to a PIN.",
             });
             return;
           }
-          setLocate({ status: "matched", match: data as LocatedPin });
+          const match = locatedPin(data);
+          if (!match) {
+            setLocate({ status: "error", message: "The location response was incomplete." });
+            return;
+          }
+          setLocate({ status: "matched", match });
         } catch {
-          setLocate({
-            status: "error",
-            message: "Network error — type your PIN instead.",
-          });
+          setLocate({ status: "error", message: "The lookup failed. Enter your PIN instead." });
         }
       },
-      (error) => {
-        setLocate({
-          status: "error",
-          message: GEO_ERROR_COPY[error.code] ?? "Couldn’t read your location.",
-        });
-      },
+      (error) => setLocate({
+        status: "error",
+        message: GEO_ERROR_COPY[error.code] ?? "We couldn’t read your location.",
+      }),
       { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 },
     );
   };
 
   return (
-    <div className="pin-entry">
-      <label htmlFor="pin-input" className="sr-only">
-        Enter your 6-digit PIN code
-      </label>
-      <input
-        id="pin-input"
-        ref={inputRef}
-        type="text"
-        inputMode="numeric"
-        pattern="[0-9]{6}"
-        maxLength={6}
-        value={pin}
-        onChange={(event) => handleChange(event.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="110001"
-        aria-describedby="pin-hint"
-        className="pin-entry__input"
-      />
-      <p id="pin-hint" className="pin-entry__hint">
-        Your brief opens after the sixth digit.
-      </p>
+    <div className="pin-lookup">
+      <form onSubmit={submit} className="pin-form">
+        <label htmlFor="pin-input">PIN code</label>
+        <div className="pin-form__row">
+          <input
+            id="pin-input"
+            type="text"
+            inputMode="numeric"
+            autoComplete="postal-code"
+            pattern="[0-9]{6}"
+            maxLength={6}
+            value={pin}
+            onChange={(event) => setPin(event.target.value.replace(/\D/g, "").slice(0, 6))}
+            placeholder="e.g. 110001"
+            aria-describedby="pin-help"
+          />
+          <button type="submit" className="button button--primary" disabled={!pinIsValid}>
+            Check this PIN
+          </button>
+        </div>
+        <p id="pin-help">Six digits. Nothing is submitted until you choose “Check”.</p>
+      </form>
 
-      {locate.status !== "matched" && (
-        <button
-          type="button"
-          onClick={handleUseLocation}
-          disabled={locate.status === "locating"}
-          aria-busy={locate.status === "locating"}
-          className="button button--secondary pin-entry__locate"
-        >
-          <LocationIcon />
-          {locate.status === "locating" ? "Finding your PIN…" : "Use my location"}
-        </button>
+      <button
+        type="button"
+        className="text-action"
+        onClick={useLocation}
+        disabled={locate.status === "loading"}
+        aria-busy={locate.status === "loading"}
+      >
+        {locate.status === "loading" ? "Finding your PIN…" : "Use my current location"}
+      </button>
+
+      {locate.status === "error" && (
+        <p className="lookup-message lookup-message--error" role="status">{locate.message}</p>
       )}
 
-      <div className="pin-entry__feedback">
-        {locate.status === "error" && (
-          <p role="status" className="pin-entry__error">
-            {locate.message}
+      {locate.status === "matched" && (
+        <div className="location-match">
+          <p>
+            Nearest match: <strong>PIN {locate.match.pin_code}</strong><br />
+            {formatDistrictLabel(locate.match.district, locate.match.state)} · about {locate.match.distance_km} km
           </p>
-        )}
-
-        {locate.status === "matched" && (
-          <div className="pin-match">
-            <p className="pin-match__place">
-              PIN <strong>{locate.match.pin_code}</strong> ·{" "}
-              {formatDistrictLabel(locate.match.district, locate.match.state)}
-            </p>
-            <p className="pin-match__distance">
-              Nearest post-office area, about {locate.match.distance_km} km away
-            </p>
-            <button
-              type="button"
-              ref={openBriefRef}
-              onClick={() => router.push(`/action/${locate.match.pin_code}`)}
-              className="button button--primary pin-match__open"
-            >
-              Open this brief
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setLocate({ status: "idle" });
-                inputRef.current?.focus();
-              }}
-              className="pin-match__retry"
-            >
-              Not your area? Type your PIN
-            </button>
-            <p className="pin-match__source">
-              Location match: GeoNames postal data, CC BY 4.0
-            </p>
-          </div>
-        )}
-      </div>
+          <button
+            type="button"
+            className="button button--secondary"
+            onClick={() => openPin(locate.match.pin_code)}
+          >
+            Use this PIN
+          </button>
+          <small>GeoNames postal data, CC BY 4.0. Coordinates are not stored.</small>
+        </div>
+      )}
     </div>
-  );
-}
-
-function LocationIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      />
-      <circle cx="12" cy="10" r="2.25" stroke="currentColor" strokeWidth="1.8" />
-    </svg>
   );
 }

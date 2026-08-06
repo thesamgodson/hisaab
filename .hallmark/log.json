@@ -3,6 +3,23 @@
     {
       "date": "2026-08-06",
       "scope": "app",
+      "genre": "modern-minimal civic utility",
+      "theme": "custom austere blue",
+      "app_macrostructure": "Index-First single surface",
+      "enrichment": "none",
+      "brief": "One canonical PIN-or-district surface for rights, complaint routes, representatives, and evidence",
+      "critique": {
+        "philosophy": 5,
+        "hierarchy": 5,
+        "execution": 4,
+        "specificity": 5,
+        "restraint": 5,
+        "variety": 5
+      }
+    },
+    {
+      "date": "2026-08-06",
+      "scope": "app",
       "genre": "civic editorial",
       "theme": "Almanac",
       "marketing_macrostructure": "Narrative Workflow",

@@ -1,66 +1,134 @@
-import { Suspense } from "react";
+import AccountabilityResult, {
+  type ResultRepresentative,
+} from "@/components/AccountabilityResult";
+import DistrictPicker from "@/components/DistrictPicker";
 import PinEntry from "@/components/PinEntry";
-import IndiaMap from "@/components/IndiaMap";
+import { buildActionBrief, buildDistrictBrief } from "@/lib/action-brief";
+import { queryOne, resolveState } from "@/lib/db";
+import { displayPersonName, titleCasePlace } from "@/lib/format-place";
+import { getDistrictSchemeRows } from "@/lib/money-flow";
 
-export default function Home() {
+export const revalidate = 3600;
+
+interface PageProps {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}
+
+function param(value: string | string[] | undefined): string | null {
+  if (Array.isArray(value)) return value[0] ?? null;
+  return value ?? null;
+}
+
+function Lookup({ error }: { error?: string }) {
   return (
-    <div className="page-shell">
-      <section className="home-hero" aria-labelledby="home-heading">
-        <div className="home-hero__copy">
-          <p className="eyebrow">Welfare rights in your area</p>
-          <h1 id="home-heading">Know what you’re owed. Know what to do next.</h1>
-          <p className="home-hero__lead">
-            Start with your PIN. Hisaab brings together local welfare evidence,
-            legal entitlements, official complaint routes, and the people who
-            represent you.
-          </p>
-        </div>
-
-        <div className="pin-panel">
-          <p className="eyebrow">Step 01 · Find your area</p>
-          <h2>Enter your 6-digit PIN</h2>
-          <PinEntry />
-          <p className="pin-panel__promise">
-            No account required. Location matching is checked once and never stored.
-          </p>
-        </div>
-      </section>
-
-      <ol className="journey-line" aria-label="What your brief contains">
-        <li>
-          <strong>01</strong>
-          <span>See what the public data flags locally.</span>
-        </li>
-        <li>
-          <strong>02</strong>
-          <span>Read your rights in plain language.</span>
-        </li>
-        <li>
-          <strong>03</strong>
-          <span>Take the complaint through an official route.</span>
-        </li>
-      </ol>
-
-      <section className="map-section" aria-labelledby="map-heading">
-        <div className="map-section__heading">
-          <p className="eyebrow">Or browse by district</p>
-          <h2 id="map-heading">Explore the country, district by district.</h2>
-          <p>
-            A map click opens the same accountability brief at district level.
-            Use your PIN when you need your exact MP and MLA.
-          </p>
-        </div>
-        <Suspense
-          fallback={
-            <div
-              className="map-surface shimmer w-full aspect-[4/5] sm:aspect-[4/3]"
-              aria-label="Loading district map"
-            />
-          }
-        >
-          <IndiaMap />
-        </Suspense>
+    <div className="lookup-shell">
+      <section className="lookup" aria-labelledby="lookup-heading">
+        <h1 id="lookup-heading">Get help with a welfare problem.</h1>
+        <p className="lookup__intro">
+          Enter your PIN to see what you are owed, where to complain first, and who represents your area.
+        </p>
+        {error && <p className="lookup-error" role="alert">{error}</p>}
+        <PinEntry />
+        <DistrictPicker />
+        <p className="lookup__privacy">
+          No account required. Your PIN is used only to match the relevant district and constituency.
+        </p>
       </section>
     </div>
   );
+}
+
+export default async function Home({ searchParams }: PageProps) {
+  const search = await searchParams;
+  const pin = param(search.pin)?.trim() ?? null;
+  const rawDistrict = param(search.district)?.trim() ?? null;
+  const rawState = param(search.state)?.trim() ?? null;
+
+  if (pin) {
+    if (!/^\d{6}$/.test(pin)) {
+      return <Lookup error="Enter a valid 6-digit PIN code." />;
+    }
+    const brief = await buildActionBrief(pin);
+    if (!brief) {
+      return <Lookup error={`PIN ${pin} is not in the postal directory we serve.`} />;
+    }
+    const schemes = await getDistrictSchemeRows(brief.district, brief.state);
+    const representatives: ResultRepresentative[] = [];
+    if (brief.mp) {
+      representatives.push({
+        role: "MP",
+        name: displayPersonName(brief.mp.mp_name),
+        party: brief.mp.party,
+        area: titleCasePlace(brief.mp.constituency),
+        sourceUrl: brief.mp.source_url,
+      });
+    }
+    if (brief.mla) {
+      representatives.push({
+        role: "MLA",
+        name: displayPersonName(brief.mla.mla_name),
+        party: brief.mla.party,
+        area: titleCasePlace(brief.mla.ac_name),
+        sourceUrl: brief.mla.source_url,
+      });
+    }
+
+    return (
+      <AccountabilityResult
+        pin={pin}
+        district={brief.district}
+        state={brief.state}
+        lineage={brief.formerly_part_of}
+        diagnosis={brief.diagnosis}
+        schemesChecked={brief.schemes_checked}
+        complaintKits={brief.complaint_kits}
+        universalChannels={brief.universal_channels}
+        representatives={representatives}
+        schemes={schemes}
+      />
+    );
+  }
+
+  if (rawDistrict) {
+    const district = rawDistrict.toUpperCase().replace(/-/g, " ");
+    const state = rawState?.toUpperCase().replace(/-/g, " ") ?? await resolveState(district);
+    if (!state) {
+      return <Lookup error="Choose a district together with its state." />;
+    }
+    const exists = await queryOne<{ present: number }>(
+      `SELECT 1 AS present FROM district_scores
+       WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) LIMIT 1`,
+      [district, state],
+    );
+    if (!exists) {
+      return <Lookup error="That district and state combination is not in the registry." />;
+    }
+    const [brief, schemes] = await Promise.all([
+      buildDistrictBrief(district, state),
+      getDistrictSchemeRows(district, state),
+    ]);
+    const representatives: ResultRepresentative[] = brief.mps.map((mp) => ({
+      role: "MP",
+      name: displayPersonName(mp.mp_name),
+      party: mp.party,
+      area: titleCasePlace(mp.constituency),
+      sourceUrl: mp.source_url,
+    }));
+
+    return (
+      <AccountabilityResult
+        district={district}
+        state={state}
+        lineage={brief.formerly_part_of}
+        diagnosis={brief.diagnosis}
+        schemesChecked={brief.schemes_checked}
+        complaintKits={brief.complaint_kits}
+        universalChannels={brief.universal_channels}
+        representatives={representatives}
+        schemes={schemes}
+      />
+    );
+  }
+
+  return <Lookup />;
 }

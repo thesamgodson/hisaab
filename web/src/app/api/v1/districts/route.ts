@@ -27,6 +27,7 @@ export async function GET(request: NextRequest) {
 
   return Response.json({
     districts: rows.map((r) => r.district),
+    items: rows,
     count: rows.length,
   });
 }

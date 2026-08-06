@@ -1,9 +1,9 @@
 {
-  "scanned_at": "2026-08-06T13:16:00+05:30",
+  "scanned_at": "2026-08-06T15:57:00+05:30",
   "framework": "Next.js 15 App Router",
-  "font_stack": "Newsreader, Geist, and Geist Mono via next/font",
+  "font_stack": "Aptos first, Geist fallback via next/font, Geist Mono for wordmark and figures",
   "palette": "CSS custom properties in web/src/app/tokens.css",
   "motion": "CSS only; no motion library",
-  "spacing": "Tailwind defaults plus semantic CSS tokens",
+  "spacing": "Four-point semantic CSS token scale",
   "design_system": "design.md"
 }
