@@ -9,13 +9,12 @@ on:
   workflow_dispatch:
     inputs:
       schemes:
-        # Default excludes pmkisan: its data.gov.in village-rollup pull (~13M
-        # rows, per-StateCode) is heavily 429-throttled on the shared demo key
-        # in CI and its installments are quarterly, so a weekly run isn't worth
-        # the timeout risk. Run it explicitly (schemes=pmkisan or 'all') after a
-        # new installment, or once DATA_GOV_IN_API_KEY (a project key) is set.
+        # pmkisan restored to the weekly default 2026-08-06: the registered
+        # DATA_GOV_IN_API_KEY (repo secret, verified account-wide) lifts the
+        # demo-key 429 throttle that made its ~13M-row village-rollup pull
+        # time out in CI (the reason it was removed at e19f780).
         description: "Comma-separated schemes to scrape (or 'all')"
-        default: "mgnrega,pmgsy,pmayg,jjm,pmposhan,nsap,nfsa,sbm,nrlm,udise"
+        default: "all"
         required: false
 
 jobs:
@@ -46,7 +45,7 @@ jobs:
       - name: Scrape (failures tolerated per scheme)
         continue-on-error: true
         run: |
-          python run_all.py --schemes "${{ github.event.inputs.schemes || 'mgnrega,pmgsy,pmayg,jjm,pmposhan,nsap,nfsa,sbm,nrlm,udise' }}"
+          python run_all.py --schemes "${{ github.event.inputs.schemes || 'all' }}"
 
       - name: Refresh MLAs (MyNeta) and re-ingest politicians
         continue-on-error: true
