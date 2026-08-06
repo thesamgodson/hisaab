@@ -27,11 +27,7 @@ function period(finYear: string): string {
 
 export default function SchemeRow({ data }: { data: SchemeData }) {
   const display = schemeDisplay(data.scheme);
-  const deliveryPct =
-    data.units_target != null && data.units_target > 0 && data.units_completed != null
-      ? (data.units_completed / data.units_target) * 100
-      : null;
-  const indicator = deliveryPct ?? data.utilization_pct;
+  const indicator = data.utilization_pct;
   const finance = [
     ["Allocated", data.allocated_lakhs],
     ["Released", data.released_lakhs],
@@ -43,7 +39,7 @@ export default function SchemeRow({ data }: { data: SchemeData }) {
       <summary>
         <strong>{display.need}</strong>
         <span className="evidence-row__indicator">
-          {indicator != null ? `${indicator.toFixed(1)}%` : "View"}
+          {indicator != null ? `${indicator.toFixed(1)}% funds` : "View"}
         </span>
       </summary>
       <div className="evidence-row__body">

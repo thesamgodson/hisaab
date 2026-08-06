@@ -30,6 +30,7 @@ interface AccountabilityResultProps {
   complaintKits: ComplaintKit[];
   universalChannels: GrievanceChannel[];
   representatives: ResultRepresentative[];
+  representativeContext: string;
   schemes: SchemeData[];
 }
 
@@ -51,6 +52,7 @@ export default function AccountabilityResult({
   complaintKits,
   universalChannels,
   representatives,
+  representativeContext,
   schemes,
 }: AccountabilityResultProps) {
   const nothingChecked = diagnosis.length === 0 && schemesChecked.length === 0;
@@ -112,11 +114,7 @@ export default function AccountabilityResult({
       <section className="result-section" aria-labelledby="people-heading">
         <header className="section-title">
           <h2 id="people-heading">Who represents this area</h2>
-          <p>
-            {pin
-              ? "The PIN view identifies the matched MP and MLA."
-              : "A district can overlap several constituencies. Enter a PIN for an exact MP and MLA match."}
-          </p>
+          <p>{representativeContext}</p>
         </header>
 
         {representatives.length > 0 ? (

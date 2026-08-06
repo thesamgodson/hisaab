@@ -491,8 +491,8 @@ UNION ALL
 SELECT
     'PM Kisan' as scheme, state, district, fin_year,
     NULL as allocated_lakhs,
-    amount_paid_lakhs as released_lakhs,
-    amount_paid_lakhs as expended_lakhs,
+    NULLIF(amount_paid_lakhs, 0) as released_lakhs,
+    NULLIF(amount_paid_lakhs, 0) as expended_lakhs,
     CASE WHEN beneficiaries_registered > 0
          THEN (beneficiaries_paid * 100.0 / beneficiaries_registered)
          ELSE NULL END as utilization_pct,
@@ -892,9 +892,9 @@ FROM pmgsy_district
 UNION ALL
 SELECT
     'PMAY-G' as scheme, state, district, fin_year,
-    funds_released_lakhs as allocated_lakhs,
-    funds_released_lakhs as released_lakhs,
-    funds_utilized_lakhs as expended_lakhs,
+    NULL as allocated_lakhs,
+    NULLIF(funds_released_lakhs, 0) as released_lakhs,
+    NULLIF(funds_utilized_lakhs, 0) as expended_lakhs,
     CASE WHEN funds_released_lakhs > 0
          THEN (funds_utilized_lakhs / funds_released_lakhs * 100)
          ELSE NULL END as utilization_pct,
@@ -917,8 +917,8 @@ UNION ALL
 SELECT
     'PM Kisan' as scheme, state, district, fin_year,
     NULL as allocated_lakhs,
-    amount_paid_lakhs as released_lakhs,
-    amount_paid_lakhs as expended_lakhs,
+    NULLIF(amount_paid_lakhs, 0) as released_lakhs,
+    NULLIF(amount_paid_lakhs, 0) as expended_lakhs,
     CASE WHEN beneficiaries_registered > 0
          THEN (beneficiaries_paid * 100.0 / beneficiaries_registered)
          ELSE NULL END as utilization_pct,
@@ -929,9 +929,9 @@ FROM pmkisan_district
 UNION ALL
 SELECT
     'JJM' as scheme, state, district, fin_year,
-    funds_released_lakhs as allocated_lakhs,
-    funds_released_lakhs as released_lakhs,
-    funds_utilized_lakhs as expended_lakhs,
+    NULL as allocated_lakhs,
+    NULLIF(funds_released_lakhs, 0) as released_lakhs,
+    NULLIF(funds_utilized_lakhs, 0) as expended_lakhs,
     CASE WHEN funds_released_lakhs > 0
          THEN (funds_utilized_lakhs / funds_released_lakhs * 100)
          ELSE NULL END as utilization_pct,
@@ -953,14 +953,17 @@ SELECT
 FROM jjm_allocation
 UNION ALL
 SELECT
+    -- children_fed is a DAILY reporting snapshot (CLAIM-2026-0006); its
+    -- legacy utilization_pct column is meals served/enrolment, not finance or
+    -- a delivery rate. District money fields are zero placeholders.
     'PM POSHAN' as scheme, state, district, fin_year,
-    funds_released_lakhs as allocated_lakhs,
-    funds_released_lakhs as released_lakhs,
-    funds_utilized_lakhs as expended_lakhs,
-    utilization_pct,
-    children_enrolled as units_target,
+    NULL as allocated_lakhs,
+    NULLIF(funds_released_lakhs, 0) as released_lakhs,
+    NULLIF(funds_utilized_lakhs, 0) as expended_lakhs,
+    NULL as utilization_pct,
+    NULL as units_target,
     children_fed as units_completed,
-    'children fed' as units_label, source_url
+    'children fed (daily snapshot)' as units_label, source_url
 FROM pmposhan_district
 UNION ALL
 SELECT

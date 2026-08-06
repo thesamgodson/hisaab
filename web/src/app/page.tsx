@@ -52,26 +52,17 @@ export default async function Home({ searchParams }: PageProps) {
     if (!brief) {
       return <Lookup error={`PIN ${pin} is not in the postal directory we serve.`} />;
     }
-    const schemes = await getDistrictSchemeRows(brief.district, brief.state);
-    const representatives: ResultRepresentative[] = [];
-    if (brief.mp) {
-      representatives.push({
-        role: "MP",
-        name: displayPersonName(brief.mp.mp_name),
-        party: brief.mp.party,
-        area: titleCasePlace(brief.mp.constituency),
-        sourceUrl: brief.mp.source_url,
-      });
-    }
-    if (brief.mla) {
-      representatives.push({
-        role: "MLA",
-        name: displayPersonName(brief.mla.mla_name),
-        party: brief.mla.party,
-        area: titleCasePlace(brief.mla.ac_name),
-        sourceUrl: brief.mla.source_url,
-      });
-    }
+    const [schemes, districtBrief] = await Promise.all([
+      getDistrictSchemeRows(brief.district, brief.state),
+      buildDistrictBrief(brief.district, brief.state),
+    ]);
+    const representatives: ResultRepresentative[] = districtBrief.mps.map((mp) => ({
+      role: "MP",
+      name: displayPersonName(mp.mp_name),
+      party: mp.party,
+      area: titleCasePlace(mp.constituency),
+      sourceUrl: mp.source_url,
+    }));
 
     return (
       <AccountabilityResult
@@ -84,6 +75,7 @@ export default async function Home({ searchParams }: PageProps) {
         complaintKits={brief.complaint_kits}
         universalChannels={brief.universal_channels}
         representatives={representatives}
+        representativeContext="A PIN resolves to a postal district, not a reliable assembly-constituency match. These MPs represent constituencies overlapping the district; Hisaab does not claim an exact MLA."
         schemes={schemes}
       />
     );
@@ -125,6 +117,7 @@ export default async function Home({ searchParams }: PageProps) {
         complaintKits={brief.complaint_kits}
         universalChannels={brief.universal_channels}
         representatives={representatives}
+        representativeContext="A district can overlap several parliamentary and assembly constituencies. These MPs represent the overlapping parliamentary constituencies."
         schemes={schemes}
       />
     );

@@ -91,24 +91,24 @@ def data_quality_warnings() -> dict[str, list[str]]:
         ],
         "PMAY-G": [
             "STATE-LEVEL: Allocation + release + utilization from the un-gated B.3 High Level Financial Progress report (report.pmayg.dord.gov.in, 2019-2026, pmayg_finance; captcha removed 2026-08-04). ~45% of rows have release=0 (allocation present).",
-            "DISTRICT-LEVEL: funds_released/utilized remain zero — FinancialProgressRpt.aspx requires login.",
+            "DISTRICT-LEVEL: finance is unavailable — FinancialProgressRpt.aspx requires login; zero placeholders are served as NULL in money_flow.",
             "Delivery metrics (houses_sanctioned/completed) available at district level.",
         ],
         "PM Kisan": [
-            "DISTRICT-LEVEL: beneficiaries paid per installment, aggregated from the data.gov.in village dataset (CLAIM-2026-0031). Counts only — the dataset publishes no money; district data lags the homepage by one installment.",
+            "DISTRICT-LEVEL: beneficiaries paid per installment, aggregated from the data.gov.in village dataset (CLAIM-2026-0031). Counts only — the dataset publishes no money, so zero placeholders are served as NULL; district data lags the homepage by one installment.",
             "STATE-LEVEL: current-period eligible vs transferred from the pmkisan.gov.in homepage (district='ALL' rows, CLAIM-2026-0030) — mid-cycle numbers while an installment is still being paid out.",
             "amount_paid_lakhs is zero everywhere except 8 states' frozen FY2024-25 district rows (Rajya Sabha resources, last updated 2023) — never rank districts by PM Kisan money.",
             "No allocation data — PM Kisan is a direct benefit transfer with no state-level allocation.",
         ],
         "JJM": [
             "STATE-LEVEL: Allocation/release/expenditure from ejalshakti.gov.in (2019-2025, jjm_allocation).",
-            "DISTRICT-LEVEL: funds_released/utilized remain zero — API has no financial endpoint.",
+            "DISTRICT-LEVEL: finance is unavailable — the API has no financial endpoint; zero placeholders are served as NULL in money_flow.",
             "Delivery metrics (coverage_pct, households_with_tap) available at district level.",
         ],
         "PM POSHAN": [
             "STATE-LEVEL: Real allocation + release + utilization from data.gov.in (2016-2025, pmposhan_finance).",
-            "DISTRICT-LEVEL: funds_released/utilized remain zero — portal does not expose district financial data.",
-            "children_fed is a DAILY reporting snapshot (CLAIM-2026-0006) — no feeding percentage is published because fed/enrolled is not a delivery rate.",
+            "DISTRICT-LEVEL: finance is unavailable — the portal does not expose it; zero placeholders are served as NULL in money_flow.",
+            "children_fed is a DAILY reporting snapshot (CLAIM-2026-0006) — money_flow publishes the count without an enrolment target or percentage because fed/enrolled is not a delivery rate.",
         ],
         "NSAP": [
             "STATE-LEVEL: Fund release data from data.gov.in (2019-2024, nsap_finance table). ~22% of state×year rows have zero release.",

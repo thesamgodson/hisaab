@@ -367,9 +367,35 @@ class TestViewsDoNotFabricatePercentages:
 
         for view in ("money_flow", "scheme_finance"):
             row = db.execute(
-                f"SELECT utilization_pct FROM {view} WHERE scheme='PM Kisan'"
+                f"SELECT released_lakhs, expended_lakhs, utilization_pct FROM {view} WHERE scheme='PM Kisan'"
             ).fetchone()
+            assert row["released_lakhs"] is None, view
+            assert row["expended_lakhs"] is None, view
             assert row["utilization_pct"] is None, view
+
+    def test_pmposhan_daily_snapshot_is_not_a_percentage_or_money(self, db):
+        db.execute(
+            """INSERT INTO pmposhan_district
+            (district, state, state_code, fin_year, schools_covered, children_enrolled,
+             children_fed, funds_released_lakhs, funds_utilized_lakhs, utilization_pct,
+             source_url, scraped_at)
+            VALUES ('ALPHA', 'TESTSTATE', 'TS', '2025-2026', 100, 593167, 1314,
+                    0, 0, 35.36, 'src', '2026-01-01')"""
+        )
+        db.commit()
+
+        row = db.execute(
+            """SELECT allocated_lakhs, released_lakhs, expended_lakhs,
+                      utilization_pct, units_target, units_completed, units_label
+                 FROM money_flow WHERE scheme='PM POSHAN'"""
+        ).fetchone()
+        assert row["allocated_lakhs"] is None
+        assert row["released_lakhs"] is None
+        assert row["expended_lakhs"] is None
+        assert row["utilization_pct"] is None
+        assert row["units_target"] is None
+        assert row["units_completed"] == 1314
+        assert row["units_label"] == "children fed (daily snapshot)"
 
     def test_nsap_district_aggregated_to_one_row(self, db):
         for scheme_type, eligible, paid, amount in [
