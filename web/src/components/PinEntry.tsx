@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { formatDistrictLabel } from "@/lib/format-place";
 
 interface LocatedPin {
@@ -35,19 +34,20 @@ function locatedPin(data: unknown): LocatedPin | null {
   return value as LocatedPin;
 }
 
-export default function PinEntry() {
+export default function PinEntry({
+  issue,
+  triggerIndex,
+}: {
+  issue: string;
+  triggerIndex?: number | null;
+}) {
   const [pin, setPin] = useState("");
   const [locate, setLocate] = useState<LocateState>({ status: "idle" });
-  const router = useRouter();
-  const pinIsValid = /^\d{6}$/.test(pin);
 
-  const openPin = (nextPin: string) => {
-    router.push(`/?pin=${encodeURIComponent(nextPin)}#result`);
-  };
-
-  const submit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (pinIsValid) openPin(pin);
+  const pinHref = (nextPin: string) => {
+    const params = new URLSearchParams({ issue, pin: nextPin });
+    if (triggerIndex != null) params.set("trigger", String(triggerIndex));
+    return `/?${params.toString()}#result`;
   };
 
   const useLocation = () => {
@@ -96,28 +96,39 @@ export default function PinEntry() {
 
   return (
     <div className="pin-lookup">
-      <form onSubmit={submit} className="pin-form">
+      <form action="/" method="get" className="pin-form">
+        <input type="hidden" name="issue" value={issue} />
+        {triggerIndex != null && <input type="hidden" name="trigger" value={triggerIndex} />}
         <label htmlFor="pin-input">PIN code</label>
         <div className="pin-form__row">
           <input
             id="pin-input"
+            name="pin"
             type="text"
             inputMode="numeric"
             autoComplete="postal-code"
             pattern="[0-9]{6}"
+            minLength={6}
             maxLength={6}
+            required
             value={pin}
-            onChange={(event) => setPin(event.target.value.replace(/\D/g, "").slice(0, 6))}
+            onChange={(event) => {
+              setPin(event.target.value.replace(/\D/g, "").slice(0, 6));
+            }}
             placeholder="e.g. 110001"
             aria-describedby="pin-help"
           />
-          <button type="submit" className="button button--primary" disabled={!pinIsValid}>
-            Check this PIN
+          <button type="submit" className="button button--primary">
+            Use this PIN
           </button>
         </div>
-        <p id="pin-help">Six digits. Nothing is submitted until you choose “Check”.</p>
+        <p id="pin-help">Six digits. Nothing is submitted until you choose “Use this PIN”.</p>
       </form>
 
+      <p className="location-explanation">
+        Optional: your device coordinates are sent only to match a nearby PIN.
+        Hisaab does not store them.
+      </p>
       <button
         type="button"
         className="text-action"
@@ -125,29 +136,27 @@ export default function PinEntry() {
         disabled={locate.status === "loading"}
         aria-busy={locate.status === "loading"}
       >
-        {locate.status === "loading" ? "Finding your PIN…" : "Use my current location"}
+        {locate.status === "loading" ? "Finding your PIN…" : "Use device location"}
       </button>
 
-      {locate.status === "error" && (
-        <p className="lookup-message lookup-message--error" role="status">{locate.message}</p>
-      )}
+      <div aria-live="polite">
+        {locate.status === "error" && (
+          <p className="lookup-message lookup-message--error">{locate.message}</p>
+        )}
 
-      {locate.status === "matched" && (
-        <div className="location-match">
-          <p>
-            Nearest match: <strong>PIN {locate.match.pin_code}</strong><br />
-            {formatDistrictLabel(locate.match.district, locate.match.state)} · about {locate.match.distance_km} km
-          </p>
-          <button
-            type="button"
-            className="button button--secondary"
-            onClick={() => openPin(locate.match.pin_code)}
-          >
-            Use this PIN
-          </button>
-          <small>GeoNames postal data, CC BY 4.0. Coordinates are not stored.</small>
-        </div>
-      )}
+        {locate.status === "matched" && (
+          <div className="location-match">
+            <p>
+              Nearest match: <strong>PIN {locate.match.pin_code}</strong><br />
+              {formatDistrictLabel(locate.match.district, locate.match.state)} · about {locate.match.distance_km} km
+            </p>
+            <a className="button button--secondary" href={pinHref(locate.match.pin_code)}>
+              Use this PIN
+            </a>
+            <small>GeoNames postal data, CC BY 4.0. Coordinates are not stored.</small>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

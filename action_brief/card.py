@@ -34,22 +34,6 @@ def _escape(text: str) -> str:
     )
 
 
-def _mp_label(brief: ActionBrief) -> str:
-    if brief.mp:
-        name = _escape(brief.mp.get("mp_name") or "")
-        party = _escape(brief.mp.get("party") or "")
-        return f"{name} ({party})" if party else name
-    return "MP: —"
-
-
-def _mla_label(brief: ActionBrief) -> str:
-    if brief.mla:
-        name = _escape(brief.mla.get("mla_name") or "")
-        party = _escape(brief.mla.get("party") or "")
-        return f"{name} ({party})" if party else name
-    return "MLA: —"
-
-
 def _render_portrait(brief: ActionBrief) -> bytes:
     """1080×1920 portrait SVG — WhatsApp story format."""
     w, h = 1080, 1920
@@ -57,8 +41,6 @@ def _render_portrait(brief: ActionBrief) -> bytes:
     district = _escape(brief.district)
     state = _escape(brief.state)
     date_str = brief.generated_at.strftime("%d %b %Y")
-    mp_label = _mp_label(brief)
-    mla_label = _mla_label(brief)
 
     # Build diagnosis rows (max 4)
     diag_svg_parts: list[str] = []
@@ -85,16 +67,16 @@ def _render_portrait(brief: ActionBrief) -> bytes:
 
     diag_block = "\n".join(diag_svg_parts)
 
-    # Contacts section
+    # A PIN identifies a postal district, not an exact assembly constituency.
     contact_y = 520 + min(len(brief.diagnosis), 4) * 200 + 60
     contacts_block = (
         f'  <line x1="60" y1="{contact_y}" x2="{w - 60}" y2="{contact_y}" stroke="#e5e7eb" stroke-width="2"/>'
         f'\n  <text x="60" y="{contact_y + 50}" font-size="30" fill="#1f2937" font-weight="700"'
-        f' font-family="Inter,sans-serif">Your Representatives</text>'
-        f'\n  <text x="60" y="{contact_y + 96}" font-size="26" fill="#374151"'
-        f' font-family="Inter,sans-serif">MP: {mp_label}</text>'
-        f'\n  <text x="60" y="{contact_y + 140}" font-size="26" fill="#374151"'
-        f' font-family="Inter,sans-serif">MLA: {mla_label}</text>'
+        f' font-family="Inter,sans-serif">Area scope</text>'
+        f'\n  <text x="60" y="{contact_y + 96}" font-size="24" fill="#374151"'
+        f' font-family="Inter,sans-serif">PIN resolves to a postal district, not an exact MLA.</text>'
+        f'\n  <text x="60" y="{contact_y + 136}" font-size="24" fill="#374151"'
+        f' font-family="Inter,sans-serif">Check overlapping constituencies on Hisaab.</text>'
     )
 
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -141,8 +123,6 @@ def _render_landscape(brief: ActionBrief) -> bytes:
     district = _escape(brief.district)
     state = _escape(brief.state)
     date_str = brief.generated_at.strftime("%d %b %Y")
-    mp_label = _mp_label(brief)
-    mla_label = _mla_label(brief)
 
     # Build diagnosis rows (max 3)
     diag_svg_parts: list[str] = []
@@ -173,9 +153,9 @@ def _render_landscape(brief: ActionBrief) -> bytes:
   <text x="40" y="200" font-size="52" fill="#ffffff" font-family="Inter,sans-serif" font-weight="700">{district}</text>
   <text x="40" y="248" font-size="26" fill="#93c5fd" font-family="Inter,sans-serif">{state}</text>
 
-  <!-- Representatives -->
-  <text x="40" y="340" font-size="18" fill="#bfdbfe" font-family="Inter,sans-serif">MP: {mp_label}</text>
-  <text x="40" y="372" font-size="18" fill="#bfdbfe" font-family="Inter,sans-serif">MLA: {mla_label}</text>
+  <!-- Grain caveat -->
+  <text x="40" y="340" font-size="18" fill="#bfdbfe" font-family="Inter,sans-serif">Postal-district context only</text>
+  <text x="40" y="372" font-size="18" fill="#bfdbfe" font-family="Inter,sans-serif">Not an exact MLA match</text>
 
   <!-- Footer left -->
   <text x="210" y="{h - 20}" font-size="16" fill="#64748b" text-anchor="middle"

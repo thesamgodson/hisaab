@@ -22,7 +22,7 @@
   --color-success-soft: oklch(0.96 0.02 145);
   --color-success-rule: oklch(0.78 0.06 145);
 
-  --font-ui: Aptos, var(--font-geist-sans), "Segoe UI", sans-serif;
+  --font-ui: var(--font-noto-sans), "Noto Sans", "Noto Sans Devanagari", "Noto Sans Bengali", "Noto Sans Tamil", "Segoe UI", sans-serif;
   --font-mono: var(--font-geist-mono), "SFMono-Regular", monospace;
 
   --space-3xs: 0.25rem;

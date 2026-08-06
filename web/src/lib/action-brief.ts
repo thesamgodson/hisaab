@@ -2,16 +2,14 @@
  * Citizen action brief: PIN -> district reality -> who is accountable ->
  * what to do about it.
  *
- * Called directly by the /action/[pin] page (same process — no self-HTTP)
- * and wrapped by /api/v1/action/[pin_code] for external consumers.
+ * Called directly by the root service page (same process — no self-HTTP) and
+ * wrapped by /api/v1/action/[pin_code] for external consumers.
  *
- * Diagnosis rules only use metrics with an honest shortfall interpretation.
- * PM POSHAN, NFSA, and NSAP have none at district level (daily-snapshot
- * feeding, active=total by construction, no eligibility target — see
- * DATA_CLAIMS.md), so they are never diagnosed, only reported.
+ * Runtime severity formulas are deliberately absent. Raw reported evidence is
+ * rendered separately; a future judgment contract must be precomputed and
+ * registered in DATA_CLAIMS.md before both public twins consume it.
  */
 
-import { getLatestFinYear } from "@/lib/fin-year";
 import { query, queryOne } from "@/lib/db";
 import {
   candidateStates,
@@ -21,165 +19,11 @@ import {
 import type {
   ActionBriefResponse,
   ActionItem,
-  ActionStep,
   ComplaintKit,
   DiagnosisItem,
   GrievanceChannel,
   MPInfo,
-  SchemeDataEntry,
 } from "@/lib/action-types";
-
-const SEVERITY_ORDER: Record<string, number> = { high: 0, medium: 1, low: 2 };
-
-const SCHEME_ACTIONS: Record<string, ActionStep[]> = {
-  MGNREGA: [
-    { action: "File RTI on MGNREGA portal", url: "https://nrega.nic.in" },
-    { action: "Escalate grievance via PG Portal", url: "https://pgportal.gov.in" },
-  ],
-  "PMAY-G": [
-    { action: "Check beneficiary status on PMAY-G portal", url: "https://pmayg.nic.in" },
-    { action: "File complaint on PMAY-G grievance portal", url: "https://pmayg.nic.in/grievance" },
-  ],
-  JJM: [
-    { action: "Check tap connection status", url: "https://ejalshakti.gov.in" },
-    { action: "File complaint on JJM portal", url: "https://jaljeevanmission.gov.in" },
-  ],
-  PMGSY: [
-    { action: "Check road status on OMMS", url: "https://omms.nic.in" },
-    { action: "File complaint on PMGSY portal", url: "https://pmgsy.nic.in" },
-  ],
-};
-
-/** Shortfall findings plus the schemes we actually had district data to check. */
-interface Diagnosis {
-  items: DiagnosisItem[];
-  schemesChecked: string[];
-}
-
-async function buildDiagnosis(
-  district: string,
-  state: string,
-  finYear: string,
-): Promise<Diagnosis> {
-  const items: DiagnosisItem[] = [];
-  // An empty diagnosis means "nothing wrong" only if something was looked at;
-  // urban districts report none of these at district level.
-  const checked = new Set<string>();
-
-  // MGNREGA misappropriation
-  const misapprop = await queryOne<Record<string, unknown>>(
-    `SELECT * FROM misappropriation WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?`,
-    [district, state, finYear],
-  );
-  if (misapprop) {
-    checked.add("MGNREGA");
-    const recoveryRate = Number(misapprop.recovery_rate_pct ?? 100);
-    if (recoveryRate < 50) {
-      items.push({
-        severity: "high",
-        scheme: "MGNREGA",
-        summary: `Recovery rate only ${recoveryRate.toFixed(0)}%`,
-        detail: `Rs ${Number(misapprop.amount_reported ?? 0).toFixed(2)}L reported misappropriated, only ${recoveryRate.toFixed(0)}% recovered`,
-        amount: Number(misapprop.amount_reported ?? 0),
-        source_url: (misapprop.source_url as string) ?? null,
-      });
-    }
-  }
-
-  // MGNREGA financial utilization
-  const financial = await queryOne<Record<string, unknown>>(
-    `SELECT * FROM financial_statement WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?`,
-    [district, state, finYear],
-  );
-  if (financial) {
-    checked.add("MGNREGA");
-    const totalAvail = Number(financial.total_availability ?? 0);
-    const totalExpend = Number(financial.cumulative_expenditure ?? 0);
-    const utilizationPct = Number(
-      financial.utilization_pct ??
-        (totalAvail > 0 ? (totalExpend / totalAvail) * 100 : 100),
-    );
-    if (utilizationPct < 60) {
-      items.push({
-        severity: "high",
-        scheme: "MGNREGA",
-        summary: `Fund utilization only ${utilizationPct.toFixed(0)}%`,
-        detail: `Rs ${totalExpend.toFixed(2)}L spent of Rs ${totalAvail.toFixed(2)}L available`,
-        amount: totalAvail - totalExpend,
-        source_url: (financial.source_url as string) ?? null,
-      });
-    }
-  }
-
-  // PMAY-G
-  const pmayg = await queryOne<Record<string, unknown>>(
-    `SELECT * FROM pmayg_district WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?`,
-    [district, state, finYear],
-  );
-  if (pmayg) {
-    checked.add("PMAY-G");
-    const sanctioned = Number(pmayg.houses_sanctioned ?? 0);
-    const completed = Number(pmayg.houses_completed ?? 0);
-    const pct = sanctioned > 0 ? (completed / sanctioned) * 100 : 100;
-    if (pct < 50) {
-      items.push({
-        severity: "high",
-        scheme: "PMAY-G",
-        summary: `House completion only ${pct.toFixed(0)}%`,
-        detail: `${completed} of ${sanctioned} sanctioned houses completed`,
-        amount: null,
-        source_url: (pmayg.source_url as string) ?? null,
-      });
-    }
-  }
-
-  // JJM
-  const jjm = await queryOne<Record<string, unknown>>(
-    `SELECT * FROM jjm_district WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?`,
-    [district, state, finYear],
-  );
-  if (jjm) {
-    checked.add("JJM");
-    const coveragePct = Number(jjm.coverage_pct ?? 100);
-    if (coveragePct < 50) {
-      items.push({
-        severity: "high",
-        scheme: "JJM",
-        summary: `Tap water coverage only ${coveragePct.toFixed(0)}%`,
-        detail: `${Number(jjm.households_with_tap ?? 0).toLocaleString("en-IN")} households with tap connections`,
-        amount: null,
-        source_url: (jjm.source_url as string) ?? null,
-      });
-    }
-  }
-
-  // PMGSY
-  const pmgsy = await queryOne<Record<string, unknown>>(
-    `SELECT * FROM pmgsy_district WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)`,
-    [district, state],
-  );
-  if (pmgsy) {
-    checked.add("PMGSY");
-    const sanctioned = Number(pmgsy.length_sanctioned_km ?? 0);
-    const completed = Number(pmgsy.length_completed_km ?? 0);
-    const pct = sanctioned > 0 ? (completed / sanctioned) * 100 : 100;
-    if (pct < 50) {
-      items.push({
-        severity: "high",
-        scheme: "PMGSY",
-        summary: `Road completion only ${pct.toFixed(0)}%`,
-        detail: `${completed.toFixed(1)} km of ${sanctioned.toFixed(1)} km sanctioned roads completed`,
-        amount: null,
-        source_url: (pmgsy.source_url as string) ?? null,
-      });
-    }
-  }
-
-  items.sort(
-    (a, b) => (SEVERITY_ORDER[a.severity] ?? 9) - (SEVERITY_ORDER[b.severity] ?? 9),
-  );
-  return { items: items.slice(0, 5), schemesChecked: [...checked] };
-}
 
 /**
  * Fallback MP lookup for PINs whose district has no constituency_district row
@@ -216,42 +60,32 @@ interface EntitlementRow {
   legal_basis: string;
   complain_when: string | null;
   source_url: string;
+  scraped_at: string;
 }
 
 /**
- * WHY / WHO / HOW to complain, per scheme with a presence in this district.
- * Deliberately NOT gated on a flagged shortfall: a citizen's personal
- * grievance (delayed wages, refused rations) exists regardless of whether the
- * district aggregate crosses a diagnosis threshold. Flagged schemes sort
- * first. Empty until the curated grievance data is published.
+ * WHY / WHO / HOW to complain for every curated scheme. Complaint rights are
+ * independent of district performance-data coverage.
  */
-async function buildComplaintKits(
-  district: string,
-  state: string,
-  flaggedSchemes: string[],
-): Promise<{ kits: ComplaintKit[]; universal: GrievanceChannel[] }> {
-  const [present, channels, entitlements] = await Promise.all([
-    query<{ scheme: string }>(
-      `SELECT DISTINCT scheme FROM scheme_delivery
-        WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)
-       UNION
-       SELECT DISTINCT scheme FROM money_flow
-        WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)`,
-      [district, state, district, state],
-    ),
+export async function getComplaintCatalog(): Promise<{
+  kits: ComplaintKit[];
+  universal: GrievanceChannel[];
+}> {
+  const [channelRows, entitlements] = await Promise.all([
     query<GrievanceChannel>(
       `SELECT scheme, level, authority, portal_name, portal_url, phone,
-              COALESCE(description, '') AS description
+              COALESCE(description, '') AS description, source_url, scraped_at
          FROM grievance_channels
-        ORDER BY scheme, ${LEVEL_ORDER_SQL}`,
+        ORDER BY scheme, ${LEVEL_ORDER_SQL}, portal_name`,
       [],
     ),
     query<EntitlementRow>(
-      `SELECT scheme, entitlement, legal_basis, complain_when, source_url
+      `SELECT scheme, entitlement, legal_basis, complain_when, source_url, scraped_at
          FROM scheme_entitlements`,
       [],
     ),
   ]);
+  const channels = channelRows.map((channel) => ({ ...channel }));
 
   const universal = channels.filter((c) => c.scheme === "ALL");
   const bySchemeChannels = new Map<string, GrievanceChannel[]>();
@@ -263,16 +97,18 @@ async function buildComplaintKits(
   }
   const bySchemeEntitlement = new Map(entitlements.map((e) => [e.scheme, e]));
 
-  const flagged = new Set(flaggedSchemes);
   const schemes = [
-    ...new Set([...flaggedSchemes, ...present.map((p) => p.scheme)]),
-  ];
+    ...new Set([
+      ...entitlements.map((entitlement) => entitlement.scheme),
+      ...bySchemeChannels.keys(),
+    ]),
+  ].sort((a, b) => a.localeCompare(b));
 
   const kits: ComplaintKit[] = [];
   for (const scheme of schemes) {
     const ent = bySchemeEntitlement.get(scheme);
-    const laddered = bySchemeChannels.get(scheme) ?? [];
-    if (!ent && laddered.length === 0) continue; // nothing curated — no kit
+    const schemeChannels = bySchemeChannels.get(scheme) ?? [];
+    if (!ent && schemeChannels.length === 0) continue; // nothing curated — no kit
     let complainWhen: string[] = [];
     if (ent?.complain_when) {
       try {
@@ -284,18 +120,15 @@ async function buildComplaintKits(
     }
     kits.push({
       scheme,
-      flagged: flagged.has(scheme),
+      flagged: false,
       entitlement: ent?.entitlement ?? null,
       legal_basis: ent?.legal_basis ?? null,
       complain_when: complainWhen,
       entitlement_source_url: ent?.source_url ?? null,
-      channels: laddered,
+      entitlement_scraped_at: ent?.scraped_at ?? null,
+      channels: schemeChannels,
     });
   }
-  kits.sort(
-    (a, b) =>
-      Number(b.flagged) - Number(a.flagged) || a.scheme.localeCompare(b.scheme),
-  );
   return { kits, universal };
 }
 
@@ -348,8 +181,7 @@ export async function buildDistrictBrief(
   district: string,
   state: string,
 ): Promise<DistrictBriefResponse> {
-  const finYear = await getLatestFinYear();
-  const [lineage, mps, acCount, diagnosis] = await Promise.all([
+  const [lineage, mps, acCount] = await Promise.all([
     getLineage(district, state),
     findDistrictMps(district, state),
     queryOne<{ n: number }>(
@@ -357,13 +189,8 @@ export async function buildDistrictBrief(
        WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)`,
       [district, state],
     ),
-    buildDiagnosis(district, state, finYear),
   ]);
-  const { kits, universal } = await buildComplaintKits(
-    district,
-    state,
-    [...new Set(diagnosis.items.map((d) => d.scheme))],
-  );
+  const { kits, universal } = await getComplaintCatalog();
   return {
     district,
     state,
@@ -372,8 +199,8 @@ export async function buildDistrictBrief(
       : null,
     mps,
     ac_count: acCount?.n ?? 0,
-    diagnosis: diagnosis.items,
-    schemes_checked: diagnosis.schemesChecked,
+    diagnosis: [],
+    schemes_checked: [],
     complaint_kits: kits,
     universal_channels: universal,
     generated_at: new Date().toISOString(),
@@ -396,9 +223,7 @@ export async function buildActionBrief(
   const { district, state } = mapping;
   const states = candidateStates(state);
   const stateSlots = states.map(() => "?").join(", ");
-  const finYear = await getLatestFinYear();
-
-  const [lineage, mpRow, mlaRow, diagnosis] = await Promise.all([
+  const [lineage, mpRow, mlaRow] = await Promise.all([
     getLineage(district, state),
     queryOne<{
       mp_name: string;
@@ -437,44 +262,21 @@ export async function buildActionBrief(
        LIMIT 1`,
       [...states, district, ...states],
     ),
-    buildDiagnosis(district, state, finYear),
   ]);
 
   const mp = mpRow ?? (await findMpByPin(pinCode));
 
-  const flaggedSchemes = [...new Set(diagnosis.items.map((d) => d.scheme))];
-  const { kits, universal } = await buildComplaintKits(
-    district,
-    state,
-    flaggedSchemes,
-  );
-  let grievanceChannels: GrievanceChannel[] = [];
-  if (flaggedSchemes.length > 0) {
-    const placeholders = flaggedSchemes.map(() => "?").join(",");
-    grievanceChannels = await query<GrievanceChannel>(
-      `SELECT * FROM grievance_channels
-       WHERE scheme IN (${placeholders})
-       ORDER BY scheme, CASE level WHEN 'district' THEN 1 WHEN 'state' THEN 2 WHEN 'national' THEN 3 ELSE 4 END`,
-      flaggedSchemes,
-    );
-  }
-
-  const actions: ActionItem[] = flaggedSchemes
-    .filter((scheme) => SCHEME_ACTIONS[scheme])
-    .map((scheme) => ({ scheme, steps: SCHEME_ACTIONS[scheme] }));
-
-  const schemeData: Record<string, SchemeDataEntry> = {};
-  for (const item of diagnosis.items) {
-    if (!schemeData[item.scheme]) {
-      schemeData[item.scheme] = {
-        severity: item.severity,
-        summary: item.summary,
-        detail: item.detail,
-        amount: item.amount,
-        source_url: item.source_url,
-      };
-    }
-  }
+  const { kits, universal } = await getComplaintCatalog();
+  const grievanceChannels = kits.flatMap((kit) => kit.channels);
+  const actions: ActionItem[] = kits.map((kit) => ({
+    scheme: kit.scheme,
+    steps: kit.channels.map((channel) => ({
+      action: channel.portal_name,
+      url: channel.portal_url,
+      source_url: channel.source_url,
+      verified_at: channel.scraped_at,
+    })),
+  }));
 
   return {
     pin: pinCode,
@@ -485,13 +287,13 @@ export async function buildActionBrief(
       : null,
     mp: mp ?? null,
     mla: mlaRow ?? null,
-    diagnosis: diagnosis.items,
-    schemes_checked: diagnosis.schemesChecked,
+    diagnosis: [],
+    schemes_checked: [],
     actions,
     grievance_channels: grievanceChannels,
     complaint_kits: kits,
     universal_channels: universal,
-    scheme_data: schemeData,
+    scheme_data: {},
     generated_at: new Date().toISOString(),
   };
 }

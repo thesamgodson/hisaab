@@ -5,12 +5,10 @@ import SourceLink from "@/components/SourceLink";
 import type { SchemeData } from "@/components/SchemeRow";
 import type {
   ComplaintKit,
-  DiagnosisItem,
   DistrictLineage,
   GrievanceChannel,
 } from "@/lib/action-types";
 import { titleCasePlace } from "@/lib/format-place";
-import { schemeDisplay } from "@/lib/scheme-display";
 
 export interface ResultRepresentative {
   role: "MP" | "MLA";
@@ -25,21 +23,25 @@ interface AccountabilityResultProps {
   district: string;
   state: string;
   lineage: DistrictLineage | null;
-  diagnosis: DiagnosisItem[];
-  schemesChecked: string[];
   complaintKits: ComplaintKit[];
   universalChannels: GrievanceChannel[];
   representatives: ResultRepresentative[];
   representativeContext: string;
   schemes: SchemeData[];
+  selectedScheme: string | null;
+  selectedTrigger: string | null;
+  selectedTriggerIndex?: number | null;
 }
 
-const LIST_FORMAT = new Intl.ListFormat("en", { type: "conjunction" });
-
-function checkedSchemesLabel(schemes: string[]): string {
-  return LIST_FORMAT.format(
-    schemes.map((scheme) => schemeDisplay(scheme).shortNeed.toLowerCase()),
-  );
+function changeAreaHref(
+  selectedScheme: string | null,
+  selectedTriggerIndex: number | null | undefined,
+): string {
+  const issue = selectedScheme;
+  if (!issue) return "/";
+  const params = new URLSearchParams({ issue });
+  if (selectedTriggerIndex != null) params.set("trigger", String(selectedTriggerIndex));
+  return `/?${params.toString()}`;
 }
 
 export default function AccountabilityResult({
@@ -47,106 +49,87 @@ export default function AccountabilityResult({
   district,
   state,
   lineage,
-  diagnosis,
-  schemesChecked,
   complaintKits,
   universalChannels,
   representatives,
   representativeContext,
   schemes,
+  selectedScheme,
+  selectedTrigger,
+  selectedTriggerIndex,
 }: AccountabilityResultProps) {
-  const nothingChecked = diagnosis.length === 0 && schemesChecked.length === 0;
+  const areaHref = changeAreaHref(selectedScheme, selectedTriggerIndex);
 
   return (
     <div id="result" className="result-shell">
-      <nav className="result-nav" aria-label="Area search">
-        <Link href="/">Search another area</Link>
+      <nav className="result-nav no-print" aria-label="Change answers">
+        <Link href={areaHref}>Change area</Link>
+        <Link href="/">Start again</Link>
       </nav>
 
-      <header className="result-header">
-        <p className="result-header__scope">{pin ? `PIN ${pin}` : "District view"}</p>
-        <h1>{titleCasePlace(district)}</h1>
-        <p className="result-header__state">{titleCasePlace(state)}</p>
+      <header className="result-context">
+        <p className="result-context__label">Public action plan for</p>
+        <p className="result-context__area">
+          {titleCasePlace(district)}, {titleCasePlace(state)}
+        </p>
+        <p className="result-context__scope">
+          {pin ? `PIN ${pin} resolved to this postal district.` : "District-level context."}
+        </p>
         {lineage && (
-          <p className="result-header__lineage">
+          <p className="result-context__scope">
             Reorganized in {lineage.split_year}; formerly part of {titleCasePlace(lineage.parent_district)} district.
           </p>
         )}
-        <p className="result-header__intro">
-          Use this brief to choose a welfare problem, check the right, and start with one official route.
-        </p>
-        <a className="button button--primary" href="#complaint">Choose a complaint route</a>
       </header>
 
-      <section className="result-section data-section" aria-labelledby="data-heading">
-        <header className="section-title">
-          <h2 id="data-heading">What the district data says</h2>
-          <p>These are area-wide indicators. They do not decide whether your personal complaint is valid.</p>
-        </header>
+      <ComplaintGuide
+        kits={complaintKits}
+        universal={universalChannels}
+        selectedScheme={selectedScheme}
+        selectedTrigger={selectedTrigger}
+        district={district}
+        state={state}
+      />
 
-        {diagnosis.length > 0 ? (
-          <div className="finding-list">
-            {diagnosis.map((item) => (
-              <article className={`finding finding--${item.severity}`} key={`${item.scheme}-${item.summary}`}>
-                <p className="finding__scheme">
-                  {schemeDisplay(item.scheme).need} · {item.scheme}
-                </p>
-                <h3>{item.summary}</h3>
-                <p>{item.detail}</p>
-                {item.source_url && <SourceLink url={item.source_url} label="Check this data source" />}
-              </article>
-            ))}
-          </div>
-        ) : (
-          <div className="data-caveat">
-            <h3>{nothingChecked ? "Not enough district data to run the checks" : "No district-level flag crossed the threshold"}</h3>
-            <p>
-              {nothingChecked
-                ? "This is not an all-clear. Your entitlement and complaint routes still apply."
-                : `The checked data for ${checkedSchemesLabel(schemesChecked)} did not trigger a flag. A personal grievance may still be valid.`}
-            </p>
-          </div>
-        )}
-      </section>
+      <details className="result-secondary">
+        <summary>Area evidence and data context</summary>
+        <div className="result-secondary__body">
+          <SchemeDataSection schemes={schemes} />
+          {schemes.length === 0 && (
+            <div className="data-caveat">
+              We do not have district-level scheme figures for this area. This
+              does not mean no money was allocated or no service was delivered.
+            </div>
+          )}
+        </div>
+      </details>
 
-      <ComplaintGuide kits={complaintKits} universal={universalChannels} />
+      <details className="result-secondary">
+        <summary>Representatives for this area</summary>
+        <div className="result-secondary__body">
+          <p className="representative-context">{representativeContext}</p>
+          {representatives.length > 0 ? (
+            <div className="people-list">
+              {representatives.map((person) => (
+                <article className="person-row" key={`${person.role}-${person.area}-${person.name}`}>
+                  <div>
+                    <p>{person.role} · {person.area}</p>
+                    <h3>{person.name}</h3>
+                    <span>{person.party}</span>
+                  </div>
+                  <SourceLink url={person.sourceUrl} label="Official record" />
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p className="data-caveat">No representative record is available for this area yet.</p>
+          )}
+        </div>
+      </details>
 
-      <section className="result-section" aria-labelledby="people-heading">
-        <header className="section-title">
-          <h2 id="people-heading">Who represents this area</h2>
-          <p>{representativeContext}</p>
-        </header>
-
-        {representatives.length > 0 ? (
-          <div className="people-list">
-            {representatives.map((person) => (
-              <article className="person-row" key={`${person.role}-${person.area}-${person.name}`}>
-                <div>
-                  <p>{person.role} · {person.area}</p>
-                  <h3>{person.name}</h3>
-                  <span>{person.party}</span>
-                </div>
-                <SourceLink url={person.sourceUrl} label="Official record" />
-              </article>
-            ))}
-          </div>
-        ) : (
-          <p className="data-caveat">No representative record is available for this area yet.</p>
-        )}
-      </section>
-
-      <SchemeDataSection schemes={schemes} />
-
-      {schemes.length === 0 && (
-        <section id="evidence" className="result-section">
-          <header className="section-title"><h2>Evidence</h2></header>
-          <div className="data-caveat">
-            <p>
-              We do not have district-level scheme figures for this area. This does not mean no money was allocated or no service was delivered.
-            </p>
-          </div>
-        </section>
-      )}
+      <p className="print-disclaimer">
+        Hisaab is an independent public-interest tool, not a government service.
+      </p>
     </div>
   );
 }

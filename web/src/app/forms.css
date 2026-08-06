@@ -1,12 +1,15 @@
 .pin-lookup,
-.pin-form {
+.pin-form,
+.service-form,
+.district-form {
   display: grid;
   gap: var(--space-sm);
 }
 
 .pin-form label,
 .district-picker label,
-.guide-picker label {
+.guide-picker label,
+.service-form > label {
   color: var(--color-ink);
   font-weight: 700;
 }
@@ -19,7 +22,8 @@
 
 .pin-form input,
 .district-picker select,
-.guide-picker select {
+.guide-picker select,
+.service-form > select {
   width: 100%;
   min-height: 3rem;
   padding: var(--space-xs);
@@ -33,39 +37,45 @@
 
 .pin-form input:hover,
 .district-picker select:hover,
-.guide-picker select:hover {
+.guide-picker select:hover,
+.service-form > select:hover {
   border-color: var(--color-ink-2);
 }
 
 .pin-form input:focus,
 .district-picker select:focus,
-.guide-picker select:focus {
+.guide-picker select:focus,
+.service-form > select:focus {
   border-color: var(--color-accent);
 }
 
 .pin-form input:focus-visible,
 .district-picker select:focus-visible,
-.guide-picker select:focus-visible {
+.guide-picker select:focus-visible,
+.service-form > select:focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 1px;
 }
 
 .pin-form input:active,
 .district-picker select:active,
-.guide-picker select:active {
+.guide-picker select:active,
+.service-form > select:active {
   border-color: var(--color-ink);
 }
 
 .pin-form input:disabled,
 .district-picker select:disabled,
-.guide-picker select:disabled {
+.guide-picker select:disabled,
+.service-form > select:disabled {
   background: var(--color-surface);
   color: var(--color-muted);
 }
 
 .pin-form p,
 .lookup-message,
-.district-picker__panel p {
+.district-picker__panel p,
+.location-explanation {
   margin: 0;
   color: var(--color-muted);
   font-size: var(--text-sm);
@@ -134,9 +144,48 @@
 }
 
 .district-picker__panel label,
-.guide-picker label {
+.guide-picker label,
+.district-form label {
   display: grid;
   gap: var(--space-2xs);
+}
+
+.service-form > .button,
+.district-form > .button {
+  justify-self: start;
+}
+
+.trigger-list {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-top: var(--rule-thin) solid var(--color-rule-strong);
+}
+
+.trigger-option {
+  min-height: 3.5rem;
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  gap: var(--space-xs);
+  align-items: start;
+  padding-block: var(--space-sm);
+  border-bottom: var(--rule-thin) solid var(--color-rule);
+  cursor: pointer;
+}
+
+.trigger-option input {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0.15rem 0 0;
+  accent-color: var(--color-accent);
+}
+
+.trigger-option span {
+  color: var(--color-ink-2);
+}
+
+.location-explanation {
+  margin: var(--space-xs) 0 0;
 }
 
 @media (min-width: 40rem) {

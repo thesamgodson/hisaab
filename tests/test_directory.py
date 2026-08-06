@@ -181,16 +181,25 @@ def test_get_grievance_channels_empty(db):
 
 def test_seed_grievance_channels(db):
     from directory.seed_data import seed_grievance_channels
+    _insert_channel(
+        db,
+        scheme="STALE",
+        level="national",
+        portal_name="Unverified old row",
+        phone="1800-111-555",
+    )
     count = seed_grievance_channels(db)
-    assert count > 0
+    assert count == 52
 
     rows = db.execute("SELECT * FROM grievance_channels").fetchall()
+    assert len(rows) == count
+    assert all(row["scheme"] != "STALE" for row in rows)
     for row in rows:
         assert row["portal_url"], f"Missing portal_url for {row['scheme']} {row['level']}"
         assert row["source_url"], f"Missing source_url for {row['scheme']} {row['level']}"
 
     cpgrams = db.execute(
-        "SELECT COUNT(*) as cnt FROM grievance_channels WHERE portal_name='CPGRAMS'"
+        "SELECT COUNT(*) as cnt FROM grievance_channels WHERE portal_name LIKE 'CPGRAMS%'"
     ).fetchone()
     assert cpgrams["cnt"] >= 1
 

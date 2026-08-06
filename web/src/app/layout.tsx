@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Noto_Sans } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import "./tokens.css";
@@ -8,11 +8,11 @@ import "./forms.css";
 import "./surface.css";
 import "./evidence.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const notoSans = Noto_Sans({ variable: "--font-noto-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: { default: "Hisaab — Welfare rights and complaint routes", template: "%s | Hisaab" },
-  description: "Enter your PIN to understand welfare rights, the first official complaint route, local public data, and elected representatives.",
+  description: "Choose a welfare problem and leave with sourced official routes, a preparation note, and public area evidence.",
   icons: { icon: "/favicon.svg" },
 };
 
@@ -26,9 +26,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${notoSans.variable} ${geistMono.variable}`}
     >
       <body>
+        <a className="skip-link" href="#main-content">Skip to service</a>
         <header className="site-header">
           <nav className="site-header__inner" aria-label="Primary navigation">
             <Link href="/" className="wordmark">
@@ -39,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </span>
           </nav>
         </header>
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <footer className="site-footer">
           <div className="site-footer__inner">
             <span>Independent public-interest tool</span>

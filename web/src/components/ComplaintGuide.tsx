@@ -3,6 +3,7 @@
 import { useState } from "react";
 import SourceLink from "@/components/SourceLink";
 import type { ComplaintKit, GrievanceChannel } from "@/lib/action-types";
+import { titleCasePlace } from "@/lib/format-place";
 import { schemeDisplay } from "@/lib/scheme-display";
 
 const LEVEL_LABEL: Record<string, string> = {
@@ -12,72 +13,156 @@ const LEVEL_LABEL: Record<string, string> = {
   national: "National",
 };
 
+function checkedDate(value: string): string {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(date);
+}
+
+function OfficialLink({
+  channel,
+  label,
+  primary,
+}: {
+  channel: GrievanceChannel;
+  label: string;
+  primary: boolean;
+}) {
+  return (
+    <a
+      className={`button ${primary ? "button--primary" : "button--secondary"}`}
+      href={channel.portal_url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {label}<span className="sr-only"> (opens official site in a new tab)</span>
+    </a>
+  );
+}
+
 function Route({ channel, primary = false }: { channel: GrievanceChannel; primary?: boolean }) {
   const phone = channel.phone?.replace(/[^\d+]/g, "") ?? null;
 
   return (
-    <div className={primary ? "route route--primary" : "route"}>
-      <p className="route__level">{LEVEL_LABEL[channel.level] ?? channel.level}</p>
-      <h3>{channel.authority ?? channel.portal_name}</h3>
+    <article className={primary ? "route route--primary" : "route"}>
+      <p className="route__level">{LEVEL_LABEL[channel.level] ?? channel.level} route</p>
+      <h2>{channel.authority ?? channel.portal_name}</h2>
       {channel.authority && <p className="route__portal">{channel.portal_name}</p>}
-      {channel.description && <p className="route__description">{channel.description}</p>}
+      <p className="route__description">{channel.description}</p>
       <div className="route__actions">
-        <a className="button button--primary" href={channel.portal_url} target="_blank" rel="noopener noreferrer">
-          Open official route
-        </a>
-        {channel.phone && phone && <a className="button button--secondary" href={`tel:${phone}`}>Call {channel.phone}</a>}
+        <OfficialLink channel={channel} label="Open official page" primary={primary} />
+        {phone && (
+          <a className="button button--secondary" href={`tel:${phone}`}>
+            Call {channel.phone}
+          </a>
+        )}
       </div>
-    </div>
+      <div className="route__source">
+        <SourceLink url={channel.source_url} label="Route evidence" />
+        <span>Checked {checkedDate(channel.scraped_at)}</span>
+      </div>
+    </article>
   );
 }
 
-function SelectedGuide({ kit }: { kit: ComplaintKit }) {
-  const firstRoute = kit.channels[0] ?? null;
-  const escalation = kit.channels.slice(1);
+function Preparation({
+  kit,
+  trigger,
+  district,
+  state,
+}: {
+  kit: ComplaintKit;
+  trigger: string | null;
+  district: string;
+  state: string;
+}) {
   const display = schemeDisplay(kit.scheme);
+  const problem = trigger ?? `A problem with ${display.need.toLowerCase()}`;
+  const note = [
+    `Problem category: ${display.shortNeed} — ${kit.scheme}`,
+    `Situation selected: ${problem}`,
+    `Area: ${titleCasePlace(district)}, ${titleCasePlace(state)}`,
+    "",
+    "What happened: [write this in your own words]",
+    "Relevant dates: [add dates]",
+    "Previous complaint or reference number: [add if you have one]",
+    "What you want the authority to do: [add the outcome you are asking for]",
+    "Documents you can refer to: [list only what you choose to submit]",
+  ].join("\n");
+  const [status, setStatus] = useState("");
+
+  const copyNote = async () => {
+    try {
+      await navigator.clipboard.writeText(note);
+      setStatus("Case outline copied.");
+    } catch {
+      setStatus("Copy was blocked. Select the note below and copy it manually.");
+    }
+  };
+
+  const sharePlan = async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: "Hisaab public action plan", url: window.location.href });
+        setStatus("Public plan shared.");
+        return;
+      }
+      await navigator.clipboard.writeText(window.location.href);
+      setStatus("Public plan link copied.");
+    } catch {
+      setStatus("Share was cancelled or unavailable. You can copy the page address.");
+    }
+  };
 
   return (
-    <article id="selected-complaint-guide" className="guide">
+    <section id="prepare" className="guide__prepare" aria-labelledby="prepare-heading">
+      <h2 id="prepare-heading">Prepare your case outline</h2>
+      <p>
+        This outline contains public guidance and placeholders only. Add names,
+        IDs, phone numbers, or documents only in the version you submit directly
+        to an official authority.
+      </p>
+      <pre className="complaint-note">{note}</pre>
+      <div className="plan-actions no-print">
+        <button type="button" className="button button--secondary" onClick={copyNote}>Copy case outline</button>
+        <button type="button" className="button button--secondary" onClick={() => window.print()}>Print this plan</button>
+        <button type="button" className="button button--secondary" onClick={sharePlan}>Share public plan</button>
+      </div>
+      <p className="action-status" role="status" aria-live="polite">{status}</p>
+      <p className="keep-note">
+        Hisaab’s practical advice: keep a dated copy and any receipt,
+        acknowledgement, or reference number you receive.
+      </p>
+    </section>
+  );
+}
+
+function GeneralRoutes({ universal }: { universal: GrievanceChannel[] }) {
+  const cpgrams = universal.find((channel) => channel.portal_name.includes("Centralised")) ?? universal[0];
+  if (!cpgrams) return null;
+  const others = universal.filter((channel) => channel !== cpgrams);
+  return (
+    <article id="complaint" className="guide action-plan">
       <header className="guide__header">
-        <h3>{display.need}</h3>
-        <p>{kit.scheme}{kit.flagged ? " · district data flag" : ""}</p>
+        <p className="service-step__count">General government grievance</p>
+        <h1>General official options</h1>
+        <p>CPGRAMS is one general-purpose route. Check the sourced alternatives for State services, records, or representative contact.</p>
       </header>
-
-      {kit.entitlement && (
-        <div className="guide__entitlement">
-          <h3>What you are owed</h3>
-          <p>{kit.entitlement}</p>
-          {kit.legal_basis && <p className="guide__basis">{kit.legal_basis}</p>}
-          {kit.entitlement_source_url && (
-            <SourceLink url={kit.entitlement_source_url} label="Check the entitlement source" />
-          )}
-        </div>
-      )}
-
-      {kit.complain_when.length > 0 && (
-        <div className="guide__triggers">
-          <h3>When to complain</h3>
-          <ul>
-            {kit.complain_when.map((reason) => <li key={reason}>{reason}</li>)}
-          </ul>
-        </div>
-      )}
-
-      {firstRoute && (
-        <div>
-          <h3 className="guide__step-title">Start here</h3>
-          <Route channel={firstRoute} primary />
-        </div>
-      )}
-
-      {escalation.length > 0 && (
-        <details className="text-disclosure">
-          <summary>Show escalation routes</summary>
-          <ol className="escalation-list">
-            {escalation.map((channel) => (
-              <li key={`${channel.level}-${channel.portal_name}`}><Route channel={channel} /></li>
-            ))}
-          </ol>
+      <Route channel={cpgrams} primary />
+      <p className="official-handoff">
+        Hisaab does not file anything. Complete registration and any CAPTCHA on
+        the official service yourself.
+      </p>
+      {others.length > 0 && (
+        <details className="text-disclosure route-disclosure">
+          <summary>Other official options ({others.length})</summary>
+          <div className="route-list">{others.map((channel) => (
+            <Route key={`${channel.level}-${channel.portal_name}`} channel={channel} />
+          ))}</div>
         </details>
       )}
     </article>
@@ -87,60 +172,80 @@ function SelectedGuide({ kit }: { kit: ComplaintKit }) {
 export default function ComplaintGuide({
   kits,
   universal,
+  selectedScheme,
+  selectedTrigger,
+  district,
+  state,
+  general = false,
 }: {
   kits: ComplaintKit[];
   universal: GrievanceChannel[];
+  selectedScheme: string | null;
+  selectedTrigger: string | null;
+  district: string;
+  state: string;
+  general?: boolean;
 }) {
-  const flaggedKit = kits.find((kit) => kit.flagged) ?? null;
-  const [selectedScheme, setSelectedScheme] = useState(flaggedKit?.scheme ?? "");
-  const selectedKit = kits.find((kit) => kit.scheme === selectedScheme) ?? null;
-  const generalRoute =
-    universal.find((channel) => channel.portal_name.includes("Centralised")) ??
-    universal[0] ??
-    null;
-
-  if (kits.length === 0 && !generalRoute) return null;
+  if (general) return <GeneralRoutes universal={universal} />;
+  const kit = kits.find((item) => item.scheme === selectedScheme) ?? null;
+  if (!kit) return null;
+  const display = schemeDisplay(kit.scheme);
 
   return (
-    <section id="complaint" className="result-section">
-      <header className="section-title">
-        <h2>Find the complaint route</h2>
-        <p>Choose the problem you recognize. You do not need to know the scheme name.</p>
+    <article id="complaint" className="guide action-plan">
+      <header className="guide__header">
+        <p className="service-step__count">{display.need} · {kit.scheme}</p>
+        <h1>Official route options</h1>
+        {selectedTrigger && <p className="chosen-trigger">You chose: {selectedTrigger}</p>}
       </header>
 
-      {kits.length > 0 && (
-        <div className="guide-picker">
-          <label htmlFor="issue-select">What do you need help with?</label>
-          <select
-            id="issue-select"
-            aria-controls="selected-complaint-guide"
-            value={selectedScheme}
-            onChange={(event) => setSelectedScheme(event.target.value)}
-          >
-            <option value="">Choose a problem</option>
-            {kits.map((kit) => (
-              <option key={kit.scheme} value={kit.scheme}>
-                {schemeDisplay(kit.scheme).need}{kit.flagged ? " — data flag" : ""}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-
-      {selectedKit ? (
-        <SelectedGuide kit={selectedKit} />
+      {kit.channels.length > 0 ? (
+        <section className="guide__routes" aria-label="Scheme-specific official routes">
+          <p className="official-handoff">
+            These routes are ordered from local to national. Hisaab has not
+            matched one route to the situation you chose, and does not claim
+            that you must use them in sequence.
+          </p>
+          <div className="route-list">{kit.channels.map((channel) => (
+            <Route key={`${channel.level}-${channel.portal_name}`} channel={channel} />
+          ))}</div>
+        </section>
       ) : (
-        <p id="selected-complaint-guide" className="guide-empty">
-          Choose one problem to see your entitlement and the first official route.
-        </p>
+        <p className="data-caveat">No scheme-specific route is published. Review the general official options below.</p>
+      )}
+      <p className="official-handoff">
+        Hisaab does not file the complaint. Complete personal details and any
+        CAPTCHA only on the official service.
+      </p>
+
+      {kit.entitlement && (
+        <section className="guide__entitlement" aria-labelledby="right-heading">
+          <h2 id="right-heading">Your right</h2>
+          <p>{kit.entitlement}</p>
+          {kit.legal_basis && <p className="guide__basis">{kit.legal_basis}</p>}
+          {kit.entitlement_source_url && (
+            <div className="route__source">
+              <SourceLink url={kit.entitlement_source_url} label="Entitlement source" />
+              {kit.entitlement_scraped_at && <span>Checked {checkedDate(kit.entitlement_scraped_at)}</span>}
+            </div>
+          )}
+        </section>
       )}
 
-      {generalRoute && (
-        <details className="text-disclosure general-route">
-          <summary>Not sure what to choose?</summary>
-          <Route channel={generalRoute} />
+      <Preparation kit={kit} trigger={selectedTrigger} district={district} state={state} />
+
+      {universal.length > 0 && (
+        <details className="text-disclosure route-disclosure">
+          <summary>General official options ({universal.length})</summary>
+          <p className="disclosure-note">
+            CPGRAMS, RTI, and representative contact serve different purposes.
+            Read each sourced instruction before using it.
+          </p>
+          <div className="route-list">{universal.map((channel) => (
+            <Route key={`${channel.level}-${channel.portal_name}`} channel={channel} />
+          ))}</div>
         </details>
       )}
-    </section>
+    </article>
   );
 }

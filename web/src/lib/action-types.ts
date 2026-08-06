@@ -12,6 +12,8 @@ export interface DiagnosisItem {
 export interface ActionStep {
   action: string;
   url: string | null;
+  source_url?: string | null;
+  verified_at?: string | null;
 }
 
 export interface ActionItem {
@@ -29,19 +31,24 @@ export interface GrievanceChannel {
   phone: string | null;
   /** HOW: what to do at this rung, one sentence. */
   description: string;
+  /** Official evidence for the route instruction, not necessarily the filing URL. */
+  source_url: string;
+  /** When Hisaab last checked the route against its official evidence. */
+  scraped_at: string;
 }
 
 /** WHY + WHO + HOW to complain for one scheme, assembled per district. */
 export interface ComplaintKit {
   scheme: string;
-  /** True when this scheme has a shortfall flagged in the diagnosis. */
+  /** Reserved for a registered load-time flag contract; false today. */
   flagged: boolean;
   /** What the citizen is legally owed, plain language (null if uncurated). */
   entitlement: string | null;
   legal_basis: string | null;
   complain_when: string[];
   entitlement_source_url: string | null;
-  /** Escalation ladder, local → national. */
+  entitlement_scraped_at: string | null;
+  /** Official routes ordered by administrative level, not a guaranteed ladder. */
   channels: GrievanceChannel[];
 }
 
@@ -83,13 +90,11 @@ export interface ActionBriefResponse {
   mp: MPInfo | null;
   mla: MLAInfo | null;
   diagnosis: DiagnosisItem[];
-  /** Schemes that reported district data at all — an empty diagnosis with an
-   *  empty list means "nothing was checked", not "nothing is wrong". */
+  /** Empty until a registered load-time diagnosis contract exists. */
   schemes_checked: string[];
   actions: ActionItem[];
   grievance_channels: GrievanceChannel[];
-  /** Per-scheme complaint kits for every scheme present in this district,
-   *  flagged schemes first. Empty until the curated grievance data is loaded. */
+  /** Every curated complaint family, independent of district performance data. */
   complaint_kits: ComplaintKit[];
   /** Scheme-independent channels (CPGRAMS, RTI) — always applicable. */
   universal_channels: GrievanceChannel[];

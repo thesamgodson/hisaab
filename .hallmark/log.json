@@ -56,6 +56,25 @@
         "restraint": 5,
         "variety": 4
       }
+    },
+    {
+      "date": "2026-08-06",
+      "scope": "citizen-service-shell",
+      "genre": "public-service casework utility",
+      "theme": "calm civic action sheet",
+      "app_macrostructure": "issue to trigger to area to sourced action",
+      "enrichment": "copy, print, share, provenance, offline handoff",
+      "brief": "One question at a time; action before aggregate evidence; all rights and routes preserved",
+      "status": "implemented pending direct citizen study",
+      "design_system": "design.md",
+      "critique": {
+        "philosophy": 5,
+        "hierarchy": 5,
+        "execution": 4,
+        "specificity": 5,
+        "restraint": 5,
+        "variety": 4
+      }
     }
   ]
 }

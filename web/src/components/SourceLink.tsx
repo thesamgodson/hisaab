@@ -9,7 +9,7 @@ export default function SourceLink({ url, label = "Official source" }: SourceLin
 
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className="source-link">
-      {label}
+      {label}<span className="sr-only"> (opens official source in a new tab)</span>
     </a>
   );
 }

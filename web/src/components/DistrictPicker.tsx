@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ChangeEvent } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { titleCasePlace } from "@/lib/format-place";
 
@@ -25,11 +25,28 @@ function districtOptions(data: unknown): DistrictOption[] {
   );
 }
 
-export default function DistrictPicker() {
+export default function DistrictPicker({
+  issue,
+  triggerIndex,
+}: {
+  issue: string;
+  triggerIndex?: number | null;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [options, setOptions] = useState<DistrictOption[]>([]);
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedDistrict, setSelectedDistrict] = useState("");
+  const [selectionError, setSelectionError] = useState<string | null>(null);
   const router = useRouter();
+  const states = useMemo(
+    () => [...new Set(options.map((option) => option.state))].sort(),
+    [options],
+  );
+  const districts = useMemo(
+    () => options.filter((option) => option.state === selectedState),
+    [options, selectedState],
+  );
 
   const loadOptions = async () => {
     setStatus("loading");
@@ -57,12 +74,19 @@ export default function DistrictPicker() {
     if (status === "idle") void loadOptions();
   };
 
-  const chooseDistrict = (event: ChangeEvent<HTMLSelectElement>) => {
-    const [district, state] = event.target.value.split("|");
-    if (!district || !state) return;
-    router.push(
-      `/?district=${encodeURIComponent(district)}&state=${encodeURIComponent(state)}#result`,
-    );
+  const chooseDistrict = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!selectedState || !selectedDistrict) {
+      setSelectionError("Choose a state and district.");
+      return;
+    }
+    const params = new URLSearchParams({
+      issue,
+      district: selectedDistrict,
+      state: selectedState,
+    });
+    if (triggerIndex != null) params.set("trigger", String(triggerIndex));
+    router.push(`/?${params.toString()}#result`);
   };
 
   return (
@@ -89,20 +113,52 @@ export default function DistrictPicker() {
             </div>
           )}
           {status === "ready" && (
-            <label>
-              District
-              <select defaultValue="" onChange={chooseDistrict}>
-                <option value="" disabled>Choose a district</option>
-                {options.map((option) => (
-                  <option
-                    key={`${option.district}|${option.state}`}
-                    value={`${option.district}|${option.state}`}
-                  >
-                    {titleCasePlace(option.district)}, {titleCasePlace(option.state)}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <form className="district-form" onSubmit={chooseDistrict}>
+              <label htmlFor="state-select">
+                State
+                <select
+                  id="state-select"
+                  value={selectedState}
+                  onChange={(event) => {
+                    setSelectedState(event.target.value);
+                    setSelectedDistrict("");
+                    setSelectionError(null);
+                  }}
+                  required
+                >
+                  <option value="">Choose a state</option>
+                  {states.map((state) => (
+                    <option key={state} value={state}>{titleCasePlace(state)}</option>
+                  ))}
+                </select>
+              </label>
+              <label htmlFor="district-select">
+                District
+                <select
+                  id="district-select"
+                  value={selectedDistrict}
+                  onChange={(event) => {
+                    setSelectedDistrict(event.target.value);
+                    setSelectionError(null);
+                  }}
+                  disabled={!selectedState}
+                  required
+                >
+                  <option value="">Choose a district</option>
+                  {districts.map((option) => (
+                    <option key={option.district} value={option.district}>
+                      {titleCasePlace(option.district)}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {selectionError && (
+                <p className="lookup-message--error" role="alert">{selectionError}</p>
+              )}
+              <button type="submit" className="button button--secondary">
+                Use this district
+              </button>
+            </form>
           )}
         </div>
       )}

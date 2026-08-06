@@ -35,8 +35,10 @@ class ActionItem:
     action: str
     portal_name: str
     portal_url: str
-    escalation: str
-    escalation_url: str
+    source_url: str
+    verified_at: str
+    escalation: str | None = None
+    escalation_url: str | None = None
 
 
 @dataclass(frozen=True)
@@ -51,11 +53,10 @@ class ActionBrief:
     actions: list[ActionItem]
     scheme_data: dict[str, Any]
     generated_at: datetime
-    # Schemes that reported district data at all — an empty diagnosis with an
-    # empty list means "nothing was checked", not "nothing is wrong".
+    # Empty until a registered load-time diagnosis contract exists.
     schemes_checked: list[str] = field(default_factory=list)
-    # WHY/WHO/HOW to complain, per scheme present in the district (flagged
-    # first). Twin of complaint_kits/universal_channels in action-types.ts.
+    # Every curated complaint family, independent of district performance-data
+    # coverage. Twin of complaint_kits/universal_channels in action-types.ts.
     complaint_kits: list[dict[str, Any]] = field(default_factory=list)
     universal_channels: list[dict[str, Any]] = field(default_factory=list)
 

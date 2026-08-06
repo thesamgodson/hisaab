@@ -49,17 +49,16 @@ def build_action_brief(
         mla_info = _get_first_mla(conn, district, state)
 
         diagnosis = build_diagnosis(conn, district, state)
-        flagged_schemes = list({d.scheme for d in diagnosis})
         schemes_checked = schemes_with_district_data(conn, district, state)
 
         contacts = build_contacts(
             conn, district, state,
             mp_info=mp_info, mla_info=mla_info,
-            flagged_schemes=flagged_schemes,
+            flagged_schemes=[],
         )
 
-        actions = build_actions(conn, flagged_schemes)
-        kits, universal = _build_complaint_kits(conn, district, state, flagged_schemes)
+        kits, universal = _build_complaint_kits(conn)
+        actions = build_actions(conn, [kit["scheme"] for kit in kits])
 
         return ActionBrief(
             pin=clean, district=district, state=state,
@@ -92,8 +91,7 @@ def build_district_brief(
             (district, state),
         ).fetchone()
         diagnosis = build_diagnosis(conn, district, state)
-        flagged = list({d.scheme for d in diagnosis})
-        kits, universal = _build_complaint_kits(conn, district, state, flagged)
+        kits, universal = _build_complaint_kits(conn)
         return DistrictBrief(
             district=district, state=state,
             formerly_part_of=dict(lineage) if lineage else None,
@@ -144,38 +142,27 @@ _LEVEL_ORDER_SQL = (
 
 
 def _build_complaint_kits(
-    conn: sqlite3.Connection, district: str, state: str, flagged_schemes: list[str]
+    conn: sqlite3.Connection,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    """WHY/WHO/HOW to complain, per scheme present in this district.
+    """WHY/WHO/HOW to complain for every curated scheme.
 
-    Not gated on a flagged shortfall — a personal grievance (delayed wages,
-    refused rations) exists regardless of the district aggregate. Flagged
-    schemes sort first. Twin of buildComplaintKits in web/src/lib/action-brief.ts.
+    Complaint rights are independent of district performance-data coverage.
+    Aggregate flags annotate but never select an issue. Twin of
+    getComplaintCatalog in web/src/lib/action-brief.ts.
     """
-    present = {
-        r["scheme"]
-        for r in conn.execute(
-            """SELECT DISTINCT scheme FROM scheme_delivery
-                WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?)
-               UNION
-               SELECT DISTINCT scheme FROM money_flow
-                WHERE UPPER(district)=UPPER(?) AND UPPER(state)=UPPER(?)""",
-            (district, state, district, state),
-        ).fetchall()
-    }
     channels = [
         dict(r)
         for r in conn.execute(
             f"""SELECT scheme, level, authority, portal_name, portal_url, phone,
-                       COALESCE(description,'') AS description
+                       COALESCE(description,'') AS description, source_url, scraped_at
                   FROM grievance_channels
-                 ORDER BY scheme, {_LEVEL_ORDER_SQL}"""
+                 ORDER BY scheme, {_LEVEL_ORDER_SQL}, portal_name"""
         ).fetchall()
     ]
     entitlements = {
         r["scheme"]: dict(r)
         for r in conn.execute(
-            """SELECT scheme, entitlement, legal_basis, complain_when, source_url
+            """SELECT scheme, entitlement, legal_basis, complain_when, source_url, scraped_at
                  FROM scheme_entitlements"""
         ).fetchall()
     }
@@ -186,12 +173,12 @@ def _build_complaint_kits(
         if c["scheme"] != "ALL":
             by_scheme.setdefault(c["scheme"], []).append(c)
 
-    flagged = set(flagged_schemes)
+    curated = sorted({*entitlements, *by_scheme})
     kits: list[dict[str, Any]] = []
-    for scheme in dict.fromkeys([*flagged_schemes, *sorted(present)]):
+    for scheme in curated:
         ent = entitlements.get(scheme)
-        laddered = by_scheme.get(scheme, [])
-        if not ent and not laddered:
+        scheme_channels = by_scheme.get(scheme, [])
+        if not ent and not scheme_channels:
             continue
         complain_when: list[str] = []
         if ent and ent.get("complain_when"):
@@ -202,14 +189,14 @@ def _build_complaint_kits(
                 complain_when = [str(ent["complain_when"])]
         kits.append({
             "scheme": scheme,
-            "flagged": scheme in flagged,
+            "flagged": False,
             "entitlement": ent["entitlement"] if ent else None,
             "legal_basis": ent["legal_basis"] if ent else None,
             "complain_when": complain_when,
             "entitlement_source_url": ent["source_url"] if ent else None,
-            "channels": laddered,
+            "entitlement_scraped_at": ent["scraped_at"] if ent else None,
+            "channels": scheme_channels,
         })
-    kits.sort(key=lambda k: (not k["flagged"], k["scheme"]))
     return kits, universal
 
 

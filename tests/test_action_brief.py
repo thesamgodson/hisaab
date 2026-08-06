@@ -72,7 +72,7 @@ def test_grievance_channels_insert_and_pk(db):
            (scheme, level, portal_name, portal_url, phone, description,
             escalation_scheme, source_url, scraped_at)
            VALUES ('MGNREGA', 'national', 'CPGRAMS', 'https://pgportal.gov.in/',
-                   '1800-111-555', 'Central grievance portal', NULL,
+                   NULL, 'Central grievance portal', NULL,
                    'https://pgportal.gov.in/', '2026-03-30T00:00:00')"""
     )
     row = db.execute(
@@ -112,8 +112,7 @@ def test_action_item_frozen():
         scheme="MGNREGA", action="File a complaint about delayed wages",
         portal_name="MGNREGA Public Grievance",
         portal_url="https://nrega.nic.in/Nregahome/EComplaint.aspx",
-        escalation="If no response in 30 days, escalate to CPGRAMS",
-        escalation_url="https://pgportal.gov.in/",
+        source_url="https://nrega.nic.in/", verified_at="2026-08-06",
     )
     assert item.scheme == "MGNREGA"
 
@@ -139,7 +138,8 @@ def test_action_items_for_flagged_schemes(db):
     assert "PMAY-G" in schemes
     for a in actions:
         assert a.portal_url.startswith("http")
-        assert a.escalation_url.startswith("http")
+        assert a.source_url.startswith("http")
+        assert a.verified_at
 
 
 def test_action_items_empty_when_no_flags(db):
@@ -150,83 +150,35 @@ def test_action_items_empty_when_no_flags(db):
     assert actions == []
 
 
-def test_action_items_always_include_cpgrams_escalation(db):
+def test_action_items_do_not_invent_universal_waiting_period(db):
     from directory.seed_data import seed_grievance_channels
     seed_grievance_channels(db)
     from action_brief.actions import build_actions
     actions = build_actions(db, ["MGNREGA"])
     for a in actions:
-        assert "CPGRAMS" in a.escalation or "pgportal" in a.escalation_url
+        assert a.escalation is None
+        assert a.escalation_url is None
 
 
 # ---------------------------------------------------------------------------
-# Diagnosis engine tests
+# Diagnosis contract tests
 # ---------------------------------------------------------------------------
 
-def test_diagnosis_mgnrega_low_recovery(db):
+def test_runtime_diagnosis_is_suspended(db):
+    """Raw rows must not become runtime severity judgments in either twin."""
     db.execute(
         """INSERT INTO misappropriation
-           (district, state, state_code, fin_year, cases_reported, amount_reported, amount_recovered,
-            recovery_rate_pct, source_url, scraped_at)
-           VALUES ('VARANASI', 'UTTAR PRADESH', 'UP', '2024-2025', 50, 420, 34,
-                   8.1, 'https://nrega.nic.in/', '2026-03-30T00:00:00')"""
+           (district, state, state_code, fin_year, cases_reported, amount_reported,
+            amount_to_recover, amount_recovered, recovery_rate_pct, source_url, scraped_at)
+           VALUES ('VARANASI', 'UTTAR PRADESH', 'UP', '2024-2025', 50, 420000,
+                   0, 0, 0, 'https://nrega.nic.in/', '2026-03-30T00:00:00')"""
     )
     db.commit()
-    from action_brief.diagnosis import build_diagnosis
-    items = build_diagnosis(db, "VARANASI", "UTTAR PRADESH")
-    assert len(items) >= 1
-    mgnrega = [i for i in items if i.scheme == "MGNREGA"]
-    assert len(mgnrega) >= 1
-    assert mgnrega[0].severity == "high"
-    assert "recover" in mgnrega[0].summary.lower()
-    assert mgnrega[0].source_url
 
+    from action_brief.diagnosis import build_diagnosis, schemes_with_district_data
 
-def test_diagnosis_pmayg_low_completion(db):
-    db.execute(
-        """INSERT INTO pmayg_district
-           (district, state, fin_year, houses_sanctioned, houses_completed,
-            houses_occupied, completion_pct, source_url, scraped_at)
-           VALUES ('VARANASI', 'UTTAR PRADESH', '2024-2025', 1000, 300,
-                   200, 30.0, 'https://pmayg.nic.in/', '2026-03-30T00:00:00')"""
-    )
-    db.commit()
-    from action_brief.diagnosis import build_diagnosis
-    items = build_diagnosis(db, "VARANASI", "UTTAR PRADESH")
-    pmayg = [i for i in items if i.scheme == "PMAY-G"]
-    assert len(pmayg) >= 1
-    assert "house" in pmayg[0].summary.lower() or "built" in pmayg[0].summary.lower()
-
-
-def test_diagnosis_no_flags(db):
-    from action_brief.diagnosis import build_diagnosis
-    items = build_diagnosis(db, "NONEXISTENT", "NOWHERE")
-    assert items == []
-
-
-def test_diagnosis_max_5_items(db):
-    db.execute("""INSERT INTO misappropriation (district, state, state_code, fin_year, cases_reported, amount_reported, amount_recovered, recovery_rate_pct, source_url, scraped_at) VALUES ('BADPLACE', 'BADSTATE', 'BS', '2024-2025', 200, 1000, 0, 0.0, 'https://nrega.nic.in/', '2026-03-30T00:00:00')""")
-    db.execute("""INSERT INTO financial_statement (district, state, state_code, fin_year, total_availability, cumulative_expenditure, utilization_pct, source_url, scraped_at) VALUES ('BADPLACE', 'BADSTATE', 'BS', '2024-2025', 5000, 1000, 20.0, 'https://nrega.nic.in/', '2026-03-30T00:00:00')""")
-    db.execute("""INSERT INTO pmayg_district (district, state, fin_year, houses_sanctioned, houses_completed, houses_occupied, completion_pct, source_url, scraped_at) VALUES ('BADPLACE', 'BADSTATE', '2024-2025', 1000, 100, 30, 10.0, 'https://pmayg.nic.in/', '2026-03-30T00:00:00')""")
-    db.execute("""INSERT INTO jjm_district (district, state, total_households, households_with_tap, coverage_pct, funds_released_lakhs, funds_utilized_lakhs, source_url, scraped_at) VALUES ('BADPLACE', 'BADSTATE', 10000, 1000, 10.0, 500, 50, 'https://ejalshakti.gov.in/', '2026-03-30T00:00:00')""")
-    db.execute("""INSERT INTO pmposhan_district (district, state, fin_year, children_enrolled, children_fed, source_url, scraped_at) VALUES ('BADPLACE', 'BADSTATE', '2024-2025', 10000, 1000, 'https://pmposhan.education.gov.in/', '2026-03-30T00:00:00')""")
-    db.execute("""INSERT INTO nfsa_district (district, state, fin_year, ration_cards_total, ration_cards_active, allocation_mt, offtake_mt, offtake_pct, source_url, scraped_at) VALUES ('BADPLACE', 'BADSTATE', '2024-2025', 10000, 3000, 100.0, 20.0, 20.0, 'https://nfsa.gov.in/', '2026-03-30T00:00:00')""")
-    db.commit()
-    from action_brief.diagnosis import build_diagnosis
-    items = build_diagnosis(db, "BADPLACE", "BADSTATE")
-    assert len(items) <= 5
-
-
-def test_diagnosis_sorted_by_severity(db):
-    db.execute("""INSERT INTO misappropriation (district, state, state_code, fin_year, cases_reported, amount_reported, amount_recovered, recovery_rate_pct, source_url, scraped_at) VALUES ('SORTTEST', 'SORTSTATE', 'SS', '2024-2025', 50, 420, 0, 0.0, 'https://nrega.nic.in/', '2026-03-30T00:00:00')""")
-    db.execute("""INSERT INTO jjm_district (district, state, total_households, households_with_tap, coverage_pct, funds_released_lakhs, funds_utilized_lakhs, source_url, scraped_at) VALUES ('SORTTEST', 'SORTSTATE', 10000, 4000, 40.0, 500, 400, 'https://ejalshakti.gov.in/', '2026-03-30T00:00:00')""")
-    db.commit()
-    from action_brief.diagnosis import build_diagnosis
-    items = build_diagnosis(db, "SORTTEST", "SORTSTATE")
-    if len(items) >= 2:
-        severity_order = {"high": 0, "medium": 1, "low": 2}
-        for i in range(len(items) - 1):
-            assert severity_order[items[i].severity] <= severity_order[items[i + 1].severity]
+    assert build_diagnosis(db, "VARANASI", "UTTAR PRADESH") == []
+    assert schemes_with_district_data(db, "VARANASI", "UTTAR PRADESH") == []
 
 
 # ---------------------------------------------------------------------------
@@ -308,7 +260,7 @@ def test_card_portrait_svg():
     assert "VARANASI" in svg_str
     assert "UTTAR PRADESH" in svg_str
     assert "MGNREGA" in svg_str
-    assert "Test MP" in svg_str
+    assert "not an exact MLA" in svg_str
     assert "hisaab" in svg_str.lower()
 
 
@@ -354,7 +306,8 @@ def test_engine_valid_pin(db):
     assert brief.pin == "221001"
     assert brief.district == "VARANASI"
     assert brief.state == "UTTAR PRADESH"
-    assert len(brief.diagnosis) >= 1
+    assert brief.diagnosis == []
+    assert brief.schemes_checked == []
     assert brief.generated_at is not None
 
 
@@ -382,7 +335,7 @@ def test_engine_mp_falls_back_to_pin_constituency(db):
     assert brief.mp["mp_name"] == "KAMALJEET SEHRAWAT"
 
 
-def test_engine_schemes_checked_reports_what_was_looked_at(db):
+def test_engine_does_not_report_runtime_judgment_coverage(db):
     db.execute(
         """INSERT INTO pin_district_mapping (pin_code, district, state, office_name)
            VALUES ('110018', 'WEST', 'DELHI', 'Delhi Cantt')"""
@@ -407,7 +360,7 @@ def test_engine_schemes_checked_reports_what_was_looked_at(db):
     checked = build_action_brief("110018", conn=db)
     assert checked is not None
     assert checked.diagnosis == []
-    assert checked.schemes_checked == ["PMAY-G"]
+    assert checked.schemes_checked == []
 
 
 def _seed_complaint_data(db):
@@ -445,25 +398,11 @@ def _seed_complaint_data(db):
            VALUES ('VELLORE', 'TAMIL NADU', 'TN', '2024-2025', 1000, 400, 40.0,
                    'https://x.gov.in', '2026-03-30T00:00:00')"""
     )
-    # Flag trigger for the PYTHON twin: its MGNREGA checker reads
-    # misappropriation at FIN_YEAR with recovery_rate_pct < 20.
-    from briefs.formatting import FIN_YEAR
-    db.execute(
-        """INSERT INTO misappropriation
-           (district, state, state_code, fin_year, cases_reported, amount_reported,
-            cases_decided, amount_decided, cases_pending_recovery, amount_to_recover,
-            cases_recovered, amount_recovered, amount_unrecovered, recovery_rate_pct,
-            source_url, scraped_at)
-           VALUES ('VELLORE', 'TAMIL NADU', 'TN', ?, 10, 50.0, 5, 25.0, 5, 45.0,
-                   1, 5.0, 45.0, 10.0, 'https://x.gov.in', '2026-03-30T00:00:00')""",
-        (FIN_YEAR,),
-    )
     db.commit()
 
 
 def test_engine_complaint_kits_presence_and_order(db):
-    """Kits render for schemes PRESENT in the district (not just flagged),
-    flagged schemes first, with entitlement + ladder + universal separated."""
+    """All curated rights render regardless of district performance coverage."""
     _seed_complaint_data(db)
 
     from action_brief.engine import build_action_brief
@@ -471,21 +410,58 @@ def test_engine_complaint_kits_presence_and_order(db):
     assert brief is not None
 
     schemes = [k["scheme"] for k in brief.complaint_kits]
-    assert "MGNREGA" in schemes  # present via financial_statement
+    assert "MGNREGA" in schemes
     mgnrega = next(k for k in brief.complaint_kits if k["scheme"] == "MGNREGA")
-    # 40% utilization < 60% threshold — flagged, so it must sort first.
-    assert mgnrega["flagged"] is True
-    assert schemes[0] == "MGNREGA"
+    # Runtime data never flags, reorders, or preselects the citizen's issue.
+    assert mgnrega["flagged"] is False
+    assert schemes == sorted(schemes)
     assert mgnrega["entitlement"].startswith("Wages within 15 days")
     assert mgnrega["complain_when"] == ["Wages pending beyond 15 days"]
     levels = [c["level"] for c in mgnrega["channels"]]
-    assert levels == ["local", "national"]  # ladder ordering
+    assert levels == ["local", "national"]  # administrative-level ordering
 
     # Universal channels are separated out, never duplicated into kits.
     assert [c["scheme"] for c in brief.universal_channels] == ["ALL"]
     assert all(k["scheme"] != "ALL" for k in brief.complaint_kits)
-    # PDS has a channel but no VELLORE presence in this fixture — no kit.
-    assert "PDS/NFSA" not in schemes
+    # PDS has a channel but no VELLORE performance row — the complaint route
+    # remains available because aggregate-data coverage cannot gate rights.
+    assert "PDS/NFSA" in schemes
+    pds = next(k for k in brief.complaint_kits if k["scheme"] == "PDS/NFSA")
+    assert pds["channels"][0]["source_url"] == "https://nfsa.gov.in"
+    assert pds["channels"][0]["scraped_at"] == "2026-08-06"
+
+
+def test_engine_rte_kit_needs_no_district_data(db):
+    db.execute(
+        """INSERT INTO pin_district_mapping (pin_code, district, state, office_name)
+           VALUES ('110018', 'WEST', 'DELHI', 'Delhi Cantt')"""
+    )
+    db.execute(
+        """INSERT INTO scheme_entitlements
+           (scheme, entitlement, legal_basis, complain_when, source_url, scraped_at)
+           VALUES ('UDISE+', 'Every child has the RTE protections in the Act',
+                   'RTE Act 2009', '["Admission was refused"]',
+                   'https://www.indiacode.nic.in/rte', '2026-08-06')"""
+    )
+    db.execute(
+        """INSERT INTO grievance_channels
+           (scheme, level, authority, portal_name, portal_url, phone,
+            description, source_url, scraped_at)
+           VALUES ('UDISE+', 'local', 'School Management Committee',
+                   'Written complaint at the school',
+                   'https://www.indiacode.nic.in/rte', NULL,
+                   'Raise the issue at the school',
+                   'https://www.indiacode.nic.in/rte', '2026-08-06')"""
+    )
+    db.commit()
+
+    from action_brief.engine import build_action_brief
+    brief = build_action_brief("110018", conn=db)
+    assert brief is not None
+    assert brief.schemes_checked == []
+    rte = next(k for k in brief.complaint_kits if k["scheme"] == "UDISE+")
+    assert rte["entitlement_scraped_at"] == "2026-08-06"
+    assert rte["channels"][0]["source_url"] == "https://www.indiacode.nic.in/rte"
 
 
 def test_engine_district_brief_matches_pin_brief_sections(db):
@@ -509,8 +485,8 @@ def test_engine_district_brief_matches_pin_brief_sections(db):
 
     assert [m["constituency"] for m in brief.mps] == ["ARAKKONAM", "VELLORE"]
     kit_schemes = [k["scheme"] for k in brief.complaint_kits]
-    assert kit_schemes and kit_schemes[0] == "MGNREGA"  # flagged first, same as PIN brief
-    assert brief.diagnosis and brief.diagnosis[0].scheme == "MGNREGA"
+    assert kit_schemes == sorted(kit_schemes)
+    assert brief.diagnosis == []
     assert [c["scheme"] for c in brief.universal_channels] == ["ALL"]
 
 
