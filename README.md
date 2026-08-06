@@ -92,6 +92,17 @@ data/curated/   Normalized JSON from scrapers (source of truth for the DB)
 tests/          pytest suite
 ```
 
+## Documents — where to look
+
+| File | What it is |
+|------|------------|
+| [ONBOARDING.md](ONBOARDING.md) | **Start here as a new teammate** — tenets, architecture, the scheme-addition loop, publish order, landmines |
+| [CLAUDE.md](CLAUDE.md) | Developer guide — conventions, schemes table, key modules, testing |
+| [MANIFESTO.md](MANIFESTO.md) | Why this exists and the rules it lives by |
+| [DATA_CLAIMS.md](DATA_CLAIMS.md) | Provenance for every number the site serves — source, date, method, caveats |
+| `web/AGENTS.md` | Frontend conventions (server components query Turso directly, no formulas in TS) |
+| `findings.md` / `learnings.md` / `tasks.md` / `HANDOFF.md` | Local working notes (gitignored — session logbook, not shipped docs) |
+
 ## License
 
 [AGPL-3.0](LICENSE)
