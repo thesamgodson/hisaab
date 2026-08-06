@@ -1,0 +1,21 @@
+{
+  "runs": [
+    {
+      "date": "2026-08-06",
+      "scope": "app",
+      "genre": "civic editorial",
+      "theme": "Almanac",
+      "marketing_macrostructure": "Narrative Workflow",
+      "app_macrostructure": "Workbench",
+      "design_system": "design.md",
+      "critique": {
+        "philosophy": 5,
+        "hierarchy": 5,
+        "execution": 4,
+        "specificity": 5,
+        "restraint": 5,
+        "variety": 4
+      }
+    }
+  ]
+}

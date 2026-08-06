@@ -1,8 +1,4 @@
-/** Per-scheme evidence cards (money + delivery) — shared by the district
- *  page and the PIN action page so both entry points show the same data. */
-
 import SchemeRow, { type SchemeData } from "@/components/SchemeRow";
-import SectionHeader from "@/components/SectionHeader";
 
 export default function SchemeDataSection({
   schemes,
@@ -10,14 +6,28 @@ export default function SchemeDataSection({
   schemes: SchemeData[];
 }) {
   if (schemes.length === 0) return null;
+
   return (
-    <section className="mb-12">
-      <SectionHeader title="Scheme Data" count={schemes.length} />
-      <div className="grid gap-5 sm:grid-cols-2">
-        {schemes.map((s) => (
-          <SchemeRow key={s.scheme} data={s} />
-        ))}
-      </div>
+    <section id="evidence" className="content-section">
+      <details className="evidence-panel">
+        <summary>
+          <span className="evidence-panel__summary-copy">
+            <span className="eyebrow">Evidence</span>
+            <h2>Official figures behind this brief</h2>
+            <p>Open to inspect reported money and delivery.</p>
+          </span>
+          <span className="evidence-panel__count">
+            {schemes.length} scheme{schemes.length === 1 ? "" : "s"}
+          </span>
+        </summary>
+        <div className="evidence-panel__body">
+          <div className="scheme-grid">
+            {schemes.map((scheme) => (
+              <SchemeRow key={scheme.scheme} data={scheme} />
+            ))}
+          </div>
+        </div>
+      </details>
     </section>
   );
 }

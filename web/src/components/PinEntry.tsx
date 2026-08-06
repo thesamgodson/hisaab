@@ -19,41 +19,26 @@ type LocateState =
 
 const GEO_ERROR_COPY: Record<number, string> = {
   1: "Location permission denied — type your 6-digit PIN instead.",
-  2: "Couldn't read your location — type your PIN instead.",
+  2: "Couldn’t read your location — type your PIN instead.",
   3: "Locating took too long — type your PIN instead.",
 };
 
 export default function PinEntry() {
   const [pin, setPin] = useState("");
   const [locate, setLocate] = useState<LocateState>({ status: "idle" });
-  const [mounted, setMounted] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const seeOwedRef = useRef<HTMLButtonElement>(null);
+  const openBriefRef = useRef<HTMLButtonElement>(null);
   const router = useRouter();
 
-  // navigator only exists on the client: reading it during render made the
-  // server tree (no button) disagree with the client tree (button), and React
-  // discarded the whole hydrated tree on every load.
-  useEffect(() => {
-    // The one legitimate set-state-in-effect: a mount flag is the only way to
-    // defer a client-only branch past hydration.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
-
-  // Desktop convenience only — an autofocused input on a touch device throws
-  // the software keyboard over the hero before the user has read it.
   useEffect(() => {
     if (window.matchMedia("(pointer: fine)").matches) {
       inputRef.current?.focus();
     }
   }, []);
 
-  // The locate button unmounts the moment a match lands, dropping focus to
-  // <body> mid-flow; move it to the action the match card is asking for.
   useEffect(() => {
     if (locate.status === "matched") {
-      seeOwedRef.current?.focus();
+      openBriefRef.current?.focus();
     }
   }, [locate.status]);
 
@@ -65,37 +50,42 @@ export default function PinEntry() {
     }
   };
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    // Cmd/Ctrl/Alt chords are shortcuts, not input — blocking "v" here broke paste.
-    if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
     if (
-      !/^\d$/.test(e.key) &&
-      !["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(e.key)
+      !/^\d$/.test(event.key) &&
+      !["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(event.key)
     ) {
-      e.preventDefault();
+      event.preventDefault();
     }
   };
 
-  // One-shot lookup: coordinates go to /api/v1/locate (POST body, never the
-  // URL) and are not stored anywhere — the microcopy below promises this.
   const handleUseLocation = () => {
+    if (!("geolocation" in navigator)) {
+      setLocate({
+        status: "error",
+        message: "Location isn’t available in this browser — type your PIN instead.",
+      });
+      return;
+    }
+
     setLocate({ status: "locating" });
     navigator.geolocation.getCurrentPosition(
-      async (pos) => {
+      async (position) => {
         try {
-          const res = await fetch("/api/v1/locate", {
+          const response = await fetch("/api/v1/locate", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              lat: pos.coords.latitude,
-              lng: pos.coords.longitude,
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
             }),
           });
-          const data = await res.json();
-          if (!res.ok) {
+          const data = await response.json();
+          if (!response.ok) {
             setLocate({
               status: "error",
-              message: data?.error ?? "Couldn't match a PIN — type it instead.",
+              message: data?.error ?? "Couldn’t match a PIN — type it instead.",
             });
             return;
           }
@@ -107,10 +97,10 @@ export default function PinEntry() {
           });
         }
       },
-      (err) => {
+      (error) => {
         setLocate({
           status: "error",
-          message: GEO_ERROR_COPY[err.code] ?? "Couldn't read your location.",
+          message: GEO_ERROR_COPY[error.code] ?? "Couldn’t read your location.",
         });
       },
       { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 },
@@ -118,7 +108,7 @@ export default function PinEntry() {
   };
 
   return (
-    <div className="w-full max-w-xs mx-auto">
+    <div className="pin-entry">
       <label htmlFor="pin-input" className="sr-only">
         Enter your 6-digit PIN code
       </label>
@@ -130,101 +120,52 @@ export default function PinEntry() {
         pattern="[0-9]{6}"
         maxLength={6}
         value={pin}
-        onChange={(e) => handleChange(e.target.value)}
+        onChange={(event) => handleChange(event.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="110001"
-        className="w-full text-center text-3xl font-mono tracking-[0.3em] py-4 px-4 rounded-xl transition-all duration-200 placeholder:text-lg placeholder:tracking-normal placeholder:opacity-65"
-        style={{
-          background: "var(--background)",
-          color: "var(--text-primary)",
-          border: "2px solid #84849a",
-          boxShadow: "var(--shadow-xs)",
-        }}
-        onFocus={(e) => {
-          e.currentTarget.style.borderColor = "var(--accent)";
-          e.currentTarget.style.boxShadow = "0 0 0 3px var(--ring-color)";
-        }}
-        onBlur={(e) => {
-          e.currentTarget.style.borderColor = "#84849a";
-          e.currentTarget.style.boxShadow = "var(--shadow-xs)";
-        }}
+        aria-describedby="pin-hint"
+        className="pin-entry__input"
       />
-      <p
-        className="text-xs text-center mt-3"
-        style={{ color: "var(--text-muted)" }}
-      >
-        Auto-navigates when you type 6 digits
+      <p id="pin-hint" className="pin-entry__hint">
+        Your brief opens after the sixth digit.
       </p>
 
-      {mounted && "geolocation" in navigator && locate.status !== "matched" && (
-        <>
-          <button
-            type="button"
-            onClick={handleUseLocation}
-            disabled={locate.status === "locating"}
-            aria-busy={locate.status === "locating"}
-            className="w-full mt-4 py-3 px-4 rounded-xl text-sm font-medium transition-all duration-200 disabled:opacity-60"
-            style={{
-              background: "var(--background)",
-              color: "var(--text-primary)",
-              border: "2px solid #84849a",
-              boxShadow: "var(--shadow-xs)",
-            }}
-          >
-            {locate.status === "locating"
-              ? "Finding your PIN…"
-              : "📍 Use my location"}
-          </button>
-          <p
-            className="text-xs text-center mt-2"
-            style={{ color: "var(--text-muted)" }}
-          >
-            Checked once to find your PIN — never stored.
-          </p>
-        </>
+      {locate.status !== "matched" && (
+        <button
+          type="button"
+          onClick={handleUseLocation}
+          disabled={locate.status === "locating"}
+          aria-busy={locate.status === "locating"}
+          className="button button--secondary pin-entry__locate"
+        >
+          <LocationIcon />
+          {locate.status === "locating" ? "Finding your PIN…" : "Use my location"}
+        </button>
       )}
 
-      {/* Live region on the error only: the match card receives focus, and a
-          live announcement racing that focus event garbles screen readers. */}
-      <div>
+      <div className="pin-entry__feedback">
         {locate.status === "error" && (
-          <p
-            role="status"
-            className="text-xs text-center mt-2"
-            style={{ color: "var(--text-primary)" }}
-          >
+          <p role="status" className="pin-entry__error">
             {locate.message}
           </p>
         )}
 
         {locate.status === "matched" && (
-          <div
-            className="mt-4 p-4 rounded-xl text-center"
-            style={{
-              background: "var(--background)",
-              border: "2px solid var(--accent)",
-              boxShadow: "var(--shadow-xs)",
-            }}
-          >
-            <p className="text-sm" style={{ color: "var(--text-primary)" }}>
-              📍 PIN <span className="font-mono font-semibold">{locate.match.pin_code}</span>
-              {" · "}
+          <div className="pin-match">
+            <p className="pin-match__place">
+              PIN <strong>{locate.match.pin_code}</strong> ·{" "}
               {formatDistrictLabel(locate.match.district, locate.match.state)}
             </p>
-            <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
-              nearest post office area, ~{locate.match.distance_km} km from you
+            <p className="pin-match__distance">
+              Nearest post-office area, about {locate.match.distance_km} km away
             </p>
             <button
               type="button"
-              ref={seeOwedRef}
+              ref={openBriefRef}
               onClick={() => router.push(`/action/${locate.match.pin_code}`)}
-              className="w-full mt-3 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-200"
-              style={{
-                background: "var(--accent)",
-                color: "var(--background)",
-              }}
+              className="button button--primary pin-match__open"
             >
-              See what&apos;s owed here →
+              Open this brief
             </button>
             <button
               type="button"
@@ -232,17 +173,29 @@ export default function PinEntry() {
                 setLocate({ status: "idle" });
                 inputRef.current?.focus();
               }}
-              className="w-full mt-2 py-2 text-xs"
-              style={{ color: "var(--text-muted)" }}
+              className="pin-match__retry"
             >
-              Not my area? Type your PIN instead
+              Not your area? Type your PIN
             </button>
-            <p className="text-[10px] mt-2" style={{ color: "var(--text-muted)" }}>
-              Location matching via GeoNames postal data (CC BY 4.0)
+            <p className="pin-match__source">
+              Location match: GeoNames postal data, CC BY 4.0
             </p>
           </div>
         )}
       </div>
     </div>
+  );
+}
+
+function LocationIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <circle cx="12" cy="10" r="2.25" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
   );
 }

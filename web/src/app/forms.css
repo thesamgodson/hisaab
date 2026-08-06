@@ -1,0 +1,118 @@
+.pin-entry {
+  width: 100%;
+  max-width: 24rem;
+  margin-inline: auto;
+}
+
+.pin-entry__input {
+  width: 100%;
+  min-height: 4.25rem;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--color-rule);
+  border-radius: var(--radius-control);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-xs);
+  font-family: var(--font-mono);
+  font-size: clamp(1.6rem, 8vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-align: center;
+  transition: border-color var(--dur-short) var(--ease-out);
+}
+
+.pin-entry__input::placeholder {
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  opacity: 0.72;
+}
+
+.pin-entry__input:focus {
+  border-color: var(--color-accent);
+}
+
+.pin-entry__hint,
+.pin-entry__error,
+.pin-match__distance,
+.pin-match__source {
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.pin-entry__hint {
+  margin: var(--space-2xs) 0 0;
+}
+
+.pin-entry__locate {
+  width: 100%;
+  margin-top: var(--space-sm);
+  gap: var(--space-2xs);
+}
+
+.pin-entry__locate svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.pin-entry__locate:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.pin-entry__feedback {
+  min-height: 1.25rem;
+}
+
+.pin-entry__error {
+  margin: var(--space-2xs) 0 0;
+  color: var(--color-danger-ink);
+}
+
+.pin-match {
+  margin-top: var(--space-sm);
+  padding: var(--space-sm);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-control);
+  background: var(--color-paper);
+  box-shadow: var(--shadow-xs);
+}
+
+.pin-match__place {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.pin-match__place strong {
+  font-family: var(--font-mono);
+}
+
+.pin-match__distance {
+  margin: var(--space-3xs) 0 0;
+}
+
+.pin-match__open {
+  width: 100%;
+  margin-top: var(--space-xs);
+}
+
+.pin-match__retry {
+  width: 100%;
+  min-height: 2.75rem;
+  margin-top: var(--space-2xs);
+  border: 0;
+  background: transparent;
+  color: var(--color-accent);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.pin-match__source {
+  margin: var(--space-2xs) 0 0;
+  font-size: 0.625rem;
+}

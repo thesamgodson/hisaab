@@ -1,0 +1,9 @@
+{
+  "scanned_at": "2026-08-06T13:16:00+05:30",
+  "framework": "Next.js 15 App Router",
+  "font_stack": "Newsreader, Geist, and Geist Mono via next/font",
+  "palette": "CSS custom properties in web/src/app/tokens.css",
+  "motion": "CSS only; no motion library",
+  "spacing": "Tailwind defaults plus semantic CSS tokens",
+  "design_system": "design.md"
+}

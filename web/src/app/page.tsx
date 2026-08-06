@@ -4,41 +4,57 @@ import IndiaMap from "@/components/IndiaMap";
 
 export default function Home() {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6">
-      {/* PIN entry — glass card treatment */}
-      <section className="pt-16 pb-14 sm:pt-20 sm:pb-16 text-center">
-        <div
-          className="max-w-lg mx-auto rounded-2xl px-6 py-10 sm:px-10 sm:py-12"
-          style={{
-            background: "var(--surface)",
-            boxShadow: "var(--shadow-md)",
-            border: "1px solid var(--border-subtle)",
-          }}
-        >
-          <h1
-            className="text-2xl sm:text-3xl font-bold mb-2 tracking-tight"
-            style={{ color: "var(--text-primary)" }}
-          >
-            Where did the money go?
-          </h1>
-          <p
-            className="text-sm mb-8 max-w-xs mx-auto"
-            style={{ color: "var(--text-muted)", lineHeight: "1.6" }}
-          >
-            Enter your PIN code to see how government schemes perform in your
-            area
+    <div className="page-shell">
+      <section className="home-hero" aria-labelledby="home-heading">
+        <div className="home-hero__copy">
+          <p className="eyebrow">Welfare rights in your area</p>
+          <h1 id="home-heading">Know what you’re owed. Know what to do next.</h1>
+          <p className="home-hero__lead">
+            Start with your PIN. Hisaab brings together local welfare evidence,
+            legal entitlements, official complaint routes, and the people who
+            represent you.
           </p>
+        </div>
+
+        <div className="pin-panel">
+          <p className="eyebrow">Step 01 · Find your area</p>
+          <h2>Enter your 6-digit PIN</h2>
           <PinEntry />
+          <p className="pin-panel__promise">
+            No account required. Location matching is checked once and never stored.
+          </p>
         </div>
       </section>
 
-      {/* Map */}
-      <section className="pb-16">
+      <ol className="journey-line" aria-label="What your brief contains">
+        <li>
+          <strong>01</strong>
+          <span>See what the public data flags locally.</span>
+        </li>
+        <li>
+          <strong>02</strong>
+          <span>Read your rights in plain language.</span>
+        </li>
+        <li>
+          <strong>03</strong>
+          <span>Take the complaint through an official route.</span>
+        </li>
+      </ol>
+
+      <section className="map-section" aria-labelledby="map-heading">
+        <div className="map-section__heading">
+          <p className="eyebrow">Or browse by district</p>
+          <h2 id="map-heading">Explore the country, district by district.</h2>
+          <p>
+            A map click opens the same accountability brief at district level.
+            Use your PIN when you need your exact MP and MLA.
+          </p>
+        </div>
         <Suspense
           fallback={
             <div
-              className="w-full aspect-[4/3] rounded-xl shimmer"
-              style={{ background: "var(--surface)" }}
+              className="map-surface shimmer w-full aspect-[4/5] sm:aspect-[4/3]"
+              aria-label="Loading district map"
             />
           }
         >

@@ -1,14 +1,7 @@
-/**
- * "How to complain" — WHY (legal entitlement), WHO (escalation ladder +
- * elected representatives), HOW (per-rung instruction) for every scheme
- * present in the district. Content is curated from official sources
- * (grievance_channels / scheme_entitlements tables, DATA_CLAIMS-backed);
- * this component renders it verbatim and never invents a route.
- */
-
 import type { ComplaintKit, GrievanceChannel } from "@/lib/action-types";
 import SectionHeader from "@/components/SectionHeader";
 import SourceLink from "@/components/SourceLink";
+import { schemeDisplay } from "@/lib/scheme-display";
 
 const LEVEL_LABEL: Record<string, string> = {
   local: "Start local",
@@ -17,132 +10,106 @@ const LEVEL_LABEL: Record<string, string> = {
   national: "National",
 };
 
-function ChannelRung({ ch }: { ch: GrievanceChannel }) {
+function schemeAnchor(scheme: string): string {
+  return `complaint-${scheme.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+}
+
+function ChannelRoute({ channel }: { channel: GrievanceChannel }) {
+  const phoneHref = channel.phone?.replace(/[^\d+]/g, "") ?? null;
+
   return (
-    <li className="flex items-start gap-3 text-sm">
-      <span
-        className="flex-shrink-0 mt-0.5 px-2 py-0.5 rounded-md text-[11px] font-semibold uppercase tracking-wide"
-        style={{ background: "var(--accent-light)", color: "var(--accent)" }}
-      >
-        {LEVEL_LABEL[ch.level] ?? ch.level}
+    <div className="channel-route">
+      <span className="channel-rung__level">
+        {LEVEL_LABEL[channel.level] ?? channel.level}
       </span>
-      <span className="flex-1" style={{ color: "var(--text-secondary)" }}>
-        {ch.authority && (
-          <span className="font-medium" style={{ color: "var(--text-primary)" }}>
-            {ch.authority}
-            {" — "}
-          </span>
-        )}
-        {ch.description}{" "}
-        <a
-          href={ch.portal_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-medium underline underline-offset-2 hover:opacity-80"
-          style={{ color: "var(--accent)" }}
-        >
-          {ch.portal_name}
+      {channel.authority && <p className="channel-route__authority">{channel.authority}</p>}
+      <p className="channel-route__name">{channel.portal_name}</p>
+      <div className="channel-route__links">
+        <a href={channel.portal_url} target="_blank" rel="noopener noreferrer">
+          Open official route
         </a>
-        {ch.phone && (
-          <span style={{ color: "var(--text-muted)" }}>
-            {" · "}
-            <a href={`tel:${ch.phone.replace(/[^\d+]/g, "")}`} className="underline underline-offset-2">
-              {ch.phone}
-            </a>
-          </span>
-        )}
-      </span>
+        {channel.phone && phoneHref && <a href={`tel:${phoneHref}`}>Call {channel.phone}</a>}
+      </div>
+      {channel.description && (
+        <details className="channel-how">
+          <summary>How to use this route</summary>
+          <p>{channel.description}</p>
+        </details>
+      )}
+    </div>
+  );
+}
+
+function ChannelRung({ channel }: { channel: GrievanceChannel }) {
+  return (
+    <li className="channel-rung">
+      <ChannelRoute channel={channel} />
     </li>
   );
 }
 
 function KitCard({ kit }: { kit: ComplaintKit }) {
+  const display = schemeDisplay(kit.scheme);
+  const firstChannel = kit.channels[0] ?? null;
+  const escalation = kit.channels.slice(1);
+
   return (
     <details
+      id={schemeAnchor(kit.scheme)}
       open={kit.flagged}
-      className="rounded-xl overflow-hidden"
-      style={{
-        background: "var(--elevated)",
-        border: "1px solid var(--border-subtle)",
-        boxShadow: "var(--shadow-sm)",
-      }}
+      className="complaint-card"
     >
-      <summary className="cursor-pointer px-5 py-4 flex items-center justify-between gap-3 list-none [&::-webkit-details-marker]:hidden">
-        <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
-          {kit.scheme}
+      <summary>
+        <span className="complaint-card__title">
+          <span className="complaint-card__need">{display.need}</span>
+          <span className="complaint-card__scheme">{kit.scheme}</span>
         </span>
-        {kit.flagged && (
-          <span
-            className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold uppercase tracking-wide text-white"
-            style={{ background: "oklch(0.55 0.20 25)" }}
-          >
-            Shortfall flagged
-          </span>
-        )}
+        {kit.flagged && <span className="complaint-card__badge">Data flag</span>}
       </summary>
 
-      <div className="px-5 pb-5 flex flex-col gap-4">
+      <div className="complaint-card__body">
         {kit.entitlement && (
-          <div>
-            <p
-              className="text-[11px] uppercase tracking-wide font-medium mb-1"
-              style={{ color: "var(--text-muted)" }}
-            >
-              What you are owed
-            </p>
-            <p className="text-sm leading-relaxed" style={{ color: "var(--text-primary)" }}>
-              {kit.entitlement}
-            </p>
-            {kit.legal_basis && (
-              <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
-                {kit.legal_basis}
-              </p>
+          <section className="complaint-block">
+            <h3>What you are owed</h3>
+            <p>{kit.entitlement}</p>
+            {kit.legal_basis && <p className="complaint-block__basis">{kit.legal_basis}</p>}
+            {kit.entitlement_source_url && (
+              <SourceLink url={kit.entitlement_source_url} label="Entitlement source" />
             )}
-          </div>
+          </section>
         )}
 
         {kit.complain_when.length > 0 && (
-          <div>
-            <p
-              className="text-[11px] uppercase tracking-wide font-medium mb-1"
-              style={{ color: "var(--text-muted)" }}
-            >
-              Complain when
-            </p>
-            <ul className="flex flex-col gap-1">
-              {kit.complain_when.map((w, i) => (
-                <li
-                  key={i}
-                  className="text-sm flex items-start gap-2"
-                  style={{ color: "var(--text-secondary)" }}
-                >
-                  <span aria-hidden="true" style={{ color: "var(--accent)" }}>
-                    •
-                  </span>
-                  {w}
-                </li>
-              ))}
+          <section className="complaint-block">
+            <h3>Complain when</h3>
+            <ul>
+              {kit.complain_when.map((reason) => <li key={reason}>{reason}</li>)}
             </ul>
-          </div>
+          </section>
         )}
 
-        {kit.channels.length > 0 && (
-          <div>
-            <p
-              className="text-[11px] uppercase tracking-wide font-medium mb-2"
-              style={{ color: "var(--text-muted)" }}
-            >
-              Where to take it
-            </p>
-            <ol className="flex flex-col gap-2.5">
-              {kit.channels.map((ch, i) => (
-                <ChannelRung key={i} ch={ch} />
+        {firstChannel && (
+          <section className="complaint-block complaint-start">
+            <h3>Start here</h3>
+            <ChannelRoute channel={firstChannel} />
+          </section>
+        )}
+
+        {escalation.length > 0 && (
+          <details className="escalation">
+            <summary>
+              Show {escalation.length} escalation step{escalation.length === 1 ? "" : "s"}
+            </summary>
+            <ol className="channel-list">
+              {escalation.map((channel) => (
+                <ChannelRung
+                  key={`${channel.level}-${channel.portal_name}`}
+                  channel={channel}
+                />
               ))}
             </ol>
-          </div>
+          </details>
         )}
-
-        {kit.entitlement_source_url && <SourceLink url={kit.entitlement_source_url} />}
       </div>
     </details>
   );
@@ -155,48 +122,76 @@ export default function ComplaintKitSection({
 }: {
   kits: ComplaintKit[];
   universal: GrievanceChannel[];
-  /** Pre-formatted "MP Name (Party)" / "MLA Name (Party)" lines, if known. */
   representatives: string[];
 }) {
   if (kits.length === 0 && universal.length === 0) return null;
 
-  return (
-    <section className="mb-12">
-      <SectionHeader title="How to Complain" count={kits.length} />
+  const generalStart =
+    universal.find((channel) => channel.portal_name.includes("Centralised")) ??
+    universal[0] ??
+    null;
+  const generalEscalation = universal.filter((channel) => channel !== generalStart);
 
-      <div className="flex flex-col gap-4">
-        {kits.map((kit) => (
-          <KitCard key={kit.scheme} kit={kit} />
-        ))}
+  return (
+    <section id="complaints" className="content-section">
+      <SectionHeader
+        title="Your rights and complaint routes"
+        count={kits.length}
+        description="Choose the problem you recognize. You do not need to know the scheme acronym."
+      />
+
+      {kits.length > 1 && (
+        <nav className="complaint-index" aria-label="Choose a complaint guide">
+          {kits.map((kit) => (
+            <a
+              key={kit.scheme}
+              href={`#${schemeAnchor(kit.scheme)}`}
+              className={kit.flagged ? "is-flagged" : undefined}
+            >
+              {schemeDisplay(kit.scheme).shortNeed}
+            </a>
+          ))}
+        </nav>
+      )}
+
+      <div className="complaint-stack">
+        {kits.map((kit) => <KitCard key={kit.scheme} kit={kit} />)}
       </div>
 
-      {(universal.length > 0 || representatives.length > 0) && (
-        <div
-          className="mt-5 rounded-xl px-5 py-4"
-          style={{
-            background: "var(--surface)",
-            border: "1px solid var(--border-subtle)",
-          }}
-        >
-          <p
-            className="text-[11px] uppercase tracking-wide font-medium mb-2"
-            style={{ color: "var(--text-muted)" }}
-          >
-            For any scheme, anywhere
-          </p>
-          <ol className="flex flex-col gap-2.5">
-            {universal.map((ch, i) => (
-              <ChannelRung key={i} ch={ch} />
-            ))}
-          </ol>
-          {representatives.length > 0 && (
-            <p className="text-sm mt-3" style={{ color: "var(--text-secondary)" }}>
-              Your elected representatives answer to you —{" "}
-              {representatives.join(" and ")}. Their offices take scheme
-              complaints and can escalate them directly.
-            </p>
-          )}
-        </div>
+      {generalStart && (
+        <details className="universal-card">
+          <summary>
+            <span>
+              <span className="eyebrow">Not sure which scheme applies?</span>
+              <h3>Use a general grievance route</h3>
+            </span>
+            <span className="evidence-panel__count">{universal.length} routes</span>
+          </summary>
+          <div className="universal-card__body">
+            <section className="complaint-block complaint-start">
+              <h3>Start here</h3>
+              <ChannelRoute channel={generalStart} />
+            </section>
+            {generalEscalation.length > 0 && (
+              <details className="escalation">
+                <summary>Show every general route</summary>
+                <ol className="channel-list">
+                  {generalEscalation.map((channel) => (
+                    <ChannelRung
+                      key={`${channel.level}-${channel.portal_name}`}
+                      channel={channel}
+                    />
+                  ))}
+                </ol>
+              </details>
+            )}
+            {representatives.length > 0 && (
+              <p className="universal-card__note">
+                Your named elected representatives are listed at the top of this brief.
+              </p>
+            )}
+          </div>
+        </details>
       )}
     </section>
   );
