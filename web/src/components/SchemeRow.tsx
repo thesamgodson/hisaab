@@ -40,10 +40,11 @@ function statusInfo(row: SchemeData): { color: string; label: string } {
     row.units_target && row.units_target > 0 && row.units_completed != null
       ? (row.units_completed / row.units_target) * 100
       : null;
+  // Badge colors carry white 11px text — every value must clear 4.5:1.
   const pct = deliveryPct ?? row.utilization_pct;
-  if (pct == null) return { color: "oklch(0.60 0 0)", label: "Reported" };
-  if (pct >= 75) return { color: "oklch(0.55 0.18 145)", label: "Good" };
-  if (pct >= 50) return { color: "oklch(0.62 0.16 75)", label: "Fair" };
+  if (pct == null) return { color: "oklch(0.55 0 0)", label: "Reported" };
+  if (pct >= 75) return { color: "oklch(0.52 0.16 145)", label: "Good" };
+  if (pct >= 50) return { color: "oklch(0.55 0.14 65)", label: "Fair" };
   return { color: "oklch(0.55 0.20 25)", label: "Poor" };
 }
 
@@ -185,7 +186,7 @@ export default function SchemeRow({ data }: { data: SchemeData }) {
             </p>
           </div>
           {deliveryPct != null && (
-            <div className="progress-track">
+            <div className="progress-track" aria-hidden="true">
               <div
                 className="progress-fill"
                 style={{
@@ -212,7 +213,7 @@ export default function SchemeRow({ data }: { data: SchemeData }) {
               {data.utilization_pct!.toFixed(1)}%
             </p>
           </div>
-          <div className="progress-track">
+          <div className="progress-track" aria-hidden="true">
             <div
               className="progress-fill"
               style={{

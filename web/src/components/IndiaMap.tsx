@@ -54,6 +54,15 @@ const BAND_FILL: Record<ScoreBand, string> = {
   none: "oklch(0.90 0 0)",
 };
 
+/** Darker text-safe siblings of BAND_FILL — the fills sit at 1.9–3.9:1 as text. */
+const BAND_TEXT: Record<ScoreBand, string> = {
+  high: "oklch(0.48 0.15 145)",
+  "medium-high": "oklch(0.47 0.10 105)",
+  medium: "oklch(0.50 0.13 65)",
+  low: "oklch(0.50 0.19 25)",
+  none: "oklch(0.45 0 0)",
+};
+
 const BAND_LABEL: Record<ScoreBand, string> = {
   high: "80+ Good",
   "medium-high": "60-80 Fair",
@@ -123,11 +132,6 @@ const DistrictPath = memo(function DistrictPath({
       onMouseMove={handleMouseMove}
       onMouseLeave={onLeave}
       onClick={handleClick}
-      aria-label={
-        isDisputed
-          ? "Disputed area"
-          : `${district}, ${state}${score != null ? `: score ${score}` : ": Not applicable"}`
-      }
     />
   );
 });
@@ -171,7 +175,7 @@ function Tooltip({ tip }: { tip: TooltipData }) {
       <p className="mt-0.5" style={{ color: "var(--text-muted)" }}>{tip.state}</p>
       {tip.score != null ? (
         <>
-          <p className="mt-1 font-medium" style={{ color: BAND_FILL[band] }}>
+          <p className="mt-1 font-medium" style={{ color: BAND_TEXT[band] }}>
             Score {tip.score.toFixed(1)} -- Grade {tip.grade}
           </p>
           {bd && (
@@ -273,7 +277,7 @@ function MapError({ message, onRetry }: { message: string; onRetry: () => void }
       <p className="text-sm" style={{ color: "oklch(0.40 0.01 262)" }}>
         Could not load map data
       </p>
-      <p className="text-xs" style={{ color: "oklch(0.55 0.01 262)" }}>
+      <p className="text-xs" style={{ color: "oklch(0.53 0.01 262)" }}>
         {message}
       </p>
       <button
@@ -429,6 +433,16 @@ export default function IndiaMap() {
     setHoveredKey(null);
   }, []);
 
+  // 1.4.13: hover-triggered content needs a pointer-independent dismissal.
+  useEffect(() => {
+    if (!tooltip) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleLeave();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [tooltip, handleLeave]);
+
   const handleClick = useCallback(
     (district: string, state: string) => {
       if (!district) return;
@@ -507,7 +521,7 @@ export default function IndiaMap() {
           <svg
             viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
             className="w-full h-auto"
-            aria-label="India district accountability map"
+            aria-label={`India district accountability map: ${scoredCount} of ${districtCount} districts scored`}
             role="img"
             onMouseLeave={handleLeave}
           >
@@ -540,6 +554,10 @@ export default function IndiaMap() {
               />
             )}
           </svg>
+          <p className="sr-only">
+            Scores for every district are also available as text on the
+            district pages.
+          </p>
 
           {/* Floating tooltip */}
           {tooltip && <Tooltip tip={tooltip} />}

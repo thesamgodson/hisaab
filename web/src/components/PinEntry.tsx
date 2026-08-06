@@ -133,11 +133,11 @@ export default function PinEntry() {
         onChange={(e) => handleChange(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="110001"
-        className="w-full text-center text-3xl font-mono tracking-[0.3em] py-4 px-4 rounded-xl transition-all duration-200 placeholder:text-lg placeholder:tracking-normal placeholder:opacity-30"
+        className="w-full text-center text-3xl font-mono tracking-[0.3em] py-4 px-4 rounded-xl transition-all duration-200 placeholder:text-lg placeholder:tracking-normal placeholder:opacity-65"
         style={{
           background: "var(--background)",
           color: "var(--text-primary)",
-          border: "2px solid var(--border)",
+          border: "2px solid #84849a",
           boxShadow: "var(--shadow-xs)",
         }}
         onFocus={(e) => {
@@ -145,7 +145,7 @@ export default function PinEntry() {
           e.currentTarget.style.boxShadow = "0 0 0 3px var(--ring-color)";
         }}
         onBlur={(e) => {
-          e.currentTarget.style.borderColor = "var(--border)";
+          e.currentTarget.style.borderColor = "#84849a";
           e.currentTarget.style.boxShadow = "var(--shadow-xs)";
         }}
       />
@@ -167,7 +167,7 @@ export default function PinEntry() {
             style={{
               background: "var(--background)",
               color: "var(--text-primary)",
-              border: "2px solid var(--border)",
+              border: "2px solid #84849a",
               boxShadow: "var(--shadow-xs)",
             }}
           >
@@ -184,9 +184,12 @@ export default function PinEntry() {
         </>
       )}
 
-      <div aria-live="polite">
+      {/* Live region on the error only: the match card receives focus, and a
+          live announcement racing that focus event garbles screen readers. */}
+      <div>
         {locate.status === "error" && (
           <p
+            role="status"
             className="text-xs text-center mt-2"
             style={{ color: "var(--text-primary)" }}
           >

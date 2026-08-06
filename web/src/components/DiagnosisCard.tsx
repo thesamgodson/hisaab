@@ -21,10 +21,11 @@ const SEVERITY_TEXT: Record<DiagnosisItem["severity"], string> = {
   low: "oklch(0.38 0.14 145)",
 };
 
+// Accent doubles as the badge background under white 11px text — 4.5:1 floor.
 const SEVERITY_ACCENT: Record<DiagnosisItem["severity"], string> = {
   high: "oklch(0.55 0.20 25)",
-  medium: "oklch(0.60 0.16 85)",
-  low: "oklch(0.55 0.16 145)",
+  medium: "oklch(0.55 0.14 85)",
+  low: "oklch(0.52 0.15 145)",
 };
 
 const SEVERITY_LABEL: Record<DiagnosisItem["severity"], string> = {

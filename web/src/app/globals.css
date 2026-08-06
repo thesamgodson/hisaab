@@ -16,7 +16,7 @@
 
   --text-primary: #1a1a2e;
   --text-secondary: #5c5c72;
-  --text-muted: #8585a0;
+  --text-muted: #70708a; /* 4.5:1+ on --background/--surface/--elevated (WCAG 1.4.3) */
 
   --accent: #4338ca;
   --accent-hover: #3730a3;
@@ -31,7 +31,7 @@
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.06);
   --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.08);
 
-  --ring-color: rgba(67, 56, 202, 0.4);
+  --ring-color: rgba(67, 56, 202, 0.65); /* ≥3:1 composited focus indicator (WCAG 1.4.11) */
 }
 
 /* ------------------------------------------------------------------ */
