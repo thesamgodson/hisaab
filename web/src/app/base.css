@@ -10,7 +10,8 @@ body {
 }
 
 html {
-  text-size-adjust: none;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -301,11 +302,16 @@ svg {
     break-inside: avoid;
   }
 
-  .state-context > summary {
+  .state-context > summary,
+  .ledger-scheme > summary,
+  .text-disclosure > summary {
     display: none;
   }
 
-  .state-context__body {
+  .state-context__body,
+  .ledger-scheme > .ledger-scheme__body,
+  .text-disclosure > .guide-disclosure__body,
+  .text-disclosure > .coverage-limits__body {
     display: block !important;
     margin-top: 0;
   }

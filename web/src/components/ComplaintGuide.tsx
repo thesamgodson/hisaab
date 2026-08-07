@@ -126,44 +126,45 @@ function Preparation({
   };
 
   return (
-    <section id="prepare" className="guide__prepare" aria-labelledby="prepare-heading">
-      <h3 id="prepare-heading">Prepare your case outline</h3>
-      <p>
-        This outline contains public guidance and placeholders only. Add names,
-        IDs, phone numbers, or documents only in the version you submit directly
-        to an official authority.
-      </p>
-      <pre className="complaint-note">{note}</pre>
-      <div
-        className={`plan-actions no-print${hydrated ? "" : " hydration-placeholder"}`}
-        aria-hidden={hydrated ? undefined : "true"}
-      >
-        {hydrated ? (
-          <>
-            <button type="button" className="button button--secondary" onClick={copyNote}>Copy case outline</button>
-            <button type="button" className="button button--secondary" onClick={() => window.print()}>Print this plan</button>
-            <button type="button" className="button button--secondary" onClick={sharePlan}>Share public plan</button>
-          </>
-        ) : (
-          <>
-            <span className="button button--secondary">Copy case outline</span>
-            <span className="button button--secondary">Print this plan</span>
-            <span className="button button--secondary">Share public plan</span>
-          </>
-        )}
+    <details id="prepare" className="guide__prepare text-disclosure">
+      <summary id="prepare-heading">Prepare a case outline</summary>
+      <div className="guide-disclosure__body">
+        <p>
+          Add personal details only to the version you submit directly to an
+          official authority.
+        </p>
+        <pre className="complaint-note">{note}</pre>
+        <div
+          className={`plan-actions no-print${hydrated ? "" : " hydration-placeholder"}`}
+          aria-hidden={hydrated ? undefined : "true"}
+        >
+          {hydrated ? (
+            <>
+              <button type="button" className="button button--secondary" onClick={copyNote}>Copy case outline</button>
+              <button type="button" className="button button--secondary" onClick={() => window.print()}>Print this plan</button>
+              <button type="button" className="button button--secondary" onClick={sharePlan}>Share public plan</button>
+            </>
+          ) : (
+            <>
+              <span className="button button--secondary">Copy case outline</span>
+              <span className="button button--secondary">Print this plan</span>
+              <span className="button button--secondary">Share public plan</span>
+            </>
+          )}
+        </div>
+        <p
+          className="action-status"
+          role={hydrated ? "status" : undefined}
+          aria-live={hydrated ? "polite" : undefined}
+        >
+          {hydrated ? status : ""}
+        </p>
+        <p className="keep-note">
+          Hisaab’s practical advice: keep a dated copy and any receipt,
+          acknowledgement, or reference number you receive.
+        </p>
       </div>
-      <p
-        className="action-status"
-        role={hydrated ? "status" : undefined}
-        aria-live={hydrated ? "polite" : undefined}
-      >
-        {hydrated ? status : ""}
-      </p>
-      <p className="keep-note">
-        Hisaab’s practical advice: keep a dated copy and any receipt,
-        acknowledgement, or reference number you receive.
-      </p>
-    </section>
+    </details>
   );
 }
 
@@ -176,13 +177,18 @@ function GeneralRoutes({ universal }: { universal: GrievanceChannel[] }) {
         <h2>General official options</h2>
         <p>These options serve different purposes. Read each sourced instruction before choosing one.</p>
       </header>
-      <div className="route-list">{universal.map((channel) => (
-        <Route key={`${channel.level}-${channel.portal_name}`} channel={channel} />
-      ))}</div>
       <p className="official-handoff">
         Hisaab does not file anything. Complete registration and any CAPTCHA on
         the official service yourself.
       </p>
+      <details className="text-disclosure route-disclosure">
+        <summary>Official routes ({universal.length})</summary>
+        <div className="guide-disclosure__body">
+          <div className="route-list">{universal.map((channel) => (
+            <Route key={`${channel.level}-${channel.portal_name}`} channel={channel} />
+          ))}</div>
+        </div>
+      </details>
     </article>
   );
 }
@@ -216,77 +222,85 @@ export default function ComplaintGuide({
         <h2>Rights and official routes</h2>
         {selectedTrigger && <p className="chosen-trigger">You chose: {selectedTrigger}</p>}
       </header>
-
-      {kit.complain_when.length > 0 && (
-        <section className="guide__situations" aria-labelledby="situations-heading">
-          <h3 id="situations-heading">When this guide may help</h3>
-          <ul>
-            {kit.complain_when.map((situation) => <li key={situation}>{situation}</li>)}
-          </ul>
-          <p>These are sourced examples, not a decision about your case.</p>
-          {kit.entitlement_source_url && (
-            <div className="route__source">
-              <SourceLink
-                url={kit.entitlement_source_url}
-                label="Situation evidence"
-                accessibleLabel={`Situation evidence for ${kit.scheme}`}
-              />
-              {kit.entitlement_scraped_at && <span>Checked {checkedDate(kit.entitlement_scraped_at)}</span>}
-            </div>
-          )}
-        </section>
-      )}
-
-      {kit.channels.length > 0 ? (
-        <section className="guide__routes" aria-label="Scheme-specific official routes">
-          <p className="official-handoff">
-            These routes are ordered from local to national. Hisaab has not
-            matched one route to your situation, and does not claim
-            that you must use them in sequence.
-          </p>
-          <div className="route-list">{kit.channels.map((channel) => (
-            <Route key={`${channel.level}-${channel.portal_name}`} channel={channel} />
-          ))}</div>
-        </section>
-      ) : (
-        <p className="data-caveat">No scheme-specific route is published. Review the general official options below.</p>
-      )}
       <p className="official-handoff">
-        Hisaab does not file the complaint. Complete personal details and any
+        Hisaab does not file complaints. Enter personal details and complete any
         CAPTCHA only on the official service.
       </p>
 
       {kit.entitlement && (
-        <section className="guide__entitlement" aria-labelledby="right-heading">
-          <h3 id="right-heading">The sourced entitlement</h3>
-          <p>People covered by this scheme have the following right.</p>
-          <p>{kit.entitlement}</p>
-          {kit.legal_basis && <p className="guide__basis">{kit.legal_basis}</p>}
-          {kit.entitlement_source_url && (
-            <div className="route__source">
-              <SourceLink
-                url={kit.entitlement_source_url}
-                label="Entitlement source"
-                accessibleLabel={`Entitlement source for ${kit.scheme}`}
-              />
-              {kit.entitlement_scraped_at && <span>Checked {checkedDate(kit.entitlement_scraped_at)}</span>}
-            </div>
-          )}
-        </section>
+        <details className="guide__entitlement text-disclosure">
+          <summary id="right-heading">What the rule says</summary>
+          <div className="guide-disclosure__body">
+            <p>People covered by this scheme have the following right.</p>
+            <p>{kit.entitlement}</p>
+            {kit.legal_basis && <p className="guide__basis">{kit.legal_basis}</p>}
+            {kit.entitlement_source_url && (
+              <div className="route__source">
+                <SourceLink
+                  url={kit.entitlement_source_url}
+                  label="Entitlement source"
+                  accessibleLabel={`Entitlement source for ${kit.scheme}`}
+                />
+                {kit.entitlement_scraped_at && <span>Checked {checkedDate(kit.entitlement_scraped_at)}</span>}
+              </div>
+            )}
+          </div>
+        </details>
+      )}
+
+      {kit.complain_when.length > 0 && (
+        <details className="guide__situations text-disclosure">
+          <summary id="situations-heading">Situations this may cover ({kit.complain_when.length})</summary>
+          <div className="guide-disclosure__body">
+            <ul>
+              {kit.complain_when.map((situation) => <li key={situation}>{situation}</li>)}
+            </ul>
+            <p>These are sourced examples, not a decision about your case.</p>
+            {kit.entitlement_source_url && (
+              <div className="route__source">
+                <SourceLink
+                  url={kit.entitlement_source_url}
+                  label="Situation evidence"
+                  accessibleLabel={`Situation evidence for ${kit.scheme}`}
+                />
+                {kit.entitlement_scraped_at && <span>Checked {checkedDate(kit.entitlement_scraped_at)}</span>}
+              </div>
+            )}
+          </div>
+        </details>
       )}
 
       <Preparation kit={kit} trigger={selectedTrigger} district={district} state={state} />
 
+      {kit.channels.length > 0 ? (
+        <details className="guide__routes text-disclosure">
+          <summary>Official complaint routes ({kit.channels.length})</summary>
+          <div className="guide-disclosure__body">
+            <p className="official-handoff">
+              Routes are ordered from local to national. Hisaab has not matched
+              one to your situation, and does not claim you must use them in sequence.
+            </p>
+            <div className="route-list">{kit.channels.map((channel) => (
+              <Route key={`${channel.level}-${channel.portal_name}`} channel={channel} />
+            ))}</div>
+          </div>
+        </details>
+      ) : (
+        <p className="data-caveat">No scheme-specific route is published. Review the general official options below.</p>
+      )}
+
       {universal.length > 0 && (
         <details className="text-disclosure route-disclosure">
           <summary>General official options ({universal.length})</summary>
-          <p className="disclosure-note">
-            CPGRAMS, RTI, and representative contact serve different purposes.
-            Read each sourced instruction before using it.
-          </p>
-          <div className="route-list">{universal.map((channel) => (
-            <Route key={`${channel.level}-${channel.portal_name}`} channel={channel} />
-          ))}</div>
+          <div className="guide-disclosure__body">
+            <p className="disclosure-note">
+              CPGRAMS, RTI, and representative contact serve different purposes.
+              Read each sourced instruction before using it.
+            </p>
+            <div className="route-list">{universal.map((channel) => (
+              <Route key={`${channel.level}-${channel.portal_name}`} channel={channel} />
+            ))}</div>
+          </div>
         </details>
       )}
     </article>

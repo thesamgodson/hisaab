@@ -38,49 +38,54 @@ export default function SchemeRow({
 }) {
   const display = schemeDisplay(scheme);
   return (
-    <article className="ledger-scheme" id={`scheme-${scheme.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
-      <header className="ledger-scheme__header">
-        <div>
-          <p className="ledger-scheme__code">{scheme}</p>
-          <h3>{display.shortNeed}</h3>
-        </div>
+    <details className="ledger-scheme" id={`scheme-${scheme.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+      <summary className="ledger-scheme__summary">
+        <span className="ledger-scheme__identity">
+          <strong>{display.shortNeed}</strong>
+          <small>{scheme}</small>
+        </span>
+        <span className="ledger-scheme__count">
+          {records.length} {records.length === 1 ? "record" : "records"}
+        </span>
+      </summary>
+      <div className="ledger-scheme__body">
         <Link className="ledger-scheme__action no-print" href={actionHref}
-          aria-label={`Ask about ${display.shortNeed}`}>Ask about this</Link>
-      </header>
-      <div className="ledger-records">
-        {records.map((record) => (
-          <section className="ledger-record" key={record.id} aria-labelledby={`${record.id}-heading`}>
-            <header className="ledger-record__header">
-              <h4 id={`${record.id}-heading`}>{record.title}</h4>
-              <p>{sourceMeta(record)}</p>
-            </header>
-            <dl className="ledger-metrics">
-              {record.metrics.map((metric) => (
-                <div key={metric.label}>
-                  <dt>{metric.label}</dt>
-                  <dd>{displayMetric(metric)}</dd>
-                </div>
-              ))}
-            </dl>
-            {record.missingMetrics && record.missingMetrics.length > 0 && (
-              <ul className="ledger-record__gaps" aria-label="Source values Hisaab cannot interpret">
-                {record.missingMetrics.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-            )}
-            {record.note && <p className="ledger-record__note">{record.note}</p>}
-            <footer className="ledger-record__provenance">
-              <SourceLink
-                url={record.sourceUrl}
-                label="Data source"
-                accessibleLabel={`Data source for ${scheme}: ${record.title}`}
-              />
-              <span>Record date: {record.asOf}</span>
-              <span>Retrieved {displayDate(record.retrievedAt)}</span>
-              <span className="claim-id">{record.claimId}</span>
-            </footer>
-          </section>
-        ))}
+          aria-label={`Get help with ${display.shortNeed}`}>Get help with this</Link>
+        <div className="ledger-records">
+          {records.map((record) => (
+            <section className="ledger-record" key={record.id} aria-labelledby={`${record.id}-heading`}>
+              <header className="ledger-record__header">
+                <h3 id={`${record.id}-heading`}>{record.title}</h3>
+                <p>{sourceMeta(record)}</p>
+              </header>
+              <dl className="ledger-metrics">
+                {record.metrics.map((metric) => (
+                  <div key={metric.label}>
+                    <dt>{metric.label}</dt>
+                    <dd>{displayMetric(metric)}</dd>
+                  </div>
+                ))}
+              </dl>
+              {record.missingMetrics && record.missingMetrics.length > 0 && (
+                <ul className="ledger-record__gaps" aria-label="Source values Hisaab cannot interpret">
+                  {record.missingMetrics.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              )}
+              {record.note && <p className="ledger-record__note">{record.note}</p>}
+              <footer className="ledger-record__provenance">
+                <SourceLink
+                  url={record.sourceUrl}
+                  label="Data source"
+                  accessibleLabel={`Data source for ${scheme}: ${record.title}`}
+                />
+                <span>Record date: {record.asOf}</span>
+                <span>Retrieved {displayDate(record.retrievedAt)}</span>
+                <span className="claim-id">{record.claimId}</span>
+              </footer>
+            </section>
+          ))}
+        </div>
       </div>
-    </article>
+    </details>
   );
 }

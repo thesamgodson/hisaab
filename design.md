@@ -94,6 +94,30 @@ dashboard, campaign site, government imitation, or AI assistant.
 - Motion is limited to necessary state feedback. No entrance, scroll, stagger,
   shimmer, lift, parallax, or decorative animation.
 
+## Adaptive assistance
+
+The interface adapts to the task, not to a guessed persona. Every person gets
+the same account: human service names first, exact records on request, and
+official action only when they choose it.
+
+- Deterministic navigation, disclosures, and reviewed plain language come
+  first. The complete account works without AI, client JavaScript, or an account.
+- AI may suggest existing scheme or service IDs from a short search phrase only
+  after deterministic matching fails. The person confirms every suggestion.
+- AI never writes evidence, selects a headline metric, combines figures, ranks
+  districts or routes, infers eligibility or wrongdoing, or chooses a complaint.
+- Runtime natural-language-to-SQL is not a citizen feature. A model never
+  receives database access, personal identifiers, complaint text, documents,
+  coordinates, or provider credentials from a person using Hisaab.
+- Translations are drafted offline, reviewed by a person, versioned by stable
+  semantic ID, and published with numbers, units, dates, places, sources, and
+  claim IDs unchanged. Missing translation falls back to the exact English record.
+- Any future simplified explanation is bound to one structured evidence record,
+  names what the record does not prove, cites that record, and fails back to the
+  exact source-bound text when validation fails.
+- AI is quiet infrastructure, never a chatbot, persona, badge, or substitute for
+  the public record.
+
 ## Complaint layer
 
 - Complaint coverage is independent of local performance-data coverage.
@@ -144,6 +168,8 @@ placed beside the wrong action.
   slow, intermittent mobile connections.
 - Progressive enhancement never owns the only route to the public account or
   complaint guidance.
+- Closed screen disclosures open fully in print, so compact browsing never
+  removes evidence from an A4 account or action sheet.
 
 ## Canonical export
 

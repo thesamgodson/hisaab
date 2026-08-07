@@ -5,6 +5,28 @@
       "scope": "app",
       "genre": "modern-minimal civic ledger",
       "theme": "custom austere blue",
+      "app_macrostructure": "Lossless two-layer ledger",
+      "enrichment": "native progressive disclosure; no decorative enrichment",
+      "brief": "One universal account: scan human service names, open exact source-bound evidence, request official help without persona modes",
+      "status": "implemented; code/build/SSR verified, interactive browser unavailable for visual inspection",
+      "design_system": "design.md",
+      "critique": {
+        "philosophy": 5,
+        "hierarchy": 5,
+        "execution": 4,
+        "specificity": 5,
+        "restraint": 5,
+        "variety": 5
+      },
+      "audience": "Indian citizens and civic helpers across literacy and access contexts",
+      "use": "Find an area, scan services, inspect exact evidence, and choose official action",
+      "tone": "austere, humane, editorial"
+    },
+    {
+      "date": "2026-08-07",
+      "scope": "app",
+      "genre": "modern-minimal civic ledger",
+      "theme": "custom austere blue",
       "app_macrostructure": "Ledger Workbench",
       "enrichment": "none",
       "brief": "One area-first public welfare account for Indian citizens and civic helpers: exact scheme facts, named limits, citizen-selected action, representatives last",
@@ -19,7 +41,7 @@
         "variety": 5
       },
       "audience": "Indian citizens and civic helpers",
-      "use": "Read one area\u2019s welfare account and question a record or service",
+      "use": "Read one area’s welfare account and question a record or service",
       "tone": "austere, humane, editorial"
     },
     {

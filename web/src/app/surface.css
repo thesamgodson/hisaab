@@ -92,6 +92,7 @@
 
 .result-nav a {
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .account-header {
@@ -173,9 +174,13 @@
   margin-top: var(--space-lg);
 }
 
+.coverage-limits__body {
+  padding-bottom: var(--space-md);
+}
+
 .coverage-limits ul {
   max-width: 75ch;
-  margin: 0;
+  margin: var(--space-xs) 0 0;
   padding-inline-start: var(--space-md);
   color: var(--color-ink-2);
 }

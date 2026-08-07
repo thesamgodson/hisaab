@@ -502,3 +502,24 @@ Verified the 13,957-row 2026-08-06 production payload against its 3.9 MB backup 
 **Files:** `web/src/app/api/v1/district/[name]/[scheme]/route.ts`, `tests/test_legacy_api_semantics.py`, `DATA_CLAIMS.md`
 
 Production smoke exposed that the generic district adapter returned one arbitrary NSAP programme row. The endpoint now sums all named programme counts for the district-year, lists the included programmes, keeps imputed money NULL, and explicitly refuses an eligibility-rate inference; full Python and frontend gates pass.
+
+### 2026-08-07 12:02 — Audit Hisaab through universal citizen stress cases
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `design.md`, `.hallmark/log.json`
+
+Used wage-worker, salaried-citizen, low-literacy, teenager, activist, helper, and screen-reader contexts as tests of one shared flow rather than persona modes. The resulting product rule is simple first, exact underneath, action when requested; AI remains optional navigation/comprehension infrastructure.
+
+### 2026-08-07 12:03 — Make the public account losslessly scannable
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `web/src/components/AccountabilityResult.tsx`, `web/src/components/SchemeDataSection.tsx`, `web/src/components/SchemeRow.tsx`, `web/src/components/ComplaintGuide.tsx`, `web/src/app/action.css`, `web/src/app/base.css`, `web/src/app/evidence.css`, `web/src/app/surface.css`, `DATA_CLAIMS.md`
+
+Converted the full ledger, coverage limits, entitlement, situations, case outline, and routes to native progressive disclosure while retaining every exact record and all 52 verified routes in SSR and print. Shortened the universal action copy, kept the CAPTCHA boundary visible, removed mobile text-size suppression, and registered the presentation contract as DERIVED-2026-0014.
+
+### 2026-08-07 12:04 — Gate the universal two-layer account
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `tests/test_public_account_surface.py`, `.hallmark/log.json`
+
+Added regression coverage for closed-by-default lossless disclosures and complete evidence/route maps. All 621 Python tests pass (4 skipped), the 20-dataset public-claim gate passes, and frontend lint, TypeScript, and production build pass; SSR smoke retains the full record and complaint payload. Interactive visual QA is pending because no browser backend was connected.

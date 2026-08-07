@@ -20,6 +20,22 @@ def test_root_is_one_area_first_surface() -> None:
     assert "<SchemeDataSection" in result
     assert 'id="action"' in result
     assert '<details className="state-context">' in records
+    assert "persona" not in page.lower()
+
+
+def test_account_uses_lossless_progressive_disclosure() -> None:
+    records = source("web/src/components/SchemeDataSection.tsx")
+    scheme = source("web/src/components/SchemeRow.tsx")
+    assert '<details className="ledger-scheme"' in scheme
+    assert '<details className="coverage-limits text-disclosure">' in records
+    assert "records.map" in scheme
+    assert "record.metrics.map" in scheme
+    assert "record.sourceUrl" in scheme
+    assert "record.asOf" in scheme
+    assert "record.retrievedAt" in scheme
+    assert "record.claimId" in scheme
+    assert "defaultOpen" not in scheme
+    assert ".slice(" not in scheme
 
 
 def test_every_complaint_family_reaches_the_picker() -> None:
@@ -32,6 +48,9 @@ def test_every_complaint_family_reaches_the_picker() -> None:
     assert "kit.complain_when.map" in guide
     assert "universal.map" in guide
     assert "Complete registration and any CAPTCHA on" in guide
+    assert '<summary>Official complaint routes ({kit.channels.length})</summary>' in guide
+    assert '<summary>Official routes ({universal.length})</summary>' in guide
+    assert ".slice(" not in guide
 
 
 def test_evidence_keeps_native_semantics_and_provenance() -> None:

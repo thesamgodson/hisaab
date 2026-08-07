@@ -56,14 +56,17 @@ export default function SchemeDataSection({
   district: string;
   state: string;
 }) {
+  const districtSchemeCount = groupByScheme(account.districtRecords).size;
+  const limitCount = 3 + Number(account.missingDistrictSchemes.length > 0);
+
   return (
     <>
       <section id="evidence" className="account-section" aria-labelledby="district-records-heading">
         <header className="account-section__header">
           <h2 id="district-records-heading">What district records report</h2>
           <p>
-            Each figure keeps its own meaning, period, geographic scope, source,
-            retrieval date, and claim record. Different schemes are not added together.
+            {districtSchemeCount} {districtSchemeCount === 1 ? "service has" : "services have"} records.
+            Open one for its figures, dates, and source.
           </p>
         </header>
         {account.districtRecords.length > 0 ? (
@@ -96,21 +99,23 @@ export default function SchemeDataSection({
         </section>
       )}
 
-      <section className="account-section coverage-limits" aria-labelledby="coverage-heading">
-        <header className="account-section__header">
-          <h2 id="coverage-heading">What this account cannot show</h2>
-        </header>
-        <ul>
-          <li>District finance is not published in the sources Hisaab uses for PMAY-G, PM Kisan, JJM, PM POSHAN, PDS/NFSA, or SBM-G. Separate state records may appear above when available.</li>
-          <li>NSAP district records show beneficiary counts for their source month. Hisaab omits the annualized central-share estimate because it is imputed rather than reported district spending.</li>
-          <li>UDISE+ education records in Hisaab are state-level only.</li>
-          {account.missingDistrictSchemes.length > 0 && (
-            <li>
-              No district-grain record was found in Hisaab for: {account.missingDistrictSchemes.join(", ")}.
-              This is a data-coverage gap, not evidence of no activity.
-            </li>
-          )}
-        </ul>
+      <section className="account-section" aria-labelledby="coverage-heading">
+        <details className="coverage-limits text-disclosure">
+          <summary id="coverage-heading">Data Hisaab does not have ({limitCount})</summary>
+          <div className="coverage-limits__body">
+            <ul>
+              <li>District finance is not published in the sources Hisaab uses for PMAY-G, PM Kisan, JJM, PM POSHAN, PDS/NFSA, or SBM-G. Separate state records may appear above when available.</li>
+              <li>NSAP district records show beneficiary counts for their source month. Hisaab omits the annualized central-share estimate because it is imputed rather than reported district spending.</li>
+              <li>UDISE+ education records in Hisaab are state-level only.</li>
+              {account.missingDistrictSchemes.length > 0 && (
+                <li>
+                  No district-grain record was found in Hisaab for: {account.missingDistrictSchemes.join(", ")}.
+                  This is a data-coverage gap, not evidence of no activity.
+                </li>
+              )}
+            </ul>
+          </div>
+        </details>
       </section>
     </>
   );

@@ -343,3 +343,17 @@ The production `metrics_snapshot` now contains exactly 9,789 sourced rows on one
 **Files:** `web/src/app/api/v1/district/[name]/[scheme]/route.ts:205-234`, `web/src/app/api/v1/district/[name]/[scheme]/route.ts:276-296`
 
 `nsap_district` stores separate IGNDPS, IGNOAPS, and IGNWPS rows for one district-year, so `queryOne` cannot represent NSAP district totals. The compatibility API now aggregates the programme rows, retains their names and source-month context, and never treats their sum as spending or eligibility coverage.
+
+### 2026-08-07 12:02 — Completeness must not become a reading requirement
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `web/src/components/SchemeRow.tsx:41-89`, `web/src/components/SchemeDataSection.tsx:64-119`, `web/src/components/ComplaintGuide.tsx:218-305`
+
+The same universal interface can serve very different citizen contexts when human service names form a compact first layer and every exact metric, qualifier, source, date, claim ID, entitlement, and route remains available underneath native disclosures. Selecting a headline metric would itself be a relevance claim, so collapsed rows show only reviewed labels, scheme codes, and record counts.
+
+### 2026-08-07 12:03 — The existing investigator is not a citizen assistance layer
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `design.md:97-119`, `llm/investigator.py:144-345`, `web/src/app/api/v1/query/route.ts:3-14`
+
+AI may assist only with confirmed navigation, reviewed translation, or a future explanation bound to one structured evidence record. The existing natural-language-to-SQL investigator has database access and unconstrained narrative behavior, so it remains outside the public Next surface; evidence, eligibility, wrongdoing, route choice, personal case text, and CAPTCHA handling stay deterministic or human-controlled.

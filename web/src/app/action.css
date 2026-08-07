@@ -101,20 +101,16 @@
 
 .guide__entitlement,
 .guide__situations,
-.guide__prepare {
-  padding-block: var(--space-lg);
+.guide__prepare,
+.guide__routes {
   border-top: var(--rule-thin) solid var(--color-rule-strong);
 }
 
-.guide__entitlement h3,
-.guide__situations h3,
-.guide__prepare h3 {
-  font-size: var(--text-lg);
+.guide-disclosure__body {
+  padding-bottom: var(--space-lg);
 }
 
-.guide__entitlement > p,
-.guide__situations > p,
-.guide__prepare > p {
+.guide-disclosure__body > p {
   color: var(--color-ink-2);
 }
 
@@ -165,7 +161,7 @@
 
 .text-disclosure > summary,
 .representative-section > summary {
-  min-height: 3rem;
+  min-height: 3.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -174,6 +170,12 @@
   color: var(--color-accent);
   cursor: pointer;
   font-weight: 700;
+  list-style: none;
+}
+
+.text-disclosure > summary::-webkit-details-marker,
+.representative-section > summary::-webkit-details-marker {
+  display: none;
 }
 
 .text-disclosure > summary::after,

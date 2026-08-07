@@ -68,7 +68,7 @@ function ActionPicker({
           <option value="ALL">Another government-service problem</option>
         </select>
       </label>
-      <button className="button button--primary" type="submit">Show rights and routes</button>
+      <button className="button button--primary" type="submit">Show official options</button>
     </form>
   );
 }
@@ -114,7 +114,7 @@ export default function AccountabilityResult(props: AccountabilityResultProps) {
     <div id="result" className="result-shell">
       <nav className="result-nav no-print" aria-label="Account controls">
         <Link href={changeAreaHref(selectedScheme, general)}>Change area</Link>
-        <Link href="#action">Question a record or service</Link>
+        <Link href="#action">Get help</Link>
       </nav>
 
       <header className="account-header">
@@ -124,8 +124,8 @@ export default function AccountabilityResult(props: AccountabilityResultProps) {
           <p className="account-header__state">{titleCasePlace(state)}</p>
         </div>
         <p className="account-header__scope">
-          {pin ? `PIN ${pin} resolved to this postal district.` : "District selected directly."}
-          {" "}These are area-wide public records, not a personal benefit record.
+          {pin ? `PIN ${pin} maps to this district.` : "District selected directly."}
+          {" "}These are area records, not your personal benefit record.
         </p>
         {lineage && (
           <p className="account-header__lineage">
@@ -138,10 +138,10 @@ export default function AccountabilityResult(props: AccountabilityResultProps) {
 
       <section id="action" className="action-section" aria-labelledby="action-heading">
         <header className="account-section__header">
-          <h2 id="action-heading">Question a record or service</h2>
+          <h2 id="action-heading">Get help with a service</h2>
           <p>
-            Choose the service yourself. The figures above do not determine
-            eligibility, prove a complaint, or choose a route for you.
+            You choose the service. District figures do not decide eligibility
+            or choose an official route.
           </p>
         </header>
         <ActionPicker

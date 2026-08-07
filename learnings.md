@@ -224,3 +224,10 @@ Corrective rule: begin with Hisaab's irreducible question—where public welfare
 **Files:** `web/src/app/api/v1/district/[name]/[scheme]/route.ts`, `tests/test_legacy_api_semantics.py`
 
 **Failure:** Post-deploy smoke showed the legacy district endpoint selecting one unordered NSAP programme row and labelling its beneficiary count as district NSAP, even though three programme rows exist. **Rule:** before reusing a generic `queryOne` adapter, assert the table's unique grain; multi-row schemes must aggregate with visible component labels or return the complete row set, never an arbitrary row.
+
+### 2026-08-07 12:04 — Frontend gates require the frontend working directory
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `web/package.json`
+
+**Failure:** The first combined gate ran `npm` from the repository root, which has no `package.json`, after the focused Python tests had already passed. **Rule:** run Python gates from the repository root and every npm/Next gate from `web/`; a chained command must make each working directory explicit.
