@@ -551,3 +551,10 @@ Replaced the visually flat audit sheet with an editorial entry, bounded area mas
 **Files:** `tests/test_public_account_surface.py`, `web/src/app/globals.css`, `.hallmark/log.json`
 
 Added task-orientation and dimension-label regression checks; all 622 Python tests pass (4 skipped), the 20-dataset public-claim gate passes, frontend lint/TypeScript/build pass, and every tested text/background pair exceeds WCAG 4.5:1. Final screenshot/zoom inspection remains pending because no interactive browser backend is connected, and the Hallmark stamp records that limitation rather than claiming a visual pass.
+
+### 2026-08-07 13:09 — Publish and smoke the guided civic ledger
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `web/src/app/tokens.css`, `web/src/components/ServiceStart.tsx`, `web/src/components/AccountabilityResult.tsx`, `web/src/components/SchemeRow.tsx`, `web/src/components/ComplaintGuide.tsx`
+
+Published commit 4210c6e after a verified 36-table/91,743-row Turso sync and green CI run 31157290361. Production entry, account, MGNREGA, UDISE+, general grievance, all SSR route maps, and the fail-closed NSAP ranking contract passed; interactive screenshot QA remains explicitly open because no browser backend is connected.
