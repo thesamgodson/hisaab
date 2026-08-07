@@ -315,3 +315,17 @@ The audited registry has 216 state-scoped aliases. Canonicalizing the pre-migrat
 **Files:** `DATA_CLAIMS.md:31`, `web/src/app/api/v1/scheme/[scheme]/route.ts:16-37`, `web/src/app/api/v1/brief/[district]/route.ts:63-76`
 
 MGNREGA `misappropriation.amount_reported` and related social-audit amounts are rupees; `financial_statement` values are lakhs. Every public formatter must keep those paths separate or it can overstate district money by orders of magnitude.
+
+### 2026-08-07 11:15 — Trend direction is not inherent in a metric delta
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `db/snapshot_metrics.py:1-83`, `db/snapshots.py:115-389`, `queries/trends.py:1-162`, `alerts/digest.py:39-130`
+
+An exact increase or decrease does not establish improvement, degradation, or a new threshold crossing. Public temporal output now carries units, financial year, snapshot date, and current/prior row sources while all directional judgments fail closed until metric-specific polarity and crossing contracts exist.
+
+### 2026-08-07 11:16 — Metrics snapshots are an append-only publication class
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `scripts/sync_turso.py:34-163`, `scripts/sync_turso.py:210-311`, `db/schema.py:831-845`
+
+A from-scratch CI database contains only its current snapshot date, so drop/create mirroring would erase every older production date. `metrics_snapshot` must be created-if-absent and inserted without its local `id`; verification compares all claim-bearing columns for each local date and accepts additional remote dates as preserved history.

@@ -1,7 +1,4 @@
-"""Trend query functions — surfaces metric degradation and improvement over time.
-
-Reads from the metrics_snapshot table populated by db.snapshots.capture_snapshot().
-"""
+"""Neutral trend access over the audited metrics snapshot catalog."""
 
 from __future__ import annotations
 
@@ -9,7 +6,22 @@ from pathlib import Path
 from typing import Any
 
 from db.connection import get_connection
-from db.snapshots import compute_deltas, get_biggest_changes, get_trend
+from db.snapshot_metrics import audited_metric_names
+from db.snapshots import compute_deltas, get_trend
+
+_SUSPENDED_REASON = (
+    "Better/worse judgment is suspended: metric polarity has not been audited. "
+    "Use neutral changes and exact time series instead."
+)
+
+
+def _suspended_direction(weeks: int) -> dict[str, Any]:
+    return {
+        "answer": _SUSPENDED_REASON,
+        "data": [],
+        "weeks": weeks,
+        "judgment_status": "suspended",
+    }
 
 
 def trending_worse(
@@ -17,9 +29,7 @@ def trending_worse(
     weeks: int = 4,
     db_path: Path | None = None,
 ) -> dict[str, Any]:
-    """Return districts where key metrics degraded most over the past N weeks.
-
-    Degradation is defined as a negative delta_pct (metric fell).
+    """Suspend unaudited degradation judgments while keeping API compatibility.
 
     Args:
         n: Number of results to return.
@@ -30,36 +40,8 @@ def trending_worse(
         dict with 'answer' (human-readable summary), 'data' (list of change dicts),
         and 'weeks' context.
     """
-    all_changes = get_biggest_changes(n=n * 5, weeks=weeks, db_path=db_path)
-
-    worse = [
-        c for c in all_changes
-        if c["delta_pct"] is not None and c["delta_pct"] < 0
-    ]
-    # Sort by most negative delta_pct
-    worse.sort(key=lambda c: c["delta_pct"])
-    worse = worse[:n]
-
-    if not worse:
-        return {
-            "answer": f"No degrading metrics found in the past {weeks} weeks.",
-            "data": [],
-            "weeks": weeks,
-        }
-
-    lines = [f"Top {len(worse)} degrading metrics (past {weeks} weeks):"]
-    for item in worse:
-        lines.append(
-            f"  {item['scheme']} — {item['district']}, {item['state']}: "
-            f"{item['metric_name']} dropped {item['delta_pct']:.1f}% "
-            f"({item['prior_value']} → {item['current_value']})"
-        )
-
-    return {
-        "answer": "\n".join(lines),
-        "data": worse,
-        "weeks": weeks,
-    }
+    del n, db_path
+    return _suspended_direction(weeks)
 
 
 def trending_better(
@@ -67,9 +49,7 @@ def trending_better(
     weeks: int = 4,
     db_path: Path | None = None,
 ) -> dict[str, Any]:
-    """Return districts where key metrics improved most over the past N weeks.
-
-    Improvement is defined as a positive delta_pct (metric rose).
+    """Suspend unaudited improvement judgments while keeping API compatibility.
 
     Args:
         n: Number of results to return.
@@ -79,36 +59,8 @@ def trending_better(
     Returns:
         dict with 'answer', 'data', and 'weeks'.
     """
-    all_changes = get_biggest_changes(n=n * 5, weeks=weeks, db_path=db_path)
-
-    better = [
-        c for c in all_changes
-        if c["delta_pct"] is not None and c["delta_pct"] > 0
-    ]
-    # Sort by most positive delta_pct
-    better.sort(key=lambda c: c["delta_pct"], reverse=True)
-    better = better[:n]
-
-    if not better:
-        return {
-            "answer": f"No improving metrics found in the past {weeks} weeks.",
-            "data": [],
-            "weeks": weeks,
-        }
-
-    lines = [f"Top {len(better)} improving metrics (past {weeks} weeks):"]
-    for item in better:
-        lines.append(
-            f"  {item['scheme']} — {item['district']}, {item['state']}: "
-            f"{item['metric_name']} rose {item['delta_pct']:.1f}% "
-            f"({item['prior_value']} → {item['current_value']})"
-        )
-
-    return {
-        "answer": "\n".join(lines),
-        "data": better,
-        "weeks": weeks,
-    }
+    del n, db_path
+    return _suspended_direction(weeks)
 
 
 def district_trend(
@@ -145,23 +97,26 @@ def district_trend(
         WHERE UPPER(scheme) = UPPER(?)
           AND UPPER(state) = UPPER(?)
           AND UPPER(district) = UPPER(?)
+          AND source_url IS NOT NULL AND source_url != ''
         ORDER BY metric_name
         """,
         (scheme, state, district),
     ).fetchall()
     conn.close()
 
-    metric_names = [r["metric_name"] for r in metric_rows]
+    allowed = audited_metric_names(scheme)
+    metric_names = [r["metric_name"] for r in metric_rows if r["metric_name"] in allowed]
 
     if not metric_names:
         return {
-            "answer": f"No snapshot data found for {scheme} in {district}, {state}.",
+            "answer": f"No audited snapshot data found for {scheme} in {district}, {state}.",
             "district": district,
             "state": state,
             "scheme": scheme,
             "weeks": weeks,
             "metrics": {},
             "deltas": [],
+            "direction_judgment": "suspended",
         }
 
     metrics: dict[str, list[dict[str, Any]]] = {}
@@ -186,12 +141,10 @@ def district_trend(
 
     # Build human-readable summary
     snap_count = max((len(v) for v in metrics.values()), default=0)
-    lines = [
-        f"{scheme} trend for {district}, {state} (past {weeks} weeks, {snap_count} snapshots):"
-    ]
+    lines = [f"{scheme} trend for {district}, {state} (past {weeks} weeks, {snap_count} snapshots):"]
     for d in deltas:
         if d["delta_pct"] is not None:
-            direction = "up" if d["delta_pct"] > 0 else "down"
+            direction = "up" if d["delta_pct"] > 0 else "down" if d["delta_pct"] < 0 else "unchanged"
             lines.append(
                 f"  {d['metric_name']}: {direction} {abs(d['delta_pct']):.1f}% "
                 f"({d['prior_value']} → {d['current_value']})"
@@ -205,4 +158,6 @@ def district_trend(
         "weeks": weeks,
         "metrics": metrics,
         "deltas": deltas,
+        "direction_judgment": "suspended",
+        "judgment_note": _SUSPENDED_REASON,
     }

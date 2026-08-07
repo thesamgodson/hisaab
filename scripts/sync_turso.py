@@ -5,10 +5,9 @@ locally while Turso held a hand-pushed snapshot — new tables (PIN mapping)
 never arrived and the live PIN flow 500'd for months.
 
 This script makes publishing repeatable:
-  1. mirrors every table + index + view from data/hisaab.db to Turso
-     (per-table transactional drop/create/insert — readers never see a
-     half-written table)
-  2. verifies remote row counts against local before declaring success
+  1. mirrors every table + index + view from data/hisaab.db to Turso,
+     except append-only history tables, which preserve prior remote rows
+  2. verifies mirrored row counts and exact append-only dated payloads
 
 Usage:
     python3 scripts/sync_turso.py                # uses TURSO_* env vars
@@ -38,6 +37,17 @@ from db.connection import DB_PATH  # noqa: E402
 
 INSERT_CHUNK = 200  # rows per multi-value INSERT statement
 BATCH_STATEMENTS = 40  # statements per libsql HTTP batch
+APPEND_ONLY_TABLES = frozenset({"metrics_snapshot"})
+METRICS_SNAPSHOT_COLUMNS = (
+    "snapshot_date",
+    "scheme",
+    "state",
+    "district",
+    "fin_year",
+    "metric_name",
+    "metric_value",
+    "source_url",
+)
 
 
 def _load_env_file(path: Path) -> None:
@@ -75,9 +85,7 @@ def _quote(value: object) -> str:
     return "'" + str(value).replace("'", "''") + "'"
 
 
-def _table_statements(
-    conn: sqlite3.Connection, name: str, create_sql: str
-) -> list[str]:
+def _table_statements(conn: sqlite3.Connection, name: str, create_sql: str) -> list[str]:
     """DROP + CREATE + chunked multi-value INSERTs for one table."""
     stmts = [f"DROP TABLE IF EXISTS {name}", create_sql]
     cur = conn.execute(f"SELECT * FROM {name}")
@@ -87,11 +95,66 @@ def _table_statements(
         rows = cur.fetchmany(INSERT_CHUNK)
         if not rows:
             break
-        values = ",\n".join(
-            "(" + ", ".join(_quote(v) for v in row) + ")" for row in rows
-        )
+        values = ",\n".join("(" + ", ".join(_quote(v) for v in row) + ")" for row in rows)
         stmts.append(f"INSERT INTO {name} ({col_list}) VALUES\n{values}")
     return stmts
+
+
+def _append_table_statements(conn: sqlite3.Connection, name: str, create_sql: str) -> list[str]:
+    """CREATE if absent and append local rows without replacing history."""
+    create_if_absent = re.sub(
+        r"^CREATE\s+TABLE\s+(?!IF\s+NOT\s+EXISTS)",
+        "CREATE TABLE IF NOT EXISTS ",
+        create_sql,
+        count=1,
+        flags=re.IGNORECASE,
+    )
+    stmts = [create_if_absent]
+    columns = [row[1] for row in conn.execute(f"PRAGMA table_info({name})").fetchall() if row[1] != "id"]
+    col_list = ", ".join(columns)
+    cur = conn.execute(f"SELECT {col_list} FROM {name}")
+    while True:
+        rows = cur.fetchmany(INSERT_CHUNK)
+        if not rows:
+            break
+        values = ",\n".join("(" + ", ".join(_quote(v) for v in row) + ")" for row in rows)
+        stmts.append(f"INSERT OR IGNORE INTO {name} ({col_list}) VALUES\n{values}")
+    return stmts
+
+
+def _verify_metrics_snapshot(local: sqlite3.Connection, client: object) -> tuple[int, int]:
+    """Return (local rows, remote rows) after checking each local dated payload."""
+    columns = ", ".join(METRICS_SNAPSHOT_COLUMNS)
+    dates = [
+        row[0]
+        for row in local.execute(
+            "SELECT DISTINCT snapshot_date FROM metrics_snapshot ORDER BY snapshot_date"
+        ).fetchall()
+    ]
+    local_total = local.execute("SELECT COUNT(*) FROM metrics_snapshot").fetchone()[0]
+    remote_total = client.execute("SELECT COUNT(*) FROM metrics_snapshot").rows[0][0]
+    for snapshot_date in dates:
+        local_rows = {
+            tuple(row)
+            for row in local.execute(
+                f"SELECT {columns} FROM metrics_snapshot WHERE snapshot_date = ?",
+                (snapshot_date,),
+            ).fetchall()
+        }
+        remote_rows = {
+            tuple(row)
+            for row in client.execute(
+                f"SELECT {columns} FROM metrics_snapshot WHERE snapshot_date = {_quote(snapshot_date)}"
+            ).rows
+        }
+        if local_rows != remote_rows:
+            missing = len(local_rows - remote_rows)
+            conflicting = len(remote_rows - local_rows)
+            raise ValueError(
+                f"metrics_snapshot {snapshot_date} payload mismatch "
+                f"({missing} local rows missing, {conflicting} remote rows differ)"
+            )
+    return local_total, remote_total
 
 
 def main() -> int:
@@ -119,11 +182,9 @@ def main() -> int:
     local = sqlite3.connect(args.db)
     tables, extras = _local_objects(local)
 
-    plan = [(name, local.execute(f"SELECT COUNT(*) FROM {name}").fetchone()[0])
-            for name, _ in tables]
+    plan = [(name, local.execute(f"SELECT COUNT(*) FROM {name}").fetchone()[0]) for name, _ in tables]
     total_rows = sum(n for _, n in plan)
-    print(f"Sync plan: {len(tables)} tables, {total_rows:,} rows, "
-          f"{len(extras)} indexes/views -> Turso")
+    print(f"Sync plan: {len(tables)} tables, {total_rows:,} rows, {len(extras)} indexes/views -> Turso")
     for name, n in plan:
         print(f"  {name}: {n:,}")
     if args.dry_run:
@@ -131,9 +192,7 @@ def main() -> int:
 
     import libsql_client
 
-    client = libsql_client.create_client_sync(
-        url=url.replace("libsql://", "https://"), auth_token=token
-    )
+    client = libsql_client.create_client_sync(url=url.replace("libsql://", "https://"), auth_token=token)
 
     def _with_retry(fn, what: str, attempts: int = 8):
         """Turso over HTTP throws transient errors under bursty writes —
@@ -155,9 +214,21 @@ def main() -> int:
 
     local_counts = dict(plan)
     skipped: list[str] = []
+    append_totals: dict[str, int] = {}
 
     try:
         for name, create_sql in tables:
+            if name in APPEND_ONLY_TABLES:
+                stmts = _append_table_statements(local, name, create_sql)
+                for i in range(0, len(stmts), BATCH_STATEMENTS):
+                    chunk = stmts[i : i + BATCH_STATEMENTS]
+                    _with_retry(
+                        lambda c=chunk: client.batch(c),
+                        f"{name} append batch {i // BATCH_STATEMENTS}",
+                    )
+                print(f"  appended {name} (prior remote history preserved)")
+                continue
+
             # Never replace a populated remote table with an empty local one.
             # This is the March-2026 disaster class: a from-scratch DB build
             # that didn't re-seed a table (e.g. pin_district_mapping when the
@@ -165,9 +236,7 @@ def main() -> int:
             # empty on prod and 500 the PIN flow. Empty-both is fine to push.
             if local_counts[name] == 0:
                 remote_existing = _with_retry(
-                    lambda n=name: client.execute(
-                        f"SELECT COUNT(*) FROM {n}"
-                    ).rows[0][0],
+                    lambda n=name: client.execute(f"SELECT COUNT(*) FROM {n}").rows[0][0],
                     f"{name} remote count",
                 )
                 if remote_existing:
@@ -193,9 +262,7 @@ def main() -> int:
             if sql.upper().startswith("CREATE VIEW"):
                 view_name = sql.split()[2]
                 _with_retry(
-                    lambda s=sql, v=view_name: client.batch(
-                        [f"DROP VIEW IF EXISTS {v}", s]
-                    ),
+                    lambda s=sql, v=view_name: client.batch([f"DROP VIEW IF EXISTS {v}", s]),
                     f"view {view_name}",
                 )
                 continue
@@ -207,9 +274,7 @@ def main() -> int:
             if index_match:
                 index_name = index_match.group(1)
                 _with_retry(
-                    lambda s=sql, n=index_name: client.batch(
-                        [f"DROP INDEX IF EXISTS {n}", s]
-                    ),
+                    lambda s=sql, n=index_name: client.batch([f"DROP INDEX IF EXISTS {n}", s]),
                     f"index {index_name}",
                 )
             else:
@@ -221,6 +286,11 @@ def main() -> int:
         mismatches = 0
         for name, local_count in plan:
             remote = client.execute(f"SELECT COUNT(*) FROM {name}").rows[0][0]
+            if name in APPEND_ONLY_TABLES:
+                _, remote = _verify_metrics_snapshot(local, client)
+                append_totals[name] = remote
+                print(f"  {name}: {local_count:,} local / {remote:,} remote  APPEND-ONLY OK")
+                continue
             if name in skipped:
                 # Intentionally not overwritten — prod kept its rows.
                 print(f"  {name}: {local_count:,} / {remote:,}  KEPT (local empty)")
@@ -233,7 +303,9 @@ def main() -> int:
         if mismatches:
             print(f"\nFAILED: {mismatches} table(s) mismatched")
             return 1
-        print(f"\nSync complete: {len(tables)} tables, {total_rows:,} rows verified.")
+        print(f"\nSync complete: {len(tables)} tables; {total_rows:,} local payload rows verified.")
+        for name, remote_count in append_totals.items():
+            print(f"  {name}: {remote_count:,} total remote history rows preserved")
         return 0
     finally:
         client.close()

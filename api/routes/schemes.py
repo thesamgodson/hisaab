@@ -123,11 +123,7 @@ def trends_biggest_changes(
     n: int = Query(default=20, ge=1, le=100, description="Number of top movers to return"),
     weeks: int = Query(default=4, ge=1, le=52, description="Comparison window in weeks"),
 ) -> dict[str, Any]:
-    """Districts with the largest metric changes over the past N weeks.
-
-    Returns both improving and degrading metrics sorted by magnitude of change.
-    Requires at least two snapshots separated by the requested number of weeks.
-    """
+    """Largest neutral metric changes; no better/worse meaning is assigned."""
     from db.snapshots import get_biggest_changes
 
     changes = get_biggest_changes(n=n, weeks=weeks)
@@ -135,6 +131,7 @@ def trends_biggest_changes(
         "changes": changes,
         "count": len(changes),
         "weeks": weeks,
+        "direction_judgment": "suspended",
     }
 
 
@@ -145,11 +142,7 @@ def trends_district(
     scheme: str = Query(description="Scheme name e.g. MGNREGA, JJM"),
     weeks: int = Query(default=12, ge=1, le=52, description="Weeks of history"),
 ) -> dict[str, Any]:
-    """Trend data for a specific district and scheme.
-
-    Returns time-series for all tracked metrics and week-over-week deltas.
-    Requires snapshots to have been captured via `run_all.py --snapshot`.
-    """
+    """Exact audited time series and deltas, without directional judgment."""
     return district_trend(
         district=district.upper(),
         state=state.upper(),
@@ -163,9 +156,13 @@ def trends_overview(
     n: int = Query(default=10, ge=1, le=50),
     weeks: int = Query(default=4, ge=1, le=52),
 ) -> dict[str, Any]:
-    """Overview of improving and degrading metrics across all districts."""
+    """Neutral changes plus explicit suspension of better/worse judgments."""
+    from db.snapshots import get_biggest_changes
+
     return {
         "trending_worse": trending_worse(n=n, weeks=weeks),
         "trending_better": trending_better(n=n, weeks=weeks),
+        "neutral_changes": get_biggest_changes(n=n, weeks=weeks),
+        "direction_judgment": "suspended",
         "weeks": weeks,
     }

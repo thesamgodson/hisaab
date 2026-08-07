@@ -1,9 +1,4 @@
-"""Weekly digest generation for Hisaab accountability alerts.
-
-Pulls trend data from the metrics_snapshot table and composite scores from
-queries/composite.py to produce a WeeklyDigest dataclass ready for delivery
-via Telegram or email.
-"""
+"""Weekly alert transport with unaudited judgments fail-closed."""
 
 from __future__ import annotations
 
@@ -14,6 +9,7 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 # Dataclasses
 # ---------------------------------------------------------------------------
+
 
 @dataclass
 class DistrictChange:
@@ -30,7 +26,7 @@ class DistrictChange:
 
 @dataclass
 class RedFlagEntry:
-    """A district that crossed a red flag threshold."""
+    """Compatibility shape for a future audited score-crossing event."""
 
     district: str
     state: str
@@ -50,11 +46,14 @@ class WeeklyDigest:
     generated_at: datetime = field(default_factory=datetime.utcnow)
     weeks: int = 1
     has_data: bool = True
+    trend_judgments_suspended: bool = True
+    red_flag_crossings_suspended: bool = True
 
 
 # ---------------------------------------------------------------------------
 # Headline builder
 # ---------------------------------------------------------------------------
+
 
 def _build_headline(
     degrading: list[DistrictChange],
@@ -63,28 +62,23 @@ def _build_headline(
 ) -> str:
     """Auto-generate a one-liner summary from digest contents."""
     if not degrading and not improving and not red_flags:
-        return "No significant changes detected this week."
+        return "Trend judgments and new-red-flag alerts are suspended pending audited contracts."
 
     parts: list[str] = []
 
-    if degrading:
-        # Group by scheme to find the busiest scheme
+    changes = [*degrading, *improving]
+    if changes:
         scheme_counts: dict[str, int] = {}
-        for d in degrading:
+        for d in changes:
             scheme_counts[d.scheme] = scheme_counts.get(d.scheme, 0) + 1
         top_scheme = max(scheme_counts, key=lambda s: scheme_counts[s])
         count = scheme_counts[top_scheme]
         noun = "district" if count == 1 else "districts"
-        parts.append(f"{top_scheme} metrics degraded in {count} {noun}")
+        parts.append(f"{top_scheme} metrics changed in {count} {noun}; direction not judged")
 
     if red_flags:
         noun = "district" if len(red_flags) == 1 else "districts"
-        parts.append(f"{len(red_flags)} {noun} crossed red-flag thresholds")
-
-    if improving and not parts:
-        count = len(improving)
-        noun = "district" if count == 1 else "districts"
-        parts.append(f"{count} {noun} showed improvement this week")
+        parts.append(f"{len(red_flags)} {noun} with red-flag records listed; no new crossing inferred")
 
     joined = "; ".join(parts)
     return joined[0].upper() + joined[1:] + "." if joined else "."
@@ -94,6 +88,7 @@ def _build_headline(
 # Public API
 # ---------------------------------------------------------------------------
 
+
 def generate_weekly_digest(
     weeks: int = 1,
     top_degrading_n: int = 10,
@@ -101,73 +96,23 @@ def generate_weekly_digest(
     red_flag_score_threshold: float = 40.0,
     db_path: Path | None = None,
 ) -> WeeklyDigest:
-    """Generate the weekly accountability digest.
-
-    Pulls degrading and improving districts from trend data and identifies
-    districts whose composite score has fallen below the red flag threshold.
+    """Generate red-flag alerts with unaudited trend judgments suspended.
 
     Args:
         weeks: How many weeks back to look for changes.
-        top_degrading_n: How many degrading districts to include.
-        top_improving_n: How many improving districts to include.
-        red_flag_score_threshold: Districts scoring below this are red flags.
-        db_path: Optional path to SQLite database (defaults to DB_PATH).
+        top_degrading_n: Reserved until metric polarity is audited.
+        top_improving_n: Reserved until metric polarity is audited.
+        red_flag_score_threshold: Reserved until score crossings are audited.
+        db_path: Reserved for the future audited comparisons.
 
     Returns:
         A populated WeeklyDigest instance.
     """
-    from queries.composite import compute_district_scores
-    from queries.trends import trending_better, trending_worse
-
-    # --- Degrading districts ---
-    worse_result = trending_worse(n=top_degrading_n, weeks=weeks, db_path=db_path)
-    degrading: list[DistrictChange] = [
-        DistrictChange(
-            district=item["district"],
-            state=item["state"],
-            scheme=item["scheme"],
-            metric_name=item["metric_name"],
-            delta_pct=item["delta_pct"],
-            prior_value=item.get("prior_value"),
-            current_value=item.get("current_value"),
-        )
-        for item in worse_result.get("data", [])
-    ]
-
-    # --- Improving districts ---
-    better_result = trending_better(n=top_improving_n, weeks=weeks, db_path=db_path)
-    improving: list[DistrictChange] = [
-        DistrictChange(
-            district=item["district"],
-            state=item["state"],
-            scheme=item["scheme"],
-            metric_name=item["metric_name"],
-            delta_pct=item["delta_pct"],
-            prior_value=item.get("prior_value"),
-            current_value=item.get("current_value"),
-        )
-        for item in better_result.get("data", [])
-    ]
-
-    # --- Red flags: districts with composite score below threshold ---
+    # Field names remain for transport compatibility. They must stay empty
+    # until polarity and score-crossing contracts are audited and registered.
+    degrading: list[DistrictChange] = []
+    improving: list[DistrictChange] = []
     red_flags: list[RedFlagEntry] = []
-    try:
-        all_scores = compute_district_scores()
-        for record in all_scores:
-            score = record.get("score")
-            if score is not None and score < red_flag_score_threshold and record.get("red_flags"):
-                red_flags.append(
-                    RedFlagEntry(
-                        district=record["district"],
-                        state=record["state"],
-                        score=score,
-                        grade=record.get("grade", "F"),
-                        flags=record.get("red_flags", []),
-                    )
-                )
-    except Exception:
-        # DB may be empty — graceful degradation
-        pass
 
     has_data = bool(degrading or improving or red_flags)
     headline = _build_headline(degrading, improving, red_flags)

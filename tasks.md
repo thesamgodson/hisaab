@@ -467,3 +467,24 @@ Made unreported or imputed PM-KISAN, NSAP, PM POSHAN, and NFSA fields NULL; reje
 **Files:** `web/src/app/page.tsx`, `web/src/app/globals.css`, `web/src/app/base.css`, `web/src/app/forms.css`, `web/src/app/surface.css`
 
 Captured full-page Chrome screenshots from the production build at 320, 375, 414, and 768px into `/tmp`, not the repo. The current build's CSS returned 200 and the entry surface showed no horizontal overflow, clipped control, two-line button, or broken hierarchy at those widths.
+
+### 2026-08-07 11:15 — Make temporal claims neutral and sourced
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `db/snapshot_metrics.py`, `db/snapshots.py`, `queries/trends.py`, `api/routes/schemes.py`, `alerts/digest.py`, `tests/test_snapshot_honesty.py`, `tests/test_alerts.py`, `DATA_CLAIMS.md`
+
+Removed five unsafe snapshot semantics, retained MGNREGA unrecovered money in rupees, bound every neutral point/change to its source and period, and suspended better/worse and new-crossing claims. The first audited local capture has 9,789 sourced rows dated 2026-08-07; focused and full Python gates pass.
+
+### 2026-08-07 11:16 — Preserve snapshot history during Turso publication
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `scripts/sync_turso.py`, `tests/test_sync_turso.py`, `DATA_CLAIMS.md`
+
+Made `metrics_snapshot` append-only across production syncs, omitted local surrogate IDs so remote history cannot collide, and verify each local dated payload exactly while allowing older remote dates to remain. Four targeted sync contract tests pass.
+
+### 2026-08-07 11:18 — Visually verify the one-surface account result
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `web/src/app/page.tsx`, `web/src/app/surface.css`, `web/src/components/SchemeRow.tsx`, `web/src/components/ComplaintGuide.tsx`
+
+Captured full-page PIN-result screenshots at 320px and 768px on the uncontested current build. Both widths have exact viewport scroll width, every stylesheet returned 200, the public account and 17 claim bindings rendered, and the single action button remained unclipped; artifacts stay in `/tmp`.

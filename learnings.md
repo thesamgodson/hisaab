@@ -210,3 +210,10 @@ Corrective rule: begin with Hisaab's irreducible question—where public welfare
 **Files:** `web/.next/BUILD_ID`, `web/.next/static/css/`
 
 **Failure:** The first local screenshots hit an older Next server already bound to `127.0.0.1:3100`; its HTML referenced a CSS hash absent from the current `.next`, so a healthy design appeared completely unstyled. **Rule:** before visual QA, use an uncontested port, compare the served build/CSS hash to the current `.next`, and require every linked stylesheet to return 200; never diagnose UI from a stale server capture.
+
+### 2026-08-07 11:16 — A wipe guard can conceal remote rows from the publish total
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `scripts/sync_turso.py`, `data/hisaab.db`
+
+**Failure:** The first publish kept a populated remote `metrics_snapshot` because the local table was empty, then reported only the local payload total; inspection found 13,957 remote derived rows with five misleading metric semantics. The same mirror strategy would have deleted history once CI produced a non-empty one-date table. **Rule:** inspect and report retained remote counts, classify temporal tables as append-only, exclude surrogate IDs during append, verify exact dated payloads, and audit every kept table's public semantics before declaring a sync complete.

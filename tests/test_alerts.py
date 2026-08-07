@@ -185,7 +185,7 @@ class TestBuildHeadline:
         from alerts.digest import _build_headline
 
         headline = _build_headline([], [], [])
-        assert "No significant" in headline
+        assert "suspended" in headline.lower()
 
     def test_degrading_input_mentions_scheme(self) -> None:
         from alerts.digest import DistrictChange, _build_headline

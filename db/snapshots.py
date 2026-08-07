@@ -1,11 +1,4 @@
-"""Temporal snapshot engine — capture, delta, and trend queries for Hisaab.
-
-Captures key metrics from all scheme tables into metrics_snapshot,
-then computes week-over-week deltas and trends for accountability reporting.
-
-Table: metrics_snapshot
-  (snapshot_date, scheme, state, district, fin_year, metric_name, metric_value)
-"""
+"""Neutral temporal snapshots for explicitly audited scheme metrics."""
 
 from __future__ import annotations
 
@@ -15,49 +8,30 @@ from pathlib import Path
 from typing import Any
 
 from db.connection import get_connection
-
-# ---------------------------------------------------------------------------
-# Metric extraction specs
-# Each entry: (scheme, table, district_col, state_col, fin_year_col, metric_name, value_col)
-# district_col = None means state-level only → district defaults to 'ALL'
-# ---------------------------------------------------------------------------
-
-_METRIC_SPECS: list[tuple[str, str, str | None, str, str, str, str]] = [
-    # scheme, table, district_col, state_col, fin_year_col, metric_name, value_col
-    ("MGNREGA", "financial_statement", "district", "state", "fin_year", "utilization_pct", "utilization_pct"),
-    ("MGNREGA", "financial_statement", "district", "state", "fin_year", "cumulative_expenditure_lakhs", "cumulative_expenditure"),
-    ("MGNREGA", "misappropriation", "district", "state", "fin_year", "amount_unrecovered_lakhs", "amount_unrecovered"),
-    ("PMGSY", "pmgsy_district", "district", "state", "fin_year", "roads_completed", "roads_completed"),
-    ("PMGSY", "pmgsy_district", "district", "state", "fin_year", "expenditure_cr", "expenditure_cr"),
-    ("PMAY-G", "pmayg_district", "district", "state", "fin_year", "completion_pct", "completion_pct"),
-    ("PMAY-G", "pmayg_district", "district", "state", "fin_year", "houses_completed", "houses_completed"),
-    ("PM Kisan", "pmkisan_district", "district", "state", "fin_year", "amount_paid_lakhs", "amount_paid_lakhs"),
-    ("JJM", "jjm_district", "district", "state", "fin_year", "coverage_pct", "coverage_pct"),
-    ("JJM", "jjm_district", "district", "state", "fin_year", "households_with_tap", "households_with_tap"),
-    ("PM POSHAN", "pmposhan_district", "district", "state", "fin_year", "utilization_pct", "utilization_pct"),
-    ("PM POSHAN", "pmposhan_district", "district", "state", "fin_year", "children_fed", "children_fed"),
-    ("NSAP", "nsap_district", "district", "state", "fin_year", "amount_paid_lakhs", "amount_paid_lakhs"),
-    ("PDS/NFSA", "nfsa_district", "district", "state", "fin_year", "offtake_pct", "offtake_pct"),
-    ("SBM-G", "sbm_district", "district", "state", "fin_year", "odf_plus_pct", "odf_plus_pct"),
-    ("DAY-NRLM", "nrlm_district", "district", "state", "fin_year", "shgs_total", "shgs_total"),
-    ("DAY-NRLM", "nrlm_district", "district", "state", "fin_year", "rf_amount_lakhs", "rf_amount_lakhs"),
-    # State-level finance tables (district='ALL')
-    ("PMAY-G", "pmayg_finance", None, "state", "fin_year", "utilized_lakhs", "utilized_lakhs"),
-    ("PM POSHAN", "pmposhan_finance", None, "state", "fin_year", "utilized_lakhs", "utilized_lakhs"),
-    ("NSAP", "nsap_finance", None, "state", "fin_year", "released_lakhs", "released_lakhs"),
-    ("JJM", "jjm_allocation", None, "state", "fin_year", "expended_crores", "expended_crores"),
-]
+from db.snapshot_metrics import METRIC_SPECS, MetricSpec, audited_metric_names, is_audited_metric, metric_context
 
 
-def _source_url_for_table(conn: sqlite3.Connection, table: str) -> str:
-    """Return a representative source_url from the given table, or empty string."""
-    try:
-        row = conn.execute(
-            f"SELECT source_url FROM {table} WHERE source_url IS NOT NULL LIMIT 1"
-        ).fetchone()
-        return row[0] if row and row[0] else ""
-    except Exception:
-        return ""
+def _metric_rows(conn: sqlite3.Connection, spec: MetricSpec):
+    _, table, district_col, state_col, year_col, _, value_col = spec
+    district = district_col or "'ALL'"
+    partition = f"{state_col}, {district_col}" if district_col else state_col
+    value_filter = "metric_rank = 1" if district_col else "metric_rank = 1 AND metric_value > 0"
+    output_filter = f"{value_filter} AND source_url IS NOT NULL AND source_url != ''"
+    return conn.execute(
+        f"""
+        WITH ranked AS (
+          SELECT {state_col} AS state, {district} AS district,
+                 {year_col} AS fin_year, {value_col} AS metric_value,
+                 source_url, ROW_NUMBER() OVER (
+                   PARTITION BY {partition}
+                   ORDER BY {year_col} DESC, scraped_at DESC
+                 ) AS metric_rank
+          FROM {table} WHERE {value_col} IS NOT NULL
+        )
+        SELECT state, district, fin_year, metric_value, source_url
+        FROM ranked WHERE {output_filter}
+        """
+    ).fetchall()
 
 
 def capture_snapshot(
@@ -77,59 +51,27 @@ def capture_snapshot(
     conn = get_connection(db_path)
     inserted = 0
 
-    for scheme, table, district_col, state_col, fin_year_col, metric_name, value_col in _METRIC_SPECS:
-        source_url = _source_url_for_table(conn, table)
-
-        if district_col is not None:
-            sql = f"""
-                SELECT
-                    {state_col} AS state,
-                    {district_col} AS district,
-                    {fin_year_col} AS fin_year,
-                    {value_col} AS metric_value
-                FROM {table}
-                WHERE {value_col} IS NOT NULL
-            """
-        else:
-            # State-level table — district fixed to 'ALL'
-            sql = f"""
-                SELECT
-                    {state_col} AS state,
-                    'ALL' AS district,
-                    {fin_year_col} AS fin_year,
-                    {value_col} AS metric_value
-                FROM {table}
-                WHERE {value_col} IS NOT NULL
-            """
-
-        try:
-            rows = conn.execute(sql).fetchall()
-        except Exception:
-            continue
-
+    for spec in METRIC_SPECS:
+        scheme, _, _, _, _, metric_name, _ = spec
+        rows = _metric_rows(conn, spec)
         for row in rows:
-            try:
-                conn.execute(
-                    """
-                    INSERT OR IGNORE INTO metrics_snapshot
-                        (snapshot_date, scheme, state, district, fin_year,
-                         metric_name, metric_value, source_url)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-                    """,
-                    (
-                        snap_date,
-                        scheme,
-                        row["state"],
-                        row["district"],
-                        row["fin_year"],
-                        metric_name,
-                        row["metric_value"],
-                        source_url,
-                    ),
-                )
-                inserted += conn.execute("SELECT changes()").fetchone()[0]
-            except Exception:
-                continue
+            conn.execute(
+                """INSERT OR IGNORE INTO metrics_snapshot
+                   (snapshot_date, scheme, state, district, fin_year,
+                    metric_name, metric_value, source_url)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    snap_date,
+                    scheme,
+                    row["state"],
+                    row["district"],
+                    row["fin_year"],
+                    metric_name,
+                    row["metric_value"],
+                    row["source_url"],
+                ),
+            )
+            inserted += conn.execute("SELECT changes()").fetchone()[0]
 
     conn.commit()
     conn.close()
@@ -182,12 +124,21 @@ def compute_deltas(
     # Latest values
     current_rows = conn.execute(
         """
-        SELECT metric_name, metric_value, fin_year
-        FROM metrics_snapshot
+        SELECT scheme, metric_name, metric_value, fin_year, source_url
+        FROM metrics_snapshot current
         WHERE snapshot_date = ?
           AND UPPER(scheme) = UPPER(?)
           AND UPPER(state) = UPPER(?)
           AND UPPER(district) = UPPER(?)
+          AND source_url IS NOT NULL AND source_url != ''
+          AND fin_year = (
+            SELECT MAX(years.fin_year) FROM metrics_snapshot years
+            WHERE years.snapshot_date = current.snapshot_date
+              AND UPPER(years.scheme) = UPPER(current.scheme)
+              AND UPPER(years.state) = UPPER(current.state)
+              AND UPPER(years.district) = UPPER(current.district)
+              AND years.metric_name = current.metric_name
+          )
         """,
         (latest_date, scheme, state, district),
     ).fetchall()
@@ -211,26 +162,31 @@ def compute_deltas(
 
     prior_date = prior_row["snap"] if prior_row else None
 
-    prior_lookup: dict[str, float] = {}
+    prior_lookup: dict[tuple[str, str], tuple[float, str]] = {}
     if prior_date:
         prior_rows = conn.execute(
             """
-            SELECT metric_name, metric_value
+            SELECT metric_name, metric_value, fin_year, source_url
             FROM metrics_snapshot
             WHERE snapshot_date = ?
               AND UPPER(scheme) = UPPER(?)
               AND UPPER(state) = UPPER(?)
               AND UPPER(district) = UPPER(?)
+              AND source_url IS NOT NULL AND source_url != ''
             """,
             (prior_date, scheme, state, district),
         ).fetchall()
-        prior_lookup = {r["metric_name"]: r["metric_value"] for r in prior_rows}
+        prior_lookup = {(r["metric_name"], r["fin_year"]): (r["metric_value"], r["source_url"]) for r in prior_rows}
 
     results: list[dict[str, Any]] = []
     for row in current_rows:
         metric = row["metric_name"]
+        if not is_audited_metric(row["scheme"], metric):
+            continue
         current_val = row["metric_value"]
-        prior_val = prior_lookup.get(metric)
+        prior = prior_lookup.get((metric, row["fin_year"]))
+        prior_val = prior[0] if prior else None
+        prior_source = prior[1] if prior else None
 
         delta: float | None = None
         delta_pct: float | None = None
@@ -249,6 +205,9 @@ def compute_deltas(
                 "current_date": latest_date,
                 "prior_date": prior_date,
                 "fin_year": row["fin_year"],
+                "current_source_url": row["source_url"],
+                "prior_source_url": prior_source,
+                **metric_context(row["scheme"], metric),
             }
         )
 
@@ -277,18 +236,28 @@ def get_trend(
     Returns:
         List of {snapshot_date, metric_value, fin_year} ordered oldest→newest.
     """
+    if metric not in audited_metric_names(scheme):
+        return []
     cutoff = (date.today() - timedelta(weeks=weeks)).isoformat()
     conn = get_connection(db_path)
 
     rows = conn.execute(
         """
-        SELECT snapshot_date, metric_value, fin_year
-        FROM metrics_snapshot
+        SELECT snapshot_date, metric_value, fin_year, scheme, source_url
+        FROM metrics_snapshot current
         WHERE snapshot_date >= ?
           AND UPPER(scheme) = UPPER(?)
           AND UPPER(state) = UPPER(?)
           AND UPPER(district) = UPPER(?)
           AND metric_name = ?
+          AND source_url IS NOT NULL AND source_url != ''
+          AND fin_year = (
+            SELECT MAX(years.fin_year) FROM metrics_snapshot years
+            WHERE UPPER(years.scheme) = UPPER(current.scheme)
+              AND UPPER(years.state) = UPPER(current.state)
+              AND UPPER(years.district) = UPPER(current.district)
+              AND years.metric_name = current.metric_name
+          )
         ORDER BY snapshot_date ASC
         """,
         (cutoff, scheme, state, district, metric),
@@ -300,6 +269,8 @@ def get_trend(
             "snapshot_date": r["snapshot_date"],
             "metric_value": r["metric_value"],
             "fin_year": r["fin_year"],
+            "source_url": r["source_url"],
+            **metric_context(r["scheme"], metric),
         }
         for r in rows
     ]
@@ -332,6 +303,7 @@ def get_biggest_changes(
             SELECT
                 scheme, state, district, metric_name, fin_year,
                 metric_value AS current_value,
+                source_url AS current_source_url,
                 snapshot_date AS current_date,
                 MAX(snapshot_date) OVER (
                     PARTITION BY scheme, state, district, metric_name
@@ -340,30 +312,39 @@ def get_biggest_changes(
         ),
         current_vals AS (
             SELECT scheme, state, district, metric_name, fin_year,
-                   current_value, current_date
-            FROM latest
-            WHERE snapshot_date = max_date
+                   current_value, current_source_url, current_date
+            FROM latest current
+            WHERE current_date = max_date
+              AND fin_year = (
+                SELECT MAX(years.fin_year) FROM metrics_snapshot years
+                WHERE years.scheme = current.scheme
+                  AND years.state = current.state
+                  AND years.district = current.district
+                  AND years.metric_name = current.metric_name
+              )
         ),
         prior_vals AS (
             SELECT
-                scheme, state, district, metric_name,
+                scheme, state, district, metric_name, fin_year,
                 metric_value AS prior_value,
+                source_url AS prior_source_url,
                 snapshot_date AS prior_date,
                 MAX(snapshot_date) OVER (
-                    PARTITION BY scheme, state, district, metric_name
+                    PARTITION BY scheme, state, district, metric_name, fin_year
                 ) AS max_prior_date
             FROM metrics_snapshot
             WHERE snapshot_date <= ?
         ),
         prior_best AS (
-            SELECT scheme, state, district, metric_name, prior_value, prior_date
+            SELECT scheme, state, district, metric_name, fin_year,
+                   prior_value, prior_source_url, prior_date
             FROM prior_vals
             WHERE prior_date = max_prior_date
         )
         SELECT
             c.scheme, c.state, c.district, c.metric_name, c.fin_year,
             c.current_value, c.current_date,
-            p.prior_value, p.prior_date,
+            c.current_source_url, p.prior_value, p.prior_source_url, p.prior_date,
             (c.current_value - p.prior_value) AS delta,
             CASE WHEN p.prior_value != 0
                  THEN ROUND((c.current_value - p.prior_value) / ABS(p.prior_value) * 100, 2)
@@ -375,20 +356,18 @@ def get_biggest_changes(
          AND c.state = p.state
          AND c.district = p.district
          AND c.metric_name = p.metric_name
+         AND c.fin_year = p.fin_year
         WHERE c.current_value IS NOT NULL
           AND p.prior_value IS NOT NULL
+          AND c.current_source_url IS NOT NULL AND c.current_source_url != ''
+          AND p.prior_source_url IS NOT NULL AND p.prior_source_url != ''
           AND c.current_value != p.prior_value
         ORDER BY ABS(delta_pct) DESC NULLS LAST
-        LIMIT ?
     """
 
-    try:
-        rows = conn.execute(sql, (cutoff, n)).fetchall()
-    except Exception:
-        conn.close()
-        return []
-
+    rows = conn.execute(sql, (cutoff,)).fetchall()
     conn.close()
+    safe_rows = [r for r in rows if is_audited_metric(r["scheme"], r["metric_name"])]
     return [
         {
             "scheme": r["scheme"],
@@ -402,6 +381,9 @@ def get_biggest_changes(
             "prior_date": r["prior_date"],
             "delta": r["delta"],
             "delta_pct": r["delta_pct"],
+            "current_source_url": r["current_source_url"],
+            "prior_source_url": r["prior_source_url"],
+            **metric_context(r["scheme"], r["metric_name"]),
         }
-        for r in rows
+        for r in safe_rows[:n]
     ]
