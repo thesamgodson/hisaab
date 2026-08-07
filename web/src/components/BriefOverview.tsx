@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 import type { DiagnosisItem, DistrictLineage } from "@/lib/action-types";
 import { titleCasePlace } from "@/lib/format-place";
@@ -128,14 +127,5 @@ export default function BriefOverview({
         <p className="brief-overview__generated">Brief generated {generatedDate}</p>
       )}
     </header>
-  );
-}
-
-export function PinPrecisionNote({ acCount }: { acCount: number }) {
-  return (
-    <>
-      {acCount > 0 ? `${acCount} assembly seats overlap this district. ` : ""}
-      <Link href="/">Enter your PIN</Link> for your exact MP and MLA.
-    </>
   );
 }

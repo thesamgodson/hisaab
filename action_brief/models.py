@@ -59,6 +59,7 @@ class ActionBrief:
     # coverage. Twin of complaint_kits/universal_channels in action-types.ts.
     complaint_kits: list[dict[str, Any]] = field(default_factory=list)
     universal_channels: list[dict[str, Any]] = field(default_factory=list)
+    representative_mapping: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)

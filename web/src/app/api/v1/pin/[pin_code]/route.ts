@@ -116,8 +116,8 @@ export async function GET(
   );
 
   // Try precise PIN→constituency mapping first (spatial join table)
-  const pinConstituency = await queryOne<{ constituency: string; state: string }>(
-    `SELECT constituency, state FROM pin_constituency WHERE pin_code = ?`,
+  const pinConstituency = await queryOne<{ constituency: string; state: string; method: string }>(
+    `SELECT constituency, state, method FROM pin_constituency WHERE pin_code = ?`,
     [pin_code],
   );
 
@@ -217,7 +217,13 @@ export async function GET(
     formerly_part_of: lineage
       ? { parent_district: lineage.parent_district, split_year: lineage.split_year }
       : null,
-    precise: !!pinConstituency,
+    precise: false,
+    match_scope: pinConstituency
+      ? "estimated_parliamentary_constituency"
+      : "district_candidates",
+    match_method: pinConstituency?.method ?? null,
+    mapping_claim_id: "DERIVED-2026-0002",
+    assembly_match: "candidate_list",
     constituencies: constituenciesWithMp,
     constituency_count: constituenciesWithMp.length,
     assembly_constituencies: acsWithMla,

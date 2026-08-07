@@ -41,6 +41,12 @@ from pathlib import Path
 from typing import Any
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+from db.normalize_districts import normalize_district  # noqa: E402
+from db.normalize_states import normalize_state  # noqa: E402
+
 CURATED_GLOB = "data/curated/*_latest.json"
 COVERAGE_TOLERANCE = 0.15  # allow ≤15% coverage churn (reorgs, upstream revisions)
 
@@ -67,7 +73,12 @@ def _head_version(rel_path: str) -> str | None:
 
 
 def _pairs(rows: list[dict[str, Any]]) -> set[tuple[str, str]]:
-    return {(str(r.get("state", "")), str(r.get("district", ""))) for r in rows}
+    pairs: set[tuple[str, str]] = set()
+    for row in rows:
+        state = normalize_state(str(row.get("state", "")))
+        district = normalize_district(str(row.get("district", "")), state)
+        pairs.add((state, district))
+    return pairs
 
 
 def _non_all_districts(rows: list[dict[str, Any]]) -> set[str]:

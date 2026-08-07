@@ -1,70 +1,86 @@
+import Link from "next/link";
 import SourceLink from "@/components/SourceLink";
+import type { EvidenceMetric, EvidenceRecord } from "@/lib/area-account";
 import { schemeDisplay } from "@/lib/scheme-display";
 
-export interface SchemeData {
+function displayDate(value: string): string {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(date);
+}
+
+function displayMetric(metric: EvidenceMetric): string {
+  const value = metric.value.toLocaleString("en-IN", { maximumFractionDigits: 2 });
+  if (metric.unit === "count") return value;
+  if (metric.unit === "INR lakh") return `₹${value} lakh`;
+  if (metric.unit === "INR crore") return `₹${value} crore`;
+  if (metric.unit === "MT") return `${value} MT`;
+  return `${value} km`;
+}
+
+function sourceMeta(record: EvidenceRecord) {
+  const scope = record.scope === "district" ? "District record" : "State context";
+  return `${scope} · ${record.period}`;
+}
+
+export default function SchemeRow({
+  scheme,
+  records,
+  actionHref,
+}: {
   scheme: string;
-  fin_year: string;
-  allocated_lakhs: number | null;
-  released_lakhs: number | null;
-  expended_lakhs: number | null;
-  utilization_pct: number | null;
-  units_target: number | null;
-  units_completed: number | null;
-  units_label: string | null;
-  source_url: string | null;
-}
-
-function amount(lakhs: number): string {
-  if (lakhs >= 100) {
-    return `₹${(lakhs / 100).toLocaleString("en-IN", { maximumFractionDigits: 1 })} crore`;
-  }
-  return `₹${lakhs.toLocaleString("en-IN", { maximumFractionDigits: 1 })} lakh`;
-}
-
-function period(finYear: string): string {
-  return finYear === "cumulative" ? "Cumulative report" : `FY ${finYear}`;
-}
-
-export default function SchemeRow({ data }: { data: SchemeData }) {
-  const display = schemeDisplay(data.scheme);
-  const indicator = data.utilization_pct;
-  const finance = [
-    ["Allocated", data.allocated_lakhs],
-    ["Released", data.released_lakhs],
-    ["Expended", data.expended_lakhs],
-  ] as const;
-
+  records: EvidenceRecord[];
+  actionHref: string;
+}) {
+  const display = schemeDisplay(scheme);
   return (
-    <details className="evidence-row">
-      <summary>
-        <strong>{display.need}</strong>
-        <span className="evidence-row__indicator">
-          {indicator != null ? `${indicator.toFixed(1)}% funds` : "View"}
-        </span>
-      </summary>
-      <div className="evidence-row__body">
-        <p className="evidence-row__meta">{data.scheme} · {period(data.fin_year)}</p>
-        <dl>
-          {finance.map(([label, value]) => value != null && (
-            <div key={label}><dt>{label}</dt><dd>{amount(value)}</dd></div>
-          ))}
-          {data.units_label && data.units_completed != null && (
-            <div>
-              <dt>{data.units_label}</dt>
-              <dd>
-                {data.units_completed.toLocaleString("en-IN")}
-                {data.units_target != null && data.units_target > 0
-                  ? ` of ${data.units_target.toLocaleString("en-IN")}`
-                  : ""}
-              </dd>
-            </div>
-          )}
-          {data.utilization_pct != null && (
-            <div><dt>Fund utilization</dt><dd>{data.utilization_pct.toFixed(1)}%</dd></div>
-          )}
-        </dl>
-        {data.source_url && <SourceLink url={data.source_url} />}
+    <article className="ledger-scheme" id={`scheme-${scheme.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+      <header className="ledger-scheme__header">
+        <div>
+          <p className="ledger-scheme__code">{scheme}</p>
+          <h3>{display.shortNeed}</h3>
+        </div>
+        <Link className="ledger-scheme__action no-print" href={actionHref}
+          aria-label={`Ask about ${display.shortNeed}`}>Ask about this</Link>
+      </header>
+      <div className="ledger-records">
+        {records.map((record) => (
+          <section className="ledger-record" key={record.id} aria-labelledby={`${record.id}-heading`}>
+            <header className="ledger-record__header">
+              <h4 id={`${record.id}-heading`}>{record.title}</h4>
+              <p>{sourceMeta(record)}</p>
+            </header>
+            <dl className="ledger-metrics">
+              {record.metrics.map((metric) => (
+                <div key={metric.label}>
+                  <dt>{metric.label}</dt>
+                  <dd>{displayMetric(metric)}</dd>
+                </div>
+              ))}
+            </dl>
+            {record.missingMetrics && record.missingMetrics.length > 0 && (
+              <ul className="ledger-record__gaps" aria-label="Source values Hisaab cannot interpret">
+                {record.missingMetrics.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            )}
+            {record.note && <p className="ledger-record__note">{record.note}</p>}
+            <footer className="ledger-record__provenance">
+              <SourceLink
+                url={record.sourceUrl}
+                label="Data source"
+                accessibleLabel={`Data source for ${scheme}: ${record.title}`}
+              />
+              <span>Record date: {record.asOf}</span>
+              <span>Retrieved {displayDate(record.retrievedAt)}</span>
+              <span className="claim-id">{record.claimId}</span>
+            </footer>
+          </section>
+        ))}
       </div>
-    </details>
+    </article>
   );
 }

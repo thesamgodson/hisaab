@@ -3,6 +3,8 @@
     "district": "ADILABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "501",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -10,12 +12,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ADILABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "501",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -23,12 +27,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ADILABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "501",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -36,12 +42,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BHADRADRI KOTHAGUDEM",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "690",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -49,12 +57,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BHADRADRI KOTHAGUDEM",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "690",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -62,12 +72,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BHADRADRI KOTHAGUDEM",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "690",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -75,12 +87,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HANUMAKONDA",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "686",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -88,12 +102,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HANUMAKONDA",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "686",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -101,12 +117,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HANUMAKONDA",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "686",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -114,12 +132,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HYDERABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "507",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -127,12 +147,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HYDERABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "507",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -140,12 +162,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HYDERABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "507",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -153,12 +177,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JAGITIAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "681",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -166,12 +192,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JAGITIAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "681",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -179,12 +207,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JAGITIAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "681",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -192,12 +222,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JANGOAN",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "689",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -205,12 +237,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JANGOAN",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "689",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -218,12 +252,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JANGOAN",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "689",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -231,12 +267,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JAYASHANKAR BHOOPALPALLI",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "687",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -244,12 +282,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JAYASHANKAR BHOOPALPALLI",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "687",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -257,12 +297,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JAYASHANKAR BHOOPALPALLI",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "687",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -270,12 +312,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JOGULAMBA GADWAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "695",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -283,12 +327,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JOGULAMBA GADWAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "695",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -296,12 +342,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JOGULAMBA GADWAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "695",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -309,12 +357,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KAMAREDDY",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "685",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -322,12 +372,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KAMAREDDY",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "685",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -335,12 +387,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KAMAREDDY",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "685",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -348,12 +402,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KARIMNAGAR",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "508",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -361,12 +417,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KARIMNAGAR",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "508",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -374,12 +432,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KARIMNAGAR",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "508",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -387,12 +447,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KHAMMAM",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "509",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -400,12 +462,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KHAMMAM",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "509",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -413,12 +477,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KHAMMAM",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "509",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -426,12 +492,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
-    "district": "KOMARAM BHEEM ASIFABAD",
+    "district": "KUMURAM BHEEM ASIFABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "699",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -439,12 +507,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
-    "district": "KOMARAM BHEEM ASIFABAD",
+    "district": "KUMURAM BHEEM ASIFABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "699",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -452,12 +522,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
-    "district": "KOMARAM BHEEM ASIFABAD",
+    "district": "KUMURAM BHEEM ASIFABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "699",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -465,12 +537,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAHABUBABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "688",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -478,12 +552,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAHABUBABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "688",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -491,12 +567,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAHABUBABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "688",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -504,12 +582,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAHABUBNAGAR",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "512",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -517,12 +597,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAHABUBNAGAR",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "512",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -530,12 +612,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAHABUBNAGAR",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "512",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -543,12 +627,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MANCHERIAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "684",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -556,12 +642,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MANCHERIAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "684",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -569,12 +657,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MANCHERIAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "684",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -582,12 +672,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MEDAK",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "513",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -595,12 +687,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MEDAK",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "513",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -608,12 +702,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MEDAK",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "513",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -621,12 +717,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MEDCHAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "700",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -634,12 +732,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MEDCHAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "700",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -647,12 +747,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MEDCHAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "700",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -660,12 +762,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MULUGU",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "720",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -673,12 +777,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MULUGU",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "720",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -686,12 +792,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MULUGU",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "720",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -699,12 +807,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NAGARKURNOOL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "694",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -712,12 +822,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NAGARKURNOOL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "694",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -725,12 +837,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NAGARKURNOOL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "694",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -738,12 +852,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NALGONDA",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "514",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -751,12 +867,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NALGONDA",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "514",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -764,12 +882,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NALGONDA",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "514",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -777,12 +897,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NARAYANPET",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "721",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -790,12 +912,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NARAYANPET",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "721",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -803,12 +927,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NARAYANPET",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "721",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -816,12 +942,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NIRMAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "680",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -829,12 +957,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NIRMAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "680",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -842,12 +972,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NIRMAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "680",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -855,12 +987,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NIZAMABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "516",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -868,12 +1002,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NIZAMABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "516",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -881,12 +1017,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "NIZAMABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "516",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -894,12 +1032,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PEDDAPALLI",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "682",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -907,12 +1047,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PEDDAPALLI",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "682",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -920,12 +1062,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PEDDAPALLI",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "682",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -933,12 +1077,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAJANNA SIRCILLA",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "683",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -946,12 +1092,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAJANNA SIRCILLA",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "683",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -959,12 +1107,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAJANNA SIRCILLA",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "683",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -972,12 +1122,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RANGAREDDI",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "518",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -985,12 +1137,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RANGAREDDI",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "518",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -998,12 +1152,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RANGAREDDI",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "518",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1011,12 +1167,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SANGAREDDY",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "691",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1024,12 +1182,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SANGAREDDY",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "691",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -1037,12 +1197,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SANGAREDDY",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "691",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1050,12 +1212,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SIDDIPET",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "692",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1063,12 +1227,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SIDDIPET",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "692",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -1076,12 +1242,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SIDDIPET",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "692",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1089,12 +1257,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SURYAPET",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "696",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1102,12 +1272,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SURYAPET",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "696",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -1115,12 +1287,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SURYAPET",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "696",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1128,12 +1302,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "VIKARABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "698",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1141,12 +1317,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "VIKARABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "698",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -1154,12 +1332,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "VIKARABAD",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "698",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1167,12 +1347,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "WANAPARTHY",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "693",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1180,12 +1362,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "WANAPARTHY",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "693",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -1193,12 +1377,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "WANAPARTHY",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "693",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1206,12 +1392,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "WARANGAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "522",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1219,12 +1407,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "WARANGAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "522",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -1232,12 +1422,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "WARANGAL",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "522",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1245,12 +1437,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "YADADRI",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "697",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1258,12 +1452,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "YADADRI",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "697",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -1271,12 +1467,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "YADADRI",
     "state": "TELANGANA",
     "state_code": "36",
+    "district_lgd_code": "697",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1284,6 +1482,6 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   }
 ]

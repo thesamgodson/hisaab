@@ -1,11 +1,11 @@
 {
-  "scanned_at": "2026-08-06T18:12:00+05:30",
+  "scanned_at": "2026-08-07T00:58:00+05:30",
   "framework": "Next.js 15 App Router",
-  "font_stack": "Noto Sans via next/font with Noto Indic/system fallbacks; Geist Mono for identifiers and figures",
+  "font_stack": "Noto Sans via next/font with Indic/system fallbacks; Geist Mono for claim identifiers",
   "palette": "CSS custom properties in web/src/app/tokens.css",
   "motion": "CSS only; no motion library",
   "spacing": "Four-point semantic CSS token scale",
   "design_system": "design.md",
-  "service_shape": "Issue → trigger → area when relevant → sourced route options in one query-state shell",
-  "claim_boundary": "All 11 rights independent of district metrics; every route keeps source and checked date"
+  "service_shape": "Area \u2192 scheme-specific public account \u2192 coverage limits \u2192 contextual rights/routes \u2192 representatives",
+  "claim_boundary": "Every displayed record carries exact metric labels, period, record-date status, grain, source, retrieval date, caveat, and claim ID; no cross-scheme total"
 }

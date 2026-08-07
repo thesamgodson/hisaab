@@ -1,6 +1,28 @@
 {
   "runs": [
     {
+      "date": "2026-08-07",
+      "scope": "app",
+      "genre": "modern-minimal civic ledger",
+      "theme": "custom austere blue",
+      "app_macrostructure": "Ledger Workbench",
+      "enrichment": "none",
+      "brief": "One area-first public welfare account for Indian citizens and civic helpers: exact scheme facts, named limits, citizen-selected action, representatives last",
+      "design_system": "design.md",
+      "slop_test": "69/69",
+      "critique": {
+        "philosophy": 5,
+        "hierarchy": 5,
+        "execution": 4,
+        "specificity": 5,
+        "restraint": 5,
+        "variety": 5
+      },
+      "audience": "Indian citizens and civic helpers",
+      "use": "Read one area\u2019s welfare account and question a record or service",
+      "tone": "austere, humane, editorial"
+    },
+    {
       "date": "2026-08-06",
       "scope": "app",
       "genre": "modern-minimal civic utility",

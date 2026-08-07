@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { formatDistrictLabel } from "@/lib/format-place";
+import { useHydrated } from "@/lib/use-hydrated";
 
 interface LocatedPin {
   pin_code: string;
@@ -36,17 +37,16 @@ function locatedPin(data: unknown): LocatedPin | null {
 
 export default function PinEntry({
   issue,
-  triggerIndex,
 }: {
-  issue: string;
-  triggerIndex?: number | null;
+  issue?: string | null;
 }) {
   const [pin, setPin] = useState("");
   const [locate, setLocate] = useState<LocateState>({ status: "idle" });
+  const hydrated = useHydrated();
 
   const pinHref = (nextPin: string) => {
-    const params = new URLSearchParams({ issue, pin: nextPin });
-    if (triggerIndex != null) params.set("trigger", String(triggerIndex));
+    const params = new URLSearchParams({ pin: nextPin });
+    if (issue) params.set("issue", issue);
     return `/?${params.toString()}#result`;
   };
 
@@ -97,8 +97,7 @@ export default function PinEntry({
   return (
     <div className="pin-lookup">
       <form action="/" method="get" className="pin-form">
-        <input type="hidden" name="issue" value={issue} />
-        {triggerIndex != null && <input type="hidden" name="trigger" value={triggerIndex} />}
+        {issue && <input type="hidden" name="issue" value={issue} />}
         <label htmlFor="pin-input">PIN code</label>
         <div className="pin-form__row">
           <input
@@ -122,22 +121,28 @@ export default function PinEntry({
             Use this PIN
           </button>
         </div>
-        <p id="pin-help">Six digits. Nothing is submitted until you choose “Use this PIN”.</p>
+        <p id="pin-help">Six digits. A PIN resolves to a postal district; Hisaab does not store it.</p>
       </form>
 
       <p className="location-explanation">
         Optional: your device coordinates are sent only to match a nearby PIN.
         Hisaab does not store them.
       </p>
-      <button
-        type="button"
-        className="text-action"
-        onClick={useLocation}
-        disabled={locate.status === "loading"}
-        aria-busy={locate.status === "loading"}
-      >
-        {locate.status === "loading" ? "Finding your PIN…" : "Use device location"}
-      </button>
+      {hydrated ? (
+        <button
+          type="button"
+          className="text-action"
+          onClick={useLocation}
+          disabled={locate.status === "loading"}
+          aria-busy={locate.status === "loading"}
+        >
+          {locate.status === "loading" ? "Finding your PIN…" : "Use device location"}
+        </button>
+      ) : (
+        <span className="text-action hydration-control-placeholder" aria-hidden="true">
+          Use device location
+        </span>
+      )}
 
       <div aria-live="polite">
         {locate.status === "error" && (

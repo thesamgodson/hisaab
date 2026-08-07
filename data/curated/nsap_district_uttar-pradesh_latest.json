@@ -3,6 +3,8 @@
     "district": "AGRA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "118",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -10,25 +12,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AGRA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "118",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 34628,
+    "beneficiaries_paid": 43851,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AGRA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "118",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -36,12 +42,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ALIGARH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "119",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -49,25 +57,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ALIGARH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "119",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 42546,
+    "beneficiaries_paid": 48965,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ALIGARH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "119",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -75,12 +87,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AMBEDKAR NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "121",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -88,25 +102,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AMBEDKAR NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "121",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 97502,
+    "beneficiaries_paid": 129213,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AMBEDKAR NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "121",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -114,12 +132,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AMETHI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "640",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -127,25 +147,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AMETHI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "640",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 8141,
+    "beneficiaries_paid": 12093,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AURAIYA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "122",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -153,25 +177,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AURAIYA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "122",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 21486,
+    "beneficiaries_paid": 33125,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AURAIYA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "122",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -179,12 +207,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AYODHYA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "140",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -192,25 +222,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AYODHYA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "140",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 57502,
+    "beneficiaries_paid": 77482,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AYODHYA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "140",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -218,12 +252,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AZAMGARH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "123",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -231,25 +267,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AZAMGARH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "123",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 75082,
+    "beneficiaries_paid": 135082,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "AZAMGARH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "123",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -257,12 +297,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BAGHPAT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "124",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -270,25 +312,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BAGHPAT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "124",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 15832,
+    "beneficiaries_paid": 23308,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BAGHPAT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "124",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -296,12 +342,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BAHRAICH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "125",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -309,25 +357,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BAHRAICH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "125",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 57128,
+    "beneficiaries_paid": 91152,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BAHRAICH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "125",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -335,12 +387,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BALLIA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "126",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -348,25 +402,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BALLIA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "126",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 74191,
+    "beneficiaries_paid": 105958,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BALLIA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "126",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -374,12 +432,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BALRAMPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "127",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -387,25 +447,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BALRAMPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "127",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 20547,
+    "beneficiaries_paid": 25309,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BALRAMPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "127",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -413,12 +477,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BANDA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "128",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -426,25 +492,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BANDA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "128",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 42326,
+    "beneficiaries_paid": 58292,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BANDA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "128",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -452,12 +522,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BARABANKI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "129",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -465,25 +537,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BARABANKI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "129",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 66068,
+    "beneficiaries_paid": 92317,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BARABANKI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "129",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -491,12 +567,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BAREILLY",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "130",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -504,25 +582,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BAREILLY",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "130",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 45336,
+    "beneficiaries_paid": 59573,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BAREILLY",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "130",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -530,12 +612,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BASTI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "131",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -543,25 +627,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BASTI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "131",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 74233,
+    "beneficiaries_paid": 104017,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BASTI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "131",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -569,12 +657,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BIJNOR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "132",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -582,25 +672,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BIJNOR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "132",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 32146,
+    "beneficiaries_paid": 36231,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BIJNOR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "132",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -608,12 +702,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BUDAUN",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "133",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -621,25 +717,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BUDAUN",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "133",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 51692,
+    "beneficiaries_paid": 67897,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BUDAUN",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "133",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -647,12 +747,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BULANDSHAHR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "134",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -660,25 +762,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BULANDSHAHR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "134",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 25428,
+    "beneficiaries_paid": 35491,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BULANDSHAHR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "134",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -686,12 +792,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "CHANDAULI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "135",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -699,25 +807,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "CHANDAULI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "135",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 62420,
+    "beneficiaries_paid": 85247,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "CHANDAULI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "135",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -725,12 +837,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "CHITRAKOOT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "136",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -738,25 +852,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "CHITRAKOOT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "136",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 27421,
+    "beneficiaries_paid": 33077,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "CHITRAKOOT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "136",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -764,12 +882,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "DEORIA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "137",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -777,25 +897,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "DEORIA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "137",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 57637,
+    "beneficiaries_paid": 80389,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "DEORIA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "137",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -803,12 +927,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ETAH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "138",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -816,25 +942,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ETAH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "138",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 27756,
+    "beneficiaries_paid": 35854,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ETAH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "138",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -842,12 +972,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ETAWAH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "139",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -855,25 +987,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ETAWAH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "139",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 47233,
+    "beneficiaries_paid": 54129,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ETAWAH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "139",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -881,12 +1017,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "FARRUKHABAD",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "141",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -894,25 +1032,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "FARRUKHABAD",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "141",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 35776,
+    "beneficiaries_paid": 45055,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "FARRUKHABAD",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "141",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -920,12 +1062,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "FATEHPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "142",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -933,25 +1077,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "FATEHPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "142",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 40971,
+    "beneficiaries_paid": 72482,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "FATEHPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "142",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -959,12 +1107,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "FIROZABAD",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "143",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -972,25 +1122,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "FIROZABAD",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "143",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 34745,
+    "beneficiaries_paid": 42094,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "FIROZABAD",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "143",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -998,12 +1152,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
-    "district": "GAUTAM BUDDHA NAGAR",
+    "district": "GAUTAM BUDDH NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "144",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1011,25 +1167,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
-    "district": "GAUTAM BUDDHA NAGAR",
+    "district": "GAUTAM BUDDH NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "144",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 10714,
+    "beneficiaries_paid": 11483,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
-    "district": "GAUTAM BUDDHA NAGAR",
+    "district": "GAUTAM BUDDH NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "144",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1037,12 +1197,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "GHAZIABAD",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "145",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1050,25 +1212,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "GHAZIABAD",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "145",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 6013,
+    "beneficiaries_paid": 8486,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "GHAZIABAD",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "145",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1076,12 +1242,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "GHAZIPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "146",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1089,25 +1257,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "GHAZIPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "146",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 71881,
+    "beneficiaries_paid": 116497,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "GHAZIPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "146",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1115,12 +1287,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "GONDA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "147",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1128,25 +1302,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "GONDA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "147",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 73448,
+    "beneficiaries_paid": 107878,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "GONDA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "147",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1154,12 +1332,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "GORAKHPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "148",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1167,25 +1347,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "GORAKHPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "148",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 88681,
+    "beneficiaries_paid": 144770,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "GORAKHPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "148",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1193,12 +1377,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HAMIRPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "149",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1206,25 +1392,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HAMIRPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "149",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 30296,
+    "beneficiaries_paid": 45870,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HAMIRPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "149",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1232,12 +1422,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HAPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "661",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1245,25 +1437,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HAPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "661",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 9005,
+    "beneficiaries_paid": 9691,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HARDOI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "150",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1271,25 +1467,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HARDOI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "150",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 81942,
+    "beneficiaries_paid": 128877,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "HARDOI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "150",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1297,12 +1497,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JALAUN",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "151",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1310,25 +1512,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JALAUN",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "151",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 47188,
+    "beneficiaries_paid": 66312,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JALAUN",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "151",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1336,12 +1542,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JAUNPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "152",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1349,25 +1557,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JAUNPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "152",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 103786,
+    "beneficiaries_paid": 164015,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JAUNPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "152",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1375,12 +1587,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JHANSI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "153",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1388,25 +1602,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JHANSI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "153",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 36852,
+    "beneficiaries_paid": 56010,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JHANSI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "153",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1414,12 +1632,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JYOTIBA PHOOLE NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "154",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1427,25 +1647,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JYOTIBA PHOOLE NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "154",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 17472,
+    "beneficiaries_paid": 28362,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JYOTIBA PHOOLE NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "154",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1453,12 +1677,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KANNAUJ",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "155",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1466,25 +1692,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KANNAUJ",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "155",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 40439,
+    "beneficiaries_paid": 55752,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KANNAUJ",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "155",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1492,12 +1722,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KANPUR DEHAT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "156",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1505,25 +1737,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KANPUR DEHAT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "156",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 55065,
+    "beneficiaries_paid": 70699,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KANPUR DEHAT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "156",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1531,12 +1767,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KANPUR NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "157",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1544,25 +1782,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KANPUR NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "157",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 54291,
+    "beneficiaries_paid": 67080,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KANPUR NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "157",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1570,12 +1812,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KANSHI RAM NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "633",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1583,25 +1827,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KANSHI RAM NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "633",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 7993,
+    "beneficiaries_paid": 14275,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KAUSHAMBI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "158",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1609,25 +1857,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KAUSHAMBI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "158",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 51272,
+    "beneficiaries_paid": 58927,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KAUSHAMBI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "158",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1635,12 +1887,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KHERI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "159",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1648,25 +1902,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KHERI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "159",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 53429,
+    "beneficiaries_paid": 59007,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KHERI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "159",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1674,12 +1932,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KUSHI NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "160",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1687,25 +1947,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KUSHI NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "160",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 88066,
+    "beneficiaries_paid": 125220,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KUSHI NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "160",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1713,12 +1977,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "LALITPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "161",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1726,25 +1992,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "LALITPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "161",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 29576,
+    "beneficiaries_paid": 43519,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "LUCKNOW",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "162",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1752,25 +2022,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "LUCKNOW",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "162",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 49947,
+    "beneficiaries_paid": 54810,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
-    "district": "MAHAMAYA NAGAR (HATHRAS)",
+    "district": "MAHAMAYA NAGAR HATHRAS",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "163",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1778,25 +2052,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
-    "district": "MAHAMAYA NAGAR (HATHRAS)",
+    "district": "MAHAMAYA NAGAR HATHRAS",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "163",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 21521,
+    "beneficiaries_paid": 25187,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
-    "district": "MAHAMAYA NAGAR (HATHRAS)",
+    "district": "MAHAMAYA NAGAR HATHRAS",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "163",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1804,12 +2082,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAHARAJGANJ",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "164",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1817,25 +2097,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAHARAJGANJ",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "164",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 66178,
+    "beneficiaries_paid": 130521,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAHARAJGANJ",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "164",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1843,12 +2127,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAHOBA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "165",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1856,25 +2142,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAHOBA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "165",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 18006,
+    "beneficiaries_paid": 23453,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAHOBA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "165",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1882,12 +2172,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAINPURI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "166",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1895,25 +2187,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAINPURI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "166",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 66822,
+    "beneficiaries_paid": 78011,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAINPURI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "166",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1921,12 +2217,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MATHURA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "167",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1934,25 +2232,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MATHURA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "167",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 40444,
+    "beneficiaries_paid": 49936,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MATHURA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "167",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1960,12 +2262,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAU",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "168",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -1973,25 +2277,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAU",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "168",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 38303,
+    "beneficiaries_paid": 67867,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MAU",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "168",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -1999,12 +2307,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MEERUT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "169",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2012,25 +2322,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MEERUT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "169",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 11485,
+    "beneficiaries_paid": 12793,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MEERUT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "169",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2038,12 +2352,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MIRZAPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "170",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2051,25 +2367,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MIRZAPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "170",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 69430,
+    "beneficiaries_paid": 99051,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MIRZAPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "170",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2077,12 +2397,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MORADABAD",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "171",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2090,25 +2412,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MORADABAD",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "171",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 24899,
+    "beneficiaries_paid": 28486,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MORADABAD",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "171",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2116,12 +2442,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MUZAFFARNAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "172",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2129,25 +2457,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MUZAFFARNAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "172",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 24276,
+    "beneficiaries_paid": 33318,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "MUZAFFARNAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "172",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2155,12 +2487,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PILIBHIT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "173",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2168,25 +2502,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PILIBHIT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "173",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 55423,
+    "beneficiaries_paid": 64159,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PILIBHIT",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "173",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2194,12 +2532,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PRATAPGARH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "174",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2207,25 +2547,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PRATAPGARH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "174",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 65336,
+    "beneficiaries_paid": 97177,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PRATAPGARH",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "174",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2233,12 +2577,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PRAYAGRAJ",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "120",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2246,25 +2592,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PRAYAGRAJ",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "120",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 90633,
+    "beneficiaries_paid": 110843,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PRAYAGRAJ",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "120",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2272,12 +2622,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAE BARELI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "175",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2285,25 +2637,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAE BARELI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "175",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 81098,
+    "beneficiaries_paid": 102779,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAE BARELI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "175",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2311,12 +2667,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAMPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "176",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2324,25 +2682,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAMPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "176",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 30536,
+    "beneficiaries_paid": 34293,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAMPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "176",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2350,12 +2712,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SAHARANPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "177",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2363,25 +2727,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SAHARANPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "177",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 61043,
+    "beneficiaries_paid": 76796,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SAHARANPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "177",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2389,12 +2757,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SANT KABEER NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "178",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2402,25 +2772,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SANT KABEER NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "178",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 46634,
+    "beneficiaries_paid": 57016,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SANT KABEER NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "178",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2428,12 +2802,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SANT RAVIDAS NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "179",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2441,25 +2817,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SANT RAVIDAS NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "179",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 35844,
+    "beneficiaries_paid": 48872,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SANT RAVIDAS NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "179",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2467,12 +2847,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SHAHJAHANPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "180",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2480,25 +2862,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SHAHJAHANPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "180",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 68256,
+    "beneficiaries_paid": 79766,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SHAHJAHANPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "180",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2506,12 +2892,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SHAMLI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "660",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2519,25 +2907,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SHAMLI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "660",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 52895,
+    "beneficiaries_paid": 60657,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SHRAVASTI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "181",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2545,25 +2937,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SHRAVASTI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "181",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 15737,
+    "beneficiaries_paid": 20258,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SHRAVASTI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "181",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2571,12 +2967,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SIDDHARTH NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "182",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2584,25 +2982,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SIDDHARTH NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "182",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 57125,
+    "beneficiaries_paid": 90652,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SIDDHARTH NAGAR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "182",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2610,12 +3012,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SITAPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "183",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2623,25 +3027,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SITAPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "183",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 37552,
+    "beneficiaries_paid": 43200,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SITAPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "183",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2649,12 +3057,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SONBHADRA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "184",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2662,25 +3072,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SONBHADRA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "184",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 42994,
+    "beneficiaries_paid": 60465,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SONBHADRA",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "184",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2688,12 +3102,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SULTANPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "185",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2701,25 +3117,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SULTANPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "185",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 61964,
+    "beneficiaries_paid": 85121,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SULTANPUR",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "185",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2727,12 +3147,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "UNNAO",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "186",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2740,25 +3162,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "UNNAO",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "186",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 81670,
+    "beneficiaries_paid": 106008,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "UNNAO",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "186",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2766,12 +3192,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "VARANASI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "187",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -2779,25 +3207,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "VARANASI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "187",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 48818,
+    "beneficiaries_paid": 73043,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "VARANASI",
     "state": "UTTAR PRADESH",
     "state_code": "9",
+    "district_lgd_code": "187",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -2805,6 +3237,6 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   }
 ]

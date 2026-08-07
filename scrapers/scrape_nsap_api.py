@@ -1,22 +1,7 @@
-"""
-NSAP (National Social Assistance Programme) API scraper.
+"""Fetch NSAP district pension snapshots from the data.gov.in API.
 
-Fetches district-level pension beneficiary data directly from data.gov.in API.
-Covers 3 sub-schemes with district+monthly beneficiary counts:
-  - IGNOAPS: Old Age Pension (UUID: 81ebd89d-a528-4d33-bdd1-430527b6f8aa)
-  - IGNWPS: Widow Pension (UUID: 6ffcdce4-bcbc-45a7-8bd4-286b7e2860e3)
-  - IGNDPS: Disability Pension (UUID: e1a7ca20-36b6-46ba-b6ed-6495f11c4242)
-
-Data limitations:
-  - Only beneficiary counts available (no amounts, no eligibility, no pension rates)
-  - Monthly snapshots — we take the latest available month per district per FY
-  - Uses the shared data.gov.in demo key by default; set DATA_GOV_IN_API_KEY to a
-    registered project key to lift the rate-limit ceiling.
-
-Usage:
-    python3 scrape_nsap_api.py                           # All states, auto FY
-    python3 scrape_nsap_api.py --states "BIHAR"          # Single state
-    python3 scrape_nsap_api.py --fin-year "2023-2024"    # Pin a specific FY
+Only beneficiary counts are published. The latest month in each Indian fiscal
+year is selected by stable LGD district identity for IGNOAPS, IGNWPS and IGNDPS.
 """
 
 from __future__ import annotations
@@ -47,6 +32,9 @@ except ImportError:
     )
 
 ROOT_DIR = Path(__file__).resolve().parent.parent  # repo root (scrapers/ is a package)
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 DATA_DIR = ROOT_DIR / "data"
 RAW_DIR = DATA_DIR / "raw" / "nsap"
 CURATED_DIR = DATA_DIR / "curated"
@@ -95,14 +83,7 @@ def _fy_has_data(fin_year: str) -> bool:
 
 
 def resolve_fin_year(preferred: str | None = None, lookback: int = 2) -> str:
-    """Choose the FY to scrape.
-
-    An explicit `preferred` FY wins outright. Otherwise start at the current
-    Indian FY and step back a year at a time (up to `lookback` steps) until the
-    resource actually carries data — data.gov.in publishes NSAP monthly and the
-    running FY can be empty for weeks after it begins while the prior year stays
-    populated. Returns the current FY if every probe is empty (the empty-result
-    no-op then leaves existing curated data untouched)."""
+    """Choose the requested FY or the newest populated FY in the lookback."""
     if preferred:
         return preferred
     fy = current_indian_fy()
@@ -168,22 +149,30 @@ def fetch_scheme_data(
     return all_records
 
 
-def aggregate_latest_month(
-    records: list[dict[str, Any]],
-) -> dict[tuple[str, str, str], dict[str, Any]]:
-    """For each (state, district, scheme), keep only the latest month's data."""
+def aggregate_latest_month(records: list[dict[str, Any]]) -> dict[tuple[str, str, str], dict[str, Any]]:
+    """Keep the latest fiscal-month snapshot for each LGD district identity."""
     best: dict[tuple[str, str, str], dict[str, Any]] = {}
+    ranks: dict[tuple[str, str, str], int] = {}
 
     for r in records:
-        key = (
-            r.get("state_name", "").upper(),
-            r.get("district_name", "").upper(),
-            r.get("scheme_code", "").upper(),
-        )
-        month = r.get("mnth", "00")
-        existing = best.get(key)
-        if existing is None or month > existing.get("mnth", "00"):
+        state = str(r.get("state_name", "")).strip().upper()
+        district = str(r.get("district_name", "")).strip().upper()
+        scheme = str(r.get("scheme_code", "")).strip().upper()
+        code = str(r.get("lgd_district_code", "")).strip()
+        month = str(r.get("mnth", "")).strip()
+        if not state or not district or not scheme or not code.isdigit() or int(code) <= 0:
+            raise ValueError(
+                f"Unusable NSAP district identity: {state}/{district}/{scheme}/{code}"
+            )
+        if not month.isdigit() or not 1 <= int(month) <= 12:
+            raise ValueError(f"Unusable NSAP month for {state}/{district}/{scheme}: {month!r}")
+        key = (state, code, scheme)
+        rank = (int(month) - 4) % 12
+        if key in ranks and rank == ranks[key] and r != best[key]:
+            raise ValueError(f"Conflicting NSAP snapshots for {key} in month {month}")
+        if key not in ranks or rank > ranks[key]:
             best[key] = r
+            ranks[key] = rank
 
     return best
 
@@ -194,19 +183,29 @@ def transform_records(
     scraped_at: str,
 ) -> list[dict[str, Any]]:
     """Transform API records into our standard schema, taking latest month per district."""
-    # Aggregate to latest month
     latest = aggregate_latest_month(raw_records)
+    from db.normalize_districts import normalize_district
+
+    canonical: dict[tuple[str, str, str], dict[str, Any]] = {}
+    for (state, _code, scheme), row in latest.items():
+        district = normalize_district(str(row["district_name"]), state)
+        key = (state, district, scheme)
+        current = canonical.get(key)
+        rank = (int(row["mnth"]) - 4) % 12
+        if current and rank == (int(current["mnth"]) - 4) % 12 and row != current:
+            raise ValueError(f"Conflicting NSAP identities for {key} in month {row['mnth']}")
+        if current is None or rank > (int(current["mnth"]) - 4) % 12:
+            canonical[key] = row
 
     curated: list[dict[str, Any]] = []
-    for (_state, _district, _scheme), r in sorted(latest.items()):
-        if not _district or _district in ("TOTAL", "GRAND TOTAL"):
-            continue
-
+    for (_state, district, _scheme), r in sorted(canonical.items()):
         curated.append(
             {
-                "district": _district,
+                "district": district,
                 "state": _state,
                 "state_code": r.get("lgd_state_code", ""),
+                "district_lgd_code": str(r["lgd_district_code"]).strip(),
+                "source_month": f"{int(r['mnth']):02d}",
                 "fin_year": fin_year,
                 "scheme_type": _scheme,
                 "beneficiaries_eligible": 0,  # Not available in API
@@ -225,11 +224,7 @@ def scrape_all(
     fin_year: str | None = None,
     states_filter: list[str] | None = None,
 ) -> list[dict[str, Any]]:
-    """Scrape all NSAP scheme data from data.gov.in API.
-
-    With no fin_year, auto-resolves to the current Indian FY (falling back to the
-    latest year the resource publishes) — never a stale hardcoded year.
-    """
+    """Scrape all three NSAP schemes for the requested or resolved FY."""
     if fin_year is None:
         fin_year = resolve_fin_year()
     scraped_at = utc_iso()
@@ -258,44 +253,60 @@ def save_raw(records: list[dict[str, Any]], fin_year: str) -> Path:
     return path
 
 
-def _distinct_pairs(records: list[dict[str, Any]]) -> set[tuple[str, str]]:
-    return {(str(r.get("state", "")), str(r.get("district", ""))) for r in records}
+def _coverage_identities(records: list[dict[str, Any]]) -> set[tuple[str, str]]:
+    identities: set[tuple[str, str]] = set()
+    for r in records:
+        state = str(r.get("state", "")).strip().upper()
+        code = str(r.get("district_lgd_code", "")).strip()
+        if not state or not code.isdigit() or int(code) <= 0:
+            raise ValueError(f"Unusable curated NSAP LGD identity: {state}/{code}")
+        identities.add((state, code))
+    return identities
 
 
-def _existing_curated_pairs() -> set[tuple[str, str]]:
-    """Distinct (state, district) pairs across all existing nsap curated files."""
-    pairs: set[tuple[str, str]] = set()
+def _existing_curated_identities(
+    new_records: list[dict[str, Any]],
+) -> set[tuple[str, str]]:
+    from db.normalize_districts import normalize_district
+
+    by_name: dict[tuple[str, str], str] = {}
+    for r in new_records:
+        state = str(r["state"]).strip().upper()
+        district = normalize_district(str(r["district"]), state)
+        code = str(r["district_lgd_code"]).strip()
+        prior = by_name.setdefault((state, district), code)
+        if prior != code:
+            raise ValueError(f"Conflicting NSAP LGD codes for {state}/{district}")
+
+    identities: set[tuple[str, str]] = set()
     for p in CURATED_DIR.glob("nsap_district_*_latest.json"):
         try:
             for r in json.loads(p.read_text(encoding="utf-8")):
-                pairs.add((str(r.get("state", "")), str(r.get("district", ""))))
+                state = str(r.get("state", "")).strip().upper()
+                code = str(r.get("district_lgd_code", "")).strip()
+                if not code:
+                    district = normalize_district(str(r.get("district", "")), state)
+                    code = by_name.get((state, district), "")
+                if not code.isdigit() or int(code) <= 0:
+                    raise ValueError(f"Cannot map existing NSAP identity in {p.name}")
+                identities.add((state, code))
         except (json.JSONDecodeError, OSError):
             continue
-    return pairs
+    return identities
 
 
 def save_curated_by_state(
     records: list[dict[str, Any]], national: bool = True
 ) -> dict[str, Path]:
-    """Save per-state curated files.
-
-    Granularity guard (national runs only): a full pull covering fewer distinct
-    (state, district) pairs than the existing curated set is refused, not
-    written — this is the partial-early-FY trap, where the running year has a
-    handful of reporting districts and would otherwise replace the complete
-    prior year. Mirrors the NRLM/PM Kisan/NFSA guards (learnings.md 2026-08-04).
-    Targeted --states runs skip the aggregate guard: they legitimately touch
-    only the named states' files.
-    """
+    """Save by state; national runs may not lose an LGD district identity."""
     if national:
-        new_pairs = _distinct_pairs(records)
-        existing = _existing_curated_pairs()
-        if existing and len(new_pairs) < len(existing):
+        new_ids = _coverage_identities(records)
+        existing = _existing_curated_identities(records)
+        missing = existing - new_ids
+        if missing:
             raise ValueError(
-                f"Refusing NSAP save: new pull covers {len(new_pairs)} distinct "
-                f"(state, district) pairs, existing curated has {len(existing)} — a "
-                "refresh must never reduce coverage. Likely a partial early-FY pull; "
-                "the prior complete year is kept."
+                f"Refusing NSAP save: new pull lost {len(missing)} LGD district "
+                f"identities (new {len(new_ids)}, existing {len(existing)}); prior data kept"
             )
 
     by_state: dict[str, list[dict[str, Any]]] = {}
@@ -313,12 +324,7 @@ def save_curated_by_state(
 
 
 def process_live(fin_year: str | None = None) -> int:
-    """Scrape NSAP district data for the resolved FY and save per-state.
-
-    Entry point for run_all.py (mirrors scrape_nfsa.process_live). With no
-    fin_year it auto-tracks the current Indian FY, falling back to the latest
-    year the resource actually publishes. Returns the number of curated rows.
-    """
+    """Scrape the resolved FY and save per-state curated files."""
     ensure_dirs()
     resolved = resolve_fin_year(fin_year)
     print(f"  NSAP: resolved FY -> {resolved}")

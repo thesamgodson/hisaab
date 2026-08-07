@@ -2,12 +2,9 @@ import Link from "next/link";
 import ComplaintGuide from "@/components/ComplaintGuide";
 import SchemeDataSection from "@/components/SchemeDataSection";
 import SourceLink from "@/components/SourceLink";
-import type { SchemeData } from "@/components/SchemeRow";
-import type {
-  ComplaintKit,
-  DistrictLineage,
-  GrievanceChannel,
-} from "@/lib/action-types";
+import type { ComplaintKit, DistrictLineage, GrievanceChannel } from "@/lib/action-types";
+import type { AreaAccount } from "@/lib/area-account";
+import { schemeDisplay } from "@/lib/scheme-display";
 import { titleCasePlace } from "@/lib/format-place";
 
 export interface ResultRepresentative {
@@ -16,6 +13,7 @@ export interface ResultRepresentative {
   party: string;
   area: string;
   sourceUrl: string;
+  electedYear: number;
 }
 
 interface AccountabilityResultProps {
@@ -23,109 +21,151 @@ interface AccountabilityResultProps {
   district: string;
   state: string;
   lineage: DistrictLineage | null;
+  account: AreaAccount;
+  complaintSchemes: string[];
   complaintKits: ComplaintKit[];
   universalChannels: GrievanceChannel[];
   representatives: ResultRepresentative[];
   representativeContext: string;
-  schemes: SchemeData[];
   selectedScheme: string | null;
   selectedTrigger: string | null;
-  selectedTriggerIndex?: number | null;
+  general: boolean;
 }
 
-function changeAreaHref(
-  selectedScheme: string | null,
-  selectedTriggerIndex: number | null | undefined,
-): string {
+function changeAreaHref(selectedScheme: string | null, general: boolean): string {
+  if (general) return "/";
   const issue = selectedScheme;
-  if (!issue) return "/";
-  const params = new URLSearchParams({ issue });
-  if (selectedTriggerIndex != null) params.set("trigger", String(selectedTriggerIndex));
-  return `/?${params.toString()}`;
+  return issue ? `/?issue=${encodeURIComponent(issue)}` : "/";
 }
 
-export default function AccountabilityResult({
+function ActionPicker({
   pin,
   district,
   state,
-  lineage,
-  complaintKits,
-  universalChannels,
-  representatives,
-  representativeContext,
   schemes,
   selectedScheme,
-  selectedTrigger,
-  selectedTriggerIndex,
-}: AccountabilityResultProps) {
-  const areaHref = changeAreaHref(selectedScheme, selectedTriggerIndex);
+  general,
+}: Pick<AccountabilityResultProps, "pin" | "district" | "state" | "selectedScheme" | "general"> & {
+  schemes: string[];
+}) {
+  return (
+    <form action="/#action" method="get" className="guide-picker">
+      {pin ? <input type="hidden" name="pin" value={pin} /> : (
+        <>
+          <input type="hidden" name="district" value={district} />
+          <input type="hidden" name="state" value={state} />
+        </>
+      )}
+      <label htmlFor="guide-select">
+        Scheme or service
+        <select id="guide-select" name="issue" defaultValue={general ? "ALL" : selectedScheme ?? ""} required>
+          <option value="" disabled>Choose a service</option>
+          {[...schemes].sort((left, right) =>
+            schemeDisplay(left).need.localeCompare(schemeDisplay(right).need),
+          ).map((scheme) => (
+            <option key={scheme} value={scheme}>{schemeDisplay(scheme).need}</option>
+          ))}
+          <option value="ALL">Another government-service problem</option>
+        </select>
+      </label>
+      <button className="button button--primary" type="submit">Show rights and routes</button>
+    </form>
+  );
+}
 
+function Representatives({
+  representatives,
+  representativeContext,
+}: Pick<AccountabilityResultProps, "representatives" | "representativeContext">) {
+  return (
+    <details className="representative-section no-print">
+      <summary>MPs for constituencies overlapping this district</summary>
+      <div className="representative-section__body">
+        <p className="representative-context">{representativeContext}</p>
+        {representatives.length > 0 ? representatives.map((person) => (
+          <article className="person-row" key={`${person.role}-${person.area}-${person.name}`}>
+            <div>
+              <p>{person.role} · {person.area}</p>
+              <h3>{person.name}</h3>
+              <span>{person.party}</span>
+            </div>
+            <div className="person-row__provenance">
+              <SourceLink
+                url={person.sourceUrl}
+                label="Representative dataset"
+                accessibleLabel={`Representative dataset for ${person.name}`}
+              />
+              <span>Elected {person.electedYear}</span>
+              <span className="claim-id">CLAIM-2026-0035</span>
+            </div>
+          </article>
+        )) : <p className="coverage-empty">No representative record is available for this area yet.</p>}
+      </div>
+    </details>
+  );
+}
+
+export default function AccountabilityResult(props: AccountabilityResultProps) {
+  const {
+    pin, district, state, lineage, account, complaintSchemes, complaintKits, universalChannels,
+    representatives, representativeContext, selectedScheme, selectedTrigger, general,
+  } = props;
   return (
     <div id="result" className="result-shell">
-      <nav className="result-nav no-print" aria-label="Change answers">
-        <Link href={areaHref}>Change area</Link>
-        <Link href="/">Start again</Link>
+      <nav className="result-nav no-print" aria-label="Account controls">
+        <Link href={changeAreaHref(selectedScheme, general)}>Change area</Link>
+        <Link href="#action">Question a record or service</Link>
       </nav>
 
-      <header className="result-context">
-        <p className="result-context__label">Public action plan for</p>
-        <p className="result-context__area">
-          {titleCasePlace(district)}, {titleCasePlace(state)}
-        </p>
-        <p className="result-context__scope">
-          {pin ? `PIN ${pin} resolved to this postal district.` : "District-level context."}
+      <header className="account-header">
+        <div className="account-header__identity">
+          <p className="service-label">Public welfare account</p>
+          <h1>{titleCasePlace(district)}</h1>
+          <p className="account-header__state">{titleCasePlace(state)}</p>
+        </div>
+        <p className="account-header__scope">
+          {pin ? `PIN ${pin} resolved to this postal district.` : "District selected directly."}
+          {" "}These are area-wide public records, not a personal benefit record.
         </p>
         {lineage && (
-          <p className="result-context__scope">
+          <p className="account-header__lineage">
             Reorganized in {lineage.split_year}; formerly part of {titleCasePlace(lineage.parent_district)} district.
           </p>
         )}
       </header>
 
-      <ComplaintGuide
-        kits={complaintKits}
-        universal={universalChannels}
-        selectedScheme={selectedScheme}
-        selectedTrigger={selectedTrigger}
-        district={district}
-        state={state}
-      />
+      <SchemeDataSection account={account} pin={pin} district={district} state={state} />
 
-      <details className="result-secondary">
-        <summary>Area evidence and data context</summary>
-        <div className="result-secondary__body">
-          <SchemeDataSection schemes={schemes} />
-          {schemes.length === 0 && (
-            <div className="data-caveat">
-              We do not have district-level scheme figures for this area. This
-              does not mean no money was allocated or no service was delivered.
-            </div>
-          )}
-        </div>
-      </details>
+      <section id="action" className="action-section" aria-labelledby="action-heading">
+        <header className="account-section__header">
+          <h2 id="action-heading">Question a record or service</h2>
+          <p>
+            Choose the service yourself. The figures above do not determine
+            eligibility, prove a complaint, or choose a route for you.
+          </p>
+        </header>
+        <ActionPicker
+          pin={pin}
+          district={district}
+          state={state}
+          schemes={complaintSchemes}
+          selectedScheme={selectedScheme}
+          general={general}
+        />
+        {(selectedScheme || general) && (
+          <ComplaintGuide
+            kits={complaintKits}
+            universal={universalChannels}
+            selectedScheme={selectedScheme}
+            selectedTrigger={selectedTrigger}
+            district={district}
+            state={state}
+            general={general}
+          />
+        )}
+      </section>
 
-      <details className="result-secondary">
-        <summary>Representatives for this area</summary>
-        <div className="result-secondary__body">
-          <p className="representative-context">{representativeContext}</p>
-          {representatives.length > 0 ? (
-            <div className="people-list">
-              {representatives.map((person) => (
-                <article className="person-row" key={`${person.role}-${person.area}-${person.name}`}>
-                  <div>
-                    <p>{person.role} · {person.area}</p>
-                    <h3>{person.name}</h3>
-                    <span>{person.party}</span>
-                  </div>
-                  <SourceLink url={person.sourceUrl} label="Official record" />
-                </article>
-              ))}
-            </div>
-          ) : (
-            <p className="data-caveat">No representative record is available for this area yet.</p>
-          )}
-        </div>
-      </details>
+      <Representatives representatives={representatives} representativeContext={representativeContext} />
 
       <p className="print-disclaimer">
         Hisaab is an independent public-interest tool, not a government service.

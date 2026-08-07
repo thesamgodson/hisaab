@@ -276,8 +276,8 @@ svg {
   }
 
   body {
-    background: #fff;
-    color: #000;
+    background: var(--color-print-paper);
+    color: var(--color-print-ink);
     font-size: 11pt;
   }
 
@@ -296,12 +296,22 @@ svg {
   .action-plan,
   .route,
   .guide__entitlement,
+  .guide__situations,
   .guide__prepare {
     break-inside: avoid;
   }
 
+  .state-context > summary {
+    display: none;
+  }
+
+  .state-context__body {
+    display: block !important;
+    margin-top: 0;
+  }
+
   a {
-    color: #000 !important;
+    color: var(--color-print-ink) !important;
   }
 
   .route__actions a[href^="http"]::after,

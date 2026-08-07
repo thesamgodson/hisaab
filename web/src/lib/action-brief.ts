@@ -26,14 +26,16 @@ import type {
 } from "@/lib/action-types";
 
 /**
- * Fallback MP lookup for PINs whose district has no constituency_district row
- * (all of Delhi, among others) but does have a spatial PIN→PC match. Same join
- * discipline as /api/v1/pin/[pin_code]: reservation suffixes normalized on both
- * sides, state matched against its vintage-equivalent labels.
+ * Estimated MP lookup from the derived PIN→PC relation. Reservation suffixes
+ * are normalized on both sides and state is matched against vintage-equivalent
+ * labels. No district-level singular fallback is allowed.
  */
-async function findMpByPin(pinCode: string): Promise<MPInfo | null> {
-  const pinPc = await queryOne<{ constituency: string; state: string }>(
-    `SELECT constituency, state FROM pin_constituency WHERE pin_code = ?`,
+async function findMpByPin(pinCode: string): Promise<{
+  mp: MPInfo;
+  method: string;
+} | null> {
+  const pinPc = await queryOne<{ constituency: string; state: string; method: string }>(
+    `SELECT constituency, state, method FROM pin_constituency WHERE pin_code = ?`,
     [pinCode],
   );
   if (!pinPc) return null;
@@ -46,7 +48,7 @@ async function findMpByPin(pinCode: string): Promise<MPInfo | null> {
          AND UPPER(state) = ?`,
       [stripReservation(pinPc.constituency), st],
     );
-    if (mp) return mp;
+    if (mp) return { mp, method: pinPc.method };
   }
   return null;
 }
@@ -168,7 +170,7 @@ export interface DistrictBriefResponse {
   state: string;
   formerly_part_of: { parent_district: string; split_year: number } | null;
   mps: MPInfo[];
-  /** Assembly seats overlapping this district — a PIN pins down which one. */
+  /** Assembly seats overlapping this district. Hisaab has no PIN-to-AC mapping. */
   ac_count: number;
   diagnosis: DiagnosisItem[];
   schemes_checked: string[];
@@ -221,50 +223,10 @@ export async function buildActionBrief(
   if (!mapping) return null;
 
   const { district, state } = mapping;
-  const states = candidateStates(state);
-  const stateSlots = states.map(() => "?").join(", ");
-  const [lineage, mpRow, mlaRow] = await Promise.all([
+  const [lineage, pinMp] = await Promise.all([
     getLineage(district, state),
-    queryOne<{
-      mp_name: string;
-      party: string;
-      constituency: string;
-      state: string;
-      elected_year: number;
-      source_url: string;
-    }>(
-      // States join through candidateStates (constituency_district carries
-      // vintage pre-bifurcation labels; PC names repeat across states).
-      // Names join through the shared normalizer: datameet keeps reservation
-      // suffixes (with and without a leading space), OpenCity/MyNeta drop them.
-      `SELECT m.mp_name, m.party, m.constituency, m.state, m.elected_year, m.source_url
-       FROM constituency_district cd
-       JOIN mp_info m
-         ON ${pcNameNorm("m.constituency")} = ${pcNameNorm("cd.constituency")}
-        AND UPPER(m.state) IN (${stateSlots})
-       WHERE UPPER(cd.district) = UPPER(?) AND UPPER(cd.state) IN (${stateSlots})
-       LIMIT 1`,
-      [...states, district, ...states],
-    ),
-    queryOne<{
-      mla_name: string;
-      party: string;
-      ac_name: string;
-      state: string;
-      source_url: string;
-    }>(
-      `SELECT ml.mla_name, ml.party, ml.ac_name, ml.state, ml.source_url
-       FROM ac_district ac
-       JOIN mla_info ml
-         ON ${pcNameNorm("ml.ac_name")} = ${pcNameNorm("ac.ac_name")}
-        AND UPPER(ml.state) IN (${stateSlots})
-       WHERE UPPER(ac.district) = UPPER(?) AND UPPER(ac.state) IN (${stateSlots})
-       LIMIT 1`,
-      [...states, district, ...states],
-    ),
+    findMpByPin(pinCode),
   ]);
-
-  const mp = mpRow ?? (await findMpByPin(pinCode));
 
   const { kits, universal } = await getComplaintCatalog();
   const grievanceChannels = kits.flatMap((kit) => kit.channels);
@@ -285,8 +247,14 @@ export async function buildActionBrief(
     formerly_part_of: lineage
       ? { parent_district: lineage.parent_district, split_year: lineage.split_year }
       : null,
-    mp: mp ?? null,
-    mla: mlaRow ?? null,
+    mp: pinMp?.mp ?? null,
+    mla: null,
+    representative_mapping: {
+      mp_scope: pinMp ? "estimated_parliamentary_constituency" : "unavailable",
+      mp_method: pinMp?.method ?? null,
+      mla_scope: "unavailable",
+      claim_id: "DERIVED-2026-0002",
+    },
     diagnosis: [],
     schemes_checked: [],
     actions,

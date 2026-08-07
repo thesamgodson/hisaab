@@ -21,8 +21,11 @@
   --color-success: oklch(0.39 0.11 145);
   --color-success-soft: oklch(0.96 0.02 145);
   --color-success-rule: oklch(0.78 0.06 145);
+  --color-print-paper: oklch(1 0 250);
+  --color-print-ink: oklch(0 0 250);
 
   --font-ui: var(--font-noto-sans), "Noto Sans", "Noto Sans Devanagari", "Noto Sans Bengali", "Noto Sans Tamil", "Segoe UI", sans-serif;
+  --font-display: var(--font-ui);
   --font-mono: var(--font-geist-mono), "SFMono-Regular", monospace;
 
   --space-3xs: 0.25rem;

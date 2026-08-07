@@ -1,7 +1,19 @@
 /** Shared district scheme-data access: latest money_flow row per scheme. */
 
 import { query } from "@/lib/db";
-import type { SchemeData } from "@/components/SchemeRow";
+
+export interface SchemeData {
+  scheme: string;
+  fin_year: string;
+  allocated_lakhs: number | null;
+  released_lakhs: number | null;
+  expended_lakhs: number | null;
+  utilization_pct: number | null;
+  units_target: number | null;
+  units_completed: number | null;
+  units_label: string | null;
+  source_url: string | null;
+}
 
 export interface MoneyFlowRow extends SchemeData {
   state: string;

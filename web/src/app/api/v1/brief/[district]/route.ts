@@ -65,26 +65,14 @@ export async function GET(
       const totalExpend = Number(financial.cumulative_expenditure ?? 0);
       briefParts.push(`Fund availability: ${fmtRs(totalAvail, "lakhs")}`);
       briefParts.push(`Total expenditure: ${fmtRs(totalExpend, "lakhs")}`);
-      if (totalAvail > 0) {
-        const utilizationPct = ((totalExpend / totalAvail) * 100).toFixed(1);
-        briefParts.push(`Utilization rate: ${utilizationPct}%`);
-        if (Number(utilizationPct) < 50) {
-          briefParts.push(`RED FLAG: Utilization below 50%`);
-        }
-      }
     }
 
     if (misappropriation) {
       const amtReported = Number(misappropriation.amount_reported ?? 0);
       const amtRecovered = Number(misappropriation.amount_recovered ?? 0);
       if (amtReported > 0) {
-        briefParts.push(`Amount reported: ${fmtRs(amtReported, "lakhs")}`);
-        briefParts.push(`Amount recovered: ${fmtRs(amtRecovered, "lakhs")}`);
-        const recoveryPct = (amtRecovered / amtReported) * 100;
-        briefParts.push(`Recovery rate: ${recoveryPct.toFixed(1)}%`);
-        if (recoveryPct < 30) {
-          briefParts.push(`RED FLAG: Recovery rate below 30%`);
-        }
+        briefParts.push(`Amount reported: ${fmtRs(amtReported)}`);
+        briefParts.push(`Amount recovered: ${fmtRs(amtRecovered)}`);
       }
     }
 
@@ -99,11 +87,6 @@ export async function GET(
     if (sanctioned > 0) {
       briefParts.push(`Roads sanctioned: ${sanctioned.toLocaleString("en-IN")}`);
       briefParts.push(`Roads completed: ${completed.toLocaleString("en-IN")}`);
-      const completionPct = ((completed / sanctioned) * 100).toFixed(1);
-      briefParts.push(`Completion rate: ${completionPct}%`);
-      if (Number(completionPct) < 50) {
-        briefParts.push(`RED FLAG: Road completion below 50%`);
-      }
     }
     if (pmgsy.expenditure_cr != null) {
       briefParts.push(`Expenditure: ${fmtRs(Number(pmgsy.expenditure_cr) * 100, "lakhs")}`);

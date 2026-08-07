@@ -6,13 +6,14 @@ import "./tokens.css";
 import "./base.css";
 import "./forms.css";
 import "./surface.css";
+import "./action.css";
 import "./evidence.css";
 
 const notoSans = Noto_Sans({ variable: "--font-noto-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 export const metadata: Metadata = {
-  title: { default: "Hisaab — Welfare rights and complaint routes", template: "%s | Hisaab" },
-  description: "Choose a welfare problem and leave with sourced official routes, a preparation note, and public area evidence.",
+  title: { default: "Hisaab — Public welfare account", template: "%s | Hisaab" },
+  description: "Read sourced district welfare money and delivery records, see what is missing, and use verified official routes when needed.",
   icons: { icon: "/favicon.svg" },
 };
 
@@ -29,14 +30,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${notoSans.variable} ${geistMono.variable}`}
     >
       <body>
-        <a className="skip-link" href="#main-content">Skip to service</a>
+        <a className="skip-link" href="#main-content">Skip to account</a>
         <header className="site-header">
           <nav className="site-header__inner" aria-label="Primary navigation">
             <Link href="/" className="wordmark">
               Hisaab
             </Link>
             <span className="site-header__context">
-              Welfare rights and complaints
+              Public welfare account
             </span>
           </nav>
         </header>

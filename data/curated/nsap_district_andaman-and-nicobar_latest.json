@@ -3,19 +3,23 @@
     "district": "NORTH AND MIDDLE ANDAMAN",
     "state": "ANDAMAN AND NICOBAR",
     "state_code": "35",
+    "district_lgd_code": "632",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 139,
+    "beneficiaries_paid": 137,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SOUTH ANDAMANS",
     "state": "ANDAMAN AND NICOBAR",
     "state_code": "35",
+    "district_lgd_code": "602",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -23,25 +27,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SOUTH ANDAMANS",
     "state": "ANDAMAN AND NICOBAR",
     "state_code": "35",
+    "district_lgd_code": "602",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 443,
+    "beneficiaries_paid": 442,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SOUTH ANDAMANS",
     "state": "ANDAMAN AND NICOBAR",
     "state_code": "35",
+    "district_lgd_code": "602",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -49,6 +57,6 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   }
 ]

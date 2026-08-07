@@ -13,6 +13,13 @@ interface SchemeQuery {
   describe: (row: Record<string, unknown>) => string;
 }
 
+function formatRupees(amount: unknown): string {
+  const value = Number(amount ?? 0);
+  if (Math.abs(value) >= 10000000) return `Rs ${(value / 10000000).toFixed(2)} Cr`;
+  if (Math.abs(value) >= 100000) return `Rs ${(value / 100000).toFixed(2)} L`;
+  return `Rs ${value.toLocaleString("en-IN", { maximumFractionDigits: 0 })}`;
+}
+
 function buildQuery(
   scheme: SchemeKey,
   state: string,
@@ -27,7 +34,7 @@ function buildQuery(
               FROM misappropriation WHERE UPPER(state) = UPPER(?) AND fin_year = ?`,
         args: [state, finYear],
         describe: (r) =>
-          `MGNREGA in ${state} (${finYear}): ${r.districts} districts, ${r.total_cases} cases reported, Rs ${Number(r.total_reported ?? 0).toFixed(2)}L reported, Rs ${Number(r.total_recovered ?? 0).toFixed(2)}L recovered.`,
+          `MGNREGA in ${state} (${finYear}): ${r.districts} districts, ${r.total_cases} cases reported, ${formatRupees(r.total_reported)} reported, ${formatRupees(r.total_recovered)} recovered.`,
       };
     case "PMGSY":
       return {
@@ -50,11 +57,11 @@ function buildQuery(
     case "PM Kisan":
       return {
         sql: `SELECT COUNT(*) as districts, SUM(beneficiaries_paid) as total_paid,
-              SUM(amount_paid_lakhs) as total_amount
+              NULL as total_amount
               FROM pmkisan_district WHERE UPPER(state) = UPPER(?) AND fin_year = ?`,
         args: [state, finYear],
         describe: (r) =>
-          `PM Kisan in ${state} (${finYear}): ${r.districts} districts, ${Number(r.total_paid ?? 0).toLocaleString("en-IN")} beneficiaries, Rs ${Number(r.total_amount ?? 0).toFixed(2)}L disbursed.`,
+          `PM Kisan in ${state} (${finYear}): ${r.districts} districts, ${Number(r.total_paid ?? 0).toLocaleString("en-IN")} farmers recorded as paid. This district source does not publish money.`,
       };
     case "JJM":
       return {
@@ -72,25 +79,25 @@ function buildQuery(
               FROM pmposhan_district WHERE UPPER(state) = UPPER(?) AND fin_year = ?`,
         args: [state, finYear],
         describe: (r) =>
-          `PM POSHAN in ${state} (${finYear}): ${r.districts} districts, ${Number(r.total_enrolled ?? 0).toLocaleString("en-IN")} enrolled, ${Number(r.total_fed ?? 0).toLocaleString("en-IN")} fed.`,
+          `PM POSHAN in ${state} (${finYear}): ${r.districts} districts, ${Number(r.total_fed ?? 0).toLocaleString("en-IN")} children reported fed in a daily meal snapshot. ${Number(r.total_enrolled ?? 0).toLocaleString("en-IN")} enrolled is context, not a coverage denominator.`,
       };
     case "NSAP":
       return {
-        sql: `SELECT COUNT(*) as districts, SUM(beneficiaries_paid) as total_paid,
-              SUM(amount_paid_lakhs) as total_amount
+        sql: `SELECT COUNT(DISTINCT UPPER(district)) as districts,
+              SUM(beneficiaries_paid) as total_paid, NULL as total_amount
               FROM nsap_district WHERE UPPER(state) = UPPER(?) AND fin_year = ?`,
         args: [state, finYear],
         describe: (r) =>
-          `NSAP in ${state} (${finYear}): ${r.districts} districts, ${Number(r.total_paid ?? 0).toLocaleString("en-IN")} beneficiaries paid, Rs ${Number(r.total_amount ?? 0).toFixed(2)}L.`,
+          `NSAP in ${state} (${finYear}): ${r.districts} distinct districts, ${Number(r.total_paid ?? 0).toLocaleString("en-IN")} beneficiaries recorded as paid. District spending is not published.`,
       };
     case "PDS/NFSA":
       return {
         sql: `SELECT COUNT(*) as districts, SUM(ration_cards_total) as total_cards,
-              SUM(ration_cards_active) as active_cards
+              NULL as active_cards
               FROM nfsa_district WHERE UPPER(state) = UPPER(?) AND fin_year = ?`,
         args: [state, finYear],
         describe: (r) =>
-          `PDS/NFSA in ${state} (${finYear}): ${r.districts} districts, ${Number(r.total_cards ?? 0).toLocaleString("en-IN")} total cards, ${Number(r.active_cards ?? 0).toLocaleString("en-IN")} active.`,
+          `PDS/NFSA in ${state} (${finYear}): ${r.districts} districts, ${Number(r.total_cards ?? 0).toLocaleString("en-IN")} ration cards recorded. Active-card status is not separately published.`,
       };
     default:
       return null;

@@ -3,6 +3,8 @@
     "district": "ANANTNAG",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "1",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -10,25 +12,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ANANTNAG",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "1",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 8138,
+    "beneficiaries_paid": 8024,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "ANANTNAG",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "1",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -36,12 +42,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BADGAM",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "2",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -49,25 +57,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BADGAM",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "2",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 11576,
+    "beneficiaries_paid": 11718,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BADGAM",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "2",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -75,51 +87,59 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BANDIPORA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "623",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 117,
+    "beneficiaries_paid": 115,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BANDIPORA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "623",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 4643,
+    "beneficiaries_paid": 4581,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BANDIPORA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "623",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 478,
+    "beneficiaries_paid": 474,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BARAMULLA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "3",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -127,77 +147,89 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BARAMULLA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "3",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 8224,
+    "beneficiaries_paid": 7987,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "BARAMULLA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "3",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 703,
+    "beneficiaries_paid": 699,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "DODA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "4",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 223,
+    "beneficiaries_paid": 216,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "DODA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "4",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 8347,
+    "beneficiaries_paid": 7704,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "DODA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "4",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 265,
+    "beneficiaries_paid": 249,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
-    "district": "GANDERWAL",
+    "district": "GANDERBAL",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "626",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -205,25 +237,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
-    "district": "GANDERWAL",
+    "district": "GANDERBAL",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "626",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 4745,
+    "beneficiaries_paid": 4803,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
-    "district": "GANDERWAL",
+    "district": "GANDERBAL",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "626",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -231,12 +267,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JAMMU",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "5",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -244,25 +282,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JAMMU",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "5",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 12566,
+    "beneficiaries_paid": 12534,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "JAMMU",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "5",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -270,51 +312,59 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KATHUA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "7",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 144,
+    "beneficiaries_paid": 143,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KATHUA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "7",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 5212,
+    "beneficiaries_paid": 5206,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KATHUA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "7",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 522,
+    "beneficiaries_paid": 525,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KISHTWAR",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "620",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -322,25 +372,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KISHTWAR",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "620",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 4534,
+    "beneficiaries_paid": 4385,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KISHTWAR",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "620",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -348,12 +402,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KULGAM",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "622",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -361,77 +417,89 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KULGAM",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "622",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 4578,
+    "beneficiaries_paid": 4561,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KULGAM",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "622",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 409,
+    "beneficiaries_paid": 410,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KUPWARA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "8",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 128,
+    "beneficiaries_paid": 138,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KUPWARA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "8",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 9313,
+    "beneficiaries_paid": 8948,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "KUPWARA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "8",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 495,
+    "beneficiaries_paid": 475,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "POONCH",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "10",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -439,25 +507,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "POONCH",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "10",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 5988,
+    "beneficiaries_paid": 5999,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "POONCH",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "10",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -465,12 +537,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PULWAMA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "11",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -478,38 +552,44 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PULWAMA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "11",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 5341,
+    "beneficiaries_paid": 5275,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "PULWAMA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "11",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 311,
+    "beneficiaries_paid": 312,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAJAURI",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "12",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -517,38 +597,44 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAJAURI",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "12",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 8868,
+    "beneficiaries_paid": 8639,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAJAURI",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "12",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 389,
+    "beneficiaries_paid": 393,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAMBAN",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "621",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -556,25 +642,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAMBAN",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "621",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 2406,
+    "beneficiaries_paid": 2405,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "RAMBAN",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "621",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -582,12 +672,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "REASI",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "627",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -595,77 +687,89 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "REASI",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "627",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 5262,
+    "beneficiaries_paid": 5218,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "REASI",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "627",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 97,
+    "beneficiaries_paid": 96,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SAMBA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "624",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 58,
+    "beneficiaries_paid": 55,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SAMBA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "624",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 3418,
+    "beneficiaries_paid": 3147,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SAMBA",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "624",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 121,
+    "beneficiaries_paid": 118,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SHOPIAN",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "625",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -673,25 +777,29 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SHOPIAN",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "625",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 1569,
+    "beneficiaries_paid": 1571,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SHOPIAN",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "625",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -699,12 +807,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SRINAGAR",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "13",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
@@ -712,12 +822,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SRINAGAR",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "13",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
@@ -725,12 +837,14 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "SRINAGAR",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "13",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
@@ -738,45 +852,51 @@
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "UDHAMPUR",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "14",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNDPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 26,
+    "beneficiaries_paid": 29,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "UDHAMPUR",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "14",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNOAPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 5778,
+    "beneficiaries_paid": 5397,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   },
   {
     "district": "UDHAMPUR",
     "state": "JAMMU AND KASHMIR",
     "state_code": "1",
+    "district_lgd_code": "14",
+    "source_month": "02",
     "fin_year": "2025-2026",
     "scheme_type": "IGNWPS",
     "beneficiaries_eligible": 0,
-    "beneficiaries_paid": 353,
+    "beneficiaries_paid": 347,
     "amount_paid_lakhs": 0,
     "pension_per_month": 0,
     "source_url": "api.data.gov.in/resource/nsap",
-    "scraped_at": "2026-08-04T14:11:26.316346+00:00"
+    "scraped_at": "2026-08-07T05:04:13.329001+00:00"
   }
 ]

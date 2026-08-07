@@ -22,11 +22,10 @@ interface JjmRow {
   coverage_pct: number;
 }
 
-function formatLakhs(amount: number): string {
-  if (Math.abs(amount) >= 100) {
-    return `Rs ${(amount / 100).toFixed(2)} Cr`;
-  }
-  return `Rs ${amount.toFixed(2)} L`;
+function formatRupees(amount: number): string {
+  if (Math.abs(amount) >= 10000000) return `Rs ${(amount / 10000000).toFixed(2)} Cr`;
+  if (Math.abs(amount) >= 100000) return `Rs ${(amount / 100000).toFixed(2)} L`;
+  return `Rs ${amount.toLocaleString("en-IN", { maximumFractionDigits: 0 })}`;
 }
 
 export async function GET(request: NextRequest) {
@@ -71,8 +70,8 @@ export async function GET(request: NextRequest) {
       const sourceUrl = top.source_url ?? null;
       const answer =
         rows.length === 1
-          ? `${top.district}: ${top.cases_reported} cases, ${formatLakhs(top.amount_reported)} reported, ${top.recovery_rate_pct}% recovered.`
-          : `Top ${rows.length} districts by misappropriation: ${rows.map((r) => `${r.district} (${formatLakhs(r.amount_reported)})`).join(", ")}.`;
+          ? `${top.district}: ${top.cases_reported} cases, ${formatRupees(top.amount_reported)} reported, ${top.recovery_rate_pct}% recovered.`
+          : `Top ${rows.length} districts by reported misappropriation amount: ${rows.map((r) => `${r.district} (${formatRupees(r.amount_reported)})`).join(", ")}.`;
       misappropriation = { answer, data: rows, source_url: sourceUrl };
     }
   } catch {

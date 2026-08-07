@@ -21,6 +21,7 @@
 }
 
 .pin-form input,
+.district-form input,
 .district-picker select,
 .guide-picker select,
 .service-form > select {
@@ -32,10 +33,13 @@
   background: var(--color-paper);
   color: var(--color-ink);
   font-size: var(--text-base);
+  outline: 2px solid transparent;
+  outline-offset: 1px;
   transition: border-color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
 }
 
 .pin-form input:hover,
+.district-form input:hover,
 .district-picker select:hover,
 .guide-picker select:hover,
 .service-form > select:hover {
@@ -43,6 +47,7 @@
 }
 
 .pin-form input:focus,
+.district-form input:focus,
 .district-picker select:focus,
 .guide-picker select:focus,
 .service-form > select:focus {
@@ -50,6 +55,7 @@
 }
 
 .pin-form input:focus-visible,
+.district-form input:focus-visible,
 .district-picker select:focus-visible,
 .guide-picker select:focus-visible,
 .service-form > select:focus-visible {
@@ -58,6 +64,7 @@
 }
 
 .pin-form input:active,
+.district-form input:active,
 .district-picker select:active,
 .guide-picker select:active,
 .service-form > select:active {
@@ -65,11 +72,14 @@
 }
 
 .pin-form input:disabled,
+.district-form input:disabled,
 .district-picker select:disabled,
 .guide-picker select:disabled,
 .service-form > select:disabled {
   background: var(--color-surface);
   color: var(--color-muted);
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 .pin-form p,
@@ -108,10 +118,24 @@
   cursor: wait;
 }
 
+.hydration-control-placeholder {
+  display: inline-flex;
+  align-items: center;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .lookup-message--error {
   padding-inline-start: var(--space-xs);
   border-inline-start: var(--rule-heavy) solid var(--color-danger);
   color: var(--color-danger);
+}
+
+.field-message {
+  min-height: 1lh;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
 }
 
 .location-match,

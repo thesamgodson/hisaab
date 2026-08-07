@@ -3,6 +3,7 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { titleCasePlace } from "@/lib/format-place";
+import { useHydrated } from "@/lib/use-hydrated";
 
 interface DistrictOption {
   district: string;
@@ -27,10 +28,8 @@ function districtOptions(data: unknown): DistrictOption[] {
 
 export default function DistrictPicker({
   issue,
-  triggerIndex,
 }: {
-  issue: string;
-  triggerIndex?: number | null;
+  issue?: string | null;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
@@ -38,6 +37,7 @@ export default function DistrictPicker({
   const [selectedState, setSelectedState] = useState("");
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [selectionError, setSelectionError] = useState<string | null>(null);
+  const hydrated = useHydrated();
   const router = useRouter();
   const states = useMemo(
     () => [...new Set(options.map((option) => option.state))].sort(),
@@ -81,25 +81,30 @@ export default function DistrictPicker({
       return;
     }
     const params = new URLSearchParams({
-      issue,
       district: selectedDistrict,
       state: selectedState,
     });
-    if (triggerIndex != null) params.set("trigger", String(triggerIndex));
+    if (issue) params.set("issue", issue);
     router.push(`/?${params.toString()}#result`);
   };
 
   return (
     <div className="district-picker">
-      <button
-        type="button"
-        className="text-action"
-        onClick={toggle}
-        aria-expanded={isOpen}
-        aria-controls="district-picker-panel"
-      >
-        {isOpen ? "Close district search" : "Browse by district"}
-      </button>
+      {hydrated ? (
+        <button
+          type="button"
+          className="text-action"
+          onClick={toggle}
+          aria-expanded={isOpen}
+          aria-controls="district-picker-panel"
+        >
+          {isOpen ? "Close district search" : "Browse by district"}
+        </button>
+      ) : (
+        <span className="text-action hydration-control-placeholder" aria-hidden="true">
+          Browse by district
+        </span>
+      )}
 
       {isOpen && (
         <div id="district-picker-panel" className="district-picker__panel">
@@ -152,9 +157,8 @@ export default function DistrictPicker({
                   ))}
                 </select>
               </label>
-              {selectionError && (
-                <p className="lookup-message--error" role="alert">{selectionError}</p>
-              )}
+              <p className={selectionError ? "field-message lookup-message--error" : "field-message"}
+                role={selectionError ? "alert" : undefined}>{selectionError ?? ""}</p>
               <button type="submit" className="button button--secondary">
                 Use this district
               </button>

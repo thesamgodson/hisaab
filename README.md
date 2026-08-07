@@ -8,7 +8,10 @@
 
 **Where did the money go?** Public accountability infrastructure for Indian government welfare schemes.
 
-Enter your PIN code. See what your MP promised. Check what actually reached your district.
+Enter your PIN code or choose a district. Read scheme-specific money, delivery,
+and process records with their period, geographic scope, source, retrieval date,
+and known coverage gaps. Use verified rights and official complaint routes only
+when you need them.
 
 **Live:** [hisaab-one.vercel.app](https://hisaab-one.vercel.app)
 

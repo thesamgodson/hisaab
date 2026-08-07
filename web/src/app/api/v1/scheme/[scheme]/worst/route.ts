@@ -20,7 +20,8 @@ function buildWorstQuery(
   switch (scheme) {
     case "MGNREGA":
       return {
-        sql: `SELECT district, state, cases_reported, amount_reported, amount_recovered, recovery_rate_pct, fin_year
+        sql: `SELECT district, state, cases_reported, amount_reported, amount_recovered, recovery_rate_pct, fin_year,
+              'INR rupees' as amount_unit
               FROM misappropriation
               WHERE UPPER(state) = UPPER(?)
               ORDER BY amount_reported DESC
@@ -57,17 +58,6 @@ function buildWorstQuery(
         describe: (rows) =>
           `Top ${rows.length} worst PMAY-G districts in ${state} by house completion percentage.`,
       };
-    case "PM Kisan":
-      return {
-        sql: `SELECT district, state, beneficiaries_paid, amount_paid_lakhs, fin_year
-              FROM pmkisan_district
-              WHERE UPPER(state) = UPPER(?)
-              ORDER BY beneficiaries_paid ASC
-              LIMIT ?`,
-        args: [state, limit],
-        describe: (rows) =>
-          `Top ${rows.length} worst PM Kisan districts in ${state} by beneficiaries paid.`,
-      };
     case "JJM":
       return {
         sql: `SELECT district, state, coverage_pct, households_with_tap, fin_year
@@ -79,21 +69,21 @@ function buildWorstQuery(
         describe: (rows) =>
           `Top ${rows.length} worst JJM districts in ${state} by tap water coverage.`,
       };
-    // PM POSHAN, NSAP, and PDS/NFSA have no honest district-level shortfall
-    // metric to rank by (daily-snapshot feeding, no eligibility target,
-    // active=total by construction — see DATA_CLAIMS.md). Ranking them would
-    // publish a false claim, so they are not rankable here.
+    // These schemes have no honest district-level shortfall denominator.
+    // Ranking raw counts would publish a false claim.
     default:
       return null;
   }
 }
 
 const NOT_RANKABLE_REASON: Partial<Record<SchemeKey, string>> = {
+  "PM Kisan":
+    "The district source publishes paid counts without an eligible-farmer denominator; a smaller district count is not evidence of worse delivery.",
   "PM POSHAN":
-    "children_fed is a daily reporting snapshot, not a completion rate (CLAIM-2026-0006).",
+    "children_fed is a daily reporting snapshot, not a completion rate (CLAIM-2026-0041).",
   NSAP: "No eligibility target is published at district level; beneficiary count is not a shortfall metric.",
   "PDS/NFSA":
-    "Active ration cards equal total by construction in the source (CLAIM-2026-0008).",
+    "The source does not publish a separate active-card field (CLAIM-2026-0029).",
 };
 
 export async function GET(

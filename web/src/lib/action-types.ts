@@ -89,6 +89,12 @@ export interface ActionBriefResponse {
   formerly_part_of: DistrictLineage | null;
   mp: MPInfo | null;
   mla: MLAInfo | null;
+  representative_mapping: {
+    mp_scope: "estimated_parliamentary_constituency" | "unavailable";
+    mp_method: string | null;
+    mla_scope: "unavailable";
+    claim_id: "DERIVED-2026-0002";
+  };
   diagnosis: DiagnosisItem[];
   /** Empty until a registered load-time diagnosis contract exists. */
   schemes_checked: string[];

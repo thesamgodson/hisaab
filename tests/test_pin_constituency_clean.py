@@ -56,3 +56,11 @@ class TestUttarakhandSpelling:
         # 223 phantom cross-state mismatches.
         assert normalize_state("UTTARKHAND") == "UTTARAKHAND"
         assert normalize_state("Uttarkhand") == "UTTARAKHAND"
+
+
+class TestStatePortalSpellings:
+    def test_state_context_variants_normalize(self):
+        assert normalize_state("NCT DELHI") == "DELHI"
+        assert normalize_state("UTTRAKHAND") == "UTTARAKHAND"
+        assert normalize_state("TELENGANA") == "TELANGANA"
+        assert normalize_state("TAMILNADU") == "TAMIL NADU"

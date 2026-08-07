@@ -424,14 +424,16 @@ def load_nsap_district(conn: sqlite3.Connection, records: list[dict[str, Any]], 
         try:
             conn.execute(
                 """INSERT OR REPLACE INTO nsap_district
-                (district, state, state_code, fin_year, scheme_type,
+                (district, state, state_code, district_lgd_code, source_month, fin_year, scheme_type,
                  beneficiaries_eligible, beneficiaries_paid, amount_paid_lakhs,
                  pension_per_month, source_url, scraped_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                 (
                     r["district"],
                     r["state"],
                     r.get("state_code", ""),
+                    r.get("district_lgd_code", ""),
+                    r.get("source_month", ""),
                     _norm_fin_year(r.get("fin_year")) or fin_year,
                     r.get("scheme_type", ""),
                     r.get("beneficiaries_eligible", 0),
@@ -456,8 +458,8 @@ def load_nfsa_district(conn: sqlite3.Connection, records: list[dict[str, Any]], 
                 """INSERT OR REPLACE INTO nfsa_district
                 (district, state, state_code, fin_year, ration_cards_total,
                  ration_cards_active, allocation_mt, offtake_mt, offtake_pct,
-                 beneficiaries_total, source_url, scraped_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                 beneficiaries_total, date_of_data, source_url, scraped_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                 (
                     r["district"],
                     r["state"],
@@ -469,6 +471,7 @@ def load_nfsa_district(conn: sqlite3.Connection, records: list[dict[str, Any]], 
                     r.get("offtake_mt", 0),
                     r.get("offtake_pct", 0),
                     r.get("beneficiaries_total", 0),
+                    r.get("date_of_data") or None,
                     r.get("source_url", ""),
                     r.get("scraped_at", ""),
                 ),
@@ -982,5 +985,3 @@ def load_district_officials(
         except sqlite3.IntegrityError:
             pass
     return loaded
-
-

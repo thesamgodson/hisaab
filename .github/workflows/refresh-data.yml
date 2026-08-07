@@ -69,6 +69,12 @@ jobs:
           python scripts/gen_district_aliases.py
           python run_all.py --load-only --snapshot
 
+      # Root-account evidence is fail-closed: a changed value, row set,
+      # source, or retrieval time requires paired review of DATA_CLAIMS.md and
+      # the explicit contract digests before any commit or publish.
+      - name: Verify public claim bindings
+        run: python scripts/verify_public_claims.py
+
       # Commit BEFORE publishing: the 2026-08-05 babysit run failed inside
       # sync_turso AFTER all tables had pushed, and the skipped commit left
       # prod serving data no git commit described. Curated-in-git is the

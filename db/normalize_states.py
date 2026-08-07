@@ -44,6 +44,7 @@ _ALIASES: dict[str, list[str]] = {
     ],
     "DELHI": [
         "NCT OF DELHI",
+        "NCT DELHI",
         "DELHI NCT",
         "NEW DELHI",
     ],
@@ -53,6 +54,7 @@ _ALIASES: dict[str, list[str]] = {
     ],
     "UTTARAKHAND": [
         "UTTARANCHAL",
+        "UTTRAKHAND",
         "UTTARKHAND",
     ],
     "CHHATTISGARH": [
@@ -61,6 +63,10 @@ _ALIASES: dict[str, list[str]] = {
     ],
     "TELANGANA": [
         "TELANAGANA",
+        "TELENGANA",
+    ],
+    "TAMIL NADU": [
+        "TAMILNADU",
     ],
     "PUDUCHERRY": [
         "PONDICHERRY",

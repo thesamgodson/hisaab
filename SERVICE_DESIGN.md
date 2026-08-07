@@ -2,8 +2,12 @@
 
 ## Decision
 
-Hisaab should become a **public-service casework utility**, not a district
-performance dashboard. Its primary job is:
+> Status: superseded as the primary product direction on 2026-08-06. This
+> document remains useful research for Hisaab's contextual complaint layer.
+> The public account direction is canonical in `design.md` and `MANIFESTO.md`.
+
+Hisaab's complaint layer can behave as a **public-service casework utility**.
+Its job inside the public account is:
 
 > When a promised welfare benefit is delayed, denied, or unclear, help me
 > complete the next accountable action—on my phone or with a helper—without

@@ -16,6 +16,12 @@ import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from db.normalize_districts import normalize_district  # noqa: E402
+from db.normalize_states import normalize_state  # noqa: E402
+
 RAW_DIR = PROJECT_ROOT / "data" / "raw"
 OUTPUT = PROJECT_ROOT / "web" / "public" / "india-districts.topojson"
 
@@ -98,6 +104,8 @@ def normalize_properties() -> Path:
             if key_lower in ("state", "stname", "state_name", "st_name") and not state:
                 state = str(val or "").strip().upper()
 
+        state = normalize_state(state)
+        district = normalize_district(district, state)
         feature["properties"] = {"district": district, "state": state}
         if not district:
             empty_district += 1

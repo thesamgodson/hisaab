@@ -65,9 +65,9 @@ export async function GET(
     if (row.cases_decided != null)
       parts.push(`  Cases decided: ${Number(row.cases_decided).toLocaleString("en-IN")}`);
     if (row.amount_reported != null)
-      parts.push(`  Amount reported: ${fmtRs(Number(row.amount_reported), "lakhs")}`);
+      parts.push(`  Amount reported: ${fmtRs(Number(row.amount_reported))}`);
     if (row.amount_recovered != null)
-      parts.push(`  Amount recovered: ${fmtRs(Number(row.amount_recovered), "lakhs")}`);
+      parts.push(`  Amount recovered: ${fmtRs(Number(row.amount_recovered))}`);
     sections.push(parts.join("\n"));
     if (row.source_url) sourceUrls.push(String(row.source_url));
   }
@@ -93,7 +93,7 @@ export async function GET(
     if (row.total_issues != null)
       parts.push(`  Total issues reported: ${Number(row.total_issues).toLocaleString("en-IN")}`);
     if (row.total_amount != null)
-      parts.push(`  Total amount: ${fmtRs(Number(row.total_amount), "lakhs")}`);
+      parts.push(`  Total amount: ${fmtRs(Number(row.total_amount))}`);
     sections.push(parts.join("\n"));
     if (row.source_url) sourceUrls.push(String(row.source_url));
   }

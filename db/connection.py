@@ -69,6 +69,40 @@ def init_db(conn: sqlite3.Connection) -> None:
 
         pg_schema = sqlite_to_pg(SCHEMA)
         conn.executescript(pg_schema)
+        column = conn.execute(
+            """SELECT 1 FROM information_schema.columns
+               WHERE table_name = 'nfsa_district' AND column_name = 'date_of_data'"""
+        ).fetchone()
+        if not column:
+            conn.execute("ALTER TABLE nfsa_district ADD COLUMN date_of_data TEXT")
+        column = conn.execute(
+            """SELECT 1 FROM information_schema.columns
+               WHERE table_name = 'nsap_district' AND column_name = 'district_lgd_code'"""
+        ).fetchone()
+        if not column:
+            conn.execute(
+                "ALTER TABLE nsap_district ADD COLUMN district_lgd_code TEXT NOT NULL DEFAULT ''"
+            )
+        column = conn.execute(
+            """SELECT 1 FROM information_schema.columns
+               WHERE table_name = 'nsap_district' AND column_name = 'source_month'"""
+        ).fetchone()
+        if not column:
+            conn.execute(
+                "ALTER TABLE nsap_district ADD COLUMN source_month TEXT NOT NULL DEFAULT ''"
+            )
     else:
         conn.executescript(SCHEMA)
+        columns = {row[1] for row in conn.execute("PRAGMA table_info(nfsa_district)")}
+        if "date_of_data" not in columns:
+            conn.execute("ALTER TABLE nfsa_district ADD COLUMN date_of_data TEXT")
+        columns = {row[1] for row in conn.execute("PRAGMA table_info(nsap_district)")}
+        if "district_lgd_code" not in columns:
+            conn.execute(
+                "ALTER TABLE nsap_district ADD COLUMN district_lgd_code TEXT NOT NULL DEFAULT ''"
+            )
+        if "source_month" not in columns:
+            conn.execute(
+                "ALTER TABLE nsap_district ADD COLUMN source_month TEXT NOT NULL DEFAULT ''"
+            )
     conn.commit()

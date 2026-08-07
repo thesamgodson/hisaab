@@ -16,6 +16,7 @@ interface SchemeConfig {
   table: string;
   useFinYear: boolean;
   summarize: (row: Record<string, unknown>, finYear: string) => string;
+  sanitize?: (row: Record<string, unknown>) => Record<string, unknown>;
 }
 
 const SCHEME_MAP: Record<string, SchemeConfig> = {
@@ -29,9 +30,9 @@ const SCHEME_MAP: Record<string, SchemeConfig> = {
       if (row.cases_decided != null)
         parts.push(`Cases decided: ${Number(row.cases_decided).toLocaleString("en-IN")}`);
       if (row.amount_reported != null)
-        parts.push(`Amount reported: ${fmtRs(Number(row.amount_reported), "lakhs")}`);
+        parts.push(`Amount reported: ${fmtRs(Number(row.amount_reported))}`);
       if (row.amount_recovered != null)
-        parts.push(`Amount recovered: ${fmtRs(Number(row.amount_recovered), "lakhs")}`);
+        parts.push(`Amount recovered: ${fmtRs(Number(row.amount_recovered))}`);
       return parts.join("\n");
     },
   },
@@ -64,7 +65,7 @@ const SCHEME_MAP: Record<string, SchemeConfig> = {
       if (row.total_issues != null)
         parts.push(`Total issues: ${Number(row.total_issues).toLocaleString("en-IN")}`);
       if (row.total_amount != null)
-        parts.push(`Total amount: ${fmtRs(Number(row.total_amount), "lakhs")}`);
+        parts.push(`Total amount: ${fmtRs(Number(row.total_amount))}`);
       return parts.join("\n");
     },
   },
@@ -117,12 +118,12 @@ const SCHEME_MAP: Record<string, SchemeConfig> = {
   pmkisan: {
     table: "pmkisan_district",
     useFinYear: true,
+    sanitize: (row) => ({ ...row, amount_paid_lakhs: null }),
     summarize: (row, fy) => {
       const parts = [`PM Kisan for ${row.district}, ${row.state} (${fy}):`];
       if (row.beneficiaries_paid != null)
-        parts.push(`Beneficiaries paid: ${Number(row.beneficiaries_paid).toLocaleString("en-IN")}`);
-      if (row.amount_paid_lakhs != null)
-        parts.push(`Amount paid: ${fmtRs(Number(row.amount_paid_lakhs), "lakhs")}`);
+        parts.push(`Farmers recorded as paid: ${Number(row.beneficiaries_paid).toLocaleString("en-IN")}`);
+      parts.push("This district source publishes counts, not money.");
       return parts.join("\n");
     },
   },
@@ -143,44 +144,58 @@ const SCHEME_MAP: Record<string, SchemeConfig> = {
   pmposhan: {
     table: "pmposhan_district",
     useFinYear: true,
+    sanitize: (row) => ({
+      ...row,
+      funds_released_lakhs: null,
+      funds_utilized_lakhs: null,
+      utilization_pct: null,
+    }),
     summarize: (row, fy) => {
-      const parts = [`PM POSHAN for ${row.district}, ${row.state} (${fy}):`];
+      const parts = [`PM POSHAN daily meal-reporting snapshot for ${row.district}, ${row.state} (${fy}):`];
       if (row.children_enrolled != null)
-        parts.push(`Children enrolled: ${Number(row.children_enrolled).toLocaleString("en-IN")}`);
+        parts.push(`Children enrolled (context): ${Number(row.children_enrolled).toLocaleString("en-IN")}`);
       if (row.children_fed != null)
-        parts.push(`Children fed: ${Number(row.children_fed).toLocaleString("en-IN")}`);
-      if (row.children_enrolled != null && row.children_fed != null && Number(row.children_enrolled) > 0) {
-        const pct = ((Number(row.children_fed) / Number(row.children_enrolled)) * 100).toFixed(1);
-        parts.push(`Feeding coverage: ${pct}%`);
-      }
+        parts.push(`Children reported fed in this daily snapshot: ${Number(row.children_fed).toLocaleString("en-IN")}`);
+      parts.push("This snapshot is not an achievement or coverage rate.");
       return parts.join("\n");
     },
   },
   nsap: {
     table: "nsap_district",
     useFinYear: true,
+    sanitize: (row) => ({
+      ...row,
+      beneficiaries_eligible: null,
+      amount_paid_lakhs: null,
+      pension_per_month: null,
+    }),
     summarize: (row, fy) => {
       const parts = [`NSAP for ${row.district}, ${row.state} (${fy}):`];
       if (row.beneficiaries_paid != null)
-        parts.push(`Beneficiaries paid: ${Number(row.beneficiaries_paid).toLocaleString("en-IN")}`);
-      if (row.amount_paid_lakhs != null)
-        parts.push(`Amount paid: ${fmtRs(Number(row.amount_paid_lakhs), "lakhs")}`);
+        parts.push(`Beneficiaries recorded as paid: ${Number(row.beneficiaries_paid).toLocaleString("en-IN")}`);
       if (row.scheme_type != null)
         parts.push(`Sub-scheme: ${row.scheme_type}`);
+      parts.push("District spending is not published; no money amount is reported.");
       return parts.join("\n");
     },
   },
   nfsa: {
     table: "nfsa_district",
     useFinYear: true,
+    sanitize: (row) => ({
+      ...row,
+      ration_cards_active: null,
+      allocation_mt: null,
+      offtake_mt: null,
+      offtake_pct: null,
+    }),
     summarize: (row, fy) => {
       const parts = [`NFSA/PDS for ${row.district}, ${row.state} (${fy}):`];
       if (row.ration_cards_total != null)
-        parts.push(`Total ration cards: ${Number(row.ration_cards_total).toLocaleString("en-IN")}`);
-      if (row.ration_cards_active != null)
-        parts.push(`Active ration cards: ${Number(row.ration_cards_active).toLocaleString("en-IN")}`);
+        parts.push(`Ration cards recorded: ${Number(row.ration_cards_total).toLocaleString("en-IN")}`);
       if (row.beneficiaries_total != null)
         parts.push(`Total beneficiaries: ${Number(row.beneficiaries_total).toLocaleString("en-IN")}`);
+      parts.push("Active-card status is not separately published by this source.");
       return parts.join("\n");
     },
   },
@@ -236,12 +251,13 @@ export async function GET(
     });
   }
 
-  const answer = config.summarize(row, finYear);
-  const sourceUrl = row.source_url ? String(row.source_url) : undefined;
+  const publicRow = config.sanitize ? config.sanitize(row) : row;
+  const answer = config.summarize(publicRow, finYear);
+  const sourceUrl = publicRow.source_url ? String(publicRow.source_url) : undefined;
 
   return Response.json({
     answer,
-    data: row,
+    data: publicRow,
     ...(sourceUrl && { source_url: sourceUrl }),
   });
 }

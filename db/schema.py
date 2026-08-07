@@ -276,6 +276,8 @@ CREATE TABLE IF NOT EXISTS nsap_district (
     district TEXT NOT NULL,
     state TEXT NOT NULL,
     state_code TEXT NOT NULL DEFAULT '',
+    district_lgd_code TEXT NOT NULL DEFAULT '',
+    source_month TEXT NOT NULL DEFAULT '',
     fin_year TEXT NOT NULL,
     scheme_type TEXT NOT NULL DEFAULT '',
     beneficiaries_eligible INTEGER NOT NULL DEFAULT 0,
@@ -301,6 +303,7 @@ CREATE TABLE IF NOT EXISTS nfsa_district (
     offtake_mt REAL NOT NULL DEFAULT 0,
     offtake_pct REAL NOT NULL DEFAULT 0,
     beneficiaries_total INTEGER NOT NULL DEFAULT 0,
+    date_of_data TEXT,
     source_url TEXT,
     scraped_at TEXT NOT NULL,
     UNIQUE(district, state, fin_year)

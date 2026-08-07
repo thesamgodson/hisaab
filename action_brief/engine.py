@@ -45,8 +45,8 @@ def build_action_brief(
         district = row["district"]
         state = row["state"]
 
-        mp_info = _get_first_mp(conn, district, state) or _get_mp_by_pin(conn, clean)
-        mla_info = _get_first_mla(conn, district, state)
+        mp_info, mp_method = _get_mp_by_pin(conn, clean)
+        mla_info = None
 
         diagnosis = build_diagnosis(conn, district, state)
         schemes_checked = schemes_with_district_data(conn, district, state)
@@ -67,6 +67,12 @@ def build_action_brief(
             scheme_data={}, generated_at=datetime.now(),
             schemes_checked=schemes_checked,
             complaint_kits=kits, universal_channels=universal,
+            representative_mapping={
+                "mp_scope": "estimated_parliamentary_constituency" if mp_info else "unavailable",
+                "mp_method": mp_method,
+                "mla_scope": "unavailable",
+                "claim_id": "DERIVED-2026-0002",
+            },
         )
     finally:
         if own_conn:
@@ -200,39 +206,16 @@ def _build_complaint_kits(
     return kits, universal
 
 
-# Names join through the shared normalizer (datameet keeps reservation
-# suffixes, OpenCity/MyNeta drop them) and states through candidate_states
-# (constituency_district/ac_district carry vintage pre-bifurcation labels;
-# PC names repeat across states). Mirrors web/src/lib/action-brief.ts.
-def _get_first_mp(conn: sqlite3.Connection, district: str, state: str) -> dict[str, Any] | None:
-    states = candidate_states(state)
-    slots = ", ".join("?" for _ in states)
-    m_norm = PC_NAME_NORM_SQL.format(col="m.constituency")
-    cd_norm = PC_NAME_NORM_SQL.format(col="cd.constituency")
-    row = conn.execute(
-        f"""SELECT cd.constituency, m.mp_name, m.party, m.state,
-                  m.elected_year, m.source_url
-           FROM constituency_district cd
-           JOIN mp_info m ON {m_norm} = {cd_norm}
-            AND UPPER(m.state) IN ({slots})
-           WHERE UPPER(cd.district) = UPPER(?)
-             AND UPPER(cd.state) IN ({slots})
-           LIMIT 1""",
-        (*states, district, *states),
-    ).fetchone()
-    return dict(row) if row else None
-
-
-# Fallback for PINs whose district has no constituency_district row (all of
-# Delhi, among others) but does have a spatial PIN→PC match in pin_constituency.
-# Mirrors findMpByPin in web/src/lib/action-brief.ts.
-def _get_mp_by_pin(conn: sqlite3.Connection, pin: str) -> dict[str, Any] | None:
+def _get_mp_by_pin(
+    conn: sqlite3.Connection,
+    pin: str,
+) -> tuple[dict[str, Any] | None, str | None]:
     pc = conn.execute(
-        "SELECT constituency, state FROM pin_constituency WHERE pin_code = ?",
+        "SELECT constituency, state, method FROM pin_constituency WHERE pin_code = ?",
         (pin,),
     ).fetchone()
     if not pc:
-        return None
+        return None, None
 
     states = candidate_states(pc["state"])
     slots = ", ".join("?" for _ in states)
@@ -245,22 +228,4 @@ def _get_mp_by_pin(conn: sqlite3.Connection, pin: str) -> dict[str, Any] | None:
            LIMIT 1""",
         (strip_reservation(pc["constituency"]), *states),
     ).fetchone()
-    return dict(row) if row else None
-
-
-def _get_first_mla(conn: sqlite3.Connection, district: str, state: str) -> dict[str, Any] | None:
-    states = candidate_states(state)
-    slots = ", ".join("?" for _ in states)
-    m_norm = PC_NAME_NORM_SQL.format(col="m.ac_name")
-    a_norm = PC_NAME_NORM_SQL.format(col="a.ac_name")
-    row = conn.execute(
-        f"""SELECT a.ac_name, m.mla_name, m.party, m.state, m.source_url
-           FROM ac_district a
-           JOIN mla_info m ON {m_norm} = {a_norm}
-            AND UPPER(m.state) IN ({slots})
-           WHERE UPPER(a.district) = UPPER(?)
-             AND UPPER(a.state) IN ({slots})
-           LIMIT 1""",
-        (*states, district, *states),
-    ).fetchone()
-    return dict(row) if row else None
+    return (dict(row) if row else None), pc["method"]

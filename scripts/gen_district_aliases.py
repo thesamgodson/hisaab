@@ -92,6 +92,8 @@ _OVERRIDES: dict[tuple[str, str], str] = {
     ("MAHARASHTRA", "AURANGABAD"): "CHHATRAPATI SAMBHAJINAGAR",
     ("MAHARASHTRA", "CHATRAPATI SAMBHAJI NAGAR"): "CHHATRAPATI SAMBHAJINAGAR",
     ("MAHARASHTRA", "OSMANABAD"): "DHARASHIV",
+    # NSAP's older label uses Bandra plus the Mumbai Suburban District acronym.
+    ("MAHARASHTRA", "BANDRA MSD"): "MUMBAI SUBURBAN",
     ("UTTAR PRADESH", "FAIZABAD"): "AYODHYA",
     ("UTTAR PRADESH", "ALLAHABAD"): "PRAYAGRAJ",
     # Other verified spellings the fuzzy pass cannot resolve safely
@@ -127,6 +129,44 @@ _OVERRIDES: dict[tuple[str, str], str] = {
     ("BIHAR", "GAYA"): "GAYAJI",
     ("ASSAM", "KARIMGANJ"): "SRIBHUMI",
     ("KARNATAKA", "RAMANAGARA"): "BENGALURU SOUTH",
+    # Audited 2026-08-07 district-identity fold. These targets are the
+    # official/state spellings; civic seeds and older portals use the aliases.
+    ("GUJARAT", "PANCH MAHALS"): "PANCHMAHAL",
+    ("GUJARAT", "PANCHMAHALS"): "PANCHMAHAL",
+    ("RAJASTHAN", "GANGANAGAR"): "SRI GANGANAGAR",
+    ("RAJASTHAN", "SHRI GANGANAGAR"): "SRI GANGANAGAR",
+    ("UTTAR PRADESH", "BARA BANKI"): "BARABANKI",
+    ("LAKSHADWEEP", "LAKSHADWEEP DISTRICT"): "LAKSHADWEEP",
+    ("ANDHRA PRADESH", "ANANTAPUR"): "ANANTHAPURAMU",
+    ("ANDHRA PRADESH", "ANANTHAPUR"): "ANANTHAPURAMU",
+    ("ANDHRA PRADESH", "NELLORE"): "SRI POTTI SRIRAMULU NELLORE",
+    ("ANDHRA PRADESH", "SPSR NELLORE"): "SRI POTTI SRIRAMULU NELLORE",
+    ("CHHATTISGARH", "DANTEWADA"): "DAKSHIN BASTAR DANTEWADA",
+    ("CHHATTISGARH", "DANTEWARA"): "DAKSHIN BASTAR DANTEWADA",
+    ("CHHATTISGARH", "DAKSHIN BASTAR DANTEWARA"): "DAKSHIN BASTAR DANTEWADA",
+    # Sikkim's 2021 reorganization renamed the original four districts and
+    # created Pakyong and Soreng. NSAP temporal aliases share the same LGD
+    # codes; its scraper resolves those identities before this fold loads.
+    ("SIKKIM", "EAST"): "GANGTOK",
+    ("SIKKIM", "EAST DISTRICT"): "GANGTOK",
+    ("SIKKIM", "EAST SIKKIM"): "GANGTOK",
+    ("SIKKIM", "GANGTOK DISTRICT"): "GANGTOK",
+    ("SIKKIM", "GANGTOK EAST DISTRICT"): "GANGTOK",
+    ("SIKKIM", "NORTH"): "MANGAN",
+    ("SIKKIM", "NORTH DISTRICT"): "MANGAN",
+    ("SIKKIM", "NORTH SIKKIM"): "MANGAN",
+    ("SIKKIM", "MANGAN DISTRICT"): "MANGAN",
+    ("SIKKIM", "MANGAN NORTH DISTRICT"): "MANGAN",
+    ("SIKKIM", "SOUTH"): "NAMCHI",
+    ("SIKKIM", "SOUTH DISTRICT"): "NAMCHI",
+    ("SIKKIM", "SOUTH SIKKIM"): "NAMCHI",
+    ("SIKKIM", "NAMCHI DISTRICT"): "NAMCHI",
+    ("SIKKIM", "NAMCHI SOUTH DISTRICT"): "NAMCHI",
+    ("SIKKIM", "WEST"): "GYALSHING",
+    ("SIKKIM", "WEST DISTRICT"): "GYALSHING",
+    ("SIKKIM", "WEST SIKKIM"): "GYALSHING",
+    ("SIKKIM", "GYALSHING DISTRICT"): "GYALSHING",
+    ("SIKKIM", "GYALSHING WEST DISTRICT"): "GYALSHING",
     # LokOS (DAY-NRLM) spellings
     ("ASSAM", "DIMA HASAO NORTH CACHAR HILLS"): "DIMA HASAO",
     ("KARNATAKA", "DHARWAR"): "DHARWAD",

@@ -333,6 +333,38 @@ def test_engine_mp_falls_back_to_pin_constituency(db):
     assert brief is not None
     assert brief.mp is not None
     assert brief.mp["mp_name"] == "KAMALJEET SEHRAWAT"
+    assert brief.mla is None
+    assert brief.representative_mapping == {
+        "mp_scope": "estimated_parliamentary_constituency",
+        "mp_method": "spatial_join",
+        "mla_scope": "unavailable",
+        "claim_id": "DERIVED-2026-0002",
+    }
+
+
+def test_engine_never_returns_arbitrary_district_representatives_for_pin(db):
+    db.execute(
+        """INSERT INTO pin_district_mapping (pin_code, district, state, office_name)
+           VALUES ('221001', 'VARANASI', 'UTTAR PRADESH', 'Varanasi GPO')"""
+    )
+    db.execute(
+        """INSERT INTO mp_info
+           (constituency, mp_name, party, state, elected_year, source_url)
+           VALUES ('VARANASI', 'DISTRICT MP', 'TEST', 'UTTAR PRADESH', 2024, 'https://eci.gov.in')"""
+    )
+    db.execute(
+        """INSERT INTO constituency_district
+           (constituency, state, district, constituency_type)
+           VALUES ('VARANASI', 'UTTAR PRADESH', 'VARANASI', 'LOK_SABHA')"""
+    )
+    db.commit()
+
+    from action_brief.engine import build_action_brief
+    brief = build_action_brief("221001", conn=db)
+    assert brief is not None
+    assert brief.mp is None
+    assert brief.mla is None
+    assert brief.representative_mapping["mp_scope"] == "unavailable"
 
 
 def test_engine_does_not_report_runtime_judgment_coverage(db):
@@ -528,6 +560,12 @@ def test_api_action_valid_pin(db):
     assert "diagnosis" in body
     assert "contacts" in body
     assert "actions" in body
+    assert body["representative_mapping"] == {
+        "mp_scope": "unavailable",
+        "mp_method": None,
+        "mla_scope": "unavailable",
+        "claim_id": "DERIVED-2026-0002",
+    }
     _set_test_conn(None)
 
 

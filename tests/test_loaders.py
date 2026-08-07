@@ -394,6 +394,8 @@ class TestNSAP:
                 "district": "PATNA",
                 "state": "BIHAR",
                 "state_code": "05",
+                "district_lgd_code": "230",
+                "source_month": "02",
                 "scheme_type": "IGNOAPS",
                 "beneficiaries_eligible": 8000,
                 "beneficiaries_paid": 7500,
@@ -407,6 +409,8 @@ class TestNSAP:
         assert count == 1
         r = rows[0]
         assert r["beneficiaries_eligible"] == 8000
+        assert r["district_lgd_code"] == "230"
+        assert r["source_month"] == "02"
         assert r["pension_per_month"] == 500.0
 
 
@@ -423,6 +427,7 @@ class TestNFSA:
                 "offtake_mt": 4200.0,
                 "offtake_pct": 84.0,
                 "beneficiaries_total": 300000,
+                "date_of_data": "02 Jun 2026",
                 "source_url": "nfsa.gov.in",
                 "scraped_at": "2026-01-01T00:00:00",
             }
@@ -433,6 +438,7 @@ class TestNFSA:
         assert r["ration_cards_total"] == 100000
         assert r["offtake_pct"] == 84.0
         assert r["beneficiaries_total"] == 300000
+        assert r["date_of_data"] == "02 Jun 2026"
 
 
 class TestJJMAllocation:
