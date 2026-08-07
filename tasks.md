@@ -523,3 +523,10 @@ Converted the full ledger, coverage limits, entitlement, situations, case outlin
 **Files:** `tests/test_public_account_surface.py`, `.hallmark/log.json`
 
 Added regression coverage for closed-by-default lossless disclosures and complete evidence/route maps. All 621 Python tests pass (4 skipped), the 20-dataset public-claim gate passes, and frontend lint, TypeScript, and production build pass; SSR smoke retains the full record and complaint payload. Interactive visual QA is pending because no browser backend was connected.
+
+### 2026-08-07 12:08 — Verify production data before UI publish
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `scripts/sync_turso.py`, `web/.env.local`
+
+Ran the canonical Turso sync after the feature commit. All 36 tables and 91,743 local payload rows verified; the 9,789-row metrics snapshot remained append-only and all 42 indexes/views were published.

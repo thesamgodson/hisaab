@@ -231,3 +231,10 @@ Corrective rule: begin with Hisaab's irreducible question—where public welfare
 **Files:** `web/package.json`
 
 **Failure:** The first combined gate ran `npm` from the repository root, which has no `package.json`, after the focused Python tests had already passed. **Rule:** run Python gates from the repository root and every npm/Next gate from `web/`; a chained command must make each working directory explicit.
+
+### 2026-08-07 12:08 — Use the recorded Turso publish command exactly
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `findings.md:12`, `scripts/sync_turso.py`
+
+**Failure:** The first sync invocation omitted `--env-file web/.env.local` even though the canonical command is recorded in findings, so it stopped before connecting or writing. **Rule:** copy the publish command from findings verbatim; do not infer that a root process will load the frontend environment file.
