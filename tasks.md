@@ -530,3 +530,10 @@ Added regression coverage for closed-by-default lossless disclosures and complet
 **Files:** `scripts/sync_turso.py`, `web/.env.local`
 
 Ran the canonical Turso sync after the feature commit. All 36 tables and 91,743 local payload rows verified; the 9,789-row metrics snapshot remained append-only and all 42 indexes/views were published.
+
+### 2026-08-07 12:14 — Publish and smoke the universal account
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `web/src/components/SchemeRow.tsx`, `web/src/components/ComplaintGuide.tsx`, `DATA_CLAIMS.md`
+
+Pushed the scannable account to production after a 36-table/91,743-row verified Turso sync. CI run 31154583955 passed; entry, Gayaji account, MGNREGA help, UDISE+ education help, general help, PIN identity, NSAP aggregation, and the fail-closed NSAP worst endpoint all returned the expected production contract.
