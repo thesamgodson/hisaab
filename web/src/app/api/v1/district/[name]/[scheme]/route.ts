@@ -170,11 +170,18 @@ const SCHEME_MAP: Record<string, SchemeConfig> = {
       pension_per_month: null,
     }),
     summarize: (row, fy) => {
-      const parts = [`NSAP for ${row.district}, ${row.state} (${fy}):`];
+      const parts = [
+        `NSAP pension programme totals for ${row.district}, ${row.state} (${fy}):`,
+      ];
       if (row.beneficiaries_paid != null)
-        parts.push(`Beneficiaries recorded as paid: ${Number(row.beneficiaries_paid).toLocaleString("en-IN")}`);
-      if (row.scheme_type != null)
-        parts.push(`Sub-scheme: ${row.scheme_type}`);
+        parts.push(
+          `Beneficiaries recorded as paid across the listed programmes: ${Number(row.beneficiaries_paid).toLocaleString("en-IN")}`,
+        );
+      if (row.scheme_types != null)
+        parts.push(`Programmes included: ${row.scheme_types}`);
+      parts.push(
+        "Programme counts are summed; no eligible-population coverage rate is inferred.",
+      );
       parts.push("District spending is not published; no money amount is reported.");
       return parts.join("\n");
     },
@@ -232,7 +239,25 @@ export async function GET(
 
   let row: Record<string, unknown> | null;
 
-  if (config.useFinYear) {
+  if (schemeSlug === "nsap") {
+    row = await queryOne(
+      `SELECT district, state, fin_year,
+              COUNT(*) as programme_count,
+              GROUP_CONCAT(scheme_type, ', ') as scheme_types,
+              SUM(beneficiaries_paid) as beneficiaries_paid,
+              NULL as beneficiaries_eligible,
+              NULL as amount_paid_lakhs,
+              NULL as pension_per_month,
+              CASE WHEN COUNT(DISTINCT source_url) = 1
+                THEN MIN(source_url) ELSE NULL END as source_url,
+              GROUP_CONCAT(DISTINCT source_month) as source_month,
+              MAX(scraped_at) as scraped_at
+       FROM nsap_district
+       WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?
+       GROUP BY district, state, fin_year`,
+      [district, state, finYear],
+    );
+  } else if (config.useFinYear) {
     row = await queryOne(
       `SELECT * FROM ${config.table} WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?) AND fin_year = ?`,
       [district, state, finYear],

@@ -495,3 +495,10 @@ Captured full-page PIN-result screenshots at 320px and 768px on the uncontested 
 **Files:** `data/hisaab.db`, `scripts/sync_turso.py`, `DATA_CLAIMS.md`
 
 Verified the 13,957-row 2026-08-06 production payload against its 3.9 MB backup (SHA-256 `11addda24054e877bca61aa3f9d40e3b2c7d29a975c34994be0773d9afe5a9c1`), removed that unaudited derived date, and appended the real 9,789-row audited capture dated 2026-08-07. Turso verified all 36 tables / 91,743 local payload rows; every snapshot row has a source and none uses an excluded metric contract.
+
+### 2026-08-07 11:28 — Aggregate NSAP programmes in the legacy district API
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `web/src/app/api/v1/district/[name]/[scheme]/route.ts`, `tests/test_legacy_api_semantics.py`, `DATA_CLAIMS.md`
+
+Production smoke exposed that the generic district adapter returned one arbitrary NSAP programme row. The endpoint now sums all named programme counts for the district-year, lists the included programmes, keeps imputed money NULL, and explicitly refuses an eligibility-rate inference; full Python and frontend gates pass.

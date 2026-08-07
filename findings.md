@@ -336,3 +336,10 @@ A from-scratch CI database contains only its current snapshot date, so drop/crea
 **Files:** `DATA_CLAIMS.md:102`, `db/snapshot_metrics.py:7-38`, `scripts/sync_turso.py:116-163`
 
 The production `metrics_snapshot` now contains exactly 9,789 sourced rows on one real capture date, 2026-08-07. The correction changed only the derived trend cache: all 36 base tables, 81,954 non-snapshot records, stored money, geographic coverage, and complaint records remain intact.
+
+### 2026-08-07 11:28 — NSAP is multi-row at district grain
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `web/src/app/api/v1/district/[name]/[scheme]/route.ts:205-234`, `web/src/app/api/v1/district/[name]/[scheme]/route.ts:276-296`
+
+`nsap_district` stores separate IGNDPS, IGNOAPS, and IGNWPS rows for one district-year, so `queryOne` cannot represent NSAP district totals. The compatibility API now aggregates the programme rows, retains their names and source-month context, and never treats their sum as spending or eligibility coverage.

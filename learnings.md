@@ -217,3 +217,10 @@ Corrective rule: begin with Hisaab's irreducible question—where public welfare
 **Files:** `scripts/sync_turso.py`, `data/hisaab.db`
 
 **Failure:** The first publish kept a populated remote `metrics_snapshot` because the local table was empty, then reported only the local payload total; inspection found 13,957 remote derived rows with five misleading metric semantics. The same mirror strategy would have deleted history once CI produced a non-empty one-date table. **Rule:** inspect and report retained remote counts, classify temporal tables as append-only, exclude surrogate IDs during append, verify exact dated payloads, and audit every kept table's public semantics before declaring a sync complete.
+
+### 2026-08-07 11:28 — A generic single-row adapter must prove source grain
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `web/src/app/api/v1/district/[name]/[scheme]/route.ts`, `tests/test_legacy_api_semantics.py`
+
+**Failure:** Post-deploy smoke showed the legacy district endpoint selecting one unordered NSAP programme row and labelling its beneficiary count as district NSAP, even though three programme rows exist. **Rule:** before reusing a generic `queryOne` adapter, assert the table's unique grain; multi-row schemes must aggregate with visible component labels or return the complete row set, never an arbitrary row.

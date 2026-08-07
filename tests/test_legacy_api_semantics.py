@@ -48,6 +48,9 @@ def test_district_scheme_route_nulls_placeholders_before_response() -> None:
     assert "amount_paid_lakhs: null" in nsap
     assert "pension_per_month: null" in nsap
     assert "no money amount is reported" in nsap
+    assert "SUM(beneficiaries_paid) as beneficiaries_paid" in route
+    assert "GROUP_CONCAT(scheme_type, ', ') as scheme_types" in route
+    assert "Programme counts are summed" in nsap
     assert "ration_cards_active: null" in nfsa
     assert "Active ration cards:" not in nfsa
     assert "data: publicRow" in route
