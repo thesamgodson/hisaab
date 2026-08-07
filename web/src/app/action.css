@@ -1,15 +1,23 @@
 .action-section {
-  border-top: var(--rule-heavy) solid var(--color-ink);
+  margin-inline: calc(-1 * var(--space-sm));
+  padding-inline: var(--space-sm);
+  border-top: var(--rule-heavy) solid var(--color-accent);
+  background: var(--color-accent-soft);
 }
 
 .guide-picker {
-  max-width: 42rem;
+  max-width: 46rem;
   display: grid;
   gap: var(--space-sm);
+  padding: var(--space-md);
+  border: var(--rule-thin) solid var(--color-rule);
+  border-radius: var(--radius-panel);
+  background: var(--color-paper);
 }
 
 .guide-picker .button {
   justify-self: start;
+  white-space: nowrap;
 }
 
 .action-plan {
@@ -36,8 +44,13 @@
 }
 
 .route {
-  padding-block: var(--space-md);
+  padding: var(--space-md);
   border-top: var(--rule-thin) solid var(--color-rule);
+  background: var(--color-paper);
+}
+
+.route:last-child {
+  border-bottom: var(--rule-thin) solid var(--color-rule);
 }
 
 .route__level,
@@ -104,10 +117,11 @@
 .guide__prepare,
 .guide__routes {
   border-top: var(--rule-thin) solid var(--color-rule-strong);
+  background: var(--color-paper);
 }
 
 .guide-disclosure__body {
-  padding-bottom: var(--space-lg);
+  padding: 0 var(--space-md) var(--space-lg);
 }
 
 .guide-disclosure__body > p {
@@ -166,11 +180,21 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-sm);
-  padding-block: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
   color: var(--color-accent);
   cursor: pointer;
   font-weight: 700;
   list-style: none;
+}
+
+.text-disclosure > summary:hover,
+.representative-section > summary:hover {
+  background: var(--color-accent-soft);
+}
+
+.text-disclosure > summary:active,
+.representative-section > summary:active {
+  background: var(--color-surface-strong);
 }
 
 .text-disclosure > summary::-webkit-details-marker,
@@ -188,6 +212,31 @@
 .text-disclosure[open] > summary::after,
 .representative-section[open] > summary::after {
   content: "−";
+}
+
+.guide-step-summary {
+  justify-content: flex-start !important;
+}
+
+.guide-step-summary > span {
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 2rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.guide-step-summary > strong {
+  color: var(--color-ink);
+}
+
+.guide-step-summary::after {
+  margin-inline-start: auto;
 }
 
 .route-disclosure {

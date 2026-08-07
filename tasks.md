@@ -537,3 +537,17 @@ Ran the canonical Turso sync after the feature commit. All 36 tables and 91,743 
 **Files:** `web/src/components/SchemeRow.tsx`, `web/src/components/ComplaintGuide.tsx`, `DATA_CLAIMS.md`
 
 Pushed the scannable account to production after a 36-table/91,743-row verified Turso sync. CI run 31154583955 passed; entry, Gayaji account, MGNREGA help, UDISE+ education help, general help, PIN identity, NSAP aggregation, and the fail-closed NSAP worst endpoint all returned the expected production contract.
+
+### 2026-08-07 13:02 — Rebuild Hisaab as a guided civic ledger
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `web/src/components/ServiceStart.tsx`, `web/src/components/PinEntry.tsx`, `web/src/components/DistrictPicker.tsx`, `web/src/components/AccountabilityResult.tsx`, `web/src/components/SchemeDataSection.tsx`, `web/src/components/SchemeRow.tsx`, `web/src/components/ComplaintGuide.tsx`, `web/src/app/tokens.css`, `web/src/app/base.css`, `web/src/app/forms.css`, `web/src/app/surface.css`, `web/src/app/evidence.css`, `web/src/app/action.css`, `design.md`, `DATA_CLAIMS.md`
+
+Replaced the visually flat audit sheet with an editorial entry, bounded area masthead, dimension-labelled service index, structured evidence panels, and numbered action steps. The redesign changes hierarchy and component voice only: all evidence, sources, route rungs, CAPTCHA handoff, and personal-data boundaries remain intact.
+
+### 2026-08-07 13:03 — Gate the guided-ledger implementation
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `tests/test_public_account_surface.py`, `web/src/app/globals.css`, `.hallmark/log.json`
+
+Added task-orientation and dimension-label regression checks; all 622 Python tests pass (4 skipped), the 20-dataset public-claim gate passes, frontend lint/TypeScript/build pass, and every tested text/background pair exceeds WCAG 4.5:1. Final screenshot/zoom inspection remains pending because no interactive browser backend is connected, and the Hallmark stamp records that limitation rather than claiming a visual pass.

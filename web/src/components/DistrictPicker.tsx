@@ -98,11 +98,11 @@ export default function DistrictPicker({
           aria-expanded={isOpen}
           aria-controls="district-picker-panel"
         >
-          {isOpen ? "Close district search" : "Browse by district"}
+          {isOpen ? "Close district search" : "Choose state and district"}
         </button>
       ) : (
         <span className="text-action hydration-control-placeholder" aria-hidden="true">
-          Browse by district
+          Choose state and district
         </span>
       )}
 

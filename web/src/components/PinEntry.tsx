@@ -98,7 +98,7 @@ export default function PinEntry({
     <div className="pin-lookup">
       <form action="/" method="get" className="pin-form">
         {issue && <input type="hidden" name="issue" value={issue} />}
-        <label htmlFor="pin-input">PIN code</label>
+        <label htmlFor="pin-input">6-digit PIN</label>
         <div className="pin-form__row">
           <input
             id="pin-input"
@@ -118,16 +118,13 @@ export default function PinEntry({
             aria-describedby="pin-help"
           />
           <button type="submit" className="button button--primary">
-            Use this PIN
+            See area account
           </button>
         </div>
-        <p id="pin-help">Six digits. A PIN resolves to a postal district; Hisaab does not store it.</p>
+        <p id="pin-help">Used only to identify a postal district. Not stored.</p>
       </form>
 
-      <p className="location-explanation">
-        Optional: your device coordinates are sent only to match a nearby PIN.
-        Hisaab does not store them.
-      </p>
+      <p className="pin-alternative-label">Other ways to find your area</p>
       {hydrated ? (
         <button
           type="button"
@@ -136,11 +133,11 @@ export default function PinEntry({
           disabled={locate.status === "loading"}
           aria-busy={locate.status === "loading"}
         >
-          {locate.status === "loading" ? "Finding your PIN…" : "Use device location"}
+          {locate.status === "loading" ? "Finding your PIN…" : "Use location"}
         </button>
       ) : (
         <span className="text-action hydration-control-placeholder" aria-hidden="true">
-          Use device location
+          Use location
         </span>
       )}
 
@@ -162,6 +159,13 @@ export default function PinEntry({
           </div>
         )}
       </div>
+      <details className="lookup-privacy">
+        <summary>How location is used</summary>
+        <p>
+          Device coordinates are sent only to match a nearby PIN. Hisaab does
+          not store them.
+        </p>
+      </details>
     </div>
   );
 }

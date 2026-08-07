@@ -63,10 +63,11 @@ export default function SchemeDataSection({
     <>
       <section id="evidence" className="account-section" aria-labelledby="district-records-heading">
         <header className="account-section__header">
-          <h2 id="district-records-heading">What district records report</h2>
+          <p className="section-kicker">District records</p>
+          <h2 id="district-records-heading">Choose a service to check</h2>
           <p>
-            {districtSchemeCount} {districtSchemeCount === 1 ? "service has" : "services have"} records.
-            Open one for its figures, dates, and source.
+            Open any of the {districtSchemeCount} services below for exact
+            figures, reporting dates, and sources.
           </p>
         </header>
         {account.districtRecords.length > 0 ? (

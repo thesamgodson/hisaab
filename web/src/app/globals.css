@@ -1,4 +1,4 @@
-/* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V5 · audience: Indian citizens and civic helpers · use: read one area's welfare account and question it · tone: austere, humane, editorial · genre: modern-minimal · macrostructure: Ledger Workbench · theme: custom austere blue · design-system: design.md · designed-as-app · contrast: pass (46–50) · nav: N9 · footer: Ft2 · honest: pass (56) · chrome: pass (57) · tokens: pass (58) · responsive: pass (59) · icons: pass (60) · mobile: pass (36, 59, 61–69) · slop: pass 69/69 */
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V5 · audience: Indian citizens and civic helpers · use: find an area, scan services, inspect exact evidence, act · tone: humane, editorial, exact · genre: modern-minimal · macrostructure: Guided Civic Ledger · theme: warm paper + civic blue · design-system: design.md · designed-as-app · contrast: pass (46–50) · honest: pass (56) · chrome: pass (57) · tokens: pass (58) · responsive: code-gated, final visual QA pending browser */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

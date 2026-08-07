@@ -10,18 +10,26 @@ export default function ServiceStart({ issue, error }: ServiceStartProps) {
   return (
     <section className="account-start" aria-labelledby="service-heading">
       <header className="account-start__header">
-        <p className="service-label">Public welfare account</p>
+        <p className="service-label">Independent public welfare account</p>
         <h1 id="service-heading">Where did the money go?</h1>
         <p>
-          Enter your area to read what official records report about welfare
-          money, delivery, and missing data. Then use the sourced rights and
-          complaint routes if you need them.
+          Enter a PIN to see what public records report about money and
+          services in your district.
         </p>
+        <ol className="account-start__path" aria-label="How Hisaab works">
+          <li><span>01</span>Find your area</li>
+          <li><span>02</span>Check a service</li>
+          <li><span>03</span>Use official routes</li>
+        </ol>
       </header>
 
       {error && <p className="service-error" role="alert">{error}</p>}
 
       <div className="account-entry" aria-label="Find an area account">
+        <header className="account-entry__header">
+          <p>Start here</p>
+          <h2>Find your area</h2>
+        </header>
         <PinEntry issue={issue} />
         <DistrictPicker issue={issue} />
         <noscript>
@@ -37,7 +45,7 @@ export default function ServiceStart({ issue, error }: ServiceStartProps) {
       </div>
 
       <div className="account-start__truth">
-        <p><strong>Public, area-wide records only.</strong> This is not your personal benefit record and does not decide eligibility.</p>
+        <p><strong>Area-wide records, not a personal benefit record.</strong> Hisaab does not decide eligibility.</p>
         <p>No account required. Do not enter a name, Aadhaar number, complaint text, or documents.</p>
       </div>
     </section>

@@ -4,6 +4,28 @@
       "date": "2026-08-07",
       "scope": "app",
       "genre": "modern-minimal civic ledger",
+      "theme": "warm paper + civic blue",
+      "app_macrostructure": "Guided Civic Ledger",
+      "enrichment": "none; task hierarchy carries the surface",
+      "brief": "Editorial entry, bounded area masthead, dimension-labelled service index, exact evidence panels, and numbered official-action steps",
+      "status": "implemented; contrast, code, build, SSR, and claims verified; interactive browser unavailable for final screenshot QA",
+      "design_system": "design.md",
+      "critique": {
+        "philosophy": 5,
+        "hierarchy": 5,
+        "execution": 4,
+        "specificity": 5,
+        "restraint": 5,
+        "variety": 5
+      },
+      "audience": "Indian citizens and civic helpers across literacy and access contexts",
+      "use": "Find an area, scan services, inspect exact evidence, and use sourced official routes",
+      "tone": "humane, editorial, exact"
+    },
+    {
+      "date": "2026-08-07",
+      "scope": "app",
+      "genre": "modern-minimal civic ledger",
       "theme": "custom austere blue",
       "app_macrostructure": "Lossless two-layer ledger",
       "enrichment": "native progressive disclosure; no decorative enrichment",

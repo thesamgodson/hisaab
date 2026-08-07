@@ -238,3 +238,10 @@ Corrective rule: begin with Hisaab's irreducible question—where public welfare
 **Files:** `findings.md:12`, `scripts/sync_turso.py`
 
 **Failure:** The first sync invocation omitted `--env-file web/.env.local` even though the canonical command is recorded in findings, so it stopped before connecting or writing. **Rule:** copy the publish command from findings verbatim; do not infer that a root process will load the frontend environment file.
+
+### 2026-08-07 13:02 — Less text is not the same as visual design
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `web/src/app/surface.css`, `web/src/app/evidence.css`, `web/src/app/action.css`
+
+**Failure:** The previous pass collapsed content but retained the same flat rules-and-text component voice, so the page became shorter without becoming visually useful or appealing. **Rule:** every density pass must also establish a visible task hierarchy—entry, orientation, selection, evidence, action—and must be evaluated as rendered UI rather than declared successful from semantic markup alone.

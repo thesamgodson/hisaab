@@ -38,10 +38,10 @@ h3 {
   min-width: 0;
   margin: 0;
   color: var(--color-ink);
-  font-family: var(--font-ui);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.12;
+  font-family: var(--font-display);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
   overflow-wrap: anywhere;
   text-wrap: balance;
 }
@@ -106,10 +106,12 @@ svg {
 
 .site-header {
   border-width: 0 0 var(--rule-thin);
+  background: var(--color-paper);
 }
 
 .site-footer {
   border-width: var(--rule-thin) 0 0;
+  background: var(--color-surface);
 }
 
 .site-header__inner,
@@ -121,7 +123,7 @@ svg {
 }
 
 .site-header__inner {
-  min-height: 3.75rem;
+  min-height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -130,14 +132,16 @@ svg {
 
 .wordmark {
   color: var(--color-ink);
-  font-family: var(--font-ui);
-  font-size: var(--text-base);
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  letter-spacing: -0.06em;
   text-decoration: none;
 }
 
 .site-header__context {
+  padding-inline-start: var(--space-xs);
+  border-inline-start: var(--rule-heavy) solid var(--color-accent);
   color: var(--color-muted);
   font-size: var(--text-sm);
 }
@@ -159,7 +163,7 @@ svg {
   gap: var(--space-2xs);
   padding: var(--space-xs) var(--space-sm);
   border: var(--rule-thin) solid transparent;
-  border-radius: var(--radius-control);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   font-size: var(--text-base);
   font-weight: 700;

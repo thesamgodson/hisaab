@@ -44,6 +44,15 @@ function OfficialLink({
   );
 }
 
+function StepSummary({ number, children }: { number: string; children: React.ReactNode }) {
+  return (
+    <summary className="guide-step-summary">
+      <span aria-hidden="true">{number}</span>
+      <strong>{children}</strong>
+    </summary>
+  );
+}
+
 function Route({ channel }: { channel: GrievanceChannel }) {
   const phone = channel.phone?.replace(/[^\d+]/g, "") ?? null;
 
@@ -127,7 +136,7 @@ function Preparation({
 
   return (
     <details id="prepare" className="guide__prepare text-disclosure">
-      <summary id="prepare-heading">Prepare a case outline</summary>
+      <StepSummary number="03">Prepare your case</StepSummary>
       <div className="guide-disclosure__body">
         <p>
           Add personal details only to the version you submit directly to an
@@ -174,7 +183,7 @@ function GeneralRoutes({ universal }: { universal: GrievanceChannel[] }) {
     <article id="complaint" className="guide action-plan">
       <header className="guide__header">
         <p className="service-step__count">General government grievance</p>
-        <h2>General official options</h2>
+        <h2>Official places to raise it</h2>
         <p>These options serve different purposes. Read each sourced instruction before choosing one.</p>
       </header>
       <p className="official-handoff">
@@ -182,7 +191,7 @@ function GeneralRoutes({ universal }: { universal: GrievanceChannel[] }) {
         the official service yourself.
       </p>
       <details className="text-disclosure route-disclosure">
-        <summary>Official routes ({universal.length})</summary>
+        <StepSummary number="01">Official routes ({universal.length})</StepSummary>
         <div className="guide-disclosure__body">
           <div className="route-list">{universal.map((channel) => (
             <Route key={`${channel.level}-${channel.portal_name}`} channel={channel} />
@@ -219,7 +228,7 @@ export default function ComplaintGuide({
     <article id="complaint" className="guide action-plan">
       <header className="guide__header">
         <p className="service-step__count">{display.need} · {kit.scheme}</p>
-        <h2>Rights and official routes</h2>
+        <h2>Your rights and official options</h2>
         {selectedTrigger && <p className="chosen-trigger">You chose: {selectedTrigger}</p>}
       </header>
       <p className="official-handoff">
@@ -229,7 +238,7 @@ export default function ComplaintGuide({
 
       {kit.entitlement && (
         <details className="guide__entitlement text-disclosure">
-          <summary id="right-heading">What the rule says</summary>
+          <StepSummary number="01">What the rule says</StepSummary>
           <div className="guide-disclosure__body">
             <p>People covered by this scheme have the following right.</p>
             <p>{kit.entitlement}</p>
@@ -250,7 +259,7 @@ export default function ComplaintGuide({
 
       {kit.complain_when.length > 0 && (
         <details className="guide__situations text-disclosure">
-          <summary id="situations-heading">Situations this may cover ({kit.complain_when.length})</summary>
+          <StepSummary number="02">When this may help ({kit.complain_when.length})</StepSummary>
           <div className="guide-disclosure__body">
             <ul>
               {kit.complain_when.map((situation) => <li key={situation}>{situation}</li>)}
@@ -274,7 +283,7 @@ export default function ComplaintGuide({
 
       {kit.channels.length > 0 ? (
         <details className="guide__routes text-disclosure">
-          <summary>Official complaint routes ({kit.channels.length})</summary>
+          <StepSummary number="04">Complaint routes ({kit.channels.length})</StepSummary>
           <div className="guide-disclosure__body">
             <p className="official-handoff">
               Routes are ordered from local to national. Hisaab has not matched
@@ -291,7 +300,7 @@ export default function ComplaintGuide({
 
       {universal.length > 0 && (
         <details className="text-disclosure route-disclosure">
-          <summary>General official options ({universal.length})</summary>
+          <StepSummary number="05">Other official routes ({universal.length})</StepSummary>
           <div className="guide-disclosure__body">
             <p className="disclosure-note">
               CPGRAMS, RTI, and representative contact serve different purposes.

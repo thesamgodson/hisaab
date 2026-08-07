@@ -48,9 +48,21 @@ def test_every_complaint_family_reaches_the_picker() -> None:
     assert "kit.complain_when.map" in guide
     assert "universal.map" in guide
     assert "Complete registration and any CAPTCHA on" in guide
-    assert '<summary>Official complaint routes ({kit.channels.length})</summary>' in guide
-    assert '<summary>Official routes ({universal.length})</summary>' in guide
+    assert '<StepSummary number="04">Complaint routes ({kit.channels.length})</StepSummary>' in guide
+    assert '<StepSummary number="01">Official routes ({universal.length})</StepSummary>' in guide
     assert ".slice(" not in guide
+
+
+def test_surface_has_visual_task_orientation_without_persona_modes() -> None:
+    start = source("web/src/components/ServiceStart.tsx")
+    result = source("web/src/components/AccountabilityResult.tsx")
+    scheme = source("web/src/components/SchemeRow.tsx")
+    assert "Find your area" in start
+    assert "Check a service" in start
+    assert "Use official routes" in start
+    assert "districtSchemeCount" in result
+    assert "DIMENSION_LABEL" in scheme
+    assert "persona mode" not in start.lower()
 
 
 def test_evidence_keeps_native_semantics_and_provenance() -> None:

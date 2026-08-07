@@ -357,3 +357,10 @@ The same universal interface can serve very different citizen contexts when huma
 **Files:** `design.md:97-119`, `llm/investigator.py:144-345`, `web/src/app/api/v1/query/route.ts:3-14`
 
 AI may assist only with confirmed navigation, reviewed translation, or a future explanation bound to one structured evidence record. The existing natural-language-to-SQL investigator has database access and unconstrained narrative behavior, so it remains outside the public Next surface; evidence, eligibility, wrongdoing, route choice, personal case text, and CAPTCHA handling stay deterministic or human-controlled.
+
+### 2026-08-07 13:02 — A trustworthy ledger still needs a visible task hierarchy
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `web/src/components/ServiceStart.tsx:10-52`, `web/src/components/AccountabilityResult.tsx:113-175`, `web/src/components/SchemeRow.tsx:30-103`, `web/src/components/ComplaintGuide.tsx:47-314`
+
+Progressive disclosure alone reduces height but does not explain where to begin or how evidence relates to action. The universal surface now distinguishes orientation, service selection, exact evidence, and official action through typography, bounded paper surfaces, registered dimension labels, and reading-sequence numbers without promoting a metric or route.

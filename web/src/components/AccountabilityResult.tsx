@@ -68,7 +68,7 @@ function ActionPicker({
           <option value="ALL">Another government-service problem</option>
         </select>
       </label>
-      <button className="button button--primary" type="submit">Show official options</button>
+      <button className="button button--primary" type="submit">See rights and routes</button>
     </form>
   );
 }
@@ -110,6 +110,7 @@ export default function AccountabilityResult(props: AccountabilityResultProps) {
     pin, district, state, lineage, account, complaintSchemes, complaintKits, universalChannels,
     representatives, representativeContext, selectedScheme, selectedTrigger, general,
   } = props;
+  const districtSchemeCount = new Set(account.districtRecords.map((record) => record.scheme)).size;
   return (
     <div id="result" className="result-shell">
       <nav className="result-nav no-print" aria-label="Account controls">
@@ -119,14 +120,20 @@ export default function AccountabilityResult(props: AccountabilityResultProps) {
 
       <header className="account-header">
         <div className="account-header__identity">
-          <p className="service-label">Public welfare account</p>
+          <p className="service-label">District welfare account</p>
           <h1>{titleCasePlace(district)}</h1>
           <p className="account-header__state">{titleCasePlace(state)}</p>
+          <p className="account-header__summary">
+            <strong>{districtSchemeCount}</strong> services · <strong>{account.districtRecords.length}</strong> district records
+          </p>
         </div>
-        <p className="account-header__scope">
-          {pin ? `PIN ${pin} maps to this district.` : "District selected directly."}
-          {" "}These are area records, not your personal benefit record.
-        </p>
+        <div className="account-header__scope">
+          <strong>What this covers</strong>
+          <p>
+            {pin ? `PIN ${pin} maps to this district.` : "District selected directly."}
+            {" "}These are area records, not your personal benefit record.
+          </p>
+        </div>
         {lineage && (
           <p className="account-header__lineage">
             Reorganized in {lineage.split_year}; formerly part of {titleCasePlace(lineage.parent_district)} district.
@@ -138,10 +145,11 @@ export default function AccountabilityResult(props: AccountabilityResultProps) {
 
       <section id="action" className="action-section" aria-labelledby="action-heading">
         <header className="account-section__header">
-          <h2 id="action-heading">Get help with a service</h2>
+          <p className="section-kicker">Question a service</p>
+          <h2 id="action-heading">Need to take this further?</h2>
           <p>
-            You choose the service. District figures do not decide eligibility
-            or choose an official route.
+            Choose the service. Hisaab will show sourced rights and official
+            routes without deciding your case.
           </p>
         </header>
         <ActionPicker

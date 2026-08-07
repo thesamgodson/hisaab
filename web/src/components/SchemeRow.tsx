@@ -27,6 +27,13 @@ function sourceMeta(record: EvidenceRecord) {
   return `${scope} · ${record.period}`;
 }
 
+const DIMENSION_LABEL = {
+  money: "Money",
+  delivery: "Service delivery",
+  process: "Payment process",
+} as const;
+const DIMENSION_ORDER = ["money", "delivery", "process"] as const;
+
 export default function SchemeRow({
   scheme,
   records,
@@ -37,12 +44,15 @@ export default function SchemeRow({
   actionHref: string;
 }) {
   const display = schemeDisplay(scheme);
+  const dimensions = DIMENSION_ORDER
+    .filter((dimension) => records.some((record) => record.dimension === dimension))
+    .map((dimension) => DIMENSION_LABEL[dimension]);
   return (
     <details className="ledger-scheme" id={`scheme-${scheme.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
       <summary className="ledger-scheme__summary">
         <span className="ledger-scheme__identity">
           <strong>{display.shortNeed}</strong>
-          <small>{scheme}</small>
+          <small>{scheme} · {dimensions.join(" · ")}</small>
         </span>
         <span className="ledger-scheme__count">
           {records.length} {records.length === 1 ? "record" : "records"}
@@ -55,6 +65,7 @@ export default function SchemeRow({
           {records.map((record) => (
             <section className="ledger-record" key={record.id} aria-labelledby={`${record.id}-heading`}>
               <header className="ledger-record__header">
+                <p className="ledger-record__dimension">{DIMENSION_LABEL[record.dimension]}</p>
                 <h3 id={`${record.id}-heading`}>{record.title}</h3>
                 <p>{sourceMeta(record)}</p>
               </header>

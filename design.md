@@ -23,10 +23,11 @@ dashboard, campaign site, government imitation, or AI assistant.
 
 ## App macrostructure
 
-- Entry: one area question, led by PIN with state and district as a visible
-  fallback. Location is optional and explained before use.
-- Account: area identity, district evidence, state-only context, coverage gaps,
-  contextual rights and routes, then representatives.
+- Entry: a guided three-step ledger path with one prominent PIN task. State,
+  district, and location remain secondary ways to identify the same area.
+- Account: a bounded area masthead, a full-width service index, exact evidence
+  inside the selected row, state-only context, coverage gaps, contextual rights
+  and routes, then representatives.
 - Compatibility URLs restore the same account with an action section expanded;
   they do not create a separate visual product.
 - No persona modes, dashboard tabs, mandatory issue diagnosis, or map-first path.
@@ -62,23 +63,25 @@ dashboard, campaign site, government imitation, or AI assistant.
 
 ## Visual system
 
-- White paper, near-black text, quiet grey rules, and one civic blue for links
-  and actions.
+- Warm paper, deep navy text, quiet warm-grey rules, and one civic blue for
+  navigation, focus, and action.
 - Red, amber, and green appear only when a sourced record carries that state,
   never as decorative status colour.
-- The account uses a ledger rhythm: strong section rules, scheme headings,
-  exact fact rows, and compact provenance. No nested card mosaic.
+- The account uses a guided ledger rhythm: an editorial masthead, full-width
+  service rows, explicit money/delivery/process labels, exact fact panels, and
+  numbered action steps. No dashboard mosaic.
 - One reading column on mobile; a two-column record grid only when space permits.
 - The primary form submit is the only strongly filled control in a section.
-- Corners are 4–8px. Shadows are reserved for overlays; the account has none.
+- Corners are 4–8px. Bounded panels use borders and paper contrast; shadows are
+  reserved for overlays and the account has none.
 - All implementation values live in `web/src/app/tokens.css`.
 
 ## Typography
 
-- Primary multilingual family: Noto Sans for each fully supported script, then
-  the platform system sans.
-- Aptos may be a Latin preference only. It cannot be the multilingual
-  foundation because it does not cover the Indic scripts Hisaab needs.
+- Display: Noto Serif for the English editorial hierarchy, with the matching
+  Noto Serif family required when additional scripts ship.
+- Body: Aptos when installed, then Noto Sans for the web and each fully
+  supported Indic script. Aptos is never the multilingual foundation.
 - Body text is at least 16px with 1.55 line height and remains readable at 200%.
 - Headings are sentence case, compact, and never decorative giant type.
 - Numeric evidence uses tabular figures. Monospace is reserved for claim IDs.
@@ -93,6 +96,8 @@ dashboard, campaign site, government imitation, or AI assistant.
   phone numbers, grievance text, documents, and coordinates never enter a URL.
 - Motion is limited to necessary state feedback. No entrance, scroll, stagger,
   shimmer, lift, parallax, or decorative animation.
+- Hover and open states may change paper tone, but never colour-code service
+  performance or imply that one scheme matters more than another.
 
 ## Adaptive assistance
 

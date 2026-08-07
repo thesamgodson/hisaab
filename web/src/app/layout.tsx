@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Noto_Sans } from "next/font/google";
+import { Geist_Mono, Noto_Sans, Noto_Serif } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import "./tokens.css";
@@ -10,6 +10,7 @@ import "./action.css";
 import "./evidence.css";
 
 const notoSans = Noto_Sans({ variable: "--font-noto-sans", subsets: ["latin"] });
+const notoSerif = Noto_Serif({ variable: "--font-noto-serif", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: { default: "Hisaab — Public welfare account", template: "%s | Hisaab" },
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${notoSans.variable} ${geistMono.variable}`}
+      className={`${notoSans.variable} ${notoSerif.variable} ${geistMono.variable}`}
     >
       <body>
         <a className="skip-link" href="#main-content">Skip to account</a>
