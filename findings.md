@@ -329,3 +329,10 @@ An exact increase or decrease does not establish improvement, degradation, or a 
 **Files:** `scripts/sync_turso.py:34-163`, `scripts/sync_turso.py:210-311`, `db/schema.py:831-845`
 
 A from-scratch CI database contains only its current snapshot date, so drop/create mirroring would erase every older production date. `metrics_snapshot` must be created-if-absent and inserted without its local `id`; verification compares all claim-bearing columns for each local date and accepts additional remote dates as preserved history.
+
+### 2026-08-07 11:22 — Production starts audited trend history on 2026-08-07
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `DATA_CLAIMS.md:102`, `db/snapshot_metrics.py:7-38`, `scripts/sync_turso.py:116-163`
+
+The production `metrics_snapshot` now contains exactly 9,789 sourced rows on one real capture date, 2026-08-07. The correction changed only the derived trend cache: all 36 base tables, 81,954 non-snapshot records, stored money, geographic coverage, and complaint records remain intact.

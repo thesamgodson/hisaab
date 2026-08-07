@@ -488,3 +488,10 @@ Made `metrics_snapshot` append-only across production syncs, omitted local surro
 **Files:** `web/src/app/page.tsx`, `web/src/app/surface.css`, `web/src/components/SchemeRow.tsx`, `web/src/components/ComplaintGuide.tsx`
 
 Captured full-page PIN-result screenshots at 320px and 768px on the uncontested current build. Both widths have exact viewport scroll width, every stylesheet returned 200, the public account and 17 claim bindings rendered, and the single action button remained unclipped; artifacts stay in `/tmp`.
+
+### 2026-08-07 11:22 — Correct and republish the production snapshot
+**Agent:** Codex
+**Status:** ✅ done
+**Files:** `data/hisaab.db`, `scripts/sync_turso.py`, `DATA_CLAIMS.md`
+
+Verified the 13,957-row 2026-08-06 production payload against its 3.9 MB backup (SHA-256 `11addda24054e877bca61aa3f9d40e3b2c7d29a975c34994be0773d9afe5a9c1`), removed that unaudited derived date, and appended the real 9,789-row audited capture dated 2026-08-07. Turso verified all 36 tables / 91,743 local payload rows; every snapshot row has a source and none uses an excluded metric contract.
