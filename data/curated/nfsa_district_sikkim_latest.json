@@ -16,7 +16,7 @@
     "phh_beneficiaries": 74997,
     "date_of_data": "30 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-06T04:53:31.631591+00:00"
+    "scraped_at": "2026-08-15T14:54:10.565397+00:00"
   },
   {
     "district": "GYALSHING\r\n (WEST DISTRICT)",
@@ -35,7 +35,7 @@
     "phh_beneficiaries": 48501,
     "date_of_data": "30 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-06T04:53:31.631591+00:00"
+    "scraped_at": "2026-08-15T14:54:10.565397+00:00"
   },
   {
     "district": "MANGAN\r\n (NORTH DISTRICT)",
@@ -54,7 +54,7 @@
     "phh_beneficiaries": 17943,
     "date_of_data": "30 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-06T04:53:31.631591+00:00"
+    "scraped_at": "2026-08-15T14:54:10.565397+00:00"
   },
   {
     "district": "NAMCHI\r\n (SOUTH DISTRICT)",
@@ -73,7 +73,7 @@
     "phh_beneficiaries": 81385,
     "date_of_data": "30 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-06T04:53:31.631591+00:00"
+    "scraped_at": "2026-08-15T14:54:10.565397+00:00"
   },
   {
     "district": "PAKYONG",
@@ -92,7 +92,7 @@
     "phh_beneficiaries": 53929,
     "date_of_data": "30 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-06T04:53:31.631591+00:00"
+    "scraped_at": "2026-08-15T14:54:10.565397+00:00"
   },
   {
     "district": "SORENG",
@@ -111,6 +111,6 @@
     "phh_beneficiaries": 42678,
     "date_of_data": "30 Apr 2025",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-06T04:53:31.631591+00:00"
+    "scraped_at": "2026-08-15T14:54:10.565397+00:00"
   }
 ]

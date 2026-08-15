@@ -15,7 +15,7 @@
     "villages": 525,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "AMRELI",
@@ -33,7 +33,7 @@
     "villages": 627,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "ANAND",
@@ -51,7 +51,7 @@
     "villages": 361,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "ARVALLI",
@@ -69,7 +69,7 @@
     "villages": 676,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "BANAS KANTHA",
@@ -87,7 +87,7 @@
     "villages": 1249,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "BHARUCH",
@@ -105,7 +105,7 @@
     "villages": 665,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "BHAVNAGAR",
@@ -123,7 +123,7 @@
     "villages": 697,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "BOTAD",
@@ -141,7 +141,7 @@
     "villages": 191,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "CHHOTAUDEPUR",
@@ -159,7 +159,7 @@
     "villages": 882,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "DAHOD",
@@ -177,7 +177,7 @@
     "villages": 704,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "DANGS",
@@ -195,7 +195,7 @@
     "villages": 311,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "DEVBHUMI DWARKA",
@@ -213,7 +213,7 @@
     "villages": 244,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "GANDHINAGAR",
@@ -231,7 +231,7 @@
     "villages": 289,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "GIR SOMNATH",
@@ -249,7 +249,7 @@
     "villages": 351,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "JAMNAGAR",
@@ -267,7 +267,7 @@
     "villages": 420,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "JUNAGADH",
@@ -285,7 +285,7 @@
     "villages": 520,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "KACHCHH",
@@ -303,7 +303,7 @@
     "villages": 898,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "KHEDA",
@@ -321,7 +321,7 @@
     "villages": 541,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "MAHESANA",
@@ -339,7 +339,7 @@
     "villages": 618,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "MAHISAGAR",
@@ -357,7 +357,7 @@
     "villages": 703,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "MORBI",
@@ -375,7 +375,7 @@
     "villages": 349,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "NARMADA",
@@ -393,7 +393,7 @@
     "villages": 556,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "NAVSARI",
@@ -411,7 +411,7 @@
     "villages": 398,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "PANCH MAHALS",
@@ -429,7 +429,7 @@
     "villages": 607,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "PATAN",
@@ -447,7 +447,7 @@
     "villages": 521,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "PORBANDAR",
@@ -465,7 +465,7 @@
     "villages": 155,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "RAJKOT",
@@ -483,7 +483,7 @@
     "villages": 610,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "SABAR KANTHA",
@@ -501,7 +501,7 @@
     "villages": 717,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "SURAT",
@@ -519,7 +519,7 @@
     "villages": 760,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "SURENDRANAGAR",
@@ -537,7 +537,7 @@
     "villages": 578,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "TAPI",
@@ -555,7 +555,7 @@
     "villages": 486,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "VADODARA",
@@ -573,7 +573,7 @@
     "villages": 693,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "VALSAD",
@@ -591,7 +591,7 @@
     "villages": 478,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-06T04:45:06.508719+00:00"
+    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
   },
   {
     "district": "ALL",
@@ -605,6 +605,6 @@
     "installment": "April-July",
     "data_generated_on": "28/06/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-08-06T04:39:13.599307+00:00"
+    "scraped_at": "2026-08-15T14:37:59.883193+00:00"
   }
 ]

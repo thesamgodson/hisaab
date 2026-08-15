@@ -19,7 +19,7 @@
     "national_rank": 1,
     "district_name_hindi": "ईस्ट",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "SORENG",
@@ -37,11 +37,11 @@
     "connections_2019_20": -10642,
     "connections_2020_onwards": 0,
     "remaining_households": 1192,
-    "district_rank": 358,
-    "national_rank": 358,
+    "district_rank": 359,
+    "national_rank": 359,
     "district_name_hindi": "Soreng",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "MANGAN",
@@ -59,11 +59,11 @@
     "connections_2019_20": -220,
     "connections_2020_onwards": 2937,
     "remaining_households": 1066,
-    "district_rank": 387,
-    "national_rank": 387,
+    "district_rank": 388,
+    "national_rank": 388,
     "district_name_hindi": "नार्थ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "GYALSHING",
@@ -71,21 +71,21 @@
     "state_code": "242",
     "fin_year": "cumulative",
     "total_households": 21401,
-    "households_with_tap": 19488,
-    "tap_connections_provided": 19488,
-    "coverage_pct": 91.06,
+    "households_with_tap": 19537,
+    "tap_connections_provided": 19537,
+    "coverage_pct": 91.29,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 31533,
     "connections_pre_2019": 10660,
     "connections_2019_20": 10642,
     "connections_2020_onwards": 8226,
-    "remaining_households": 1913,
+    "remaining_households": 1864,
     "district_rank": 396,
     "national_rank": 396,
     "district_name_hindi": "वेस्ट",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "NAMCHI",
@@ -93,21 +93,21 @@
     "state_code": "243",
     "fin_year": "cumulative",
     "total_households": 35843,
-    "households_with_tap": 32589,
-    "tap_connections_provided": 32589,
-    "coverage_pct": 90.92,
+    "households_with_tap": 32647,
+    "tap_connections_provided": 32647,
+    "coverage_pct": 91.08,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 27824,
     "connections_pre_2019": 21971,
     "connections_2019_20": 0,
     "connections_2020_onwards": 1472,
-    "remaining_households": 3254,
-    "district_rank": 399,
-    "national_rank": 399,
+    "remaining_households": 3196,
+    "district_rank": 397,
+    "national_rank": 397,
     "district_name_hindi": "साउथ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "PAKYONG",
@@ -129,6 +129,6 @@
     "national_rank": 456,
     "district_name_hindi": "Pakyong",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   }
 ]

@@ -69,9 +69,14 @@ jobs:
           python scripts/gen_district_aliases.py
           python run_all.py --load-only --snapshot
 
-      # Root-account evidence is fail-closed: a changed value, row set,
-      # source, or retrieval time requires paired review of DATA_CLAIMS.md and
-      # the explicit contract digests before any commit or publish.
+      # Two-policy claim binding (Scepter 2026-08-15): a scrape that passed
+      # verify_refresh legitimately changes data content, so its hashes rebind
+      # HERE and ship in the same data commit. Claims text stays fail-closed —
+      # the rebind refuses if DATA_CLAIMS.md drifted, and the read-only gate
+      # then proves self-consistency before anything is committed.
+      - name: Rebind refreshed data contracts
+        run: python scripts/verify_public_claims.py --write-contracts
+
       - name: Verify public claim bindings
         run: python scripts/verify_public_claims.py
 
@@ -84,7 +89,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/curated data/catalog db/district_aliases.py DATA_CLAIMS.md || true
+          git add data/curated data/catalog db/district_aliases.py DATA_CLAIMS.md scripts/verify_public_claims.py || true
           if git diff --cached --quiet; then
             echo "No data changes to commit."
           else

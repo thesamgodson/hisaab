@@ -15,11 +15,11 @@
     "connections_2019_20": 27,
     "connections_2020_onwards": 9221,
     "remaining_households": 3141,
-    "district_rank": 383,
-    "national_rank": 383,
+    "district_rank": 385,
+    "national_rank": 385,
     "district_name_hindi": "दक्षिण गारो हिल्स",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "EAST GARO HILLS",
@@ -37,11 +37,11 @@
     "connections_2019_20": 22,
     "connections_2020_onwards": 21614,
     "remaining_households": 3695,
-    "district_rank": 405,
-    "national_rank": 405,
+    "district_rank": 406,
+    "national_rank": 406,
     "district_name_hindi": "पूर्वी गारो हिल्स",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "SOUTH WEST GARO HILLS",
@@ -63,7 +63,7 @@
     "national_rank": 409,
     "district_name_hindi": "South West Garo Hills",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "EASTERN WEST KHASI HILLS",
@@ -81,11 +81,11 @@
     "connections_2019_20": -20,
     "connections_2020_onwards": 0,
     "remaining_households": 3061,
-    "district_rank": 420,
-    "national_rank": 420,
+    "district_rank": 422,
+    "national_rank": 422,
     "district_name_hindi": "Eastern West Khasi Hills",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "WEST KHASI HILLS",
@@ -93,21 +93,21 @@
     "state_code": "296",
     "fin_year": "cumulative",
     "total_households": 34868,
-    "households_with_tap": 31224,
-    "tap_connections_provided": 31224,
-    "coverage_pct": 89.55,
+    "households_with_tap": 31277,
+    "tap_connections_provided": 31277,
+    "coverage_pct": 89.7,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 46030,
     "connections_pre_2019": 110,
     "connections_2019_20": 113,
     "connections_2020_onwards": 15436,
-    "remaining_households": 3644,
-    "district_rank": 426,
-    "national_rank": 426,
+    "remaining_households": 3591,
+    "district_rank": 425,
+    "national_rank": 425,
     "district_name_hindi": "पश्चिम खासी हिल्स",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "NORTH GARO HILLS",
@@ -129,7 +129,7 @@
     "national_rank": 466,
     "district_name_hindi": "North Garo Hills",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "SOUTH WEST KHASI HILLS",
@@ -151,7 +151,7 @@
     "national_rank": 481,
     "district_name_hindi": "South West Khasi Hills",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "RI BHOI",
@@ -169,11 +169,11 @@
     "connections_2019_20": 137,
     "connections_2020_onwards": 28686,
     "remaining_households": 9177,
-    "district_rank": 488,
-    "national_rank": 488,
+    "district_rank": 487,
+    "national_rank": 487,
     "district_name_hindi": "री भोई",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "EAST KHASI HILLS",
@@ -181,21 +181,21 @@
     "state_code": "298",
     "fin_year": "cumulative",
     "total_households": 139829,
-    "households_with_tap": 118786,
-    "tap_connections_provided": 118786,
-    "coverage_pct": 84.95,
+    "households_with_tap": 118797,
+    "tap_connections_provided": 118797,
+    "coverage_pct": 84.96,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 101992,
     "connections_pre_2019": 3085,
     "connections_2019_20": 301,
     "connections_2020_onwards": 36242,
-    "remaining_households": 21043,
-    "district_rank": 495,
-    "national_rank": 495,
+    "remaining_households": 21032,
+    "district_rank": 492,
+    "national_rank": 493,
     "district_name_hindi": "पूर्वी खासी हिल्स",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "WEST JAINTIA HILLS",
@@ -203,21 +203,21 @@
     "state_code": "714",
     "fin_year": "cumulative",
     "total_households": 57913,
-    "households_with_tap": 47086,
-    "tap_connections_provided": 47086,
-    "coverage_pct": 81.31,
+    "households_with_tap": 47096,
+    "tap_connections_provided": 47096,
+    "coverage_pct": 81.32,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 47823,
     "connections_pre_2019": 45,
     "connections_2019_20": 447,
     "connections_2020_onwards": 19170,
-    "remaining_households": 10827,
+    "remaining_households": 10817,
     "district_rank": 526,
     "national_rank": 526,
     "district_name_hindi": "West Jaintia Hills",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "EAST JAINTIA HILLS",
@@ -225,21 +225,21 @@
     "state_code": "299",
     "fin_year": "cumulative",
     "total_households": 25857,
-    "households_with_tap": 19243,
-    "tap_connections_provided": 19243,
-    "coverage_pct": 74.42,
+    "households_with_tap": 19316,
+    "tap_connections_provided": 19316,
+    "coverage_pct": 74.7,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 23071,
     "connections_pre_2019": 7,
     "connections_2019_20": 74,
     "connections_2020_onwards": 6500,
-    "remaining_households": 6614,
+    "remaining_households": 6541,
     "district_rank": 581,
     "national_rank": 581,
     "district_name_hindi": "जयंतिया हिल्स",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   },
   {
     "district": "WEST GARO HILLS",
@@ -247,20 +247,20 @@
     "state_code": "293",
     "fin_year": "cumulative",
     "total_households": 110944,
-    "households_with_tap": 81670,
-    "tap_connections_provided": 81670,
-    "coverage_pct": 73.61,
+    "households_with_tap": 81703,
+    "tap_connections_provided": 81703,
+    "coverage_pct": 73.64,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 81689,
     "connections_pre_2019": 479,
     "connections_2019_20": 164,
     "connections_2020_onwards": 41709,
-    "remaining_households": 29274,
-    "district_rank": 585,
-    "national_rank": 585,
+    "remaining_households": 29241,
+    "district_rank": 586,
+    "national_rank": 586,
     "district_name_hindi": "पश्चिम गारो हिल्स",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-06T04:45:18.811299+00:00"
+    "scraped_at": "2026-08-15T14:48:09.352247+00:00"
   }
 ]
