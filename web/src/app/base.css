@@ -105,8 +105,13 @@ svg {
 }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   border-width: 0 0 var(--rule-thin);
-  background: var(--color-paper);
+  background: color-mix(in oklab, var(--color-paper) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
 }
 
 .site-footer {
@@ -123,7 +128,7 @@ svg {
 }
 
 .site-header__inner {
-  min-height: 4.5rem;
+  min-height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

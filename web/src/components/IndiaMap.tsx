@@ -114,12 +114,20 @@ export default function IndiaMap() {
     () => districts?.filter((feature) => !feature.district).length ?? 0,
     [districts],
   );
-  const districtOptions = useMemo(
-    () => [...(districts ?? [])]
-      .filter((feature) => feature.district)
-      .sort((left, right) => left.district.localeCompare(right.district)),
-    [districts],
-  );
+  const districtOptions = useMemo(() => {
+    // The topojson carries a handful of duplicate features (same district
+    // drawn twice) — dedupe by identity or React key collisions duplicate
+    // <option> rows.
+    const seen = new Map<string, DistrictFeature>();
+    for (const feature of districts ?? []) {
+      if (!feature.district) continue;
+      const key = `${feature.district}|${feature.state}`;
+      if (!seen.has(key)) seen.set(key, feature);
+    }
+    return [...seen.values()].sort((left, right) =>
+      left.district.localeCompare(right.district),
+    );
+  }, [districts]);
 
   const handleHover = useCallback((
     event: React.MouseEvent,
@@ -158,9 +166,8 @@ export default function IndiaMap() {
 
   const handleClick = useCallback((district: string, state: string) => {
     if (!district) return;
-    router.push(
-      `/district/${encodeURIComponent(district)}?state=${encodeURIComponent(state)}`,
-    );
+    const params = new URLSearchParams({ district, state });
+    router.push(`/?${params.toString()}#result`);
   }, [router]);
   const handleDistrictSelect = useCallback((event: ChangeEvent<HTMLSelectElement>) => {
     const [district, state] = event.target.value.split("|");

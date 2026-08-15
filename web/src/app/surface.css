@@ -1,3 +1,8 @@
+/* Result surface: verdict header, representatives, section frames.
+ * Colours, spacing, radii, shadows and durations come only from the variables
+ * in theme.css / tokens.css — no literals here except pure layout values.
+ * The entry screen (ServiceStart) is dressed by forms.css / map.css. */
+
 .lookup-shell,
 .result-shell {
   width: min(100%, 72rem);
@@ -13,119 +18,12 @@
   padding-block: var(--space-2xl);
 }
 
-.account-start {
-  display: grid;
-  gap: var(--space-xl);
-}
-
-.account-start__header {
-  min-width: 0;
-}
-
-.service-label {
-  margin: 0 0 var(--space-sm);
-  color: var(--color-accent);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.account-start h1,
-.account-header h1,
-.general-header h1 {
-  font-size: clamp(2.15rem, 8vw, 3.65rem);
-  letter-spacing: -0.06em;
-  line-height: 0.95;
-}
-
-.account-start__header > p:last-child,
-.general-header > p:last-child {
-  max-width: 59ch;
-  margin: var(--space-md) 0 0;
-  color: var(--color-ink-2);
-  font-size: var(--text-md);
-}
-
-.account-entry {
-  align-self: start;
-  display: grid;
-  gap: var(--space-md);
-  padding: var(--space-lg);
-  border: var(--rule-thin) solid var(--color-rule);
-  border-top: var(--rule-heavy) solid var(--color-accent);
-  border-radius: var(--radius-panel);
-  background: var(--color-surface);
-}
-
-.account-entry__header {
-  padding-bottom: var(--space-sm);
-  border-bottom: var(--rule-thin) solid var(--color-rule);
-}
-
-.account-entry__header p {
-  margin: 0 0 var(--space-3xs);
-  color: var(--color-accent);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.account-entry__header h2 {
-  font-size: var(--text-lg);
-}
-
-.account-start__truth {
-  max-width: 62ch;
-  padding-top: var(--space-sm);
-  border-top: var(--rule-thin) solid var(--color-rule);
-  color: var(--color-muted);
-  font-size: var(--text-sm);
-}
-
-.account-start__path {
-  display: grid;
-  gap: 0;
-  margin: var(--space-xl) 0 0;
-  padding: 0;
-  border-top: var(--rule-heavy) solid var(--color-ink);
-  list-style: none;
-}
-
-.account-start__path li {
-  min-height: 3.25rem;
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr);
-  gap: var(--space-xs);
-  align-items: center;
-  border-bottom: var(--rule-thin) solid var(--color-rule);
-  color: var(--color-ink-2);
-  font-weight: 700;
-}
-
-.account-start__path span {
-  color: var(--color-accent);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-}
-
-.account-start__truth p {
-  margin: 0;
-}
-
-.account-start__truth p + p {
-  margin-top: var(--space-2xs);
-}
-
-.service-error {
-  margin: 0;
-  padding: var(--space-sm);
-  border-inline-start: var(--rule-heavy) solid var(--color-danger);
-  background: var(--color-danger-soft);
-}
+/* ---- Result surface ---------------------------------------------------- */
 
 .result-shell {
+  display: grid;
+  gap: var(--space-xl);
+  align-content: start;
   padding-block: var(--space-sm) var(--space-2xl);
 }
 
@@ -136,99 +34,252 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-xs) var(--space-lg);
-  border-bottom: var(--rule-thin) solid var(--color-rule);
 }
 
 .result-nav a {
-  font-weight: 700;
+  font-size: var(--text-sm);
+  font-weight: 600;
   white-space: nowrap;
 }
 
-.account-header {
-  display: grid;
-  gap: var(--space-2xs);
-  margin-top: var(--space-md);
-  padding: var(--space-lg);
-  border: var(--rule-thin) solid var(--color-rule);
-  border-top: var(--rule-heavy) solid var(--color-accent);
-  border-radius: var(--radius-panel);
-  background: var(--color-surface);
-}
-
-.account-header__state {
-  margin: 0;
-  color: var(--color-ink-2);
-  font-size: var(--text-md);
-  font-weight: 700;
-}
-
-.account-header__summary {
-  margin: var(--space-md) 0 0;
-  color: var(--color-ink-2);
-  font-size: var(--text-sm);
-}
-
-.account-header__summary strong {
-  color: var(--color-ink);
-  font-variant-numeric: tabular-nums;
-}
-
-.account-header__scope,
-.account-header__lineage {
-  max-width: 67ch;
-  margin: var(--space-sm) 0 0;
+.eyebrow {
+  margin: 0 0 var(--space-2xs);
   color: var(--color-muted);
-}
-
-.account-header__scope > strong {
-  color: var(--color-accent);
   font-size: var(--text-xs);
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
-.account-header__scope p {
-  margin: var(--space-2xs) 0 0;
-}
-
-.account-header__lineage {
-  margin-top: var(--space-2xs);
-  font-size: var(--text-sm);
-}
-
-.account-section,
-.action-section {
-  padding-block: var(--space-xl);
-  border-bottom: var(--rule-thin) solid var(--color-rule-strong);
-}
-
-.account-section__header {
+.section-head {
   max-width: 66ch;
   margin-bottom: var(--space-lg);
 }
 
-.account-section__header h2 {
-  font-size: var(--text-xl);
+.section-head h2 {
+  font-size: var(--text-lg);
 }
 
-.section-kicker {
-  margin: 0 0 var(--space-2xs) !important;
-  color: var(--color-accent) !important;
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.account-section__header p {
+.section-head > p:last-child {
   margin: var(--space-xs) 0 0;
   color: var(--color-ink-2);
 }
 
-.account-section--state {
-  margin-inline: calc(-1 * var(--space-sm));
-  padding-inline: var(--space-sm);
+/* ---- Verdict header ---------------------------------------------------- */
+
+.verdict {
+  display: grid;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  border: var(--rule-thin) solid var(--color-rule);
+  border-radius: var(--radius-panel);
+  background: var(--color-paper);
+  box-shadow: var(--shadow-md);
+}
+
+.verdict__identity,
+.verdict__flags {
+  min-width: 0;
+}
+
+.verdict h1 {
+  font-size: var(--text-2xl);
+  letter-spacing: -0.045em;
+}
+
+.verdict__state {
+  margin: var(--space-2xs) 0 0;
+  color: var(--color-ink-2);
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.verdict__score {
+  align-self: start;
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3xs);
+  padding: var(--space-md);
+  border: var(--rule-thin) solid var(--color-rule);
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+}
+
+.verdict__number {
+  margin: 0;
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xl);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.verdict__number span {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.verdict__grade {
+  margin: var(--space-2xs) 0 0;
+  padding: var(--space-3xs) var(--space-xs);
+  border: var(--rule-thin) solid var(--color-rule-strong);
+  border-radius: 999px;
+  background: var(--color-paper);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.verdict__unscored {
+  margin: 0;
+  color: var(--color-ink-2);
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.verdict__score-note {
+  max-width: 34ch;
+  margin: var(--space-2xs) 0 0;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+.verdict__score .source-link {
+  margin-top: var(--space-2xs);
+}
+
+.verdict__score--ok {
+  border-color: var(--color-success-rule);
+  background: var(--color-success-soft);
+}
+
+.verdict__score--ok .verdict__grade {
+  border-color: var(--color-success-rule);
+  color: var(--color-success);
+}
+
+.verdict__score--warn {
+  border-color: var(--color-warning-rule);
+  background: var(--color-warning-soft);
+}
+
+.verdict__score--warn .verdict__grade {
+  border-color: var(--color-warning-rule);
+  color: var(--color-warning);
+}
+
+.verdict__score--bad {
+  border-color: var(--color-danger-rule);
+  background: var(--color-danger-soft);
+}
+
+.verdict__score--bad .verdict__grade {
+  border-color: var(--color-danger-rule);
+  color: var(--color-danger);
+}
+
+.verdict__flags ul {
+  display: grid;
+  gap: var(--space-2xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flag {
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--rule-thin) solid var(--color-danger-rule);
+  border-radius: var(--radius-control);
+  background: var(--color-danger-soft);
+  color: var(--color-ink);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.verdict__clear {
+  margin: 0;
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--rule-thin) solid var(--color-success-rule);
+  border-radius: var(--radius-control);
+  background: var(--color-success-soft);
+  color: var(--color-ink);
+  font-size: var(--text-sm);
+}
+
+.verdict__scope {
+  max-width: 72ch;
+  display: grid;
+  gap: var(--space-3xs);
+  padding-top: var(--space-sm);
   border-top: var(--rule-thin) solid var(--color-rule);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+.verdict__scope strong {
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Representatives --------------------------------------------------- */
+
+.rep-grid {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+}
+
+.rep-card {
+  min-width: 0;
+  padding: var(--space-md);
+  border: var(--rule-thin) solid var(--color-rule);
+  border-radius: var(--radius-panel);
+  background: var(--color-paper);
+  box-shadow: var(--shadow-xs);
+}
+
+.rep-card h3 {
+  font-size: var(--text-md);
+}
+
+.rep-card__area {
+  margin: var(--space-2xs) 0 0;
+  color: var(--color-ink-2);
+  font-size: var(--text-sm);
+}
+
+.rep-card__party {
+  margin: var(--space-3xs) 0 0;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+.rep-card__provenance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-sm);
+  align-items: center;
+  margin-top: var(--space-sm);
+  padding-top: var(--space-2xs);
+  border-top: var(--rule-thin) solid var(--color-rule);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+/* ---- Coverage limits and state context --------------------------------- */
+
+/* Quiet muted cards — honesty sections sit below the verdict, never shouting.
+ * The compound selector keeps the muted fill when action.css dresses
+ * .text-disclosure later in the cascade. */
+.state-context,
+.coverage-limits.text-disclosure,
+.coverage-empty,
+.data-caveat {
+  border: var(--rule-thin) solid var(--color-rule);
+  border-radius: var(--radius-panel);
   background: var(--color-surface);
 }
 
@@ -238,7 +289,8 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-sm);
-  color: var(--color-accent);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-ink);
   cursor: pointer;
   list-style: none;
 }
@@ -249,6 +301,7 @@
 
 .state-context > summary::after {
   content: "+";
+  flex: 0 0 auto;
   color: var(--color-muted);
   font-weight: 700;
 }
@@ -257,22 +310,18 @@
   content: "−";
 }
 
-.state-context > summary:hover {
-  color: var(--color-accent-hover);
-}
-
-.state-context > summary:active {
-  color: var(--color-ink);
+.state-context > summary:hover,
+.coverage-limits.text-disclosure > summary:hover {
+  background: var(--color-surface-strong);
 }
 
 .state-context > summary > span {
   display: inline-grid;
   gap: var(--space-3xs);
-  margin-inline-start: var(--space-2xs);
 }
 
 .state-context strong {
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
 }
 
 .state-context small {
@@ -281,20 +330,22 @@
   font-weight: 400;
 }
 
-.state-context__body {
-  margin-top: var(--space-lg);
-}
-
+.state-context__body,
 .coverage-limits__body {
-  padding-bottom: var(--space-md);
+  padding: 0 var(--space-md) var(--space-md);
 }
 
+/* Tailwind Preflight strips list markers; the honesty lists read as scannable
+ * items, not prose, so they get theirs back. */
 .coverage-limits ul {
   max-width: 75ch;
-  margin: var(--space-xs) 0 0;
+  margin: 0;
   padding-inline-start: var(--space-md);
   color: var(--color-ink-2);
+  font-size: var(--text-sm);
+  list-style: disc;
 }
+
 .coverage-limits li + li {
   margin-top: var(--space-xs);
 }
@@ -303,53 +354,46 @@
 .data-caveat {
   margin: 0;
   padding: var(--space-md);
-  border-inline-start: var(--rule-heavy) solid var(--color-rule-strong);
-  background: var(--color-surface);
   color: var(--color-ink-2);
 }
 
 @media (min-width: 52rem) {
-  .account-start {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+  .verdict {
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, auto);
+    grid-template-areas:
+      "identity score"
+      "flags    score"
+      "scope    scope";
     column-gap: var(--space-xl);
-    align-items: start;
+    padding: var(--space-xl);
   }
 
-  .account-start__header {
-    grid-column: 1 / span 7;
+  .verdict__identity {
+    grid-area: identity;
   }
 
-  .account-entry {
-    grid-column: 8 / -1;
+  .verdict__score {
+    grid-area: score;
+    justify-self: end;
+    min-width: 14rem;
   }
 
-  .account-start__truth {
-    grid-column: 1 / span 7;
+  .verdict__flags,
+  .verdict__clear {
+    grid-area: flags;
   }
 
-  .account-header {
-    grid-template-columns: minmax(0, 7fr) minmax(16rem, 4fr);
-    column-gap: var(--space-xl);
-    row-gap: var(--space-md);
+  .verdict__scope {
+    grid-area: scope;
   }
+}
 
-  .account-header__identity {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-  }
-
-  .account-header__scope,
-  .account-header__lineage {
-    grid-column: 2;
-    align-self: end;
-  }
-
-  .account-header__scope {
-    grid-row: 1;
-  }
-
-  .account-header__lineage {
-    grid-row: 2;
-    align-self: start;
+@media print {
+  .verdict,
+  .rep-card,
+  .coverage-empty,
+  .data-caveat {
+    box-shadow: none;
+    break-inside: avoid;
   }
 }

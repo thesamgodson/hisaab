@@ -1,4 +1,5 @@
 import DistrictPicker from "@/components/DistrictPicker";
+import IndiaMap from "@/components/IndiaMap";
 import PinEntry from "@/components/PinEntry";
 
 interface ServiceStartProps {
@@ -8,26 +9,21 @@ interface ServiceStartProps {
 
 export default function ServiceStart({ issue, error }: ServiceStartProps) {
   return (
-    <section className="account-start" aria-labelledby="service-heading">
-      <header className="account-start__header">
-        <p className="service-label">Independent public welfare account</p>
+    <section className="entry rise-stagger" aria-labelledby="service-heading">
+      <header className="entry-hero">
+        <p className="section-eyebrow">Independent public accountability</p>
         <h1 id="service-heading">Where did the money go?</h1>
-        <p>
+        <p className="entry-hero__sub">
           Enter a PIN to see what public records report about money and
           services in your district.
         </p>
-        <ol className="account-start__path" aria-label="How Hisaab works">
-          <li><span>01</span>Find your area</li>
-          <li><span>02</span>Check a service</li>
-          <li><span>03</span>Use official routes</li>
-        </ol>
       </header>
 
-      {error && <p className="service-error" role="alert">{error}</p>}
+      {error && <p className="entry-alert" role="alert">{error}</p>}
 
-      <div className="account-entry" aria-label="Find an area account">
-        <header className="account-entry__header">
-          <p>Start here</p>
+      <div className="entry-card" aria-label="Find an area account">
+        <header className="entry-card__header">
+          <p className="section-eyebrow">Start here</p>
           <h2>Find your area</h2>
         </header>
         <PinEntry issue={issue} />
@@ -44,7 +40,11 @@ export default function ServiceStart({ issue, error }: ServiceStartProps) {
         </noscript>
       </div>
 
-      <div className="account-start__truth">
+      <div className="map-section">
+        <IndiaMap />
+      </div>
+
+      <div className="entry-truth">
         <p><strong>Area-wide records, not a personal benefit record.</strong> Hisaab does not decide eligibility.</p>
         <p>No account required. Do not enter a name, Aadhaar number, complaint text, or documents.</p>
       </div>

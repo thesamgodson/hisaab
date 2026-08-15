@@ -9,7 +9,9 @@ function groupByScheme(records: EvidenceRecord[]): Map<string, EvidenceRecord[]>
   return groups;
 }
 
-function actionHref(
+/** Link into the complaint kit for one scheme, carrying the area the visitor
+ *  arrived with (PIN, or district+state). Shared with the action chips. */
+export function actionHref(
   scheme: string,
   pin: string | undefined,
   district: string,
@@ -62,14 +64,14 @@ export default function SchemeDataSection({
   return (
     <>
       <section id="evidence" className="account-section" aria-labelledby="district-records-heading">
-        <header className="account-section__header">
-          <p className="section-kicker">District records</p>
-          <h2 id="district-records-heading">Choose a service to check</h2>
+        <div className="section-head">
+          <p className="eyebrow">The evidence</p>
+          <h2 id="district-records-heading">What the district records say</h2>
           <p>
             Open any of the {districtSchemeCount} services below for exact
             figures, reporting dates, and sources.
           </p>
-        </header>
+        </div>
         {account.districtRecords.length > 0 ? (
           <div className="ledger">
             <RecordList records={account.districtRecords} pin={pin} district={district} state={state} />
@@ -83,7 +85,7 @@ export default function SchemeDataSection({
       </section>
 
       {account.stateRecords.length > 0 && (
-        <section className="account-section account-section--state" aria-labelledby="state-context-heading">
+        <section className="account-section" aria-labelledby="state-context-heading">
           <details className="state-context">
             <summary>
               <span>

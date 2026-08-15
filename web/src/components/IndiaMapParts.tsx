@@ -4,20 +4,25 @@ import type { ScoreBreakdown } from "@/lib/types";
 
 type ScoreBand = "high" | "medium-high" | "medium" | "low" | "none";
 
+/* --color-map-* are reserved theme slots for this choropleth; theme.css does
+ * not define them yet, so each falls back to an existing semantic token
+ * (same success/warning/danger family the grade badges use) rather than a
+ * literal — swap the fallback for a dedicated theme.css value with no
+ * change needed here. */
 export const BAND_FILL: Record<ScoreBand, string> = {
-  high: "var(--color-map-high)",
-  "medium-high": "var(--color-map-medium-high)",
-  medium: "var(--color-map-medium)",
-  low: "var(--color-map-low)",
-  none: "var(--color-map-none)",
+  high: "var(--color-map-high, var(--color-success-soft))",
+  "medium-high": "var(--color-map-medium-high, var(--color-warning-soft))",
+  medium: "var(--color-map-medium, var(--color-warning-rule))",
+  low: "var(--color-map-low, var(--color-danger-soft))",
+  none: "var(--color-map-none, var(--color-surface-strong))",
 };
 
 const BAND_TEXT: Record<ScoreBand, string> = {
-  high: "var(--color-map-high-ink)",
-  "medium-high": "var(--color-map-medium-high-ink)",
-  medium: "var(--color-map-medium-ink)",
-  low: "var(--color-map-low-ink)",
-  none: "var(--color-map-none-ink)",
+  high: "var(--color-map-high-ink, var(--color-success))",
+  "medium-high": "var(--color-map-medium-high-ink, var(--color-warning))",
+  medium: "var(--color-map-medium-ink, var(--color-warning))",
+  low: "var(--color-map-low-ink, var(--color-danger))",
+  none: "var(--color-map-none-ink, var(--color-muted))",
 };
 
 const BAND_LABEL: Record<ScoreBand, string> = {

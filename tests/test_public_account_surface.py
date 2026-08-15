@@ -15,7 +15,12 @@ def test_root_is_one_area_first_surface() -> None:
     records = source("web/src/components/SchemeDataSection.tsx")
     assert "GeneralResult" not in page
     assert "resolveState" not in page
-    assert 'action="/#action"' in result
+    # The service picker is link-driven now (chips), not a GET <form>: every
+    # choice is an anchor built by the shared actionHref() helper, so it still
+    # carries ?issue= plus the area params into #action, and still works
+    # without JavaScript.
+    assert "actionHref(" in result
+    assert "#action" in records
     assert 'href="#action"' in result
     assert "<SchemeDataSection" in result
     assert 'id="action"' in result
@@ -48,18 +53,26 @@ def test_every_complaint_family_reaches_the_picker() -> None:
     assert "kit.complain_when.map" in guide
     assert "universal.map" in guide
     assert "Complete registration and any CAPTCHA on" in guide
-    assert '<StepSummary number="04">Complaint routes ({kit.channels.length})</StepSummary>' in guide
-    assert '<StepSummary number="01">Official routes ({universal.length})</StepSummary>' in guide
+    # Numbered step chips were dropped in the 2026-08-15 restyle; the routes
+    # render inline under plain headings. The counted labels — proof that every
+    # route is served, none sliced away — are unchanged.
+    assert "Complaint routes ({kit.channels.length})" in guide
+    assert "Official routes ({universal.length})" in guide
     assert ".slice(" not in guide
 
 
 def test_surface_has_visual_task_orientation_without_persona_modes() -> None:
     start = source("web/src/components/ServiceStart.tsx")
     result = source("web/src/components/AccountabilityResult.tsx")
+    records = source("web/src/components/SchemeDataSection.tsx")
     scheme = source("web/src/components/SchemeRow.tsx")
+    # The three numbered "01 / 02 / 03" rows are gone from the entry screen
+    # (2026-08-15 restyle). The same task order is still stated in words: the
+    # entry names step one, and the result surface names the evidence step and
+    # the official-route step where the visitor actually reaches them.
     assert "Find your area" in start
-    assert "Check a service" in start
-    assert "Use official routes" in start
+    assert "What the district records say" in records
+    assert "official routes" in result
     assert "districtSchemeCount" in result
     assert "DIMENSION_LABEL" in scheme
     assert "persona mode" not in start.lower()

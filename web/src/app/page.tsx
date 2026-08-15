@@ -1,7 +1,7 @@
 import AccountabilityResult, { type ResultRepresentative } from "@/components/AccountabilityResult";
 import ServiceStart from "@/components/ServiceStart";
 import { buildActionBrief, buildDistrictBrief, getComplaintCatalog } from "@/lib/action-brief";
-import { getAreaAccount } from "@/lib/area-account";
+import { getAreaAccount, getDistrictScore } from "@/lib/area-account";
 import { queryOne } from "@/lib/db";
 import { displayPersonName, titleCasePlace } from "@/lib/format-place";
 
@@ -82,9 +82,10 @@ export default async function Home({ searchParams }: PageProps) {
     if (!brief) {
       return <div className="lookup-shell"><ServiceStart issue={preservedIssue} error={`PIN ${pin} is not in the postal directory we serve.`} /></div>;
     }
-    const [account, districtBrief] = await Promise.all([
+    const [account, districtBrief, score] = await Promise.all([
       getAreaAccount(brief.district, brief.state),
       buildDistrictBrief(brief.district, brief.state),
+      getDistrictScore(brief.district, brief.state),
     ]);
     return (
       <AccountabilityResult
@@ -93,6 +94,7 @@ export default async function Home({ searchParams }: PageProps) {
         state={brief.state}
         lineage={brief.formerly_part_of}
         account={account}
+        score={score}
         complaintSchemes={kits.map((item) => item.scheme)}
         complaintKits={kit ? [kit] : []}
         universalChannels={kit || general ? universal : []}
@@ -113,9 +115,10 @@ export default async function Home({ searchParams }: PageProps) {
   if (!await districtExists(district, state)) {
     return <div className="lookup-shell"><ServiceStart issue={preservedIssue} error="That district and state combination is not in the registry." /></div>;
   }
-  const [brief, account] = await Promise.all([
+  const [brief, account, score] = await Promise.all([
     buildDistrictBrief(district, state),
     getAreaAccount(district, state),
+    getDistrictScore(district, state),
   ]);
   return (
     <AccountabilityResult
@@ -123,6 +126,7 @@ export default async function Home({ searchParams }: PageProps) {
       state={state}
       lineage={brief.formerly_part_of}
       account={account}
+      score={score}
       complaintSchemes={kits.map((item) => item.scheme)}
       complaintKits={kit ? [kit] : []}
       universalChannels={kit || general ? universal : []}

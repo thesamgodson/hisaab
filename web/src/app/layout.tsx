@@ -1,20 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Noto_Sans, Noto_Serif } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import "./tokens.css";
+import "./theme.css"; /* after tokens.css — every variable here wins the cascade */
 import "./base.css";
 import "./forms.css";
 import "./surface.css";
 import "./action.css";
 import "./evidence.css";
 
-const notoSans = Noto_Sans({ variable: "--font-noto-sans", subsets: ["latin"] });
-const notoSerif = Noto_Serif({ variable: "--font-noto-serif", subsets: ["latin"] });
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 export const metadata: Metadata = {
-  title: { default: "Hisaab — Public welfare account", template: "%s | Hisaab" },
-  description: "Read sourced district welfare money and delivery records, see what is missing, and use verified official routes when needed.",
+  title: { default: "Hisaab — Where did the money go?", template: "%s | Hisaab" },
+  description: "Enter your PIN. See what government schemes owe your district, what actually arrived, and exactly how to complain — every number from official sources.",
   icons: { icon: "/favicon.svg" },
 };
 
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${notoSans.variable} ${notoSerif.variable} ${geistMono.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body>
         <a className="skip-link" href="#main-content">Skip to account</a>
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               Hisaab
             </Link>
             <span className="site-header__context">
-              Public welfare account
+              Where did the money go?
             </span>
           </nav>
         </header>

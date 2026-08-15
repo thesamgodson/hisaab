@@ -117,7 +117,7 @@ export default function PinEntry({
             placeholder="e.g. 110001"
             aria-describedby="pin-help"
           />
-          <button type="submit" className="button button--primary">
+          <button type="submit" className="button button--primary card-lift">
             See area account
           </button>
         </div>

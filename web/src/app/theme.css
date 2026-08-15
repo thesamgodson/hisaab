@@ -1,0 +1,115 @@
+/* Hisaab design theme — light-first premium (Apple/Linear/Vercel register).
+ * One accent (civic indigo), bright neutral surfaces, depth via soft shadow,
+ * motion via transform only. Semantic ramps (flag/warn/ok) each carry a
+ * -soft background, a -rule border, and a text-safe solid that clears 4.5:1
+ * on white AND under white 11px badge text.
+ * Imported AFTER tokens.css, so every variable here wins the cascade — the
+ * legacy names at the bottom are the compatibility surface components use,
+ * which is how the whole app re-skins from this one file. */
+:root {
+  /* Neutrals — bright, cool-white, no beige */
+  --color-paper: oklch(0.995 0.002 260);
+  --color-surface: oklch(0.977 0.004 260);
+  --color-surface-strong: oklch(0.955 0.006 260);
+  --color-ink: oklch(0.21 0.02 262);
+  --color-ink-2: oklch(0.4 0.018 262);
+  --color-muted: oklch(0.5 0.016 262);
+  --color-rule: oklch(0.91 0.006 262);
+  --color-rule-strong: oklch(0.78 0.012 262);
+
+  /* The one accent — civic indigo */
+  --color-accent: oklch(0.5 0.19 272);
+  --color-accent-hover: oklch(0.44 0.18 272);
+  --color-accent-soft: oklch(0.955 0.03 272);
+  --color-accent-ink: oklch(0.995 0.002 260);
+  --color-focus: oklch(0.5 0.19 272);
+  --accent-gradient: linear-gradient(135deg, oklch(0.5 0.19 272), oklch(0.58 0.17 290));
+
+  /* Semantic ramps */
+  --color-danger: oklch(0.52 0.19 25);
+  --color-danger-soft: oklch(0.965 0.018 25);
+  --color-danger-rule: oklch(0.82 0.09 25);
+  --color-warning: oklch(0.53 0.13 70);
+  --color-warning-soft: oklch(0.966 0.022 80);
+  --color-warning-rule: oklch(0.83 0.08 78);
+  --color-success: oklch(0.5 0.13 148);
+  --color-success-soft: oklch(0.966 0.018 148);
+  --color-success-rule: oklch(0.82 0.07 148);
+
+  /* Type — Geist everywhere; mono for figures and PINs */
+  --font-ui: var(--font-geist-sans), "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-geist-sans), "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), "SFMono-Regular", ui-monospace, monospace;
+
+  /* Fluid type scale (Major Third-ish, clamped for phones) */
+  --text-md: clamp(1.125rem, 1rem + 0.6vw, 1.25rem);
+  --text-lg: clamp(1.35rem, 1.15rem + 1vw, 1.6rem);
+  --text-xl: clamp(1.7rem, 1.35rem + 1.7vw, 2.1rem);
+  --text-2xl: clamp(2.1rem, 1.6rem + 2.6vw, 2.9rem);
+
+  /* Choropleth bands — fills proven on the pre-ledger map; inks passed the
+   * 2026-08-06 computed-contrast audit (≥4.5:1 as text on white). */
+  --color-map-high: oklch(0.72 0.17 145);
+  --color-map-high-ink: oklch(0.48 0.15 145);
+  --color-map-medium-high: oklch(0.78 0.14 105);
+  --color-map-medium-high-ink: oklch(0.47 0.1 105);
+  --color-map-medium: oklch(0.75 0.16 65);
+  --color-map-medium-ink: oklch(0.5 0.13 65);
+  --color-map-low: oklch(0.62 0.2 25);
+  --color-map-low-ink: oklch(0.5 0.19 25);
+  --color-map-none: oklch(0.92 0.004 262);
+  --color-map-none-ink: var(--color-muted);
+
+  /* Depth — soft neutral shadows, generous radii */
+  --radius-sm: 0.5rem;
+  --radius-control: 0.75rem;
+  --radius-panel: 1rem;
+  --radius-card: 1rem; /* legacy alias — brief.css/complaints.css/map.css reference it */
+  --shadow-xs: 0 1px 2px oklch(0.2 0.02 262 / 0.05);
+  --shadow-sm: 0 2px 8px oklch(0.2 0.02 262 / 0.06);
+  --shadow-md: 0 6px 24px oklch(0.2 0.02 262 / 0.08);
+  --shadow-lg: 0 16px 48px oklch(0.2 0.02 262 / 0.1);
+
+  /* Motion — transform/opacity only; spring for lifts */
+  --dur-short: 150ms;
+  --dur-med: 250ms;
+  --dur-enter: 420ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Compatibility surface (legacy names components already use) */
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+  --surface: var(--color-surface);
+  --elevated: var(--color-paper);
+  --border: var(--color-rule);
+  --border-subtle: var(--color-rule);
+  --text-primary: var(--color-ink);
+  --text-secondary: var(--color-ink-2);
+  --text-muted: var(--color-muted);
+  --accent: var(--color-accent);
+  --accent-hover: var(--color-accent-hover);
+  --accent-light: var(--color-accent-soft);
+  --ring-color: oklch(0.5 0.19 272 / 0.65);
+}
+
+/* Entrance — components opt in with .rise / .rise-stagger > * */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise var(--dur-enter) var(--ease-out) both; }
+.rise-stagger > * { animation: rise var(--dur-enter) var(--ease-out) both; }
+.rise-stagger > *:nth-child(2) { animation-delay: 60ms; }
+.rise-stagger > *:nth-child(3) { animation-delay: 120ms; }
+.rise-stagger > *:nth-child(4) { animation-delay: 180ms; }
+.rise-stagger > *:nth-child(5) { animation-delay: 240ms; }
+.rise-stagger > *:nth-child(n + 6) { animation-delay: 300ms; }
+
+/* Premium control affordances shared across surfaces */
+.card-lift { transition: transform var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out); }
+.card-lift:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise, .rise-stagger > * { animation: none; }
+  .card-lift, .card-lift:hover { transition: none; transform: none; }
+}

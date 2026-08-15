@@ -10,6 +10,84 @@
   gap: var(--space-xs);
 }
 
+/* Entry hero — Agent B scope: one clear CTA, no numbered form voice. */
+.entry {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.section-eyebrow {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.entry-hero h1 {
+  font-size: var(--text-2xl);
+}
+
+.entry-hero__sub {
+  max-width: 59ch;
+  margin: var(--space-md) 0 0;
+  color: var(--color-ink-2);
+  font-size: var(--text-md);
+}
+
+.entry-card {
+  align-self: start;
+  display: grid;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  border: var(--rule-thin) solid var(--color-rule);
+  border-top: var(--rule-heavy) solid var(--color-accent);
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.entry-card__header {
+  padding-bottom: var(--space-sm);
+  border-bottom: var(--rule-thin) solid var(--color-rule);
+}
+
+.entry-card__header .section-eyebrow {
+  margin-bottom: var(--space-3xs);
+}
+
+.entry-card__header h2 {
+  font-size: var(--text-lg);
+}
+
+.entry-truth {
+  max-width: 62ch;
+  padding-top: var(--space-sm);
+  border-top: var(--rule-thin) solid var(--color-rule);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+.entry-truth p {
+  margin: 0;
+}
+
+.entry-truth p + p {
+  margin-top: var(--space-2xs);
+}
+
+.entry-alert {
+  margin: 0;
+  padding: var(--space-sm);
+  border-inline-start: var(--rule-heavy) solid var(--color-danger);
+  border-radius: var(--radius-control);
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
 .pin-form label,
 .district-picker label,
 .guide-picker label,
@@ -43,15 +121,19 @@
 }
 
 .pin-form input {
-  min-height: 3.5rem;
-  font-size: var(--text-md);
+  min-height: 4rem;
+  font-size: var(--text-lg);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.08em;
 }
 
 .pin-form .button {
-  min-height: 3.5rem;
+  min-height: 4rem;
   white-space: nowrap;
+}
+
+.pin-form .button--primary {
+  box-shadow: var(--shadow-sm);
 }
 
 .pin-form input:hover,

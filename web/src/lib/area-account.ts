@@ -372,6 +372,50 @@ function udiseRecords(row: UdiseRow | null): EvidenceRecord[] {
   })];
 }
 
+/** Precomputed accountability verdict for one district. READ ONLY: score,
+ *  grade, and red flags are computed once by queries/composite.py at load time
+ *  (DERIVED-2026-0001a) and persisted to district_scores. Nothing here derives
+ *  a number — it reads the newest published financial year for the district. */
+export interface DistrictScoreSummary {
+  score: number | null;
+  grade: string | null;
+  red_flags: string[];
+  schemes_count: number;
+  fin_year: string;
+}
+
+type ScoreRow = Omit<DistrictScoreSummary, "red_flags"> & { red_flags: string | null };
+
+/** red_flags is a JSON array column; a malformed value must not take the page down. */
+function parseRedFlags(raw: string | null): string[] {
+  if (!raw) return [];
+  try {
+    const parsed: unknown = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed.filter((flag): flag is string => typeof flag === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getDistrictScore(district: string, state: string): Promise<DistrictScoreSummary | null> {
+  const row = await queryOne<ScoreRow>(
+    `SELECT score, grade, red_flags, schemes_count, fin_year
+     FROM district_scores
+     WHERE UPPER(district) = UPPER(?) AND UPPER(state) = UPPER(?)
+     ORDER BY fin_year DESC
+     LIMIT 1`,
+    [district, state],
+  );
+  if (!row) return null;
+  return {
+    score: row.score,
+    grade: row.grade,
+    red_flags: parseRedFlags(row.red_flags),
+    schemes_count: Number(row.schemes_count),
+    fin_year: row.fin_year,
+  };
+}
+
 export async function getAreaAccount(district: string, state: string): Promise<AreaAccount> {
   const [[finance, fto, pmgsy, pmay, pmkisan, jjm, poshan], [nfsa, sbm, nrlm, udise, nsap], stateRecords] = await Promise.all([
     fetchWorkAndDelivery(district, state),
