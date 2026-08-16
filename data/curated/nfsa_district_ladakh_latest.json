@@ -16,7 +16,7 @@
     "phh_beneficiaries": 57799,
     "date_of_data": "02 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-15T14:54:10.565397+00:00"
+    "scraped_at": "2026-08-16T22:03:35.783071+00:00"
   },
   {
     "district": "LEH LADAKH",
@@ -35,6 +35,6 @@
     "phh_beneficiaries": 37204,
     "date_of_data": "02 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-15T14:54:10.565397+00:00"
+    "scraped_at": "2026-08-16T22:03:35.783071+00:00"
   }
 ]

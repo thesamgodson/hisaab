@@ -15,7 +15,7 @@
     "villages": 56,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
+    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
   },
   {
     "district": "NORTH AND MIDDLE ANDAMAN",
@@ -33,7 +33,7 @@
     "villages": 125,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
+    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
   },
   {
     "district": "SOUTH ANDAMANS",
@@ -51,7 +51,7 @@
     "villages": 81,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-15T14:48:05.381387+00:00"
+    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
   },
   {
     "district": "ALL",
@@ -65,6 +65,6 @@
     "installment": "April-July",
     "data_generated_on": "28/06/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-08-15T14:37:59.883193+00:00"
+    "scraped_at": "2026-08-16T21:50:05.026905+00:00"
   }
 ]
