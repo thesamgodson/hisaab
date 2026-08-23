@@ -19,7 +19,7 @@
     "national_rank": 1,
     "district_name_hindi": "ईस्ट",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-16T21:55:49.278001+00:00"
+    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
   },
   {
     "district": "SORENG",
@@ -37,11 +37,11 @@
     "connections_2019_20": -10642,
     "connections_2020_onwards": 0,
     "remaining_households": 1192,
-    "district_rank": 359,
-    "national_rank": 359,
+    "district_rank": 362,
+    "national_rank": 362,
     "district_name_hindi": "Soreng",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-16T21:55:49.278001+00:00"
+    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
   },
   {
     "district": "MANGAN",
@@ -63,7 +63,7 @@
     "national_rank": 388,
     "district_name_hindi": "नार्थ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-16T21:55:49.278001+00:00"
+    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
   },
   {
     "district": "GYALSHING",
@@ -85,7 +85,7 @@
     "national_rank": 396,
     "district_name_hindi": "वेस्ट",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-16T21:55:49.278001+00:00"
+    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
   },
   {
     "district": "NAMCHI",
@@ -107,7 +107,7 @@
     "national_rank": 397,
     "district_name_hindi": "साउथ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-16T21:55:49.278001+00:00"
+    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
   },
   {
     "district": "PAKYONG",
@@ -125,10 +125,10 @@
     "connections_2019_20": -11201,
     "connections_2020_onwards": 0,
     "remaining_households": 3073,
-    "district_rank": 456,
-    "national_rank": 456,
+    "district_rank": 457,
+    "national_rank": 457,
     "district_name_hindi": "Pakyong",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-16T21:55:49.278001+00:00"
+    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
   }
 ]

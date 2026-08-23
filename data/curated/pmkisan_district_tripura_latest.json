@@ -15,7 +15,7 @@
     "villages": 151,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "GOMATI",
@@ -33,7 +33,7 @@
     "villages": 130,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "KHOWAI",
@@ -51,7 +51,7 @@
     "villages": 78,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "NORTH TRIPURA",
@@ -69,7 +69,7 @@
     "villages": 88,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "SEPAHIJALA",
@@ -87,7 +87,7 @@
     "villages": 118,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "SOUTH TRIPURA",
@@ -105,7 +105,7 @@
     "villages": 135,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "UNAKOTI",
@@ -123,7 +123,7 @@
     "villages": 77,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "WEST TRIPURA",
@@ -141,7 +141,7 @@
     "villages": 100,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "ALL",
@@ -155,6 +155,6 @@
     "installment": "April-July",
     "data_generated_on": "28/06/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-08-16T21:50:05.026905+00:00"
+    "scraped_at": "2026-08-23T21:51:06.142444+00:00"
   }
 ]

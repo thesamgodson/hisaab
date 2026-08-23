@@ -16,7 +16,7 @@
     "phh_beneficiaries": 84045,
     "date_of_data": "05 May 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-16T22:03:35.783071+00:00"
+    "scraped_at": "2026-08-23T22:05:00.649407+00:00"
   },
   {
     "district": "MAHE",
@@ -35,7 +35,7 @@
     "phh_beneficiaries": 3827,
     "date_of_data": "05 May 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-16T22:03:35.783071+00:00"
+    "scraped_at": "2026-08-23T22:05:00.649407+00:00"
   },
   {
     "district": "PONDICHERRY",
@@ -54,7 +54,7 @@
     "phh_beneficiaries": 497856,
     "date_of_data": "05 May 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-16T22:03:35.783071+00:00"
+    "scraped_at": "2026-08-23T22:05:00.649407+00:00"
   },
   {
     "district": "YANAM",
@@ -73,6 +73,6 @@
     "phh_beneficiaries": 28766,
     "date_of_data": "05 May 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-16T22:03:35.783071+00:00"
+    "scraped_at": "2026-08-23T22:05:00.649407+00:00"
   }
 ]

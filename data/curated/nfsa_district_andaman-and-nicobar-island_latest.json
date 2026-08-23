@@ -16,7 +16,7 @@
     "phh_beneficiaries": 8899,
     "date_of_data": "11 Mar 2021",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-16T22:03:35.783071+00:00"
+    "scraped_at": "2026-08-23T22:05:00.649407+00:00"
   },
   {
     "district": "NORTH AND MIDDLE ANDAMAN",
@@ -35,7 +35,7 @@
     "phh_beneficiaries": 24293,
     "date_of_data": "11 Mar 2021",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-16T22:03:35.783071+00:00"
+    "scraped_at": "2026-08-23T22:05:00.649407+00:00"
   },
   {
     "district": "SOUTH ANDAMANS",
@@ -54,6 +54,6 @@
     "phh_beneficiaries": 13798,
     "date_of_data": "11 Mar 2021",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-16T22:03:35.783071+00:00"
+    "scraped_at": "2026-08-23T22:05:00.649407+00:00"
   }
 ]

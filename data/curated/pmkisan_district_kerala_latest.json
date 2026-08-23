@@ -15,7 +15,7 @@
     "villages": 1215,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "ERNAKULAM",
@@ -33,7 +33,7 @@
     "villages": 1307,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "IDUKKI",
@@ -51,7 +51,7 @@
     "villages": 549,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "KANNUR",
@@ -69,7 +69,7 @@
     "villages": 1024,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "KASARAGOD",
@@ -87,7 +87,7 @@
     "villages": 571,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "KOLLAM",
@@ -105,7 +105,7 @@
     "villages": 1270,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "KOTTAYAM",
@@ -123,7 +123,7 @@
     "villages": 1124,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "KOZHIKODE",
@@ -141,7 +141,7 @@
     "villages": 1214,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "MALAPPURAM",
@@ -159,7 +159,7 @@
     "villages": 1745,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "PALAKKAD",
@@ -177,7 +177,7 @@
     "villages": 1065,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "PATHANAMTHITTA",
@@ -195,7 +195,7 @@
     "villages": 811,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "THIRUVANANTHAPURAM",
@@ -213,7 +213,7 @@
     "villages": 1330,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "THRISSUR",
@@ -231,7 +231,7 @@
     "villages": 1440,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "WAYANAD",
@@ -249,7 +249,7 @@
     "villages": 369,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-16T21:55:45.889954+00:00"
+    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
   },
   {
     "district": "ALL",
@@ -263,6 +263,6 @@
     "installment": "April-July",
     "data_generated_on": "28/06/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-08-16T21:50:05.026905+00:00"
+    "scraped_at": "2026-08-23T21:51:06.142444+00:00"
   }
 ]
