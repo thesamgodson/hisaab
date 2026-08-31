@@ -19,7 +19,7 @@
     "national_rank": 1,
     "district_name_hindi": "खगरिया",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "MADHEPURA",
@@ -41,7 +41,7 @@
     "national_rank": 1,
     "district_name_hindi": "मधेपुरा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "SHEIKHPURA",
@@ -63,7 +63,7 @@
     "national_rank": 1,
     "district_name_hindi": "शेखपुरा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "SUPAUL",
@@ -85,7 +85,7 @@
     "national_rank": 212,
     "district_name_hindi": "सुपौल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "VAISHALI",
@@ -107,7 +107,7 @@
     "national_rank": 211,
     "district_name_hindi": "वैशाली",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "BANKA",
@@ -129,7 +129,7 @@
     "national_rank": 220,
     "district_name_hindi": "बांका",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "ARWAL",
@@ -151,7 +151,7 @@
     "national_rank": 235,
     "district_name_hindi": "अरवल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "NAWADA",
@@ -169,11 +169,11 @@
     "connections_2019_20": 80592,
     "connections_2020_onwards": 198302,
     "remaining_households": 3316,
-    "district_rank": 241,
-    "national_rank": 241,
+    "district_rank": 242,
+    "national_rank": 242,
     "district_name_hindi": "नवादा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "JEHANABAD",
@@ -191,11 +191,11 @@
     "connections_2019_20": 62628,
     "connections_2020_onwards": 95272,
     "remaining_households": 1952,
-    "district_rank": 242,
-    "national_rank": 242,
+    "district_rank": 243,
+    "national_rank": 243,
     "district_name_hindi": "जहानाबाद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "KAIMUR (BHABUA)",
@@ -213,11 +213,11 @@
     "connections_2019_20": 98479,
     "connections_2020_onwards": 172623,
     "remaining_households": 3189,
-    "district_rank": 243,
-    "national_rank": 244,
+    "district_rank": 244,
+    "national_rank": 245,
     "district_name_hindi": "कैमूर (भबुआ)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "ARARIA",
@@ -235,11 +235,11 @@
     "connections_2019_20": 19739,
     "connections_2020_onwards": 402399,
     "remaining_households": 6617,
-    "district_rank": 245,
-    "national_rank": 245,
+    "district_rank": 246,
+    "national_rank": 246,
     "district_name_hindi": "अररिया",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "KATIHAR",
@@ -257,11 +257,11 @@
     "connections_2019_20": 33711,
     "connections_2020_onwards": 442291,
     "remaining_households": 6471,
-    "district_rank": 247,
-    "national_rank": 247,
+    "district_rank": 248,
+    "national_rank": 248,
     "district_name_hindi": "कटिहार",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "GOPALGANJ",
@@ -279,11 +279,11 @@
     "connections_2019_20": 30205,
     "connections_2020_onwards": 343571,
     "remaining_households": 4893,
-    "district_rank": 248,
-    "national_rank": 248,
+    "district_rank": 249,
+    "national_rank": 249,
     "district_name_hindi": "गोपालगंज",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "JAMUI",
@@ -301,11 +301,11 @@
     "connections_2019_20": 47797,
     "connections_2020_onwards": 176416,
     "remaining_households": 3220,
-    "district_rank": 249,
-    "national_rank": 249,
+    "district_rank": 250,
+    "national_rank": 250,
     "district_name_hindi": "जमुई",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "NALANDA",
@@ -323,11 +323,11 @@
     "connections_2019_20": 165858,
     "connections_2020_onwards": 293779,
     "remaining_households": 7525,
-    "district_rank": 253,
-    "national_rank": 253,
+    "district_rank": 254,
+    "national_rank": 254,
     "district_name_hindi": "NALANDA",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "SAMASTIPUR",
@@ -345,11 +345,11 @@
     "connections_2019_20": 116382,
     "connections_2020_onwards": 707127,
     "remaining_households": 12905,
-    "district_rank": 259,
-    "national_rank": 259,
+    "district_rank": 260,
+    "national_rank": 260,
     "district_name_hindi": "समस्तीपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "PASHCHIM CHAMPARAN",
@@ -367,11 +367,11 @@
     "connections_2019_20": 70980,
     "connections_2020_onwards": 449706,
     "remaining_households": 8745,
-    "district_rank": 263,
-    "national_rank": 263,
+    "district_rank": 264,
+    "national_rank": 264,
     "district_name_hindi": "पश्चिम चंपारण",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "BUXAR",
@@ -389,11 +389,11 @@
     "connections_2019_20": 62549,
     "connections_2020_onwards": 173151,
     "remaining_households": 4233,
-    "district_rank": 267,
-    "national_rank": 268,
+    "district_rank": 268,
+    "national_rank": 269,
     "district_name_hindi": "बक्सर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "BHOJPUR",
@@ -411,11 +411,11 @@
     "connections_2019_20": 45711,
     "connections_2020_onwards": 310069,
     "remaining_households": 7007,
-    "district_rank": 276,
-    "national_rank": 276,
+    "district_rank": 277,
+    "national_rank": 277,
     "district_name_hindi": "भोजपुर(आरा)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "SARAN",
@@ -433,11 +433,11 @@
     "connections_2019_20": 142425,
     "connections_2020_onwards": 395599,
     "remaining_households": 10198,
-    "district_rank": 276,
-    "national_rank": 278,
+    "district_rank": 277,
+    "national_rank": 279,
     "district_name_hindi": "सरन",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "ROHTAS",
@@ -459,7 +459,7 @@
     "national_rank": 308,
     "district_name_hindi": "रोहतास",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "SIWAN",
@@ -481,7 +481,7 @@
     "national_rank": 310,
     "district_name_hindi": "सिवान",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "LAKHISARAI",
@@ -503,7 +503,7 @@
     "national_rank": 312,
     "district_name_hindi": "लखीसराय",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "GAYA",
@@ -525,7 +525,7 @@
     "national_rank": 313,
     "district_name_hindi": "गया",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "KISHANGANJ",
@@ -547,7 +547,7 @@
     "national_rank": 314,
     "district_name_hindi": "किशनगंज",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "AURANGABAD",
@@ -565,11 +565,11 @@
     "connections_2019_20": 69458,
     "connections_2020_onwards": 271652,
     "remaining_households": 12394,
-    "district_rank": 320,
-    "national_rank": 320,
+    "district_rank": 321,
+    "national_rank": 321,
     "district_name_hindi": "औरंगाबाद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "BEGUSARAI",
@@ -591,7 +591,7 @@
     "national_rank": 322,
     "district_name_hindi": "BEGUSARAI",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "PURNIA",
@@ -613,7 +613,7 @@
     "national_rank": 323,
     "district_name_hindi": "पूर्णिया",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "PATNA",
@@ -635,7 +635,7 @@
     "national_rank": 324,
     "district_name_hindi": "पटना",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "BHAGALPUR",
@@ -657,7 +657,7 @@
     "national_rank": 326,
     "district_name_hindi": "भागलपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "SITAMARHI",
@@ -675,11 +675,11 @@
     "connections_2019_20": 100415,
     "connections_2020_onwards": 389626,
     "remaining_households": 20159,
-    "district_rank": 329,
-    "national_rank": 329,
+    "district_rank": 330,
+    "national_rank": 330,
     "district_name_hindi": "सीतामढ़ी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "MUNGER",
@@ -697,11 +697,11 @@
     "connections_2019_20": 20933,
     "connections_2020_onwards": 146294,
     "remaining_households": 7742,
-    "district_rank": 334,
-    "national_rank": 335,
+    "district_rank": 335,
+    "national_rank": 336,
     "district_name_hindi": "MUNGER",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "MUZAFFARPUR",
@@ -719,11 +719,11 @@
     "connections_2019_20": 353734,
     "connections_2020_onwards": 373991,
     "remaining_households": 33298,
-    "district_rank": 337,
+    "district_rank": 338,
     "national_rank": 338,
     "district_name_hindi": "मुजफ्फरपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "SHEOHAR",
@@ -741,11 +741,11 @@
     "connections_2019_20": 18923,
     "connections_2020_onwards": 107078,
     "remaining_households": 8282,
-    "district_rank": 353,
-    "national_rank": 353,
+    "district_rank": 354,
+    "national_rank": 354,
     "district_name_hindi": "शिवहर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "PURBI CHAMPARAN",
@@ -767,7 +767,7 @@
     "national_rank": 379,
     "district_name_hindi": "पूर्वी चंपारण",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "DARBHANGA",
@@ -789,7 +789,7 @@
     "national_rank": 489,
     "district_name_hindi": "दरभंगा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "MADHUBANI",
@@ -811,7 +811,7 @@
     "national_rank": 539,
     "district_name_hindi": "मधुबनी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "SAHARSA",
@@ -833,6 +833,6 @@
     "national_rank": 566,
     "district_name_hindi": "सहरसा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   }
 ]

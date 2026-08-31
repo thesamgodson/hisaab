@@ -19,7 +19,7 @@
     "national_rank": 1,
     "district_name_hindi": "गांदेरबल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "SRINAGAR",
@@ -41,7 +41,7 @@
     "national_rank": 1,
     "district_name_hindi": "श्रीनगर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "SHOPIAN",
@@ -59,11 +59,11 @@
     "connections_2019_20": 6940,
     "connections_2020_onwards": 7360,
     "remaining_households": 2857,
-    "district_rank": 363,
-    "national_rank": 363,
+    "district_rank": 364,
+    "national_rank": 364,
     "district_name_hindi": "शोपियन",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "ANANTNAG",
@@ -81,11 +81,11 @@
     "connections_2019_20": 8080,
     "connections_2020_onwards": 25050,
     "remaining_households": 9186,
-    "district_rank": 368,
-    "national_rank": 368,
+    "district_rank": 369,
+    "national_rank": 369,
     "district_name_hindi": "अनंतनाग",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "KULGAM",
@@ -93,21 +93,21 @@
     "state_code": "015",
     "fin_year": "cumulative",
     "total_households": 61138,
-    "households_with_tap": 55637,
-    "tap_connections_provided": 55637,
-    "coverage_pct": 91.0,
+    "households_with_tap": 55641,
+    "tap_connections_provided": 55641,
+    "coverage_pct": 91.01,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 85709,
     "connections_pre_2019": 19210,
     "connections_2019_20": 2877,
     "connections_2020_onwards": 10297,
-    "remaining_households": 5501,
+    "remaining_households": 5497,
     "district_rank": 398,
     "national_rank": 398,
     "district_name_hindi": "कुलगाम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "REASI",
@@ -129,7 +129,7 @@
     "national_rank": 399,
     "district_name_hindi": "राशि",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "BANDIPORA",
@@ -147,11 +147,11 @@
     "connections_2019_20": 2855,
     "connections_2020_onwards": 8198,
     "remaining_households": 4751,
-    "district_rank": 425,
-    "national_rank": 425,
+    "district_rank": 426,
+    "national_rank": 426,
     "district_name_hindi": "बांदीपोरा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "BUDGAM",
@@ -169,11 +169,11 @@
     "connections_2019_20": 9910,
     "connections_2020_onwards": 16587,
     "remaining_households": 13699,
-    "district_rank": 429,
-    "national_rank": 430,
+    "district_rank": 431,
+    "national_rank": 431,
     "district_name_hindi": "बड़गाम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "BARAMULLA",
@@ -195,7 +195,7 @@
     "national_rank": 441,
     "district_name_hindi": "बारामुल्ला",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "PULWAMA",
@@ -217,7 +217,7 @@
     "national_rank": 482,
     "district_name_hindi": "पुलवामा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "KUPWARA",
@@ -239,7 +239,7 @@
     "national_rank": 512,
     "district_name_hindi": "कुपवाड़ा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "RAMBAN",
@@ -261,7 +261,7 @@
     "national_rank": 537,
     "district_name_hindi": "रामबाण",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "POONCH",
@@ -283,7 +283,7 @@
     "national_rank": 541,
     "district_name_hindi": "पूँछ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "UDHAMPUR",
@@ -305,14 +305,14 @@
     "national_rank": 542,
     "district_name_hindi": "उधमपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "DODA",
     "state": "Jammu & Kashmir",
     "state_code": "016",
     "fin_year": "cumulative",
-    "total_households": 127373,
+    "total_households": 127366,
     "households_with_tap": 100673,
     "tap_connections_provided": 100673,
     "coverage_pct": 79.04,
@@ -322,12 +322,12 @@
     "connections_pre_2019": 23082,
     "connections_2019_20": 24866,
     "connections_2020_onwards": 8846,
-    "remaining_households": 26700,
+    "remaining_households": 26693,
     "district_rank": 548,
     "national_rank": 548,
     "district_name_hindi": "डोडा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "KISHTWAR",
@@ -349,7 +349,7 @@
     "national_rank": 576,
     "district_name_hindi": "किश्तवाड़",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "KATHUA",
@@ -371,7 +371,7 @@
     "national_rank": 580,
     "district_name_hindi": "कठुआ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "SAMBA",
@@ -389,11 +389,11 @@
     "connections_2019_20": 2499,
     "connections_2020_onwards": 18432,
     "remaining_households": 23636,
-    "district_rank": 613,
-    "national_rank": 613,
+    "district_rank": 614,
+    "national_rank": 614,
     "district_name_hindi": "साम्बा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "RAJOURI",
@@ -415,7 +415,7 @@
     "national_rank": 636,
     "district_name_hindi": "राजौरी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "JAMMU",
@@ -437,6 +437,6 @@
     "national_rank": 638,
     "district_name_hindi": "जम्मू",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   }
 ]

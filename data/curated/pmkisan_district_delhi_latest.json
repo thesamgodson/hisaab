@@ -15,7 +15,7 @@
     "villages": 5,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "NEW DELHI",
@@ -33,7 +33,7 @@
     "villages": 1,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "NORTH",
@@ -51,7 +51,7 @@
     "villages": 50,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "NORTH EAST",
@@ -69,7 +69,7 @@
     "villages": 5,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "NORTH WEST",
@@ -87,7 +87,7 @@
     "villages": 20,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "SOUTH",
@@ -105,7 +105,7 @@
     "villages": 5,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "SOUTH EAST",
@@ -123,7 +123,7 @@
     "villages": 1,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "SOUTH WEST",
@@ -141,7 +141,7 @@
     "villages": 53,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "WEST",
@@ -159,20 +159,20 @@
     "villages": 11,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "ALL",
     "state": "DELHI",
     "state_code": "7",
     "fin_year": "2026-2027",
-    "beneficiaries_registered": 6996,
-    "beneficiaries_paid": 6979,
+    "beneficiaries_registered": 7234,
+    "beneficiaries_paid": 7192,
     "amount_paid_lakhs": 0,
     "beneficiaries_rejected": 0,
     "installment": "April-July",
-    "data_generated_on": "28/06/2026",
+    "data_generated_on": "24/08/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-08-23T21:51:06.142444+00:00"
+    "scraped_at": "2026-08-30T23:47:28.205618+00:00"
   }
 ]

@@ -16,7 +16,7 @@
     "phh_beneficiaries": 183888,
     "date_of_data": "02 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-23T22:05:00.649407+00:00"
+    "scraped_at": "2026-08-31T00:01:50.519233+00:00"
   },
   {
     "district": "DAMAN",
@@ -35,7 +35,7 @@
     "phh_beneficiaries": 41971,
     "date_of_data": "02 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-23T22:05:00.649407+00:00"
+    "scraped_at": "2026-08-31T00:01:50.519233+00:00"
   },
   {
     "district": "DIU",
@@ -54,6 +54,6 @@
     "phh_beneficiaries": 16118,
     "date_of_data": "02 Jun 2026",
     "source_url": "https://nfsa.gov.in/handlers/public/nfsadashboard/hndDashboardFactDetails.ashx?act=getrcdistrictcounts&random=00000000-0000-0000-0000-000000000000",
-    "scraped_at": "2026-08-23T22:05:00.649407+00:00"
+    "scraped_at": "2026-08-31T00:01:50.519233+00:00"
   }
 ]

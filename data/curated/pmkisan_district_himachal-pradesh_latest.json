@@ -15,7 +15,7 @@
     "villages": 945,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "CHAMBA",
@@ -33,7 +33,7 @@
     "villages": 1159,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "HAMIRPUR",
@@ -51,7 +51,7 @@
     "villages": 1652,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "KANGRA",
@@ -69,7 +69,7 @@
     "villages": 3613,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "KINNAUR",
@@ -87,7 +87,7 @@
     "villages": 176,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "KULLU",
@@ -105,7 +105,7 @@
     "villages": 337,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "LAHAUL AND SPITI",
@@ -123,7 +123,7 @@
     "villages": 239,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "MANDI",
@@ -141,7 +141,7 @@
     "villages": 2921,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "SHIMLA",
@@ -159,7 +159,7 @@
     "villages": 2692,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "SIRMAUR",
@@ -177,7 +177,7 @@
     "villages": 965,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "SOLAN",
@@ -195,7 +195,7 @@
     "villages": 2303,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "UNA",
@@ -213,20 +213,20 @@
     "villages": 780,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "ALL",
     "state": "HIMACHAL PRADESH",
     "state_code": "2",
     "fin_year": "2026-2027",
-    "beneficiaries_registered": 805273,
-    "beneficiaries_paid": 802965,
+    "beneficiaries_registered": 822181,
+    "beneficiaries_paid": 817790,
     "amount_paid_lakhs": 0,
     "beneficiaries_rejected": 0,
     "installment": "April-July",
-    "data_generated_on": "28/06/2026",
+    "data_generated_on": "24/08/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-08-23T21:51:06.142444+00:00"
+    "scraped_at": "2026-08-30T23:47:28.205618+00:00"
   }
 ]

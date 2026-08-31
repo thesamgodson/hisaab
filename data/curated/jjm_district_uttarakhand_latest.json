@@ -19,7 +19,7 @@
     "national_rank": 1,
     "district_name_hindi": "बागेश्वर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "UTTAR KASHI",
@@ -41,7 +41,7 @@
     "national_rank": 201,
     "district_name_hindi": "उत्तरकाशी",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "DEHRADUN",
@@ -63,7 +63,7 @@
     "national_rank": 204,
     "district_name_hindi": "देहरादून",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "CHAMOLI",
@@ -85,7 +85,7 @@
     "national_rank": 206,
     "district_name_hindi": "चमोली",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "RUDRA PRAYAG",
@@ -107,7 +107,7 @@
     "national_rank": 209,
     "district_name_hindi": "रुद्रप्रयाग",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "CHAMPAWAT",
@@ -129,7 +129,7 @@
     "national_rank": 217,
     "district_name_hindi": "चम्पावत",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "TEHRI GARHWAL",
@@ -151,7 +151,7 @@
     "national_rank": 222,
     "district_name_hindi": "तेहरी गढ़वाल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "PITHORAGARH",
@@ -173,7 +173,7 @@
     "national_rank": 224,
     "district_name_hindi": "पिथोरागढ़",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "PAURI GARHWAL",
@@ -195,7 +195,7 @@
     "national_rank": 234,
     "district_name_hindi": "गढ़वाल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "UDAM SINGH NAGAR",
@@ -213,11 +213,11 @@
     "connections_2019_20": 3044,
     "connections_2020_onwards": 87609,
     "remaining_households": 2760,
-    "district_rank": 251,
-    "national_rank": 251,
+    "district_rank": 252,
+    "national_rank": 252,
     "district_name_hindi": "उधम सिंह नगर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "HARIDWAR",
@@ -239,7 +239,7 @@
     "national_rank": 317,
     "district_name_hindi": "हरिद्वार",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "NAINITAL",
@@ -247,21 +247,21 @@
     "state_code": "066",
     "fin_year": "cumulative",
     "total_households": 114156,
-    "households_with_tap": 107351,
-    "tap_connections_provided": 107351,
-    "coverage_pct": 94.04,
+    "households_with_tap": 107358,
+    "tap_connections_provided": 107358,
+    "coverage_pct": 94.05,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 123315,
     "connections_pre_2019": 24910,
     "connections_2019_20": 8053,
     "connections_2020_onwards": 32623,
-    "remaining_households": 6805,
-    "district_rank": 356,
-    "national_rank": 356,
+    "remaining_households": 6798,
+    "district_rank": 359,
+    "national_rank": 359,
     "district_name_hindi": "नैनीताल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   },
   {
     "district": "ALMORA",
@@ -283,6 +283,6 @@
     "national_rank": 375,
     "district_name_hindi": "अल्मोरा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-23T21:57:00.931860+00:00"
+    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
   }
 ]

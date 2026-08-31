@@ -15,7 +15,7 @@
     "villages": 78,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "CHAMPHAI",
@@ -33,7 +33,7 @@
     "villages": 63,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "HNAHTHIAL",
@@ -51,7 +51,7 @@
     "villages": 32,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "KHAWZAWL",
@@ -69,7 +69,7 @@
     "villages": 38,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "KOLASIB",
@@ -87,7 +87,7 @@
     "villages": 59,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "LAWNGTLAI",
@@ -105,7 +105,7 @@
     "villages": 178,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "LUNGLEI",
@@ -123,7 +123,7 @@
     "villages": 158,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "MAMIT",
@@ -141,7 +141,7 @@
     "villages": 101,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "SAITUAL",
@@ -159,7 +159,7 @@
     "villages": 44,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "SERCHHIP",
@@ -177,7 +177,7 @@
     "villages": 62,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "SIAHA",
@@ -195,20 +195,20 @@
     "villages": 95,
     "period": "2025-12-01T00:00:00..2026-03-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=22",
-    "scraped_at": "2026-08-23T21:56:57.547383+00:00"
+    "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
     "district": "ALL",
     "state": "MIZORAM",
     "state_code": "15",
     "fin_year": "2026-2027",
-    "beneficiaries_registered": 124459,
-    "beneficiaries_paid": 124344,
+    "beneficiaries_registered": 126967,
+    "beneficiaries_paid": 126848,
     "amount_paid_lakhs": 0,
     "beneficiaries_rejected": 0,
     "installment": "April-July",
-    "data_generated_on": "28/06/2026",
+    "data_generated_on": "24/08/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-08-23T21:51:06.142444+00:00"
+    "scraped_at": "2026-08-30T23:47:28.205618+00:00"
   }
 ]
