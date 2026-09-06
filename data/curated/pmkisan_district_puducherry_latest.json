@@ -54,6 +54,60 @@
     "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
+    "district": "KARAIKAL",
+    "state": "PUDUCHERRY",
+    "state_code": "",
+    "fin_year": "",
+    "beneficiaries_registered": 0,
+    "beneficiaries_paid": 889,
+    "amount_paid_lakhs": 0,
+    "beneficiaries_rejected": 0,
+    "installment": "23",
+    "male": 496,
+    "female": 393,
+    "transgender": 0,
+    "villages": 31,
+    "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
+    "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
+    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+  },
+  {
+    "district": "PONDICHERRY",
+    "state": "PUDUCHERRY",
+    "state_code": "",
+    "fin_year": "",
+    "beneficiaries_registered": 0,
+    "beneficiaries_paid": 274,
+    "amount_paid_lakhs": 0,
+    "beneficiaries_rejected": 0,
+    "installment": "23",
+    "male": 207,
+    "female": 67,
+    "transgender": 0,
+    "villages": 9,
+    "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
+    "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
+    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+  },
+  {
+    "district": "PUDUCHERRY",
+    "state": "PUDUCHERRY",
+    "state_code": "",
+    "fin_year": "",
+    "beneficiaries_registered": 0,
+    "beneficiaries_paid": 4277,
+    "amount_paid_lakhs": 0,
+    "beneficiaries_rejected": 0,
+    "installment": "23",
+    "male": 3063,
+    "female": 1213,
+    "transgender": 1,
+    "villages": 74,
+    "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
+    "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
+    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+  },
+  {
     "district": "ALL",
     "state": "PUDUCHERRY",
     "state_code": "34",
@@ -65,6 +119,6 @@
     "installment": "April-July",
     "data_generated_on": "24/08/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-08-30T23:47:28.205618+00:00"
+    "scraped_at": "2026-09-06T23:03:57.316164+00:00"
   }
 ]

@@ -5,8 +5,8 @@
     "state_code": "600",
     "fin_year": "cumulative",
     "total_households": 609093,
-    "households_with_tap": 450219,
-    "tap_connections_provided": 450219,
+    "households_with_tap": 450239,
+    "tap_connections_provided": 450239,
     "coverage_pct": 73.92,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
@@ -14,12 +14,12 @@
     "connections_pre_2019": 137499,
     "connections_2019_20": 10280,
     "connections_2020_onwards": 142906,
-    "remaining_households": 158874,
-    "district_rank": 585,
-    "national_rank": 585,
+    "remaining_households": 158854,
+    "district_rank": 586,
+    "national_rank": 586,
     "district_name_hindi": "कोल्लम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "ALAPPUZHA",
@@ -41,7 +41,7 @@
     "national_rank": 643,
     "district_name_hindi": "अलाप्पुज्हा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "ERNAKULAM",
@@ -63,7 +63,7 @@
     "national_rank": 642,
     "district_name_hindi": "एर्नाकुलम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "THIRUVANANTHAPURAM",
@@ -71,8 +71,8 @@
     "state_code": "601",
     "fin_year": "cumulative",
     "total_households": 684304,
-    "households_with_tap": 452028,
-    "tap_connections_provided": 452028,
+    "households_with_tap": 452053,
+    "tap_connections_provided": 452053,
     "coverage_pct": 66.06,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
@@ -80,12 +80,12 @@
     "connections_pre_2019": 159330,
     "connections_2019_20": 7482,
     "connections_2020_onwards": 116976,
-    "remaining_households": 232276,
+    "remaining_households": 232251,
     "district_rank": 646,
     "national_rank": 646,
     "district_name_hindi": "थिरुवानान्थापुरम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "PALAKKAD",
@@ -93,21 +93,21 @@
     "state_code": "593",
     "fin_year": "cumulative",
     "total_households": 665293,
-    "households_with_tap": 395402,
-    "tap_connections_provided": 395402,
-    "coverage_pct": 59.43,
+    "households_with_tap": 395489,
+    "tap_connections_provided": 395489,
+    "coverage_pct": 59.45,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 798821,
     "connections_pre_2019": 139041,
     "connections_2019_20": 9846,
     "connections_2020_onwards": 129148,
-    "remaining_households": 269891,
+    "remaining_households": 269804,
     "district_rank": 670,
     "national_rank": 670,
     "district_name_hindi": "पलक्कड़",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "KANNUR",
@@ -129,7 +129,7 @@
     "national_rank": 684,
     "district_name_hindi": "कन्नूर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "THRISSUR",
@@ -151,7 +151,7 @@
     "national_rank": 703,
     "district_name_hindi": "थ्रिस्सुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "PATHANAMTHITTA",
@@ -173,7 +173,7 @@
     "national_rank": 705,
     "district_name_hindi": "पथानाम्थित्ता",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "MALAPPURAM",
@@ -195,7 +195,7 @@
     "national_rank": 709,
     "district_name_hindi": "मलप्पुरम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "KOTTAYAM",
@@ -217,7 +217,7 @@
     "national_rank": 710,
     "district_name_hindi": "कोट्टायम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "KOZHIKODE",
@@ -239,7 +239,7 @@
     "national_rank": 728,
     "district_name_hindi": "कोज्हिकोड़े",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "WAYANAD",
@@ -261,7 +261,7 @@
     "national_rank": 731,
     "district_name_hindi": "वायानद",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "IDUKKI",
@@ -283,7 +283,7 @@
     "national_rank": 738,
     "district_name_hindi": "इदुक्की",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   },
   {
     "district": "KASARAGOD",
@@ -291,20 +291,20 @@
     "state_code": "588",
     "fin_year": "cumulative",
     "total_households": 254051,
-    "households_with_tap": 88830,
-    "tap_connections_provided": 88830,
-    "coverage_pct": 34.97,
+    "households_with_tap": 89041,
+    "tap_connections_provided": 89041,
+    "coverage_pct": 35.05,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 282760,
     "connections_pre_2019": 39423,
     "connections_2019_20": 718,
     "connections_2020_onwards": 21017,
-    "remaining_households": 165221,
+    "remaining_households": 165010,
     "district_rank": 742,
     "national_rank": 742,
     "district_name_hindi": "कासरगोड",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-08-30T23:53:44.732088+00:00"
+    "scraped_at": "2026-09-06T23:10:11.310988+00:00"
   }
 ]

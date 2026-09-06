@@ -18,6 +18,24 @@
     "scraped_at": "2026-08-30T23:53:40.097835+00:00"
   },
   {
+    "district": "CHANDIGARH",
+    "state": "CHANDIGARH",
+    "state_code": "",
+    "fin_year": "",
+    "beneficiaries_registered": 0,
+    "beneficiaries_paid": 181,
+    "amount_paid_lakhs": 0,
+    "beneficiaries_rejected": 0,
+    "installment": "23",
+    "male": 156,
+    "female": 25,
+    "transgender": 0,
+    "villages": 9,
+    "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
+    "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
+    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+  },
+  {
     "district": "ALL",
     "state": "CHANDIGARH",
     "state_code": "4",
@@ -29,6 +47,6 @@
     "installment": "April-July",
     "data_generated_on": "24/08/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-08-30T23:47:28.205618+00:00"
+    "scraped_at": "2026-09-06T23:03:57.316164+00:00"
   }
 ]
