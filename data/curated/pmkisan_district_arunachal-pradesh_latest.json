@@ -501,7 +501,7 @@
     "villages": 227,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "BICHOM",
@@ -519,7 +519,7 @@
     "villages": 45,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "CHANGLANG",
@@ -537,7 +537,7 @@
     "villages": 344,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "DIBANG VALLEY",
@@ -555,7 +555,7 @@
     "villages": 33,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "EAST KAMENG",
@@ -573,7 +573,7 @@
     "villages": 336,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "EAST SIANG",
@@ -591,7 +591,7 @@
     "villages": 102,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "KAMLE",
@@ -609,7 +609,7 @@
     "villages": 103,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "KEYI PANYOR",
@@ -627,7 +627,7 @@
     "villages": 80,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "KRA DAADI",
@@ -645,7 +645,7 @@
     "villages": 338,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "KURUNG KUMEY",
@@ -663,7 +663,7 @@
     "villages": 341,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "LEPARADA",
@@ -681,7 +681,7 @@
     "villages": 68,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "LOHIT",
@@ -699,7 +699,7 @@
     "villages": 73,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "LONGDING",
@@ -717,7 +717,7 @@
     "villages": 80,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "LOWER DIBANG VALLEY",
@@ -735,7 +735,7 @@
     "villages": 188,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "LOWER SIANG",
@@ -753,7 +753,7 @@
     "villages": 100,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "LOWER SUBANSIRI",
@@ -771,7 +771,7 @@
     "villages": 205,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "NAMSAI",
@@ -789,7 +789,7 @@
     "villages": 158,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "PAKKE KESSANG",
@@ -807,7 +807,7 @@
     "villages": 61,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "PAPUM PARE",
@@ -825,7 +825,7 @@
     "villages": 362,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "SHI YOMI",
@@ -843,7 +843,7 @@
     "villages": 74,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "SIANG",
@@ -861,7 +861,7 @@
     "villages": 102,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "TAWANG",
@@ -879,7 +879,7 @@
     "villages": 158,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "TIRAP",
@@ -897,7 +897,7 @@
     "villages": 56,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "UPPER SIANG",
@@ -915,7 +915,7 @@
     "villages": 106,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "UPPER SUBANSIRI",
@@ -933,7 +933,7 @@
     "villages": 397,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "WEST KAMENG",
@@ -951,7 +951,7 @@
     "villages": 137,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "WEST SIANG",
@@ -969,7 +969,7 @@
     "villages": 146,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "ALL",
@@ -983,6 +983,6 @@
     "installment": "April-July",
     "data_generated_on": "24/08/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-09-06T23:03:57.316164+00:00"
+    "scraped_at": "2026-09-13T23:24:23.872930+00:00"
   }
 ]

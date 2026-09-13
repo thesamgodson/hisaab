@@ -321,7 +321,7 @@
     "villages": 82,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "DIMAPUR",
@@ -339,7 +339,7 @@
     "villages": 31,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "KIPHIRE",
@@ -357,7 +357,7 @@
     "villages": 124,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "KOHIMA",
@@ -375,7 +375,7 @@
     "villages": 71,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "LONGLENG",
@@ -393,7 +393,7 @@
     "villages": 68,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "MELURI",
@@ -411,7 +411,7 @@
     "villages": 35,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "MOKOKCHUNG",
@@ -429,7 +429,7 @@
     "villages": 114,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "MON",
@@ -447,7 +447,7 @@
     "villages": 138,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "NIULAND",
@@ -465,7 +465,7 @@
     "villages": 107,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "NOKLAK",
@@ -483,7 +483,7 @@
     "villages": 50,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "PEREN",
@@ -501,7 +501,7 @@
     "villages": 112,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "PHEK",
@@ -519,7 +519,7 @@
     "villages": 86,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "SHAMATOR",
@@ -537,7 +537,7 @@
     "villages": 30,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "TSEMINYU",
@@ -555,7 +555,7 @@
     "villages": 14,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "TUENSANG",
@@ -573,7 +573,7 @@
     "villages": 93,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "WOKHA",
@@ -591,7 +591,7 @@
     "villages": 166,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "ZUNHEBOTO",
@@ -609,7 +609,7 @@
     "villages": 216,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-06T23:10:07.898858+00:00"
+    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
   },
   {
     "district": "ALL",
@@ -623,6 +623,6 @@
     "installment": "April-July",
     "data_generated_on": "24/08/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-09-06T23:03:57.316164+00:00"
+    "scraped_at": "2026-09-13T23:24:23.872930+00:00"
   }
 ]
