@@ -231,7 +231,7 @@
     "villages": 452,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "EAST JAINTIA HILLS",
@@ -249,7 +249,7 @@
     "villages": 150,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "EAST KHASI HILLS",
@@ -267,7 +267,7 @@
     "villages": 348,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "EASTERN WEST KHASI HILLS",
@@ -285,7 +285,7 @@
     "villages": 119,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "NORTH GARO HILLS",
@@ -303,7 +303,7 @@
     "villages": 483,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "RI BHOI",
@@ -321,7 +321,7 @@
     "villages": 479,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "SOUTH GARO HILLS",
@@ -339,7 +339,7 @@
     "villages": 563,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "SOUTH WEST GARO HILLS",
@@ -357,7 +357,7 @@
     "villages": 541,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "SOUTH WEST KHASI HILLS",
@@ -375,7 +375,7 @@
     "villages": 231,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "WEST GARO HILLS",
@@ -393,7 +393,7 @@
     "villages": 858,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "WEST JAINTIA HILLS",
@@ -411,7 +411,7 @@
     "villages": 223,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "WEST KHASI HILLS",
@@ -429,20 +429,20 @@
     "villages": 286,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "ALL",
     "state": "MEGHALAYA",
     "state_code": "17",
     "fin_year": "2026-2027",
-    "beneficiaries_registered": 185196,
-    "beneficiaries_paid": 183821,
+    "beneficiaries_registered": 182683,
+    "beneficiaries_paid": 182347,
     "amount_paid_lakhs": 0,
     "beneficiaries_rejected": 0,
     "installment": "April-July",
-    "data_generated_on": "24/08/2026",
+    "data_generated_on": "28/06/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-09-13T23:24:23.872930+00:00"
+    "scraped_at": "2026-09-20T23:26:39.742463+00:00"
   }
 ]

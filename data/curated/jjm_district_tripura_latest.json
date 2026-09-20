@@ -19,7 +19,7 @@
     "national_rank": 361,
     "district_name_hindi": "वेस्ट त्रिपुरा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-13T23:30:49.000476+00:00"
+    "scraped_at": "2026-09-20T23:35:08.722668+00:00"
   },
   {
     "district": "UNAKOTI",
@@ -41,7 +41,7 @@
     "national_rank": 433,
     "district_name_hindi": "UNAKOTI",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-13T23:30:49.000476+00:00"
+    "scraped_at": "2026-09-20T23:35:08.722668+00:00"
   },
   {
     "district": "KHOWAI",
@@ -49,21 +49,21 @@
     "state_code": "708",
     "fin_year": "cumulative",
     "total_households": 73219,
-    "households_with_tap": 63808,
-    "tap_connections_provided": 63808,
-    "coverage_pct": 87.15,
+    "households_with_tap": 63840,
+    "tap_connections_provided": 63840,
+    "coverage_pct": 87.19,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 81800,
     "connections_pre_2019": 1352,
     "connections_2019_20": 4094,
     "connections_2020_onwards": 31198,
-    "remaining_households": 9411,
-    "district_rank": 468,
-    "national_rank": 468,
+    "remaining_households": 9379,
+    "district_rank": 466,
+    "national_rank": 466,
     "district_name_hindi": "KHOWAI",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-13T23:30:49.000476+00:00"
+    "scraped_at": "2026-09-20T23:35:08.722668+00:00"
   },
   {
     "district": "SEPAHIJALA",
@@ -85,7 +85,7 @@
     "national_rank": 471,
     "district_name_hindi": "SEPAHIJALA",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-13T23:30:49.000476+00:00"
+    "scraped_at": "2026-09-20T23:35:08.722668+00:00"
   },
   {
     "district": "NORTH TRIPURA",
@@ -93,21 +93,21 @@
     "state_code": "292",
     "fin_year": "cumulative",
     "total_households": 83012,
-    "households_with_tap": 71095,
-    "tap_connections_provided": 71095,
-    "coverage_pct": 85.64,
+    "households_with_tap": 71103,
+    "tap_connections_provided": 71103,
+    "coverage_pct": 85.65,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 154734,
     "connections_pre_2019": 1932,
     "connections_2019_20": 11559,
     "connections_2020_onwards": 34153,
-    "remaining_households": 11917,
+    "remaining_households": 11909,
     "district_rank": 487,
     "national_rank": 487,
     "district_name_hindi": "NORTH TRIPURA",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-13T23:30:49.000476+00:00"
+    "scraped_at": "2026-09-20T23:35:08.722668+00:00"
   },
   {
     "district": "GOMATI",
@@ -129,7 +129,7 @@
     "national_rank": 491,
     "district_name_hindi": "GOMATI",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-13T23:30:49.000476+00:00"
+    "scraped_at": "2026-09-20T23:35:08.722668+00:00"
   },
   {
     "district": "SOUTH TRIPURA",
@@ -151,7 +151,7 @@
     "national_rank": 511,
     "district_name_hindi": "SOUTH TRIPURA",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-13T23:30:49.000476+00:00"
+    "scraped_at": "2026-09-20T23:35:08.722668+00:00"
   },
   {
     "district": "DHALAI",
@@ -159,20 +159,20 @@
     "state_code": "291",
     "fin_year": "cumulative",
     "total_households": 104062,
-    "households_with_tap": 85378,
-    "tap_connections_provided": 85378,
-    "coverage_pct": 82.05,
+    "households_with_tap": 85394,
+    "tap_connections_provided": 85394,
+    "coverage_pct": 82.06,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 100400,
     "connections_pre_2019": 3301,
     "connections_2019_20": 6411,
     "connections_2020_onwards": 37723,
-    "remaining_households": 18684,
+    "remaining_households": 18668,
     "district_rank": 521,
     "national_rank": 521,
     "district_name_hindi": "DHALAI  ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-13T23:30:49.000476+00:00"
+    "scraped_at": "2026-09-20T23:35:08.722668+00:00"
   }
 ]

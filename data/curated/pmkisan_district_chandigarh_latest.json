@@ -33,20 +33,20 @@
     "villages": 9,
     "period": "2026-04-01T00:00:00..2026-07-31T00:00:00",
     "source_url": "https://api.data.gov.in/resource/388208c6-d82a-4190-90df-91aa2c326fec?filters[InstallmentReleaseNo]=23",
-    "scraped_at": "2026-09-13T23:30:46.024908+00:00"
+    "scraped_at": "2026-09-20T23:35:05.232350+00:00"
   },
   {
     "district": "ALL",
     "state": "CHANDIGARH",
     "state_code": "4",
     "fin_year": "2026-2027",
-    "beneficiaries_registered": 338,
-    "beneficiaries_paid": 321,
+    "beneficiaries_registered": 330,
+    "beneficiaries_paid": 2,
     "amount_paid_lakhs": 0,
     "beneficiaries_rejected": 0,
     "installment": "April-July",
-    "data_generated_on": "24/08/2026",
+    "data_generated_on": "28/06/2026",
     "source_url": "https://pmkisan.gov.in/",
-    "scraped_at": "2026-09-13T23:24:23.872930+00:00"
+    "scraped_at": "2026-09-20T23:26:39.742463+00:00"
   }
 ]
