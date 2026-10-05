@@ -15,11 +15,11 @@
     "connections_2019_20": 302,
     "connections_2020_onwards": 28742,
     "remaining_households": 4687,
-    "district_rank": 438,
-    "national_rank": 438,
+    "district_rank": 439,
+    "national_rank": 439,
     "district_name_hindi": "थौबल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "KAKCHING",
@@ -41,7 +41,7 @@
     "national_rank": 465,
     "district_name_hindi": "Kakching",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "TENGNOUPAL",
@@ -60,10 +60,10 @@
     "connections_2020_onwards": 9525,
     "remaining_households": 1928,
     "district_rank": 469,
-    "national_rank": 469,
+    "national_rank": 470,
     "district_name_hindi": "Tengnoupal",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "CHURACHANDPUR",
@@ -85,7 +85,7 @@
     "national_rank": 486,
     "district_name_hindi": "चुराचांदपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "KANGPOKPI",
@@ -107,7 +107,7 @@
     "national_rank": 488,
     "district_name_hindi": "Kangpokpi",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "IMPHAL EAST",
@@ -125,11 +125,11 @@
     "connections_2019_20": 450,
     "connections_2020_onwards": 43352,
     "remaining_households": 14200,
-    "district_rank": 533,
-    "national_rank": 533,
+    "district_rank": 534,
+    "national_rank": 534,
     "district_name_hindi": "इम्फाल पूर्व",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "TAMENGLONG",
@@ -147,11 +147,11 @@
     "connections_2019_20": 52,
     "connections_2020_onwards": 10271,
     "remaining_households": 3417,
-    "district_rank": 546,
-    "national_rank": 546,
+    "district_rank": 548,
+    "national_rank": 548,
     "district_name_hindi": "तमेंगलोंग",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "CHANDEL",
@@ -169,11 +169,11 @@
     "connections_2019_20": 415,
     "connections_2020_onwards": 10996,
     "remaining_households": 4212,
-    "district_rank": 556,
-    "national_rank": 556,
+    "district_rank": 557,
+    "national_rank": 557,
     "district_name_hindi": "चंदेल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "UKHRUL",
@@ -195,7 +195,7 @@
     "national_rank": 559,
     "district_name_hindi": "उखरुल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "IMPHAL WEST",
@@ -217,7 +217,7 @@
     "national_rank": 562,
     "district_name_hindi": "इम्फाल पश्चिम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "SENAPATI",
@@ -235,11 +235,11 @@
     "connections_2019_20": 522,
     "connections_2020_onwards": 23128,
     "remaining_households": 9827,
-    "district_rank": 567,
-    "national_rank": 567,
+    "district_rank": 568,
+    "national_rank": 568,
     "district_name_hindi": "सेनापति",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "NONEY",
@@ -257,11 +257,11 @@
     "connections_2019_20": 96,
     "connections_2020_onwards": 5598,
     "remaining_households": 2687,
-    "district_rank": 571,
-    "national_rank": 571,
+    "district_rank": 572,
+    "national_rank": 572,
     "district_name_hindi": "Noney",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "KAMJONG",
@@ -283,7 +283,7 @@
     "national_rank": 593,
     "district_name_hindi": "Kamjong",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "BISHNUPUR",
@@ -305,7 +305,7 @@
     "national_rank": 598,
     "district_name_hindi": "बिश्नुपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "PHERZAWL",
@@ -327,7 +327,7 @@
     "national_rank": 700,
     "district_name_hindi": "Pherzawl",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   },
   {
     "district": "JIRIBAM",
@@ -349,6 +349,6 @@
     "national_rank": 734,
     "district_name_hindi": "Jiribam",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-09-28T00:02:36.510671+00:00"
+    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
   }
 ]
