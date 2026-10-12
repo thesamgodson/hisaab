@@ -19,7 +19,7 @@
     "national_rank": 1,
     "district_name_hindi": "Annamayya",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "TIRUPATI",
@@ -41,7 +41,7 @@
     "national_rank": 1,
     "district_name_hindi": "Tirupati",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "Y.S.R.",
@@ -63,7 +63,7 @@
     "national_rank": 1,
     "district_name_hindi": "कडपा(११)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "CHITTOOR",
@@ -85,7 +85,7 @@
     "national_rank": 203,
     "district_name_hindi": "चित्तूर(१०)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "EAST GODAVARI",
@@ -93,21 +93,21 @@
     "state_code": "545",
     "fin_year": "cumulative",
     "total_households": 356543,
-    "households_with_tap": 340912,
-    "tap_connections_provided": 340912,
-    "coverage_pct": 95.62,
+    "households_with_tap": 341141,
+    "tap_connections_provided": 341141,
+    "coverage_pct": 95.68,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 1155551,
     "connections_pre_2019": 164538,
     "connections_2019_20": 142010,
     "connections_2020_onwards": 313769,
-    "remaining_households": 15631,
+    "remaining_households": 15402,
     "district_rank": 343,
     "national_rank": 343,
     "district_name_hindi": "ईस्ट गोदावरी(०४)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "SRI POTTI SRIRAMULU NELLORE",
@@ -115,21 +115,21 @@
     "state_code": "550",
     "fin_year": "cumulative",
     "total_households": 460415,
-    "households_with_tap": 404489,
-    "tap_connections_provided": 404489,
-    "coverage_pct": 87.85,
+    "households_with_tap": 404594,
+    "tap_connections_provided": 404594,
+    "coverage_pct": 87.88,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 564443,
     "connections_pre_2019": 237344,
     "connections_2019_20": 44490,
     "connections_2020_onwards": 131177,
-    "remaining_households": 55926,
-    "district_rank": 458,
-    "national_rank": 458,
+    "remaining_households": 55821,
+    "district_rank": 457,
+    "national_rank": 457,
     "district_name_hindi": "नेल्लोर(०९)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "ELURU",
@@ -137,21 +137,21 @@
     "state_code": "808",
     "fin_year": "cumulative",
     "total_households": 479752,
-    "households_with_tap": 420889,
-    "tap_connections_provided": 420889,
-    "coverage_pct": 87.73,
+    "households_with_tap": 421014,
+    "tap_connections_provided": 421014,
+    "coverage_pct": 87.76,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 0,
     "connections_pre_2019": 256892,
     "connections_2019_20": -256892,
     "connections_2020_onwards": 0,
-    "remaining_households": 58863,
+    "remaining_households": 58738,
     "district_rank": 459,
     "national_rank": 459,
     "district_name_hindi": "Eluru",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "KAKINADA",
@@ -159,21 +159,21 @@
     "state_code": "806",
     "fin_year": "cumulative",
     "total_households": 389205,
-    "households_with_tap": 337792,
-    "tap_connections_provided": 337792,
-    "coverage_pct": 86.79,
+    "households_with_tap": 338930,
+    "tap_connections_provided": 338930,
+    "coverage_pct": 87.08,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 0,
     "connections_pre_2019": 101973,
     "connections_2019_20": -101973,
     "connections_2020_onwards": 0,
-    "remaining_households": 51413,
-    "district_rank": 475,
-    "national_rank": 475,
+    "remaining_households": 50275,
+    "district_rank": 472,
+    "national_rank": 472,
     "district_name_hindi": "Kakinada",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "SRI SATHYA SAI",
@@ -195,7 +195,7 @@
     "national_rank": 478,
     "district_name_hindi": "Sri Sathya Sai",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "WEST GODAVARI",
@@ -217,7 +217,7 @@
     "national_rank": 501,
     "district_name_hindi": "वेस्ट गोदावरी(०५)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "ANANTHAPURAMU",
@@ -225,21 +225,21 @@
     "state_code": "553",
     "fin_year": "cumulative",
     "total_households": 434468,
-    "households_with_tap": 364743,
-    "tap_connections_provided": 364743,
-    "coverage_pct": 83.95,
+    "households_with_tap": 365311,
+    "tap_connections_provided": 365311,
+    "coverage_pct": 84.08,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 774531,
     "connections_pre_2019": 190477,
     "connections_2019_20": 148236,
     "connections_2020_onwards": 192142,
-    "remaining_households": 69725,
-    "district_rank": 503,
-    "national_rank": 503,
+    "remaining_households": 69157,
+    "district_rank": 502,
+    "national_rank": 502,
     "district_name_hindi": "अनंतपुर(१२)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "DR. B.R. AMBEDKAR KONASEEMA",
@@ -247,21 +247,21 @@
     "state_code": "807",
     "fin_year": "cumulative",
     "total_households": 402434,
-    "households_with_tap": 319041,
-    "tap_connections_provided": 319041,
-    "coverage_pct": 79.28,
+    "households_with_tap": 324823,
+    "tap_connections_provided": 324823,
+    "coverage_pct": 80.72,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 0,
     "connections_pre_2019": 58474,
     "connections_2019_20": -58474,
     "connections_2020_onwards": 0,
-    "remaining_households": 83393,
-    "district_rank": 549,
-    "national_rank": 549,
+    "remaining_households": 77611,
+    "district_rank": 531,
+    "national_rank": 531,
     "district_name_hindi": "Dr. B.R. Ambedkar Konaseema",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "NANDYAL",
@@ -279,11 +279,33 @@
     "connections_2019_20": -122973,
     "connections_2020_onwards": 0,
     "remaining_households": 78686,
-    "district_rank": 564,
-    "national_rank": 564,
+    "district_rank": 565,
+    "national_rank": 565,
     "district_name_hindi": "Nandyal",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
+  },
+  {
+    "district": "ANAKAPALLI",
+    "state": "Andhra Pradesh",
+    "state_code": "804",
+    "fin_year": "cumulative",
+    "total_households": 417489,
+    "households_with_tap": 310301,
+    "tap_connections_provided": 310301,
+    "coverage_pct": 74.33,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0,
+    "hh_as_of_2019": 0,
+    "connections_pre_2019": 67359,
+    "connections_2019_20": -67359,
+    "connections_2020_onwards": 0,
+    "remaining_households": 107188,
+    "district_rank": 587,
+    "national_rank": 587,
+    "district_name_hindi": "Anakapalli",
+    "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "PARVATHIPURAM MANYAM",
@@ -301,33 +323,11 @@
     "connections_2019_20": -2847,
     "connections_2020_onwards": 0,
     "remaining_households": 57381,
-    "district_rank": 587,
-    "national_rank": 588,
-    "district_name_hindi": "Parvathipuram Manyam",
-    "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
-  },
-  {
-    "district": "ANAKAPALLI",
-    "state": "Andhra Pradesh",
-    "state_code": "804",
-    "fin_year": "cumulative",
-    "total_households": 417489,
-    "households_with_tap": 309330,
-    "tap_connections_provided": 309330,
-    "coverage_pct": 74.09,
-    "funds_released_lakhs": 0,
-    "funds_utilized_lakhs": 0,
-    "hh_as_of_2019": 0,
-    "connections_pre_2019": 67359,
-    "connections_2019_20": -67359,
-    "connections_2020_onwards": 0,
-    "remaining_households": 108159,
     "district_rank": 589,
     "national_rank": 589,
-    "district_name_hindi": "Anakapalli",
+    "district_name_hindi": "Parvathipuram Manyam",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "VIZIANAGARAM",
@@ -335,21 +335,21 @@
     "state_code": "543",
     "fin_year": "cumulative",
     "total_households": 444171,
-    "households_with_tap": 314610,
-    "tap_connections_provided": 314610,
-    "coverage_pct": 70.83,
+    "households_with_tap": 315298,
+    "tap_connections_provided": 315298,
+    "coverage_pct": 70.99,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 509124,
     "connections_pre_2019": 13692,
     "connections_2019_20": 4378,
     "connections_2020_onwards": 242079,
-    "remaining_households": 129561,
-    "district_rank": 610,
-    "national_rank": 610,
+    "remaining_households": 128873,
+    "district_rank": 609,
+    "national_rank": 609,
     "district_name_hindi": "विज़ियनगरम(०२)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "KURNOOL",
@@ -357,21 +357,21 @@
     "state_code": "552",
     "fin_year": "cumulative",
     "total_households": 345790,
-    "households_with_tap": 244523,
-    "tap_connections_provided": 244523,
-    "coverage_pct": 70.71,
+    "households_with_tap": 244651,
+    "tap_connections_provided": 244651,
+    "coverage_pct": 70.75,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 702308,
     "connections_pre_2019": 90710,
     "connections_2019_20": 122973,
     "connections_2020_onwards": 131173,
-    "remaining_households": 101267,
+    "remaining_households": 101139,
     "district_rank": 611,
     "national_rank": 611,
     "district_name_hindi": "कुरनूल(१३)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "PRAKASAM",
@@ -393,7 +393,7 @@
     "national_rank": 613,
     "district_name_hindi": "प्रकाशम्(०८)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "VISAKHAPATNAM",
@@ -401,21 +401,21 @@
     "state_code": "544",
     "fin_year": "cumulative",
     "total_households": 59338,
-    "households_with_tap": 41789,
-    "tap_connections_provided": 41789,
-    "coverage_pct": 70.43,
+    "households_with_tap": 41851,
+    "tap_connections_provided": 41851,
+    "coverage_pct": 70.53,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 604651,
     "connections_pre_2019": 10395,
     "connections_2019_20": 80341,
     "connections_2020_onwards": 173245,
-    "remaining_households": 17549,
+    "remaining_households": 17487,
     "district_rank": 614,
     "national_rank": 614,
     "district_name_hindi": "विशाखापटनम(०३)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "GUNTUR",
@@ -437,7 +437,7 @@
     "national_rank": 631,
     "district_name_hindi": "गुंटूर(०७)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "ALLURI SITHARAMA RAJU",
@@ -459,7 +459,7 @@
     "national_rank": 660,
     "district_name_hindi": "Alluri Sitharama Raju",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "NTR",
@@ -481,7 +481,7 @@
     "national_rank": 665,
     "district_name_hindi": "Ntr",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "KRISHNA",
@@ -499,11 +499,11 @@
     "connections_2019_20": 148718,
     "connections_2020_onwards": 161018,
     "remaining_households": 152413,
-    "district_rank": 671,
-    "national_rank": 671,
+    "district_rank": 672,
+    "national_rank": 672,
     "district_name_hindi": "कृष्णा(०६)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "SRIKAKULAM",
@@ -511,21 +511,21 @@
     "state_code": "542",
     "fin_year": "cumulative",
     "total_households": 535764,
-    "households_with_tap": 250414,
-    "tap_connections_provided": 250414,
-    "coverage_pct": 46.74,
+    "households_with_tap": 252654,
+    "tap_connections_provided": 252654,
+    "coverage_pct": 47.16,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 603998,
     "connections_pre_2019": 13995,
     "connections_2019_20": 2990,
     "connections_2020_onwards": 125218,
-    "remaining_households": 285350,
+    "remaining_households": 283110,
     "district_rank": 712,
     "national_rank": 712,
     "district_name_hindi": "श्रीकाकुलम(०१)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "BAPATLA",
@@ -533,21 +533,21 @@
     "state_code": "810",
     "fin_year": "cumulative",
     "total_households": 364788,
-    "households_with_tap": 161674,
-    "tap_connections_provided": 161674,
-    "coverage_pct": 44.32,
+    "households_with_tap": 162361,
+    "tap_connections_provided": 162361,
+    "coverage_pct": 44.51,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 0,
     "connections_pre_2019": 72292,
     "connections_2019_20": -72292,
     "connections_2020_onwards": 0,
-    "remaining_households": 203114,
-    "district_rank": 718,
-    "national_rank": 718,
+    "remaining_households": 202427,
+    "district_rank": 717,
+    "national_rank": 717,
     "district_name_hindi": "Bapatla",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "PALNADU",
@@ -569,6 +569,6 @@
     "national_rank": 735,
     "district_name_hindi": "Palnadu",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   }
 ]

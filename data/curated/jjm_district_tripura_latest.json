@@ -15,11 +15,11 @@
     "connections_2019_20": 6861,
     "connections_2020_onwards": 49841,
     "remaining_households": 6338,
-    "district_rank": 362,
-    "national_rank": 364,
+    "district_rank": 365,
+    "national_rank": 365,
     "district_name_hindi": "वेस्ट त्रिपुरा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "UNAKOTI",
@@ -41,7 +41,7 @@
     "national_rank": 434,
     "district_name_hindi": "UNAKOTI",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "KHOWAI",
@@ -59,11 +59,11 @@
     "connections_2019_20": 4094,
     "connections_2020_onwards": 31198,
     "remaining_households": 9193,
-    "district_rank": 462,
-    "national_rank": 462,
+    "district_rank": 464,
+    "national_rank": 464,
     "district_name_hindi": "KHOWAI",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "SEPAHIJALA",
@@ -71,21 +71,21 @@
     "state_code": "707",
     "fin_year": "cumulative",
     "total_households": 117040,
-    "households_with_tap": 101970,
-    "tap_connections_provided": 101970,
-    "coverage_pct": 87.12,
+    "households_with_tap": 101993,
+    "tap_connections_provided": 101993,
+    "coverage_pct": 87.14,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 124594,
     "connections_pre_2019": 2338,
     "connections_2019_20": 4825,
     "connections_2020_onwards": 37990,
-    "remaining_households": 15070,
-    "district_rank": 469,
-    "national_rank": 469,
+    "remaining_households": 15047,
+    "district_rank": 470,
+    "national_rank": 470,
     "district_name_hindi": "SEPAHIJALA",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "NORTH TRIPURA",
@@ -107,7 +107,7 @@
     "national_rank": 487,
     "district_name_hindi": "NORTH TRIPURA",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "GOMATI",
@@ -129,7 +129,7 @@
     "national_rank": 491,
     "district_name_hindi": "GOMATI",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "SOUTH TRIPURA",
@@ -151,7 +151,7 @@
     "national_rank": 511,
     "district_name_hindi": "SOUTH TRIPURA",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "DHALAI",
@@ -173,6 +173,6 @@
     "national_rank": 522,
     "district_name_hindi": "DHALAI  ",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   }
 ]

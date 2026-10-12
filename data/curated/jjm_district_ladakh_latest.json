@@ -19,7 +19,7 @@
     "national_rank": 230,
     "district_name_hindi": "लेह (लदाख)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "KARGIL",
@@ -27,20 +27,20 @@
     "state_code": "004",
     "fin_year": "cumulative",
     "total_households": 18912,
-    "households_with_tap": 18422,
-    "tap_connections_provided": 18422,
-    "coverage_pct": 97.41,
+    "households_with_tap": 18427,
+    "tap_connections_provided": 18427,
+    "coverage_pct": 97.44,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 18042,
     "connections_pre_2019": 168,
     "connections_2019_20": 172,
     "connections_2020_onwards": 5311,
-    "remaining_households": 490,
-    "district_rank": 313,
-    "national_rank": 313,
+    "remaining_households": 485,
+    "district_rank": 314,
+    "national_rank": 314,
     "district_name_hindi": "कारगिल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   }
 ]

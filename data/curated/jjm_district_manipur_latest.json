@@ -19,7 +19,7 @@
     "national_rank": 439,
     "district_name_hindi": "थौबल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "KAKCHING",
@@ -37,11 +37,11 @@
     "connections_2019_20": 154,
     "connections_2020_onwards": 14580,
     "remaining_households": 2594,
-    "district_rank": 465,
-    "national_rank": 465,
+    "district_rank": 467,
+    "national_rank": 467,
     "district_name_hindi": "Kakching",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "TENGNOUPAL",
@@ -59,11 +59,11 @@
     "connections_2019_20": 58,
     "connections_2020_onwards": 9525,
     "remaining_households": 1928,
-    "district_rank": 469,
-    "national_rank": 470,
+    "district_rank": 471,
+    "national_rank": 471,
     "district_name_hindi": "Tengnoupal",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "CHURACHANDPUR",
@@ -85,29 +85,29 @@
     "national_rank": 486,
     "district_name_hindi": "चुराचांदपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "KANGPOKPI",
     "state": "Manipur",
     "state_code": "767",
     "fin_year": "cumulative",
-    "total_households": 32332,
+    "total_households": 32382,
     "households_with_tap": 27674,
     "tap_connections_provided": 27674,
-    "coverage_pct": 85.59,
+    "coverage_pct": 85.46,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 32327,
     "connections_pre_2019": 2197,
     "connections_2019_20": 80,
     "connections_2020_onwards": 22073,
-    "remaining_households": 4658,
+    "remaining_households": 4708,
     "district_rank": 488,
     "national_rank": 488,
     "district_name_hindi": "Kangpokpi",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "IMPHAL EAST",
@@ -125,11 +125,11 @@
     "connections_2019_20": 450,
     "connections_2020_onwards": 43352,
     "remaining_households": 14200,
-    "district_rank": 534,
-    "national_rank": 534,
+    "district_rank": 535,
+    "national_rank": 535,
     "district_name_hindi": "इम्फाल पूर्व",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "TAMENGLONG",
@@ -147,11 +147,11 @@
     "connections_2019_20": 52,
     "connections_2020_onwards": 10271,
     "remaining_households": 3417,
-    "district_rank": 548,
-    "national_rank": 548,
+    "district_rank": 551,
+    "national_rank": 551,
     "district_name_hindi": "तमेंगलोंग",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "CHANDEL",
@@ -169,11 +169,11 @@
     "connections_2019_20": 415,
     "connections_2020_onwards": 10996,
     "remaining_households": 4212,
-    "district_rank": 557,
-    "national_rank": 557,
+    "district_rank": 559,
+    "national_rank": 559,
     "district_name_hindi": "चंदेल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "UKHRUL",
@@ -191,11 +191,11 @@
     "connections_2019_20": 90,
     "connections_2020_onwards": 16206,
     "remaining_households": 6824,
-    "district_rank": 559,
-    "national_rank": 559,
+    "district_rank": 561,
+    "national_rank": 561,
     "district_name_hindi": "उखरुल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "IMPHAL WEST",
@@ -213,11 +213,11 @@
     "connections_2019_20": 340,
     "connections_2020_onwards": 29246,
     "remaining_households": 10280,
-    "district_rank": 562,
-    "national_rank": 562,
+    "district_rank": 564,
+    "national_rank": 564,
     "district_name_hindi": "इम्फाल पश्चिम",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "SENAPATI",
@@ -235,11 +235,11 @@
     "connections_2019_20": 522,
     "connections_2020_onwards": 23128,
     "remaining_households": 9827,
-    "district_rank": 568,
-    "national_rank": 568,
+    "district_rank": 569,
+    "national_rank": 569,
     "district_name_hindi": "सेनापति",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "NONEY",
@@ -261,7 +261,7 @@
     "national_rank": 572,
     "district_name_hindi": "Noney",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "KAMJONG",
@@ -283,7 +283,7 @@
     "national_rank": 593,
     "district_name_hindi": "Kamjong",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "BISHNUPUR",
@@ -305,7 +305,7 @@
     "national_rank": 598,
     "district_name_hindi": "बिश्नुपुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "PHERZAWL",
@@ -327,7 +327,7 @@
     "national_rank": 700,
     "district_name_hindi": "Pherzawl",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "JIRIBAM",
@@ -349,6 +349,6 @@
     "national_rank": 734,
     "district_name_hindi": "Jiribam",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   }
 ]

@@ -19,7 +19,7 @@
     "national_rank": 1,
     "district_name_hindi": "CHUMOUKEDIMA",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "KIPHIRE",
@@ -41,7 +41,7 @@
     "national_rank": 1,
     "district_name_hindi": "कीफिरे",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "TSEMINYU",
@@ -63,7 +63,7 @@
     "national_rank": 206,
     "district_name_hindi": "TSEMINYU",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "NIULAND",
@@ -85,7 +85,7 @@
     "national_rank": 223,
     "district_name_hindi": "NIULAND",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "MON",
@@ -107,7 +107,7 @@
     "national_rank": 233,
     "district_name_hindi": "मोन",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "WOKHA",
@@ -129,7 +129,29 @@
     "national_rank": 253,
     "district_name_hindi": "वोखा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
+  },
+  {
+    "district": "LONGLENG",
+    "state": "Nagaland",
+    "state_code": "268",
+    "fin_year": "cumulative",
+    "total_households": 11966,
+    "households_with_tap": 11779,
+    "tap_connections_provided": 11779,
+    "coverage_pct": 98.44,
+    "funds_released_lakhs": 0,
+    "funds_utilized_lakhs": 0,
+    "hh_as_of_2019": 15896,
+    "connections_pre_2019": 5,
+    "connections_2019_20": 49,
+    "connections_2020_onwards": 4679,
+    "remaining_households": 187,
+    "district_rank": 260,
+    "national_rank": 262,
+    "district_name_hindi": "लोंगलेंग",
+    "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "DIMAPUR",
@@ -147,11 +169,11 @@
     "connections_2019_20": 1633,
     "connections_2020_onwards": 16491,
     "remaining_households": 644,
-    "district_rank": 278,
-    "national_rank": 279,
+    "district_rank": 281,
+    "national_rank": 282,
     "district_name_hindi": "दिमापुर",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "SHAMATOR",
@@ -169,33 +191,11 @@
     "connections_2019_20": -530,
     "connections_2020_onwards": 0,
     "remaining_households": 151,
-    "district_rank": 305,
-    "national_rank": 306,
+    "district_rank": 307,
+    "national_rank": 308,
     "district_name_hindi": "SHAMATOR",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
-  },
-  {
-    "district": "LONGLENG",
-    "state": "Nagaland",
-    "state_code": "268",
-    "fin_year": "cumulative",
-    "total_households": 11966,
-    "households_with_tap": 11698,
-    "tap_connections_provided": 11698,
-    "coverage_pct": 97.76,
-    "funds_released_lakhs": 0,
-    "funds_utilized_lakhs": 0,
-    "hh_as_of_2019": 15896,
-    "connections_pre_2019": 5,
-    "connections_2019_20": 49,
-    "connections_2020_onwards": 4679,
-    "remaining_households": 268,
-    "district_rank": 309,
-    "national_rank": 309,
-    "district_name_hindi": "लोंगलेंग",
-    "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "NOKLAK",
@@ -217,7 +217,7 @@
     "national_rank": 321,
     "district_name_hindi": "NOKLAK",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "PEREN",
@@ -239,7 +239,7 @@
     "national_rank": 324,
     "district_name_hindi": "पेरें",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "ZUNHEBOTO",
@@ -257,11 +257,11 @@
     "connections_2019_20": 0,
     "connections_2020_onwards": 11360,
     "remaining_households": 1384,
-    "district_rank": 336,
-    "national_rank": 336,
+    "district_rank": 337,
+    "national_rank": 337,
     "district_name_hindi": "ज़ुन्हेबोटो",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "PHEK",
@@ -279,11 +279,11 @@
     "connections_2019_20": 340,
     "connections_2020_onwards": 17695,
     "remaining_households": 1391,
-    "district_rank": 338,
-    "national_rank": 338,
+    "district_rank": 339,
+    "national_rank": 339,
     "district_name_hindi": "फेक",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "KOHIMA",
@@ -291,21 +291,21 @@
     "state_code": "270",
     "fin_year": "cumulative",
     "total_households": 29482,
-    "households_with_tap": 27695,
-    "tap_connections_provided": 27695,
-    "coverage_pct": 93.94,
+    "households_with_tap": 27697,
+    "tap_connections_provided": 27697,
+    "coverage_pct": 93.95,
     "funds_released_lakhs": 0,
     "funds_utilized_lakhs": 0,
     "hh_as_of_2019": 37622,
     "connections_pre_2019": 222,
     "connections_2019_20": 229,
     "connections_2020_onwards": 18477,
-    "remaining_households": 1787,
-    "district_rank": 365,
-    "national_rank": 365,
+    "remaining_households": 1785,
+    "district_rank": 366,
+    "national_rank": 366,
     "district_name_hindi": "कोहिमा",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "TUENSANG",
@@ -327,7 +327,7 @@
     "national_rank": 400,
     "district_name_hindi": "टुएन्सांग",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   },
   {
     "district": "MOKOKCHUNG",
@@ -349,6 +349,6 @@
     "national_rank": 420,
     "district_name_hindi": "मोकोकचुंग",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-05T00:10:06.854332+00:00"
+    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
   }
 ]
