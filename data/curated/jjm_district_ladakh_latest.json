@@ -15,11 +15,11 @@
     "connections_2019_20": 378,
     "connections_2020_onwards": 5358,
     "remaining_households": 112,
-    "district_rank": 230,
-    "national_rank": 230,
+    "district_rank": 231,
+    "national_rank": 231,
     "district_name_hindi": "लेह (लदाख)",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
+    "scraped_at": "2026-10-18T23:36:08.625486+00:00"
   },
   {
     "district": "KARGIL",
@@ -37,10 +37,10 @@
     "connections_2019_20": 172,
     "connections_2020_onwards": 5311,
     "remaining_households": 485,
-    "district_rank": 314,
-    "national_rank": 314,
+    "district_rank": 315,
+    "national_rank": 315,
     "district_name_hindi": "कारगिल",
     "source_url": "https://ejalshakti.gov.in/jjmreport/JJMDistrictView.aspx",
-    "scraped_at": "2026-10-12T00:47:38.731444+00:00"
+    "scraped_at": "2026-10-18T23:36:08.625486+00:00"
   }
 ]
